@@ -1,0 +1,37 @@
+$Id: README 7 2009-09-17 20:57:49Z karl $
+This file is public domain.  Written originally in 2009 by Karl Berry.
+
+This is tex4ht, a package to convert LaTeX, ConTeXt, and other
+TeX-related documents to HTML, XML, and other related formats.
+
+Home page:            http://tug.org/tex4ht
+General mailing list: http://lists.tug.org/tex4ht
+Commits mailing list: http://gna.org/mail/?group=tex4ht
+Development project:  http://gna.org/projects/tex4ht
+
+Bug reports:
+ please include enough information for the maintainers to reproduce the
+ problem.  Generally speaking, that means:
+- the contents of any input files necessary to reproduce the bug (crucial!).
+- a description of the problem and any samples of the erroneous output.
+- the version number of tex4ht and the program(s) involved (use --version).
+- hardware, operating system, and compiler versions (uname -a).
+- anything else that you think would be helpful.
+- email the report to tex4ht@tug.org (subscribing first is not required).
+
+Patches are most welcome; if possible, please make them with diff -c and
+include ChangeLog entries.
+
+Installation:
+  unfortunately, we cannot write a simple description of how to install
+  tex4ht.  We hope to improve this in the future.  For terse information
+  on how it is installed in TeX Live, see the file
+  http://tug.org/svn/texlive/trunk/Master/tlpkg/bin/tl-update-4ht.
+-------------------------------------------------------------------------------
+TeX4ht was created by Eitan Gurari at Ohio State University.
+Eitan died unexpectedly in June 2009.  We miss you, Eitan.
+
+With the encouragement and support of Eitan's children, CV Radhakrishnan
+at River Valley Technologies, Karl Berry, and others have taken over
+maintenance of the package, and welcome other volunteers. Any
+involvement, from bug reports to major new features, is very welcome.
