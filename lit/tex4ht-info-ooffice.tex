@@ -1,0 +1,169 @@
+% compile 3 times: latex tex4ht-info-ooffice   
+%          or htlatex tex4ht-info-ooffice "html,sections+"
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tex4ht-info-ooffice.tex                                %
+% Copyright (C) 2005--            Eitan M. Gurari        %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3 of this license or (at your option) any    %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3 or later is part of all distributions  %
+% of LaTeX version 2003/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this file your changing the signature    %
+% in \message{(signature)} below will be appreciated.    %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+\message{(<signature>)}
+
+% Compile with the command `ht latex tex4ht-info'
+
+\ifx \HTML\UnDef
+   \def\HTML{infoof}
+   \def\CONFIG{\jobname}
+   \def\MAKETITLE{\author{Eitan M. Gurari}}
+   \def\next{\input mktex4ht.4ht   \endinput}
+   \expandafter\next
+\fi
+
+
+%%%%%%%%%%%%%%%%%% definitions %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\expandafter\ifx \csname YES\HTML\endcsname\relax
+    \def\CleanComment{[0]}
+\else
+    \let\saveCd=\<
+    \def\<{\edef\FIRST{\the\inputlineno}\let\<\saveCd \saveCd}
+%    \def\CleanComment#1tex4ht-info-oof#2#3#4.#5>#6//{[\eatIV#4%     <--jobname
+    \def\CleanComment#1tex4ht-info#2#3#4.#5>#6//{[#4%     <--jobname
+                  \if,\ifnum \FIRST=#6 .\else ,0\fi\fi]#6//}
+    \def\eatIV#1#2#3#4{}
+\fi
+
+\Comment{
+
+\string\ifx\string\infoIVht\string\UnDeF\string\def\string\infoIVht#1//{}\string\fi\string\infoIVht\CleanComment}{//
+
+}
+
+
+
+
+
+\def\>>>#1<<<{\bgroup\csname no:catcodes\endcsname0{255}{12}%
+   \csname no:catcodes\endcsname{13}{13}{13}% ^^M
+   \def\temp##1>>>{\egroup
+      \expandafter \def\csname #1\endcsname{##1}}\temp}
+
+\newcount\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
+\edef\temp{\the\tmpcnt}
+\multiply\tmpcnt  -60 \advance\tmpcnt  \time
+
+\edef\version{\the\year-\ifnum \month<10 0\fi
+  \the\month-\ifnum \day<10 0\fi\the\day
+   -\ifnum \temp<10 0\fi \temp
+   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
+
+\def\CopyYear.#1.{%
+   \ifnum #1=\year #1\space\space\space\space\space\space
+    \else          #1--\the\year\fi
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{INFO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<infoof\><<<
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+% infoof.4ht                            |version %
+% Copyright (C) |CopyYear.2005.       Eitan M. Gurari         %
+%                                                        %
+% This program can redistributed and/or modified under   %
+% the terms of the LaTeX Project Public License          %
+% Distributed from CTAN archives in directory            %
+% macros/latex/base/lppl.txt; either version 1 of the    %
+% License, or (at your option) any later version.        %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                              gurari@cse.ohio-state.edu %
+%                  http://www.cse.ohio-state.edu/~gurari %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version |version}
+{          \catcode`\@=0 \catcode`\\=11 @relax
+  @gdef@infoIVht[#1]#2//{%
+    @ifnum #1>1
+      @def@infoIVht[##1]##2//{%
+        @ifnum ##1>1 @ifnum ##1<#1
+           @bgroup 
+             @no:catcodes0{255}{11}%
+             @no:catcodes{91}{91}{12}% [
+             @no:catcodes{47}{47}{12}% /
+             @newlinechar13 %   
+             @long@def@infoIVht####1\ifx\infoIVht####2infoIVht[####3//{%
+               @def@infoIVht{******************************************}%
+               @immediate@write-1{@infoIVht}%
+               @immediate@write-1{****** @csname :Hin@endcsname.4ht}%
+               @immediate@write-1{@infoIVht}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup   
+               @immediate@write-1{####1}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{@infoIVht}%
+             @egroup}%
+           @expandafter@expandafter@expandafter@infoIVht
+     @fi@fi }%
+  @fi }
+}
+>>>
+
+
+
+
+
+
+
+\chapter{The Code}
+
+\section{latex}
+
+\<configure infoof latex\><<<
+\Configure{enumerate:1}.................. 3
+\Configure{enumerate:2}.................. 3
+\Configure{enumerate:3}.................. 3
+\Configure{enumerate:4}.................. 3
+
+    #1  label type: 1, a, A, i, I
+    #2  left delimiter
+    #3  right delimiter
+>>>
+
+
+
+
+ 
+ 
+\endinput
+
+
