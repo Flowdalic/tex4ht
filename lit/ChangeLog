@@ -1,0 +1,8 @@
+2010-02-02  Karl Berry  <karl@gnu.org>
+
+	* xtpipes.tex: add derivation info and copyright messages
+	to generated files.
+	* tex4ht-cpright.tex: minimize lines.
+	* Makefile: start at new file.
+
+This ChangeLog file is public domain.  Started 2010.

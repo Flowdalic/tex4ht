@@ -12,19 +12,8 @@
 % Copyright 1996--2009 Eitan M. Gurari
 % Copyright 2009, 2010 TeX Users Group.
 %
-% This work may be distributed and/or modified under the conditions of
-% the LaTeX Project Public License, either version 1.3c of this license
-% or (at your option) any later version.  The latest version of this
-% license is in http://www.latex-project.org/lppl.txt and version 1.3c
-% or later is part of all distributions of LaTeX version 2005/12/01 or later.
-%
-% This work has the LPPL maintenance status "maintained".
-%
-% The Current Maintainer of this work is
-% the TeX4ht Project <http://tug.org/tex4ht>.
-%
-% If you modify this file, changing this signature would be appreciated.
-\message{(<signature>)}
+% Please see tex4ht-cpright.tex for license text.
+\message{(<TeX4ht/dist>)}
 
 \documentclass{article}
    \usepackage{url}
@@ -41,12 +30,8 @@
    -\ifnum \temp<10 0\fi \temp
    :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
 
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
-
+% #1 is the first year for Eitan.  The last year is always 2009.  RIP.
+\def\CopyYear.#1.{#1--2009}
 
 \def\CNT{0}
 \bgroup
@@ -63,9 +48,7 @@
    }   %
 \egroup
 
-
-
-
+\input tex4ht-cpright.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \AddFile[optional: target file name; default: given file name]
@@ -273,25 +256,23 @@
 }
 
 
-% \Needs{"cp xtpipes.dtd xtpipes.dtd.1"}
-% \AddFile[xtpipes.dtd](/home/4/gurari/xtpipes.dir/xtpipes/bin){xtpipes.dtd.1}{xtpipes/lib}
-
-
 \ifOption{win} {
     \def\BIN{}
 }{
     \def\BIN{(/home/4/gurari/xtpipes.dir)}
 }
 
+% 
 \expandafter\AddFile\BIN{xtpipes.dtd}{xtpipes\Slash lib}
 
 \AddFile{Xtpipes.java}{xtpipes}
 
 \<Xtpipes.java\><<<
 package xtpipes;
-/*
-Xtpipes.java (`version)
-*/
+/* Xtpipes.java (`version), generated from `jobname.tex
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+   Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> */
 `<xtpipes imports`>
 `<class XtpipesPrintWriter  `>
 public class Xtpipes {
@@ -905,6 +886,7 @@ if( outPrintWriter == null ){
 }
 >>>
 
+% 
 \AtEndDocument{
    \OutputCodE\<XtpipesPrintWriter.java\>
 }
@@ -912,9 +894,10 @@ if( outPrintWriter == null ){
 
 \<XtpipesPrintWriter.java\><<<
 package xtpipes;
-/*
-XtpipesPrintWriter.java (`version)
-*/
+/* XtpipesPrintWriter.java (`version), generated from `jobname.tex
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+   Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> */
 import java.io.*;
 public class XtpipesPrintWriter extends PrintWriter {
    public XtpipesPrintWriter() {
@@ -1243,6 +1226,10 @@ if( Xtpipes.trace ){
 \end{verbatim}
 
 \<xtpipes.dtd\><<<
+<!-- xtpipes.dtd (`version), generated from `jobname.tex
+     Copyright (C) `CopyYear.2002. Eitan M. Gurari
+     Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> -->
 <!ELEMENT xtpipes (#PCDATA `<xtpipes entries`>)* >
 <!ATTLIST xtpipes
           preamble  CDATA #IMPLIED DEFAULT (yes | no) "no"
@@ -1250,16 +1237,18 @@ if( Xtpipes.trace ){
 >>>
 
 
-
+% 
 \AtEndDocument{
    \OutputCodE\<xtpipes-map.dtd\>
 }
 
 \expandafter\AddFile\BIN{xtpipes-map.dtd}{xtpipes\Slash lib}
 
-
 \<xtpipes-map.dtd\><<<
-<!-- xtpipes-map.dtd (`version) -->
+<!-- xtpipes-map.dtd (`version), generated from `jobname.tex
+     Copyright (C) `CopyYear.2002. Eitan M. Gurari
+     Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> -->
 <!ELEMENT xtpipes-map (when | processing-instruction
                             | select
                             | command-line)*  >
@@ -2614,24 +2603,23 @@ public InputSource resolveEntity(String publicID, String systemID)
 
 
 
-
+% 
 \AtEndDocument{
    \OutputCodE\<FileInfo.java\>
 }
 
 \AddFile{FileInfo.java}{xtpipes}
 
-
-
 \<FileInfo.java\><<<
 package xtpipes;
-/*
-FileInfo.java (`version)
-*/
+/* FileInfo.java (`version), generated from `jobname.tex
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+   Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> */
 `<FileInfo imports`>
 public class FileInfo{
      `<FileInfo fields`>
-   public FileInfo(PrintWriter log, String iii_scriptDir, boolean trace){
+   public FileInfo(PrintWriter log, String iii_scriptDir, boolean trace) {
       FileInfo.log = log;
       FileInfo.ii_scriptDir = iii_scriptDir;
       FileInfo.trace = trace;
@@ -2828,7 +2816,7 @@ which the file is scanned directly without trying to build an XML object.
 \subsection{Outline}
 %%%%%%%%%%%%%
 
-
+% 
 \AtEndDocument{
    \OutputCodE\<InputObject.java\>
 }
@@ -2838,9 +2826,10 @@ which the file is scanned directly without trying to build an XML object.
 
 \<InputObject.java\><<<
 package xtpipes;
-/*
-InputObject.java (`version)
-*/
+/* InputObject.java (`version), generated from `jobname.tex
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+   Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> */
 `<InputObject imports`>
 
 public class InputObject{
@@ -3613,11 +3602,11 @@ arbitrary filter for the input.
 
 
 
-%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% 
 \subsection{Unicode Filter}
 %%%%%%%%%%%%%%%%%%
 
-Non ascii characters are translated into unicode hexadecimal entities.
+Non-ASCII characters are translated into unicode hexadecimal entities.
 The same holds for ascii characters listed within the filter.
 
 \AtEndDocument{
@@ -3627,7 +3616,10 @@ The same holds for ascii characters listed within the filter.
 
 
 \<XtpipesUni.java\><<<
-// `version
+/* XtpipesUni.java (`version), generated from `jobname.tex
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+   Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> */
 package xtpipes;
 public class XtpipesUni{
    `<String toUni( char[], start, length, filter )`>
@@ -3972,22 +3964,22 @@ import java.util.ArrayList;
 
 
 
-%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% 
 \subsection{Default Script}
 %%%%%%%%%%%%%%%%%%
-
 
 \AtEndDocument{
    \OutputCodE\<xtpipes-default.4xt\>
 }
-
 \expandafter\AddFile\BIN{xtpipes-default.4xt}{xtpipes\Slash lib}
-
-
 
 \<xtpipes-default.4xt\><<<
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE xtpipes PUBLIC "-//GURARI//DTD xtpipes//EN" "xtpipes.dtd"  >
+<!-- xtpipes-default.4xt (`version), generated from `jobname.tex
+     Copyright (C) `CopyYear.2002. Eitan M. Gurari
+     Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> -->
 <xtpipes />
 >>>
 
@@ -4016,19 +4008,20 @@ import java.util.ArrayList;
 \label{ScriptsManager}
 
 
-%%%%%%%%%%%%%
+%%%%%%%%%%%%% 
 \subsection{Outline}
 %%%%%%%%%%%%%
-
 
 \AtEndDocument{
    \OutputCodE\<ScriptsManager.java\>
 }
 \AddFile{ScriptsManager.java}{xtpipes\Slash util}
 
-
 \<ScriptsManager.java\><<<
-// `version
+/* ScriptsManager.java (`version), generated from `jobname.tex
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+   Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> */
 package xtpipes.util;
 `<ScriptsManager imports`>
 public class ScriptsManager extends DefaultHandler {
@@ -4341,27 +4334,24 @@ for(int i=nsName.size(); i>top; ){
 
 
 
-%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% 
 \section{ScriptsManagerLH: A Lexical Handler}
 %%%%%%%%%%%%%%%%%%
 
 \label{ScriptsManagerLH}
 
-
 The lexical handler sends its strings to the content hadler.
-
-
 
 \AtEndDocument{
    \OutputCodE\<ScriptsManagerLH.java\>
 }
-
 \AddFile{ScriptsManagerLH.java}{xtpipes\Slash util}
 
-
-
 \<ScriptsManagerLH.java\><<<
-// `version
+/* ScriptsManagerLH.java (`version), generated from `jobname.tex
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+   Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> */
 package xtpipes.util;
 import org.xml.sax.ext.LexicalHandler;
 // import org.xml.sax.ContentHandler;
