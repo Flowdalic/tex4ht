@@ -12,7 +12,7 @@
 % Copyright 2009, 2010 TeX Users Group.
 % Released under LPPL 1.3c+.
 % Please see tex4ht-cpright.tex for license text.
-\message{(<TeX4ht/dist/\jobname>)}
+\message{[<TeX4ht/dist/\jobname>]}
 
 \documentclass{article}
    \usepackage{url}
@@ -21,6 +21,7 @@
    % make ` be the escape character, instead of ||
    \Configure{ProTex}{java,<<<>>>,title,list,`}
 \begin{document}
+\input tex4ht-cpright.tex
 
 \def\CNT{0}
 \bgroup
@@ -36,8 +37,6 @@
       \HAdvance\CNT by 1 %
    }   %
 \egroup
-
-\input tex4ht-cpright.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \AddFile[optional: target file name; default: given file name]

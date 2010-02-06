@@ -1,5 +1,5 @@
 $Id$
-Public domain.  Originally written 2010, Karl Berry.
+This file is public domain.  Originally written 2010, Karl Berry.
 
 Eitan devised his own literate programming system, which supports
 multiple output files from a single source.  The files here are all the

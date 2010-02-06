@@ -1,5 +1,13 @@
+work.dir
+*.4ct
+*.4tc
 *.aux
-*.log
-*.html
+*.css
 *.dvi
+*.html
+*.idv
+*.lg
+*.log
 *.tmp
+*.trc
+*.xref
