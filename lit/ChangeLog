@@ -1,3 +1,7 @@
+2010-02-03  Karl Berry  <karl@gnu.org>
+
+	* wripro.tex: add license notice.
+
 2010-02-02  Karl Berry  <karl@gnu.org>
 
 	* xtpipes.tex: add derivation info and copyright messages
@@ -5,4 +9,8 @@
 	* tex4ht-cpright.tex: minimize lines.
 	* Makefile: start at new file.
 
-This ChangeLog file is public domain.  Started 2010.
+Copyright 2010 TeX Users Group.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.

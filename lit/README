@@ -1,0 +1,7 @@
+$Id$
+Public domain.  Originally written 2010, Karl Berry.
+
+Eitan devised his own literate programming system, which supports
+multiple output files from a single source.  The files here are all the
+"literate" source files.  They are processed with (ht)(la)tex, as given
+by commands at the top.

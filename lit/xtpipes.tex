@@ -1,37 +1,26 @@
-% xtpipes.tex
-
-% generalize -i attribute to accept multiple directories, like for -classpath
+% $Id$
 
 % htlatex xtpipes "xhtml,3,next" "" "-d./"
 % htlatex xtpipes "xhtml,3,next,doc" "" "-d./"
 % htlatex xtpipes "xhtml,3,next,win"
 % htlatex xtpipes "xhtml,3,next,win,doc"
 
+% generalize -i attribute to accept multiple directories, like for -classpath
 % gcj support these ``generics''  with a ``-5'' or ``-1.5'' switch
 
 % Copyright 1996--2009 Eitan M. Gurari
 % Copyright 2009, 2010 TeX Users Group.
-%
+% Released under LPPL 1.3c+.
 % Please see tex4ht-cpright.tex for license text.
-\message{(<TeX4ht/dist>)}
+\message{(<TeX4ht/dist/\jobname>)}
 
 \documentclass{article}
    \usepackage{url}
    \usepackage{verbatim}
+   \input{common.tex}
+   % make ` be the escape character, instead of ||
    \Configure{ProTex}{java,<<<>>>,title,list,`}
 \begin{document}
-
-\newcount\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day
-   -\ifnum \temp<10 0\fi \temp
-   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
-
-% #1 is the first year for Eitan.  The last year is always 2009.  RIP.
-\def\CopyYear.#1.{#1--2009}
 
 \def\CNT{0}
 \bgroup
@@ -4525,4 +4514,3 @@ cd ..
 
 
 \end{document}
-
