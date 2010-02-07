@@ -1,3 +1,12 @@
+2010-02-06  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-xhtml-xtpipes.tex: add license notices.
+	* Makefile: add derivations.
+
+	* tex4ht-xhtmml-xtpipes.tex,
+	* xtpipes.tex: \message when running the lit sources doesn't
+	seem useful.  Remove it.
+
 2010-02-05  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-xhtmml-xtpipes.tex: add license notices.

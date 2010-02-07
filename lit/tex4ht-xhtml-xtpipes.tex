@@ -1,31 +1,17 @@
+% $Id$
 % htlatex tex4ht-xhtml-xtpipes "xhtml,next,3" "" "-d./"
+
+% Copyright 1996--2009 Eitan M. Gurari
+% Copyright 2009, 2010 TeX Users Group.
+% Released under LPPL 1.3c+.
+% Please see tex4ht-cpright.tex for license text.
 
 \documentclass{article}
     \Configure{ProTex}{log,<<<>>>,title,list,`,[[]]}
     \usepackage{url}
+    \input{common.tex}
 \begin{document}
-
-
-%%%%%%%%%%%%%%%%%%%%% definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcount\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day
-   -\ifnum \temp<10 0\fi \temp
-   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
-
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+\input tex4ht-cpright.tex
 
 
 %%%%%%%%%%%%%%%%%%
@@ -35,7 +21,7 @@
 
 %%%%%%%%%%%%%%%%%%
 \section{Outline}
-%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% 
 
 \AtEndDocument{\OutputCodE\<xhtml.4xt\>}
 
@@ -44,6 +30,10 @@
 \<xhtml.4xt\><<<
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<!-- xhtml.4xt (`version), generated from `jobname.tex
+     Copyright (C) `CopyYear.2008. Eitan M. Gurari
+     Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> -->
 <xtpipes preamble="yes" signature="xhtml.4xt (`version)">
    <sax content-handler="xtpipes.util.ScriptsManager" 
         lexical-handler="xtpipes.util.ScriptsManagerLH" >
@@ -108,8 +98,11 @@
 \<XhtmlEmails.java\><<< 
 package tex4ht;
 /*
-XhtmlEmails.java `<java licence`>
-*/
+/* XhtmlEmails.java (`version), generated from `jobname.tex
+   Copyright (C) `CopyYear.2008. Eitan M. Gurari
+   Copyright (C) 2009, 2010 TeX Users Group
+`<TeX4ht copyright`> */
+
 import xtpipes.XtpipesUni;
 import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
@@ -655,6 +648,3 @@ OK 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
