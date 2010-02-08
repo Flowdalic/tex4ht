@@ -1,3 +1,8 @@
+2010-02-07  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-word.tex: add license notices.
+	* Makefile: add derivations.
+
 2010-02-06  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-xhtml-xtpipes.tex: add license notices.
