@@ -1,3 +1,8 @@
+2010-02-08  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-unicode.tex: add license notices.
+	* Makefile: add derivations.
+
 2010-02-07  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-word.tex: add license notices.

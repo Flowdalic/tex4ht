@@ -8,6 +8,7 @@ work.dir
 *.idv
 *.lg
 *.log
+*.png
 *.tmp
 *.trc
 *.xref

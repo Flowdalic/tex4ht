@@ -6,6 +6,10 @@ wd = work.dir
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_unicode_derived)
+tex4ht_unicode_derived = \
+  unicode.4ht \
+
 derived += $(tex4ht_word_derived)
 tex4ht_xhtml_xtpipes_derived = \
   htmlw.4ht \
@@ -38,8 +42,11 @@ xtpipes_derived = \
 
 default all: $(derived)
 
+$(tex4ht_unicode_derived): tex4ht-unicode.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
 $(tex4ht_word_derived): tex4ht-word.tex $(common)
-	mk4ht xhlatex $< #"html,3,sections+"
+	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_xhtml_xtpipes_derived): tex4ht-xhtml-xtpipes.tex $(common)
 	htlatex $< "xhtml,3,next" "" "-d./" "-interaction=nonstopmode"
@@ -53,8 +60,10 @@ $(xtpipes_derived): xtpipes.tex $(common)
 # (corresponds to src/java for xtpipes.tex)
 
 destdir = ..
-update = cp -pr # not done yet!
+update = cp -pr
 update: all
+	$(update) unicode.4ht $(destdir)/texmf/tex/generic/tex4ht/
+#
 	$(update) htmlw.4ht $(destdir)/texmf/tex/generic/tex4ht/
 #
 	$(update) XhtmlEmails.java $(destdir)/src/java/
