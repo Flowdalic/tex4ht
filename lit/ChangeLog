@@ -1,3 +1,10 @@
+2010-02-09  Karl Berry  <karl@gnu.org>
+
+	* tex4t-tei.tex: add license notices.
+	* Makefile: add derivations.
+	* tex4ht-cpright.tex: new macro |TeX4ht copywrite,
+	to output the license notice with a \write to the log file.
+
 2010-02-08  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-unicode.tex: add license notices.

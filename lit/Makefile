@@ -3,19 +3,28 @@
 
 wd = work.dir
 
+default: all
+
 common = tex4ht-cpright.tex common.tex
 derived =
+
+derived += $(tex4ht_tei_derived)
+tex4ht_tei_derived = \
+  tei.4ht \
+  tei-mml.4ht \
+  tei-math.4ht \
+  tei-mmltei.4ht \
 
 derived += $(tex4ht_unicode_derived)
 tex4ht_unicode_derived = \
   unicode.4ht \
 
 derived += $(tex4ht_word_derived)
-tex4ht_xhtml_xtpipes_derived = \
+tex4ht_word_derived = \
   htmlw.4ht \
 
 derived += $(tex4ht_xhtml_xtpipes_derived)
-tex4ht_word_derived = \
+tex4ht_xhtml_xtpipes_derived = \
   xhtml.4xt \
   XhtmlEmails.java \
 
@@ -40,7 +49,11 @@ xtpipes_derived = \
   xtpipes-map.dtd \
   xtpipes.dtd \
 
-default all: $(derived)
+# 
+all: $(derived)
+
+$(tex4ht_tei_derived): tex4ht-tei.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_unicode_derived): tex4ht-unicode.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
@@ -59,9 +72,12 @@ $(xtpipes_derived): xtpipes.tex $(common)
 # Derived files are generated in . and $(wd).
 # (corresponds to src/java for xtpipes.tex)
 
+# 
 destdir = ..
 update = cp -pr
 update: all
+	$(update) tei*.4ht $(destdir)/texmf/tex/generic/tex4ht/
+#
 	$(update) unicode.4ht $(destdir)/texmf/tex/generic/tex4ht/
 #
 	$(update) htmlw.4ht $(destdir)/texmf/tex/generic/tex4ht/
