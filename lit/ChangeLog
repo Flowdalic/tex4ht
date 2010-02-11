@@ -1,3 +1,7 @@
+2010-02-11  Karl Berry  <karl@gnu.org>
+
+	* Put current copyright line first.
+
 2010-02-10  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-t4ht.tex: add license notices.
