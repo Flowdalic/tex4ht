@@ -17,7 +17,7 @@
    \input ProTex.sty
    \AlProTex{perl,<<<>>>,`,title,list,_^}
 
-\input tex4ht-cpright.tex
+%\input tex4ht-cpright.tex
 
 \Comment{   
 }{}
@@ -134,14 +134,20 @@ while( eoln_ch != EOF ) {
 }  }
 >>>
 
-
+% Need to input tex4ht-cpright.tex at this point,
+% if not, it causes an error while expanding the
+% macros like `jobname.tex, `version, ...
+% Still greek to me. :(  CVR/2010/02/11
+% 
+\input tex4ht-cpright.tex
 
 
 \<t4ht.c\><<<
 /* t4ht.c (`version), generated from `jobname.tex
    Copyright (C) `CopyYear.1998. Eitan M. Gurari
    Copyright (C) 2009, 2010 TeX Users Group
-`<TeX4ht copyright`> */
+`<TeX4ht copyright`> 
+*/
 `<t4ht.h`>
 `<defines`>
 `<vars`>
