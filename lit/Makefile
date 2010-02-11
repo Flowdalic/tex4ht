@@ -8,6 +8,10 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_t4ht_derived)
+tex4ht_t4ht_derived = \
+  t4ht.c \
+
 derived += $(tex4ht_tei_derived)
 tex4ht_tei_derived = \
   tei.4ht \
@@ -52,6 +56,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_t4ht_derived): tex4ht-t4ht.tex $(common)
+	ht tex $<
+
 $(tex4ht_tei_derived): tex4ht-tei.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
@@ -76,6 +83,8 @@ $(xtpipes_derived): xtpipes.tex $(common)
 destdir = ..
 update = cp -pr
 update: all
+	$(update) t4ht.c $(destdir)/src/
+#
 	$(update) tei*.4ht $(destdir)/texmf/tex/generic/tex4ht/
 #
 	$(update) unicode.4ht $(destdir)/texmf/tex/generic/tex4ht/
@@ -96,7 +105,7 @@ update: all
 clean: mostlyclean
 	rm -rf $(wd)
 	rm -f *.4ct *.4tc *.aux *.css *.dvi *.idv *.lg *.log *.tmp *.trc *.xref
-	rm -f *.html
+	rm -f *.html *.png
 
 mostlyclean:
 	rm -f $(derived)

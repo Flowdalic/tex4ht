@@ -1,3 +1,8 @@
+2010-02-10  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-t4ht.tex: add license notices.
+	* Makefile: add derivations.
+
 2010-02-09  Karl Berry  <karl@gnu.org>
 
 	* tex4t-tei.tex: add license notices.
