@@ -1,9 +1,14 @@
+2010-02-12  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-sty.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-02-11  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-svg.tex: update license notices.
 	* Makefile: add derivations.
 
-	* Put current (2010) copyright line first.
+	* All files so far: Put current (2010) copyright line first.
 
 2010-02-10  Karl Berry  <karl@gnu.org>
 
