@@ -8,6 +8,10 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_svg_derived)
+tex4ht_svg_derived = \
+  svg.4ht \
+
 derived += $(tex4ht_t4ht_derived)
 tex4ht_t4ht_derived = \
   t4ht.c \
@@ -56,6 +60,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_svg_derived): tex4ht-svg.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
 $(tex4ht_t4ht_derived): tex4ht-t4ht.tex $(common)
 	ht tex $<
 
@@ -83,6 +90,8 @@ $(xtpipes_derived): xtpipes.tex $(common)
 destdir = ..
 update = cp -pr
 update: all
+	$(update) svg.4ht html4-svg.4ht $(destdir)/texmf/tex/generic/tex4ht/
+#
 	$(update) t4ht.c $(destdir)/src/
 #
 	$(update) tei*.4ht $(destdir)/texmf/tex/generic/tex4ht/

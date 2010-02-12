@@ -1,32 +1,35 @@
 2010-02-11  Karl Berry  <karl@gnu.org>
 
-	* Put current copyright line first.
+	* tex4ht-svg.tex: update license notices.
+	* Makefile: add derivations.
+
+	* Put current (2010) copyright line first.
 
 2010-02-10  Karl Berry  <karl@gnu.org>
 
-	* tex4ht-t4ht.tex: add license notices.
+	* tex4ht-t4ht.tex: update license notices.
 	* Makefile: add derivations.
 
 2010-02-09  Karl Berry  <karl@gnu.org>
 
-	* tex4t-tei.tex: add license notices.
+	* tex4t-tei.tex: update license notices.
 	* Makefile: add derivations.
 	* tex4ht-cpright.tex: new macro |TeX4ht copywrite,
 	to output the license notice with a \write to the log file.
 
 2010-02-08  Karl Berry  <karl@gnu.org>
 
-	* tex4ht-unicode.tex: add license notices.
+	* tex4ht-unicode.tex: update license notices.
 	* Makefile: add derivations.
 
 2010-02-07  Karl Berry  <karl@gnu.org>
 
-	* tex4ht-word.tex: add license notices.
+	* tex4ht-word.tex: update license notices.
 	* Makefile: add derivations.
 
 2010-02-06  Karl Berry  <karl@gnu.org>
 
-	* tex4ht-xhtml-xtpipes.tex: add license notices.
+	* tex4ht-xhtml-xtpipes.tex: update license notices.
 	* Makefile: add derivations.
 
 	* tex4ht-xhtmml-xtpipes.tex,
@@ -35,7 +38,7 @@
 
 2010-02-05  Karl Berry  <karl@gnu.org>
 
-	* tex4ht-xhtmml-xtpipes.tex: add license notices.
+	* tex4ht-xhtmml-xtpipes.tex: update license notices.
 	* Makefile: add derivations.
 
 2010-02-03  Karl Berry  <karl@gnu.org>
