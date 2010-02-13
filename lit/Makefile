@@ -8,13 +8,14 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
-derived += $(tex4ht_sty_derived)
-tex4ht_sty_derived = \
-  tex4ht.sty \
+derived += $(tex4ht_options_derived)
+tex4ht_options_derived = \
+  tex4ht.4ht \
 
 derived += $(tex4ht_svg_derived)
 tex4ht_svg_derived = \
   svg.4ht \
+  html4-svg.4ht \
 
 derived += $(tex4ht_t4ht_derived)
 tex4ht_t4ht_derived = \
@@ -64,6 +65,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_options_derived): tex4ht-options.tex $(common)
+	mk4ht xhlatex $<
+
 $(tex4ht_sty_derived): tex4ht-sty.tex $(common)
 	ht tex $<
 
@@ -95,26 +99,29 @@ $(xtpipes_derived): xtpipes.tex $(common)
 
 # 
 destdir = ..
+texmf_dest = $(destdir)/texmf/tex/generic/tex4ht
 update = cp -pr
 update: all
-	$(update) tex4ht.sty $(destdir)/texmf/tex/generic/tex4ht/
+	$(update) $(tex4ht_options_derived) $(texmf_dest)/
 #
-	$(update) svg.4ht html4-svg.4ht $(destdir)/texmf/tex/generic/tex4ht/
+	$(update) $(tex4ht_sty_derived) $(texmf_dest)/
 #
-	$(update) t4ht.c $(destdir)/src/
+	$(update) $(tex4ht_svg_derived) $(texmf_dest)/
 #
-	$(update) tei*.4ht $(destdir)/texmf/tex/generic/tex4ht/
+	$(update) $(tex4ht_t4ht_derived) $(destdir)/src/
 #
-	$(update) unicode.4ht $(destdir)/texmf/tex/generic/tex4ht/
+	$(update) $(tex4ht_tei_derived) $(texmf_dest)/
 #
-	$(update) htmlw.4ht $(destdir)/texmf/tex/generic/tex4ht/
+	$(update) $(tex4ht_unicode_derived) $(texmf_dest)/
+#
+	$(update) $(tex4ht_word_derived) $(texmf_dest)/
 #
 	$(update) XhtmlEmails.java $(destdir)/src/java/
 	$(update) xhtml.4xt $(destdir)/texmf/tex4ht/xtpipes/
 #
 	$(update) XhtmmlUtilities.java $(destdir)/src/java/
 	$(update) xhtmml.4xt $(destdir)/texmf/tex4ht/xtpipes/
-#
+# this has to be done last. And does anything else use $(wd)? We'll see.
 	rmdir $(wd)/bin
 	$(update) $(wd)/* $(destdir)/src/java/
 	$(update) xtpipes.dtd xtpipes-map.dtd xtpipes-default.4xt \

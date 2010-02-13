@@ -15,18 +15,8 @@
 \fi
 
 \input{common.tex}
+\input{common-code.tex}
 \input{tex4ht-cpright.tex}
-
-%%%%%%%%%%%%%%%%%% definitions %%%%%%%%%%%%%%%%%%%%%%%%%
-
-\let\AltxModifyShowCode=\ModifyShowCode
-\def\ModifyShowCode{%
-   \def\by{by}\def\={=}\AltxModifyShowCode}
-\let\pReModifyOutputCode=\ModifyOutputCode
-\def\ModifyOutputCode{%
-   \def\by{}\def\={}%
-   \pReModifyOutputCode}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Needs{"ls -l tex4ht-*.tex > ls-links.log"}
