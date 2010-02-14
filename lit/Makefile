@@ -8,43 +8,32 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_ooimpress_derived)
+tex4ht_ooimpress_derived = ooimpress.4ht
+
 derived += $(tex4ht_options_derived)
-tex4ht_options_derived = \
-  tex4ht.4ht \
+tex4ht_options_derived = tex4ht.4ht
 
 derived += $(tex4ht_svg_derived)
-tex4ht_svg_derived = \
-  svg.4ht \
-  html4-svg.4ht \
+tex4ht_svg_derived = svg.4ht html4-svg.4ht
 
 derived += $(tex4ht_t4ht_derived)
-tex4ht_t4ht_derived = \
-  t4ht.c \
+tex4ht_t4ht_derived = t4ht.c
 
 derived += $(tex4ht_tei_derived)
-tex4ht_tei_derived = \
-  tei.4ht \
-  tei-mml.4ht \
-  tei-math.4ht \
-  tei-mmltei.4ht \
+tex4ht_tei_derived = tei.4ht tei-mml.4ht tei-math.4ht tei-mmltei.4ht
 
 derived += $(tex4ht_unicode_derived)
-tex4ht_unicode_derived = \
-  unicode.4ht \
+tex4ht_unicode_derived = unicode.4ht
 
 derived += $(tex4ht_word_derived)
-tex4ht_word_derived = \
-  htmlw.4ht \
+tex4ht_word_derived = htmlw.4ht
 
 derived += $(tex4ht_xhtml_xtpipes_derived)
-tex4ht_xhtml_xtpipes_derived = \
-  xhtml.4xt \
-  XhtmlEmails.java \
+tex4ht_xhtml_xtpipes_derived = xhtml.4xt XhtmlEmails.java
 
 derived += $(tex4ht_xhtmml_xtpipes_derived)
-tex4ht_xhtmml_xtpipes_derived = \
-  xhtmml.4xt \
-  XhtmmlUtilities.java \
+tex4ht_xhtmml_xtpipes_derived = xhtmml.4xt XhtmmlUtilities.java
 
 # wripro.tex generates nothing (not literate).
 
@@ -64,6 +53,9 @@ xtpipes_derived = \
 
 # 
 all: $(derived)
+
+$(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
+	htlatex $< "xhtml,4,sections+" "" "-d./" "-interaction=nonstopmode"
 
 $(tex4ht_options_derived): tex4ht-options.tex $(common)
 	mk4ht xhlatex $<
@@ -102,6 +94,8 @@ destdir = ..
 texmf_dest = $(destdir)/texmf/tex/generic/tex4ht
 update = cp -pr
 update: all
+	$(update) $(tex4ht_ooimpress_derived) $(texmf_dest)/
+#
 	$(update) $(tex4ht_options_derived) $(texmf_dest)/
 #
 	$(update) $(tex4ht_sty_derived) $(texmf_dest)/

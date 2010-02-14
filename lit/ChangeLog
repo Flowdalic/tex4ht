@@ -1,3 +1,10 @@
+2010-02-14  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-ooimpress.tex: update license notices.
+	Remove would-be generation of ooimpress-math and ooimpress-mml,
+	since it seems they are not actually generated.
+	* Makefile: add derivations.
+
 2010-02-13  Karl Berry  <karl@gnu.org>
 
 	* common-code.tex: new file.
