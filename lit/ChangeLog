@@ -1,3 +1,8 @@
+2010-02-15  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-ooffice.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-02-14  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-ooimpress.tex: update license notices.

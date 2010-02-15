@@ -8,6 +8,9 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_ooffice_derived)
+tex4ht_ooffice_derived = ooffice.4ht ooffice-mml.4ht
+
 derived += $(tex4ht_ooimpress_derived)
 tex4ht_ooimpress_derived = ooimpress.4ht
 
@@ -54,6 +57,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_ooffice_derived): tex4ht-ooffice.tex $(common)
+	htlatex $< "xhtml,4,sections+" "" "-d./" "-interaction=nonstopmode"
+
 $(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
 	htlatex $< "xhtml,4,sections+" "" "-d./" "-interaction=nonstopmode"
 
@@ -94,6 +100,8 @@ destdir = ..
 texmf_dest = $(destdir)/texmf/tex/generic/tex4ht
 update = cp -pr
 update: all
+	$(update) $(tex4ht_ooffice_derived) $(texmf_dest)/
+#
 	$(update) $(tex4ht_ooimpress_derived) $(texmf_dest)/
 #
 	$(update) $(tex4ht_options_derived) $(texmf_dest)/
