@@ -8,6 +8,11 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_oo_xtpipes_derived)
+tex4ht_oo_xtpipes_derived = \
+   oo-math.4xt oo-text.4xt \
+   OoUtilities.java OomFilter.java OoFilter.java
+
 derived += $(tex4ht_ooffice_derived)
 tex4ht_ooffice_derived = ooffice.4ht ooffice-mml.4ht
 
@@ -57,6 +62,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_oo_xtpipes_derived): tex4ht-oo-xtpipes.tex $(common)
+	htlatex $< "xhtml,next,3" "" "-d./" "-interaction=nonstopmode"
+
 $(tex4ht_ooffice_derived): tex4ht-ooffice.tex $(common)
 	htlatex $< "xhtml,4,sections+" "" "-d./" "-interaction=nonstopmode"
 
@@ -97,37 +105,43 @@ $(xtpipes_derived): xtpipes.tex $(common)
 
 # 
 destdir = ..
-texmf_dest = $(destdir)/texmf/tex/generic/tex4ht
+dest_texmf = $(destdir)/texmf/tex/generic/tex4ht
+dest_xtpipes = $(destdir)/texmf/tex4ht/xtpipes
+dest_java = $(destdir)/src/java
 update = cp -pr
+#
 update: all
-	$(update) $(tex4ht_ooffice_derived) $(texmf_dest)/
+	$(update) oo-text.4xt oo-math.4xt $(dest_xtpipes)/
+	$(update) OoUtilities.java OomFilter.java $(dest_java)/
 #
-	$(update) $(tex4ht_ooimpress_derived) $(texmf_dest)/
+	$(update) $(tex4ht_ooffice_derived) $(dest_texmf)/
 #
-	$(update) $(tex4ht_options_derived) $(texmf_dest)/
+	$(update) $(tex4ht_ooimpress_derived) $(dest_texmf)/
 #
-	$(update) $(tex4ht_sty_derived) $(texmf_dest)/
+	$(update) $(tex4ht_options_derived) $(dest_texmf)/
 #
-	$(update) $(tex4ht_svg_derived) $(texmf_dest)/
+	$(update) $(tex4ht_sty_derived) $(dest_texmf)/
+#
+	$(update) $(tex4ht_svg_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_t4ht_derived) $(destdir)/src/
 #
-	$(update) $(tex4ht_tei_derived) $(texmf_dest)/
+	$(update) $(tex4ht_tei_derived) $(dest_texmf)/
 #
-	$(update) $(tex4ht_unicode_derived) $(texmf_dest)/
+	$(update) $(tex4ht_unicode_derived) $(dest_texmf)/
 #
-	$(update) $(tex4ht_word_derived) $(texmf_dest)/
+	$(update) $(tex4ht_word_derived) $(dest_texmf)/
 #
-	$(update) XhtmlEmails.java $(destdir)/src/java/
-	$(update) xhtml.4xt $(destdir)/texmf/tex4ht/xtpipes/
+	$(update) XhtmlEmails.java $(dest_java)/
+	$(update) xhtml.4xt $(dest_xtpipes)/
 #
-	$(update) XhtmmlUtilities.java $(destdir)/src/java/
-	$(update) xhtmml.4xt $(destdir)/texmf/tex4ht/xtpipes/
-# this has to be done last. And does anything else use $(wd)? We'll see.
+	$(update) XhtmmlUtilities.java $(dest_java)/
+	$(update) xhtmml.4xt $(dest_xtpipes)/
+# this has to be done last. Does anything else use $(wd)? We'll see.
 	rmdir $(wd)/bin
-	$(update) $(wd)/* $(destdir)/src/java/
-	$(update) xtpipes.dtd xtpipes-map.dtd xtpipes-default.4xt \
-	  $(destdir)/texmf/tex4ht/xtpipes/
+	$(update) $(wd)/* $(dest_java)/
+	$(update) xtpipes.dtd xtpipes-map.dtd xtpipes-default.4xt 
+	  $(dest_xtpipes)/
 
 clean: mostlyclean
 	rm -rf $(wd)
