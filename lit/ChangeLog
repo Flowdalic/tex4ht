@@ -1,3 +1,8 @@
+2010-02-17  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-moz.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-02-16  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-oo-xtpipes.tex: update license notices.

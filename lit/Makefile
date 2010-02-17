@@ -8,6 +8,9 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_moz_derived)
+tex4ht_moz_derived = mozilla.4ht
+
 derived += $(tex4ht_oo_xtpipes_derived)
 tex4ht_oo_xtpipes_derived = \
    oo-math.4xt oo-text.4xt \
@@ -62,6 +65,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_moz_derived): tex4ht-moz.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
 $(tex4ht_oo_xtpipes_derived): tex4ht-oo-xtpipes.tex $(common)
 	htlatex $< "xhtml,next,3" "" "-d./" "-interaction=nonstopmode"
 
@@ -111,6 +117,8 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_moz_derived) $(dest_texmf)/
+#
 	$(update) oo-text.4xt oo-math.4xt $(dest_xtpipes)/
 	$(update) OoUtilities.java OomFilter.java $(dest_java)/
 #
