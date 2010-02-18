@@ -8,6 +8,12 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_mathplayer_derived)
+tex4ht_mathplayer_derived = mathplayer.4ht
+
+derived += $(tex4ht_mkht_derived)
+tex4ht_mkht_derived = mkht.4ht mk4ht.perl mkht-scripts.4ht
+
 derived += $(tex4ht_moz_derived)
 tex4ht_moz_derived = mozilla.4ht
 
@@ -65,6 +71,14 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
+$(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
+	latex -interaction=nonstopmode $<
+	perl -c mk4ht.perl  # syntax check
+	latex -interaction=nonstopmode mkht-scripts.4ht
+
 $(tex4ht_moz_derived): tex4ht-moz.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
@@ -109,7 +123,7 @@ $(xtpipes_derived): xtpipes.tex $(common)
 # Derived files are generated in . and $(wd).
 # (corresponds to src/java for xtpipes.tex)
 
-# 
+# n
 destdir = ..
 dest_texmf = $(destdir)/texmf/tex/generic/tex4ht
 dest_xtpipes = $(destdir)/texmf/tex4ht/xtpipes
@@ -117,6 +131,8 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_mathplayer_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_moz_derived) $(dest_texmf)/
 #
 	$(update) oo-text.4xt oo-math.4xt $(dest_xtpipes)/
