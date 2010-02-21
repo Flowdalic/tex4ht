@@ -1,30 +1,11 @@
-% compile 3 times: latex tex4ht-mathltx   or   xhlatex tex4ht-mathltx "html,3,sections+"
+% $Id$
+% compile 3 times: latex tex4ht-mathltx
+%           or   xhlatex tex4ht-mathltx "html,3,sections+"
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% tex4ht-mathltx.tex                                      %
-% Copyright (C) 2005--            Eitan M. Gurari        %
-%                                                        %
-% This work may be distributed and/or modified under the %
-% conditions of the LaTeX Project Public License, either %
-% version 1.3 of this license or (at your option) any    %
-% later version. The latest version of this license is   %
-% in                                                     %
-%   http://www.latex-project.org/lppl.txt                %
-% and version 1.3 or later is part of all distributions  %
-% of LaTeX version 2003/12/01 or later.                  %
-%                                                        %
-% This work has the LPPL maintenance status "maintained".%
-%                                                        %
-% This Current Maintainer of this work                   %
-% is Eitan M. Gurari.                                    %
-%                                                        %
-% If you modify this file your changing the signature    %
-% in \message{(signature)} below will be appreciated.    %
-%                                                        %
-%                             gurari@cse.ohio-state.edu  %
-%                 http://www.cse.ohio-state.edu/~gurari  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
-\message{(<signature>)}
+% Copyright (C) 2009, 2010 TeX Users Group.
+% Copyright (C) 2005--2009 Eitan M. Gurari
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
 
 \ifx \HTML\UnDef
    \def\HTML{mathltx,html-mltx} 
@@ -34,31 +15,8 @@
    \expandafter\next
 \fi
 
-%%%%%%%%%%%%%%%%%% definitions %%%%%%%%%%%%%%%%%%%%%%%%%
-
-\let\AltxModifyShowCode=\ModifyShowCode
-\def\ModifyShowCode{%
-   \def\by{by}\def\={=}\AltxModifyShowCode}
-\let\pReModifyOutputCode=\ModifyOutputCode
-\def\ModifyOutputCode{%
-   \def\by{}\def\={}%
-   \pReModifyOutputCode}
-
-\newcount\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day
-   -\ifnum \temp<10 0\fi \temp
-   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
-
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
-
+\input{common-code}
+\input{common}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Constructs}
@@ -428,17 +386,16 @@ display="inline"
 
 
 \<mathltx\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% mathltx.4ht                           |version %
-% Copyright (C) |CopyYear.2005.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% mathltx.4ht (|version), generated from |jobname.tex
+% Copyright (C) 2009, 2010 TeX Users Group.
+% Copyright (C) |CopyYear.2005. Eitan M. Gurari
+|<TeX4ht copywrite|>
 >>>
 
 \<html-mltx\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% html-mltx.4ht                          |version %
-% Copyright (C) |CopyYear.2005.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% html-mltx.4ht (|version), generated from |jobname.tex
+% Copyright (C) 2009, 2010 TeX Users Group.
+% Copyright (C) |CopyYear.2005. Eitan M. Gurari
 >>>
 
 
@@ -3703,33 +3660,6 @@ applets. a candidadte for delition.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Shared}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\<TeX4ht copyright\><<<
-%                                                        %
-% This work may be distributed and/or modified under the %
-% conditions of the LaTeX Project Public License, either %
-% version 1.3 of this license or (at your option) any    %
-% later version. The latest version of this license is   %
-% in                                                     %
-%   http://www.latex-project.org/lppl.txt                %
-% and version 1.3 or later is part of all distributions  %
-% of LaTeX version 2003/12/01 or later.                  %
-%                                                        %
-% This work has the LPPL maintenance status "maintained".%
-%                                                        %
-% This Current Maintainer of this work                   %
-% is Eitan M. Gurari.                                    %
-%                                                        %
-% If you modify this program your changing its signature %
-% with a directive of the following form will be         %
-% appreciated.                                           %
-%            \message{signature}                         %
-%                                                        %
-%                             gurari@cse.ohio-state.edu  %
-%                 http://www.cse.ohio-state.edu/~gurari  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{version |version}
 >>>
 
 
@@ -4217,7 +4147,5 @@ a &= u
 \end{verbatim}
 
 \end{itemize}
-
-
 
 \endinput

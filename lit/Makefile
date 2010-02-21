@@ -8,6 +8,9 @@ default: all
 common = tex4ht-cpright.tex common.tex
 derived =
 
+derived += $(tex4ht_mathltx_derived)
+tex4ht_mathltx_derived = mathltx.4ht html-mltx.4ht
+
 derived += $(tex4ht_mathplayer_derived)
 tex4ht_mathplayer_derived = mathplayer.4ht
 
@@ -71,6 +74,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
@@ -131,6 +137,8 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_mathltx_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_mathplayer_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_moz_derived) $(dest_texmf)/

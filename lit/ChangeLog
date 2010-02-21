@@ -1,3 +1,8 @@
+2010-02-21  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-mathltx.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-02-18  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-mathplayer.tex: update license notices.
