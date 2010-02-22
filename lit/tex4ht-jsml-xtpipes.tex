@@ -1,31 +1,18 @@
+% $Id$
 % htlatex tex4ht-jsml-xtpipes "xhtml,next,3" "" "-d./"
+%
+% Copyright (C) 2009, 2010 TeX Users Group.
+% Copyright (C) 1996--2009 Eitan M. Gurari
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
 
 \documentclass{article}
     \Configure{ProTex}{log,<<<>>>,title,list,`,[[]]}
 \begin{document}
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%% definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcount\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day
-   -\ifnum \temp<10 0\fi \temp
-   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
-
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\input{common}
+\input{tex4ht-cpright}
 
 %%%%%%%%%%%%%%%%%%
 \part{Script for xtpipes}
@@ -44,7 +31,10 @@
 \<jsml.4xt\><<<
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
-<xtpipes signature="jsml.4xt (`version)">
+<!-- jsml.4xt (`version), generated from `jobname.tex
+     Copyright (C) 2009, 2010 TeX Users Group
+     Copyright (C) `CopyYear.2006. Eitan M. Gurari
+`<TeX4ht copyright`> --><xtpipes signature="jsml.4xt (`version)">
    <sax content-handler="xtpipes.util.ScriptsManager, tex4ht.GroupMn, tex4ht.JsmlFilter" 
         lexical-handler="xtpipes.util.ScriptsManagerLH" >
      `<numbers in math`>
@@ -161,6 +151,10 @@
 
 \<HtJsml.java\><<<
 package tex4ht;
+/* HtJsml.java (`version), generated from `jobname.tex
+   Copyright (C) 2009, 2010 TeX Users Group
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+`<TeX4ht copyright`> */
 import org.w3c.dom.*;
 public class HtJsml {
   `<HtJsml utility members`>
@@ -193,6 +187,10 @@ public class HtJsml {
  
 \<GroupMn.java\><<< 
 package tex4ht;
+/* GroupMn.java (`version), generated from `jobname.tex
+   Copyright (C) 2009, 2010 TeX Users Group
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+`<TeX4ht copyright`> */
 import org.xml.sax.helpers.*; 
 import org.xml.sax.*; 
 import java.io.PrintWriter; 
@@ -789,13 +787,6 @@ on nodes with large numbers of children.
 >>>
 
 
-
-
-\<java licence\><<<
-(`version)
->>>
-
-
 \AtEndDocument{ 
    \OutputCodE\<JsmlMathBreak.java\> 
 } 
@@ -807,9 +798,11 @@ on nodes with large numbers of children.
  
 \<JsmlMathBreak.java\><<< 
 package tex4ht;
-/*
-JsmlMathBreak.java `<java licence`>
-*/
+/* JsmlMathBreak.java (`version), generated from `jobname.tex
+   Copyright (C) 2009, 2010 TeX Users Group
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+`<TeX4ht copyright`> */
+
 import xtpipes.XtpipesUni;
 import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
@@ -1003,6 +996,10 @@ The following adds PARA on `p' paragraphs, ul.
  
 \<JsmlFilter.java\><<< 
 package tex4ht;
+/* JsmlFilter.java (`version), generated from `jobname.tex
+   Copyright (C) 2009, 2010 TeX Users Group
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+`<TeX4ht copyright`> */
 import org.xml.sax.helpers.*; 
 import org.xml.sax.*; 
 import java.io.PrintWriter; 
@@ -3888,11 +3885,3 @@ concat(
 %%%%%%%%%%%%%%%%%%
 \section{Prose}
 %%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-
-

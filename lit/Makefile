@@ -6,7 +6,15 @@ wd = work.dir
 default: all
 
 common = tex4ht-cpright.tex common.tex
-derived =
+derived = 
+
+derived += $(tex4ht_jsml_xtpipes_derived)
+tex4ht_jsml_xtpipes_derived = \
+  jsml.4xt \
+  HtJsml.java GroupMn.java JsmlFilter.java JsmlMathBreak.java
+
+derived += $(tex4ht_jsml_derived)
+tex4ht_jsml_derived = jsml.4ht jsml-math.4ht
 
 derived += $(tex4ht_mathltx_derived)
 tex4ht_mathltx_derived = mathltx.4ht html-mltx.4ht
@@ -74,6 +82,12 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common)
+	htlatex tex4ht-jsml-xtpipes "xhtml,next,3" "" "-d./"
+
+$(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
 $(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
@@ -129,7 +143,7 @@ $(xtpipes_derived): xtpipes.tex $(common)
 # Derived files are generated in . and $(wd).
 # (corresponds to src/java for xtpipes.tex)
 
-# n
+# 
 destdir = ..
 dest_texmf = $(destdir)/texmf/tex/generic/tex4ht
 dest_xtpipes = $(destdir)/texmf/tex4ht/xtpipes
@@ -137,6 +151,12 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) jsml.4xt $(dest_xtpipes)/
+	$(update) HtJsml.java GroupMn.java JsmlFilter.java \
+	          JsmlMathBreak.java $(dest_java)/
+#
+	$(update) $(tex4ht_jsml_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_mathltx_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_mathplayer_derived) $(dest_texmf)/
@@ -164,11 +184,12 @@ update: all
 #
 	$(update) $(tex4ht_word_derived) $(dest_texmf)/
 #
-	$(update) XhtmlEmails.java $(dest_java)/
 	$(update) xhtml.4xt $(dest_xtpipes)/
+	$(update) XhtmlEmails.java $(dest_java)/
 #
-	$(update) XhtmmlUtilities.java $(dest_java)/
 	$(update) xhtmml.4xt $(dest_xtpipes)/
+	$(update) XhtmmlUtilities.java $(dest_java)/
+#
 # this has to be done last. Does anything else use $(wd)? We'll see.
 	rmdir $(wd)/bin
 	$(update) $(wd)/* $(dest_java)/
