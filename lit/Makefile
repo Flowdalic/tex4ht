@@ -5,8 +5,14 @@ wd = work.dir
 
 default: all
 
-common = tex4ht-cpright.tex common.tex
+common = tex4ht-cpright.tex common.tex common-code.tex
 derived = 
+
+derived += $(tex4ht_javahelp_derived)
+tex4ht_javahelp_derived = javahelp.4ht javahelp-a.4ht
+
+derived += $(tex4ht_jsmath_derived)
+tex4ht_jsmath_derived = jsmath.4ht html-jsmath.4ht
 
 derived += $(tex4ht_jsml_xtpipes_derived)
 tex4ht_jsml_xtpipes_derived = \
@@ -82,6 +88,12 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_javahelp_derived): tex4ht-javahelp.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
+$(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
 $(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common)
 	htlatex tex4ht-jsml-xtpipes "xhtml,next,3" "" "-d./"
 
@@ -151,6 +163,10 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_javahelp_derived) $(dest_texmf)/
+#
+	$(update) $(tex4ht_jsmath_derived) $(dest_texmf)/
+#
 	$(update) jsml.4xt $(dest_xtpipes)/
 	$(update) HtJsml.java GroupMn.java JsmlFilter.java \
 	          JsmlMathBreak.java $(dest_java)/

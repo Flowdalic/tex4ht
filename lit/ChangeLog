@@ -1,3 +1,9 @@
+2010-02-23  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-javahelp.tex,
+	* tex4ht-jsmath.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-02-22  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-jsml-xtpipes.tex,
