@@ -1,31 +1,17 @@
+% $Id$
 % htlatex tex4ht-javahelp-xtpipes "xhtml,next,3" "" "-d./"
+%
+% Copyright (C) 2009, 2010 TeX Users Group.
+% Copyright (C) 2002--2009 Eitan M. Gurari
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
 
 \documentclass{article}
     \Configure{ProTex}{log,<<<>>>,title,list,`,[[]]}
     \usepackage{url}
 \begin{document}
 
-
-%%%%%%%%%%%%%%%%%%%%% definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcount\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day
-   -\ifnum \temp<10 0\fi \temp
-   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
-
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+\input{common}
 
 
 %%%%%%%%%%%%%%%%%%
@@ -44,6 +30,10 @@
 \<javahelp.4xt\><<<
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<!-- jsml.4xt (`version), generated from `jobname.tex
+     Copyright (C) 2009, 2010 TeX Users Group
+     Copyright (C) `CopyYear.2002. Eitan M. Gurari
+`<TeX4ht copyright`> -->
 <xtpipes preamble="yes" signature="javahelp.4xt (`version)">
    <sax content-handler="xtpipes.util.ScriptsManager" 
         lexical-handler="xtpipes.util.ScriptsManagerLH" >
@@ -54,10 +44,6 @@
    </sax>
 </xtpipes>
 >>>
-
-% 
-
-
 
 
 %%%%%%%%%%%%%%%%%%
@@ -93,13 +79,6 @@
 >>>
 
 
-
-
-\<java licence\><<<
-(`version)
->>>
-
-% 
 % \AtEndDocument{ 
 %    \OutputCodE\<XhtmlEmails.java\> 
 % } 
@@ -111,8 +90,10 @@
  
 \<XhtmlEmails.java\><<< 
 package tex4ht;
-/*
-XhtmlEmails.java `<java licence`>
+/* XhtmlEmails.java (`version), generated from `jobname.tex
+   Copyright (C) 2009, 2010 TeX Users Group
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+`<TeX4ht copyright`> */
 */
 import xtpipes.XtpipesUni;
 import org.xml.sax.*;
@@ -655,10 +636,4 @@ OK 2
         /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/.
 "}}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-

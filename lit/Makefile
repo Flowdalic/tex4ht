@@ -8,6 +8,15 @@ default: all
 common = tex4ht-cpright.tex common.tex common-code.tex
 derived = 
 
+derived += $(tex4ht_info_svg_derived)
+tex4ht_info_svg_derived = infosvg.4ht
+
+#derived += $(tex4ht_info_derived)
+#tex4ht_info_derived = info4ht.4ht
+
+derived += $(tex4ht_javahelp_xtpipes_derived)
+tex4ht_javahelp_xtpipes_derived = javahelp.4xt
+
 derived += $(tex4ht_javahelp_derived)
 tex4ht_javahelp_derived = javahelp.4ht javahelp-a.4ht
 
@@ -88,6 +97,15 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common)
+	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
+
+$(tex4ht_info_derived): tex4ht-info.tex $(common)
+	mk4ht xhlatex $< "html,3,sections+"
+
+$(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
+	htlatex $< "xhtml,next,3" "" "-d./" "-interaction=nonstopmode"
+
 $(tex4ht_javahelp_derived): tex4ht-javahelp.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
@@ -95,7 +113,7 @@ $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common)
-	htlatex tex4ht-jsml-xtpipes "xhtml,next,3" "" "-d./"
+	htlatex $< "xhtml,next,3" "" "-d./" "-interaction=nonstopmode"
 
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
@@ -163,6 +181,12 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_info_svg_derived) $(dest_texmf)/
+#
+	$(update) $(tex4ht_info_derived) $(dest_texmf)/
+#
+	$(update) $(tex4ht_javahelp_xtpipes_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_javahelp_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_jsmath_derived) $(dest_texmf)/

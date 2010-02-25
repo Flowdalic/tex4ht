@@ -1,3 +1,9 @@
+2010-02-25  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-info-svg.tex,
+	* tex4ht-javahelp-xtpipes.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-02-23  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-javahelp.tex,
