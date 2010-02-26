@@ -1,0 +1,43 @@
+% $Id: common-code.tex 19 2010-02-13 17:37:14Z karl $
+% Common TeX definitions used only in the *-info.tex literate sources.
+% Not installed.
+% 
+% Copyright 2009, 2010 TeX Users Group.
+% Copyright 1996--2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+% 
+% If you modify this program, changing the 
+% version identification would be appreciated.
+
+\expandafter\ifx \csname YES\HTML\endcsname\relax
+    \def\CleanComment{[0]}
+\else
+    \let\saveCd=\<
+    \def\<{\edef\FIRST{\the\inputlineno}\let\<\saveCd \saveCd}
+    \def\CleanComment#1tex4ht-info#2#3#4.#5>#6//{[#4%     <--jobname
+                  \if,\ifnum \FIRST=#6 .\else ,0\fi\fi]#6//}
+    \def\eatIV#1#2#3#4{}
+\fi
+
+\Comment{
+
+\string\ifx\string\infoIVht\string\UnDeF\string\def\string\infoIVht#1//{}\string\fi\string\infoIVht\CleanComment}{//
+
+}
+
+\def\>>>#1<<<{\bgroup\csname no:catcodes\endcsname0{255}{12}%
+   \csname no:catcodes\endcsname{13}{13}{13}% ^^M
+   \def\temp##1>>>{\egroup
+      \expandafter \def\csname #1\endcsname{##1}}\temp}

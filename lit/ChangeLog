@@ -1,3 +1,9 @@
+2010-02-26  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-info-mml.tex,
+	* tex4ht-info-ooffice.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-02-25  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-info-svg.tex,

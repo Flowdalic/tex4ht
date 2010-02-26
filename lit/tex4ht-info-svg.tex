@@ -16,39 +16,12 @@
    \expandafter\next
 \fi
 
-
-%%%%%%%%%%%%%%%%%% definitions %%%%%%%%%%%%%%%%%%%%%%%%%
-
-\expandafter\ifx \csname YES\HTML\endcsname\relax
-    \def\CleanComment{[0]}
-\else
-    \let\saveCd=\<
-    \def\<{\edef\FIRST{\the\inputlineno}\let\<\saveCd \saveCd}
-%    \def\CleanComment#1tex4ht-info#2#3#4.#5>#6//{[\eatIV#4%     <--jobname
-    \def\CleanComment#1tex4ht-info#2#3#4.#5>#6//{[#4%     <--jobname
-                  \if,\ifnum \FIRST=#6 .\else ,0\fi\fi]#6//}
-    \def\eatIV#1#2#3#4{}
-\fi
-
-\Comment{
-
-\string\ifx\string\infoIVht\string\UnDeF\string\def\string\infoIVht#1//{}\string\fi\string\infoIVht\CleanComment}{//
-
-}
-
-
-
-
-
-\def\>>>#1<<<{\bgroup\csname no:catcodes\endcsname0{255}{12}%
-   \csname no:catcodes\endcsname{13}{13}{13}% ^^M
-   \def\temp##1>>>{\egroup
-      \expandafter \def\csname #1\endcsname{##1}}\temp}
-
+\input{common-info}
 \input{common}
+\input{tex4ht-cpright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{INFO}
+\chapter{Info SVG}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

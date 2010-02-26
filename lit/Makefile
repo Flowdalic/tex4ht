@@ -6,7 +6,14 @@ wd = work.dir
 default: all
 
 common = tex4ht-cpright.tex common.tex common-code.tex
+common_info = $(common) common-info.tex
 derived = 
+
+derived += $(tex4ht_info_mml_derived)
+tex4ht_info_mml_derived = infomml.4ht
+
+derived += $(tex4ht_info_ooffice_derived)
+tex4ht_info_ooffice_derived = infoof.4ht
 
 derived += $(tex4ht_info_svg_derived)
 tex4ht_info_svg_derived = infosvg.4ht
@@ -97,7 +104,13 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
-$(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common)
+$(tex4ht_info_mml_derived): tex4ht-info-mml.tex $(common_info)
+	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
+
+$(tex4ht_info_ooffice_derived): tex4ht-info-ooffice.tex $(common_info)
+	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
+
+$(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common_info)
 	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
 
 $(tex4ht_info_derived): tex4ht-info.tex $(common)
@@ -181,6 +194,10 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_info_mml_derived) $(dest_texmf)/
+#
+	$(update) $(tex4ht_info_ooffice_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_info_svg_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_info_derived) $(dest_texmf)/
