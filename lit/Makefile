@@ -9,6 +9,10 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+#derived += $(tex4ht_html4_derived)
+#tex4ht_html4_derived = \
+#  html4.4ht html4-math.4ht html4-uni.4ht onmouseover.4ht exerqz.4ht
+
 derived += $(tex4ht_info_mml_derived)
 tex4ht_info_mml_derived = infomml.4ht
 
@@ -104,6 +108,10 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_html4_derived): tex4ht-html4.tex $(common_info)
+	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
+#	mk4ht xhlatex $< "html,3,sections+"
+
 $(tex4ht_info_mml_derived): tex4ht-info-mml.tex $(common_info)
 	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
 
@@ -194,6 +202,8 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_html4_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_info_mml_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_info_ooffice_derived) $(dest_texmf)/
