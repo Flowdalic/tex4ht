@@ -1,6 +1,7 @@
 2010-02-28  Karl Berry  <karl@gnu.org>
 
-	* tex4ht-html32.tex: update license notices.
+	* tex4ht-html32.tex,
+	* tex4ht-html4.tex: update license notices.
 	* Makefile: add derivations.
 
 2010-02-26  Karl Berry  <karl@gnu.org>

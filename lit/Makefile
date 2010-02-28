@@ -2,6 +2,7 @@
 # This file is public domain.  Originally written 2010, Karl Berry.
 
 wd = work.dir
+tex_args = "--interaction=nonstopmode --file-line-error"
 
 default: all
 
@@ -12,9 +13,9 @@ derived =
 derived += $(tex4ht_html32_derived)
 tex4ht_html32_derived = html32.4ht html32-math.4ht 
 
-#derived += $(tex4ht_html4_derived)
-#tex4ht_html4_derived = \
-#  html4.4ht html4-math.4ht html4-uni.4ht onmouseover.4ht exerqz.4ht
+derived += $(tex4ht_html4_derived)
+tex4ht_html4_derived = \
+  html4.4ht html4-math.4ht html4-uni.4ht onmouseover.4ht exerqz.4ht
 
 derived += $(tex4ht_info_mml_derived)
 tex4ht_info_mml_derived = infomml.4ht
@@ -115,23 +116,23 @@ $(tex4ht_html32_derived): tex4ht-html32.tex $(common)
 	xhlatex tex4ht-html32 "html,3,sections+"
 
 $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
-	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "html,sections+" "" "-d./" $(tex_args)
 #	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_info_mml_derived): tex4ht-info-mml.tex $(common_info)
-	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "html,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_info_ooffice_derived): tex4ht-info-ooffice.tex $(common_info)
-	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "html,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common_info)
-	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "html,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_info_derived): tex4ht-info.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
-	htlatex $< "xhtml,next,3" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
 
 $(tex4ht_javahelp_derived): tex4ht-javahelp.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
@@ -140,7 +141,7 @@ $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common)
-	htlatex $< "xhtml,next,3" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
 
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
@@ -160,13 +161,13 @@ $(tex4ht_moz_derived): tex4ht-moz.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_oo_xtpipes_derived): tex4ht-oo-xtpipes.tex $(common)
-	htlatex $< "xhtml,next,3" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
 
 $(tex4ht_ooffice_derived): tex4ht-ooffice.tex $(common)
-	htlatex $< "xhtml,4,sections+" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "xhtml,4,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
-	htlatex $< "xhtml,4,sections+" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "xhtml,4,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_options_derived): tex4ht-options.tex $(common)
 	mk4ht xhlatex $<
@@ -190,13 +191,13 @@ $(tex4ht_word_derived): tex4ht-word.tex $(common)
 	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_xhtml_xtpipes_derived): tex4ht-xhtml-xtpipes.tex $(common)
-	htlatex $< "xhtml,3,next" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "xhtml,3,next" "" "-d./" $(tex_args)
 
 $(tex4ht_xhtmml_xtpipes_derived): tex4ht-xhtmml-xtpipes.tex $(common)
-	htlatex $< "xhtml,3,next" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "xhtml,3,next" "" "-d./" $(tex_args)
 
 $(xtpipes_derived): xtpipes.tex $(common)
-	htlatex $< "xhtml,3,next" "" "-d./" "-interaction=nonstopmode"
+	htlatex $< "xhtml,3,next" "" "-d./" $(tex_args)
 # Derived files are generated in . and $(wd).
 # (corresponds to src/java for xtpipes.tex)
 
@@ -208,6 +209,8 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_html32_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_html4_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_info_mml_derived) $(dest_texmf)/
