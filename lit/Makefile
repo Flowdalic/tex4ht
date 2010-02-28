@@ -9,6 +9,9 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_html32_derived)
+tex4ht_html32_derived = html32.4ht html32-math.4ht 
+
 #derived += $(tex4ht_html4_derived)
 #tex4ht_html4_derived = \
 #  html4.4ht html4-math.4ht html4-uni.4ht onmouseover.4ht exerqz.4ht
@@ -108,7 +111,10 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
-$(tex4ht_html4_derived): tex4ht-html4.tex $(common_info)
+$(tex4ht_html32_derived): tex4ht-html32.tex $(common)
+	xhlatex tex4ht-html32 "html,3,sections+"
+
+$(tex4ht_html4_derived): tex4ht-html4.tex $(common)
 	htlatex $< "html,sections+" "" "-d./" "-interaction=nonstopmode"
 #	mk4ht xhlatex $< "html,3,sections+"
 
@@ -267,6 +273,9 @@ clean: mostlyclean
 	rm -rf $(wd)
 	rm -f *.4ct *.4tc *.aux *.css *.dvi *.idv *.lg *.log *.tmp *.trc *.xref
 	rm -f *.html *.png
+
+clean1:
+	rm -f $(f).[0-s]* $(f).[u-z]* $(f).trc
 
 mostlyclean:
 	rm -f $(derived)
