@@ -1,3 +1,9 @@
+2010-03-02  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-html-speech.tex,
+	* tex4ht-html0.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-02-28  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-html32.tex,

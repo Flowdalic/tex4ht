@@ -10,6 +10,12 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_html_speech_derived)
+tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
+
+derived += $(tex4ht_html0_derived)
+tex4ht_html0_derived = html0.4ht
+
 derived += $(tex4ht_html32_derived)
 tex4ht_html32_derived = html32.4ht html32-math.4ht 
 
@@ -112,12 +118,17 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_html_speech_derived): tex4ht-html-speech.tex $(common)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+
+$(tex4ht_html0_derived): tex4ht-html0.tex $(common)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+
 $(tex4ht_html32_derived): tex4ht-html32.tex $(common)
-	xhlatex tex4ht-html32 "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
 	htlatex $< "html,sections+" "" "-d./" $(tex_args)
-#	mk4ht xhlatex $< "html,3,sections+"
 
 $(tex4ht_info_mml_derived): tex4ht-info-mml.tex $(common_info)
 	htlatex $< "html,sections+" "" "-d./" $(tex_args)
@@ -129,28 +140,28 @@ $(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common_info)
 	htlatex $< "html,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_info_derived): tex4ht-info.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
 	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
 
 $(tex4ht_javahelp_derived): tex4ht-javahelp.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common)
 	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
 
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
 	latex -interaction=nonstopmode $<
@@ -158,7 +169,7 @@ $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
 	latex -interaction=nonstopmode mkht-scripts.4ht
 
 $(tex4ht_moz_derived): tex4ht-moz.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_oo_xtpipes_derived): tex4ht-oo-xtpipes.tex $(common)
 	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
@@ -176,19 +187,19 @@ $(tex4ht_sty_derived): tex4ht-sty.tex $(common)
 	ht tex $<
 
 $(tex4ht_svg_derived): tex4ht-svg.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_t4ht_derived): tex4ht-t4ht.tex $(common)
 	ht tex $<
 
 $(tex4ht_tei_derived): tex4ht-tei.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_unicode_derived): tex4ht-unicode.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_word_derived): tex4ht-word.tex $(common)
-	mk4ht xhlatex $< "html,3,sections+"
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_xhtml_xtpipes_derived): tex4ht-xhtml-xtpipes.tex $(common)
 	htlatex $< "xhtml,3,next" "" "-d./" $(tex_args)
@@ -209,6 +220,10 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_html_speech_derived) $(dest_texmf)/
+#
+	$(update) $(tex4ht_html0_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_html32_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_html4_derived) $(dest_texmf)/
