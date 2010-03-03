@@ -1,10 +1,17 @@
+% $Id$
 % htlatex tex4ht-html-speech-xtpipes "html,next,3" "" "-d./"
+%
+% Copyright (C) 2009, 2010 TeX Users Group.
+% Copyright (C) 2006--2009 Eitan M. Gurari
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
 
 \documentclass{article}
     \Configure{ProTex}{log,<<<>>>,title,list,`,[[]]}
 \begin{document}
 
-
+\input{common}
+\input{tex4ht-cpright}
 
 %%%%%%%%%%%%%%%%%%
 \part{Script for xtpipes}
@@ -26,6 +33,10 @@
 \<htspk.4xt\><<<
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<!-- htspk.4xt (`version), generated from `jobname.tex
+     Copyright (C) 2009, 2010 TeX Users Group
+     Copyright (C) `CopyYear.2002. Eitan M. Gurari
+`<TeX4ht copyright`> -->
 <xtpipes>
    <sax content-handler="xtpipes.util.ScriptsManager"
         lexical-handler="xtpipes.util.ScriptsManagerLH" >
@@ -142,6 +153,10 @@
 
 \<HtSpk.java\><<<
 package tex4ht;
+/* HtSpk.java (`version), generated from `jobname.tex
+   Copyright (C) 2009, 2010 TeX Users Group
+   Copyright (C) `CopyYear.2006. Eitan M. Gurari
+`<TeX4ht copyright`> */
 import org.w3c.dom.*;
 public class HtSpk {
   `<static void fracLevel(dom)`>

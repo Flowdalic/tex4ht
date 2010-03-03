@@ -10,6 +10,9 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_html_speech_xtpipes_derived)
+tex4ht_html_speech_xtpipes_derived = htspk.4xt HtSpk.java
+
 derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
 
@@ -118,6 +121,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_html_speech_xtpipes_derived): tex4ht-html-speech-xtpipes.tex $(common)
+	htlatex $< "html,next,3" "" "-d./" $(tex_args)
+
 $(tex4ht_html_speech_derived): tex4ht-html-speech.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
@@ -220,6 +226,8 @@ dest_java = $(destdir)/src/java
 update = cp -pr
 #
 update: all
+	$(update) $(tex4ht_html_speech_xtpipes_derived) $(dest_texmf)/
+#
 	$(update) $(tex4ht_html_speech_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_html0_derived) $(dest_texmf)/
