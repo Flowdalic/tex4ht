@@ -1,3 +1,8 @@
+2010-03-04  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-htcmd.tex: update license notices.
+	* Makefile: add derivations.
+
 2010-03-03  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-html-speech-xtpipes.tex: update license notices.
