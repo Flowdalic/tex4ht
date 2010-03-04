@@ -176,9 +176,9 @@ $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
 
 $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
-	latex -interaction=nonstopmode $<
+	latex $(tex_args) $<
 	perl -c mk4ht.perl  # syntax check
-	latex -interaction=nonstopmode mkht-scripts.4ht
+	latex $(tex_args) mkht-scripts.4ht
 
 $(tex4ht_moz_derived): tex4ht-moz.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)

@@ -1,3 +1,8 @@
+2010-03-04  Radhakrishnan CV  <cvr@river-valley.org>
+
+	* tex4ht-mkht.tex (<MYcopyrightnotice): new macro; insert
+	notice in all generated scripts.
+
 2010-03-04  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-htcmd.tex: update license notices.
