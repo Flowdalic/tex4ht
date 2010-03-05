@@ -1,37 +1,14 @@
-% tex tex4ht-fonts-noncjk   or    ht tex tex4ht-fonts-noncjk   
+% $Id$
+%          tex tex4ht-fonts-noncjk
+% or    ht tex tex4ht-fonts-noncjk   
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% tex4ht-fonts-cjk.tex                                   %
-% Copyright (C) 1997--            Eitan M. Gurari        %
-%                                                        %
-% This work may be distributed and/or modified under the %
-% conditions of the LaTeX Project Public License, either %
-% version 1.3 of this license or (at your option) any    %
-% later version. The latest version of this license is   %
-% in                                                     %
-%   http://www.latex-project.org/lppl.txt                %
-% and version 1.3 or later is part of all distributions  %
-% of LaTeX version 2003/12/01 or later.                  %
-%                                                        %
-% This work has the LPPL maintenance status "maintained".%
-%                                                        %
-% This Current Maintainer of this work                   %
-% is Eitan M. Gurari.                                    %
-%                                                        %
-% If you modify this file your changing the signature    %
-% in \message{(signature)} below will be appreciated.    %
-%                                                        %
-%                             gurari@cse.ohio-state.edu  %
-%                 http://www.cse.ohio-state.edu/~gurari  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 2009, 2010 TeX Users Group.
+% Copyright (C) 1997--2009 Eitan M. Gurari
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
 
 \def\accentGrave{18}
 \def\accentHat{94}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\Uendash{2013}
 \def\Uemdash{2014}
@@ -461,7 +438,10 @@
 
 \Needs{"mkdir -p \MYdir"}%
 
-\Needs{"xhlatex tex4ht-fonts-4hf 'html,3' '' '-d./"}%
+% this run needs capacity increases to succeed.
+%\Needs{"xhlatex tex4ht-fonts-4hf 'html,3' '' '-d./'"}%
+
+% are these really needed?
 \Needs{"tex tex4ht-fonts-cjk ; tex4ht tex4ht-fonts-cjk ; t4ht tex4ht-fonts-cjk"}
 \Needs{"tex tex4ht-fonts-cjk-utf8 ; tex4ht tex4ht-fonts-cjk-utf8 ; t4ht tex4ht-fonts-cjk-utf8"}
 
@@ -469,19 +449,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\newcount\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day}
-
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
-
+\input common
 
 
 \CutAt{Chapter}
@@ -507,7 +475,7 @@
 
 
 \<version 0\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>
+%>>>
 
 \<gversion 2\><<<
 %                                                    Eitan M. Gurari %>>>
@@ -563,17 +531,17 @@
 `<version 11`> >>>
 
 \<version 12\><<<
-% If you modify this file your your adding a note of                 %>>>
+% If you modify this file, changing the>>>
 \<gversion 13\><<<
 `<version 12`> >>>
 
 \<version 13\><<<
-% your own after this copyright note will be appreciated.            %>>>
+% versions identification would be appreciated.>>>
 \<gversion 14\><<<
 `<version 13`> >>>
 
 \<version 14\><<<
-%                                                                    %>>>
+%>>>
 \<gversion 15\><<<
 `<version 14`> >>>
 
@@ -609,8 +577,13 @@ A.12\EndLink{} at the CSS specifications.
 %%%%%%%%%%%%%
 
 
+\input tex4ht-cpright
 
 \<SearchFonts.java\><<<
+/* SearchFonts.java (`version), generated from `jobname.tex
+   Copyright (C) 2009, 2010 TeX Users Group
+   Copyright (C) `CopyYear.2002. Eitan M. Gurari
+`<TeX4ht copyright`> */
 import java.io.*;
 import java.util.*;
 class SearchFonts{
@@ -1074,9 +1047,9 @@ htfcss: cmfib font-weight: bold;
 
 \<cminch-Q\><<<
 cminch 48 90
-'0' '' 48 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-'1' '' 49 % cminch.htf                    `version %
-'2' '' 50 % Copyright (C) `CopyYear.2001. Eitan M. Gurari %
+'0' '' 48 %
+'1' '' 49 % cminch.htf (`version), generated from `jobname.tex
+'2' '' 50 % Copyright (C) `CopyYear.2001. Eitan M. Gurari
 '3' '' 51 `<version 2`>
 '4' '' 52 `<version 3`>
 '5' '' 53 `<version 4`>
@@ -1162,8 +1135,8 @@ htfcss: cmtt @media speech pitch:`<medium`>; pitch-range:0; stress:0; richness:8
 \<cmtcsc-uni\><<<
 cmtcsc 0 127
 '&#x0393;' '' Gamma      0 `<version 0`>
-'&#x0394;' '' Delta      1 % cmtcsc.htf (unicode)            `version %
-'&#x0398;' '' Theta      2 % Copyright (C) `CopyYear.2000. Michel Goossens %
+'&#x0394;' '' Delta      1 % cmtcsc.htf (unicode) (`version), generated from `jobname.tex
+'&#x0398;' '' Theta      2 % Copyright (C) `CopyYear.2000. Michel Goossens
 '&#x039B;' '' Lambda     3 `<gversion 2`>
 '&#x039E;' '' Xi         4 `<gversion 3`>
 '&#x03A0;' '' Pi         5 `<gversion 4`>

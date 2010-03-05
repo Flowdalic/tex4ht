@@ -1,5 +1,8 @@
+lm-htf.tex
+tmp
 work.dir
 *.4ct
+*.4es
 *.4ht
 *.4tc
 *.4xt
@@ -9,6 +12,7 @@ work.dir
 *.css
 *.dtd
 *.dvi
+*.htf
 *.html
 *.idv
 *.java

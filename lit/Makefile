@@ -10,6 +10,9 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_fonts_noncjk_derived)
+tex4ht_fonts_noncjk_derived = SearchFonts.java cmtex.htf # and thousands more
+# also, whither lm-htf.tex?  whither tmp?  how change target dir?
 derived += $(tex4ht_htcmd_derived)
 tex4ht_htcmd_derived = htcmd.c
 
@@ -123,6 +126,9 @@ xtpipes_derived = \
 
 # 
 all: $(derived)
+
+$(tex4ht_fonts_noncjk_derived): tex4ht-fonts-noncjk.tex $(common)
+	ht tex $<
 
 $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)
 	ht tex $<
