@@ -1,8 +1,16 @@
+2010-03-06  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-env.tex: license notices.
+	(dvips convert (personal)): do not hardcode path to convert
+	(else zztex4ht-env.ps is left behind).
+	* Makefile: add derivations.	
+
 2010-03-05  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-fonts-noncjk.tex: start at license notices.
 	Correct quoting of the
 	\Needs{"xhlatex tex4ht-fonts-4hf ..."} line.
+	* Makefile: start at derivations.
 
 2010-03-04  Radhakrishnan CV  <cvr@river-valley.org>
 

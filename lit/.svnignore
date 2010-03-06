@@ -1,4 +1,7 @@
 lm-htf.tex
+tex4ht.env
+tex4ht.env-unix
+tex4ht.env-win32
 tmp
 work.dir
 *.4ct
