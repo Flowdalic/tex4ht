@@ -10,8 +10,11 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_docbook_derived)
+tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
+
 derived += $(tex4ht_env_derived)
-tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32
+tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
 
 derived += $(tex4ht_fonts_noncjk_derived)
 tex4ht_fonts_noncjk_derived = SearchFonts.java cmtex.htf # and thousands more
@@ -131,6 +134,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
+	xhlatex $< "html,3" "" "-d./" $(tex_args)
+
 $(tex4ht_env_derived): tex4ht-env.tex $(common)
 	htlatex $< "xhtml,3" "" "-d./" $(tex_args)
 
@@ -240,12 +246,20 @@ $(xtpipes_derived): xtpipes.tex $(common)
 # 
 destdir = ..
 dest_texmf = $(destdir)/texmf/tex/generic/tex4ht
-dest_xtpipes = $(destdir)/texmf/tex4ht/xtpipes
+dest_4ht = $(destdir)/texmf/tex4ht
+dest_base = $(dest_4ht)/base
+dest_xtpipes = $(dest_4ht)/xtpipes
 dest_java = $(destdir)/src/java
+#
 update = cp -pr
+mkdir = install -d
 #
 update: all
-	$(update) $(tex4ht_mk4ht_derived) $(destdir)/src/
+	$(update) $(tex4ht_docbook_derived) $(dest_texmf)/
+#
+	$(mkdir) $(dest_base)/unix $(dest_base)/win32
+	$(update) tex4ht.env-unix $(dest_base)/unix/
+	$(update) tex4ht.env-win32 $(dest_base)/win32/
 #
 	$(update) $(tex4ht_html_speech_xtpipes_derived) $(dest_texmf)/
 #

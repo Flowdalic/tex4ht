@@ -1,9 +1,14 @@
+2010-03-07  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-docbook.tex: license notices.
+	* Makefile: add derivations.
+
 2010-03-06  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-env.tex: license notices.
 	(dvips convert (personal)): do not hardcode path to convert
 	(else zztex4ht-env.ps is left behind).
-	* Makefile: add derivations.	
+	* Makefile: add derivations.
 
 2010-03-05  Karl Berry  <karl@gnu.org>
 
@@ -100,9 +105,9 @@
 
 	* common-code.tex: new file.
 	* tex4ht-unicode.tex: use it.
-	
+
 	* tex4ht-options.tex: update license notices.
-	* Makefile: add derivations.	
+	* Makefile: add derivations.
 
 2010-02-12  Karl Berry  <karl@gnu.org>
 
