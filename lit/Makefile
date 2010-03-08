@@ -10,6 +10,9 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_docbook_xtpipes_derived)
+tex4ht_docbook_xtpipes_derived = docbook.4xt DbUtilities.java
+
 derived += $(tex4ht_docbook_derived)
 tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
 
@@ -134,6 +137,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_docbook_xtpipes_derived): tex4ht-docbook-xtpipes.tex $(common)
+	xhlatex $< "html,3" "" "-d./" $(tex_args)
+
 $(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
 	xhlatex $< "html,3" "" "-d./" $(tex_args)
 
@@ -255,6 +261,9 @@ update = cp -pr
 mkdir = install -d
 #
 update: all
+	$(update) docbook.4xt $(dest_xtpipes)/
+	$(update) DbUtilities.java $(dest_java)/
+#
 	$(update) $(tex4ht_docbook_derived) $(dest_texmf)/
 #
 	$(mkdir) $(dest_base)/unix $(dest_base)/win32

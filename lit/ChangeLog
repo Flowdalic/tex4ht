@@ -1,3 +1,8 @@
+2010-03-08  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-docbook-xtpipes.tex: license notices.
+	* Makefile: add derivations.
+
 2010-03-07  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-docbook.tex: license notices.
