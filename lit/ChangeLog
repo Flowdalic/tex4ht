@@ -1,6 +1,7 @@
 2010-03-08  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-cond4ht.tex: license notices.
+	* mktex4ht.cnf: new (empty) file, needed to run cond4ht.
 	* Makefile: add derivations.
 	* tex4ht-cpright.tex: note additional copy.
 	* all files: no period ending copyright lines, I guess.
