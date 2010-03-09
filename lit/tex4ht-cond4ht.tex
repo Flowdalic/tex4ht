@@ -1,60 +1,26 @@
+% $Id$
 % (1)  tex tex4ht-cond4ht    or   xhtex tex4ht-cond4ht
 % (2)  tex cond4ht.4ht
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% tex4ht-cond4ht.tex                                     %
-% Copyright (C) 1997--           Eitan M. Gurari         %
-%                                                        %
-% This work may be distributed and/or modified under the %
-% conditions of the LaTeX Project Public License, either %
-% version 1.3 of this license or (at your option) any    %
-% later version. The latest version of this license is   %
-% in                                                     %
-%   http://www.latex-project.org/lppl.txt                %
-% and version 1.3 or later is part of all distributions  %
-% of LaTeX version 2003/12/01 or later.                  %
-%                                                        %
-% This work has the LPPL maintenance status "maintained".%
-%                                                        %
-% This Current Maintainer of this work                   %
-% is Eitan M. Gurari.                                    %
-%                                                        %
-%                             gurari@cse.ohio-state.edu  %
-%                 http://www.cse.ohio-state.edu/~gurari  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%
+% Copyright (C) 2009, 2010 TeX Users Group
+% Copyright (C) 1997--2009 Eitan M. Gurari
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
 
 \csname tex4ht\endcsname
-
 
   \input ProTex.sty
   \def\CodeDel{{<<<<}{>>>>}}
   \AlProTex{sty,<<<>>>,?,title,list,[],ClearCode}
 
-
-\csname newcount\endcsname\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day
-   -\ifnum \temp<10 0\fi \temp
-   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
-
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
-
-
+\input common
 
 \<cond4ht.4ht\><<<<
 %Needs: tex cond4ht.4ht
 \def\ConfigFiles{\input mktex4ht.cnf}  %  Please,modify the bodies of the 
 \def\mkfilename{mktex4ht.4ht}          %  first four macros.
-\def\author{Eitan M. Gurari}           %  The input file should consist
-\def\firstdate{1999}                   %  of records \AddFile{i}{name}
+                                       %  The input file should consist
+                                       %  of records \AddFile{i}{name}
                              % where i stands for a priority number
                              % in the range 0--9, and name stands for
                              % for a sty/cls file name. For instance,
@@ -62,12 +28,12 @@
                              % \AddFile{1}{latex}   \AddFile{2}{article} 
                              % \AddFile{5}{amsmath} \AddFile{2}{report} ...
 
-% cond4ht.4ht                          ?version  %
-% Copyright (C) ?CopyYear.2001.            Eitan M. Gurari    %
-%                                                        %
-?<TeX4ht copyright?>
+% cond4ht.4ht (?version), generated from ?jobname.tex
+% Copyright (C) 2009, 2010 TeX Users Group
+% Copyright (C) ?CopyYear.2001. Eitan M. Gurari
+?<TeX4ht copywrite?>
 
-\ifx \CopyYear\UnDef
+\ifx \BREAK\UnDef
 
 \csname newcount\endcsname\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
 \edef\temp{\the\tmpcnt}
@@ -82,6 +48,7 @@
    \ifnum #1=\year #1\space\space\space\space\space\space
     \else          #1--\the\year\fi
 }
+
 \def\BREAK{^^J}
 
 \fi
@@ -470,27 +437,26 @@ it an explicitly check. On the other hand, we should avoid duplications.
 tex4ht-4ht, e.g., for adding cases to {\tt\string\exit:ifnot}.  
 
 
+\input tex4ht-cpright % needed for this generation:
+
 \<\mkfilename\><<<
 % \def\HTML{...}  \def\CONFIG{...}  \def\MAKETITLE{...}  \def\EXIST{...}
 % \def\OPTIONS{...}  \def\PREAMBLE{...} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                              %
-%  Compile this file with the command `xhlatex |mkfilename',  %
-%  and read the instructions at mktex4ht.html => index         %
-%  => mktex4ht.                                                %
-%                                                              %
-%  The compilation needs the files ProTex.sty & AlProTex.sty   %
-%  from                                                        %
-%    http://www.cse.ohio-state.edu/~gurari/systems.html        %
-%                                                              %
-%  This file is designed for machines--not human beings! You   %
-%  are strognly advised not to look at the code which follows  %
-%  the copyright notice.                                       %
-%                                                              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% |mkfilename                         |version %
-% Copyright (C) |CopyYear.|firstdate.      |author         %
-|<TeX4ht copyright|>
+%
+%  Compile this file with the command `xhlatex |mkfilename',
+%  and read the instructions at mktex4ht.html => index => mktex4ht.
+%
+%  The compilation needs the files ProTex.sty & AlProTex.sty from
+%    http://www.cse.ohio-state.edu/~gurari/systems.html
+%
+%  This file is designed for machines--not human beings! You
+%  are strongly advised not to look at the code which follows
+%  the copyright notice.
+%
+% |mkfilename (|version), generated from |jobname.4ht
+% Copyright (C) 2009, 2010 TeX Users Group
+% Copyright (C) 1999--2009 Eitan M. Gurari
+|<TeX4ht copywrite|>
 
 |<list of info files|>
 
@@ -754,7 +720,7 @@ WARNING: Missing definition for {\tt \string\CONFIG }
 
 >>>>
 
-\<TeX4ht copyright\><<<<
+\<TeX4ht copywrite\><<<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 %                                                        %
 % This work may be distributed and/or modified under the %
@@ -781,7 +747,6 @@ WARNING: Missing definition for {\tt \string\CONFIG }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \immediate\write-1{version ?version}
 >>>>
-
 
 \<par del\><<<<
 !*??: >>>>

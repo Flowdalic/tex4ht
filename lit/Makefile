@@ -1,14 +1,20 @@
 # $Id$
 # This file is public domain.  Originally written 2010, Karl Berry.
+# 
+# todo: ohio-state url in tex4ht-cond4ht.tex
 
 wd = work.dir
-tex_args = "--interaction=nonstopmode --file-line-error"
+tex_opts = --interaction=nonstopmode --file-line-error
+tex_1opt = "$(tex_opts)"
 
 default: all
 
 common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
+
+derived += $(tex4ht_cond4ht_derived)
+tex4ht_cond4ht_derived = cond4ht.4ht mktex4ht.4ht
 
 derived += $(tex4ht_docbook_xtpipes_derived)
 tex4ht_docbook_xtpipes_derived = docbook.4xt DbUtilities.java
@@ -137,14 +143,18 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex $(common)
+	tex $(tex_opts) $<
+	tex $(tex_opts) cond4ht.4ht
+
 $(tex4ht_docbook_xtpipes_derived): tex4ht-docbook-xtpipes.tex $(common)
-	xhlatex $< "html,3" "" "-d./" $(tex_args)
+	xhlatex $< "html,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
-	xhlatex $< "html,3" "" "-d./" $(tex_args)
+	xhlatex $< "html,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_env_derived): tex4ht-env.tex $(common)
-	htlatex $< "xhtml,3" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_fonts_noncjk_derived): tex4ht-fonts-noncjk.tex $(common)
 	ht tex $<
@@ -153,69 +163,69 @@ $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)
 	ht tex $<
 
 $(tex4ht_html_speech_xtpipes_derived): tex4ht-html-speech-xtpipes.tex $(common)
-	htlatex $< "html,next,3" "" "-d./" $(tex_args)
+	htlatex $< "html,next,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_html_speech_derived): tex4ht-html-speech.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_html0_derived): tex4ht-html0.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_html32_derived): tex4ht-html32.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
-	htlatex $< "html,sections+" "" "-d./" $(tex_args)
+	htlatex $< "html,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_info_mml_derived): tex4ht-info-mml.tex $(common_info)
-	htlatex $< "html,sections+" "" "-d./" $(tex_args)
+	htlatex $< "html,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_info_ooffice_derived): tex4ht-info-ooffice.tex $(common_info)
-	htlatex $< "html,sections+" "" "-d./" $(tex_args)
+	htlatex $< "html,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common_info)
-	htlatex $< "html,sections+" "" "-d./" $(tex_args)
+	htlatex $< "html,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_info_derived): tex4ht-info.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
-	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,next,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_javahelp_derived): tex4ht-javahelp.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common)
-	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,next,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
-	latex $(tex_args) $<
+	latex $(tex_opts) $<
 	perl -c mk4ht.perl  # syntax check
-	latex $(tex_args) mkht-scripts.4ht
+	latex $(tex_opts) mkht-scripts.4ht
 
 $(tex4ht_moz_derived): tex4ht-moz.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_oo_xtpipes_derived): tex4ht-oo-xtpipes.tex $(common)
-	htlatex $< "xhtml,next,3" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,next,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_ooffice_derived): tex4ht-ooffice.tex $(common)
-	htlatex $< "xhtml,4,sections+" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,4,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
-	htlatex $< "xhtml,4,sections+" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,4,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_options_derived): tex4ht-options.tex $(common)
 	mk4ht xhlatex $<
@@ -224,28 +234,28 @@ $(tex4ht_sty_derived): tex4ht-sty.tex $(common)
 	ht tex $<
 
 $(tex4ht_svg_derived): tex4ht-svg.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_t4ht_derived): tex4ht-t4ht.tex $(common)
 	ht tex $<
 
 $(tex4ht_tei_derived): tex4ht-tei.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_unicode_derived): tex4ht-unicode.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_word_derived): tex4ht-word.tex $(common)
-	xhlatex $< "html,3,sections+" "" "-d./" $(tex_args)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_xhtml_xtpipes_derived): tex4ht-xhtml-xtpipes.tex $(common)
-	htlatex $< "xhtml,3,next" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,3,next" "" "-d./" $(tex_1opt)
 
 $(tex4ht_xhtmml_xtpipes_derived): tex4ht-xhtmml-xtpipes.tex $(common)
-	htlatex $< "xhtml,3,next" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,3,next" "" "-d./" $(tex_1opt)
 
 $(xtpipes_derived): xtpipes.tex $(common)
-	htlatex $< "xhtml,3,next" "" "-d./" $(tex_args)
+	htlatex $< "xhtml,3,next" "" "-d./" $(tex_1opt)
 # Derived files are generated in . and $(wd).
 # (corresponds to src/java for xtpipes.tex)
 
@@ -261,6 +271,8 @@ update = cp -pr
 mkdir = install -d
 #
 update: all
+	$(update) $(tex4ht_cond4ht_derived) $(dest_texmf)/
+#
 	$(update) docbook.4xt $(dest_xtpipes)/
 	$(update) DbUtilities.java $(dest_java)/
 #
