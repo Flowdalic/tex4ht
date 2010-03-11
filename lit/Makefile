@@ -1,10 +1,11 @@
 # $Id$
 # This file is public domain.  Originally written 2010, Karl Berry.
 # 
+# todo: look for xx below
 # todo: ohio-state url in tex4ht-cond4ht.tex
 
 wd = work.dir
-tex_opts = --interaction=nonstopmode --file-line-error
+tex_opts = --interaction=nonstopmode #--file-line-error
 tex_1opt = "$(tex_opts)"
 
 default: all
@@ -12,6 +13,9 @@ default: all
 common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
+
+derived += $(tex4ht_c_derived)
+tex4ht_c_derived = tex4ht.c
 
 derived += $(tex4ht_cond4ht_derived)
 tex4ht_cond4ht_derived = cond4ht.4ht mktex4ht.4ht
@@ -25,7 +29,7 @@ tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
 derived += $(tex4ht_env_derived)
 tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
 
-derived += $(tex4ht_fonts_noncjk_derived)
+#xx derived += $(tex4ht_fonts_noncjk_derived)
 tex4ht_fonts_noncjk_derived = SearchFonts.java cmtex.htf # and thousands more
 # also, whither lm-htf.tex?  whither tmp?  how change target dir?
 
@@ -44,7 +48,7 @@ tex4ht_html0_derived = html0.4ht
 derived += $(tex4ht_html32_derived)
 tex4ht_html32_derived = html32.4ht html32-math.4ht 
 
-derived += $(tex4ht_html4_derived)
+#xx derived += $(tex4ht_html4_derived)
 tex4ht_html4_derived = \
   html4.4ht html4-math.4ht html4-uni.4ht onmouseover.4ht exerqz.4ht
 
@@ -57,8 +61,8 @@ tex4ht_info_ooffice_derived = infoof.4ht
 derived += $(tex4ht_info_svg_derived)
 tex4ht_info_svg_derived = infosvg.4ht
 
-#derived += $(tex4ht_info_derived)
-#tex4ht_info_derived = info4ht.4ht
+#xx derived += $(tex4ht_info_derived)
+tex4ht_info_derived = info4ht.4ht
 
 derived += $(tex4ht_javahelp_xtpipes_derived)
 tex4ht_javahelp_xtpipes_derived = javahelp.4xt
@@ -142,6 +146,9 @@ xtpipes_derived = \
 
 # 
 all: $(derived)
+
+$(tex4ht_c_derived): tex4ht-c.tex $(common)
+	tex $(tex_opts) $<
 
 $(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex $(common)
 	tex $(tex_opts) $<
@@ -265,12 +272,15 @@ dest_texmf = $(destdir)/texmf/tex/generic/tex4ht
 dest_4ht = $(destdir)/texmf/tex4ht
 dest_base = $(dest_4ht)/base
 dest_xtpipes = $(dest_4ht)/xtpipes
-dest_java = $(destdir)/src/java
+dest_src = $(destdir)/src
+dest_java = $(dest_src)/java
 #
 update = cp -pr
 mkdir = install -d
 #
 update: all
+	$(update) $(tex4ht_c_derived) $(dest_src)/
+#
 	$(update) $(tex4ht_cond4ht_derived) $(dest_texmf)/
 #
 	$(update) docbook.4xt $(dest_xtpipes)/
@@ -331,7 +341,7 @@ update: all
 #
 	$(update) $(tex4ht_svg_derived) $(dest_texmf)/
 #
-	$(update) $(tex4ht_t4ht_derived) $(destdir)/src/
+	$(update) $(tex4ht_t4ht_derived) $(dest_src/
 #
 	$(update) $(tex4ht_tei_derived) $(dest_texmf)/
 #
@@ -354,7 +364,7 @@ update: all
 clean: mostlyclean
 	rm -rf $(wd)
 	rm -f *.4ct *.4tc *.aux *.css *.dvi *.idv *.lg *.log *.tmp *.trc *.xref
-	rm -f *.html *.png
+	rm -f *.4es *.bat *.unix *.htf *.html *.png tmp
 
 clean1:
 	rm -f $(f).[0-s]* $(f).[u-z]* $(f).trc
