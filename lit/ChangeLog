@@ -1,3 +1,8 @@
+2010-03-12  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-bibtex2.tex: license notices.
+	* Makefile: add derivations.
+
 2010-03-11  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-c.tex: license notices.

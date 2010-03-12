@@ -14,6 +14,9 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_bibtex2_derived)
+tex4ht_bibtex2_derived = bibtex2.4ht
+
 derived += $(tex4ht_c_derived)
 tex4ht_c_derived = tex4ht.c
 
@@ -147,6 +150,9 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
+$(tex4ht_bibtex2_derived): tex4ht-bibtex2.tex $(common)
+	latex $(tex_opts) $<
+
 $(tex4ht_c_derived): tex4ht-c.tex $(common)
 	tex $(tex_opts) $<
 
@@ -279,6 +285,8 @@ update = cp -pr
 mkdir = install -d
 #
 update: all
+	$(update) $(tex4ht_bibtex2_derived) $(dest_src)/
+#
 	$(update) $(tex4ht_c_derived) $(dest_src)/
 #
 	$(update) $(tex4ht_cond4ht_derived) $(dest_texmf)/
