@@ -1,3 +1,7 @@
+2010-03-17  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-auto-script.tex: unused, it seems.
+
 2010-03-12  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-bibtex2.tex: license notices.
