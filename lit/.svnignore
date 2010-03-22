@@ -1,4 +1,6 @@
 lm-htf.tex
+m-tex4ht.tex
+mktex4ht.cnf
 tex4ht.dir
 tex4ht.env
 tex4ht.env-unix

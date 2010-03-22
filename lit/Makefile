@@ -14,6 +14,10 @@ common = tex4ht-cpright.tex common.tex common-code.tex
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_4ht_derived)
+tex4ht_4ht_derived = book.4ht
+# and many, many more.
+
 derived += $(tex4ht_bibtex2_derived)
 tex4ht_bibtex2_derived = bibtex2.4ht
 
@@ -149,6 +153,9 @@ xtpipes_derived = \
 
 # 
 all: $(derived)
+
+$(tex4ht_4ht_derived): tex4ht-4ht.tex $(common)
+	tex $(tex_opts) $<
 
 $(tex4ht_bibtex2_derived): tex4ht-bibtex2.tex $(common)
 	latex $(tex_opts) $<
