@@ -2104,9 +2104,9 @@ and \''\Tg'.
 \let\:temp\do
   \def\do#1{% 
     \patchcmd#1% 
-      {\color@begingroup} 
-      {\color@begingroup\toggletrue{blx@footnote}} 
-      {\togglefalse{blx@tempa}\listbreak} 
+      {\color@begingroup}% 
+      {\color@begingroup\toggletrue{blx@footnote}}% 
+      {\togglefalse{blx@tempa}\listbreak}%
       {}}% 
   \docsvlist{% 
     \@footnotetext,%          latex 
@@ -2123,7 +2123,7 @@ and \''\Tg'.
    \pend:def\blx@bibinit{%
        \HAssign\shorthands:cnt=0
        \NewConfigure{printfield-shorthand}{2}%
-       \Configure{printfield-shorthand}
+       \Configure{printfield-shorthand}%
          {\gHAdvance\shorthands:cnt by 1\relax
           \ifnum \shorthands:cnt=1 \a:printshorthands
           \else                    \c:printshorthands \fi
@@ -2141,12 +2141,15 @@ and \''\Tg'.
 \<config biblatex\><<<
 \def\nolinkurl{\o:url:}
 >>>
-
+% CVR 2010/03/31
+% \bib@field@entrykey initialized with empty value
+% 
 \<appto blx mkhyperref\><<<
 \let\blx@anchors\@empty 
+\let\bib@field@entrykey\@empty
 \protected\def\blx@anchor{% 
-  \xifinlist{|</the /c@refsection @|>\bib@field@entrykey}{\blx@anchors} 
-    {} 
+  \xifinlist{|</the /c@refsection @|>\bib@field@entrykey}{\blx@anchors}% 
+    {}% 
     {\listxadd\blx@anchors{|</the /c@refsection @|>\bib@field@entrykey}% 
      \hyper:natanchorstart{|</the /c@refsection @|>\bib@field@entrykey}% 
      \hyper:natanchorend}}
@@ -2155,19 +2158,19 @@ and \''\Tg'.
 \<appto blx mkhyperref\><<<
 \protected\def\blx@bibhyperref{%
    \@ifnextchar[%]
-     {\blx@bibhyperref@i}
+     {\blx@bibhyperref@i}%
      {\blx@bibhyperref@i[\bib@field@entrykey]}}%
 \long\def\blx@bibhyperref@i[#1]#2{%
    \hyper:natlinkstart{|</the /c@refsection @|>#1}%
-   #2\hyper:natlinkend}
+   #2\hyper:natlinkend}%
 \protected\long\def\blx@bibhyperlink#1#2{%
    \hyper:natlinkstart{|</the /c@refsection :|>#1}%
-   #2\hyper:natlinkend}
+   #2\hyper:natlinkend}%
 \protected\long\def\blx@bibhypertarget#1#2{%
    \@bsphack
    \hyper:natanchorstart{|</the /c@refsection :|>#1}%
    \@esphack
-   #2\hyper:natanchorend}
+   #2\hyper:natanchorend}%
 >>>
 
 
@@ -2205,10 +2208,10 @@ X\the\c@refsection --%:
 \<config biblatex\><<<
 \pend:def\blx@bibliography{% 
   \pend:def\blx@bibinit{%
-     \ConfigureList{thebibliography}
-        {\a:thebibliography}
-        {\b:thebibliography}
-        {\c:thebibliography}
+     \ConfigureList{thebibliography}%
+        {\a:thebibliography}%
+        {\b:thebibliography}%
+        {\c:thebibliography}%
         {\d:thebibliography}%
      \csname onthebibliography:list\endcsname  
   }%
@@ -2289,8 +2292,8 @@ X\the\c@refsection --%:
       \NewConfigure{printfield-#2}{2}%
       \a:printfield{printfield-#2}%
    \fi
-   \Configure{blx@unit}
-       {\csname a:printfield-#2\endcsname}
+   \Configure{blx@unit}%
+       {\csname a:printfield-#2\endcsname}%
        {\csname b:printfield-#2\endcsname}%
    \csname o:\string\blx@printfield:\endcsname[#1]{#2}%   
 }
@@ -2312,8 +2315,8 @@ X\the\c@refsection --%:
       \NewConfigure{printtext-#2}{2}%
       \a:printfield{printtext-#2}%
    \fi
-   \Configure{blx@unit}
-       {\csname a:printtext-#2\endcsname}
+   \Configure{blx@unit}%
+       {\csname a:printtext-#2\endcsname}%
        {\csname b:printtext-#2\endcsname}%
    \csname o:\string\blx@printtext:\endcsname[#1]{#2}%   
 }
@@ -2330,8 +2333,8 @@ X\the\c@refsection --%:
       \NewConfigure{bibstring-#2}{2}%
       \a:printfield{bibstring-#2}%
    \fi
-   \Configure{blx@unit}
-       {\csname a:bibstring-#2\endcsname}
+   \Configure{blx@unit}%
+       {\csname a:bibstring-#2\endcsname}%
        {\csname b:bibstring-#2\endcsname}%
    \csname o:\string\blx@bibstring:\endcsname[#1]{#2}%   
 }
@@ -2346,8 +2349,8 @@ X\the\c@refsection --%:
       \NewConfigure{bibcpstring-#2}{2}%
       \a:printfield{bibcpstring-#2}%
    \fi
-   \Configure{blx@unit}
-       {\csname a:bibcpstring-#2\endcsname}
+   \Configure{blx@unit}%
+       {\csname a:bibcpstring-#2\endcsname}%
        {\csname b:bibcpstring-#2\endcsname}%
    \csname o:\string\blx@bibcpstring:\endcsname[#1]{#2}%   
 }
@@ -2363,8 +2366,8 @@ X\the\c@refsection --%:
       \NewConfigure{biblcstring-#2}{2}%
       \a:printfield{biblcstring-#2}%
    \fi
-   \Configure{blx@unit}
-       {\csname a:biblcstring-#2\endcsname}
+   \Configure{blx@unit}%
+       {\csname a:biblcstring-#2\endcsname}%
        {\csname b:biblcstring-#2\endcsname}%
    \csname o:\string\blx@biblcstring:\endcsname[#1]{#2}%   
 }
@@ -2378,8 +2381,8 @@ X\the\c@refsection --%:
       \NewConfigure{bibucstring-#2}{2}%
       \a:printfield{bibucstring-#2}%
    \fi
-   \Configure{blx@unit}
-       {\csname a:bibucstring-#2\endcsname}
+   \Configure{blx@unit}%
+       {\csname a:bibucstring-#2\endcsname}%
        {\csname b:bibucstring-#2\endcsname}%
    \csname o:\string\blx@bibucstring:\endcsname[#1]{#2}%   
 }
@@ -2406,7 +2409,7 @@ X\the\c@refsection --%:
 >>>
 
 \<config biblatex\><<<
-\NewConfigure{biblatex-style}[2]{
+\NewConfigure{biblatex-style}[2]{%
    \def\:temp{#1}%
    \ifx \:temp\blx@cbxfile 
       #2%
@@ -2423,8 +2426,8 @@ X\the\c@refsection --%:
 
 
 \<shared config biblatex\><<<
-\append:def\blx@bibinit{\a:bibinit}
-\NewConfigure{bibinit}{1}
+\append:def\blx@bibinit{\a:bibinit}%
+\NewConfigure{bibinit}{1}%
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
@@ -2453,7 +2456,7 @@ X\the\c@refsection --%:
   \def\finentrypunct{\strut}% 
   \ifnum\bbx@head<\tw@ 
     \usebibmacro{entryhead:full}% 
-    \ifbool{bbx:entrykey} 
+    \ifbool{bbx:entrykey}% 
       {\def\newblockpunct{% 
          \nobreak\hskip\z@skip\strut 
          \hfill\penalty100\hskip1em\relax 
@@ -2462,7 +2465,7 @@ X\the\c@refsection --%:
          \parfillskip\z@\finalhyphendemerits\z@ 
          \par\nobreak}% 
        \newblock 
-       \printfield{entrykey}} 
+       \printfield{entrykey}}% 
       {}% 
   \else 
     \usebibmacro{entryhead:name}% 
@@ -2515,8 +2518,11 @@ The following macros were not initialized, hence done now:
 
  \Verb=\let\blx@resetpuncthook\@empty=
  \Verb=\let\blx@csq@ifkernmark\@empty=
+ \Verb=\let\bib@field@entrykey\@empty=
+
 %
-% Bug posted by <nicholas.cole@gmail.com>
+% Bug posted by Nicholas Cole <nicholas.cole@gmail.com>
+% Bug posted by Joanna Bryson <joanna.j@gmail.com>
 %
 
 \<config biblatex\><<<
@@ -2524,8 +2530,8 @@ The following macros were not initialized, hence done now:
 \let\blx@csq@ifkernmark\@empty
 \def\blx@begunit{% 
   \toggletrue{blx@tempa}% 
-  \iftoggle{blx@insert} 
-    {\iftoggle{blx@unit} 
+  \iftoggle{blx@insert}% 
+    {\iftoggle{blx@unit}% 
        {\begingroup 
           \let\blx@begunit\@empty 
           \let\blx@endunit\@empty 
@@ -2534,25 +2540,25 @@ The following macros were not initialized, hence done now:
         \global\togglefalse{blx@unit}% 
         \togglefalse{blx@tempa}} 
        {\blx@postpunct}% 
-     \iftoggle{blx@block} 
+     \iftoggle{blx@block}% 
        {\begingroup 
           \let\blx@begunit\@empty 
           \let\blx@endunit\@empty 
           \newblockpunct 
         \endgroup 
         \global\togglefalse{blx@block}% 
-        \togglefalse{blx@tempa}} 
-       {}} 
+        \togglefalse{blx@tempa}}%
+       {}}% 
     {}% 
   \blx@postpunct 
   \blx@resetpuncthook 
-  \iftoggle{blx@tempa} 
-    {} 
+  \iftoggle{blx@tempa}% 
+    {}% 
     {\global\togglefalse{blx@insert}}% 
   \csname a:blx@unit\endcsname
   \blx@leavevmode 
   \blx@csq@ifkernmark 
-    {} 
+    {}% 
     {\penalty\@M 
      \hskip-\blx@unitmark\relax 
      \hskip\blx@unitmark\relax}% 
@@ -2564,30 +2570,30 @@ The following macros were not initialized, hence done now:
 \<\><<<
 \def\blx@begunit{% 
   \toggletrue{blx@tempa}% 
-  \iftoggle{blx@insert} 
-    {\iftoggle{blx@unit} 
+  \iftoggle{blx@insert}% 
+    {\iftoggle{blx@unit}% 
        {\begingroup 
           \let\blx@begunit\@empty 
           \let\blx@endunit\@empty 
           \blx@unitpunct 
         \endgroup 
         \global\togglefalse{blx@unit}% 
-        \togglefalse{blx@tempa}} 
+        \togglefalse{blx@tempa}}% 
        {}% 
-     \iftoggle{blx@block} 
+     \iftoggle{blx@block}% 
        {\begingroup 
           \let\blx@begunit\@empty 
           \let\blx@endunit\@empty 
           \newblockpunct 
         \endgroup 
         \global\togglefalse{blx@block}% 
-        \togglefalse{blx@tempa}} 
-       {}} 
+        \togglefalse{blx@tempa}}% 
+       {}}% 
     {}% 
   \blx@postpunct 
   \blx@resetpuncthook 
-  \iftoggle{blx@tempa} 
-    {} 
+  \iftoggle{blx@tempa}% 
+    {}% 
     {\global\togglefalse{blx@insert}}% 
   \csname a:blx@unit\endcsname
   \blx@leavevmode 
@@ -23601,6 +23607,133 @@ Note: we should distinguish between
 
 
 
+% \<frenchb.4ht\><<<
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+% % frenchb.4ht                           |version %
+% % Copyright (C) |CopyYear.2001.       Eitan M. Gurari         %
+% |<TeX4ht copyright|>
+% |<declare frenchb shorthand|>
+% |<frenchb nbsp|>
+% \Hinput{frenchb}
+% \endinput
+% >>>        \AddFile{8}{frenchb}
+
+
+
+
+% \<declare frenchb shorthand\><<<
+% \def\frenchb:shorthand#1#2#3#4{%
+%   \ifhmode
+%      \ifdim \lastskip >\z@ \unskip \penalty \@M
+%         \csname a:#1-#2\endcsname#3\csname b:#1-#2\endcsname
+%      \else
+%         \csname a:#1-#2\endcsname#4\csname b:#1-#2\endcsname
+%   \fi \fi }
+% >>>
+
+
+
+
+% \<frenchb nbsp\><<<
+% \def\:temp{\leavevmode \nobreak \csname a:system-nbsp\endcsname\ \csname 
+%                   b:system-nbsp\endcsname}
+% \expandafter\HLet\csname \system@group @sh@\string ~@\endcsname=\:temp
+% \expandafter \ifx \csname FDP@colonspace\endcsname\relax
+%   |<pre 2001/09/09 v1.5g frenchb|>
+% \else
+%   |<since 2001/09/09 v1.5g frenchb|>
+% \fi
+% \AtBeginDocument{%
+%  \def\:temp{\frenchb:shorthand{frenchb}{thinspace}
+%                               {\thinspace }{\FDP@thinspace}\string ;}%
+%  \expandafter\HLet\csname\language@group @sh@\string ;@\endcsname=\:temp
+%  \def\:temp{\frenchb:shorthand{frenchb}{thinspace}
+%                               {\thinspace }{\FDP@thinspace}\string !}%
+%  \expandafter\HLet\csname\language@group @sh@\string !@\endcsname=\:temp
+%  \def\:temp{\frenchb:shorthand{frenchb}{thinspace}
+%                               {\thinspace }{\FDP@thinspace}\string ?}%
+%  \expandafter\HLet\csname\language@group @sh@\string ?@\endcsname=\:temp
+% }
+% \NewConfigure{frenchb-nbsp}{2}
+% \NewConfigure{frenchb-thinspace}{2}
+% \NewConfigure{system-nbsp}{2}
+% >>>
+
+% \<pre 2001/09/09 v1.5g frenchb\><<<
+% \AtBeginDocument{%
+%  \def\:temp{\frenchb:shorthand{frenchb}{nbsp}{\ }{\FDP@space}\string :}%
+%  \expandafter\HLet\csname\language@group @sh@\string :@\endcsname=\:temp
+% }
+% >>>
+
+
+% \<since 2001/09/09 v1.5g frenchb\><<<
+% \AtBeginDocument{%
+%  \def\:temp{\frenchb:shorthand{frenchb}{nbsp}{\ }{\FDP@colonspace}\string :}%
+%  \expandafter\HLet\csname\language@group @sh@\string :@\endcsname=\:temp
+% }
+% >>>
+
+
+
+% \Verbatim
+% \declare@shorthand{frenchb}{:}{%
+%     \ifhmode
+%       \ifdim\lastskip>\z@
+%         \unskip\penalty\@M\
+%       \else
+%         \FDP@space
+%       \fi
+%     \fi
+%     \string:}
+% \EndVerbatim
+
+
+% \Verbatim
+% \declare@shorthand{french}{:}{%
+%     \ifhmode
+%       \ifdim\lastskip>\z@
+%         \unskip\penalty\@M\Fcolonspace
+%       \else
+%         \FDP@colonspace
+%       \fi
+%     \fi
+%     \string:}
+% \EndVerbatim
+
+
+% The following is for code such as 
+
+% \Verbatim
+%  \documentclass{article}
+%   \usepackage[francais]{babel}
+%  \begin{document}
+
+%  \tableofcontents
+ 
+%  \section{Ma premi{\`e}re section !}
+ 
+%  \section{Culture : d{\'e}sillusions}
+
+%  \section{Culture :d{\'e}sillusions} 
+%  \end{document}
+% \EndVerbatim
+
+
+% \<frenchb nbsp\><<<
+% \catcode`\:=13
+% \expandafter\let\csname protect\string:\endcsname=:
+% \expandafter\def\csname active\string
+%     :prefix\endcsname#1{\protect#1\ifx#1:{}\fi}
+% \catcode`\:=11
+% >>>
+
+
+% \`=With the package « \usepackage[francais]{babel} », every `;' `:' ...
+%  must be preceded by an unbreakable space.  This works okay for the
+%  input `a:' and `a :', but for `a~:' TeX4ht introduces _2_ unbreakable
+%  spaces instead of one.=
+
 \<frenchb.4ht\><<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 % frenchb.4ht                           |version %
@@ -23632,10 +23765,10 @@ Note: we should distinguish between
 \def\:temp{\leavevmode \nobreak \csname a:system-nbsp\endcsname\ \csname 
                   b:system-nbsp\endcsname}
 \expandafter\HLet\csname \system@group @sh@\string ~@\endcsname=\:temp
-\expandafter \ifx \csname FDP@colonspace\endcsname\relax
-  |<pre 2001/09/09 v1.5g frenchb|>
-\else
+\expandafter \ifx \csname FDP@space\endcsname\relax
   |<since 2001/09/09 v1.5g frenchb|>
+\else
+  |<pre 2001/09/09 v1.5g frenchb|>
 \fi
 \AtBeginDocument{%
  \def\:temp{\frenchb:shorthand{frenchb}{thinspace}
@@ -23727,6 +23860,8 @@ The following is for code such as
  must be preceded by an unbreakable space.  This works okay for the
  input `a:' and `a :', but for `a~:' TeX4ht introduces _2_ unbreakable
  spaces instead of one.=
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{german.sty}
