@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% biblatex.4ht                          2010-03-31-15:16 %
+% biblatex.4ht                          2010-07-18-13:45 %
 % Copyright (C) 2007--2010       Eitan M. Gurari         %
 %                                                        %
 % This work may be distributed and/or modified under the %
@@ -24,7 +24,7 @@
 %                                        tex4ht@tug.org  %
 %                             http://www.tug.org/tex4ht  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{version 2010-03-31-15:16}
+\immediate\write-1{version 2010-07-18-13:45}
 
    \ifx \blx@startbib\:UnDef
       \pend:def\blx@shorthands{%
@@ -210,7 +210,8 @@
 \NewConfigure{bibinit}{1}%
 
    \let\blx@anchors\@empty
-\let\bib@field@entrykey\@empty
+%\let\bib@field@entrykey\@empty
+\def\bib@field@entrykey{\thefield{entrykey}}%
 \protected\def\blx@anchor{%
   \xifinlist{X\the\c@refsection -%@
 \bib@field@entrykey}{\blx@anchors}%
