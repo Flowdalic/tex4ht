@@ -2143,10 +2143,16 @@ and \''\Tg'.
 >>>
 % CVR 2010/03/31
 % \bib@field@entrykey initialized with empty value
+%
+% CVR 2010/07/18
+% null initialization will result in wrong hyperlinking of citations
+% with respective bibitems.  Therefore, \bib@field@entrykey is defined
+% as the entrykey which is the correct value.
 % 
 \<appto blx mkhyperref\><<<
 \let\blx@anchors\@empty 
-\let\bib@field@entrykey\@empty
+%\let\bib@field@entrykey\@empty
+\def\bib@field@entrykey{\thefield{entrykey}}%
 \protected\def\blx@anchor{% 
   \xifinlist{|</the /c@refsection @|>\bib@field@entrykey}{\blx@anchors}% 
     {}% 
@@ -2322,8 +2328,6 @@ X\the\c@refsection --%:
 }
 \expandafter\HLet\csname\string\blx@printtext\endcsname\:tempc
 >>>
-
-
 
 
 
