@@ -388,7 +388,7 @@ Separators under Windows) have been changed to forward slash.  This is
 per the suggestion of Akira Kakuto, primary Windows developer for
 @TeX{} Live.
 
-@item@code{\version} has been redefined.
+@item @code{\version} has been redefined.
 
 @item New functions, @code{\ScriptFileName} and @code{\AddExtn} have
 been defined to add file names of the script at the top of each script
