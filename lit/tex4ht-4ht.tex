@@ -2775,12 +2775,23 @@ varioref.sty\EndLink
 \let\ltx@label\label
 >>>
 
+Bug \#130: Optional argument of a sectional unit does not appear as
+the title when \Verb+\nameref+ command is used in a document. The
+problem was \Verb+\NR:Title+ expands to the real heading of the
+sectional unit. It has been fixed now.
+%
+% CVR 2010/09/4
+% 
+
 \<nameref configurations\><<<
 \def\prf:label{{\ifx \NR:Title\:UnDef \else \NR:Title\fi}%
                {\ifx \NR:Type\:UnDef \else \NR:Type .1\fi}{}}%
 \let\NR:StartSec\:StartSec
+\let\NR:no@sect\no@sect
+\def\no@sect#1#2#3#4#5#6[#7]#8{\gdef\NR:Title{\a:newlabel{#7}}%
+     \NR:no@sect{#1}{#2}{#3}{#4}{#5}{#6}[#7]{#8}}
 \def\:StartSec#1#2#3{%
-   \gdef\NR:Title{\a:newlabel{#3}}%
+%   \gdef\NR:Title{\a:newlabel{#3}}%
    \gdef\NR:Type{#1}%
    \NR:StartSec{#1}{#2}{#3}%
    \gdef\@currentlabelname{#1}%

@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% nameref.4ht                           Version 1.1 %
-% Copyright (C) 2005--2009       Eitan M. Gurari         %
-% Copyright 2009 TeX Users Group 
+% nameref.4ht                           2010-09-04-21:02 %
+% Copyright (C) 2005--2010       Eitan M. Gurari         %
+%                                                        %
 % This work may be distributed and/or modified under the %
 % conditions of the LaTeX Project Public License, either %
 % version 1.3c of this license or (at your option) any   %
@@ -13,7 +13,7 @@
 %                                                        %
 % This work has the LPPL maintenance status "maintained".%
 %                                                        %
-% The Current Maintainer of this work                    %
+% This Current Maintainer of this work                   %
 % is the TeX4ht Project <tex4ht@tug.org>.                %
 %                                                        %
 % If you modify this program your changing its signature %
@@ -24,14 +24,17 @@
 %                                        tex4ht@tug.org  %
 %                             http://www.tug.org/tex4ht  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{Version 1.1}
+\immediate\write-1{version 2010-09-04-21:02}
 
    \let\ltx@label\label
 \def\prf:label{{\ifx \NR:Title\:UnDef \else \NR:Title\fi}%
                {\ifx \NR:Type\:UnDef \else \NR:Type .1\fi}{}}%
 \let\NR:StartSec\:StartSec
+\let\NR:no@sect\no@sect
+\def\no@sect#1#2#3#4#5#6[#7]#8{\gdef\NR:Title{\a:newlabel{#7}}%
+     \NR:no@sect{#1}{#2}{#3}{#4}{#5}{#6}[#7]{#8}}
 \def\:StartSec#1#2#3{%
-   \gdef\NR:Title{\a:newlabel{#3}}%
+%   \gdef\NR:Title{\a:newlabel{#3}}%
    \gdef\NR:Type{#1}%
    \NR:StartSec{#1}{#2}{#3}%
    \gdef\@currentlabelname{#1}%
