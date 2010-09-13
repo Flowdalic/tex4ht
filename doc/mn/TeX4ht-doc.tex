@@ -23,7 +23,7 @@
 \immediate\write16{!!!!!!needs: TWO COMPILATIONS to get correct index!!!!!!!!}
 \immediate\write16{!!!!!!checkmn in-messages out-clean-messages!!!!!!!!}
 \immediate\write16{!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!}
-gowww\immediate\write16{!!!!!!cd /home/httpd/html/applications/tex4ht!!!!!!!!}
+\immediate\write16{!!!!!!cd /home/httpd/html/applications/tex4ht!!!!!!!!}
 \immediate\write16{!!!!!!lynx http://www.cse.ohio-state.edu/\string ~gurari/tex4ht/tex4ht-all.zip}
 
 
@@ -3345,6 +3345,13 @@ John Plaice
 
 \Part{TeX4ht: LaTeX and TeX for Hypertext}
 
+\TeX4ht was created by Eitan Gurari at Ohio State University. Eitan died
+unexpectedly in June 2009; we dedicate future development to his memory.
+
+The new \TeX4ht home page is http://tug.org/tex4ht.  Please see that
+page for current development information.  Work towards a first release
+is underway, but will take time to complete.  Please forgive broken
+links and other problems with this documentation in the meantime.
 
 \TeX4ht is a highly configurable \TeX-based authoring system 
 dedicated mainly to 
@@ -3356,9 +3363,10 @@ AMS style files in particular.
 
 Pre-tailored configurations are offered for different
 \Link[\jobname-commands.html]{}{}output formats\EndLink{}, including
-(X)HTML, MathML, OpenDocument, and DocBook.  This document and the utility code
-are available for downloading in \Link[tex4ht-all.zip]{}{}zipped
-format\EndLink{}.
+(X)HTML, MathML, OpenDocument, and DocBook. 
+%This document and the utility code
+%are available for downloading in \Link[tex4ht-all.zip]{}{}zipped
+%format\EndLink{}.
 
 % (alternative sites: \Link[\WWW
 % tex4ht-all.zip]{}{}osu\EndLink \tugOnOff{, \Link[\tugHOME
@@ -4268,11 +4276,8 @@ within braces (for instance,
 
 \NextFile{bugfixes.html}\HPage{}
 
-%This is an incorrect site for the bug fixes home page. 
-
-Please proceed
-to \Link[\WWW bugfixes.html]{}{}osu\EndLink{} or
-\Link[\tugHOME bugfixes.html]{}{}tug\EndLink.
+The next release is in preparation.  See http://tug.org/tex4ht
+for current status and information.
 \EndHPage{}
 
 
@@ -4287,17 +4292,14 @@ print formats, namely, through variations of the command
     option2}" "{\it options3}" "{\it options4}"}'.  For instance,
 
 \Verbatim
-htlatex  filename
-htlatex  filename "html,2,info"  "dbcs/!"
-htlatex  filename "foo,frames"   ""            "-p"
-htlatex  filename ""             " -ciso2htf"  ""   "-translate-file=il2-pl"
-xhlatex  filename 
-mzlatex  filename 
-oolatex  filename 
+htlatex  filename  # generate HTML
+xhlatex  filename  # generate XHTML
 \EndVerbatim
 
-In some platforms the double quotes should be replaced with  single
-right-quotes, and in some cases they might be omitted.
+% (since these are not in current TL, leave them out for now; should restore)
+% mzlatex  filename  # XHTML with MathML
+% oolatex  filename  # OpenOffice XML with MathML
+% dbmlatex filename  # Docbook XML with MathML
 
 For details, visit the
 \NextFile{\jobname-commands.html}\HPage<hts>{calling commands}
@@ -5120,15 +5122,15 @@ The main features of \TeX4ht are described in:
 \List{*}
 \item 
 % \Picture{http://www.awl.com/coverimage/0201433117.jpg align="right"}
- M.~Goosen and
+ M.~Goossens and
  S.~Rahtz with E.~Gurari, R.~Moore, and R.~Sutor,
- {\sl The La\TeX{} Web Companion}, Addison-Wesley, 1999.
+ {\sl The \LaTeX{} Web Companion}, Addison-Wesley, 1999.
 %
-\item
-Fabrice Popineau,
-\Link[http://www.gutenberg.eu.org/pub/GUTenberg/publicationsPDF/37-popineau.pdf]{}{}{\sl Affichez vos documents \LaTeX{} sur le Web avec \TeX4ht}\EndLink,
-Cahiers
-              GUTenberg 37--38, December 2000, 5--43 (French, PDF).
+% doa
+% \item
+% Fabrice Popineau,
+% \Link[http://www.gutenberg.eu.org/pub/GUTenberg/publicationsPDF/37-popineau.pdf]{}{}{\sl Affichez vos documents \LaTeX{} sur le Web avec \TeX4ht}\EndLink,
+% Cahiers GUTenberg 37--38, December 2000, 5--43 (French, PDF).
 %
 \item
 Gustavo Cevolani,
@@ -10990,20 +10992,18 @@ Project Public License\EndLink{} (LPPL).
 
 \DocPart{Acknowledgment}
 
-I am very grateful for the suggestions, contributions, and bug reports
+Eitan gratefully acknowledges the suggestions, contributions, and bug reports
 offered by many people. In particular, thanks go to Carmen Fierro,
 Piotr Grabowski, Gertjan Klein, Sebastian Rahtz, and Philip Viton for
 extensive feedback and help at early stages of this project.
 
 This work was partially sponsored by NSF grant IIS-0312487.
 
-\Sign{Eitan M. Gurari\HCode{<br />}\Link
-    [mailto:gurari@cse.ohio-state.edu]{}{}gurari@cse.ohio-state.edu\EndLink
-   {}}{\ifcase \month \or
+\Sign{http://tug.org/tex4ht}
+   {\ifcase \month \or
    January \or February \or March \or April \or May \or June \or July
    \or August \or September \or October \or November \or December \fi
    \the\day, \the\year}
-
 
 
 
