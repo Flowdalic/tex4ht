@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% biblatex.4ht                          2010-07-18-13:45 %
+% biblatex.4ht                          2010-09-26-22:40 %
 % Copyright (C) 2007--2010       Eitan M. Gurari         %
 %                                                        %
 % This work may be distributed and/or modified under the %
@@ -24,7 +24,7 @@
 %                                        tex4ht@tug.org  %
 %                             http://www.tug.org/tex4ht  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{version 2010-07-18-13:45}
+\immediate\write-1{version 2010-09-26-22:40}
 
    \ifx \blx@startbib\:UnDef
       \pend:def\blx@shorthands{%
@@ -44,10 +44,6 @@
 \NewConfigure{@shorthands}[1]{\concat:config\a:@shorthands{#1}}
 \let\a:@shorthands\empty
 \def\nolinkurl{\o:url:}
-\def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
-  \blx@warning@noline {Page references have changed.\MessageBreak
-    Rerun to get references right}\@tempswatrue \blx@reruntrue \fi
-  \@nameuse {blx@rerun}}
 \pend:def\blx@bibliography{%
   \pend:def\blx@bibinit{%
      \ConfigureList{thebibliography}%
