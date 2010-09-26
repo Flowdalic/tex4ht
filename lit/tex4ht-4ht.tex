@@ -114,7 +114,8 @@
                 \input tex4ht.sty
                 \Preamble{html,th4,family,sections+,xhtml,next}
                 \Configure{@HEAD}{\HCode{<link rev="made" 
-                      href="mailto:gurari@cse.ohio-state.edu" />}}
+%                      href="mailto:gurari@cse.ohio-state.edu" />}}
+                      href="mailto:tex4ht@tug.org" />}}
 %                \input MyTeX4ht.sty {}%
                 \input ProTex.sty
              \AlProTex{sty,<<<>>>,|,title,list,[],ClearCode}
@@ -2201,13 +2202,24 @@ X\the\c@refsection --%:
 \protected\long\def\blx@bibhyperlink#1#2{#2}
 \protected\long\def\blx@bibhypertarget#1#2{#2}
 >>>
-
-\<config biblatex\><<<
-\def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else 
-  \blx@warning@noline {Page references have changed.\MessageBreak 
-    Rerun to get references right}\@tempswatrue \blx@reruntrue \fi 
-  \@nameuse {blx@rerun}}
->>>
+%
+% 2010/09/26 CVR
+% Kristian Debrabant <Kristian.Debrabant@cs.kuleuven.be> and
+% Christian Fearnot <fearnot@arcor.de> reported that consequent
+% to revision of biblatex to version 0.9d, biblatex.4ht seemed to
+% be broken.  It was true. The problem was the redefined
+% \blx@checksum in biblatex.4ht which was either superfluous or
+% erratic or both. So, I have commented our in biblatex.4ht
+% and decided to use the default definition in the biblatex.sty.
+% Both the bug reporters have told that the modified version
+% solved their problems.
+% 
+% \<config biblatex\><<<
+% \def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else 
+%   \blx@warning@noline {Page references have changed.\MessageBreak 
+%     Rerun to get references right}\@tempswatrue \blx@reruntrue \fi 
+%   \@nameuse {blx@rerun}}
+% >>>
 
 
 
