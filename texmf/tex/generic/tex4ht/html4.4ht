@@ -1,30 +1,22 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% html4.4ht                             Version 1.1 %
-% Copyright (C) 1997--2009       Eitan M. Gurari         %
-% Copyright 2009 TeX Users Group 
-% This work may be distributed and/or modified under the %
-% conditions of the LaTeX Project Public License, either %
-% version 1.3 of this license or (at your option) any    %
-% later version. The latest version of this license is   %
-% in                                                     %
-%   http://www.latex-project.org/lppl.txt                %
-% and version 1.3 or later is part of all distributions  %
-% of LaTeX version 2003/12/01 or later.                  %
-%                                                        %
-% This work has the LPPL maintenance status "maintained".%
-%                                                        %
-% The Current Maintainer of this work                    %
-% is the TeX4ht Project <tex4ht@tug.org>.                %
-%                                                        %
-% If you modify this program your changing its signature %
-% with a directive of the following form will be         %
-% appreciated.                                           %
-%            \message{signature}                         %
-%                                                        %
-%                                        tex4ht@tug.org  %
-%                             http://www.tug.org/tex4ht  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{version Version 1.1}
+% html4.4ht (2010-10-02-08:44), generated from tex4ht-html4.tex
+% Copyright (C) 2009, 2010 TeX Users Group
+% Copyright (C) 1997--2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.\immediate\write-1{version 2010-10-02-08:44}
 
 \exit:ifnot{8859-6,% 
 CJK,% 
@@ -806,12 +798,10 @@ switches of tex4ht.c)
 \def\:gobbleM#1->{}
 \Configure{@HEAD}{\HCode{<meta
     name="generator" content="TeX4ht
-      (http://www.cse.ohio-state.edu/\string
-       ~gurari/TeX4ht/)"\xml:empty>\Hnewline}}
+      (http://www.tug.org/tex4ht/)"\xml:empty>\Hnewline}}
 \Configure{@HEAD}{\HCode{<meta
     name="originator" content="TeX4ht
-      (http://www.cse.ohio-state.edu/\string
-       ~gurari/TeX4ht/)"\xml:empty>\Hnewline
+      (http://www.tug.org/tex4ht/)"\xml:empty>\Hnewline
        <!--\space\expandafter\:gobbleM\meaning
                \Preamble\space-->\Hnewline}}
 
@@ -37425,9 +37415,9 @@ type="reset"\space \space \space onClick="clear()"\space />\Hnewline
 </body> \Hnewline
 </html> \Hnewline
 \Hnewline
-If you know how to fix the function f() above,\Hnewline
+If you know how to fix the function f() above for Netscape,\Hnewline
 without changing the id attribute names, please consider\Hnewline
-emailing the fix to tex4ht@tug.org. Thanks.\Hnewline
+emailing the fix to gurari@cse.ohio-state.edu. Thanks\Hnewline
 ***********************************************************}
 
 \ConfigureList{questions}%
