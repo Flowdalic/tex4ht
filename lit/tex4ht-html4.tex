@@ -1,7 +1,7 @@
 % $Id$
 % Compile 3 times: latex tex4ht-html4
 %           or   xhlatex tex4ht-html4 "html,3,sections+"
-% Copy html.4ht into the work directory before each of the 
+% Copy html4.4ht into the work directory before each of the 
 %            first two compilations
 %
 % Copyright (C) 2009, 2010 TeX Users Group
@@ -480,18 +480,19 @@ last line under some applications.
 Tex4ht pages  published through FrontPage loose the generator metas,
 but not the originator-metas.
 
-
+%
+% 'generator' attribute changed from Eitan's Url to TUG/tex4ht.
+%  CVR 2010/10/02
+% \item 
 
 
 \<meta generator / originator\><<<
 \Configure{@HEAD}{\HCode{<meta  
     name="generator" content="TeX4ht
-      (http://www.cse.ohio-state.edu/\string
-       ~gurari/TeX4ht/)"\xml:empty>\Hnewline}}
+      (http://www.tug.org/tex4ht/)"\xml:empty>\Hnewline}}
 \Configure{@HEAD}{\HCode{<meta  
     name="originator" content="TeX4ht
-      (http://www.cse.ohio-state.edu/\string
-       ~gurari/TeX4ht/)"\xml:empty>\Hnewline
+      (http://www.tug.org/tex4ht/)"\xml:empty>\Hnewline
        <!--\space\expandafter\:gobbleM\meaning
                \Preamble\space-->\Hnewline}}
 >>>
