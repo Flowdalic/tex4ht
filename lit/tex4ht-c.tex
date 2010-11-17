@@ -1177,6 +1177,9 @@ interrupts that are not considered here.
 
 \<KPATHSEA h-include\><<<
 #ifdef KPATHSEA
+#ifdef __MINGW32__
+#define HAVE_BOOLEAN 1
+#endif /* __MINGW32__ */
 #include <kpathsea/config.h>
 #include <kpathsea/c-errno.h>
 #include <kpathsea/c-ctype.h>
@@ -1389,7 +1392,8 @@ static void* r_alloc( q, n )
 
 \<scan job args\><<<
 {      int i;
-       U_CHAR *p, *in_name = "", *out_name = "";
+       U_CHAR *p;
+       const U_CHAR *in_name = "", *out_name = "";
   `<kpathsea arg 0`>
   `<DJGPP gif names for pictorial symbols`>
   if( argc == 1 ){ bad_arg; }
@@ -1542,9 +1546,9 @@ if( *in_name != '\0' ){ `<file = non-piped input file`> }
 
 \<file = non-piped input file\><<<
       BOOL tag;
-job_name_n = (int) strlen((char *)  in_name );
+job_name_n = (int) strlen( in_name );
 job_name = m_alloc(char, job_name_n+6);
-(IGNORED) strcpy((char *) job_name, (char *) in_name);
+(IGNORED) strcpy((char *) job_name, in_name);
 tag = job_name_n < 3;
 if( !tag ){
    tag = !eq_str( job_name+job_name_n-`<dvi ext name length`>,`<dvi ext name`>);
@@ -1626,18 +1630,18 @@ file name. Should have the interface
 \`'char *strcat( (char *, const U_CHAR *) );'.
 
 \<header functions\><<<
-static void strct( ARG_II(char *, U_CHAR *) );
+static void strct( ARG_II(char *, const U_CHAR *) );
 >>>
 
 \<functions\><<<
 `[
 static void strct( str1, str2 ) 
      U_CHAR * str1`;
-     U_CHAR * str2
+     const U_CHAR * str2
 
 ;{   U_CHAR * ch;
    ch = str1 + (int) strlen((char *) str1);
-   (IGNORED) strcpy((char *)  ch, (char *) str2 );
+   (IGNORED) strcpy((char *)  ch, str2 );
 }
 >>>
 
@@ -1754,9 +1758,9 @@ name[n+4] ='\0';
 
 \<name = output file from arg list\><<<
    int tag = 1;
-   int n = (int) strlen((char *)  out_name );
+   int n = (int) strlen( out_name );
 name = m_alloc(char, 6 + n);
-(IGNORED) strcpy((char *) name, (char *) out_name);
+(IGNORED) strcpy((char *) name, out_name);
 while( n-- )   tag = tag && (*(name+n) != '.') ;
 if( tag ) (IGNORED) strct(name,".html");
 #ifdef HTM
@@ -2703,19 +2707,19 @@ if( !(   *trace_dvi_del_P || *end_trace_dvi_del_P
    trace_dvi_del_P = 
             (char *)  r_alloc((void *) trace_dvi_del_P,
                               (size_t) 4);
-   (IGNORED) strcpy((char *) trace_dvi_del_P, (char *) "[G " );
+   (IGNORED) strcpy((char *) trace_dvi_del_P, "[G " );
    end_trace_dvi_del_P = 
             (char *)  r_alloc((void *) end_trace_dvi_del_P,
                               (size_t) 2);
-   (IGNORED) strcpy((char *) end_trace_dvi_del_P, (char *) "]" );
+   (IGNORED) strcpy((char *) end_trace_dvi_del_P, "]" );
    trace_dvi_del_p = 
             (char *)  r_alloc((void *) trace_dvi_del_p,
                               (size_t) 5);
-   (IGNORED) strcpy((char *) trace_dvi_del_p, (char *) "[/G " );
+   (IGNORED) strcpy((char *) trace_dvi_del_p, "[/G " );
    end_trace_dvi_del_p = 
             (char *)  r_alloc((void *) end_trace_dvi_del_p,
                               (size_t) 2);
-   (IGNORED) strcpy((char *) end_trace_dvi_del_p, (char *) "]" );
+   (IGNORED) strcpy((char *) end_trace_dvi_del_p, "]" );
 }
 >>>
 
@@ -8076,7 +8080,7 @@ if( *(p->path) != '\0' ) {
 
 \<warn 38 for path\><<<
             char str[256];
-(IGNORED) strcpy((char *) str, (char *) "...."); *(str+3) = p->action;
+(IGNORED) strcpy(str, "...."); *(str+3) = p->action;
 (IGNORED) strct(str,p->info); warn_i_str(38,str);
 >>>
 
@@ -8403,7 +8407,7 @@ Note that \`'pos_body' points to the left-most byte in the template.
 \<main's init\><<<
 pos_text = pos_line = end_pos_body = end_pos_text = pos_body =
                       m_alloc(char, (int) 1);
-(IGNORED) strcpy((char *) pos_text, (char *) "" );
+(IGNORED) strcpy((char *) pos_text, "" );
 >>>
 
 
@@ -10377,14 +10381,14 @@ static int get_html_ch( file )   FILE*  file
 
 
 \<header functions\><<<
-static FILE* f_open( ARG_II(char*,char*) );
+static FILE* f_open( ARG_II(const char*,const char*) );
 >>>
 
 \<functions\><<<
 `[
 static FILE* f_open( name, flags ) 
-                          char*  name `;
-                          char*  flags                           
+                          const char*  name `;
+                          const char*  flags                           
 ;{                        FILE* file;
   if( (file = fopen(name,flags) ) != NULL ) {
      (IGNORED)  printf("(%s)\n",name);
@@ -10730,7 +10734,7 @@ warn_i_str(50,str);
 gif_open[gif_flag] = m_alloc(char,
    `<1 + strlen((char *) <IMG SRC="+"ALT="+++++">+)`>);
 (IGNORED) strcpy((char *) gif_open[gif_flag],
-(char *)   `<<IMG SRC="+"ALT="+++++">+`>);
+           `<<IMG SRC="+"ALT="+++++">+`>);
 gif_alt[gif_flag] = gif_open[gif_flag]+11;  
   *(gif_alt[gif_flag] - 1) = '\0';
 gif_class[gif_flag] = gif_open[gif_flag]+19;
@@ -11403,7 +11407,7 @@ static U_CHAR *  img_src;
 
 \<main's initOUT\><<<
 img_src = m_alloc(char, (int) 12);
-(IGNORED) strcpy((char *) img_src, (char *) "<img \nsrc=\"" );
+(IGNORED) strcpy((char *) img_src, "<img \nsrc=\"" );
 >>>
 
 
@@ -11435,7 +11439,7 @@ static U_CHAR *  img_alt;
 
 \<main's initOUT\><<<
 img_alt = m_alloc(char, (int) 7);
-(IGNORED) strcpy((char *) img_alt, (char *) "\"alt=\"" );
+(IGNORED) strcpy((char *) img_alt, "\"alt=\"" );
 >>>
 
 
@@ -13177,7 +13181,7 @@ get_env_dir(argv[0])
 
 \<get tex4ht.env in dos\><<<
 `[
-char *get_env_dir(progname) 
+static char *get_env_dir(progname) 
       U_CHAR *progname
 
 ;{    int  i;
@@ -13190,7 +13194,7 @@ char *get_env_dir(progname)
   p = (char *) malloc(i+12);
   if(p == NULL)  return NULL;      `%Space for new extention after dot`%
   strncpy(p, progname, i+1);                        `%Copy up to slash`%
-  (IGNORED) strcpy((char *) &p[i+1], (char *) "tex4ht.env");       `%Append new extention`%
+  (IGNORED) strcpy((char *) &p[i+1], "tex4ht.env"); `%Append new extention`%
   return p;
 }
 >>>
@@ -13232,14 +13236,14 @@ Priority (the easier to change, the higher in priority).
 \EndList
 
 \<header functions\><<<
-static char* get_script( ARG_III(char *, U_CHAR *, int) );
+static char* get_script( ARG_III(char *, const U_CHAR *, int) );
 >>>
 
 \<functions\><<<
 `[
 static char* get_script(name, inln,x) 
-     U_CHAR * name`;
-     U_CHAR * inln`;
+     char * name`;
+     const U_CHAR * inln`;
      int x
 
 ;{
@@ -13248,7 +13252,7 @@ static char* get_script(name, inln,x)
       (IGNORED) fseek(dot_file, 0L, `<abs file addr`>);
       if( search_dot_file( x ) ){
            `<read x-script from dot file`>
-      } else  {(IGNORED)  strcpy((char *) str, (char *) inln); }
+      } else  {(IGNORED)  strcpy((char *) str, inln); }
       ch = m_alloc(char, (int) strlen((char *) str)+2);
       (IGNORED) strcpy((char *) ch, (char *) str);
       return ch;
@@ -13520,13 +13524,13 @@ htf_dirs = get_env_var("TEX4HTHTF");
 
 
 \<header functions\><<<
-static struct env_var_rec * get_env_var( ARG_I(char *) );
+static struct env_var_rec * get_env_var( ARG_I(const char *) );
 >>>
 
 \<functions\><<<
 `[
 static struct env_var_rec * get_env_var( env_var ) 
-    char *env_var
+    const char *env_var
 ;{                U_CHAR   *TEX4HTTFM,  *from;
                   struct env_var_rec *tfm_dirs, *p;
                   int env_var_len;
@@ -13629,7 +13633,7 @@ for( cur_cache_font = cache_font;
       cur_cache_font = m_alloc(struct cache_font_rec, 1);
       `<init new cache list`>
       cur_cache_font->dir = m_alloc(char, n+1);
-      (IGNORED) strcpy((char *) cur_cache_font->dir, (char *) dir);
+      (IGNORED) strcpy((char *) cur_cache_font->dir, dir);
       if( !cache_font ){
          cur_cache_font->next = cache_font;
          cache_font = cur_cache_font;
@@ -13911,8 +13915,8 @@ cur_cache_font->cache_file = (struct cache_file_rec *) 0;
 
 \<insert file name\><<<
 file_entry = m_alloc(struct cache_file_rec, 1);
-file_entry->file = m_alloc(char, strlen((char *) name)+1);
-(IGNORED) strcpy((char *) file_entry->file, (char *) name);
+file_entry->file = m_alloc(char, strlen(name)+1);
+(IGNORED) strcpy((char *) file_entry->file, name);
 if( ! cur_cache_font->cache_file ){
   cur_cache_font->cache_file = file_entry;
  file_entry->next = (struct cache_file_rec *) 0;
@@ -14125,7 +14129,7 @@ if( *tex4ht_fls_name == '~' ){
       (IGNORED) strcpy((char *) p, (char *) tex4ht_fls_name+1); 
       (IGNORED) sprintf(files_cache,"%s%s", HOME_DIR, p);
    } else { 
-      (IGNORED) strcpy((char *) files_cache, (char *) "tex4ht.fls"); 
+      (IGNORED) strcpy((char *) files_cache, "tex4ht.fls"); 
    } 
    tex4ht_fls_name = files_cache;
 } 
@@ -14380,7 +14384,7 @@ xputenv()  is a kpathsea routine for writing environment variables
    *export_str = '\0';
    `<set the exported list`>
    if( (int) strlen((char *) export_str) > 0 ){
-      (IGNORED) strcpy((char *) str, (char *) "%%12");
+      (IGNORED) strcpy((char *) str, "%%12");
       export_str = (char *) r_alloc((void *) export_str, 
           (int) strlen((char *) export_str) + (int) strlen((char *) str) +  1 );      
       postfix = str - 1;
@@ -14499,7 +14503,7 @@ while ( search_dot_file( 'i' ) ){
         export_str = (char *) r_alloc((void *) export_str,
             (int) strlen((char *) export_str) + (int) strlen((char *) q) +  2);
         if( (int) strlen((char *) export_str) > 0 ){ 
-             (IGNORED) strcat((char *) export_str, (char *)  ",");
+             (IGNORED) strcat((char *) export_str, ",");
         }
         (IGNORED) strcat((char *) export_str, (char *)  q);
 } } }
@@ -14549,7 +14553,7 @@ static void export_htf(export_str, str)
      *export_str = (char *) r_alloc((void *) *export_str, 
      (int) strlen((char *) *export_str) + (int) strlen((char *) str) +  2 );
      if( (int) strlen((char *) *export_str) > 0 ){
-        (IGNORED) strcat((char *) *export_str, (char *) ",");
+        (IGNORED) strcat((char *) *export_str, ",");
      }
      (IGNORED) strcat((char *) *export_str, (char *) str);
   }
@@ -14962,9 +14966,9 @@ if( system("kpsewhich --progname=tex4ht tex4ht.env > tex4ht.tmp") == 0 ){
 
 \<tfmfile = kpathsea tfm file\><<<
 char s [256]; 
-(IGNORED) strcpy((char *) s, (char *) "kpsewhich "); 
-(IGNORED) strcat((char *) s, (char *) file_name); 
-(IGNORED) strcat((char *) s, (char *)  " > tex4ht.tmp "); 
+(IGNORED) strcpy(s, "kpsewhich "); 
+(IGNORED) strcat(s, file_name); 
+(IGNORED) strcat(s, " > tex4ht.tmp "); 
 if( system(s) == 0 ){
    `<fileaddr = read tex4ht.tmp`>
    tfmfile = kpse_find_file (fileaddr, kpse_program_text_format, 0);
@@ -15239,7 +15243,7 @@ The following is used for start searching files from directories mentioned
 in the dot file.
 
 \<header functions\><<<
-static FILE*  search_in_dot_file( ARG_IV( int, U_CHAR *, U_CHAR *,
+static FILE*  search_in_dot_file( ARG_IV( int, const U_CHAR *, const U_CHAR *,
                                     struct env_var_rec *) );
 >>>
 
@@ -15247,8 +15251,8 @@ static FILE*  search_in_dot_file( ARG_IV( int, U_CHAR *, U_CHAR *,
 `[
 static FILE*  search_in_dot_file( typ, name, flags, env_dirs) 
                                                  int   typ`;
-                                                 U_CHAR  *name`;
-                                                 U_CHAR  *flags`;
+                                                 const U_CHAR  *name`;
+                                                 const U_CHAR  *flags`;
                                       struct env_var_rec *env_dirs
 
 ;{                                         U_CHAR  *ch, dir[256];
@@ -15284,16 +15288,16 @@ static FILE*  search_in_dot_file( typ, name, flags, env_dirs)
 
 
 \<header functions\><<<
-static FILE*  search_file_base( ARG_IV( U_CHAR *, U_CHAR *, U_CHAR *,
+static FILE*  search_file_base( ARG_IV( const U_CHAR *, const U_CHAR *, const U_CHAR *,
                                     struct env_var_rec *) );
 >>>
 
 \<functions\><<<
 `[
 static FILE*  search_file_base( name, dir, flags, env_dirs) 
-                                                 U_CHAR  *name`;
-                                                 U_CHAR  *dir`;
-                                                 U_CHAR  *flags`;
+                                                 const U_CHAR  *name`;
+                                                 const U_CHAR  *dir`;
+                                                 const U_CHAR  *flags`;
                                       struct env_var_rec *env_dirs
 
 ;{                                         U_CHAR  *p;
@@ -15316,18 +15320,18 @@ static FILE*  search_file_base( name, dir, flags, env_dirs)
 
 
 \<header functions\><<<
-static char *  abs_addr( ARG_II( U_CHAR *, U_CHAR *) );
+static char *  abs_addr( ARG_II( const U_CHAR *, const U_CHAR *) );
 >>>
 
 \<functions\><<<
 `[
 static char *  abs_addr( dir, base) 
-                                                 U_CHAR  *dir`;
-                                                 U_CHAR  *base
+                                                 const U_CHAR  *dir`;
+                                                 const U_CHAR  *base
 
 ;{                                         U_CHAR  *p;
-   p = m_alloc(char, (int) strlen((char *)  dir )            +
-                     (base? (int) strlen((char *)  base ):0) +
+   p = m_alloc(char, (int) strlen( dir )            +
+                     (base? (int) strlen( base ):0) +
                      (int) strlen((char *)  HOME_DIR  )      + 1 );
    *p = '\0';    
    if( (*(dir+1) == '~') && base ){  
@@ -15357,22 +15361,22 @@ static char *  abs_addr( dir, base)
 
 
 \<header functions\><<<
-static FILE* search_file( ARG_III(char *, U_CHAR *, U_CHAR *) );
+static FILE* search_file( ARG_III(const char *, const U_CHAR *, const U_CHAR *) );
 >>>
 
 \<functions\><<<
 `[
 static FILE* search_file( name, dir, flags ) 
-     U_CHAR   *name`;
-     U_CHAR   *dir`;
-     U_CHAR   *flags
+     const char     *name`;
+     const U_CHAR   *dir`;
+     const U_CHAR   *flags
 
 ;{   FILE*  file;
      U_CHAR     str[256];
      int i;
      BOOL subs;
   `<search file in cur dir`>
-      (IGNORED) strcpy((char *) str, (char *) dir);
+      (IGNORED) strcpy((char *) str, dir);
       i = (int) strlen((char *) str) - 1;
       subs = str[i] == '!';
       if( subs )  str[i] = '\0';  else i++;
@@ -15417,13 +15421,13 @@ if( (file = f_open(str, flags)) != NULL ){
 
 
 \<header functions\><<<
-static void add_to_cache( ARG_III(char*,char*,int) );
+static void add_to_cache( ARG_III(const char*,const char*,int) );
 >>>
 
 \<functions\><<<
 `[
 static void add_to_cache(dir,name,n)   
-                         char*  dir`; char* name`; int n
+                         const char*  dir`; const char* name`; int n
 
 ;{
                          struct cache_font_rec *cur_cache_font;
@@ -15438,20 +15442,20 @@ static void add_to_cache(dir,name,n)
 \SubSection{Search in SubDirectories}
 
 \<header functions\><<<
-static FILE* search_file_ext( ARG_III(char *, U_CHAR *, U_CHAR *) );
+static FILE* search_file_ext( ARG_III(const char *, const U_CHAR *, const U_CHAR *) );
 >>>
 
 \<functions\><<<
 `[
 static FILE* search_file_ext( name, dir, flags )  
-    U_CHAR   *name`; 
-    U_CHAR   *dir`;
-    U_CHAR   *flags
+    const char     *name`; 
+    const U_CHAR   *dir`;
+    const U_CHAR   *flags
 
 ;{  U_CHAR   str[256];
     FILE*  file;
     int    n;
-  n = (int) strlen((char *) dir);
+  n = (int) strlen(dir);
   (IGNORED) sprintf(str, 
 #if defined(DOS_WIN32) || defined(__DJGPP__)
  (( dir[n-1] == '/') ||  ( dir[n-1] == '\\')) 
@@ -15514,7 +15518,7 @@ forward slash (\''/').
 
 \<header functions\><<<
 #if defined(DOS_WIN32) || defined(__DJGPP__)
-   static BOOL is_forward_slash( ARG_I(char*) );
+   static BOOL is_forward_slash( ARG_I(const char*) );
 #endif
 >>>
 
@@ -15522,7 +15526,7 @@ forward slash (\''/').
 #if defined(DOS_WIN32) || defined(__DJGPP__)
 `[ 
 static BOOL is_forward_slash(str)
-                                    char* str
+                                    const char* str
 ;{   
    while( *str ){  if( *(str++) == '/' ) { return TRUE; } }
    return FALSE;
@@ -15737,20 +15741,20 @@ handle the MSVC_1_52_DOS correctly.
 
 
 \<header functions\><<<
-static FILE* f_open_pathed_filename( ARG_II(char*,char*) );
+static FILE* f_open_pathed_filename( ARG_II(const char*,const char*) );
 >>>
 
 \<functions\><<<
 `[
 static FILE* f_open_pathed_filename( name, flags ) 
-                          char*  name `;
-                          char*  flags                           
+                          const char*  name `;
+                          const char*  flags                           
 ;{                        FILE* file;
                           U_CHAR *str;
   file = NULL;
   if( *name == '~' ){
      if( HOME_DIR ){ 
-         str = m_alloc(char, strlen((char *) HOME_DIR)+strlen((char *) name));
+         str = m_alloc(char, strlen((char *) HOME_DIR)+strlen(name));
          (IGNORED) sprintf(str,"%s%s", HOME_DIR, name+1);
          file = f_open(str,flags);     
          free((void *)  str);         
@@ -16579,12 +16583,12 @@ static BOOL special_on = FALSE;
 
 
 \<header functions\><<<
-static void print_f( ARG_I(char*) );
+static void print_f( ARG_I(const char*) );
 >>>
 
 \<functions\><<<
 `[
-static void print_f(str)    char* str
+static void print_f(str)    const char* str
 ;{
   `<open output file`>
   if( ch_map_flag ){  
@@ -16599,12 +16603,12 @@ static void print_f(str)    char* str
 
 
 \<header functions\><<<
-static void print_f_4ht( ARG_I(char*) );
+static void print_f_4ht( ARG_I(const char*) );
 >>>
 
 \<functions\><<<
 `[
-static void print_f_4ht(str)    char* str
+static void print_f_4ht(str)    const char* str
 ;{
   `<open output file`>
   if( ch_map_flag ){  
@@ -16836,7 +16840,7 @@ static long cond_int( n )
 >>>
 
 \<vars\><<<
-static U_CHAR *warn_err_mssg[]={ `<warn and err messages`> "" };
+static const U_CHAR *warn_err_mssg[]={ `<warn and err messages`> "" };
 >>>
 
 
@@ -16899,14 +16903,14 @@ static void warn_i_int_2(n,i,j)   int  n`; int i`; int j
 
 
 \<header functions\><<<
-static void warn_i_str( ARG_II(int,char *) );
+static void warn_i_str( ARG_II(int,const char *) );
 >>>
 
 \<functions\><<<
 `[
 static void warn_i_str(n,str) 
     int  n`;
-    U_CHAR *str
+    const char *str
 
 ;{  
    (IGNORED) fprintf(stderr,"--- warning --- ");
@@ -16919,15 +16923,15 @@ static void warn_i_str(n,str)
 
 
 \<header functions\><<<
-static void warn_i_str2( ARG_III(int,char *,char *) );
+static void warn_i_str2( ARG_III(int,const char *,const char *) );
 >>>
 
 \<functions\><<<
 `[
 static void warn_i_str2(n,str1,str2) 
     int  n`;
-    U_CHAR *str1`;
-    U_CHAR *str2
+    const char *str1`;
+    const char *str2
 
 ;{  (IGNORED) fprintf(stderr,"--- warning --- ");
    (IGNORED) fprintf(stderr,warn_err_mssg[n], str1,str2);

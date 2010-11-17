@@ -1,3 +1,8 @@
+2010-11-17  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* tex4ht-c.tex,
+	* tex4ht-t4ht.tex: some warning fixes.
+
 2010-11-17  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-c.tex: compiler options are a comment, despite #define's.

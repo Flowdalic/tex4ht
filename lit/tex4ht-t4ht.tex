@@ -1293,7 +1293,7 @@ empty_pic->n
 \<translate symbol gifs\><<<
                   Q_CHAR filename[255];
                   FILE* file;
-(IGNORED) strcpy((char *) filename, (char *) "");
+(IGNORED) strcpy((char *) filename, "");
 if( dir && !bitmaps_no_dm ){ (IGNORED) strct(filename, dir); }
 (IGNORED) strct(filename, match[3]);
 file  = fopen(filename, READ_TEXT_FLAGS);  
@@ -1376,20 +1376,21 @@ struct script_struct
 
 \<header functions\><<<
 static void execute_script( 
-  ARG_V(struct script_struct*,Q_CHAR *,char *,Q_CHAR *,Q_CHAR *) );
+  ARG_V(struct script_struct*,const Q_CHAR *,const Q_CHAR *,const Q_CHAR *,const Q_CHAR *) );
 >>>
 
 \<functions\><<<
 `[
 static void execute_script(script,match_1,match_2,match_3,match_4)  
                     struct script_struct* script`;
-                    Q_CHAR * match_1`;
-                    Q_CHAR * match_2`;
-                    Q_CHAR * match_3`;
-                    Q_CHAR * match_4
+                    const Q_CHAR * match_1`;
+                    const Q_CHAR * match_2`;
+                    const Q_CHAR * match_3`;
+                    const Q_CHAR * match_4
 
 ;{                               struct script_struct* temp;
-                                 Q_CHAR *p, *q, *t;
+                                 Q_CHAR *p, *q;
+                                 const Q_CHAR *t;
   `<texmf := ...`>
    temp = script;  system_return = 0;
    while( temp ){
@@ -1455,7 +1456,7 @@ offers the grandparent directory of where texmf resides.
 
 \<texmf := ...\><<<
 #ifdef KPATHSEA   
-char * texmf = (char  *) kpse_var_value( "SELFAUTOPARENT" );
+const char * texmf = kpse_var_value( "SELFAUTOPARENT" );
 #endif
 >>>
 
@@ -1541,9 +1542,9 @@ static struct script_struct * filterGifScript( script, file)
                                                    *old_script,
                                                    *new_script;
                                          Q_CHAR *command, *ext;
-   if( script == (struct script_struct *) 0 ){  
-       return (struct script_struct *) 0;
-   }
+   filtered_script = NULL_SCRIPT;
+   if( script == NULL_SCRIPT )
+       return filtered_script;
    old_script = script;
    command = old_script->command;
    if( *command != '.' ){
@@ -1555,15 +1556,15 @@ static struct script_struct * filterGifScript( script, file)
 >>>
 
 \<script until dot\><<<
-new_script = (struct script_struct *) 0;
-while( old_script != (struct script_struct *) 0 ){
+new_script = NULL_SCRIPT;
+while( old_script != NULL_SCRIPT ){
    command = old_script->command;
    if( *command == '.' ){ return filtered_script; }
    scr = (struct script_struct *)
             m_alloc(struct script_struct, (int) 1);   
    scr->command = old_script->command;
-   scr->next = (struct script_struct *) 0;
-   if( new_script == (struct script_struct *) 0 ){
+   scr->next = NULL_SCRIPT;
+   if( new_script == NULL_SCRIPT ){
      filtered_script = new_script = scr;
    } else {
      new_script = new_script->next = scr;
@@ -1576,8 +1577,8 @@ return filtered_script;
 \<script from dot\><<<
 `<ext = file ext`>
 while( TRUE ){ 
-  if( old_script == (struct script_struct *) 0 ){
-     return (struct script_struct *) 0;
+  if( old_script == NULL_SCRIPT ){
+     return NULL_SCRIPT;
   }
   command = old_script->command;
   if(*command != '.') {
@@ -1611,7 +1612,7 @@ void free_script(script)
                                    struct script_struct *script
 ;{                                         
                                    struct script_struct *temp;
-  while( script != (struct script_struct *) 0 ){
+  while( script != NULL_SCRIPT ){
     temp = script;
     script = script->next;
     free( temp );
@@ -1996,11 +1997,11 @@ to_rec = p;
 \<find file records\><<<
 file_name = match[1];  
 *(file_name + (int) strlen((char *) file_name) - 1) = '\0';
-strcpy((char *) file_mode, (char *) WRITE_TEXT_FLAGS);
+strcpy((char *) file_mode, WRITE_TEXT_FLAGS);
 for(i=1; i<=2; i++){
   `<search CopyTo file`>
   file_name = match[5];  
-  strcpy((char *) file_mode, (char *) `<CopyTo read flags`>);
+  strcpy((char *) file_mode, `<CopyTo read flags`>);
 }
 >>>
 
@@ -2049,7 +2050,7 @@ struct files_rec{
 
 \<CopyTo vars\><<<
 Q_CHAR *file_name, file_mode[5];
-int i, start_loc, end_loc, addr;
+int i, start_loc, end_loc, addr = 0;
 char rec_op, *ch;
 static struct files_rec *to_rec, *from_rec,
    *opened_files = (struct files_rec *) 0,
@@ -2372,7 +2373,7 @@ struct htf_struct{
       status = scan_until_end_str("", 1, status, lg_file);
       `<remove leading spaces`>
       if( status ){            Q_CHAR *key, *body, *media;
-         body = key = match[1];  
+         media = body = key = match[1];  
          `<process htfcss line`>
    }  }
 }
@@ -2401,7 +2402,9 @@ if( *body == ' ' ){ media = body; *(body++) = '\0'; }
 `<extract media info`>
 if( *body ){  
   if( *key ){ `<add new htfcss rec`> }
+#if 0 /* unreachable */
   else if( last_rec ){ `<append prev htfcss rec`> }
+#endif /* 0, unreachable */
 }
 >>>
 
@@ -3151,7 +3154,7 @@ if( !file ) {
       (IGNORED) printf("tex4ht.env?\n");
    }
    file = f_open("tex4ht.env", READ_TEXT_FLAGS);
-   (IGNORED) strcpy((char *) &env_loc[0], (char *) "tex4ht.env");
+   (IGNORED) strcpy((char *) &env_loc[0], "tex4ht.env");
    if( debug && file ){  
       (IGNORED) printf(".......Open: ./tex4ht.env\n"); }
 }
@@ -3203,7 +3206,7 @@ if( !file ){
           (IGNORED) printf(".tex4ht?\n"); 
        }
        file = f_open(".tex4ht", READ_TEXT_FLAGS);
-       (IGNORED) strcpy((char *) &env_loc[0], (char *) ".tex4ht");
+       (IGNORED) strcpy((char *) &env_loc[0], ".tex4ht");
        if( debug && file ){  
          (IGNORED) printf(".......Open: ./.tex4ht\n"); }
    }
@@ -3415,7 +3418,7 @@ if( !file ){
           (IGNORED) printf("C:/tex4ht.env?\n"); 
       }
       file = f_open("C:/tex4ht.env",READ_TEXT_FLAGS);     
-       (IGNORED) strcpy((char *) &env_loc[0], (char *) "C:/tex4ht.env");
+       (IGNORED) strcpy((char *) &env_loc[0], "C:/tex4ht.env");
       if( debug && file ){  
         (IGNORED) printf(".......Open: C:/tex4ht.env\n"); }
    }
@@ -3577,7 +3580,7 @@ get_env_dir(argv[0])
 
 \<get tex4ht.env in dos\><<<
 `[
-char *get_env_dir(progname) 
+static char *get_env_dir(progname) 
       Q_CHAR *progname
 
 ;{    int  i;
@@ -3591,7 +3594,7 @@ char *get_env_dir(progname)
   if(p == NULL)  return NULL;     `%Space for new extention after dot`%
   strncpy(p, progname, i+1);                         `%Copy up to slash`%
   (IGNORED) strcpy((char *) &p[i+1],
-                   (char *) "tex4ht.env");            `%Append new extention`%
+                   "tex4ht.env");                    `%Append new extention`%
   return p;
 }
 >>>
@@ -3621,14 +3624,14 @@ different directory without typing a single commandline option.
 
 
 \<header functions\><<<
-static FILE* f_open( ARG_II(char*,char*) );
+static FILE* f_open( ARG_II(const char*,const char*) );
 >>>
 
 \<functions\><<<
 `[
 static FILE* f_open( name, flags ) 
-                          char*  name `;
-                          char*  flags                           
+                          const char*  name `;
+                          const char*  flags                           
 ;{                        FILE* file;
   if( (file = fopen(name,flags) ) != NULL ) {
      (IGNORED)  printf("(%s)\n",name);
@@ -3642,19 +3645,19 @@ static FILE* f_open( name, flags )
 
 
 \<header functions\><<<
-static FILE* f_home_open( ARG_II(char*,char*) );
+static FILE* f_home_open( ARG_II(const char*,const char*) );
 >>>
 
 \<functions\><<<
 `[
 static FILE* f_home_open( name, flags ) 
-                          char*  name `;
-                          char*  flags                           
+                          const char*  name `;
+                          const char*  flags                           
 ;{                        FILE* file;
                           U_CHAR *str;
   if( *name == '~' ){
      if( HOME_DIR ){ 
-         str = m_alloc(char, strlen((char *) HOME_DIR)+strlen((char *) name));
+         str = m_alloc(char, strlen((char *) HOME_DIR)+strlen(name));
          (IGNORED) sprintf(str,"%s%s", HOME_DIR, name+1);
          file = f_open(str,flags);     
          free((void *)  str);
@@ -3672,24 +3675,24 @@ static FILE* f_home_open( name, flags )
 \SubSection{General}
 
 \<header functions\><<<
-static FILE* open_file( ARG_II(C_CHAR *, C_CHAR *) );
+static FILE* open_file( ARG_II(const C_CHAR *, const C_CHAR *) );
 >>>
 
 \<functions\><<<
 `[
 static FILE* open_file(name,ext)     
-                         Q_CHAR *name`; Q_CHAR *ext
+                         const C_CHAR *name`; const C_CHAR *ext
 ;{                       FILE* file;
                          C_CHAR filename[255], *p;
    if( eq_str( ext,LG_EXT ) ) { 
       (IGNORED) strcpy((char *) filename, (char *) job_name); 
       (IGNORED) strct(filename, ext); 
    } else {
-      (IGNORED) strcpy((char *)  filename, (char *) name );   
+      (IGNORED) strcpy((char *)  filename, name );   
       p = filename;
       while( TRUE ){
         if( *p == '.' ){  break; }
-        if( *p == '\0' ){ (IGNORED) strcpy((char *) p, (char *) ext); break; }
+        if( *p == '\0' ){ (IGNORED) strcpy((char *) p, ext); break; }
         p++;
       }
    }
@@ -3884,14 +3887,14 @@ static void err_arg(n)      int  n
 
 
 \<header functions\><<<
-static void warn_i_str( ARG_II(int,Q_CHAR *) );
+static void warn_i_str( ARG_II(int,const Q_CHAR *) );
 >>>
 
 \<functions\><<<
 `[
 static void warn_i_str(n,str) 
     int  n`;
-    Q_CHAR *str
+    const Q_CHAR *str
 
 ;{  (IGNORED) fprintf(stderr,"--- warning --- ");
    (IGNORED) fprintf(stderr,warn_err_mssg[n], str);
@@ -3909,7 +3912,7 @@ static void warn_i_str(n,str)
 
 
 \<vars\><<<
-static C_CHAR *warn_err_mssg[]={ `<warn and err messages`> "" };
+static const C_CHAR *warn_err_mssg[]={ `<warn and err messages`> "" };
 >>>
 
 
@@ -4157,18 +4160,18 @@ file name. Should have the interface
 \`'char *strcat( ARG_II(C_CHAR *, const Q_CHAR *) );'.
 
 \<header functions\><<<
-static void strct( ARG_II(C_CHAR *, C_CHAR *) );
+static void strct( ARG_II(C_CHAR *, const C_CHAR *) );
 >>>
 
 \<functions\><<<
 `[
 static void strct( str1, str2 ) 
-     Q_CHAR * str1`;
-     Q_CHAR * str2
+     C_CHAR * str1`;
+     const C_CHAR * str2
 
 ;{   Q_CHAR * ch;
    ch = str1 + (int) strlen((char *) str1);
-   (IGNORED) strcpy((char *)  ch, (char *) str2 );
+   (IGNORED) strcpy((char *)  ch, str2 );
 }
 >>>
 
@@ -4287,13 +4290,13 @@ its end.
 The \''_until' functions place in ''match[i]' the string found.
 
 \<header functions\><<<
-static BOOL scan_until_end_str( ARG_IV(C_CHAR *, int, BOOL, FILE *) );
+static BOOL scan_until_end_str( ARG_IV(const C_CHAR *, int, BOOL, FILE *) );
 >>>
 
 \<functions\><<<
 `[
 static BOOL  scan_until_end_str(str,n,flag,file)     
-                         Q_CHAR   *str`;
+                         const C_CHAR   *str`;
                          int    n`;
                          BOOL   flag`;
                          FILE*  file
@@ -4312,7 +4315,7 @@ static BOOL  scan_until_end_str(str,n,flag,file)
      i++;
    }
    p[i] = '\0';
-   i -= (int) strlen((char *) str);
+   i -= (int) strlen(str);
    if( i>= 0 ){  return eq_str(p+i,str);   }
    return FALSE;
 }
@@ -4337,13 +4340,13 @@ static int   max_match[10];
 
 
 \<header functions\><<<
-static BOOL scan_until_str( ARG_IV(C_CHAR *, int, BOOL, FILE *) );
+static BOOL scan_until_str( ARG_IV(const C_CHAR *, int, BOOL, FILE *) );
 >>>
 
 \<functions\><<<
 `[
 static BOOL  scan_until_str(str,n,flag,file)     
-                         Q_CHAR   *str`;
+                         const C_CHAR   *str`;
                          int    n`;
                          BOOL   flag`;
                          FILE*  file
@@ -4360,7 +4363,7 @@ static BOOL  scan_until_str(str,n,flag,file)
                      r_alloc((void *) match[n], (size_t) max_match[n]);
      }
      p[i++] = ch;
-     j =  i - (int) strlen((char *) str);
+     j =  i - (int) strlen(str);
      if( j>= 0 ){
        p[i] = '\0';
        if( eq_str(p+j,str) ) { return TRUE;  }
@@ -4375,16 +4378,16 @@ static BOOL  scan_until_str(str,n,flag,file)
 
 
 \<header functions\><<<
-static BOOL scan_str( ARG_III(C_CHAR *, BOOL, FILE *) );
+static BOOL scan_str( ARG_III(const C_CHAR *, BOOL, FILE *) );
 >>>
 
 \<functions\><<<
 `[
 static BOOL  scan_str(str,flag,file)     
-                         Q_CHAR   *str`;
+                         const C_CHAR   *str`;
                          BOOL   flag`;
                          FILE*  file
-;{                       Q_CHAR *p;
+;{                        const Q_CHAR *p;
                          int temp_eoln_ch;              
    if( !flag ) { return flag; }
    p = str;
