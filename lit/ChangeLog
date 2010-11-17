@@ -1,3 +1,7 @@
+2010-11-17  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex: compiler options are a comment, despite #define's.
+
 2010-03-17  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-auto-script.tex: unused, it seems.
