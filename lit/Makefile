@@ -40,8 +40,9 @@ tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
 tex4ht_fonts_noncjk_derived = SearchFonts.java cmtex.htf # and thousands more
 # also, whither lm-htf.tex?  whither tmp?  how change target dir?
 
-derived += $(tex4ht_htcmd_derived)
-tex4ht_htcmd_derived = htcmd.c
+# htcmd not used
+#derived += $(tex4ht_htcmd_derived)
+#tex4ht_htcmd_derived = htcmd.c
 
 derived += $(tex4ht_html_speech_xtpipes_derived)
 tex4ht_html_speech_xtpipes_derived = htspk.4xt HtSpk.java
