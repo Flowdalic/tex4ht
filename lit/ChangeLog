@@ -1,3 +1,11 @@
+2010-12-14  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex,
+	* tex4ht-t4ht.tex (resplit argv for windows): new section, from Akira
+	Kakuto.
+	
+	* tex4ht-htcmd.tex: document that this not used.
+
 2010-11-17  Karl Berry  <karl@gnu.org>
 
 	* all files: switch to ranges in copyright notices.
