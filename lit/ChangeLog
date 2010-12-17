@@ -1,3 +1,7 @@
+2010-12-16  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* tex4ht-t4ht.tex: missed <<<.
+
 2010-12-14  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-c.tex,
