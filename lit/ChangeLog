@@ -1,3 +1,9 @@
+2010-12-24  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex,
+	* tex4ht-t4ht.tex: attempt to document which files I think these
+	programs read and write.  Fix a couple typos.
+
 2010-12-23  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-c.tex,

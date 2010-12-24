@@ -224,10 +224,11 @@
 
 \Section{Preamble}
 
- A command-line program running in the
-console environment of the operating system (MS-DOS, MS-DOS window
-of Windows 3.1, Unix shell, etc).  
-
+A command-line program running in the console environment of the
+operating system (MS-DOS, MS-DOS window of Windows 3.1, Unix shell,
+etc).  The input is a heavily specialized DVI file.  The main output is
+the HTML/XML and \`'.css', also \`'.lg', \`'.idv', and
+\`'.tmp'.
 
 \<tex4ht.c\><<< 
 /* tex4ht.c (`version), generated from `jobname.tex
@@ -1554,7 +1555,7 @@ The following is incomplete!!!
 
 
 
-Line breaks within  comamnd lines should be phisically given.
+Line breaks within command lines should be physically given.
 
 \Section{I/O Files}
 
@@ -1585,9 +1586,8 @@ dvi_file = stdin;
 Below:  If input is from stdin which is not a console
         device, switch it to binary mode. 
 
-Warning `statement with no effect' under \`'gcc -Wall' in Linux?
-Does the problem stems from the fact that UNIX doesn't
-  differentiate between BINARY and ASCII modes?
+Warning `statement with no effect' under \`'gcc -Wall' on non-Windows.
+This is not a problem; SET_BINARY is a no-op.
 
 \<open input file\><<<
 if( *in_name != '\0' ){ `<file = non-piped input file`> }
@@ -12503,21 +12503,21 @@ a matching pair.
 
 \List{*}
 \item \`'\special{t4ht^i}' - on    class i-'0' (i='0', '1', ..., \`'~'
-\item  \`'\special{t4ht^-}'--pause from processing delimeters
-\item  \`'\special{t4ht^+}'--continue processing delimeters
+\item  \`'\special{t4ht^-}'--pause from processing delimiters
+\item  \`'\special{t4ht^+}'--continue processing delimiters
 \item
  \`'\special{t4ht^}'--off, if in scan-mode of class values.
 on/off show-class, otherwise
 \item
 \`'\special{t4ht^i*...*...}'---Configure delimiters for class i
 \item  \`'\special{t4ht^ix}'--put delimiters of class i on next group.
-If x=\`'>' ignore delimeters within the group.
+If x=\`'>' ignore delimiters within the group.
 \item  \`'\special{t4ht^i)*...*...}'--put the specified delimiters of
  class  on next group, instead of the default ones.
-Ignore delimeters within the group.
+Ignore delimiters within the group.
 \item  \`'\special{t4ht^i(*...*...}'--put the specified delimiters of
  class  on next group, instead of the default ones.
-Don't ignore delimeters within the group.
+Don't ignore delimiters within the group.
 \EndList
 
 
@@ -12796,7 +12796,7 @@ free((void *)  new_font.math );
 \SubSection{Requests}
 
   \`'\special{t4ht^ix}'--put delimiters of class i on next group/token.  If
-{\tt x=`)'} ignore delimeters within the group.
+{\tt x=`)'} ignore delimiters within the group.
 
 
 \<class delimiters on group\><<<
@@ -12813,7 +12813,7 @@ stack[stack_n+1].class_close = close_class[math_class];
 
   \`'\special{t4ht^)x*...*...}'--put the specified delimiters of
  class  on next group, instead of the default ones.
-If {\tt x=`)'}, ignore delimeters within the group.
+If {\tt x=`)'}, ignore delimiters within the group.
 
 
 
