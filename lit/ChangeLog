@@ -1,5 +1,9 @@
 2010-12-23  Karl Berry  <karl@gnu.org>
 
+	* tex4ht-c.tex,
+	* tex4ht-t4ht.tex,
+	* tex4ht-htcmd.tex: rewrite some doc uses of "win32".
+
 	* common-info.tex (\CleanComment): lengthy comment about ultimate
 	failure trying to make the info option work with mzlatex.
 
