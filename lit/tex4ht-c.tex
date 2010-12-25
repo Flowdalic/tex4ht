@@ -1514,17 +1514,19 @@ in_name++;
 >>>
 
 
+Suboptions for \`'-h'.
 
 \<trace context\><<<
-switch( *(p+2) ){
-  case 'e':{ `<context for warn and errs`>  break; }
-  case 'f':{ `<dump htf files`>  break; }
-  case 'F':{ `<trace htf search`>  break; }
-  case 's':{ `<trace specials in dvi`>  break;} 
-  case 'g':{ `<cmd line trace groups`>  break;} 
-  case 'v':{ `<dump env file`>  break; }
-  case 'V':{ `<trace env search`>  break; }
-   default:{ bad_arg; }
+{
+  char trace = *(p+2);
+  if (trace == 'A' || trace == 'e') { `<context for warn and errs`> }
+  if (trace == 'A' || trace == 'f') { `<dump htf files`> }
+  if (trace == 'A' || trace == 'F') { `<trace htf search`> }
+  if (trace == 'A' || trace == 's') { `<trace specials in dvi`> }
+  if (trace == 'A' || trace == 'g') { `<cmd line trace groups`> }
+  if (trace == 'A' || trace == 'v') { `<dump env file`> }
+  if (trace == 'A' || trace == 'V') { `<trace env search`> }
+  else { bad_arg; }
 }
 >>>
 
@@ -1540,7 +1542,7 @@ The following is incomplete!!!
 "   [-F<ch-code>]        replacement for missing font characters; 0--255; default 0\n"
 "   [-g<bitmap-file-ext>]\n"
 "   [-h(e|f|F|g|s|v|V)]  trace: e-errors/warnings, f-htf, F-htf search\n"
-"                            g-groups, s-specials, v-env, V-env search\n"
+"                             g-groups, s-specials, v-env, V-env search, A-all\n"
 "   [-i<htf-font-dir>]\n"
 "   [-l<bookkeeping-file>]\n"
 "   [-P(*|<filter>)]     permission for system calls: *-always, filter\n"
@@ -13005,10 +13007,10 @@ if( show_class && !pause_class && !ignore_subclass_del ){
 
 
 \List{1}
-\item   Try the file given by the -e swithch of tex4ht command.
+\item   Try the file given by the -e switch of tex4ht command.
 \item   Search the current directory for one (i.e., open "tex4ht.env").
-\item   Search the program's directory  (dos/win)
-\item   Home directory (\`'~` unix; \`'C:' dos/win)
+\item   Search the program's directory  (dos/w32)
+\item   Home directory (\`'~` unix; \`'C:' dos/w32)
 \item   Compiled directory within ENVFILE
 \EndList
 
@@ -13188,8 +13190,7 @@ if( TEX4HTENV ){
 \<warn 1\><<<
 #ifdef  DOS_WIN32
    "tex4ht.env"
-#endif
-#ifndef  DOS_WIN32
+#else
    "tex4ht.env | .tex4ht" 
 #endif
 >>>
@@ -14528,6 +14529,11 @@ TEX4HTINPUTS=.;$TEXMF/tex4ht/base//;$TEXMF/tex4ht/ht-fonts/{$TEX4HTFONTSET}//
     export_htf( &export_str, str );
     q = q->next;
 } }
+if (! dot_file) {
+  /* sorry, Eitan's numeric error string stuff is beyond me for me.  */
+  fprintf (stderr, "No dot_file opened, goodbye.\n");
+  exit(EXIT_FAILURE);
+}
 (IGNORED) fseek(dot_file, 0L, `<abs file addr`>);         
 while ( search_dot_file( 'i' ) ){
            int ch;
@@ -17116,9 +17122,9 @@ static void show_err_context(MYVOID)
 
 
 
-A static informs that the function is defined just locally, preveting
-possible error messages to occur when the linker detects name
-conflicts with definitions taht use the same names in other libraries.
+A static informs that the function is defined just locally, preventing
+possible errors when the linker detects name conflicts with definitions
+that use the same names in other libraries.
 
 \<static\><<<
 static 

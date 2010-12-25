@@ -1,3 +1,7 @@
+2010-12-25  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex (<trace context>): allow -hA to enable all tracing.
+
 2010-12-24  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-c.tex,
