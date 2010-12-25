@@ -13077,7 +13077,7 @@ dump_env_search = TRUE;
    `<ENVFILE env`>
    `<env from prog dir`>
    `<kpathsea env file`>
-   if( !dot_file ) warn_i_str( 1, `<warn 1`>);
+   if( !dot_file ) { bad_in_file(`<warn 1`>); } /* give up if no tex4ht.env */
 }
 >>>
 
@@ -13842,7 +13842,7 @@ The search for the env file should be along the following route
       if( !file )  file = search_file_base(name, HTFDIR, 
                                                READ_TEXT_FLAGS, htf_dirs);
 #endif
-      `<file = kpathse .htf file`>
+      `<file = kpathsea .htf file`>
    }  
 >>>
 
@@ -14529,11 +14529,6 @@ TEX4HTINPUTS=.;$TEXMF/tex4ht/base//;$TEXMF/tex4ht/ht-fonts/{$TEX4HTFONTSET}//
     export_htf( &export_str, str );
     q = q->next;
 } }
-if (! dot_file) {
-  /* sorry, Eitan's numeric error string stuff is beyond me for me.  */
-  fprintf (stderr, "No dot_file opened, goodbye.\n");
-  exit(EXIT_FAILURE);
-}
 (IGNORED) fseek(dot_file, 0L, `<abs file addr`>);         
 while ( search_dot_file( 'i' ) ){
            int ch;
@@ -15000,27 +14995,29 @@ envfile= kpse_find_file ("tex4ht.env", kpse_program_text_format, 0);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The kpathsea utility might suceed where kpse-find-file fails.  Maybe due to:
-``Kpathsea's subdirectory searching has an
-     irremediable deficiency: If a directory D being searched for
-     subdirectories contains plain files and symbolic links to other
-     directories, but no true subdirectories, D will be considered a
-     leaf directory, i.e., the symbolic links will not be followed.'' 
-[\Link[http://www.tug.org/svn/texlive/trunk/Build/source/texk/kpathsea/kpathsea.info?view=markup]{}{}kpathsea.info\EndLink]
+The \`'kpsewhich' utility can succeed where the \Verb|kpse_find_file|
+function fails, if the program is named something other than \`'tex4ht'.
+Otherwise, we don't find the \`'TEX4HTINPUTS' definition in
+\`'texmf.cnf'.
 
+However, this is not yet enough to actually make the program work under
+an arbitrary name, because the \`'.htf' lookups fail; we need to reset
+the Kpathsea progname.  Other things to do, so let it stand.  Bottom
+line is that the program must be invoked as \`'tex4ht'.
 
 
 
 \<envfile = kpathsea tex4ht.env\><<<
-if( dump_env_search ){ 
-  (IGNORED) printf("system(\"kpsewhich --progname=tex4ht tex4ht.env\")?\n"); 
+#define KPSEWHICH_CMD "kpsewhich --progname=tex4ht --format=othertext tex4ht.env"
+if( dump_env_search ){
+  (IGNORED) printf("system(" KPSEWHICH_CMD ")?\n"); /* cpp concatenation */
 }
-if( system("kpsewhich --progname=tex4ht tex4ht.env > tex4ht.tmp") == 0 ){
+if( system(KPSEWHICH_CMD ">tex4ht.tmp") == 0 ){
    `<fileaddr = read tex4ht.tmp`>
    envfile= kpse_find_file (fileaddr, kpse_program_text_format, 0);
    if( envfile ){
       warn_i_str( 50, 
-          "search support for kpse_find_file--unsing system kpsewhich calls instead"); 
+          "search support for kpse_find_file--using kpsewhich calls instead"); 
 }  }
 >>>
 
@@ -15071,7 +15068,7 @@ dump_htf_search = TRUE;
 
 
 
-\<file = kpathse .htf file\><<<
+\<file = kpathsea .htf file\><<<
 
 #ifdef KPATHSEA
   if( !file ){ U_CHAR * htfname;

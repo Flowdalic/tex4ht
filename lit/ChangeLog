@@ -1,6 +1,12 @@
 2010-12-25  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-c.tex (<trace context>): allow -hA to enable all tracing.
+	(<find tex4ht.env>): fatal error if we don't find it, since the
+	next thing we do is seek on the file which crashes anyway.
+	(<kpathsea tex4ht.env>): use --format=othertext so we can find
+	tex4ht.env.  However, this is not enough to find the .htf files,
+	so it's still not possible to run the program as anything except
+	`tex4ht'.  So it goes.
 
 2010-12-24  Karl Berry  <karl@gnu.org>
 
