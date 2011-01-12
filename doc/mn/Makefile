@@ -1,3 +1,5 @@
+# mn web pages
+
 tex = tex -interaction=nonstopmode -file-line-error
 x:
 #	chmod -R a+rwX .  # as received from OSU
