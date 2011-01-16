@@ -6,6 +6,7 @@
  file=tex4ht-mathml
  file=tex4ht-configure1
  file=tex4ht-configure2
+ file=tex4ht
 
 
 pdf:

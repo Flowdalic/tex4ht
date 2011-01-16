@@ -1,17 +1,15 @@
-%$Id: tex4ht-configure1.tex,v 1.1 2010/09/07 08:38:49 cvr Exp cvr $
+% $Id$
 
-\documentclass[a4paper]{article}
-
- \usepackage{xspace,graphicx,blog}
-
-\begin{document}
-
-\section{Introduction}
+\chapter{\TeX4ht \textbackslash{}Configure}
 
 The \Verb=\Configure= command is the most powerful user command in
 \texht system.  It helps to add various kinds of hooks to insert
 target markup code into the desired locations in and around various
-types of content. For instance, take the example of
+types of content.
+
+\section{Introduction to \textbackslash{}Configure}
+
+For instance, take the example of
 \Verb=\section{...}= in \latex. A typical example will be:
 \begin{verbatim}
   \section{Introduction}
@@ -699,5 +697,3 @@ The content to be displayed in the pointers.
      {\ifvmode \IgnorePar\fi \EndP
       \HCode{</div>}}
 \end{verbatim}
-
-\end{document}
