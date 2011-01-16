@@ -1,0 +1,89 @@
+%
+% $Id: tex4ht-mathml.tex,v 1.1 2010/09/07 09:06:43 cvr Exp cvr $
+%
+\documentclass[a4paper]{article}
+\usepackage{xspace,blog}
+
+\begin{document}
+
+\section{MathML 3 and implications on TeX4ht}
+
+\leavevmode
+\hlink{http://www.w3.org/TR/MathML3/}{\mathml 3} is about to be formalized and going to be released as the new standard for encoding mathematics in web. It differs from the previous standard version 2. The main changes that have a bearing on the functionality of \hlink{http://www.tug.org/tex4ht/}{\texht} are discussed here.
+
+\section{Linking}
+
+\mathml 1 and 2 didn't have any built in provisions to specify links for various elements. The recommendation was to use \hlink{http://www.w3.org/TR/xlink/}{\xlink} since it was part of the original grand plan for \hlink{http://www.w3.org/standards/xml/}{\xml} in its formative years. However, \xlink didn't gain much popularity nor was it supported widely. Therefore, \mathml 3 now specifies that any \mathml element can accept an \verb+href+ attribute that takes an \uri specifying a hyperlink same as in the \hlink{http://dev.w3.org/html5/spec/Overview.html}{\html} element, namely, \verb+<a>+. So this has an implication in the current scheme of \texht. If readers provide a few examples of how they want to include links in a math fragment in \latex, it will help largely to make a stable and suitable conversion scheme for \texht.
+
+\section{Line breaking}
+
+Previous standards of \mathml had the same limitations as \tex in the matter of breaking long equations. In \tex, it is easy for an author to break equations while authoring content taking into consideration of the margin constrains and paper sizes. However, for web content, margin and line-length are irrelevant when the window sizes are unknown or potentially liable to dynamic changes. Therefore, new \mathml 3 specifies a line breaking model and introduces several new attributes to control properties of line breaks and alignments. 
+
+This has deeper implications on the rendering software than on the engine that creates \mathml.  However, since the specification allows newer properties for line breaks and alignments, we need to take care of those part in \texht which at the moments obeys what the author has input in her \latex document.  Since \tex is incapable of determining the semantic meaning of equations, we have to provide hooks to make \texht aware of the real line breaks and obligatory line breaks to adjust with page sizes.  A better option will be to make use of \verb+breqn+ package while authoring and \texht to provide necessary extra functionality to take care of \hlink{http://tug.ctan.org/tex-archive/macros/latex/contrib/mh/}{\texttt{breqn}} features in combination with \mathml's newer goodies.
+
+\section{Image inclusion}
+
+The usage of \verb+<glyph>+ element in the previous \mathml specification has been deprecated now. \verb+<glyph>+ element was used to specify characters from non-standard fonts that do not correspond to Unicode code points. Since the usage becomes difficult in a web context, as one needs to make sure that the font is available, \verb+<mglyph>+ has been extended with \verb+src+ attribute. \verb+<mglyph>+ now acts as a general image reference element in \mathml much like \html's \verb+<img>+ element. 
+
+\section{Elementary math layout}
+
+Elementary school math layout is difficult to typeset even with \tex.  Usually people adopt a tabular layout with a lot of complex macros to control space and rules around various number segments. Previous \mathml standards provide elementary school math layout, much like in \tex, with a lot of tabular structure which obstructs rendering of math other than visual, particularly audio, because of the interference of tabular elements.  \mathml 3 provides better layout elements and scheme which help to specify even borrows and carries and many different kind of layout.
+
+\begin{verbatim}
+  435.3
+   ______
+  3)1306
+    12
+    __
+     10
+      9
+     __
+      16
+      15
+      __
+       1.0
+         9
+         _
+         1
+\end{verbatim}
+
+\subsection{MathML version of long division}
+
+Given below is the \mathml 3 coding of the above long division. 
+
+\begin{verbatim}
+<mlongdiv longdivstyle="lefttop">
+  <mn> 3 </mn>
+  <mn> 435.3</mn>
+  <mn> 1306</mn>
+  <msgroup position="2" shift="-1">
+    <msgroup>
+      <mn> 12</mn>
+      <msline length="2"/>
+    </msgroup>
+    <msgroup>
+      <mn> 10</mn>
+      <mn> 9</mn>
+      <msline length="2"/>
+    </msgroup>
+    <msgroup>
+      <mn> 16</mn>
+      <mn> 15</mn>
+      <msline length="2"/>
+      <mn> 1.0</mn> 
+    </msgroup>
+    <msgroup position='-1'>
+       <mn> 9</mn>
+      <msline length="3"/>
+      <mn> 1</mn>
+    </msgroup>
+  </msgroup>
+</mlongdiv>
+\end{verbatim}
+
+\section{Directionality}
+
+\ifvmode\leavevmode\fi
+\mathml 3 provides support for right to left writing/reading direction whereas previous versions didn't have this functionality. The new specifications provide the user to control both writing directions of the identifiers within a formula and layout direction of the formula itself separately. I am not sure, if this has any influence on the behavior of current version of \texht which is based on \verb+dvi+ files generated by \tex/\latex while support for \verb+xdv+, extended dvi generated by Xe\tex, is still very basic which supports multi-directional scripts.
+
+\end{document}

@@ -1,0 +1,2028 @@
+%$Id: tex4ht-process.tex,v 1.1 2010/09/05 09:02:33 cvr Exp cvr $
+
+\documentclass[a4paper]{article}
+
+ \usepackage{xspace,graphicx,blog}
+
+\begin{document}
+
+
+\section{Cross-linking}
+
+\begin{verbatim}
+  \Link[@1 @2]{@3}{@4}...\EndLink
+\end{verbatim}
+
+\noindent  Creates
+
+\begin{verbatim}
+  <a href="@1#@3" name="@4" @2>...</a>
+\end{verbatim}
+
+\begin{itemize}
+\item   When \Verb=@1= is empty, \texht will derive its value automatically.
+    The derived value will be the file name containing the target \Verb=@3=.
+
+  \item  \Verb=\Link= may be followed by \Verb=-=, if \texht needs not automatically
+    determine (for other \Verb=\link= commands) the file containing \Verb=@4=.
+    In the present of such a flag, \texht can spare a definition of
+    one macro.
+
+  \item The component \Verb=[@1 @2]= is optional. If omitted,
+    \Verb=@1= and \Verb=@2= are  assumed to be empty.
+
+  \item  The \Verb=href= attribute is omitted when \Verb=@1= and
+    \Verb=@3= are empty. 
+
+  \item  The name attribute is omitted when \Verb=@4= is empty.
+  
+\end{itemize}
+\ifx\cvrtexht\undefined\else\Tg</ul>\fi
+
+  \Example
+
+\begin{verbatim}
+  \Link{a}{}...\Endlink .....  \Link{}{b}...\EndLink
+  \Link[http://foo  id="fooo"]{a}{b}...\EndLink
+
+  \Configure{Link}..............4
+\end{verbatim}
+
+\noindent   Configures \Verb=\Link...\EndLink= so that
+
+\begin{tabular}{ll}
+\fline     \#1 replaces \Verb=a=
+
+\fline     \#2 replaces \Verb+href=+
+
+\fline     \#3 replaces \Verb+name=+
+
+\fline     \#4 replaces `\#'.  If empty, the older value remains in effect.
+
+\end{tabular}
+
+\Example
+
+\begin{verbatim}
+  \Configure{Link}{a}{href=}{name=}{}
+  \Configure{Link}{ref}{target=}{id=}{\empty}
+
+  \Configure{?Link}..............1
+\end{verbatim}
+
+\begin{tabular}{ll}
+\fline   \#1 insertion before broken links
+
+\end{tabular}
+\par\medskip
+
+\noindent   To help with debugging
+
+\begin{verbatim}
+\LinkCommand...................1 <= i <= 6
+\end{verbatim}
+\noindent
+   Creates a \Verb=\Link=-like command
+
+\begin{tabular}{ll}
+
+\fline   \#1   tag name
+
+\fline   \#2   href-like attribute
+
+\fline   \#3   name-like attribute
+
+\fline   \#4   insertion
+
+\fline   \#5   \Verb=/=, if empty element
+
+\fline   \#6  replacement for \#  (ignored if absent)
+
+\end{tabular}
+
+\Example
+
+\begin{verbatim}
+  \LinkCommand\JSLink{a,\noexpand\jsref,name}
+  \def\jsref="#1"{href="javascript:window.open('#1')"}
+
+  \JSLink{a}{}xx\EndJSLink
+  \Link{}{a}\EndLink       % or \JSLink{}{a}\EndJSLink
+
+  \Configure{XrefFile}.....................1
+\end{verbatim}
+
+\begin{tabular}{ll}
+
+\fline   \#1 names cross-references of files (appends \#1 to \Verb=)F= and \Verb=)Q=
+      entries of the \Verb=.xref= files). Applicable mainly implicitly
+      within \Verb=\Link= commands.
+
+\end{tabular}
+
+\begin{verbatim}
+  \Tag.....................................2
+\end{verbatim}
+
+\begin{tabular}{ll}
+\fline   \#1  label
+
+\fline   \#2  content
+
+\end{tabular}
+
+\begin{verbatim}
+  \Ref.....................................1
+  \LikeRef.................................1
+\end{verbatim}
+
+\begin{tabular}{ll}
+ \fline  \#1  label
+
+\end{tabular}
+
+\par\medskip
+
+   \Verb=\Tag= and \Verb=\Ref= are \Verb=tex4ht.sty= commands
+   introduced cross-referencing 
+   content through \Verb=.xref= auxiliary files.
+
+   \Verb=\LikeRef= is a variant of \Verb=\Ref= which doesn't verify whether the
+   labels exit.  It is mainly used in \Verb=\Link= and \Verb=\edef= environments.
+
+\begin{verbatim}
+  \ifTag ..................................3
+\end{verbatim}
+
+\begin{tabular}{ll}
+\fline   \#1  quetioned tag
+
+\fline   \#2  true part
+
+\fline   \#3  false part
+
+\end{tabular}
+
+\begin{verbatim}
+  \LoadRef-[prefix]+{filename.ext}{pattern}
+\end{verbatim}
+
+\noindent   Load the named xref-type file
+\fspace=20mm
+\begin{tabular}{ll}
+\fline .xref  optional --- \Verb=.xref= is assume for a default\par
+
+\fline   +    optional --- asks \Verb=\Ref= and \Verb=\LikeRef= commands
+              to use expanded tags \Verb=filename::tag=, instead of
+              just \Verb=tag=
+
+\fline[prefix]   optional --- asks just for tags starting with the
+              specified prefix.
+
+\fline   -    optional --- deletes the prefixes from the loaded tags
+
+\fline   \{pattern\}  to be included only when \Verb=[prefix]= or
+\Verb=+= are included. 
+              States how tags are to be addressed, with the parameter
+              symbol `\#1'  specifying the loaded part.
+
+\end{tabular}
+
+\fspace=6mm
+
+   \Example
+
+\begin{verbatim}
+  % a.tex
+  \LoadRef-[to:]{b}{from:#1}      \Ref{from:filename}
+                                  \LikeRef{from:filename}
+
+  % b.tex
+  \Tag{to:filename}{\FileName}
+\end{verbatim}
+
+   \Example
+
+\begin{verbatim}
+  \LoadRef-[)F]{file}{)Ffoo##1}
+  \LoadRef-[)Q]{file}{)Qfoo##1}
+  \Configure{XrefFile}{foo}   \Link...\EndLink
+  \LoadRef{another-file}
+\end{verbatim}
+
+\end{document}
+
+\section{Files}
+
+\begin{itemize}
+
+\item \Verb=\FileName=:    Holds the name of the current hypertext file.
+\item \Verb=\FileNumber=:  Holds the internal number of the current hypertext file.
+
+\end{itemize}
+
+\begin{verbatim}
+  \RefFileNumber...........................1
+   #1  File number
+\end{verbatim}
+
+\noindent    Provides the file name.
+
+\begin{verbatim}
+  \NextFile.................................1
+   #1 Requested name for the next file
+  \Hinput{#1}
+\end{verbatim}
+\noindent
+    The command asks to load the configuration files associated
+    with mark \Verb=#1=.
+
+\begin{verbatim}
+  \Hinclude[#1]{#2}
+\end{verbatim}
+\noindent
+    The command associates configuration file \Verb=#2= with mark \Verb=#1=.  If
+    the mark is the star character \Verb=*=, the configuration files is
+    associated to all marks.  The command is applicable until the
+    \Verb=\Preamble= command is processed.
+   For instance,  \Verb=\Hinclude[*]{html4.4ht}....\Hinput{latex}=.
+
+\begin{verbatim}
+  \Hinclude{#1}{#2}
+\end{verbatim}
+\noindent
+    The command is applicable while the \Verb=\Preamble= command is
+    processed. Its purpose is to load \Verb=*4ht= hook files within
+    the fragments of code specified in \Verb=#1=.
+   For instance, \Verb=\Hinclude{\input plain.4ht}{plain}=.
+
+
+\section{Fonts}
+
+\begin{verbatim}
+  \Configure{htf}...............................9
+
+    #1       label (integer 0--255)
+    #2       delimiter (a character not appearing in #3,...,#9)
+             even label             odd label
+    #3       start opening tag      start empty tag
+    #4       name                   alt
+    #5       size                   name
+    #6       mag                    size
+    #7                              mag
+    #8       end the tag            ord
+    #9       closing tag            end the tag
+\end{verbatim}
+
+    The \Verb=htf= fonts assign a content and a label to each symbol (possibly
+    followed by a comment).  For instance,
+
+\begin{verbatim}
+        'e'    '1'    epsilon
+        'z'    '3'    zeta
+\end{verbatim}
+
+    An even label asks that the content itself will be used for the
+    symbol, and an odd label asks that the symbol will be represented by a
+    bitmap.  In the later case,  the content serves as a substitution for
+    browsers which don't exhibit bitmaps.
+
+    The \Verb=\Configure{htf}...= command provides label-dependent wrappers to
+    chosen representations.
+
+    If they are not empty, \Verb=mag= and \Verb=ord= must be c-type
+    patterns for integer arguments, and \Verb=name= and \Verb=size=
+    should be a patterns for strings.  The \Verb=mag= entry is
+    ignored for fonts of the default dimension. Together
+    they specify a attribute-value format, mainly for references
+    in the \Verb=css= code.
+
+  \Example
+
+\begin{verbatim}
+  \Configure{htf}{0}{+}{<span\Hnewline
+     class="}{\%s}{-\%s}{x-x-\%d}{}{">}{</span>}
+  \Configure{htf}{1}{+}{<img\Hnewline
+     src="}{" alt="}{" class="}{\%s}{-\%d}{x-x-\%x}{" />}
+\end{verbatim}
+
+\begin{verbatim}
+  \Configure{htf-attr}....................... 2
+\end{verbatim}
+  
+\fline \#1  c-pattern for the font name and size
+
+\fline     \#2  c-pattern for font magnification
+\par\medskip
+
+     Specify the format of the selectors within the \textsc{CSS} files.
+
+   \Example
+\begin{verbatim}
+  \Configure{htf-attr}{.\%s-%s}{--\%s}
+  \Configure{htf-css}....................... 2
+\end{verbatim}
+
+\fline    \#1  font name or label
+
+\fline    \#2  css entry
+\par\medskip
+
+    A variant of the \Verb=\Css= command. If \Verb=#1= is a font name,
+    the contribution replaces the one given within the
+    \Verb=htf= font definition. If \Verb=#1= is a label for an entry
+    of a \Verb=htf= font, the contribution is added to the \textsm{CSS}
+    file.  The contribution is offered, only when the
+    font is in use.
+
+  \Example
+
+\begin{verbatim}
+   \Configure{htf-css}{4}{.small-caps{font-variant: small-caps;}}
+\end{verbatim}
+
+\section{Bitmaps}
+
+\begin{verbatim}
+  \Configure{Picture}....................... \#1
+\end{verbatim}
+
+\fline  \#1  Extension name for bitmap files of \Verb=dvi= pictures,
+      stored in \Verb=\PictExt=.
+\par\medskip
+
+  \textbf{Default:} \Verb=\Configure{Picture}{.png}=
+
+  The extension names of bitmap files of glyphs of \Verb=htf= fonts may be
+  determined within a g-entry in the environment file \Verb=tex4ht.env=, or a
+  g-flag of the \Verb=tex4ht.c= utility.
+
+\end{document}
+
+\begin{verbatim}
+  \Configure{Picture-alt}......................1
+
+  \#1  alt value for \Picture+{...}  and \Picture*{...}
+
+\begin{verbatim}
+  \Configure{Picture+}.........................2
+  \Configure{Picture*}.........................2
+
+  \#1  before the dvi picture code
+  \#2  after the dvi picture code
+
+  Typically, the plus `+' variant is introduced as an inline
+  contribution into paragraphs, and the star `*' variant as an
+  independent block between paragraphs.
+
+\begin{verbatim}
+  \Configure{PictureAlt}........................2
+  \Configure{PictureAlt*+}......................2
+  \Configure{PictureAlt*+[]}....................2
+
+  \#1 definitions before alt
+  \#2 definitions after alt
+
+ Apply to \Picture{...}, \Picture*+{...}, and \Picture*+[...]{...}
+
+\begin{verbatim}
+  \Configure{PictureAlt}........................1
+  \Configure{PictureAlt*+}......................1
+  \Configure{PictureAlt*+[]}....................1
+
+  \#1 definition for attributes (introduced through
+     a parameter named `\#1')
+
+   Apply to \Picture{...}, \Picture*+{...}, and \Picture*+[...]{...}
+
+\begin{verbatim}
+  \Configure{IMG}...............................5
+
+  \#1 before file name
+  \#2 between file name and alt
+  \#3 close alt for  \Picture without * or +
+  \#4 close alt for  \Picture with * and +
+  \#5 right delimiter
+
+  \Example
+
+\begin{verbatim}
+     \Configure{IMG}
+        {\ht:special{t4ht=<img src="}}
+        {\ht:special{t4ht=" alt="}}
+        {" }
+        {\ht:special{t4ht=" }}
+        {\ht:special{t4ht=/>}}
+
+\NextPictureFile.............................1
+
+   Requests a file name for the next created picture.
+
+\begin{verbatim}
+  \PictureFile.............................0
+
+   Records the filename of the most recent created picture.
+
+Math
+----
+
+\begin{verbatim}
+\Configure{$}................................2
+\Configure{$$}...............................2
+\Configure{DviMath}..........................2
+
+\DviMath ... \EndDviMath
+\MathClass ... \EndMathClass
+\PicMath ... \EndPicMath
+\DisplayMath ... \EndDispalyMath
+
+   \Example
+
+\begin{verbatim}
+     \Configure{$} {\Tg<math>\DviMath} {\EndDviMath\Tg</math>} {}
+
+
+
+\begin{verbatim}
+\Configure{PicMath}..........................4
+
+   \Example
+
+\begin{verbatim}
+       \Configure{PicMath}{}{}{}{ class="math" }
+
+     \Configure{()}{\protect\PicMath$}{$\protect\EndPicMath}
+
+\Configure{SUB}..............................2
+\Configure{SUP}..............................2
+\Configure{SUBSUP}...........................3
+\Configure{SUPSUB}...........................3
+\Configure{SUB/SUP}..........................6
+
+\Configure{putSUB}...........................1
+\Configure{putSUP}...........................1
+
+     \#1 the code to be used for realizing subscripts and postcripts
+
+\begin{verbatim}
+\Configure{afterSUB}.........................2
+
+     \#1 look ahead token after subscript
+     \#2 the code to be used for realizing subscripts having \#1 for
+        lookahead token
+
+\begin{verbatim}
+\Configure{over}.............................2
+\Configure{atop}.............................2
+\Configure{above}............................2
+\Configure{overwithdelims}...................2
+\Configure{atopwithdelims}...................2
+\Configure{abovewithdelims}..................2
+
+   \#1 before \over, \atop, \above
+             \overwithdelims, \atopwithdelims, \abovewithdelims
+   \#2 after  \over, \atop, \above <dimension>
+             \overwithdelims <del1> <del2>
+             \atopwithdelims <del1> <del2>
+             \abovewithdelims <del1> <del2> <dimension>
+
+   \Example
+
+\begin{verbatim}
+     \Configure{over}
+         {\Send{GROUP}{0}{[before]}[before-rule]}
+         {[before-argument]\Send{EndGROUP}{0}{[after]}}
+
+
+\begin{verbatim}
+\Configure{MathClass}........................5
+
+   \#1  class number
+          0: mathord, 1: mathop, 2: mathbin, 3: mathrel,
+          4: mathopen, 5: mathclose, 6: mathpunc
+   \#2  delimiter
+   \#3  before
+   \#4  after
+   \#5  characters
+
+   Extra support:
+
+\begin{verbatim}
+      \PauseMathClass
+      \EndPauseMathClass
+      \NewMathClass<new control sequence>  (7, 8, ...)
+
+\begin{verbatim}
+\Configure{FormulaClass}.....................4
+
+   \#1  class number
+          0: mathord, 1: mathop, 2: mathbin, 3: mathrel,
+          4: mathopen, 5: mathclose, 6: mathpunc
+   \#2  a character not in \#3 and \#4
+   \#3  before
+   \#4  after
+
+   If \#2 is empty, the formula gets the same marking as a
+   single character of the specified type
+
+\begin{verbatim}
+\Configure{FormulaClass*}....................4
+
+   Like the previous case, but allow marking in the
+   nested content.
+
+\begin{verbatim}
+\Configure{MathDelimiters}...................2
+
+   \#1  left
+   \#2  right
+
+\begin{verbatim}
+\Configure{mathbin*}.........................4
+\Configure{mathclose*}.......................4
+\Configure{mathop*}..........................4
+\Configure{mathopen*}........................4
+\Configure{mathord*}.........................4
+\Configure{mathpunct*}.......................4
+\Configure{mathrel*}.........................4
+
+   \#1  a character not presented in \#2\#3\#4
+   \#2  code before
+   \#3  code after
+   \#4  possible definitions for successive cases
+
+  \Example
+
+\begin{verbatim}
+     \Configure{mathop*}{*}{}{}
+        {\Configure{mathop}{*}{<mo>}{</mo>}{}}
+     \mathop{\overline{x \mathop{op} y}} \limits^{a=3}
+
+\Configure{mathbin}..........................4
+\Configure{mathclose}........................4
+\Configure{mathopen}.........................4
+\Configure{mathop}...........................4
+\Configure{mathord}..........................4
+\Configure{mathpunct}........................4
+\Configure{mathrel}..........................4
+
+Variants of the above group, requesting to supress nested marks.
+
+\begin{verbatim}
+\Configure{nolimits}.........................1
+
+\MathSymbol
+
+AtBeginDocument
+---------------
+
+\begin{verbatim}
+\Configure{AtBeginDocument}..................2
+
+    \#1  before the corresponding hook of latex
+    \#2  after
+
+   Insertions are accumulative, and can be erased by providing
+   two empty arguments
+
+Other Hooks
+-----------
+
+\begin{verbatim}
+  \Configure{HChar}...................1
+
+    \#1  a character
+
+    The \HChar{i} instruction inserts the character code i with the
+    font information of character \#1, when i is positive. If i is
+    negative, the font info is not included.
+
+
+\begin{verbatim}
+\Configure{Canvas}
+\Configure{ExitHPage}
+\Configure{LinkHPage}......................1
+\Configure{FontCss}
+\Configure{HVerbatim+}
+\Configure{MiniHalign}
+\Configure{Needs-}
+\Configure{Needs}
+
+
+\Configure{TraceTables}
+\Configure{edit}
+\Configure{halignTB}
+\Configure{halignTD}
+\Configure{halign}
+\Configure{hooks}
+\Configure{moveright}
+
+\Configure{noalign-}
+\Configure{pic-halign}
+
+\Configure{accent}
+\Configure{mathaccent}
+\Configure{accented}
+\Configure{accenting}
+
+
+\section{Back-end Specials}
+
+\begin{verbatim}
+
+                                                    insertions
+                                                    ----------
+  =    \special{t4ht=...content...}
+           Insert the specified content to the html output, under
+           edef mode of processing, and without using the mapping
+           of the htf fonts.  Used in \HCode{...}.
+  @    \special{t4ht@...integer...}
+           Insert the absolute value as character code to the output.
+           Positve values ask the insertion to be included in place
+           of the next chracter, together with the font information
+           of that character.
+                                                    files
+                                                    -----
+  >    \special{t4ht>...file-name...}
+           Open a new file, if needed, and direct future output
+           to the specified file.  Used in \File{...}.
+  <    \special{t4ht<...file-name...}
+           Close the specified file.  If it is the current file,
+           activate the youngest file. Used in \EndFile{...}.
+  >*   \special{t4ht*>...file-name...}
+           Declare the file to be the oldest.
+       \special{t4ht*>}
+           Reactivate the file that activated the current file.
+  *<   \special{t4ht*<file}
+           Input file (with no processing)
+  +    \special{t4ht++file-name}...dvi...\special{t4ht+}
+           Pipe the dvi code into a dvi page in the secondary dvi file
+           `jobname.idv'.  Used by \Picture{...}, e.g., for requesting
+           gif's.
+  +    \special{t4ht+embeded-specials within idv}
+  .    \special{t4ht.ext}
+           Change default ext of root file
+  @D   \special{t4ht@D....} Writes the content, augmented with a
+           loc stamp, to the .lg file.  The locations stamp consists
+           a byte-address in a named output file.
+
+                                                    character maps
+                                                    --------------
+  !    \special{t4ht!...optional-parameters....}...dvi...\special{t4ht!}
+           Create an approximated character map for the dvi code.
+           Used in \Picture{...}, e.g., for ALT of IMG
+  |    \special{t4ht|}...\special{t4ht|}
+           Use the non-pictorial characters of the htf fonts.
+           Used for character maps of \Picture{....}
+  @    \special{t4ht@-}....\special{t4ht@-}
+           Remove left margin from character map.  Used in \Picture{...}.
+
+                                                    character settings
+                                                    ------------------
+  @    \special{t4ht@@}....\special{t4ht@@}
+           Insert the character codes, instead of their mappings through
+           the htf fonts.  Used in \JavaScript...
+  @    \special{t4ht@...integer...}, \special{t4ht@-...integer...}
+           Introduce the character code into the output.
+           Used by \HChar{...} and \HChar{-...}. The earlier one
+           also inherites the current font info.
+  @    \special{t4ht@+...string...}
+           Replace the character code introduced by the next character
+           with the specified string.  The decoration of the character
+           code is inherited, when the string is not empty. The string
+           might include character codes by enclosing them between braces.
+  @    \special{t4ht@*...string...}
+           A variant \special{t4ht@+...string...} that inserts the content
+           after the character instead of replacing it.
+  @    \special{t4ht@(}
+           Ignore spaces
+  @    \special{t4ht@)}
+           End ignore spaces
+  @    \special{t4ht@[}
+           Ignore chs and spaces
+  @    \special{t4ht@]}
+           End ignore chs and spaces
+  @    \special{t4ht@[...}...\special{t4ht@]...}\special{t4ht@?...}
+           Ignore chs and spaces, if the specials  have the above
+           syntax on identical strings.
+  @    \special{t4ht@!}
+           Get the last ignored spaces (none, if from previous lines).
+  @    \special{t4ht@_....}
+           Output character for rulers. Empty string is also allowed.
+  @    \special{t4ht@.''''}
+           Output for line break characters (empty
+                                         content resets the default).
+  @    \special{t4ht@,''''}
+           Output for space characters (empty content resets the default).
+
+                                                    dvi tracing
+                                                    -----------
+  @    \special{t4ht@%X}...\special{t4ht@%x}
+           Request dvi tracing.
+
+               X  x
+               P  p      groups
+               C  c      characters
+               H  h      horizontal spaces
+               V  v      vertical spaces
+               R  r      rulers
+
+       \special{t4ht@%%X*...open-del....*...close-del....}
+       \special{t4ht@%%x*...open-del....*...close-del....}
+           Tailor dvi tracing
+
+  @    \special{t4ht@/}
+           On/off tracing of specials.
+  @    \special{t4ht@e...}
+           String for tracing errors into the output.
+  ;    \special{t4ht;....}
+           Decorations for htf characters (e.g., css)
+              8    pause
+              9    end pause
+              \let \prOteCt \relax \Protect \csname acp:c\endcsname {14}.. patt
+ern
+              =... show font name of char
+              %... show font size of char
+              ,    don't report next htf class to lg
+              -    set default font info
+              +    unset default font info
+  ^    \special{t4ht^i}$symbols$\special{t4ht^}}'
+           Requests math class i for the listed math symbols.
+
+           \tex assignes class numbers 0--7 to the atoms of math
+           formulas: 0--ordinary symbol, 1--large operator, 2--binary
+           operation, 3--relational operation, 4--math delimiter,
+           5--right delimiter, 6--punctuation mark, and 7--adjustable.
+           TeX4ht adds classes  8 and 9, while using
+           class 7 independently
+       \special{t4ht^}
+           on/off processing delimiters
+       \special{t4ht^-}
+           pause processing delimeters
+       \special{t4ht^+}
+           continue processing delimeters
+       \special{t4ht^i}
+           on/off processing delimiters of class i
+       \special{t4ht^i*...*...}
+           configure delimiters for class i. * can be any
+           character distinguished for the group.
+       \special{t4ht^i(}
+           put delimiters of class i on next group
+       \special{t4ht^i)}
+           As before, but ignore the delimeters within the sub-group.
+       \special{t4ht^)*...*...}
+           put the specified delimiters on next group.
+           Ignore delimeters within the group.
+       \special{t4ht^<*...*...}
+           put the specified delimiters on the next group.
+           Don't ignore delimeters within the group.
+                                                    dvi arithmetic
+                                                    --------------
+  :    \special{t4ht:....}
+           Dvi-mode arithmetics.
+             :+...  increment by 1( define, if not defined)
+             :-...  decrement by 1
+             :>...  push current value
+             :<...  pop current value
+             :!...  display current value
+             :\let \prOteCt \relax \Protect \csname acp:c\endcsname {14}..  dis
+play top value
+
+                                                    messages to lg file
+                                                    -------------------
+  +    \special{t4ht+@...message...}
+           Send message to the lg file.  Used in the \Needs{...} command.
+  @    \special{t4ht@D....}
+           Send message to the lg file, together with location and file
+           stamp.
+
+                                                    positional code
+                                                    -------------------
+  "    \special{t4ht"}
+           Start/end positional env
+       \special{t4ht"* before-all * after-all ...** before-char
+                     * after-char * rect
+                     *%A*%B*%C*%D*%E
+                     * optional
+           Configure positioned code
+             * before-all
+             * after-all      %...
+             ** before-char  %x %y
+             * after-char
+             * rect          %x1 %y1 ...
+             * x,x1-coefficients %A(x) + %B
+             * y1-coefficients %C(y1 - %E(height)) + %D
+             * y-coefficients  %C(y) + %D
+             * optional: 1, 2
+
+               %x1 %y1 %length %thickness          default
+               %x1 %y1 %x1+length %y1+thickness    1
+               %x1 %y1 %x1+length %y1 %thickness   2
+
+           A-magnification, B-displacement
+           C-magnification, D-displacement,
+           E- origin (0: top, 0.5: mid, 1: bot)
+
+           The %...'s should be c-type templates (e.g., "%.2f"; "%.0f"
+              gives an integer)
+
+           Multiple after-all templates are allowed. The leading
+             character is a code specifying the dimension type.
+                x           min x
+                X           max x
+                y           min y
+                Y           max y
+                d           dx
+                D           dy
+                otherwise   a string with no values
+           The delimiter `*' can be substitued by another character.
+
+
+  ~    \special{t4ht~...}
+           Grouped-base two-way delivery for content created by
+           inline commands like \over.
+
+       \special{t4ht~}...\special{t4ht~}   on/off
+
+       ~<i...  send forward to the start of the group nested
+                                                at relative level i.
+       ~>i...  send forward to the end of the group nested
+                                                at relative level i.
+               i=0, current group
+
+
+       ~<*...  send back to start of previous token / group.
+       \special{t4ht~<)}...\special{t4ht~<(}
+           activate / deactivate  back token / group submissions
+       \special{~<[}...\special{t4ht~<]}'
+           hide region from back submissions over token / group
+       \special{t4ht~<-} ... \special{t4ht~<+}
+           latex back token / group
+
+       \special{t4ht\string~!...path...<...content}
+           insertion at the start of the group reached by the path
+       \special{t4ht\string~!...path...>...content}
+           insertion at the end of the group reached by the path
+       \special{t4ht\string~!...path.../}
+           ignore content within the group reached by the path
+       \special{t4ht\string~!...path...-}
+           ignore rulers from the group reached by the path
+           until the start of the next group
+        A path may consist only of `e' and `s' characters for,
+        respectively, entering and skipping groups
+
+  *!   \special{t4ht*! system command}
+           System call
+  *^   accent specials
+        t text accent \#1\#2\#1\#3\#1\#4\#1\#5\#1\#6 pattern
+                      empty                insertion point
+        m math accent \#1\#2\#1\#3\#1\#4\#1\#5\#1   pattern
+                      empty                insertion point
+        a accented    \#1\#2\#1\#3\#1\#4\#1\#5\#1\#6
+        i             \#1\#2\#1\#3\#1\#1
+  *@   halign specials
+\end{verbatim}
+
+\begin{verbatim}
+\HCode...............................1
+\end{verbatim}
+
+   A wrapper for \special{t4ht=...}.
+
+   The sharp symbol \# may be accessed indirectly through the command.
+
+\begin{verbatim}
+\Hnewline............................0
+\end{verbatim}
+
+   Requests new lines within specials
+
+Sectioning
+----------
+
+\begin{verbatim}
+\Configure{@sec @ssect}
+\end{verbatim}
+
+
+Tables of Contents
+------------------
+
+
+\begin{verbatim}
+\Configure{tableofcontents}........................5
+\end{verbatim}
+
+   \#1 before
+   \#2 at end
+   \#3 after
+   \#4 at indented paragraph break
+   \#5 at non-indented paragraph break
+
+   The \tableofcontents command may be followed by a comma separated
+   list of sectioning unit names to be included in the table of
+   contents.  The list should be enclosed within square brackets.
+   Alternatively, a command of the form \TableOfContents[...] might
+   be used.
+
+Lists
+-----
+
+\begin{verbatim}
+\ConfigureList.....................5
+\end{verbatim}
+
+   \#1   type of list (e.g., itemize, description, enumerate,
+                            list, trivlist)
+   \#2   before list
+   \#3   after  list
+   \#4   before label
+   \#5   after label
+
+   \DeleteMark   removes latex's label; to be placed at the end of \#4
+   \AnchorLabel  defines an anchor for \label in current item; to
+                 be placed in \#5
+
+
+Tables
+------
+
+\begin{verbatim}
+\Configure{tabular}...................6
+\Configure{array}.....................6
+\end{verbatim}
+
+    \#1   before table         \#2   after table
+    \#3   before row           \#4   after row
+    \#5   before cell          \#6   after cell
+
+    \HRow         current row number
+    \HCol         current column number
+    \HMultispan   number of cells covered by the current cell
+    \ar:cnt       number of columns in the table
+
+  NOTE: Table require a number of compilations that depends
+        on the number of columns.
+
+  \Example
+
+\begin{verbatim}
+   \Configure{tabular}
+       {\HCode{<table>}}
+       {\HCode{</table>}}
+       {\HCode{<tr class="row-\HRow">}}
+       {\HCode{</tr>}}
+       {\HCode{<td
+               \ifnum \HMultispan>1 colspan="\HMultispan"\fi >}}
+       {\HCode{</td>}}
+
+
+\Configure{VBorder}...................4
+\end{verbatim}
+
+    Break points, when scanning the pattern of column desriptions, at
+
+    \#1  at start of pattern
+    \#2  at |
+    \#3  at a non-@ entry
+    \#4  at a @ entry
+
+  Applies to \begin{tabular / array}{...pattern...}
+
+    \ar:cnt    index of entry in pattern
+    \ch:class  records the current alignment type: -,<,>,p,...
+    \HColAlign produces the \Configure{halignTD} contribution
+               for the current alignment type
+    \HColWidth holds the width of the current p column
+
+\begin{verbatim}
+\Configure{HBorder}..................10
+\end{verbatim}
+
+   hline:
+    \#1  insert at start of row (e.g., <tr>)
+    \#2  insert at each cell    (e.g., <td><hr/></td>)
+    \#3  insert at end of row   (e.g., </tr>)
+
+   cline:
+    \#4  insert at start of row         (e.g., <tr>)
+    \#5  insert at each `extra' cell    (e.g., <td></td>)
+    \#6  insert at each cell            (e.g., <td><hr/></td>)
+    \#7  insert at end of row           (e.g., </tr>)
+
+   vspace:
+    \#8  insert at start of row (e.g., <tr>)
+    \#9  insert at each cell    (e.g., <td>&nbsp;</td>)
+    \#10 insert at end of row   (e.g., </tr>)
+
+   The contributions are collected into \HBorder.  (The \InitHBorder
+   clears \HBorder.)
+
+\begin{verbatim}
+\Configure{putHBorder}...............1
+\end{verbatim}
+
+    \#1 Specifies how \HBorder is to be used.
+
+   \Example 
+\begin{verbatim}
+\Configure{putHBorder}{\HCode{\HBorder}}
+\end{verbatim}
+
+
+
+\begin{verbatim}
+\Configure{halignTD}..................2 + 2i + {}
+\end{verbatim}
+
+  interpretation for character codes referenced in \HAlign
+
+  e.g.,
+
+\begin{verbatim}
+   \Configure{halignTD}
+   {}{}
+   {<}{\HCode{style="text-align:left"}}
+   {-}{\HCode{style="text-align:center"}}
+   {>}{\HCode{style="text-align:right"}}
+   {^}{\HCode{style="vertical-align:top"}}
+   {=}{\HCode{style="vertical-align:baseline"}}
+   {|}{\HCode{style="vertical-align:middle"}}
+   {_}{\HCode{style="vertical-align:bottom"}}
+   {p}{\HCode{style="text-align:left"}}
+   {}
+\end{verbatim}
+
+   \halignTD can be used in td elements to extract the alignment.
+   It recieves information from \halignTB.
+
+\begin{verbatim}
+\Configure{halignTB}..................2
+\end{verbatim}
+
+   delimiters for \halignTB{tabular}
+
+   \Example
+\begin{verbatim}
+       \Configure{halignTB}{\HCode{<table }}{\HCode{>}}
+\end{verbatim}
+
+\begin{verbatim}
+\Configure{tabbing}[mag]..................4
+\end{verbatim}
+
+   \#1 before each line
+   \#2 after each line
+   \#3 before each entry
+   \#4 after each entry
+
+   [mag] optional parameter specifying the magnification desired
+         for the dimensions.  When offered, the other parameters
+         have no effect if all of them are assigned empty arguments
+
+   \TabType   \` or \relax
+   \TabWidth  Provides the entry width; 0 at trailing entry that is
+              not flushed rightward
+
+
+Cross References
+----------------
+
+\begin{verbatim}
+\Configure{ref}.......................3
+\end{verbatim}
+
+  \#1   \Link-type command
+  \#2   \EndLink-type command
+  \#3   anchor (the system anchor is
+               reachable through the parameter name \#1)
+  \RefArg   Holds the argument of \ref
+
+  If \#1 is empty, the hyper links are ignored
+  If \#3 is empty, the anchor is the one provided by the system
+
+  \Example
+
+\begin{verbatim}
+    \Configure{ref}{\Link}{\EndLink}{{\bf \#1}}
+
+\Configure{pageref}...................3
+\end{verbatim}
+
+  \#1   before
+  \#2   after
+  \#3   anchor (system anchor, if parameter is empty)
+
+\begin{verbatim}
+\Configure{newlabel}..................2
+\end{verbatim}
+
+  \#1   address for hyperlink (\cur:th \:currentlabel, if empty)
+  \#2   anchor (the system anchor is
+               reachable through the parameter name \#1)
+
+\begin{verbatim}
+\Configure{@newlabel}.................1
+\end{verbatim}
+
+   \#1  modifications to the newlabel environment
+
+\begin{verbatim}
+\Configure{newlabel-ref}..............1
+\end{verbatim}
+
+   \#1  an intermediate link command for the aux file
+       (Configured by \Configure{ref}...)
+
+   The default for \#1 is \rEfLiNK
+
+\begin{verbatim}
+\Configure{cite}......................4
+\end{verbatim}
+
+  \#1   before
+  \#2   after
+  \#3   \Link-type command
+  \#4   \EndLink-type command
+
+  If \#3 is empty, the hyper links are ignored.
+
+\begin{verbatim}
+\Configure{bibitem}...................2
+\end{verbatim}
+
+  \#1   \Link-type command
+  \#2   \EndLink-type command
+
+\begin{verbatim}
+\Configure{bibcite}...................1
+\end{verbatim}
+
+  \#1  configurations for content transfered by bibitem to the aux file
+
+  \Example
+       \Configure{bibcite}
+                 {\def\hookrightarrow{\string\hookrightarrow}}
+       \bibitem[$\hookrightarrow$...]{...}
+
+
+\begin{verbatim}
+\LoadLabels[\#1]{\#2}....................
+\end{verbatim}
+
+  [\#1]   optional group name
+  \#2     aux file name, without the extension
+
+  Loads labels of another file, under the specified group name
+
+\begin{verbatim}
+\RefLabel.............................2
+\end{verbatim}
+
+  \#1     group name (for separating files and labels from
+                     different sources)
+  \#2     label
+
+  A variant of \ref for loading labels produced for other files
+
+  \Example
+    file1.tex:  \label{foo}
+
+    file2.tex:  \LoadLabels[x]{file1}
+                \RefLabel{x}{foo}
+
+\begin{verbatim}
+\SkipRefstepAnchor.....................0
+\end{verbatim}
+
+    No \Link anchor for next \refstepcounter
+
+\begin{verbatim}
+\ShowRefstepAnchor.....................0
+\AutoRefstepAnchor.....................0
+\end{verbatim}
+
+
+Bibliography on bibtex2 option:
+
+\begin{verbatim}
+  \Configure{bibliography2}........................ 4
+\end{verbatim}
+
+     \#1 before anchor
+     \#2 anchor
+     \#3 after anchor
+     \#4 link attributes
+
+    \Example
+
+\begin{verbatim}
+       \Configure{bibliography2}
+          {\bgroup ~~[\Configure{Link}{a}{target="x"  href=}{ name=}{}}
+          {more} {]\egroup}
+
+  \Configure{bibitem2}..............................3
+\end{verbatim}
+
+     \#1 at start of bibitem
+     \#2 at end of bibitem
+     \#3 separator after label
+
+\begin{verbatim}
+  \Configure{bibliographystyle2}....................1
+\end{verbatim}
+
+     \#1 an empty argument asks for the same style as the
+        normal aux file (still bibtex may produce different
+        output).
+
+Note: Option `bibtex2' requires compilation
+      of `\jobname j.aux' with bibtex.
+
+Captions
+--------
+
+refcaption
+
+  An option for \Preamble, requesting anchors at \caption. The default
+  setting sends them back to the start of the floating environment.
+
+
+Theorems
+--------
+
+\begin{verbatim}
+\Configure{newtheorem} ......................3
+\end{verbatim}
+
+  \#1 before theorem
+  \#2 between title and body
+  \#3 after theorem
+
+Math
+----
+\begin{verbatim}
+\Configure{()}...............................2
+\Configure{[]}...............................2
+\end{verbatim}
+
+   \Example
+
+\begin{verbatim}
+     \Configure{()}{\protect\PicMath$}{$\protect\EndPicMath}
+     \Configure{[]} {\Tg<display>\DviMath$$} {$$\EndDviMath\Tg</display>}
+
+\Configure{equation}.........................3
+\end{verbatim}
+
+   \#1    at start
+   \#2    between the equation and its numbering
+   \#3    at end
+
+  \Examples:
+
+\begin{verbatim}
+      \Configure{equation}
+           {\IgnorePar\EndP\bgroup \Configure{HtmlPar}{}{}{}{}%
+                    \HCode{<table class="equation"><tr><td>}\IgnorePar
+           }
+           {\HCode{</td><td class="eq-number">}}
+           {\HCode{</td></tr></table>}\egroup}
+
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \Configure{equation}
+         {\IgnorePar\EndP \bgroup \Configure{$$}{}{}{}%
+          \Configure{@math}{display="inline"}\DviMath
+                  \HCode{<mtable class="equation"><mtr><mtd>}\IgnorePar
+         }
+         {\IgnorePar\HCode{</mtd><mtd class="eq-number">}}
+         {\HCode{</mtd></mtr></mtable>}\EndDviMath\egroup}
+
+
+\Configure{frac}.............................4
+\Configure{sqrtsign}.........................2
+
+\Configure{mbox}.............................2
+\end{verbatim}
+
+Environments of latex
+---------------------
+
+\begin{verbatim}
+  \ConfigureEnv{...}.........................4
+\end{verbatim}
+
+     \#1 environment name
+     \#2 before env
+     \#3 after env
+     \#4 before underlying list
+     \#5 after underlying list
+
+    \#2 and \#3 are ignore when they are both empty as well as
+    when there is no underlying list
+
+
+   array
+   center
+   flushleft
+   flushright
+   minipage
+   tabbing
+   tabular
+   verbatim*
+   verbatim
+
+
+\begin{verbatim}
+   \Configure{@begin}........................2
+\end{verbatim}
+
+      \#1 environment name
+      \#2 insertion before the environment
+
+   \Example
+
+\begin{verbatim}
+      \Configure{@begin}{theindex}{\section*{\indexname}}
+\end{verbatim}
+
+
+Verbatim
+--------
+
+\begin{verbatim}
+\Configure{verbatim}......................2
+\end{verbatim}
+
+   \#1 at start of line
+   \#2 space character
+
+\begin{verbatim}
+\Configure{verb}..........................2
+\end{verbatim}
+
+   \#1 before
+   \#2 after
+
+\begin{verbatim}
+\Configure{obeylines}.....................3
+\end{verbatim}
+
+   \#1 before
+   \#2 at start of line
+   \#3 after
+
+\begin{verbatim}
+\ScriptEnv................................3
+\end{verbatim}
+
+  Introduces a verbatim environent
+
+   \#1 name
+   \#2 before
+   \#3 after
+
+  A `-' immediately after \begin{...} designate as an escape symbol
+  the character following the dash
+
+  \Example
+
+\begin{verbatim}
+     \ScriptEnv{foo}
+       {\HCode{<myscript>}\NoFonts\hfill\break }
+       {\EndNoFonts \HCode{</myscript>}}
+
+     \begin{foo}
+     ....
+     ....
+     \end{foo}
+
+     \begin{foo}-\relax \unhbox \voidb@x \special {t4ht@+&{35}x00A0{59}}x     .
+...
+     ....
+     \end{foo}
+\end{verbatim}
+
+
+Fonts
+-----
+
+\begin{verbatim}
+\Configure{texttt}........................2
+\Configure{textit}........................2
+\Configure{textrm}........................2
+\Configure{textup}........................2
+\Configure{textsl}........................2
+\Configure{textsf}........................2
+\Configure{textbf}........................2
+\Configure{textsc}........................2
+\Configure{emph}..........................2
+\end{verbatim}
+
+  \#1  before content
+  \#2  after content
+
+
+Footnotes
+---------
+
+\begin{verbatim}
+\Configure{footnotetext}..................3
+\end{verbatim}
+
+    \#1 before footnote
+    \#2 between mark and content
+    \#3 after footnote
+
+   \FNnum     footnote number
+
+\begin{verbatim}
+\Configure{footnotemark}..................2
+\end{verbatim}
+
+    \#1 before
+    \#2 after
+
+Pictures
+--------
+
+\begin{verbatim}
+\Configure{picture}.......................2
+\end{verbatim}
+
+    \#1  before
+    \#2  after
+
+Other Hooks
+-----------
+
+\begin{verbatim}
+\Configure{ }.........................1
+\end{verbatim}
+
+   \#1 representation for non-breaking space ch
+
+\begin{verbatim}
+\Configure{hline}.....................1
+
+\Configure{hspace} ...................3
+\end{verbatim}
+
+   \tmp:dim      register holding the size
+   \#1            before the space
+   \#2            after the space
+   \#3            after \#1 (\tmp:dim mod 6em  copies)
+
+\begin{verbatim}
+\Configure{vspace} ...................1
+\end{verbatim}
+
+   \#1 the size of space is prvided in a parameter nmaed `\#1'
+
+   \Example
+
+\begin{verbatim}
+      \Configure{vspace}
+      {\ifhmode
+         \HCode{<br />}%
+         \ifdim \#1>1ex \HCode{<br />}\fi
+       \fi
+      }
+
+\Configure{fbox} .................................. 2
+\end{verbatim}
+
+   \Examples:
+
+\begin{verbatim}
+        \Configure{fbox}
+          {\HCode{<div class="fbox">}\bgroup \fboxrule=0pt}
+          {\egroup\HCode{</div>}}
+        \Css{div.fbox {border: 1pt solid black;}}
+
+        \Configure{fbox}
+          {\HCode{<table cellspacing="0pt"
+              border="1"><tr><td>}\bgroup \fboxrule=0pt}
+          {\egroup\HCode{</td></tr></table>}}
+
+\Configure{'} ..................................... 3
+\end{verbatim}
+
+   \#1 at entry to math prime environment
+   \#2 at exit
+   \#3 content of \prime
+
+\begin{verbatim}
+\Configure{float}....................................4
+\end{verbatim}
+
+   \#1 optional, to appear within brakects [ and ].  An anchor for
+      the links preceeding the float, when option refcaption is
+      not active
+   \#2 Insertion before the links
+   \#3 at start
+   \#4 at end
+
+\begin{verbatim}
+\Configure{textcircled}.............................2n+1
+   2i'th     replaced       i=1,...,n
+   2i+1'st   replacement
+   2n+'nd    empty (terminator)
+\end{verbatim}
+
+
+\begin{verbatim}
+\Configure{add accent}{\#1:\#2}{\#3}{\#4}...{}{}
+\end{verbatim}
+
+   \#1  encoding
+   \#2  font number
+   \#3  character under font
+   \#4  replacement
+
+   Applies to accents that reach \add@accent
+
+  \Example
+
+\begin{verbatim}
+     \Configure{add accent}{OT4:18}
+       {E}{\add:acc{00C8}}
+       {e}{\add:acc{00E8}}
+       {}{}
+\end{verbatim}
+
+
+
+
+\begin{verbatim}
+\Configure{//[]}
+\Configure{AfterTitle}
+\Configure{HAccent}
+\Configure{InsertTitle}
+\Configure{accents}
+\Configure{accent}
+\Configure{centercr}
+\Configure{centerline}
+
+\Configure{displaylines}
+\Configure{framebox}
+
+\Configure{leftline}
+\Configure{marginpar}
+\Configure{mathaccent}
+\Configure{newline}
+\Configure{oalign}
+
+\Configure{overline}
+
+\Configure{rightline}
+\Configure{stackrel}
+\Configure{tt}
+\Configure{underline}
+\Configure{thanks}....................2
+\end{verbatim}
+
+
+
+\section{Fontmath}
+                                         *
+
+\begin{verbatim}
+\Configure{mathbf}........................2
+\Configure{mathit}........................2
+\Configure{mathrm}........................2
+\Configure{mathsf}........................2
+\Configure{mathtt}........................2
+\end{verbatim}
+
+  \#1  before content
+  \#2  after content
+
+\begin{verbatim}
+\Configure{overbrace}.................3
+\Configure{underbrace}................3
+\end{verbatim}
+
+--- Note ---  A script of the form 
+tex '\def \filename{{%%1}{idx}{4dx}{ind}} \input idxmake.4ht' 
+makeindex -o %%1.ind %%1.4dx 
+in the env file, automatically calls to the revised makeindex 
+command. An extra compilation of the source LaTeX file is required, 
+to get the index correctly into the output.
+
+
+\section{Article}
+
+Title Page
+----------
+
+\begin{verbatim}
+\Configure{maketitle}.....................4
+\end{verbatim}
+
+   \#1 start of maketitle
+   \#2 end of maketitle
+   \#3 before title
+   \#4 after title
+
+\begin{verbatim}
+\Configure{thanks author date and}........8
+\end{verbatim}
+
+   \#1  before thanks
+   \#2  after thanks
+   \#3  before author
+   \#4  after author
+   \#5  before date
+   \#6  after date
+   \#7  representation of `and'
+   \#8  line breaks (= end of rows, for an embedded tabular environment)
+
+
+Sectioning Commands
+-------------------
+
+\begin{verbatim}
+\Configure{part}...................4
+\Configure{section}................4
+\Configure{subsection}.............4
+\Configure{subsubsection}..........4
+\Configure{paragraph}..............4
+\Configure{subparagraph}...........4
+\end{verbatim}
+
+   \#1 before division
+   \#2 after division
+   \#3 before title
+   \#4 after title
+
+\begin{verbatim}
+\Configure{likepart}...............4
+\Configure{likesection}............4
+\Configure{likesubsection}.........4
+\Configure{likesubsubsection}......4
+\Configure{likeparagraph}..........4
+\Configure{likesubparagraph}.......4
+\end{verbatim}
+
+   starred versions of the sectioning commands
+
+\begin{verbatim}
+\Configure{endpart}................1
+\Configure{endsection}.............1
+\Configure{endsubsection}..........1
+\Configure{endsubsubsection}.......1
+\Configure{endparagraph}...........1
+\Configure{endsubparagraph}........1
+\Configure{endlikepart}............1
+\Configure{endlikesection}.........1
+\Configure{endlikesubsection}......1
+\Configure{endlikesubsubsection}...1
+\Configure{endlikeparagraph}.......1
+\Configure{endlikesubparagraph}....1
+\end{verbatim}
+
+   \#1  a comma separated list specifying the end
+       points for the configured logical unit
+
+   \Example 
+
+\begin{verbatim}
+\Configure{endsection}
+              {likesection,chapter,likechapter,appendix,part,likepart}
+\end{verbatim}
+
+\begin{verbatim}
+\Configure{partTITLE+}
+\Configure{sectionTITLE+}
+\Configure{subsectionTITLE+}
+\Configure{subsubsectionTITLE+}
+\end{verbatim}
+
+
+   \#1 an insertion just before the content of <TITLE>;
+
+   The insertion overrides the one offered by \Configure{CutAtTITLE+}
+   for the given section type (the `like' counterparts acn also be
+   configured).
+
+   If \#1 is a one parametric macro, it gets the title content for
+   an argument.
+
+
+
+Bibliography
+------------
+
+\begin{verbatim}
+\ConfigureList{thebibliography}......4
+\end{verbatim}
+
+   \#1   before list
+   \#2   after  list
+   \#3   before label
+   \#4   after label
+
+   \DeleteMark   removes latex's label; to be placed at the end of \#3
+   \AnchorLabel  defines an anchor for \label in current item; to
+                 be placed in \#4
+
+\begin{verbatim}
+\Configure{cite}        see the
+\Configure{bibitem}     latex section
+\end{verbatim}
+
+
+Tables of Content
+-----------------
+
+\begin{verbatim}
+\ConfigureToc
+\end{verbatim}
+
+  lof, lot, appendix, chapter, likechapter, likeparagraph, likepart,
+  likesection, likesubparagraph, likesubsection, likesubsubsection,
+  paragraph, part, section, subparagraph, subsection, subsubsection,
+
+
+\begin{verbatim}
+\Configure{tableofcontents*}.......................1
+\end{verbatim}
+
+    \#1  A non-empty  parameter asks to implicitly introduce
+        a \tableofcontents upon reaching the first sectioning
+        command, if no \tableofcontents command is encountered
+        earlier. The parameter assumes a colon-separated list
+        of sectioning types to be included in the output
+        of \tableofcontents.  Starred variants of sectioning
+        types should be referenced with the `like' prefix.
+
+        An empty parameter cancels earlier requests for implicit
+        calls to \tableofcontents (e.g., embedded within requests
+        to package options 1, 2, 3, 4)
+
+   \Example
+
+\begin{verbatim}
+      \Configure{tableofcontents*}{part,likepart,%
+           section,likesection,subsection,likesubsection}
+\end{verbatim}
+
+\contentsname
+
+   A LaTeX macro stating the title for a table of contents division.
+
+
+
+Captions
+--------
+
+\begin{verbatim}
+\Configure{caption}...............4
+\end{verbatim}
+
+   \#1   before number          \#2    after number
+   \#3   before title           \#4    after title
+
+Indexes
+-------
+
+
+\begin{verbatim}
+\Configure{theindex} ..........................9
+\end{verbatim}
+
+     \#1    before-env
+     \#2    after-env
+     \#3    before-item
+     \#4    after-item
+     \#5    before-subitem
+     \#6    after-subitem
+     \#7    before-subsubitem
+     \#8    after-subsubitem
+     \#9    at-indexspace
+
+    \Example
+
+\begin{verbatim}
+       \Configure{theindex}
+          {\HCode{<ul class="theindex">}\global\let\IndexSpace=\empty}
+          {\HCode{</ul>}}
+          {\HCode{<li \IndexSpace>}\global\let\IndexSpace=\empty}
+                                         {\HCode{</li>\Hnewline}}
+          {\HCode{<li>}\ \ \ \ }         {\HCode{</li>\Hnewline}}
+          {\HCode{<li>}\ \ \ \ \ \ \ \ } {\HCode{</li>\Hnewline}}
+          {\global\def\IndexSpace{class="indexspace"}}
+
+       \Css{.indexspace{margin-top:1em;}}
+\end{verbatim}
+
+    The links are indirectly requested in the idx files within
+    \beforeentry macros. For instance, a file try.tex
+
+\begin{verbatim}
+       \documentclass{article}
+          \makeindex
+       \begin{document}
+
+       \section{xx}
+
+       \index{a1}  x
+       \index{a2}  x
+       \index{a2}  x
+       \index{b1}  x
+       \index{b2}  x
+       \index{b3}  x
+
+       \input \jobname.ind
+
+       \end{document}
+\end{verbatim}
+
+    produces a file try.idx of the form
+
+\begin{verbatim}
+       \beforeentry{try.html}{dx1-1001}{}
+       \indexentry{a1}{1}
+       \beforeentry{try.html}{dx1-1002}{}
+       \indexentry{a2}{1}
+       \beforeentry{try.html}{dx1-1003}{}
+       \indexentry{a2}{1}
+       \beforeentry{try.html}{dx1-1004}{}
+       \indexentry{b1}{1}
+       \beforeentry{try.html}{dx1-1005}{}
+       \indexentry{b2}{1}
+       \beforeentry{try.html}{dx1-1006}{}
+       \indexentry{b3}{1}
+\end{verbatim}
+
+    where each pair
+
+\begin{verbatim}
+        \beforeentry{A}{B}{}\indexetry{C}{D}
+
+    represents an entry of the form
+
+\begin{verbatim}
+        \indexentry{\Link[A]{B}{}C\EndLink}{D}
+\end{verbatim}
+
+    The makeindex utility ignores the \beforeentry records.  To compensate
+    for that, one needs to pre-process the idx file which is introduced to
+    the makeindex utility and/or post-process the output of the utility.
+
+    A script consisting of two instructions similar to
+
+\begin{verbatim}
+      tex '\def\filename{{try}{idx}{4dx}{ind}} \input idxmake.4ht'
+      makeindex -o try.ind try.4dx
+\end{verbatim}
+
+    instead of
+
+\begin{verbatim}
+      makeindex -o try.ind try.idx
+\end{verbatim}
+
+    should do the job.
+
+    On some platforms, the quotation marks ' should be
+    replaced by double quotation marks " or eliminated.
+
+\begin{verbatim}
+\Configure{makeindex} ..........................1
+\end{verbatim}
+
+    The default setting, requests consecutive numbers for the
+    pointers in the indexes.  The current command provides the
+    means to configure the pointers to other values.
+
+    \Example 
+
+\begin{verbatim}
+\Configure{makeindex}{Sec \arabic{section}}
+\end{verbatim}
+
+
+Environments of article:
+------------------------
+
+\begin{verbatim}
+  \ConfigureEnv{...}.........................4
+\end{verbatim}
+
+   abstract
+   description
+   figure
+   figure*
+   quotation
+   quote
+   table
+   table*
+   thebibliography
+   titlepage
+   verse
+
+Other Hooks
+-----------
+
+\begin{verbatim}
+\Configure{listof}
+\end{verbatim}
+
+\section{Graphics}
+
+\begin{verbatim}
+\Configure{graphics}...............2
+\end{verbatim}
+
+    \#1  before \includegraphics
+    \#2  after \includegraphics
+
+
+    \Examples:
+
+\begin{verbatim}
+       \Configure{graphics}
+          {\Picture+[PIC]{ class="graphics"}}
+          {\EndPicture }
+
+       \Configure{graphics}
+         {\bgroup
+             \Configure{IMG}
+                {\ht:special{t4ht=<img src="}}
+                {\ht:special{t4ht=" alt="}}
+                {" }
+                {\ht:special{t4ht=" }}
+                {}%
+          \Picture+[PIC]{}}
+         {\EndPicture
+             \def\temp{.pstex}\expandafter\ifx
+                              \csname Gin@ext\endcsname\temp
+                                         \HCode{ width="75\%" }\fi
+             \HCode{ />}%
+          \egroup}
+
+
+\Configure{graphics*}..............2
+\end{verbatim}
+
+    \#1  extension name
+    \#2  insertion
+
+    \Gin@base (file name), \Gin@ext, \Gin@req@width, \Gin@req@height,
+    \noBoundingBox (defined iff bounding box is unknown)
+
+    Allows to configure tex4ht for graphics files named in
+    the \includegraphics macro, based on the type of the files.
+
+    An empty insertion \#2 cancels previous requests for the
+    specified extension.
+
+    \Example
+
+\begin{verbatim}
+       \Configure{graphics*}
+         {jpg}
+         {\Picture[pict]{\csname Gin@base\endcsname.jpg}}
+
+       \Configure{graphics*}
+         {wmf}
+         {\Needs{"convert \csname Gin@base\endcsname.wmf
+                          \csname Gin@base\endcsname.gif"}%
+          \Picture[pict]{\csname Gin@base\endcsname.gif
+                      width="\expandafter\the\csname
+                                Gin@req@width\endcsname"
+                     height="\expandafter\the\csname
+                                Gin@req@height\endcsname"}%
+         }
+
+       \Configure{graphics*}
+         {eps}
+         {\openin15=\csname Gin@base\endcsname\PictExt\relax
+          \ifeof15
+             \Needs{"convert \csname Gin@base\endcsname.eps
+                             \csname Gin@base\endcsname\PictExt"}%
+          \fi
+          \closein15
+          \Picture[pict]{\csname Gin@base\endcsname\PictExt}%
+         }
+\end{verbatim}
+
+  Note: Arguments of the \includegraphics command such as angle and
+    scale in
+
+\begin{verbatim}
+       \includegraphics[angle=-90,scale=0.5]{fig.eps}
+\end{verbatim}
+
+    are not known to the given figure (e.g., to fig.eps). To be
+    taken into account, the scripts should handle the transformations
+    they request (e.g., in \csname Grot@angle\endcsname,
+    \csname Gscale@x\endcsname, \csname Gscale@y\endcsname)
+
+
+
+
+

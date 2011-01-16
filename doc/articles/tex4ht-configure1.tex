@@ -1,0 +1,703 @@
+%$Id: tex4ht-configure1.tex,v 1.1 2010/09/07 08:38:49 cvr Exp cvr $
+
+\documentclass[a4paper]{article}
+
+ \usepackage{xspace,graphicx,blog}
+
+\begin{document}
+
+\section{Introduction}
+
+The \Verb=\Configure= command is the most powerful user command in
+\texht system.  It helps to add various kinds of hooks to insert
+target markup code into the desired locations in and around various
+types of content. For instance, take the example of
+\Verb=\section{...}= in \latex. A typical example will be:
+\begin{verbatim}
+  \section{Introduction}
+\end{verbatim}
+\Verb=\Configure= for \Verb=\section= provides four (4) hooks in the
+following style:
+\begin{verbatim}
+  \Configure{section}
+     {<beginning of section>}  {<end of the section>}
+     {<before section heading>}{<after section heading}
+\end{verbatim}
+Suppose our target markup requires the following pattern of markup for
+a section heading:
+\begin{verbatim}
+  <section id="sec1">
+   <title>Introduction</title>
+    <para>
+          ...
+    </para>
+  </section>
+\end{verbatim}
+We will accomplish the above target by configuring the section macros
+in the following manner:
+\begin{verbatim}
+  \Configure{section}
+   {\EndP\IgnorePar\Tg<section id="sec\thesection">}
+   {\EndP\Tg</section}
+   {\Tg<title>}
+   {\Tg</title>\ShowPar}
+\end{verbatim}
+The above code will help translate any \latex section heading into the
+required markup scheme as provided in the example.  Macros like
+\Verb=\EndP=, \Verb=\IgnorePar= and \Verb=\ShowPar= will be discussed
+a little later. These are hooks to insert begin and end of paragraph
+code into the content appropriately.  Here, in this document, we are
+shall list most of the \Verb=\Configure= hooks available in \texht
+system and describe briefly how those can be used for configuring most
+of the \latex commands popularly used in documents.
+
+\begin{verbatim}
+ \Configure{PROLOG}.........1
+\end{verbatim}
+
+\begin{tabular}{ll}
+\fline\#1 Comma separated list of hooks to appear before \textsm{HTML}.
+     Each hook E is declared to be configurable by an
+      instruction of the form \Verb+\NewConfigure{E}{1}+. 
+  A star \Verb+*+ prefix calls for accumulative configurations.\par
+
+\end{tabular}
+
+\Example
+\begin{verbatim}
+      \Configure{PROLOG}{VERSION,DOCTYPE,*XML-STYLESHEET}
+      \Configure{VERSION}
+         {\HCode{<?xml version="1.0"?>}}
+\end{verbatim}
+
+\begin{verbatim}
+ \Configure{ext}............1
+\end{verbatim}
+\begin{tabular}{ll}
+\fline\#1: default extension name for target files  (recorded in \Verb+\:html+).
+Can also be requested through a command line option \Verb+ext=...+\par
+
+\end{tabular}
+\begin{verbatim}
+ \Preamble...................0
+\end{verbatim}
+Records the list of the requested options.  Defined upon entering
+   the environment \Verb+\Preamble{...}....\EndPreamble+, to replace the
+   earlier version of \Verb+\Preamble+.
+
+\begin{verbatim}
+ \ifOption ................. 3
+\end{verbatim}
+\begin{tabular}{ll}
+\fline\#1  Argument to be checked  whether it is a given option.\par
+
+\fline\#2  True part\par
+
+\fline\#3  False part\par
+
+\end{tabular}
+
+\section{Wrapper for the Document}
+
+\begin{verbatim}
+ \Configure{DOCTYPE}.........1
+ \Configure{HTML}............2
+ \Configure{HEAD}............2
+ \Configure{@HEAD}...........1
+ \Configure{BODY}............2
+ \Configure{TITLE+}..........1
+ \Configure{TITLE}...........2
+ \Configure{@TITLE}..........1
+ \Configure{Preamble}........2
+
+    <DOCTYPE>
+    <HTML 1>
+      <HEAD 1>
+         <TITLE 1>
+            <@TITLE>
+            <TITLE+>
+         <TITLE 2>
+         <@HEAD>
+      <HEAD 2>
+      <BODY 1>
+      ......
+      <BODY 2>
+    <HTML 2>
+\end{verbatim}
+
+The \Verb+\Configure{@HEAD}{...}+ command is additive, concatenating the
+content of all of its appearances.  An empty parameter requests
+the cancellation of the earlier contributions.
+
+For instance,
+\begin{verbatim}
+  \Configure{@HEAD}{A}
+  \Configure{@HEAD}{}
+  \Configure{@HEAD}{B}
+  \Configure{@HEAD}{C}
+\end{verbatim}
+contributes `BC'.
+
+The \Verb=\Configure{TITLE+}= provides the content for the title,
+\Verb+\Configure{TITLE}+ sets the envelop, and
+\Verb+\Configure{@TITLE}+ acts as a hook for introducing localized
+configurations. As is the case for \Verb+\Configure{@HEAD}+, the
+contribution of \Verb+\Configure{@TITLE}+ is also additive.
+
+These configurations should be introduced early enough in the
+compilation. For instance, in the case of LaTeX, between \verb+\Preamble+
+and \verb+\begin{document}+ of a local configuration file.
+\begin{verbatim}
+  \Preamble
+    %%% here %%%
+  \begin{document}
+    ...
+  \EndPreamble
+
+  \Configure{@BODY}...........1
+  \Configure{@/BODY}..........1
+\end{verbatim}
+  Variants of \Verb=\Configure{@HEAD}= which contribute their content,
+   respectively, after \Verb=<body>= and before \Verb=</body>=.
+\begin{verbatim}
+  \Configure{CutAtTITLE+}.....1
+  \Configure{HPageTITLE+}.....1
+\end{verbatim}
+
+\begin{tabular}{ll}
+\fline   \#1 An insertion just before the content of \Verb+<TITLE>+.
+  If \#1 is a one parametric macro, it gets the title content for
+   an argument.\par
+
+ \end{tabular}
+
+\section{Support for Sectioning Commands}
+
+\begin{verbatim}
+  \Configure{unit-name} ......................4
+\end{verbatim}
+
+\begin{tabular}{ll}
+
+\fline   \#1 start\par
+\fline    \#2 end\par
+\fline    \#3 before title\par
+\fline    \#4 after title\par
+\end{tabular}
+   
+\Example
+
+\begin{verbatim}
+  \Configure{section}
+     {\HCode{<section>}}    {\HCode{</section>}}
+     {\HCode{<title>}}      {\HCode{</title>}}
+  \ConfigureMark{unit-name}...................1
+\end{verbatim}
+
+   Defines a macro \Verb=<unit-name>HMark= to hold the given argument.
+   Upon entering the unit, \Verb=\TitleMark= gets the content of this macro.
+
+   Some built-in configurations of \texht require an argument for the
+   \Verb=<unit-name>HMark= commands. For safety, these commands should
+   always be followed by a, possiblely empty, argument.  The argument
+   should be a separator between the title mark and its content.
+
+   \Example
+
+\begin{verbatim}
+  \Configure{section}
+      {}{}
+      {\HCode{<h3>}\TitleMark\space}{\HCode{</h3>}}
+   \ConfigureMark{section}{\thesection}
+\end{verbatim}
+
+\subsection{ToC link}
+
+\begin{verbatim}
+  \Configure{toTocLink}.......................2
+\end{verbatim}
+
+   Each unit title contains a \Verb=\Link{...}{...}...\EndLink= command.
+   The first argument of \Verb=\Link= points to the first table of contents
+   referencing the title. The second argument provides an anchor
+   for references to the title (mainly from tables of contents).
+
+   The package option \Verb=section+= requests the inclusion of the
+   title within the anchor.  Without this option, the link command
+   resides between the title mark and its content.
+
+   The \Verb=\Configure{toTocLink}= command is provided for configuring
+   the \Verb=\Link= and \Verb=\EndLink=  instructions.  In the default setting,
+   when the \Verb=sections+= option is not activated, the \Verb=\Link=
+   command is altered to replace its first argument with an empty
+   argument.
+
+     \Example
+
+\begin{verbatim}
+  \Configure{toTocLink}
+     {\Link}
+     {\ifx \TitleMark\sectionHMark
+        \Picture[\up]{haut.jpg align="right"}%
+        \EndLink
+        \TitleMark\space
+      \else \EndLink \fi
+     }
+  \def\up{[up]}
+
+  \Configure{toToc}...........................2
+\end{verbatim}
+\begin{tabular}{ll}
+
+    \fline\#1  unit type
+
+    \fline\#2  desired contents type  (if empty, `unit type' is assumed)
+
+  \end{tabular}
+  
+\Example 
+
+\begin{verbatim}
+  \Configure{toToc}{chapter}{likechapter}
+\end{verbatim}
+Introduces chapter as likechapter into toc
+\begin{tabular}{ll}
+
+\fline \#1  empty: stop adding entries of `unit type' to toc
+
+\fline @: add entries of `unit type' to toc
+
+\fline ?: resume mode in effect before the last stop
+
+\fline \#2  unit type
+
+\end{tabular}
+  
+\Example
+\begin{verbatim}
+  \Configure{toToc}{}{chapter}
+  \chapter{...}
+  \Configure{toToc}{@}{chapter}
+
+  \Configure{writetoc}.........................1
+\end{verbatim}
+\begin{tabular}{ll}
+
+\fline \#1  Configuration material for the insertion instruction.
+        New configurations are added to those request earlier
+        by the command.  An empty argument cancels the earlier
+        contributions.
+
+\end{tabular}
+
+\begin{verbatim}
+  \NoLink.......................1
+\end{verbatim}
+   Ignore option \Verb=section+= for sections of type \#1.
+
+%
+\begin{verbatim}
+  \TitleCount
+\end{verbatim}
+   Count of entries submitted to the \Verb=toc= file
+\begin{verbatim}
+  \Configure{NoSection}.........2
+\end{verbatim}
+   Insertions around the parameters of sectioning commands, applied when
+   the parameters are not used to create titles for the divisions.
+
+\begin{verbatim}
+  \CutAt{#1,#2,#3,...}
+\end{verbatim}
+
+\begin{tabular}{ll}
+
+\fspace=20mm
+
+\fline\#1           section type to be placed in a separate web page.
+
+\fline\#2,\#3,...    end delimiting section types, other than \#1, for
+          the web pages A \Verb=+= before \#1 requests hypertext
+          buttons for the web pages.
+
+\end{tabular}
+
+\Example
+
+\begin{verbatim}
+  \CutAt{mychapter,myappendix,mypart}
+  \CutAt{+myappendix,mychapter,mypart}
+\end{verbatim}
+    Cut points at arbitrary points can be introduced by introducing section-like
+    commands in a manner similar to
+\begin{verbatim}
+  \NewSection\mysection{}
+  \CutAt{mysection}
+  \Configure{+CutAt}.................................3
+\end{verbatim}
+\fspace=5mm
+\begin{tabular}{ll}
+
+\fline     \#1 sectioning type
+
+\fline     \#2 before
+
+\fline     \#3 after \par
+
+\end{tabular}
+
+\smallskip
+
+\noindent     Requests delimiters for the \Verb=\CutAt= buttons of the
+specified sectioning type.
+
+%
+\Example 
+
+\begin{verbatim}
+  \Configure{+CutAt}{mysection}{[}{]}
+
+  \PauseCutAt{#1}
+  \ContCutAt{#1}
+\end{verbatim}
+\begin{tabular}{ll}
+
+\fline    \#1  section type
+
+\end{tabular}
+
+\begin{verbatim}
+  \Configure{CutAt-filename} ........................1
+\end{verbatim}
+
+\noindent   A 2-parameter hook for tailoring section-based filenames.
+   The section type is available through \#1. The section title
+   is accessible through \#2.
+
+\Example 
+
+\begin{verbatim}
+  \Configure{CutAt-filename}{\NextFile{#1-#2.html}}
+\end{verbatim}
+
+
+\section{Tables of Contents}
+
+Created from the entries collected in the previous compilation within
+a \Verb=jobname.4tc= file.
+\begin{verbatim}
+  \ConfigureToc{unit-name} ......................4
+\end{verbatim}
+\begin{tabular}{ll}
+
+\fline   \#1 before unit number
+
+\fline   \#2 before content
+
+\fline   \#3 before page number
+
+\fline   \#4 at end
+
+\end{tabular}
+\begin{itemize}
+\item Empty arguments request the omission of the corresponding field.
+\item \Verb=\TocCount=  Specifies the entry count withing the \Verb= jobname.4tc= file.
+\item  \Verb=\TitleCount= Count of entries submitted to the toc file.
+\item An alternative to \Verb=\ConfigureToc{unit-name}=:
+\end{itemize}
+\ifhtml\Tg</ul>\fi
+
+\begin{verbatim}
+  \def\toc<unit-name>#1#2#3{<before unit number>#1<before content>#2%
+                             <before page number>#3<at end>}
+\end{verbatim}
+
+   \Example
+
+\begin{verbatim}
+  \ConfigureToc{section}
+     {}
+     {\Picture[*]{pic.jpg width="13"  height="13"}~}
+     {}
+     {\HCode{<br />}}
+\end{verbatim}
+
+
+\begin{verbatim}
+  \Configure{TocLink}..................4
+\end{verbatim}
+   Configures the link offered in the third arguments of \Verb=\ConfigureToc=.
+
+   \Example   
+\begin{verbatim}
+  \Configure{TocLink}{\Link{#2}{#3}#4\EndLink}
+
+  \TocAt{#1,#2,#3,...}
+\end{verbatim}
+\begin{tabular}{ll}
+\fspace=20mm
+\fline    \#1           section type for which local tables of contents
+                 \Verb=\Toc=\#1 are requested.
+
+\fline    \#2,\#3,...    sectioning types to be included in the tables
+of contents.\par
+
+\end{tabular}
+\medskip
+
+    The non-leading arguments may be preceded by slashes \Verb=/=, in
+    which cases the arguments specify end points for the tables.
+
+    The default setting requests automatic insertion of the local
+    tables immediately after the sectioning heads.
+
+    A star \Verb=*= character may be introduced, between the  \Verb=\TocAt= and
+    the left brace, to request the appearances of the tables of
+    contents at the end of the units' prefaces.
+
+    A hyphen \Verb=-= character, on the other hand, disables the automatic
+    insertions of the local tables.
+
+    In case of a single argument, the command removes the
+    existing definition of \Verb=\Toc#1=.
+
+\Example
+
+\begin{verbatim}
+  \TocAt{mychapter,mysection,mysubsection,/myappendix,/mypart}
+  \TocAt-{mysection,mysubsection,/mylikesection}
+  \section{...}...\Tocmysection
+\end{verbatim}
+
+    The definition  of the local table of contents can be redefined
+    within \Verb=\csname Toc#1\endcsname=.
+
+\Example
+
+\begin{verbatim}
+  \TocAt{section}
+  \def\Tocsection{\TableOfContents[section]}
+
+  \Css{div.sectionTOCS {
+                      width : 30%;
+                      float : right;
+                 text-align : left;
+             vertical-align : top;
+                margin-left : 1em;
+                  font-size : 85%;
+           background-color : #DDDDDD;
+      }}
+\end{verbatim}
+
+\Example 
+
+Table of content before the section title.
+
+\begin{verbatim}
+  \Configure{section}{}{}
+     {\Tocsection \let\saveTocsection=\Tocsection
+      \def\Tocsection{\let\Tocsection=\saveTocsection}%
+      \ifvmode \IgnorePar\fi \EndP\IgnorePar
+      \HCode{<h3 class="sectionHead">}\TitleMark\space\HtmlParOff}
+     {\HCode{</h3>}\HtmlParOn\ShowPar \IgnoreIndent \par}
+\end{verbatim}
+
+\begin{verbatim}
+  \Configure{TocAt}......................2
+  \Configure{TocAt*}.....................2
+\end{verbatim}
+\fspace=5mm
+\begin{tabular}{ll}
+
+\fline   \#1 before the tables of contents
+
+\fline   \#2 after the tables of contents
+
+\end{tabular}
+
+\section{Navigation Links for Sectioning Divisions}
+
+\begin{verbatim}
+  \Configure{crosslinks}.....................8
+\end{verbatim}
+\begin{tabular}{ll}
+
+\fline   \#1  left delimiter
+
+\fline    \#2  right delimiter
+
+\fline    \#3  next
+
+\fline    \#4  previous
+
+\fline    \#5  previous-tail
+
+\fline    \#6  front
+
+\fline    \#7  tail
+
+\fline    \#8  up\par
+
+\end{tabular}
+\medskip
+
+The content to be displayed in the pointers.
+
+\begin{verbatim}
+  \Configure{crosslinks*}.................1--7
+\end{verbatim}
+
+  Links to be included and their order. Available
+  options: \Verb=next=, \Verb=prev=, \Verb=prevtail=, \Verb=tail=,
+\Verb=front=, \Verb=up=. The last argument must be empty.
+
+\subsubsection*{Default:}
+
+\begin{verbatim}
+  \Configure{crosslinks*}
+     {next}
+     {prev}
+     {prevtail}
+     {tail} {front}
+     {up}
+     {}
+\end{verbatim}
+
+\begin{verbatim}
+  \Configure{crosslinks+}.....................4
+\end{verbatim}
+\begin{tabular}{ll}
+
+\fline   \#1  before top menu
+
+\fline  \#2  after top menu
+
+\fline   \#3  before bottom menu
+
+\fline   \#4  after bottom menu
+\par
+
+\end{tabular}
+\medskip
+
+  The top cross links are omitted, if both \Verb=#1= and \Verb=#2= are empty.
+  The bottom cross links are omitted, if both \Verb=#3= and \Verb=#4= are empty.
+
+\begin{verbatim}
+  \Configure{next}.....................1
+\end{verbatim}
+
+\begin{tabular}{ll}
+
+\fline    \#1  the anchor of the next button of the front page.
+\par
+
+\end{tabular}
+\medskip
+
+    \textbf{Default:} The value provided in \Verb=\Configure{crosslinks}=.
+
+\begin{verbatim}
+  \Configure{next+}.............................2
+\end{verbatim}
+
+\begin{tabular}{ll}
+
+\fline   \#1  before the next button of the front page, when the \Verb=next=
+       option is active.
+
+\fline   \#2  after the button
+\par
+
+\end{tabular}
+
+\medskip
+
+\textbf{Default:} The values provided in \Verb=\Configure{crosslinks}=.
+
+\begin{verbatim}
+  \Configure{crosslinks:next}..................1
+  \Configure{crosslinks:prev}..................1
+  \Configure{crosslinks:prevtail}..............1
+  \Configure{crosslinks:tail}..................1
+  \Configure{crosslinks:front}.................1
+  \Configure{crosslinks:up}....................1
+\end{verbatim}
+\begin{tabular}{ll}
+
+\fline   \#1 local configurations for the delimiters and hooks
+
+\end{tabular}
+
+\begin{verbatim}
+  \Configure{crosslinks-}.....................2
+\end{verbatim}
+
+   Asks to show linkless buttons with the following insertions.
+\begin{tabular}{ll}
+
+\fline      \#1  before
+
+\fline      \#2  after
+\par
+
+\end{tabular}
+\medskip
+
+   The default values are used, if both \Verb=#1= and \Verb=#2= are empty.
+
+\Example
+
+\begin{verbatim}
+  \Configure{crosslinks-}{}{}
+
+  \Configure{crosslinks-}
+      {\HCode{<span class="hidden">}[}
+      {]\HCode{</span>} }
+  \Css{span.hidden {visibility:hidden;}}
+\end{verbatim}
+
+\section{Paragraphs}
+
+\begin{verbatim}
+  \Configure{HtmlPar}..........4
+\end{verbatim}
+\begin{tabular}{ll}
+
+\fline   \#1 content at the start non-indented paragraphs
+
+\fline   \#2 content at the start indented paragraphs
+
+\fline   \#3 insertion into \Verb=\EndP=, at the start of non-indented paragraphs
+
+\fline   \#4 insertion into \Verb=\EndP=, at the start of indented paragraphs
+
+\end{tabular}
+\begin{verbatim}
+  \HtmlParOff
+  \HtmlParOn
+
+  \IgnorePar     Asks to ignore the next paragraph
+  \ShowPar       Asks to take into account the following paragraphs
+
+  \IgnoreIndent  asks to ignore indentation in the next paragraph
+  \ShowIndent    asks to check indentation in the following paragraphs
+
+  \SaveEndP      Saves the content of \EndP, and sets it to empty content
+  \RecallEndP
+
+  \SaveHtmlPar
+  \RecallHtmlPar
+\end{verbatim}
+
+  \Example
+\begin{verbatim}
+  \Configure{@BODY}
+     {\ifvmode \IgnorePar\fi \EndP
+      \HCode{<div>}\par\ShowPar}
+  \Configure{@/BODY}
+     {\ifvmode \IgnorePar\fi \EndP
+      \HCode{</div>}}
+\end{verbatim}
+
+\end{document}
