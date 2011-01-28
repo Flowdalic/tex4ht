@@ -74,22 +74,30 @@
 }
 >>>
 
+% CVR: 2011-01-28
 
-
+Rob Beezer \texttt{<beezer@ups.edu>} reported parse errors triggered
+by xtpipes when jsmath compatible html pages are generated. Hence the
+\verb=\Hcode{<!--l. \the\inputlineno-->}= has been commented out. Also
+commented out is \verb= |<recall dvimath par|>= which would insert a
+\verb=\sv:ignore= macro at the end of the \verb=DViMath=
+configuration.
 
 
 \<configure html-jsmath tex4ht\><<<
 \Configure{DviMath}
     {\a:DviJsmath \mathltxtrue
        \ifOption{mml-fonts}{}{|%\mml:htfsym|%\NoFonts}%
-       \IgnoreRule \HCode{<!--l.
-                  \the\inputlineno-->}\ifx \a:@math\empty\else
+       \IgnoreRule
+       % \HCode{<!--l. \the\inputlineno-->}
+       \ifx \a:@math\empty\else
                \Tg<\a:@math\space class="math"\Hnewline >\fi
        \a:math
        |<sv dvimath par|>\IgnorePar}
     {\ifx \a:@math\empty\else \Tg</\a:@math>\fi \EndIgnoreRule
      \ifOption{mml-fonts}{}{|%\ext:htfsym|%\EndNoFonts}%
-     \mathltxfalse \After:Math \b:DviJsmath |<recall dvimath par|>}
+     \mathltxfalse \After:Math \b:DviJsmath % |%recall dvimath par|%
+    }
 \NewConfigure{DviJsmath}{2}
 >>>
 
@@ -109,16 +117,23 @@ jsMath.Macro('firstOfOne','\#1',1)
 \ht:special{t4ht@,&\#x00A0;}%
 >>>
 
-
+Changes to fix bugs reported by Rob Beezer's
+\texttt{<beezer@ups.edu>}: Values of \verb=\@math= in the
+configurations of \verb=$= and \verb=$$= have been changed from
+\verb=span= and \verb=div= to \verb=\dlr= and \verb=\dlr\dlr=
+respectively.  \verb=\dlr= will expand to \verb=$= character which is
+needed by jsMath. Removed \verb=|<inline end-par comment|>= after
+\verb=IgnorePar= in the configuration for \verb=$$=.
 
 
 \<configure jsmath tex4ht\><<<
+\def\dlr{\expandafter\@gobble\string\$}
 \Configure{$}
-   {\Configure{@math}{span}\DviMath}
+   {\Configure{@math}{\dlr}\DviMath}
    {\EndDviMath}{}
 \Configure{$$} 
-   {\Configure{@math}{div}\IgnorePar
-    |<inline end-par comment|>\EndP\DviMath}
+   {\Configure{@math}{\dlr\dlr}\IgnorePar
+    \EndP\DviMath}
    {\EndDviMath
        \ShowPar\par{\csname HCondtrue\endcsname\noindent}}
    {\DisplayMathtrue}
@@ -369,6 +384,21 @@ The above also holds for \verb=\text= instead of \verb=\hbox=.
 \def\rVert{\HCode{\string\Vert\space}}
 >>>
 
+% CVR: 2011-01-28
+
+Changes to fix bugs reported by Rob Beezer's
+\texttt{<beezer@ups.edu>}: Configuration for \verb=\intertext=
+introduced.
+
+\<configure jsmath amsmath\><<<
+\Configure{intertext}
+    {\IgnorePar %\ifinalign@
+      \HCode{\string\cr }%
+     \AA:text{intertext}}
+    {\BB:text \ifvmode \IgnorePar \fi %\EndP
+        \HCode{\string\cr }}
+>>>
+
 \<configure jsmath amsmath\><<<
 \ConfigureEnv{multline}
    {\bgroup \Configure{$$}
@@ -605,41 +635,52 @@ The above also holds for \verb=\text= instead of \verb=\hbox=.
    {|<mtd array|>}  {}
 >>>
 
+% CVR 2011-01-28
 
+\verb=\HtmlParOff= added to \verb=\Configure{#1}=.
+\verb=\HCode{<--tex4ht:inline-->}= commented out as it interfered with
+parsing. \verb=\HtmlParOn= added after \verb=\end:mathalign=. Before
+cell and after cell configurations have been rewritten to solve the
+problems reported by Rob Beezer's \texttt{<beezer@ups.edu>}.
 
-\<configure jsmath amsmath\><<<
-\def\:tempc#1#2{%
-   \ConfigureEnv{#1}
-     {\def\end:al:env{}\ifmmode\else 
-       \ifvmode\else \def\end:al:env{\par\ShowPar\IgnoreIndent}\fi\fi}
-     {\end:al:env }
-     {}{}%
-   \Configure{#1}
-   {\IgnorePar
-    \ifvmode \EndP  \else \EndP  \HCode{<!--tex4ht:inline-->}\fi    
-    \ifmathltx
-       \Tg<mrow>\def\end:mathalign{\Tg</mrow>}%
-    \else
-       \Configure{@math}{div}\DviMath
-       \def\end:mathalign{\EndDviMath \DisplayMathfalse}%
-       \DisplayMathtrue
-    \fi
-    \HCode{\string\matrix\l:brace}}
-   {\HCode{\r:brace}\end:mathalign }
-   {\ifnum \HRow> 1\HCode{\string\cr\Hnewline}\fi}  {}
-   {|<mtd array|>%
-    \ifnum \HCol>\maxfields@  \HCode{|<extra align col sep|>}\fi}
-   {\HCode{|<extra align col sep|>}}}
-\:tempc{align}{align}
-\:tempc{alignat}{alignat}
-\:tempc{xalignat}{xalignat}
-\:tempc{xxalignat}{xxalignat}
-\:tempc{flalign}{flalign}
-\:tempc{align*}{align*}
-\:tempc{alignat*}{alignat*}
-\:tempc{xalignat*}{xalignat*}
-\:tempc{flalign*}{flalign*}
->>>
+% \<configure jsmath amsmath\><<<
+% \def\:tempc#1#2{%
+%    \ConfigureEnv{#1}
+%      {\def\end:al:env{}\ifmmode\else 
+%        \ifvmode\else \def\end:al:env{\par\ShowPar\IgnoreIndent}
+%      \fi\fi}
+%      {\end:al:env }
+%      {}{}%
+%    \Configure{#1}
+%    {\IgnorePar\HtmlParOff
+%     \ifvmode \EndP  \else \EndP\fi 
+%     \ifmathltx
+%        \Tg<mrow>\def\end:mathalign{\Tg</mrow>}%
+%     \else
+%        \Configure{@math}{div}\DviMath
+%        \def\end:mathalign{\EndDviMath \DisplayMathfalse}%
+%        \DisplayMathtrue
+%     \fi
+%     \HCode{\string\matrix\l:brace}}
+%    {\HCode{\r:brace}\end:mathalign\HtmlParOn}
+%    {\ifnum \HRow> 1\HCode{\string\cr\Hnewline}\fi}  
+%    {}
+%    {\HCode{\ifnum \HCol>1 \a:math:amp\fi
+%      \ifnum 1<\HMultispan
+%       ?span/multispan-in-jsmath?
+%       \space\HMultispan\space\fi}}%
+%    {} %
+% }
+% \:tempc{align}{align}
+% \:tempc{alignat}{alignat}
+% \:tempc{xalignat}{xalignat}
+% \:tempc{xxalignat}{xxalignat}
+% \:tempc{flalign}{flalign}
+% \:tempc{align*}{align*}
+% \:tempc{alignat*}{alignat*}
+% \:tempc{xalignat*}{xalignat*}
+% \:tempc{flalign*}{flalign*}
+% >>>
 
 
 jsMath doesn't support hfil... hence the following
@@ -650,19 +691,19 @@ jsMath doesn't support hfil... hence the following
 \fi
 >>>
 
-
 Yet another venue through eqalign
 
 \<configure jsmath amsmath\><<<
 \def\:tempc#1#2{% 
    \ConfigureEnv{#1} 
      {\def\end:al:env{}\ifmmode\else 
-       \ifvmode\else \def\end:al:env{\par\ShowPar\IgnoreIndent}\fi\fi} 
+       \ifvmode\else \def\end:al:env{\par\ShowPar\IgnoreIndent}
+     \fi\fi} 
      {\end:al:env } 
      {}{}% 
    \Configure{#1} 
-   {\IgnorePar 
-    \ifvmode \EndP  \else \EndP  \HCode{<!--tex4ht:inline-->}\fi 
+   {\IgnorePar\HtmlParOff
+    \ifvmode \EndP  \else \EndP \fi
     \ifmathltx 
        \Tg<mrow>\def\end:mathalign{\Tg</mrow>}% 
     \else 
@@ -671,10 +712,13 @@ Yet another venue through eqalign
        \DisplayMathtrue 
     \fi 
     \HCode{\string\eqalignno\l:brace}} 
-   {\HCode{\r:brace}\end:mathalign } 
-   {\ifnum \HRow> 1\HCode{\string\cr\Hnewline}\fi}  
-   {} 
-   {|<mtd array|>} 
+   {\HCode{\r:brace}\end:mathalign\HtmlParOn} 
+   {\ifnum \HRow> 1\HCode{\string\cr\Hnewline}\fi}
+   {}
+   {\HCode{\ifnum \HCol>1 \a:math:amp\fi
+       \ifnum 1<\HMultispan
+      ?span/multispan-in-jsmath?
+      \space\HMultispan\space\fi}}%  
    {} %
 }  
 \:tempc{align}{align}
