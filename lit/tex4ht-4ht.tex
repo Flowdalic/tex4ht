@@ -228,7 +228,7 @@
 
 \def\CopyYear.#1.{%
    \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
+    \else          #1--2009\fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -337,6 +337,7 @@ Q>>>
 
 
 \<TeX4ht copyright\><<<
+%               2009--|the|year|space      TeX Users Group         %
 %                                                        %
 % This work may be distributed and/or modified under the %
 % conditions of the LaTeX Project Public License, either %
@@ -3253,6 +3254,7 @@ This will not work for documents broken into pages!!  The
 |<autoref 2008|>
 |<tex4ht option on hyperrref|>
 |<hyperref utils|>
+|<hyperref 2011-01-30|>
 |<config hyperref|>
 |<htex4ht.def|>
 \expandafter\ifx\csname ifHy@hyperindex\endcsname\relax
@@ -3262,6 +3264,36 @@ This will not work for documents broken into pages!!  The
 \endinput
 >>>        \AddFile{7}{hyperref}
 
+% CVR 2011-01-29
+
+The following modification become necessary consequent to the bug
+report filed by Alex Ball <a.ball@ukoln.ac.uk>. The bug was that
+hyperref.4ht failed consequent to the combination of memoir + hyperref
+deal with section headings that are below the numbering threshold as
+set by secnumdepth. Alex vouched that the fix worked fine with his
+documents. 
+
+\<hyperref 2011-01-30\><<<
+\def\Hy@MakeCurrentHref#1{%
+  \edef\HyperLocalCurrentHref{#1}%
+  \@onelevel@sanitize\HyperLocalCurrentHref
+  \global\let\HyperGlobalCurrentHref\HyperLocalCurrentHref
+  \let\HyperLocalCurrentHref\HyperGlobalCurrentHref
+  \ifHy@localanchorname
+    \let\@currentHref\HyperLocalCurrentHref
+  \else
+    \global\let\@currentHref\HyperGlobalCurrentHref
+  \fi
+}
+
+\let\Hy@SectionAnchorHref\@gobble
+\newlength\Hy@SectionHShift
+
+\def\Hy@MakeCurrentHrefAuto#1{%
+  \Hy@GlobalStepCount\Hy@linkcounter
+  \Hy@MakeCurrentHref{#1.\the\Hy@linkcounter}%
+}
+>>>
 
 \<config hyperref\><<<
 \def\hyper@makecurrent#1{% 
