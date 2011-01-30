@@ -1,7 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% hyperref.4ht                          Version 1.1 %
+% hyperref.4ht                          2011-01-30-16:01 %
 % Copyright (C) 1999--2009       Eitan M. Gurari         %
-% Copyright 2009 TeX Users Group
+%               2009--2011       TeX Users Group         %
+%                                                        %
 % This work may be distributed and/or modified under the %
 % conditions of the LaTeX Project Public License, either %
 % version 1.3c of this license or (at your option) any   %
@@ -13,7 +14,7 @@
 %                                                        %
 % This work has the LPPL maintenance status "maintained".%
 %                                                        %
-% The Current Maintainer of this work                    %
+% This Current Maintainer of this work                   %
 % is the TeX4ht Project <tex4ht@tug.org>.                %
 %                                                        %
 % If you modify this program your changing its signature %
@@ -24,7 +25,7 @@
 %                                        tex4ht@tug.org  %
 %                             http://www.tug.org/tex4ht  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{Version 1.1}
+\immediate\write-1{version 2011-01-30-16:01}
 
 \csname end:hyperref\endcsname
 \@ifpackageloaded{nameref}{}
@@ -296,6 +297,26 @@
        \def\:tempa{#2}\ifx\:tempa\empty\else \def\:tempa{\check:t#2//}\fi
        \expandafter\:tempa
    \fi}
+
+\def\Hy@MakeCurrentHref#1{%
+  \edef\HyperLocalCurrentHref{#1}%
+  \@onelevel@sanitize\HyperLocalCurrentHref
+  \global\let\HyperGlobalCurrentHref\HyperLocalCurrentHref
+  \let\HyperLocalCurrentHref\HyperGlobalCurrentHref
+  \ifHy@localanchorname
+    \let\@currentHref\HyperLocalCurrentHref
+  \else
+    \global\let\@currentHref\HyperGlobalCurrentHref
+  \fi
+}
+
+\let\Hy@SectionAnchorHref\@gobble
+\newlength\Hy@SectionHShift
+
+\def\Hy@MakeCurrentHrefAuto#1{%
+  \Hy@GlobalStepCount\Hy@linkcounter
+  \Hy@MakeCurrentHref{#1.\the\Hy@linkcounter}%
+}
 
 \def\hyper@makecurrent#1{%
   \begingroup
