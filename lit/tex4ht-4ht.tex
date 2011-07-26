@@ -39,7 +39,6 @@
 \immediate\write16{----------Verify length of lines!!!!------------}
 \immediate\write16{----------Verify length of lines!!!!------------}
 
-
 \newif\ifalprotex \alprotexfalse
 
 \hbadness=10000     \vbadness=10000  \hfuzz=99in \vfuzz=99in
@@ -2804,10 +2803,10 @@ sectional unit. It has been fixed now.
 \def\no@sect#1#2#3#4#5#6[#7]#8{\gdef\NR:Title{\a:newlabel{#7}}%
      \NR:no@sect{#1}{#2}{#3}{#4}{#5}{#6}[#7]{#8}}
 \def\:StartSec#1#2#3{%
-%   \gdef\NR:Title{\a:newlabel{#3}}%
+   \gdef\NR:Title{\a:newlabel{#3}}%
    \gdef\NR:Type{#1}%
+   \gdef\@currentlabelname{#3}%
    \NR:StartSec{#1}{#2}{#3}%
-   \gdef\@currentlabelname{#1}%
 }
 \pend:defI\begin{\PushMacro\NR:Type \PushMacro\NR:Title}
 \pend:defI\end{%
@@ -2852,12 +2851,19 @@ sectional unit. It has been fixed now.
    \def\@currentlabelname{\sch:ttl}}
 \HLet\NR@schapter\:tempc
 
-\long\def\:tempc#1[#2]{%
-   \gdef\NR:Type{#1}% 
-  \def\@currentlabelname{#2}% 
-  \o:NR@@caption:{#1}[{#2}]% 
-}
-\HLet\NR@@caption\:tempc 
+% \long\def\:tempc#1[#2]{%
+%    \gdef\NR:Type{#1}%
+%    \gdef\NR:Title{\a:newlabel{#2}}% 
+%   \gdef\@currentlabelname{#2}% 
+%   \o:NR@@caption:{#1}[{#2}]% 
+% }
+% \HLet\NR@@caption\:tempc 
+
+\let\NR@@caption\@caption
+
+\long\def\@caption#1[#2]{%
+      \NR@gettitle{#2}%
+      \NR@@caption{#1}[{#2}]}%
 
 \AtBeginDocument{% 
   \@ifpackageloaded{listings}{% 
@@ -2865,7 +2871,7 @@ sectional unit. It has been fixed now.
          \gdef\NR:Title{\a:newlabel{listing}}%
          \gdef\NR:Type{lstlisting}%
          \o:NROrg@lst@MakeCaption:{#1}% 
-         \def\@currentlabelname{listing}}
+         \gdef\@currentlabelname{listing}}
       \HLet\NROrg@lst@MakeCaption\:tempc 
   }{}% 
 }
@@ -3264,9 +3270,9 @@ This will not work for documents broken into pages!!  The
 \endinput
 >>>        \AddFile{7}{hyperref}
 
-% CVR 2011-01-29
+% CVR 2011-01-30
 
-The following modification become necessary consequent to the bug
+The following modification became necessary consequent to the bug
 report filed by Alex Ball <a.ball@ukoln.ac.uk>. The bug was that
 hyperref.4ht failed consequent to the combination of memoir + hyperref
 deal with section headings that are below the numbering threshold as
@@ -3541,22 +3547,57 @@ The nameref offers \`'\def\strip@period#1.\relax#2\@@@{#1}' to subfigure.
 
 
 \<nameref moved from old hyperref\><<<
+\def\tht:label#1{%
+  \@bsphack
+  \begingroup
+    \@onelevel@sanitize\@currentlabelname
+    \edef\@currentlabelname{%
+      \expandafter\strip@period\@currentlabelname.\relax\@@@%
+    }%
+%   \typeout{::::::::::::[\@currentlabelname]::::::::::::}%
+    \protected@write\@auxout{}{%
+      \string\newlabel{#1}{%
+        {\string\rEfLiNK{\cur:th\:currentlabel}
+           {\string\csname\space :autoref\string\endcsname
+             {\@@currentlabelname}\@currentlabel}%
+        }%    
+        {\thepage}%
+        {\a:newlabel\@currentlabelname}%
+        {\@@currentlabelname.\@currentlabel}{}%
+      }%
+    }%
+  \endgroup
+  \@esphack
+}%
+
+\HLet\label\tht:label
+
 \Configure{newlabel}
    {\cur:th \:currentlabel}
-   {\string\csname\string\string\space
+   {\string\csname\space%\string\string\space
     :autoref\string\endcsname {\@currentlabelname}#1}
-\ifx \@currentlabelname\:UnDef 
-   \let\@currentlabelname\empty
+
+\ifx \@@currentlabelname\:UnDef 
+   \let\@@currentlabelname\empty
 \fi
-\append:defI\refstepcounter{\def\@currentlabelname{#1}}
-\pend:def\eqnarray{\def\@currentlabelname{equation}}
-\pend:def\equation{\def\@currentlabelname{equation}}
+\append:defI\refstepcounter{\def\@@currentlabelname{#1}}
+\pend:def\eqnarray{\edef\@@currentlabelname{equation}}
+\pend:def\equation{\edef\@@currentlabelname{equation}}
+\pend:defI\section{\edef\@@currentlabelname{section}}
+\pend:defI\subsection{\edef\@@currentlabelname{section}}
+\pend:defI\subsubsection{\edef\@@currentlabelname{section}}
+
 \ifx \figure\:UnDef \else  
-  \pend:def\figure{\def\@currentlabelname{figure}}
+  \pend:def\figure{\edef\@@currentlabelname{figure}}
   \expandafter\pend:def\csname
-     figure*\endcsname{\def\@currentlabelname{figure}}
+     figure*\endcsname{\edef\@@currentlabelname{figure}}
 \fi
-\pend:defII\:thm{\def\@currentlabelname{##1}}
+\ifx \table\:UnDef \else
+  \pend:def\table{\edef\@@currentlabelname{table}}
+  \expandafter\pend:def\csname
+     table*\endcsname{\edef\@@currentlabelname{table}}
+\fi
+\pend:defII\:thm{\edef\@@currentlabelname{##1}}
 >>>
 
 The following should be offered in nameref.4ht.
