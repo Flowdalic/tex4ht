@@ -2141,6 +2141,10 @@ and \''\Tg'.
 
 \<config biblatex\><<<
 \def\nolinkurl{\o:url:}
+\def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
+  \blx@warning@noline {Page references have changed.\MessageBreak
+    Rerun to get references right}\@tempswatrue \blx@reruntrue \fi
+  \@nameuse {blx@rerun}}
 >>>
 % CVR 2010/03/31
 % \bib@field@entrykey initialized with empty value
@@ -2149,11 +2153,14 @@ and \''\Tg'.
 % null initialization will result in wrong hyperlinking of citations
 % with respective bibitems.  Therefore, \bib@field@entrykey is defined
 % as the entrykey which is the correct value.
+%
+% CVR 2010/09/10
+% \blx@checksum macro added to match biblatex.sty 
+% version 1.6 2011/07/29
 % 
 \<appto blx mkhyperref\><<<
 \let\blx@anchors\@empty 
-%\let\bib@field@entrykey\@empty
-\def\bib@field@entrykey{\thefield{entrykey}}%
+\let\bib@field@entrykey\@empty
 \protected\def\blx@anchor{% 
   \xifinlist{|</the /c@refsection @|>\bib@field@entrykey}{\blx@anchors}% 
     {}% 
@@ -2541,7 +2548,17 @@ The following macros were not initialized, hence done now:
 % Bug posted by Joanna Bryson <joanna.j@gmail.com>
 %
 
+\Verb=\blx@unitmark= is defined as a new skip to match the introduction
+of the same in biblatex.sty v 1.6. [CVR 2011/09/10]
+
 \<config biblatex\><<<
+\newskip\blx@unitmark
+\blx@unitmark=10pt plus 1pt minus 1pt
+\let\abx@aux@page\@gobbletwo
+\AtEndDocument{%
+  \def\abx@aux@page#1#2{\blx@addpagesum{#1}{#2}}%
+  \def\abx@aux@fnpage#1#2{\blx@addpagesum{#1}{#2}}}
+%
 \let\blx@resetpuncthook\@empty
 \let\blx@csq@ifkernmark\@empty
 \def\blx@begunit{% 
@@ -40500,7 +40517,7 @@ MC stands for multi-choice
 \AddFile{9}{mktex4ht}
 
 
-\Part{The Templet mktex4ht.4ht}
+\Part{The Template mktex4ht.4ht}
 
 \bgroup
 \immediate\openout15=mktex4ht.cnf
@@ -40545,14 +40562,3 @@ MC stands for multi-choice
 \OutputCodE\<idxmake.4ht\>
 \OutputCodE\<bibtex.4ht\>
 \bye
-
-
-
-
-
-
-
-
-
-
-
