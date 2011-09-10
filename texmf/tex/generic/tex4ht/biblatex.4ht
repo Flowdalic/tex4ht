@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% biblatex.4ht                          2010-09-26-22:40 %
-% Copyright (C) 2007--2010       Eitan M. Gurari         %
+% biblatex.4ht                          2011-09-10-12:02 %
+% Copyright (C) 2007--2009       Eitan M. Gurari         %
+%               2009--2011       TeX Users Group         %
 %                                                        %
 % This work may be distributed and/or modified under the %
 % conditions of the LaTeX Project Public License, either %
@@ -24,7 +25,7 @@
 %                                        tex4ht@tug.org  %
 %                             http://www.tug.org/tex4ht  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{version 2010-09-26-22:40}
+\immediate\write-1{version 2011-09-10-12:02}
 
    \ifx \blx@startbib\:UnDef
       \pend:def\blx@shorthands{%
@@ -44,6 +45,10 @@
 \NewConfigure{@shorthands}[1]{\concat:config\a:@shorthands{#1}}
 \let\a:@shorthands\empty
 \def\nolinkurl{\o:url:}
+\def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
+  \blx@warning@noline {Page references have changed.\MessageBreak
+    Rerun to get references right}\@tempswatrue \blx@reruntrue \fi
+  \@nameuse {blx@rerun}}
 \pend:def\blx@bibliography{%
   \pend:def\blx@bibinit{%
      \ConfigureList{thebibliography}%
@@ -145,6 +150,13 @@
   \blx:item[#1]%
   \ifhmode \spacefactor\blx@sf@par\fi
 }
+\newskip\blx@unitmark
+\blx@unitmark=10pt plus 1pt minus 1pt
+\let\abx@aux@page\@gobbletwo
+\AtEndDocument{%
+  \def\abx@aux@page#1#2{\blx@addpagesum{#1}{#2}}%
+  \def\abx@aux@fnpage#1#2{\blx@addpagesum{#1}{#2}}}
+%
 \let\blx@resetpuncthook\@empty
 \let\blx@csq@ifkernmark\@empty
 \def\blx@begunit{%
@@ -206,8 +218,7 @@
 \NewConfigure{bibinit}{1}%
 
    \let\blx@anchors\@empty
-%\let\bib@field@entrykey\@empty
-\def\bib@field@entrykey{\thefield{entrykey}}%
+\let\bib@field@entrykey\@empty
 \protected\def\blx@anchor{%
   \xifinlist{X\the\c@refsection -%@
 \bib@field@entrykey}{\blx@anchors}%
