@@ -1,3 +1,10 @@
+2011-09-18  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-unicode.tex (<double acute code>): \H{O} is 0150,
+	not 0151; http://www.fileformat.info/info/unicode/char/150/index.htm.
+	Report from Tibor Tomacs, 18 Sep 2011 12:34:09,
+	http://puszcza.gnu.org.ua/bugs/?147.
+
 2010-12-25  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-c.tex (<trace context>): allow -hA to enable all tracing.
