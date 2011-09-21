@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% biblatex.4ht                          2011-09-10-12:02 %
+% biblatex.4ht                          2011-09-18-16:07 %
 % Copyright (C) 2007--2009       Eitan M. Gurari         %
 %               2009--2011       TeX Users Group         %
 %                                                        %
@@ -25,8 +25,23 @@
 %                                        tex4ht@tug.org  %
 %                             http://www.tug.org/tex4ht  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{version 2011-09-10-12:02}
-
+\immediate\write-1{version 2011-09-18-16:07}
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
    \ifx \blx@startbib\:UnDef
       \pend:def\blx@shorthands{%
    \pend:def\blx@bibinit{%
