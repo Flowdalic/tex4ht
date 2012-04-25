@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head><title></title></head>
+<h4 style="color: #27d;">
+   MathML 3 and implications on TeX4ht</h4>
+<p>   <a href="http://www.w3.org/TR/MathML3/"><small>M</small>ath<small>ML</small> 3</a> is about to be formalized and going to be released as the new standard
+for encoding mathematics in web. It differs from the previous standard version 2. The
+main changes that have a bearing on the functionality of <a href="http://www.tug.org/tex4ht/">T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht </a> are discussed
+here.
+</p><p>
+</p>
+<h4 style="color: #27d;">
+   Linking</h4>
+<small>
+<p>   M</small>ath<small>ML</small> 1 and 2 didn&#8217;t have any built in provisions to specify links for various
+elements. The recommendation was to use <a href="http://www.w3.org/TR/xlink/"><small>XL</small>ink </a> since it was part of the original
+grand plan for <a href="http://www.w3.org/standards/xml/"><small>XML</small> </a> in its formative years. However, <small>XL</small>ink didn&#8217;t gain
+much popularity nor was it supported widely. Therefore, <small>M</small>ath<small>ML</small> 3 now
+specifies that any <small>M</small>ath<small>ML</small> element can accept an <code>href</code> attribute that takes an
+<small>URI</small> specifying a hyperlink same as in the <a href="http://dev.w3.org/html5/spec/Overview.html"><small>HTML</small> </a> element, namely, <code>&#x003C;a&#x003E;</code>. So
+this has an implication in the current scheme of T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht. If readers provide
+a few examples of how they want to include links in a math fragment in
+L<span style="position: relative; bottom: 0.3ex; margin-left: -0.36em; margin-right: -0.15em; text-transform: uppercase"><small>a</small></span>T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X, it will help largely to make a stable and suitable conversion scheme for
+T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht.
+</p><p>
+</p>
+<h4 style="color: #27d;">
+   Line breaking</h4>
+<p>   Previous standards of <small>M</small>ath<small>ML</small> had the same limitations as T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X in the
+matter of breaking long equations. In T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X, it is easy for an author to break
+equations while authoring content taking into consideration of the margin
+constrains and paper sizes. However, for web content, margin and line-length
+are irrelevant when the window sizes are unknown or potentially liable to
+dynamic changes. Therefore, new <small>M</small>ath<small>ML</small> 3 specifies a line breaking model and
+introduces several new attributes to control properties of line breaks and
+alignments.
+</p><p>   This has deeper implications on the rendering software than on the engine that
+creates <small>M</small>ath<small>ML</small>. However, since the specification allows newer properties for line
+breaks and alignments, we need to take care of those part in T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht which at the
+moments obeys what the author has input in her L<span style="position: relative; bottom: 0.3ex; margin-left: -0.36em; margin-right: -0.15em; text-transform: uppercase"><small>a</small></span>T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X document. Since T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X is
+incapable of determining the semantic meaning of equations, we have to
+provide hooks to make T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht aware of the real line breaks and obligatory
+
+line breaks to adjust with page sizes. A better option will be to make use
+of <code>breqn</code> package while authoring and T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht to provide necessary extra
+functionality to take care of <a href="http://tug.ctan.org/tex-archive/macros/latex/contrib/mh/"><code>breqn</code></a> features in combination with <small>M</small>ath<small>ML</small>&#8217;s newer
+goodies.
+</p><p>
+</p>
+<h4 style="color: #27d;">
+   Image inclusion</h4>
+<p>   The usage of <code>&#x003C;glyph&#x003E;</code> element in the previous <small>M</small>ath<small>ML</small> specification has
+been deprecated now. <code>&#x003C;glyph&#x003E;</code> element was used to specify characters from
+non-standard fonts that do not correspond to Unicode code points. Since the usage
+becomes difficult in a web context, as one needs to make sure that the font is
+available, <code>&#x003C;mglyph&#x003E;</code> has been extended with <code>src</code> attribute. <code>&#x003C;mglyph&#x003E;</code> now acts as
+a general image reference element in <small>M</small>ath<small>ML</small> much like <small>HTML</small>&#8217;s <code>&#x003C;img&#x003E;</code>
+element.
+</p><p>
+</p>
+<h4 style="color: #27d;">
+   Elementary math layout</h4>
+<p>   Elementary school math layout is difficult to typeset even with T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X. Usually
+people adopt a tabular layout with a lot of complex macros to control space and rules
+around various number segments. Previous <small>M</small>ath<small>ML</small> standards provide elementary
+school math layout, much like in T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X, with a lot of tabular structure which obstructs
+rendering of math other than visual, particularly audio, because of the interference of
+tabular elements. <small>M</small>ath<small>ML</small> 3 provides better layout elements and scheme
+which help to specify even borrows and carries and many different kind of
+layout.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  435.3
+   ______
+  3)1306
+    12
+    __
+    10
+     9
+    __
+     16
+     15
+     __
+      1.0
+        9
+        _
+
+        1
+</pre>
+</p><p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   MathML version of long division</h4>
+</p><p>   Given below is the <small>M</small>ath<small>ML</small> 3 coding of the above long division.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+&#x003C;mlongdiv longdivstyle="lefttop"&#x003E;
+  &#x003C;mn&#x003E; 3 &#x003C;/mn&#x003E;
+  &#x003C;mn&#x003E; 435.3&#x003C;/mn&#x003E;
+  &#x003C;mn&#x003E; 1306&#x003C;/mn&#x003E;
+  &#x003C;msgroup position="2" shift="-1"&#x003E;
+    &#x003C;msgroup&#x003E;
+     &#x003C;mn&#x003E; 12&#x003C;/mn&#x003E;
+     &#x003C;msline length="2"/&#x003E;
+    &#x003C;/msgroup&#x003E;
+    &#x003C;msgroup&#x003E;
+     &#x003C;mn&#x003E; 10&#x003C;/mn&#x003E;
+     &#x003C;mn&#x003E; 9&#x003C;/mn&#x003E;
+     &#x003C;msline length="2"/&#x003E;
+    &#x003C;/msgroup&#x003E;
+    &#x003C;msgroup&#x003E;
+     &#x003C;mn&#x003E; 16&#x003C;/mn&#x003E;
+     &#x003C;mn&#x003E; 15&#x003C;/mn&#x003E;
+     &#x003C;msline length="2"/&#x003E;
+     &#x003C;mn&#x003E; 1.0&#x003C;/mn&#x003E;
+    &#x003C;/msgroup&#x003E;
+    &#x003C;msgroup position=&#8217;-1&#8217;&#x003E;
+      &#x003C;mn&#x003E; 9&#x003C;/mn&#x003E;
+     &#x003C;msline length="3"/&#x003E;
+     &#x003C;mn&#x003E; 1&#x003C;/mn&#x003E;
+    &#x003C;/msgroup&#x003E;
+  &#x003C;/msgroup&#x003E;
+&#x003C;/mlongdiv&#x003E;
+</pre>
+</p><p>
+</p>
+<h4 style="color: #27d;">
+   Directionality</h4>
+<p>   <small>M</small>ath<small>ML</small> 3 provides support for right to left writing/reading
+direction whereas previous versions didn&#8217;t have this functionality. The
+new specifications provide the user to control both writing directions
+
+of the identifiers within a formula and layout direction of the formula
+itself separately. I am not sure, if this has any influence on the
+behavior of current version of T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht which is based on <code>dvi</code> files
+generated by T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X/L<span style="position: relative; bottom: 0.3ex; margin-left: -0.36em; margin-right: -0.15em; text-transform: uppercase"><small>a</small></span>T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X while support for <code>xdv</code>, extended dvi generated
+by XeT<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X, is still very basic which supports multi-directional
+scripts.
+   </p></body></html>
+
+

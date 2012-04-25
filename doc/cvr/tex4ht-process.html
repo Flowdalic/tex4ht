@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head><title></title></head>
+<h4 style="color: #27d;">
+   The Translation Process</h4> The system can be activated with a sequence of
+commands of the following form, typically embedded within a script.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+      latex      x            (or &#8216;tex x&#8217;)
+      latex      x
+      latex      x
+      tex4ht     x
+      t4ht       x
+</pre>
+<p>   The three compilations with L<span style="position: relative; bottom: 0.3ex; margin-left: -0.36em; margin-right: -0.15em; text-transform: uppercase"><small>a</small></span>T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X (or T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X) are needed to ensure
+proper links. The approach is illustrated in the following picture.
+<img src="figure.png"/>
+</p><p>
+     <ul><li>
+     <code>x.tex</code>: This is a source T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X or L<span style="position: relative; bottom: 0.3ex; margin-left: -0.36em; margin-right: -0.15em; text-transform: uppercase"><small>a</small></span>T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X or other T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X file that
+     imports the style files <code>tex4ht.sty</code> and <code>*.4ht</code>. The style files
+     define the features for the output.
+     </li><li>
+     <code>tex4ht</code>: The output of T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X is a standard verb+dvi+ file
+     interleaved with special instructions for the postprocessor
+     <code>tex4ht</code> to use. The special instructions come from implicit
+     and explicit requests made in the source file through
+     commands of T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht.
+     </p><p>The utility <code>tex4ht</code> translates the <code>dvi</code> code into standard
+     text, while obeying the requests it gets from the special
+     instructions. The special instructions may request the
+     creation of files, insertion of <small>HTML</small> code, filtering of
+     pictures, and so forth.
+     </p><p>In the extreme case that the source code contains no
+     commands of T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht, <code>tex4ht</code> gets pure <code>dvi</code> code and it outputs
+     (almost) plain text with no hypertext elements in it.
+     </p><p>The special (<code>\special</code>) instructions seeded in the verb+dvi+
+     code are not understood by verb+dvi+ processors other than
+     those of T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht.
+     </li><li>
+     <code>x.idv</code>: This is a <code>dvi</code> file extracted from <code>x.dvi</code>, and it
+     contains the pictures needed in the <small>HTML</small> files.
+
+     </li><li>
+     <code>x.lg</code>: This is a log file listing the pictures of <code>x.idv</code>, the
+     png files that should be created, <small>CSS</small> information, and user
+     directives introduced through the <code>\Needs{...}</code> command.
+     </li><li>
+     <code>t4ht</code>: This is an interpreter for executing the requests made
+     in the <code>x.lg</code> script.
+</li>
+   </p></body></html>
+
+

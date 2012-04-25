@@ -144,8 +144,8 @@ of which were again created by Eitan).
 A @dfn{hypertext font} is an ASCII file, created by hand in a text
 editor, with each line defining a character of the font.  The first
 line corresponds to character code 0, the second to character code 1,
-etc.  In @code{cmmi.htf} for example, the first 13 lines look
-something like this:
+etc.  For example, in (a lightly old version of) @code{cmmi.htf}, the
+first 13 lines look something like this:
 
 @verbatim
 cmmi 0 127

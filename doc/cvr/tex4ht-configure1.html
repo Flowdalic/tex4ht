@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head><title></title></head>
+<h4 style="color: #27d;">
+   Introduction</h4>
+<p>   The <code>&#8220;Configure</code> command is the most powerful user command in T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht system.
+It helps to add various kinds of hooks to insert target markup code into the desired
+locations in and around various types of content. For instance, take the example of
+<code>&#8220;section&#8211;...&#x02DD;</code> in L<span style="position: relative; bottom: 0.3ex; margin-left: -0.36em; margin-right: -0.15em; text-transform: uppercase"><small>a</small></span>T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X. A typical example will be: <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \section{Introduction}
+</pre>
+</p><p><code>\Configure</code> for <code>\section</code> provides four (4) hooks in the following style:
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{section}
+    {&#x003C;beginning of section&#x003E;}  {&#x003C;end of the section&#x003E;}
+    {&#x003C;before section heading&#x003E;}{&#x003C;after section heading}
+</pre>
+</p><p>Suppose our target markup requires the following pattern of markup for a
+section heading: <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  &#x003C;section id="sec1"&#x003E;
+   &#x003C;title&#x003E;Introduction&#x003C;/title&#x003E;
+    &#x003C;para&#x003E;
+         ...
+    &#x003C;/para&#x003E;
+  &#x003C;/section&#x003E;
+</pre>
+</p><p>We will accomplish the above target by configuring the section macros in
+the following manner: <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{section}
+   {\EndP\IgnorePar\Tg&#x003C;section id="sec\thesection"&#x003E;}
+   {\EndP\Tg&#x003C;/section}
+   {\Tg&#x003C;title&#x003E;}
+   {\Tg&#x003C;/title&#x003E;\ShowPar}
+</pre>
+
+</p><p>The above code will help translate any L<span style="position: relative; bottom: 0.3ex; margin-left: -0.36em; margin-right: -0.15em; text-transform: uppercase"><small>a</small></span>T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X section heading into the
+required markup scheme as provided in the example. Macros like <code>\EndP</code>,
+<code>\IgnorePar</code> and <code>\ShowPar</code> will be discussed a little later. These are
+hooks to insert begin and end of paragraph code into the content
+appropriately. Here, in this document, we are shall list most of the
+<code>\Configure</code> hooks available in T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht system and describe briefly how
+those can be used for configuring most of the L<span style="position: relative; bottom: 0.3ex; margin-left: -0.36em; margin-right: -0.15em; text-transform: uppercase"><small>a</small></span>T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X commands popularly
+used in documents.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+ \Configure{PROLOG}.........1
+</pre>
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >Comma separated list of hooks to appear before <small>HTML</small>. Each hook E is declared to be configurable by an instruction of the form <code>\NewConfigure {E}{1}</code>. A star <code>*</code> prefix calls for accumulative configurations.</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4><pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+     \Configure{PROLOG}{VERSION,DOCTYPE,*XML-STYLESHEET}
+     \Configure{VERSION}
+        {\HCode{&#x003C;?xml version="1.0"?&#x003E;}}
+</pre>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+ \Configure{ext}............1
+</pre>
+</p><p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1:</td><td valign="top" align="left"  >default extension name for target files (recorded in <code>\:html</code>). Can also be requested through a command line option <code>ext=...</code></td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+ \Preamble...................0
+</pre>
+</p><p>Records the list of the requested options. Defined upon entering the
+environment <code>\Preamble{...}....\EndPreamble</code>, to replace the earlier
+version of <code>\Preamble</code>.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+
+ \ifOption ................. 3
+</pre>
+</p><p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >Argument to be checked whether it is a given option.</td>
+</tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >True part                                           </td>
+</tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >False part                                          </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+</p>
+<h4 style="color: #27d;">
+   Wrapper for the Document</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+ \Configure{DOCTYPE}.........1
+ \Configure{HTML}............2
+ \Configure{HEAD}............2
+ \Configure{@HEAD}...........1
+ \Configure{BODY}............2
+ \Configure{TITLE+}..........1
+ \Configure{TITLE}...........2
+ \Configure{@TITLE}..........1
+ \Configure{Preamble}........2
+    &#x003C;DOCTYPE&#x003E;
+    &#x003C;HTML 1&#x003E;
+     &#x003C;HEAD 1&#x003E;
+        &#x003C;TITLE 1&#x003E;
+           &#x003C;@TITLE&#x003E;
+           &#x003C;TITLE+&#x003E;
+        &#x003C;TITLE 2&#x003E;
+        &#x003C;@HEAD&#x003E;
+     &#x003C;HEAD 2&#x003E;
+     &#x003C;BODY 1&#x003E;
+     ......
+     &#x003C;BODY 2&#x003E;
+    &#x003C;HTML 2&#x003E;
+</pre>
+<p>   The <code>\Configure{@HEAD}{...}</code> command is additive, concatenating the
+content of all of its appearances. An empty parameter requests the
+cancellation of the earlier contributions.
+</p><p>   For instance, <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+
+  \Configure{@HEAD}{A}
+  \Configure{@HEAD}{}
+  \Configure{@HEAD}{B}
+  \Configure{@HEAD}{C}
+</pre>
+</p><p>contributes &#8216;BC&#8217;.
+</p><p>   The <code>\Configure{TITLE+}</code> provides the content for the title,
+<code>\Configure{TITLE}</code> sets the envelop, and <code>\Configure{@TITLE}</code> acts as a
+hook for introducing localized configurations. As is the case for
+<code>\Configure{@HEAD}</code>, the contribution of <code>\Configure{@TITLE}</code> is also
+additive.
+</p><p>   These configurations should be introduced early enough in the
+compilation. For instance, in the case of LaTeX, between <code>\Preamble</code> and
+<code>\begin{document}</code> of a local configuration file. <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Preamble
+    %%% here %%%
+  \begin{document}
+    ...
+  \EndPreamble
+  \Configure{@BODY}...........1
+  \Configure{@/BODY}..........1
+</pre>
+</p><p>Variants of <code>\Configure{@HEAD}</code> which contribute their content, respectively,
+after <code>&#x003C;body&#x003E;</code> and before <code>&#x003C;/body&#x003E;</code>. <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{CutAtTITLE+}.....1
+  \Configure{HPageTITLE+}.....1
+</pre>
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >An insertion just before the content of <code>&#x003C;TITLE&#x003E;</code>. If #1 is a one parametric macro, it gets the title content for an argument.</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+</p>
+<h4 style="color: #27d;">
+   Support for Sectioning Commands</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{unit-name} ......................4
+
+</pre>
+<p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >start       </td></tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >end</td>
+   </tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >before title</td>
+   </tr><tr><td valign="top" align="left" width="5%" >#4</td><td valign="top" align="left"  >after title </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{section}
+    {\HCode{&#x003C;section&#x003E;}}    {\HCode{&#x003C;/section&#x003E;}}
+    {\HCode{&#x003C;title&#x003E;}}      {\HCode{&#x003C;/title&#x003E;}}
+  \ConfigureMark{unit-name}...................1
+</pre>
+</p><p>   Defines a macro <code>&#x003C;unit-name&#x003E;HMark</code> to hold the given argument. Upon
+entering the unit, <code>\TitleMark</code> gets the content of this macro.
+</p><p>   Some built-in configurations of T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht require an argument
+for the <code>&#x003C;unit-name&#x003E;HMark</code> commands. For safety, these commands
+should always be followed by a, possiblely empty, argument. The
+argument should be a separator between the title mark and its
+content.
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{section}
+     {}{}
+     {\HCode{&#x003C;h3&#x003E;}\TitleMark\space}{\HCode{&#x003C;/h3&#x003E;}}
+   \ConfigureMark{section}{\thesection}
+</pre>
+<p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   ToC link</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+
+  \Configure{toTocLink}.......................2
+</pre>
+<p>   Each unit title contains a <code>\Link{...}{...}...\EndLink</code> command. The
+first argument of <code>\Link</code> points to the first table of contents
+referencing the title. The second argument provides an anchor for
+references to the title (mainly from tables of contents).
+</p><p>   The package option <code>section+</code> requests the inclusion of the title
+within the anchor. Without this option, the link command resides
+between the title mark and its content.
+</p><p>   The <code>\Configure{toTocLink}</code> command is provided for configuring the
+<code>\Link</code> and <code>\EndLink</code> instructions. In the default setting, when the
+<code>sections+</code> option is not activated, the <code>\Link</code> command is altered to
+replace its first argument with an empty argument.
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{toTocLink}
+    {\Link}
+    {\ifx \TitleMark\sectionHMark
+       \Picture[\up]{haut.jpg align="right"}%
+       \EndLink
+       \TitleMark\space
+     \else \EndLink \fi
+    }
+  \def\up{[up]}
+  \Configure{toToc}...........................2
+</pre>
+<p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >unit type                                               </td>
+</tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >desired contents type (if empty, &#8216;unit type&#8217; is assumed)</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+
+  \Configure{toToc}{chapter}{likechapter}
+</pre>
+<p>Introduces chapter as likechapter into toc
+<table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >empty: stop adding entries of &#8216;unit type&#8217; to toc</td>
+</tr><tr><td valign="top" align="left" width="5%" >@:</td><td valign="top" align="left"  >add entries of &#8216;unit type&#8217; to toc               </td>
+</tr><tr><td valign="top" align="left" width="5%" >?:</td><td valign="top" align="left"  >resume mode in effect before the last stop      </td>
+</tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >unit type                                       </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4><pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{toToc}{}{chapter}
+  \chapter{...}
+  \Configure{toToc}{@}{chapter}
+  \Configure{writetoc}.........................1
+</pre>
+<p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >Configuration material for the insertion instruction. New configurations are added to those request earlier by the command. An empty argument cancels the earlier contributions.</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \NoLink.......................1
+</pre>
+</p><p>Ignore option <code>section+</code> for sections of type #1.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \TitleCount
+</pre>
+</p><p>Count of entries submitted to the <code>toc</code> file <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{NoSection}.........2
+
+</pre>
+</p><p>Insertions around the parameters of sectioning commands, applied when the
+parameters are not used to create titles for the divisions.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \CutAt{#1,#2,#3,...}
+</pre>
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1       </td><td valign="top" align="left"  >section type to be placed in a separate web page.                                                                         </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#2,#3,...</td><td valign="top" align="left"  >end delimiting section types, other than #1, for the web pages A <code>+</code> before #1 requests hypertext buttons for the web pages.</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \CutAt{mychapter,myappendix,mypart}
+  \CutAt{+myappendix,mychapter,mypart}
+</pre>
+<p>Cut points at arbitrary points can be introduced by introducing
+section-like commands in a manner similar to <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \NewSection\mysection{}
+  \CutAt{mysection}
+  \Configure{+CutAt}.................................3
+</pre>
+</p><p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >sectioning type</td>
+</tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >before         </td>
+</tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >after          </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>Requests delimiters for the <code>\CutAt</code> buttons of the specified sectioning
+type.
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+
+  \Configure{+CutAt}{mysection}{[}{]}
+  \PauseCutAt{#1}
+  \ContCutAt{#1}
+</pre>
+<p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >section type</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{CutAt-filename} ........................1
+</pre>
+</p><p>A 2-parameter hook for tailoring section-based filenames. The section
+type is available through #1. The section title is accessible through
+#2.
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{CutAt-filename}{\NextFile{#1-#2.html}}
+</pre>
+<p>
+</p>
+<h4 style="color: #27d;">
+   Tables of Contents</h4>
+<p>   Created from the entries collected in the previous compilation
+within a <code>jobname.4tc</code> file. <pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \ConfigureToc{unit-name} ......................4
+</pre>
+</p><p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >before unit number</td></tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >before content</td>
+</tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >before page number</td>
+</tr><tr><td valign="top" align="left" width="5%" >#4</td><td valign="top" align="left"  >at end            </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+
+     <ul><li>
+     Empty arguments request the omission of the corresponding
+     field.
+     </li><li>
+     <code>\TocCount</code> Specifies the entry count withing the <code> jobname.4tc</code>
+     file.
+     </li><li>
+     <code>\TitleCount</code> Count of entries submitted to the toc file.
+</li><li>
+An alternative to <code>\ConfigureToc{unit-name}</code>: </li>
+</ul>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \def\toc&#x003C;unit-name&#x003E;#1#2#3{&#x003C;before unit number&#x003E;#1&#x003C;before content&#x003E;#2%
+                          &#x003C;before page number&#x003E;#3&#x003C;at end&#x003E;}
+</pre>
+</p><p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \ConfigureToc{section}
+    {}
+    {\Picture[*]{pic.jpg width="13"  height="13"}~}
+    {}
+    {\HCode{&#x003C;br /&#x003E;}}
+</pre>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{TocLink}..................4
+</pre>
+</p><p>Configures the link offered in the third arguments of <code>\ConfigureToc</code>.
+
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4><pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{TocLink}{\Link{#2}{#3}#4\EndLink}
+  \TocAt{#1,#2,#3,...}
+</pre>
+<p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1       </td><td valign="top" align="left"  >section type for which local tables of contents <code>\Toc </code>#1 are requested.</td>
+</tr><tr><td valign="top" align="left" width="5%" >#2,#3,...</td><td valign="top" align="left"  >sectioning types to be included in the tables of contents.            </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>   The non-leading arguments may be preceded by slashes <code>/</code>, in which
+cases the arguments specify end points for the tables.
+</p><p>   The default setting requests automatic insertion of the local tables
+immediately after the sectioning heads.
+</p><p>   A star <code>*</code> character may be introduced, between the <code>\TocAt</code> and the
+left brace, to request the appearances of the tables of contents at the
+end of the units&#8217; prefaces.
+</p><p>   A hyphen <code>-</code> character, on the other hand, disables the automatic
+insertions of the local tables.
+</p><p>   In case of a single argument, the command removes the existing
+definition of <code>\Toc#1</code>.
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \TocAt{mychapter,mysection,mysubsection,/myappendix,/mypart}
+  \TocAt-{mysection,mysubsection,/mylikesection}
+  \section{...}...\Tocmysection
+</pre>
+<p>   The definition of the local table of contents can be redefined
+within <code>\csname Toc#1\endcsname</code>.
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+
+  \TocAt{section}
+  \def\Tocsection{\TableOfContents[section]}
+  \Css{div.sectionTOCS {
+                    width : 30%;
+                    float : right;
+               text-align : left;
+            vertical-align : top;
+              margin-left : 1em;
+                font-size : 85%;
+          background-color : #DDDDDD;
+     }}
+</pre>
+<p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<p>   Table of content before the section title.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{section}{}{}
+    {\Tocsection \let\saveTocsection=\Tocsection
+     \def\Tocsection{\let\Tocsection=\saveTocsection}%
+     \ifvmode \IgnorePar\fi \EndP\IgnorePar
+     \HCode{&#x003C;h3 class="sectionHead"&#x003E;}\TitleMark\space\HtmlParOff}
+    {\HCode{&#x003C;/h3&#x003E;}\HtmlParOn\ShowPar \IgnoreIndent \par}
+</pre>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{TocAt}......................2
+  \Configure{TocAt*}.....................2
+</pre>
+</p><p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >before the tables of contents</td>
+</tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >after the tables of contents </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+</p>
+
+<h4 style="color: #27d;">
+   Navigation Links for Sectioning Divisions</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{crosslinks}.....................8
+</pre>
+<p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >left delimiter </td></tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >right delimiter</td>
+</tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >next           </td></tr><tr><td valign="top" align="left" width="5%" >#4</td><td valign="top" align="left"  >previous</td>
+</tr><tr><td valign="top" align="left" width="5%" >#5</td><td valign="top" align="left"  >previous-tail  </td>
+</tr><tr><td valign="top" align="left" width="5%" >#6</td><td valign="top" align="left"  >front          </td>
+</tr><tr><td valign="top" align="left" width="5%" >#7</td><td valign="top" align="left"  >tail           </td>
+</tr><tr><td valign="top" align="left" width="5%" >#8</td><td valign="top" align="left"  >up             </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>   The content to be displayed in the pointers.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{crosslinks*}.................1--7
+</pre>
+</p><p>   Links to be included and their order. Available options: <code>next</code>, <code>prev</code>,
+<code>prevtail</code>, <code>tail</code>, <code>front</code>, <code>up</code>. The last argument must be empty.
+</p><p>
+</p><p>   Default:
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{crosslinks*}
+    {next}
+    {prev}
+    {prevtail}
+    {tail} {front}
+    {up}
+    {}
+</pre>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{crosslinks+}.....................4
+
+</pre>
+</p><p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >before top menu   </td>
+</tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >after top menu    </td>
+</tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >before bottom menu</td>
+</tr><tr><td valign="top" align="left" width="5%" >#4</td><td valign="top" align="left"  >after bottom menu </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>   The top cross links are omitted, if both <code>#1</code> and <code>#2</code> are empty. The
+bottom cross links are omitted, if both <code>#3</code> and <code>#4</code> are empty.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{next}.....................1
+</pre>
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >the anchor of the next button of the front page.</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>   Default: The value provided in <code>\Configure{crosslinks}</code>.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{next+}.............................2
+</pre>
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >before the next button of the front page, when the <code>next</code> option is active.</td>
+   </tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >after the button                                                         </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>   Default: The values provided in <code>\Configure{crosslinks}</code>.
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{crosslinks:next}..................1
+  \Configure{crosslinks:prev}..................1
+  \Configure{crosslinks:prevtail}..............1
+  \Configure{crosslinks:tail}..................1
+  \Configure{crosslinks:front}.................1
+  \Configure{crosslinks:up}....................1
+</pre>
+</p><p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >local configurations for the delimiters and hooks</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{crosslinks-}.....................2
+
+</pre>
+</p><p>   Asks to show linkless buttons with the following insertions.
+<table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >before</td>
+</tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >after </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>   The default values are used, if both <code>#1</code> and <code>#2</code> are empty.
+</p><p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{crosslinks-}{}{}
+  \Configure{crosslinks-}
+     {\HCode{&#x003C;span class="hidden"&#x003E;}[}
+     {]\HCode{&#x003C;/span&#x003E;} }
+  \Css{span.hidden {visibility:hidden;}}
+</pre>
+</p><p>
+</p>
+<h4 style="color: #27d;">
+   Paragraphs</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{HtmlPar}..........4
+</pre>
+<p><table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >content at the start non-indented paragraphs                  </td>
+</tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >content at the start indented paragraphs                      </td>
+</tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >insertion into <code>\EndP </code>, at the start of non-indented paragraphs</td>
+</tr><tr><td valign="top" align="left" width="5%" >#4</td><td valign="top" align="left"  >insertion into <code>\EndP </code>, at the start of indented paragraphs    </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \HtmlParOff
+  \HtmlParOn
+  \IgnorePar     Asks to ignore the next paragraph
+  \ShowPar       Asks to take into account the following paragraphs
+  \IgnoreIndent  asks to ignore indentation in the next paragraph
+  \ShowIndent    asks to check indentation in the following paragraphs
+
+  \SaveEndP      Saves the content of \EndP, and sets it to empty content
+  \RecallEndP
+  \SaveHtmlPar
+  \RecallHtmlPar
+</pre>
+</p><p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4><pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{@BODY}
+    {\ifvmode \IgnorePar\fi \EndP
+     \HCode{&#x003C;div&#x003E;}\par\ShowPar}
+  \Configure{@/BODY}
+    {\ifvmode \IgnorePar\fi \EndP
+     \HCode{&#x003C;/div&#x003E;}}
+</pre>
+</p>
+</body>
+</html>
+
+

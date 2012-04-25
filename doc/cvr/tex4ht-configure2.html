@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head><title></title></head>
+<h4 style="color: #27d;">
+   Cross-linking</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Link[@1 @2]{@3}{@4}...\EndLink
+</pre>
+<p>Creates
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  &#x003C;a href="@1#@3" name="@4" @2&#x003E;...&#x003C;/a&#x003E;
+</pre>
+</p><p>
+     <ul><li>
+     When <code>@1</code> is empty, T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht will derive its value
+     automatically. The derived value will be the file name
+     containing the target <code>@3</code>.
+     </li><li>
+     <code>\Link</code> may be followed by <code>-</code>, if T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht needs not
+     automatically determine (for other <code>\link</code> commands) the file
+     containing <code>@4</code>. In the present of such a flag, T<span style="position: relative; top: 0.5ex; margin-left: -0.1667em; margin-right: -0.125em; text-transform: uppercase">e</span>X4ht can
+     spare a definition of one macro.
+     </li><li>
+     The component <code>[@1 @2]</code> is optional. If omitted, <code>@1</code> and <code>@2</code> are
+     assumed to be empty.
+     </li><li>
+     The <code>href</code> attribute is omitted when <code>@1</code> and <code>@3</code> are empty.
+     </li><li>
+     The name attribute is omitted when <code>@4</code> is empty.
+</li>
+</ul>
+
+</p><p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Link{a}{}...\Endlink .....  \Link{}{b}...\EndLink
+  \Link[http://foo  id="fooo"]{a}{b}...\EndLink
+  \Configure{Link}..............4
+</pre>
+</p><p>Configures <code>\Link...\EndLink</code> so that
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >replaces <code>a</code>                                                </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >replaces <code>href=</code>                                            </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >replaces <code>name=</code>                                            </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#4</td><td valign="top" align="left"  >replaces &#8216;#&#8217;. If empty, the older value remains in effect.</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Configure{Link}{a}{href=}{name=}{}
+  \Configure{Link}{ref}{target=}{id=}{\empty}
+  \Configure{?Link}..............1
+</pre>
+<p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >insertion before broken links</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>To help with debugging
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+\LinkCommand...................1 &#x003C;= i &#x003C;= 6
+</pre>
+</p><p>Creates a <code>\Link</code>-like command
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >tag name                             </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >href-like attribute                  </td></tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >name-like attribute</td>
+   </tr><tr><td valign="top" align="left" width="5%" >#4</td><td valign="top" align="left"  >insertion                            </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#5</td><td valign="top" align="left"  ><code>/</code>, if empty element                  </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#6</td><td valign="top" align="left"  >replacement for # (ignored if absent)</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \LinkCommand\JSLink{a,\noexpand\jsref,name}
+  \def\jsref="#1"{href="javascript:window.open(&#8217;#1&#8217;)"}
+  \JSLink{a}{}xx\EndJSLink
+  \Link{}{a}\EndLink       % or \JSLink{}{a}\EndJSLink
+  \Configure{XrefFile}.....................1
+</pre>
+<p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >names cross-references of files (appends #1 to <code>)F</code> and <code>)Q</code> entries of the <code>.xref</code> files). Applicable mainly implicitly within <code>\Link </code> commands.</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Tag.....................................2
+</pre>
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >label  </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >content</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \Ref.....................................1
+  \LikeRef.................................1
+</pre>
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >label</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>   <code>\Tag</code> and <code>\Ref</code> are <code>tex4ht.sty</code> commands introduced cross-referencing
+content through <code>.xref</code> auxiliary files.
+</p><p>   <code>\LikeRef</code> is a variant of <code>\Ref</code> which doesn&#8217;t verify whether the
+labels exit. It is mainly used in <code>\Link</code> and <code>\edef</code> environments.
+
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \ifTag ..................................3
+</pre>
+</p><p>   <table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >#1</td><td valign="top" align="left"  >quetioned tag</td>
+   </tr><tr><td valign="top" align="left" width="5%" >#2</td><td valign="top" align="left"  >true part    </td>
+   </tr><tr><td valign="top" align="left" width="5%" >#3</td><td valign="top" align="left"  >false part   </td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  \LoadRef-[prefix]+{filename.ext}{pattern}
+</pre>
+</p><p>Load the named xref-type file
+<table width="100%" cellspacing="3" cellpadding="3"><tr><td valign="top" align="left" width="5%" >.xref    </td><td valign="top" align="left"  >optional --- <code>.xref</code> is assume for a default                                                                                                          </td>
+</tr><tr><td valign="top" align="left" width="5%" >+        </td><td valign="top" align="left"  >optional --- asks <code>\Ref </code> and <code>\LikeRef </code> commands to use expanded tags <code>filename::tag</code>, instead of just <code>tag</code>                                              </td>
+</tr><tr><td valign="top" align="left" width="5%" >[prefix] </td><td valign="top" align="left"  >optional --- asks just for tags starting with the specified prefix.                                                                                 </td>
+</tr><tr><td valign="top" align="left" width="5%" >-        </td><td valign="top" align="left"  >optional --- deletes the prefixes from the loaded tags                                                                                              </td>
+</tr><tr><td valign="top" align="left" width="5%" >{pattern}</td><td valign="top" align="left"  >to be included only when <code>[prefix]</code> or <code>+</code> are included. States how tags are to be addressed, with the parameter symbol &#8216;#1&#8217; specifying the loaded part.</td></tr><tr><td valign="top" align="left" width="5%" ></td></tr></table>
+</p><p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+  % a.tex
+  \LoadRef-[to:]{b}{from:#1}      \Ref{from:filename}
+                               \LikeRef{from:filename}
+  % b.tex
+  \Tag{to:filename}{\FileName}
+</pre>
+<p>
+</p>
+<h4 style="color: #27d; font-size: 1.25em;">
+   Example</h4>
+<pre style="overflow: auto; padding: 1em; margin-left: 0em; font-family: monospace; color: olive; border: solid 1px; border-color: #ddd; border-radius: 6px ; -moz-border-radius: 8px 8px 8px 0px; -webkit-border-radius: 8px 8px 8px 0px; background-color: #fffefd; font-size: 1em;">
+
+  \LoadRef-[)F]{file}{)Ffoo##1}
+  \LoadRef-[)Q]{file}{)Qfoo##1}
+  \Configure{XrefFile}{foo}   \Link...\EndLink
+  \LoadRef{another-file}
+</pre>
+</body>
+</html>
+
+

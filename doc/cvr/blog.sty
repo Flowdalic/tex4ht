@@ -1,0 +1,69 @@
+\newif\ifhtml \htmlfalse
+\ifx\cvrtexht\undefined\global\htmlfalse\else\global\htmltrue\fi
+
+\ifhtml
+ \let\color\@gobble
+ \let\textcolor\@gobbletwo
+\else
+ \RequirePackage[dvipsnames,svgnames]{xcolor}
+ \RequirePackage[colorlinks]{hyperref}
+ \let\hlink=\href
+\fi
+
+\newlength\m@size
+\newlength\n@size
+\def\mfsize{\n@size=\f@size pt\relax\setlength\m@size{.85\n@size}}
+\def\chfont{\mfsize\fontsize{\m@size}{\m@size}\selectfont}
+
+\def\mathml{{\chfont M}ath{\chfont ML}\xspace}
+\let\MathML=\mathml
+\def\html{{\chfont HTML}\xspace}
+\def\xml{{\chfont XML}\xspace}
+\def\xlink{{\chfont XL}ink\xspace}
+\def\xsl{{\chfont XSL}\xspace}
+\def\xslt{{\chfont XSLT}\xspace}
+\def\uri{{\chfont URI}\xspace}
+\def\texht{\Tex4ht\xspace}
+\def\latex{\LaTeX\xspace}
+\def\tex{\TeX\xspace}
+\def\Tex{\TeX} 
+
+\def\textsm#1{{\chfont#1}\xspace}
+\def\verbfont{\ttfamily\small\color{olive}}
+\def\verbatim@font{\small\ttfamily\color{olive}}
+
+\def\Verb{\bgroup \catcode`\^=12 \catcode`\\=12  \catcode`\%=12
+       \catcode`\{=12    \catcode`\}=12    \catcode`\#=12     \catcode`\#=12
+       \leavevmode \Xctgs}
+    \def\Xctgs#1{\def\Xeat##1#1{\def\tmp{##1}\verbfont\expandafter
+        \strip@prefix\meaning\tmp\egroup}\Xeat }
+
+\newdimen\Linewidth
+\Linewidth=\textwidth
+\def\computelinewidth#1{\Linewidth=\textwidth
+     \advance\Linewidth by -#1}
+
+\newdimen\fspace
+\fspace=5mm
+
+\ifhtml\relax\else
+  \def\tabular#1{}
+  \def\endtabular{}
+\fi
+
+\def\fline#1 #2\par{\par\vskip.25\baselineskip\noindent
+     \parbox[t]{\fspace}{\small\ttfamily\textcolor{olive}{#1}\hfill}%
+     \computelinewidth{1.5\fspace}%
+     \parbox[t]{\Linewidth}{#2}}
+
+\let\Fline\fline
+
+\def\Example{\subsection*{Example}}
+
+\ifhtml\relax\else
+ \RequirePackage{charter}
+ \IfFileExists{lfr.sty}{\RequirePackage[scaled=.9]{lfr}}{}
+ \IfFileExists{prima.sty}{\RequirePackage[scaled=.9]{prima}}{}
+\fi
+
+\endinput
