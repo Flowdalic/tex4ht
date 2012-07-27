@@ -1,3 +1,290 @@
+2012-07-27  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	Adapt to W32TeX (backport from TeX Live).
+	* tex4ht-c.tex, tex4ht-t4ht.tex [WIN32]:
+	Use binary mode for output files.
+	Pass program name string to kpse_set_program_name.
+	Must not free argv.
+
+2011-09-18  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-unicode.tex (<double acute code>): \H{O} is 0150,
+	not 0151; http://www.fileformat.info/info/unicode/char/150/index.htm.
+	Report from Tibor Tomacs, 18 Sep 2011 12:34:09,
+	http://puszcza.gnu.org.ua/bugs/?147.
+
+2010-12-25  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex (<trace context>): allow -hA to enable all tracing.
+	(<find tex4ht.env>): fatal error if we don't find it, since the
+	next thing we do is seek on the file which crashes anyway.
+	(<kpathsea tex4ht.env>): use --format=othertext so we can find
+	tex4ht.env.  However, this is not enough to find the .htf files,
+	so it's still not possible to run the program as anything except
+	`tex4ht'.  So it goes.
+
+2010-12-24  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex,
+	* tex4ht-t4ht.tex: attempt to document which files I think these
+	programs read and write.  Fix a couple typos.
+
+2010-12-23  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex,
+	* tex4ht-t4ht.tex,
+	* tex4ht-htcmd.tex: rewrite some doc uses of "win32".
+
+	* common-info.tex (\CleanComment): lengthy comment about ultimate
+	failure trying to make the info option work with mzlatex.
+
+	* tex4ht-info-mml.tex (configure infomml tex4ht): use \Configure,
+	not the undefined \Contribution, add plain text heading
+	like the others.
+
+2010-12-16  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* tex4ht-t4ht.tex: missed <<<.
+
+2010-12-14  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex,
+	* tex4ht-t4ht.tex (resplit argv for windows): new section, from Akira
+	Kakuto.
+	
+	* tex4ht-htcmd.tex: document that this not used.
+
+2010-11-17  Karl Berry  <karl@gnu.org>
+
+	* all files: switch to ranges in copyright notices.
+
+2010-11-17  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex: compiler options are a comment, despite #define's.
+
+2010-11-16  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* t4ht.c (main): Initialize addr and media in order to avoid
+	compiler warnings.  Use '#if 0' to skip unreachable code.
+
+2010-11-12  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* t4ht.c (filterGifScript): Avoid 'filtered_script might be used
+	uninitialized'.  Use NULL_SCRIPT.
+
+2010-03-17  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-auto-script.tex: unused, it seems.
+
+2010-03-12  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-bibtex2.tex: license notices.
+	* Makefile: add derivations.
+
+2010-03-11  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-c.tex: license notices.
+	* Makefile: add derivations.
+
+2010-03-08  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-cond4ht.tex: license notices.
+	* mktex4ht.cnf: new (empty) file, needed to run cond4ht.
+	* Makefile: add derivations.
+	* tex4ht-cpright.tex: note additional copy.
+	* all files: no period ending copyright lines, I guess.
+
+2010-03-08  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-docbook-xtpipes.tex: license notices.
+	* Makefile: add derivations.
+
+2010-03-07  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-docbook.tex: license notices.
+	* Makefile: add derivations.
+
+2010-03-06  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-env.tex: license notices.
+	(dvips convert (personal)): do not hardcode path to convert
+	(else zztex4ht-env.ps is left behind).
+	* Makefile: add derivations.
+
+2010-03-05  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-fonts-noncjk.tex: start at license notices.
+	Correct quoting of the
+	\Needs{"xhlatex tex4ht-fonts-4hf ..."} line.
+	* Makefile: start at derivations.
+
+2010-03-04  Radhakrishnan CV  <cvr@river-valley.org>
+
+	* tex4ht-mkht.tex (<MYcopyrightnotice): new macro; insert
+	notice in all generated scripts.
+
+2010-03-04  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-htcmd.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-03-03  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-html-speech-xtpipes.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-03-02  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-html-speech.tex,
+	* tex4ht-html0.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-28  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-html32.tex,
+	* tex4ht-html4.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-26  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-info-mml.tex,
+	* tex4ht-info-ooffice.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-25  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-info-svg.tex,
+	* tex4ht-javahelp-xtpipes.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-23  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-javahelp.tex,
+	* tex4ht-jsmath.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-22  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-jsml-xtpipes.tex,
+	* tex4ht-jsml.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-21  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-mathltx.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-18  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-mathplayer.tex: update license notices.
+	* tex4ht-mkht.tex: update some license notices, more to come.
+	* Makefile: add derivations.
+
+2010-02-17  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-moz.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-16  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-oo-xtpipes.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-15  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-ooffice.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-14  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-ooimpress.tex: update license notices.
+	Remove would-be generation of ooimpress-math and ooimpress-mml,
+	since it seems they are not actually generated.
+	* Makefile: add derivations.
+
+2010-02-13  Karl Berry  <karl@gnu.org>
+
+	* common-code.tex: new file.
+	* tex4ht-unicode.tex: use it.
+
+	* tex4ht-options.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-12  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-sty.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-11  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-svg.tex: update license notices.
+	* Makefile: add derivations.
+
+	* All files so far: Put current (2010) copyright line first.
+
+2010-02-10  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-t4ht.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-09  Karl Berry  <karl@gnu.org>
+
+	* tex4t-tei.tex: update license notices.
+	* Makefile: add derivations.
+	* tex4ht-cpright.tex: new macro |TeX4ht copywrite,
+	to output the license notice with a \write to the log file.
+
+2010-02-08  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-unicode.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-07  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-word.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-06  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-xhtml-xtpipes.tex: update license notices.
+	* Makefile: add derivations.
+
+	* tex4ht-xhtmml-xtpipes.tex,
+	* xtpipes.tex: \message when running the lit sources doesn't
+	seem useful.  Remove it.
+
+2010-02-05  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-xhtmml-xtpipes.tex: update license notices.
+	* Makefile: add derivations.
+
+2010-02-03  Karl Berry  <karl@gnu.org>
+
+	* wripro.tex: add license notice.
+
+2010-02-02  Karl Berry  <karl@gnu.org>
+
+	* xtpipes.tex: add derivation info and copyright messages
+	to generated files.
+	* tex4ht-cpright.tex: minimize lines.
+	* Makefile: start at new file.
+
+2010-02-23  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* t4ht.c (get_env_dir) [WIN32]: Declare as static.
+
+2010-02-20  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* tex4ht.c [__MINGW32__]: #define HAVE_BOOLEAN in order to avoid
+	conflicting declaration for boolean from kpathsea/types.h.
+	Declare various param strings as const.
+
+2009-09-30  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* t4ht.c, tex4ht.c: Declare numerous param and local strings as
+	const.
+
+This file is public domain.  Started 2010, Karl Berry.
 2011-09-18  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-unicode.tex (<double acute code>): \H{O} is 0150,

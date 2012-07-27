@@ -2,7 +2,7 @@
 %         tex tex4ht-c
 % or   ht tex tex4ht-c
 
-% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2009-2012 TeX Users Group
 % Copyright (C) 1996-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -232,7 +232,7 @@ the HTML/XML and \`'.css', also \`'.lg', \`'.idv', and
 
 \<tex4ht.c\><<< 
 /* tex4ht.c (`version), generated from `jobname.tex
-   Copyright (C) 2009-2010 TeX Users Group
+   Copyright (C) 2009-2012 TeX Users Group
    Copyright (C) `CopyYear.1996. Eitan M. Gurari
 `<TeX4ht copyright`> */
 `<tex4ht.h`>
@@ -455,10 +455,11 @@ to some code  in kpathsea / web2c.
 
 \<h-include\><<<
 #ifdef WIN32
-#include <windows.h>
 #ifdef KPATHSEA 
 #undef CDECL 
 #define CDECL                     __cdecl
+#else
+#include <windows.h>
 #endif
 #else
 #ifdef KPATHSEA 
@@ -538,8 +539,7 @@ opendir/readdir
     HANDLE hnd;
     int proceed;
     (IGNORED) strcpy((char *) dirname, (char *) str);
-    strct(dirname, (is_forward_slash(dirname)?  "/" : "\\") );   
-    strct(dirname, "*.*");       `% "*.*" or "*" -- seems equivalent. `%
+    strct(dirname, "/*.*");       `% "*.*" or "*" -- seems equivalent. `%
     hnd = FindFirstFile(dirname, &find_file_data);    
     if (hnd != INVALID_HANDLE_VALUE) {
       `<valid WIN32 handle`>
@@ -1106,9 +1106,6 @@ void * realloc( void *, size_t)
       }
     }
 
-    for (i=0; i < argc; i++)
-      free (argv[i]);
-    free (argv);
     nargv[nargc] = NULL;
     argv = nargv;
     argc = nargc;
@@ -1232,9 +1229,6 @@ interrupts that are not considered here.
 
 \<KPATHSEA h-include\><<<
 #ifdef KPATHSEA
-#ifdef __MINGW32__
-#define HAVE_BOOLEAN 1
-#endif /* __MINGW32__ */
 #include <kpathsea/config.h>
 #include <kpathsea/c-errno.h>
 #include <kpathsea/c-ctype.h>
@@ -1593,10 +1587,8 @@ This is not a problem; SET_BINARY is a no-op.
 
 \<open input file\><<<
 if( *in_name != '\0' ){ `<file = non-piped input file`> }
-#ifdef KPATHSEA
 #ifdef KWIN32
    else if (!isatty(fileno(stdin))) SET_BINARY(fileno(stdin));
-#endif
 #endif
 >>>
 
@@ -13037,10 +13029,10 @@ tex4ht_env_file = p+2;
 \<main's vars\><<<
 char* tex4ht_env_file = (char *) 0;
 char* dos_env_file =
-#if defined(DOS_WIN32) || defined(__MSDOS__)
+#if defined(__MSDOS__)
   `<get dos env file`>;
 #endif
-#if !defined(DOS_WIN32) && !defined(__MSDOS__)
+#if !defined(__MSDOS__)
   (char *) 0;
 #endif
 
@@ -13111,7 +13103,7 @@ if( !dot_file ){
         dot_file = f_open(str,READ_TEXT_FLAGS);     
    } }
 #endif
-#if defined(DOS_WIN32) || defined(__MSDOS__)
+#if defined(__MSDOS__)
    if( !dot_file ){                      
       if( dump_env_search ){ (IGNORED) printf("%s?\n", "C:/tex4ht.env"); }
       dot_file = f_open("C:/tex4ht.env",READ_TEXT_FLAGS);     
@@ -13178,7 +13170,7 @@ if( TEX4HTENV ){
 
 
 \<"s/tex4ht.env"\><<<
-#if defined(DOS_WIN32) || defined(__DJGPP__)
+#if defined(__DJGPP__)
   is_forward_slash(HOME_DIR)?  "%s/tex4ht.env" :  "%s\\tex4ht.env"
 #else
   "%s/tex4ht.env"
@@ -13226,7 +13218,7 @@ get_env_dir(argv[0])
 >>>
 
 \<functions\><<<
-#if defined(DOS_WIN32) || defined(__MSDOS__)
+#if defined(__MSDOS__)
 `<get tex4ht.env in dos`>
 #endif
 >>>
@@ -14876,7 +14868,7 @@ manual\EndLink
 \<kpathsea arg 0\><<<
 
 #ifdef KPATHSEA
-   kpse_set_program_name (argv[0], NULL);
+   kpse_set_program_name (argv[0], "tex4ht");
 #endif
 >>>
 
@@ -15448,7 +15440,7 @@ static FILE* search_file( name, dir, flags )
 
 \<cat / if needed\><<<
 (IGNORED) strct(str,
-#if defined(DOS_WIN32) || defined(__DJGPP__)
+#if defined(__DJGPP__)
  (( dir[i-1] == '/') ||  ( dir[i-1] == '\\')) 
  ?  ""
  :  (is_forward_slash(dir)?  "/" : "\\" )
@@ -15514,7 +15506,7 @@ static FILE* search_file_ext( name, dir, flags )
     int    n;
   n = (int) strlen(dir);
   (IGNORED) sprintf(str, 
-#if defined(DOS_WIN32) || defined(__DJGPP__)
+#if defined(__DJGPP__)
  (( dir[n-1] == '/') ||  ( dir[n-1] == '\\')) 
  ?  "%s%s"
  :  (is_forward_slash(dir)?  "%s/%s" : "%s\\%s" )
@@ -15554,7 +15546,7 @@ used as path separator characters. In other environments, it is the
 forward slash (\''/').
 
 \<directory '/'\><<<
-#if defined(DOS_WIN32) || defined(__DJGPP__)
+#if defined(__DJGPP__)
  '\\'
 #else
  '/'
@@ -15564,7 +15556,7 @@ forward slash (\''/').
 
 
 \<defines\><<<
-#if defined(DOS_WIN32) || defined(__DJGPP__)
+#if defined(__DJGPP__)
 #define dir_path_slash(str) (is_forward_slash(str)? '/' : '\\')
 #else
 #define dir_path_slash(str)  '/' 
@@ -15574,13 +15566,13 @@ forward slash (\''/').
 
 
 \<header functions\><<<
-#if defined(DOS_WIN32) || defined(__DJGPP__)
+#if defined(__DJGPP__)
    static BOOL is_forward_slash( ARG_I(const char*) );
 #endif
 >>>
 
 \<functions\><<<
-#if defined(DOS_WIN32) || defined(__DJGPP__)
+#if defined(__DJGPP__)
 `[ 
 static BOOL is_forward_slash(str)
                                     const char* str
@@ -17231,7 +17223,11 @@ mode ("rb"), which results in strange line endings in the .lg file
 #define READ_BIN_FLAGS "rb"
 #define READ_TEXT_FLAGS "r"
 #define WRITE_BIN_FLAGS "wb"
+#ifdef WIN32
+#define WRITE_TEXT_FLAGS "wb"
+#else
 #define WRITE_TEXT_FLAGS "w"
+#endif
 #else
 #define READ_BIN_FLAGS "r"
 #define READ_TEXT_FLAGS "r"
