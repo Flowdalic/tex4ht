@@ -4,7 +4,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % tex4ht-4ht.tex                                         %
-% Copyright (C) 1996--            Eitan M. Gurari        %
+% Copyright (C) 1996--2009            Eitan M. Gurari    %
 %                                                        %
 % This work may be distributed and/or modified under the %
 % conditions of the LaTeX Project Public License, either %
@@ -18,7 +18,7 @@
 % This work has the LPPL maintenance status "maintained".%
 %                                                        %
 % This Current Maintainer of this work                   %
-% is Eitan M. Gurari.                                    %
+% is TeX4ht Projecct Team.                               %
 %                                                        %
 % If you modify this file your changing the signature    %
 % in \message{(signature)} below will be appreciated.    %
@@ -2088,13 +2088,9 @@ and \''\Tg'.
 % biblatex.4ht                          |version %
 % Copyright (C) |CopyYear.2007.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
-   \ifx \blx@startbib\:UnDef
-      |<config biblatex|> 
-   \else
-      |<config biblatex pre v. 0.7|> 
-   \fi
+   |<config biblatex|> 
    |<shared config biblatex|>
-   |<appto blx mkhyperref|>
+   |<biblatex-crosslinking|>
    |<biblatex AtEndPreamble|>
 \Hinput{biblatex}
 \endinput
@@ -2120,7 +2116,8 @@ and \''\Tg'.
 >>>
 
 \<config biblatex\><<<
-\pend:def\blx@shorthands{%
+\ifx\blx@startbib\:UnDef
+ \pend:def\blx@shorthands{%
    \pend:def\blx@bibinit{%
        \HAssign\shorthands:cnt=0
        \NewConfigure{printfield-shorthand}{2}%
@@ -2131,21 +2128,168 @@ and \''\Tg'.
          }
          {\d:printshorthands}%
    \append:def\endtheshorthands{\b:printshorthands}%
-   \csname a:@shorthands\endcsname
-}}
-\NewConfigure{printshorthands}{4}
-\NewConfigure{@shorthands}[1]{\concat:config\a:@shorthands{#1}} 
-\let\a:@shorthands\empty 
+   \csname a:@shorthands\endcsname}
+}
+>>>
+
+\<config biblatex\><<<
+\ifx\b:printshorthands\Undef\let\endtheshorthands\@empty\fi
+\def\a:entryhead{CVR}
+\def\a:entryhead:full{CV Radhakrishnan}
+\ifx\bib@macro@entryhead:name\UnDef
+  \let\bib@macro@entryhead:name\@empty\fi
+\ifx\bib@macro@entryhead:full\UnDef
+  \let\bib@macro@entryhead:full\@empty\fi
+  \gdef\BibFileName[#1]#2{\expandafter\xdef\csname 
+       BibFileName#1\endcsname{#2}}
+>>>
+
+\<config biblatex\><<<
+\newcount\sv:sec:cnt
+\def\bibSecConfigure{%
+  \let\save:section\section
+  \global\sv:sec:cnt=\c@secnumdepth  
+  \def\section{\@ifstar
+      {\c@secnumdepth=0\relax\save:section}%
+      {\c@secnumdepth=\sv:sec:cnt\save:section}}% 
+}
+\gHAssign\bibN=0
 >>>
 
 
+\<biblatex-with-ooffice\><<<
+\def\bibConfigure{\ConfigureList{thebibliography}%
+      {\IgnorePar\EndP \gHAdvance\bib:N by 1
+       \HCode{<text:bibliography text:name="bib-\bib:N" >
+              <text:bibliography-source>\Hnewline
+             <text:index-title-template>}
+           \NoFonts\ref:name\EndNoFonts
+       \HCode{</text:index-title-template>\Hnewline
+%
+           <text:bibliography-entry-template\Hnewline
+            text:bibliography-type="custom1"
+            text:style-name="Bibliography11">\Hnewline
+%
+            <text:index-entry-bibliography
+             text:bibliography-data-field="identifier"/>\Hnewline
+%
+           <text:index-entry-span>: </text:index-entry-span>\Hnewline
+           <text:index-entry-bibliography
+            text:bibliography-data-field="author" />\Hnewline
+           <text:index-entry-span>, </text:index-entry-span>\Hnewline
+%
+           <text:index-entry-bibliography
+            text:bibliography-data-field="title" />\Hnewline
+           <text:index-entry-span>, </text:index-entry-span>\Hnewline
+%
+           <text:index-entry-bibliography
+            text:bibliography-data-field="year" />\Hnewline
+           </text:bibliography-entry-template>\Hnewline\Hnewline
+           </text:bibliography-source>\Hnewline
+           <text:index-body>\Hnewline}%
+         \let\en:bib=\empty
+      }%
+      {\en:bib\HCode{</text:index-body></text:bibliography>}}
+      {\en:bib\gdef\en:bib{\HCode{</text:p>\Hnewline}}%
+        \HCode{<text:p text:style-name="p-bibitem">}%
+        \gHAdvance\bibN by 1
+        \HCode{<text:reference-mark
+          text:name="X0-\csname BIB-\bibN\endcsname">%
+          </text:reference-mark>}%
+      }%
+      {}{}
+  }
+>>>
+
+
+\<biblatex-without-ooffice\><<<
+ \def\bibConfigure{%
+  \ConfigureList{thebibliography}
+  {\ifvmode \IgnorePar \fi \EndP \EndP
+    \HCode {<dl class="thebibliography">}%
+%
+% This is for linking citations with biblist items which
+% are in a different file when output is split into different
+% chunks. [CVR 2012-09-27]
+%
+%
+% <biblatex-2.2>
+%
+  \immediate\write\@auxout{%
+      \string\BibFileName[\therefsection]{\FileName}}%
+%
+% </biblatex-2.2>
+%
+    \PushMacro \end:itm \global \let \end:itm =\empty}%
+  {\ifvmode \IgnorePar \fi \EndP
+    \PopMacro \end:itm \global \let \end:itm \end:itm \EndP
+    \HCode {</dd></dl>}\ShowPar}%
+  {\ifvmode \IgnorePar \fi \EndP \gHAdvance \bibN by 1 
+    \end:itm \global \def \end:itm {\EndP \Tg </dd>}%
+    \HCode {<dt id="X\therefsection-\abx@field@entrykey"
+      class="thebibliography">}\bgroup \bf}%
+  {\ifvmode \IgnorePar \fi \EndP
+    \egroup
+    \HCode {</dt><dd\Hnewline id="bib-\bibN"
+      class="thebibliography">}%
+    \par \ShowPar}%
+ }
+>>>
+
 \<config biblatex\><<<
+  \:CheckOption{ooffice}\if:Option
+   |<biblatex-with-ooffice|>
+  \else
+   |<biblatex-without-ooffice|>
+ \fi
+>>>
+
+
+
+\<config biblatex\><<<
+\NewConfigure{printshorthands}{4}
+\NewConfigure{@shorthands}[1]{\concat:config\a:@shorthands{#1}} 
+\let\a:@shorthands\empty 
 \def\nolinkurl{\o:url:}
 \def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
   \blx@warning@noline {Page references have changed.\MessageBreak
     Rerun to get references right}\@tempswatrue \blx@reruntrue \fi
   \@nameuse {blx@rerun}}
+\pend:def\blx@bibliography{\bibSecConfigure%
+  \pend:def\blx@bibinit{%
+    \bibConfigure
+     \csname onthebibliography:list\endcsname
+  }%
+}
 >>>
+
+\<config biblatex\><<<
+\let\en:bib\@empty
+\newcounter{bib}
+\protected\def\blx@bbl@entry#1#2#3{%
+  \begingroup
+  \def\texht@bibkey{#1}
+  \edef\abx@field@entrykey{\detokenize{#1}}%
+  \global\advance\c@bib 1
+  \immediate\write\@auxout{\string\expandafter\string\gdef
+    \string\csname\space BIB-\thebib\string\endcsname
+     {\expandafter\strip@prefix\meaning\texht@bibkey}}%
+  \Tag{)QX\therefsection-#1}{\thebib}%
+  \blx@setoptions@type{#2}%
+  \blx@bbl@options{#3}%
+  \blx@setoptions@entry
+  \edef\blx@bbl@data{blx@data@\the\c@refsection @\abx@field@entrykey}%
+  \csuse\blx@bbl@data
+  \cslet\blx@bbl@data\@empty
+  \blx@bbl@addfield{entrykey}{\abx@field@entrykey}%
+  \blx@bbl@addfield{entrytype}{#2}%
+  \blx@imc@iffieldundef{options}
+    {}
+    {\blx@bbl@fieldedef{options}{\expandonce\abx@field@options}}}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % CVR 2010/03/31
 % \bib@field@entrykey initialized with empty value
 %
@@ -2216,7 +2360,7 @@ X\the\c@refsection --%:
 % to revision of biblatex to version 0.9d, biblatex.4ht seemed to
 % be broken.  It was true. The problem was the redefined
 % \blx@checksum in biblatex.4ht which was either superfluous or
-% erratic or both. So, I have commented our in biblatex.4ht
+% erratic or both. So, I have commented out in biblatex.4ht
 % and decided to use the default definition in the biblatex.sty.
 % Both the bug reporters have told that the modified version
 % solved their problems.
@@ -2230,7 +2374,7 @@ X\the\c@refsection --%:
 
 
 
-\<config biblatex\><<<
+\<config biblatex-???\><<<
 \pend:def\blx@bibliography{% 
   \pend:def\blx@bibinit{%
      \ConfigureList{thebibliography}%
@@ -2246,7 +2390,7 @@ X\the\c@refsection --%:
 }  
 >>>
 
-\<config biblatex--???\><<<
+\<config biblatex-???\><<<
 \pend:defI\blx@bibitem{% 
    \ifx \bibitem:key\:UnDef
        \let\blx:anchor\blx@anchor
@@ -2272,7 +2416,7 @@ X\the\c@refsection --%:
 
 
 
-\<config biblatex -??\><<<
+\<config biblatex-???\><<<
 \protected\def\blx@citeprint#1{% 
   \advance\c@citecount\@ne 
   \addtocounter{instcount}\@ne 
@@ -2308,9 +2452,6 @@ X\the\c@refsection --%:
   \endgroup} 
 >>>
 
-
-
-
 \<config biblatex\><<<
 \def\:tempc[#1]#2{%
    \expandafter\ifx \csname a:printfield-#2\endcsname\relax
@@ -2334,7 +2475,7 @@ X\the\c@refsection --%:
 }
 >>>
 
-\<config biblatex --???\><<<
+\<config biblatex--???\><<<
 \def\:tempc[#1]#2{%
    \expandafter\ifx \csname a:printtext-#2\endcsname\relax
       \NewConfigure{printtext-#2}{2}%
@@ -2364,8 +2505,6 @@ X\the\c@refsection --%:
 \expandafter\HLet\csname\string\blx@bibstring\endcsname\:tempc
 >>>
 
-
-
 \<config biblatex\><<<
 \def\:tempc[#1]#2{%
    \expandafter\ifx \csname a:bibcpstring-#2\endcsname\relax
@@ -2379,8 +2518,6 @@ X\the\c@refsection --%:
 }
 \expandafter\HLet\csname\string\blx@bibcpstring\endcsname\:tempc
 >>>
-
-
 
 
 \<config biblatex\><<<
@@ -2413,7 +2550,6 @@ X\the\c@refsection --%:
 >>>
 
 
-
 \<config biblatex pre v. 0.7 -??\><<<
 \pend:def\blx@bibliography{% 
   \pend:def\thebibitem{\c:thebibliography}%
@@ -2439,6 +2575,10 @@ X\the\c@refsection --%:
       \global\let\biblatex:style\def
    \fi
 }
+
+\def\biblatex:style{}
+\Configure{biblatex-style}{}{}
+
 \pend:def\at:docend{%
    \ifx \UnDef\biblatex:style
       \:warning{\string\Configure{biblatex-style}{\blx@cbxfile}{...} 
@@ -2447,10 +2587,148 @@ X\the\c@refsection --%:
 }
 >>>
 
+\<config biblatex\><<<
+\let\blx:item\@item
+\def\@item[#1]{%
+  \blx:item[#1]%
+  \ifhmode \spacefactor\blx@sf@par\fi
+}
+\let\blx@resetpuncthook\@empty
+\let\blx@csq@ifkernmark\@empty
+\newskip\blx@unitmark
+\blx@unitmark=10pt plus 1pt minus 1pt
+\let\abx@aux@page\@gobbletwo
+\let\abx@aux@fnpage\@gobbletwo
+\let\abx@aux@refsection\@gobbletwo
+\def\blx@aux@number#1#2#3#4{}
+\def\abx@aux@number#1#2#3#4{}
+\AtEndDocument{%
+  \def\abx@aux@page#1#2{\blx@addpagesum{#1}{#2}}%
+  \def\abx@aux@fnpage#1#2{\blx@addpagesum{#1}{#2}}
+}
+
+\def\blx@begunit{%
+  \toggletrue{blx@tempa}%
+  \iftoggle{blx@insert}%
+    {\iftoggle{blx@unit}%
+       {\begingroup
+          \let\blx@begunit\@empty
+          \let\blx@endunit\@empty
+          \blx@unitpunct\blx@postpunct
+        \endgroup
+        \global\togglefalse{blx@unit}%
+        \togglefalse{blx@tempa}}
+       {\blx@postpunct}%
+     \iftoggle{blx@block}%
+       {\begingroup
+          \let\blx@begunit\@empty
+          \let\blx@endunit\@empty
+          \newblockpunct
+        \endgroup
+        \global\togglefalse{blx@block}%
+        \togglefalse{blx@tempa}}%
+       {}}%
+    {}%
+  \blx@postpunct
+  \blx@resetpuncthook
+  \iftoggle{blx@tempa}%
+    {}%
+    {\global\togglefalse{blx@insert}}%
+  \csname a:blx@unit\endcsname
+  \blx@leavevmode
+  \blx@csq@ifkernmark
+    {}%
+    {\penalty\@M
+    \hskip-\blx@unitmark\relax
+    \hskip\blx@unitmark\relax
+    }%
+  \begingroup
+    \Configure{blx@unit}{}{}%
+}
+\def\blx@endunit{%
+  \endgroup
+  \csname b:blx@unit\endcsname
+  \Configure{blx@unit}{}{}%
+  \ifdim\lastskip=\blx@unitmark
+    \unskip\unskip\unpenalty
+    \global\togglefalse{blx@lastins}%
+  \else
+   \global\toggletrue{blx@insert}%
+   \global\toggletrue{blx@lastins}%
+ \fi
+}
+\NewConfigure{blx@unit}{2}
+
+   \else
+   \fi
+
+>>>
 
 \<shared config biblatex\><<<
 \append:def\blx@bibinit{\a:bibinit}%
 \NewConfigure{bibinit}{1}%
+>>>
+
+\<biblatex-crosslinking\><<<
+\let\blx@anchors\@empty
+\let\bib@field@entrykey\@empty
+
+\protected\def\blx@anchor{%
+  \xifinlist{X\the\c@refsection -%@
+    \bib@field@entrykey}{\blx@anchors}%
+    {}%
+    {\listxadd\blx@anchors{X\the\c@refsection -%@
+      \bib@field@entrykey}%
+     \hyper:natanchorstart{X\the\c@refsection -%@
+      \bib@field@entrykey}%
+     \hyper:natanchorend}}
+     
+\protected\def\blx@bibhyperref{%
+   \@ifnextchar[%]
+     {\blx@bibhyperref@i}%
+     {\blx@bibhyperref@i[\bib@field@entrykey]}}%
+
+\long\def\blx@bibhyperref@i[#1]#2{%
+   \hyper:natlinkstart{X\the\c@refsection -%@
+     #1}%
+     #2\hyper:natlinkend}%
+
+\protected\long\def\blx@bibhyperlink#1#2{%
+   \hyper:natlinkstart{X\the\c@refsection -%:
+     #1}%
+     #2\hyper:natlinkend}%
+
+\protected\long\def\blx@bibhypertarget#1#2{%
+   \@bsphack
+   \hyper:natanchorstart{X\the\c@refsection -%:
+     #1}%
+   \@esphack
+     #2\hyper:natanchorend}%
+
+\let\blx@ifhyperref\@firstoftwo
+
+%\def\hyper:natanchorstart#1{\Link{}{#1}\EndLink}%  
+%\def\hyper:natlinkstart#1{\Link{#1}{}}%
+
+\def\hyper:natanchorstart#1{%
+      \expandafter\ifx\csname QXpage.\thepage\endcsname\relax%
+        \Tag{)Qpage.\thepage}{\file:id}%
+        \HCode{<a id="page.\thepage"></a>}%
+        \expandafter\xdef\csname QXpage.\thepage\endcsname{0}%
+       \fi 
+      \Link[\csname BibFileName\therefsection\endcsname]{}{#1}\EndLink}  
+\def\hyper:natanchorend{}
+\def\hyper:natlinkstart#1{%
+      \expandafter\ifx\csname QXpage.\thepage\endcsname\relax%
+        \Tag{)Qpage.\thepage}{\file:id}%
+        \HCode{<a id="page.\thepage"></a>}%
+        \expandafter\xdef\csname QXpage.\thepage\endcsname{0}%
+       \fi 
+      \Link[\csname BibFileName\therefsection\endcsname]{#1}{}}
+\def\hyper:natlinkend{\EndLink}
+\def\writeCiteLink#1{\immediate\write\@mainaux{%
+    \string\@namedef{#1.\thepage}{\FileName}}}
+\let\blx@addpagesum\@gobbletwo
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
@@ -2524,8 +2802,8 @@ X\the\c@refsection --%:
 \NewConfigure{entryhead:full}{2}
 >>>
 
-\<config biblatex\><<<
-\let\blx:item\@item
+\<config biblatex-???\><<<
+\let\blx:item\@item %% discarded CVR
 \def\@item[#1]{%
   \blx:item[#1]%
   \ifhmode \spacefactor\blx@sf@par\fi 
@@ -2551,8 +2829,8 @@ The following macros were not initialized, hence done now:
 \Verb=\blx@unitmark= is defined as a new skip to match the introduction
 of the same in biblatex.sty v 1.6. [CVR 2011/09/10]
 
-\<config biblatex\><<<
-\newskip\blx@unitmark
+\<config biblatex-???\><<<
+\newskip\blx@unitmark %% discarded CVR
 \blx@unitmark=10pt plus 1pt minus 1pt
 \let\abx@aux@page\@gobbletwo
 \AtEndDocument{%
@@ -2600,7 +2878,7 @@ of the same in biblatex.sty v 1.6. [CVR 2011/09/10]
 } 
 >>>
 
-\<\><<<
+\<config biblatex-???\><<<
 \def\blx@begunit{% 
   \toggletrue{blx@tempa}% 
   \iftoggle{blx@insert}% 
@@ -2640,7 +2918,7 @@ of the same in biblatex.sty v 1.6. [CVR 2011/09/10]
 >>>
 
 
-\<config biblatex\><<<
+\<config biblatex-???\><<<
 \def\blx@endunit{% 
   \endgroup   
   \csname b:blx@unit\endcsname
@@ -2655,7 +2933,7 @@ of the same in biblatex.sty v 1.6. [CVR 2011/09/10]
 } 
 >>>
 
-\<config biblatex\><<<
+\<config biblatex-???\><<<
 \NewConfigure{blx@unit}{2}
 >>>
 
