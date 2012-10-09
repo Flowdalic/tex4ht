@@ -388,7 +388,7 @@ this.
 \reset:LH:keys
 %
 \def\@lettrine[#1]#2#3{\setkeys{LH}{#1}%
-     \H:lettrine:Char{#2}%
+     \def\HlettrineChar{#2}%
      \def\HlettrineString{#3}%
      \a:lettrine
      \ifx\LH:ante\@empty\else\f:lettrine\LH:ante\g:lettrine\fi
@@ -420,7 +420,7 @@ this.
 %
 \Css{.lettrine{float: left;
     line-height: 0.7; margin-left: -0.1em;
-    margin-bottom: -1em; margin-right: 0.2em;
+    margin-bottom: -.5em; margin-right: 0.2em;
     }}
 \Css{.lettrine-ante{vertical-align: top;}}
 \Css{.lettrine-letter{font-style: normal;
@@ -435,11 +435,11 @@ this.
 \Css{.lettrine-V{margin-right: -0.3em;}}
 \Css{.lettrine-V + .lettrine-line{margin-left: 0.3em;}}
 \Css{.lettrine-Q{padding-bottom: 1em;margin-top: -0.6em;}}
-\Css{.lettrine-line{font-variant: small-caps;}}>>>                 
-
+\Css{.lettrine-line{font-variant: small-caps;}}
+\Css{p.indent{text-indent: 0em;}}
+>>>                 
 
 \AddFile{9}{mktex4ht}
-
 
 \Part{The Template mktex4ht.4ht}
 
@@ -466,8 +466,8 @@ this.
 
 \input cond4ht.4ht
 
-
 %-------------------------------------------------------
+
 \let\OPO=\OutputCodE
 \def\OutputCodE\<#1\>{%
    \openin15=\HOME/#1
