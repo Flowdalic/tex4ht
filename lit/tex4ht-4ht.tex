@@ -3262,9 +3262,14 @@ sectional unit. It has been fixed now.
 \HLet\NR@schapter\:tempc
 
 \let\o:NR@@caption\@caption
-
+%
+%
+% Keith Andrews <kandrews@iicm.edu> reported that \@captype as
+% \NR:Type threw an undefined control sequence error. I think
+% \@currenvir is safe, there is nothing special about \@captype. 
+%   
 \long\def\@caption#1[#2]{%
-    \gdef\NR:Type{\@captype}%
+    \gdef\NR:Type{\@currenvir}%
     \gdef\NR:Title{\a:newlabel{#2}}%
    \o:NR@@caption{#1}[{#2}]%
 }      
@@ -3462,7 +3467,8 @@ For xref file
 \EndVerbatim
 
 \''\XGet:HFile' acts on \''x1-10000.1' to retrieve the 1 between \`'x' and
-\`'-'. The if acts on \`')F1F-' to get the file name. Where the \`'x' got into the picture? Did \''\aXrefFile' introduced it? where?
+\`'-'. The if acts on \`')F1F-' to get the file name. Where the \`'x'
+got into the picture? Did \''\aXrefFile' introduced it? where? 
 
 
 
@@ -3913,7 +3919,7 @@ which requires 5 fields instead of 2.
 
 %\def\@hyperref{\ref}
 %\def\label@hyperref[#1]#2{{%
-%  \def\@firstoffive##1##2##3{##1}%   |%can we remove thi line?|%
+%  \def\@firstoffive##1##2##3{##1}%   |%can we remove this line?|%
 %  \Configure{ref}{}{}{}\ref{#1}}}
 
 \<config hyperref\><<<
