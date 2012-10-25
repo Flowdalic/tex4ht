@@ -2600,13 +2600,39 @@ X\the\c@refsection --%:
 \let\abx@aux@page\@gobbletwo
 \let\abx@aux@fnpage\@gobbletwo
 \let\abx@aux@refsection\@gobbletwo
-\def\blx@aux@number#1#2#3#4{}
-\def\abx@aux@number#1#2#3#4{}
+%
+% <Kristian.Debrabant@cs.kuleuven.be> reported that After updating
+% biblatex and biblatex.ht to versions 2.2 respectively
+% 2012-09-28-17:49 (using MiKTeX 2.9 64 bit), tex4ht seemed no longer
+% respected the defernumbers option in biblatex.sty: When applied to
+% the attached file tex4hterror.tex.
+%
+% The problem was due to nullifying \abx@aux@number which in fact
+% should have been redefined to \blx@aux@number when defernumbers
+% option is true.
+%
+% This is done now and as per Kristian, the fix works fine now.
+%
+\protected\def\blx@aux@number#1#2#3#4{%
+  \blx@bbl@addentryfield{\detokenize{#2}}{#3}{localnumber}{#4}%
+  \ifblank{#4}%
+    {}%
+    {\csgdef{blx@labelnumber@#3}{#4}%
+     %\blx@addchecksum{#1}{#4} % this can cause a nodocument error!
+     }}
+%
+\iftoggle{blx@defernumbers}%
+    {\setkeys{blx@opt@pre}{labelnumber}%
+     \let\blx@thelabelnumber\blx@addlabelnumber
+     \let\abx@aux@number\blx@aux@number}%
+    {\let\blx@thelabelnumber\relax
+     \let\abx@aux@number\@gobblefour}
+%
 \AtEndDocument{%
   \def\abx@aux@page#1#2{\blx@addpagesum{#1}{#2}}%
-  \def\abx@aux@fnpage#1#2{\blx@addpagesum{#1}{#2}}
+  \def\abx@aux@fnpage#1#2{\blx@addpagesum{#1}{#2}}%
 }
-
+%
 \def\blx@begunit{%
   \toggletrue{blx@tempa}%
   \iftoggle{blx@insert}%
