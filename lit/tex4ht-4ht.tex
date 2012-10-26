@@ -2733,24 +2733,39 @@ X\the\c@refsection --%:
 
 \let\blx@ifhyperref\@firstoftwo
 
-%\def\hyper:natanchorstart#1{\Link{}{#1}\EndLink}%  
-%\def\hyper:natlinkstart#1{\Link{#1}{}}%
-
-\def\hyper:natanchorstart#1{%
+% Oleg Domanov odomanov@yandex.ru reports:
+% tex4ht ends with an error when compiles biblatex files. I'm on
+% Windows, texlive 2012. I put here a minimal example and files
+% generated with the command latexmk test && mk4ht oolatex test
+%
+% https://www.dropbox.com/s/hn1zm40htqs13mf/t4htlink.zip
+%
+% There is a superfluous \relax in the file test.tmp, line 65 which
+% seems to cause the error. 
+%
+% Changes to cope with biblatex upgrade caused this problem. It is now
+% fixed. --CVR 2012/10/26
+% 
+\:CheckOption{ooffice}\if:Option
+ \def\hyper:natanchorstart#1{\Link{}{#1}\EndLink}%  
+ \def\hyper:natlinkstart#1{\Link{#1}{}}%
+\else
+ \def\hyper:natanchorstart#1{%
       \expandafter\ifx\csname QXpage.\thepage\endcsname\relax%
         \Tag{)Qpage.\thepage}{\file:id}%
         \HCode{<a id="page.\thepage"></a>}%
         \expandafter\xdef\csname QXpage.\thepage\endcsname{0}%
        \fi 
       \Link[\csname BibFileName\therefsection\endcsname]{}{#1}\EndLink}  
-\def\hyper:natanchorend{}
-\def\hyper:natlinkstart#1{%
+ \def\hyper:natlinkstart#1{%
       \expandafter\ifx\csname QXpage.\thepage\endcsname\relax%
         \Tag{)Qpage.\thepage}{\file:id}%
         \HCode{<a id="page.\thepage"></a>}%
         \expandafter\xdef\csname QXpage.\thepage\endcsname{0}%
        \fi 
       \Link[\csname BibFileName\therefsection\endcsname]{#1}{}}
+\fi
+\def\hyper:natanchorend{}
 \def\hyper:natlinkend{\EndLink}
 \def\writeCiteLink#1{\immediate\write\@mainaux{%
     \string\@namedef{#1.\thepage}{\FileName}}}
