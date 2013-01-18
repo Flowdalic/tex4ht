@@ -13561,7 +13561,9 @@ the home directory (signaled by the prefix \`'~').  The directories must be sepa
 
 
 \<check env font variables\><<<
+#ifndef KPATHSEA
 tfm_dirs = get_env_var("TEX4HTTFM");
+#endif
 htf_dirs = get_env_var("TEX4HTHTF");
 >>>
 
@@ -13639,7 +13641,10 @@ tfm_dirs = p;
 
 
 \<scan fonts vars\><<<
-struct env_var_rec *tfm_dirs, *htf_dirs;
+#ifndef KPATHSEA
+struct env_var_rec *tfm_dirs;
+#endif
+struct env_var_rec *htf_dirs;
 >>>
 
 \<types\><<<

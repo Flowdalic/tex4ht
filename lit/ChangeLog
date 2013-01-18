@@ -1,3 +1,8 @@
+2013-01-08  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	Backport from TeX Live.
+	* tex4ht-c.tex, tex4ht-t4ht.tex: Drop set but unused variables.
+
 2012-07-27  Peter Breitenlohner  <peb@mppmu.mpg.de>
 
 	Adapt to W32TeX (backport from TeX Live).
