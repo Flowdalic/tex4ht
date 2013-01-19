@@ -1,6 +1,6 @@
 % $Id$
 % htlatex tex4ht-oo-xtpipes "xhtml,next,3" "" "-d./"
-% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2009-2013 TeX Users Group
 % Copyright (C) 2001-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -36,7 +36,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
 <!-- oo-math.4xt (`version), generated from `jobname.tex
-     Copyright (C) 2009-2010 TeX Users Group
+     Copyright (C) 2009-2013 TeX Users Group
      Copyright (C) `CopyYear.2006. Eitan M. Gurari
 `<TeX4ht copyright`> -->
 <xtpipes preamble="yes" signature="oo-math.4xt (`version)">
@@ -103,7 +103,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
 <!-- oo-text.4xt (`version), generated from `jobname.tex
-     Copyright (C) 2009-2010 TeX Users Group
+     Copyright (C) 2009-2013 TeX Users Group
      Copyright (C) `CopyYear.2006. Eitan M. Gurari
 `<TeX4ht copyright`> -->
 <xtpipes preamble="yes" signature="oo-text.4xt (`version)">
@@ -282,13 +282,13 @@ above
 \AtEndDocument{\OutputCodE\<OoUtilities.java\>}
 
 \Needs{"
-    javac OoUtilities.java -d /home/4/gurari/xtpipes.dir/. 
+    javac OoUtilities.java -d /opt/cvr/gurari/xtpipes.dir/. 
 "}
 
 \<OoUtilities.java\><<<
 package tex4ht;
 /* OoUtilities.java (`version), generated from `jobname.tex
-   Copyright (C) 2009-2010 TeX Users Group
+   Copyright (C) 2009-2013 TeX Users Group
    Copyright (C) `CopyYear.2006. Eitan M. Gurari
 `<TeX4ht copyright`> */
 import org.w3c.dom.*;
@@ -1542,7 +1542,7 @@ mtext.
 \AtEndDocument{\OutputCodE\<OomFilter.java\>}
 
 \Needs{"
-    javac OomFilter.java     -d /home/4/gurari/xtpipes.dir/. 
+    javac OomFilter.java     -d /opt/cvr/gurari/xtpipes.dir/. 
 "}
 
 \<OomFilter.java\><<<
@@ -1607,7 +1607,7 @@ public class OomFilter extends XMLFilterImpl {
 \AtEndDocument{\OutputCodE\<OoFilter.java\>}
 
 \Needs{"
-    javac OoFilter.java      -d /home/4/gurari/xtpipes.dir/. 
+    javac OoFilter.java      -d /opt/cvr/gurari/xtpipes.dir/. 
 "}
 
 \<OoFilter.java\><<<
@@ -1653,7 +1653,7 @@ public class OoFilter extends XMLFilterImpl {
 String name = attr.getValue("draw:name");
 if( (name != null) 
     && (attr.getValue("svg:width") == null) 
-    && (attr.getValue("svg:hieght") == null) 
+    && (attr.getValue("svg:height") == null) 
 ){ 
   java.awt.Image image = new javax.swing.ImageIcon(name).getImage(); 
   int width = image.getWidth(null); 
@@ -1957,14 +1957,14 @@ import java.io.FileReader;
 
 
 \AtEndDocument{\Needs{%
-    "cd /home/4/gurari/xtpipes.dir
+    "cd /opt/cvr/gurari/xtpipes.dir
      ;  
      jar cf tex4ht.jar *
      ;
-     mv tex4ht.jar /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/. 
+     mv tex4ht.jar /opt/cvr/gurari/tex4ht.dir/texmf/tex4ht/bin/. 
      ;
-     cp /home/4/gurari/xtpipes.dir/xtpipes/lib/* 
-        /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/.
+     cp /opt/cvr/gurari/xtpipes.dir/xtpipes/lib/* 
+        /opt/cvr/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/.
 "}}
 
 \end{document}
