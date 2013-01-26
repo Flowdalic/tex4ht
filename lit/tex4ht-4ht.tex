@@ -2685,9 +2685,9 @@ X\the\c@refsection --%:
  \fi
 }
 \NewConfigure{blx@unit}{2}
-
+%
    \else
-   \fi
+\fi
 
 >>>
 
@@ -2771,6 +2771,7 @@ X\the\c@refsection --%:
 \def\writeCiteLink#1{\immediate\write\@mainaux{%
     \string\@namedef{#1.\thepage}{\FileName}}}
 \let\blx@addpagesum\@gobbletwo
+\let\nolinkurl\relax
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
