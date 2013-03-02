@@ -1,7 +1,7 @@
 % $Id$
 % compile 3 times: latex tex4ht-ooffice
 %      htlatex tex4ht-ooffice "xhtml,4,sections+"
-% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2009-2013 TeX Users Group
 % Copyright (C) 2001-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -8490,10 +8490,12 @@ referring to names.
    }
    {\EndNoFonts \RecallEndP
     \HCode{</\text:footnote-citation><\text:footnote-body>
-    <text:p\Hnewline text:style-name="Footnote">|<footnotetext space|>}%
+    <text:p\Hnewline text:style-name="Footnote">}\NoFonts
+%     |<footnotetext space|>%
     \SaveHtmlPar |<footnote pars|>\ShowPar \special{t4ht@)}%
    }
-   {\RecallHtmlPar \HCode{</text:p></\text:footnote-body></\text:footnote>}%
+   {\RecallHtmlPar\EndNoFonts
+     \HCode{</text:p></\text:footnote-body></\text:footnote>}%
     |<notice footnote text|>%
    }
 >>>
@@ -11655,10 +11657,10 @@ OASIS OpenDocument - Accessibility
 \end{itemize}
 
 
-\item \href[http://books.evc-cit.info/odbook/book.html]{OASIS OpenDocument Essentials}
+\item \href{http://books.evc-cit.info/odbook/book.html}{OASIS OpenDocument Essentials}
 
 \item OpenDocument:
-\href[http://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf]{OASIS}
+\href{http://www.oasis-open.org/committees/download.php/12572/OpenDocument-v1.0-os.pdf}{OASIS}
 
 \item OpenDocument:
 \href{http://www.oasis-open.org/specs/index.php}{OASIS} 
@@ -11709,7 +11711,7 @@ Sun ODF Plugin 1.1 for Microsoft Office:
 \url{http://www.sun.com/software/star/odf_plugin/}
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% 
 \section{To Do}
 %%%%%%%%%%%%%%%%%%%
 

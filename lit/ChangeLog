@@ -1,3 +1,10 @@
+2013-03-01  Radhakrishnan CV  <cvr@river-valley.org>
+
+	* tex4ht-ooffice.tex: \NoFonts ... \EndNoFonts added in
+	{footnotetext} configuration to avoid font size anomalies in
+	footnotes when footnote text has accented characters. Patch
+	submitted by Nicolai Rostov, Feb 28, 2013 at 4:40 AM.
+
 2013-01-08  Peter Breitenlohner  <peb@mppmu.mpg.de>
 
 	Backport from TeX Live.
