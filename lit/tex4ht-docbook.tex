@@ -2,7 +2,7 @@
 % compile 3 times:     latex tex4ht-docbook   
 %                or  xhlatex tex4ht-docbook "html,3,sections+"
 %
-% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2009-2013 TeX Users Group
 % Copyright (C) 2000-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -3008,10 +3008,26 @@ accent="true">&\#x0332;</\a:mathml mo></\a:mathml munder>}%
   {\ifvmode \IgnorePar\fi\EndP \HCode{<note role="equation"><para>}}
   {\ifvmode \IgnorePar\fi\EndP \HCode{</para></note></blockquote>}\par
    \ShowPar}
+
+% Mar 18, 2013 at 9:28 PM, Matteo Gamboz <gamboz@medialab.sissa.it>
+% wrote that starred equation caused an forgotten endgroup error, hence
+% the following fix. CVR Mar 22, 2013.
+
+\Configure{equation*}
+  {\ifvmode \IgnorePar\fi   \EndP
+   \HCode{<blockquote role="equation">}%
+   \Configure{gather}
+     {\HCode{<mtable\Hnewline
+         class="equation"><mtr><mtd>}\IgnorePar }
+     {\HCode{</mtd></mtr></mtable>}}
+     {}
+     {}
+     {}
+     {}
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</blockquote>}\par
+   \ShowPar}
 >>>
-
-
-
 
 
 \<configure docbook-mml amsmath\><<<
