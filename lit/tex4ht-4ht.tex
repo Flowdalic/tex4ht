@@ -3251,7 +3251,20 @@ sectional unit. It has been fixed now.
 % CVR 2012-09-20-12:48
 % 
 
+% Bug No: 185
+%
+% There is spurious "]" in the output document when package hyperref is used
+% with tex4ht in new texlive 2013. This issue was reported at
+%
+% http://tex.stackexchange.com/q/120617/2891
+%
+% Optional arguments in various heands need to be further grouped in
+% nameref.4ht. Done.
+%
+% CVR 2013-06-28 15:00
+% 
 \<nameref v.2 configurations\><<<
+\let\NR:Type\relax
 \let\ltx@label\label
 \def\prf:label{{\ifx \NR:Title\:UnDef \else \NR:Title\fi}%
                {\ifx \NR:Type\:UnDef \else \NR:Type .1\fi}{}}%
@@ -3259,7 +3272,7 @@ sectional unit. It has been fixed now.
 \let\NR:no@sect\no@sect
 \def\no@sect#1#2#3#4#5#6[#7]#8{\gdef\NR:Title{\a:newlabel{#7}}%
     \gdef\NR:Type{#1}%
-    \NR:no@sect{#1}{#2}{#3}{#4}{#5}{#6}[#7]{#8}}
+    \NR:no@sect{#1}{#2}{#3}{#4}{#5}{#6}[{#7}]{#8}}
 \def\:StartSec#1#2#3{%
    \gdef\NR:Title{\a:newlabel{#3}}%
    \gdef\NR:Type{#1}%
@@ -3269,7 +3282,7 @@ sectional unit. It has been fixed now.
 \def\:tempc#1#2#3#4#5#6[#7]#8{%
    \gdef\NR:Title{\a:newlabel{#7}}%
    \gdef\NR:Type{#1}%
-   \o:NR@sect:{#1}{#2}{#3}{#4}{#5}{#6}[#7]{#8}}
+   \o:NR@sect:{#1}{#2}{#3}{#4}{#5}{#6}[{#7}]{#8}}
 \HLet\NR@sect\:tempc
 
 \def\:tempc#1#2#3#4#5{%
@@ -3294,7 +3307,7 @@ sectional unit. It has been fixed now.
 \def\:tempc[#1]#2{%
    \gdef\NR:Title{\a:newlabel{#1}}%
    \gdef\NR:Type{chapter}%
-   \o:NR@chapter:[#1]{#2}}
+   \o:NR@chapter:[{#1}]{#2}}
 \HLet\NR@chapter\:tempc
 
 \def\:tempc#1{%
