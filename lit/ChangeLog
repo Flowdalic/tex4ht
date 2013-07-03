@@ -1,3 +1,8 @@
+2013-07-02  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* tex4ht-c.tex, tex4ht-t4ht.tex: Always include system headers
+	after <kpathsea/config.h>.  (Backport from TeX Live.)
+
 2013-03-01  Radhakrishnan CV  <cvr@river-valley.org>
 
 	* tex4ht-ooffice.tex: \NoFonts ... \EndNoFonts added in

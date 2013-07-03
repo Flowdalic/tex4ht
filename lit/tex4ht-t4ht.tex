@@ -404,6 +404,9 @@ Symantec C++ for wid95:
 
 
 \<h-include\><<<
+#ifdef KPATHSEA
+#include <kpathsea/config.h>
+#endif
 #include <stdio.h>   `% EOF, FILE `%
 #include <stdlib.h>  `% EXIT_FAILURE `%
 >>>
@@ -518,7 +521,6 @@ REPLACE EXIT with somthing that DOS also accept.
 #ifndef HAVE_STRRCHR
 #define  strrchr  rindex
 #endif
-#include <kpathsea/config.h>
 #include <kpathsea/c-errno.h>
 #include <kpathsea/c-ctype.h>
 #include <kpathsea/c-fopen.h>
@@ -540,7 +542,6 @@ REPLACE EXIT with somthing that DOS also accept.
 \<h-defines 2\><<<
 `<h-include before KPATHSEA`>
 #ifdef KPATHSEA
-#include <kpathsea/config.h>
 #include <kpathsea/c-errno.h>
 #include <kpathsea/c-ctype.h>
 #include <kpathsea/c-fopen.h>

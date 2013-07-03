@@ -361,6 +361,9 @@ MSVC_1_52_DOS_LIB:                                         *
 
 
 \<h-include\><<<
+#ifdef KPATHSEA
+#include <kpathsea/config.h>
+#endif
 #include <stdio.h>   `% EOF, FILE `%
 #include <stdlib.h>  `% EXIT_FAILURE `%
 >>>
@@ -1229,7 +1232,6 @@ interrupts that are not considered here.
 
 \<KPATHSEA h-include\><<<
 #ifdef KPATHSEA
-#include <kpathsea/config.h>
 #include <kpathsea/c-errno.h>
 #include <kpathsea/c-ctype.h>
 #include <kpathsea/c-fopen.h>
