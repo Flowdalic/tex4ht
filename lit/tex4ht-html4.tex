@@ -15266,27 +15266,27 @@ IE doesn't distinguish between upper and lower case characters in css
 
 \<configure html4 multicol\><<<
 \HAssign\MultiCols=0
-\ConfigureEnv{multicols}
-   {\par\IgnorePar\EndP
-    \gHAdvance\MultiCols by 1\relax
-    \HCode{<table class="multicols"
-                     id="multicols-\MultiCols"><tr><td class="multicol-1">}%
-    \let\sv:HCol=\HCol
-    \bgroup  \gHAssign\HCol=1\relax
-   }
-   {\egroup
-    \global\let\HCol=\sv:HCol
-    \ifvmode\IgnorePar\fi\EndP
-    \HCode{</td></tr></table>}\par
-   }
-   {}{}
-\Configure{columnbreak}
-   {\gHAdvance\HCol by 1\relax
-    \par \IgnorePar \EndP
-    \HCode{</td><td class="multicol-\HCol">}}
-\Css{table.multicols {
-   width:100\%; margin-left:1em; margin-top:1em; margin-bottom:1em;
-}}
+\ConfigureEnv{multicols}{}{}{}{}
+%    {\par\IgnorePar\EndP
+%     \gHAdvance\MultiCols by 1\relax
+%     \HCode{<table class="multicols"
+%                      id="multicols-\MultiCols"><tr><td class="multicol-1">}%
+%     \let\sv:HCol=\HCol
+%     \bgroup  \gHAssign\HCol=1\relax
+%    }
+%    {\egroup
+%     \global\let\HCol=\sv:HCol
+%     \ifvmode\IgnorePar\fi\EndP
+%     \HCode{</td></tr></table>}\par
+%    }
+%    {}{}
+% \Configure{columnbreak}
+%    {\gHAdvance\HCol by 1\relax
+%     \par \IgnorePar \EndP
+%     \HCode{</td><td class="multicol-\HCol">}}
+% \Css{table.multicols {
+%    width:100\%; margin-left:1em; margin-top:1em; margin-bottom:1em;
+% }}
 >>>
 
 
