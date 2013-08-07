@@ -14803,8 +14803,8 @@ currently supported transitions are:
 >>>
 
 The `59' stands for semicolon. Explicit character might be problematic
-for languages (e.g., French) where the cahacter is active and may be imported from
-aux or another file.  
+for languages (e.g., French) where the cahacter is active and may be
+imported from aux or another file.  
 
 
 \<lynx separator\><<<
@@ -17394,11 +17394,18 @@ command
    {\ht:special{t4ht@]unhskip}}
 >>>
 
+Patch submitted by Michal Hoftich:
+
+html entity \verb=&nbsp;= is inserted before colon. This causes validation
+error in some xml environments, where this entity is not defined, for
+example in epub3. macro \verb=\:nbsp= should be used instead. Patch for the
+file tex4ht-html4.tex is provided in the attachment.  
+
 \<configure html4 frenchb\><<<
 \ifx \tmp:bx\:UnDef \csname newbox\endcsname \tmp:bx \fi
 \Configure{frenchb-nbsp}
    {\ht:special{t4ht@?unhskip}\HCode{<span class="frenchb-nbsp">}%
-    \HCode{&nbsp;}\setbox\tmp:bx=\hbox\bgroup}
+    \:nbsp\setbox\tmp:bx=\hbox\bgroup}
    {\egroup \HCode{</span>}}
 \Css{.frenchb-nbsp{font-size:75\%;}}
 >>>  
@@ -17407,9 +17414,23 @@ command
 \<configure html4 frenchb\><<<    
 \Configure{frenchb-thinspace}
    {\ht:special{t4ht@?unhskip}\HCode{<span class="frenchb-thinspace">}%
-    \HCode{&nbsp;}\setbox\tmp:bx=\hbox\bgroup}
+    \:nbsp\setbox\tmp:bx=\hbox\bgroup}
    {\egroup \HCode{</span>}}
 \Css{.frenchb-thinspace{font-size:75\%;}}
+>>>
+
+french babel provides some macros which put some text to the
+superscript. standard macros for superscripts aren't used, so these
+superscripts doesn't show in the html output. 
+
+\<configure html4 frenchb\><<<    
+\NewConfigure{frenchup}{2}
+\Configure{frenchup}{\HCode{<sup class="french">}}{\HCode{</sup>}}
+\Css{sup.french{
+vertical-align:super;
+font-size:70%;
+}}
+\renewcommand\fup[1]{\a:frenchup#1\b:frenchup} 
 >>>
 
 
