@@ -1,0 +1,268 @@
+%$Id: template.tex,v 1.1 2011/09/13 04:19:25 cvr Exp cvr $
+
+\documentclass[doc,sspro]{stm}
+%\documentclass[html]{stm}
+
+\usepackage{blog}
+
+\begin{document}
+
+\title{An Annotated Document Source}
+
+\author{C.\,V.\,Radhakrishnan}
+
+\footeraddress{%
+  \hlink{http://www.cvr.cc?cat=14}{\textsm{WWW.CVR.CC}}, residing at some
+  server  in the data\\ center of
+  \hlink{http://hetzner.de}{\textsm{HETZNER.DE}} 
+  somewhere in Germany.}
+
+\contact{cvr@cvr.cc}
+
+\maketitle
+
+\advance\baselineskip by 1.5pt
+
+\noindent
+Mahesh wanted to see the annotated source of the \tex document that
+generated the output
+\hlink{http://download.river-valley.com/tex4ht/lettrine/ltrn-test.html}
+{shown here}. 
+
+There are two components to the source:
+\begin{enumerate}
+\item document source, let us call it as \verb'test.tex'.
+\item a custom configuration for \texht, let us call it \verb'my.cfg'.
+
+\end{enumerate}
+
+\subsection*{Document Source}
+
+
+\begin{verbatim}
+\documentclass[a4paper]{article}
+
+\usepackage{lettrine}
+\usepackage{lipsum,shortvrb}
+\usepackage[utf8]{inputenc}
+  
+\MakeShortVerb{\|}
+   
+\def\hlink#1#2{\Tg<a href="#1">#2\Tg</a>}
+   
+\begin{document}
+   
+\title{Taming \TeX4ht to Support Lettrine Package}
+   
+\author{\hlink{http://www.cvr.cc}{\textsc{cv radhakrishnan}}, 
+        \Tg<small>\hlink{http://www.river-valley.com}{River Valley},
+        Trivandrum, \textsc{india}\Tg</small>} 
+   
+\maketitle
+   
+\lettrine{T}{his code} has kindly been contributed by
+\hlink{http://www.raphink.info/}{Rapha\"el Pinson} and is
+\hlink{https://github.com/cc-translators/sagesse/blob/master/lettrine.4ht}
+{available here}. The original code was slightly modified to fit
+into the scheme of \TeX4ht.  Rapha\"el had provided eight hooks to
+reconfigure |\lettrine| which I'd reduced to seven. All the hooks are
+provided below:
+ 
+\begin{enumerate}
+ \item Before |\lettrine|
+ \item After  |\lettrine|
+ \item Before lettrine initial character
+ \item Between lettrine initial character and lettrine line
+ \item After lettrine line
+ \item Before lettrine ante
+ \item After lettrine ante
+\end{enumerate}
+ 
+\lettrine{F}{urther} hooks have been defined to access initial
+character and lettrine line in case we want to configure
+|\lettrine|. |\HlettrineChar| and |\HlettrineString| can be used to
+access the character and line respectively. The screenshot of this
+pages as rendered in Firefox is \hlink{lettrine.png}{available here}.
+ 
+Here is a bit of dummy text to fill in the page. \lipsum[5-9]
+ 
+\end{document}
+\end{verbatim}
+
+There is nothing special to explain in the above part. \verb'\hlink' is
+a custom macro with two arguments to cross-link something to a
+\textsm{URL}.  The packages are popular ones and needs no introduction.  
+
+\subsection*{Custom Configuration}
+
+The custom configuration, \verb'my.cfg' has two parts --- a preamble
+part and a post preamble part. Preamble area shall consist of three
+important commands:
+\begin{enumerate}
+\item \verb'\Preamble' --- beginning of preamble area.
+\item \verb'\begin{document}' --- do not confuse with the
+    \verb'\begin{document}' in your document source.
+\item \verb'\EndPreamble' --- end of preamble area.
+
+\end{enumerate}
+\verb'\Preamble' shall contain all the
+options that are to be passed on to \texht. Options can be provided as
+comma separated strings.  If any \tex packages are needed, those
+should be loaded before \verb'\Preamble' command as shown below, where
+we have loaded \verb'\xspace' package.
+
+\begin{verbatim}
+\RequirePackage{xspace}
+
+\Preamble{xhtml,NoFonts,ext=html,charset="utf-8"}
+\end{verbatim}
+For more details about options, please see
+\hlink{http://www.cvr.cc/tex4ht-options/}{this post}.
+
+\begin{verbatim}
+\Configure{PROLOG}{DOCTYPE}
+\Configure{VERSION}{}
+\Configure{DOCTYPE}{\HCode{<!DOCTYPE html>\Hnewline}}
+\Configure{HTML}{\HCode{<html>\Hnewline}}{\HCode{\Hnewline</html>}}
+\Configure{@HEAD}{}
+\Configure{@HEAD}{\HCode{<meta
+         \expandafter\csname a:charset\endcsname/>\Hnewline}}
+\Configure{@HEAD}{\HCode{<meta name="generator" content="TeX4ht
+         (http://www.tug.org/tex4ht/)" />\Hnewline}}
+\Configure{@HEAD}{\HCode{<link
+         rel="stylesheet" type="text/css"
+         href="\expandafter\csname aa:CssFile\endcsname" />\Hnewline
+    }
+}
+\Configure{BODY}{\Tg<body>}{\Tg</body>}
+
+\begin{document}
+
+\def\hlink#1#2{\Tg<a href="#1">#2\Tg</a>\xspace}
+
+\EndPreamble
+\end{verbatim}
+All the configuration items that are processed by \texht at
+\verb'\begin{document}' shall be provided before the
+  \verb'\begin{document}' command that appears in the preamble area.
+    All the elements that form part of prolog and \verb'<head>'
+    element of \html are the ideal candidates.  Thus,
+    \verb'PROLOG', \verb'VERSION', \verb'DOCTYPE', \verb'HTML',
+    \verb'@HEAD' and \verb'BODY' are re-configured as we want them in
+    a different manner.  In \html5, we do not need \textsm{DTD}, \xml
+    version and further several meta part are more simplified, we
+    reconfigure these items in this part of the configuration.  You
+    might note that \verb'@HEAD' is  additive, each
+    \verb'\Configure{@HEAD}' has one argument which will be added to
+    the \verb'<head>...</head>' part of the \html.  We have inserted
+    character set, \verb'.css', meta information relating to generator
+    which is \texht, by re-configuring \verb'@HEAD'.
+
+\begin{verbatim}
+\Configure{textsc}{\Tg<span class="sc">}{\Tg</span>}
+\Configure{texttt}{\Tg<span class="tt">}{\Tg</span>}
+\Configure{textbf}{\Tg<span class="bf">}{\Tg</span>}
+
+\Css{.sc{font-variant: small-caps;}}
+\Css{.bf{font-weight: bold;}}
+\Css{small{font-size: .8em;}}
+\Css{.tt,.verb{font-family: monospace; white-space: nowrap;
+    color: \#222; font-size: 85\%;}}
+\end{verbatim}
+
+    The above lines show a few font attributes configuration where we
+    have configured commands like \verb'\textsc', \verb'\textbf', and
+    \verb'\texttt'.  The related \verb'.css' declarations have been
+    provided following the font attributes.
+    
+\begin{verbatim}
+\Css{body{margin-top: 2em; margin-bottom: 1em; width: 60\%;
+    margin-left: auto; margin-right: auto; padding: 3em;
+    color: \#444; box-shadow: 2px 2px 20px -5px \#bfbfbf;
+    -webkit-box-shadow: 2px 2px 20px -8px \#bfbfbf;
+    -moz-box-shadow: 2px 2px 20px -5px \#bfbfbf;
+    font-family: "EB Garamond";
+    font-style: normal;
+    font-size: 1em; line-height: 1.3em;
+    border: 1px solid \#fefeef; }}
+
+\Css{p.indent{ text-indent: 0em }}
+\end{verbatim}
+The above provides \verb'.css' declarations for \verb'<body>' elements
+with a soft gray shadow, 60\% width of the window, slightly grayed
+text color, slightly increased line height, 3em padding on all sides,
+etc. Not a big deal. The text indent has been suppressed through
+another \verb'.css' declaration, as the indent can interfere with
+lettrine spacing. 
+    
+Our custom configuation ends here if you do not want to make use of
+the free web font, namely, EB Garamond created by
+\hlink{http://www.georgduffner.at/ebgaramond/impressum.html}{Georg
+  Duffner} and distributed under
+\hlink{http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL}{\textsm{OFL}}
+font licence.  The font can be had from Google or from
+\hlink{http://www.georgduffner.at/ebgaramond/}{here}.  The succeeding
+lines are \verb'.css' declarations to make use of Garamond and
+CheshireInitials fonts in your document. 
+
+%
+% Needed only if you want custom font (Garamond) for your page
+% 
+% http://www.georgduffner.at/ebgaramond/
+% \hlink{http://www.georgduffner.at/ebgaramond/impressum.html}{Georg Duffner}
+
+\begin{verbatim}
+\Css{@font-face{font-family: InitialsFont; font-style: normal;
+    src: url(/fonts/CheshireInitials.ttf);}}
+\Css{@font-face{font-family: "EB Garamond SC"; font-variant: small-caps;
+    src: url(/fonts/EBGaramond12-SC.ttf);}}
+\Css{@font-face{font-family: "EB Garamond"; font-style: normal;
+    font-weight: normal; font-variant: normal;
+    src: url(/fonts/EBGaramond12-Regular.ttf);}}
+\Css{@font-face{font-family: "EB Garamond Italic"; font-style: italic; 
+    font-weight: normal;font-variant: normal;
+    src: url(/fonts/EBGaramond12-Italic.ttf);}} 
+\Css{@font-face{font-family: "EB Garamond Bold"; font-style: normal;
+    font-weight: bold; font-variant: normal;
+    src: url(/fonts/EBGaramond12-Bold.ttf);}}
+\Css{em, i, .ecti, .ecti1, .thanks, .signature, .dvquote-text, 
+.dvprayer-text{font-family: "EB Garamond Italic", serif;}}
+%
+\Css{strong, b, .partToc a, .partToc, .likepartToc a, .likepartToc,
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc,
+.appendixToc a, .appendixToc, .addchapToc, 
+.paragraphHead, .likeparagraphHead,
+.subparagraphHead, .likesubparagraphHead,
+.caption td.id{font-family: "EB Garamond Bold", serif;}}
+%
+\Css{.small-caps, .booksubtitle, .dvday, .sectionHead,
+.dvquote-ref, .dvbox .lettrine-line{font-family: "EB Garamond SC", serif;}}
+%
+% CheshireInitials for Lettrine character
+%
+\Css{.lettrine{float: left; font-family: InitialsFont;
+    line-height: 1.15; margin-left: -0.1em; padding-bottom: -0.6em;
+    margin-bottom: -1em; margin-right: 0.2em;}}
+
+\end{verbatim}
+
+
+\subsection*{How to run \texht}
+
+Save the above sources as \verb=test.tex= and \verb=my.cfg=
+respectively.  Following command can be invoked from terminal:
+
+\begin{verbatim}
+  mzlatex test my ' -cunihtf'
+\end{verbatim}
+
+The synatax is 
+\begin{verbatim}
+  script <tex-file> <conf-file> '<options-for-t4ht>'
+\end{verbatim}
+Please note the space between the opening single quote character and
+\verb'-cunihtf' which is very important.
+
+Enjoy the magic!
+
+\end{document}

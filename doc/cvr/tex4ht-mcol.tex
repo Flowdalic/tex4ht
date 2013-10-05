@@ -1,0 +1,217 @@
+% Created 2013-07-31 Wed 12:35
+\documentclass{article}
+
+\usepackage{blog}
+\usepackage[colorlinks]{hyperref}
+
+\author{CV Radhakrishnan}
+\date{\today}
+\title{Multicolumn Support in TeX4ht}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\section*{Prolog}
+\label{sec-1}
+
+\href{http://www.12000.org/}{Nasser M. Abbassi} had filed a feature request at \href{http://puszcza.gnu.org.ua/bugs/?188}{TeX4ht} project for
+multicolumn support in TeX4ht which is lacking at the moment. \href{http://www.w3.org/TR/css3-multicol/}{This
+page} provides the latest specifications of \href{http://www.w3.org}{W3C} relating to multicolumn
+layout in HTML which some of the mainstream browsers support in
+varying degrees.  Our initial efforts are pointed towards \texttt{multicol}
+package so that TeX4ht provides enough hooks to generate output with
+multicolumn layout as envisaged in \LaTeX{} by \texttt{multicol} package.
+Support for \texttt{\textbackslash{}twocolumn} still remains to be done, though.
+
+\section*{Approach to the Problem}
+\label{sec-2}
+
+W3C provides different kinds of CSS properties to bring about
+multicolumn layout in HTML. These are briefly listed below:
+
+\begin{enumerate}
+\item \texttt{column-count}: number of columns
+\item \texttt{column-width}: width of the columns
+\item \texttt{column-gap}: gap between columns
+\item \texttt{column-rule-color}: color of separator rule
+\item \texttt{column-rule-width}: width of separator rule
+\item \texttt{column-rule-style}: style of separator rule
+\item \texttt{column-span}: should the entry span all columns
+\item \texttt{column-fill}: should the multicolumn layout be balanced or ragged
+\item \texttt{column-break}: directive for breaks in print media
+\end{enumerate}
+
+We have more or less equivalent commands in \texttt{multicol} package and
+are listed below:
+
+\begin{enumerate}
+\item \texttt{\textbackslash{}columnbreak}: forced break in a column
+\item \texttt{\textbackslash{}columnsep}: gap between columns
+\item \texttt{\textbackslash{}columnseprule}: rule width
+\item \texttt{\textbackslash{}columnseprulecolor}: rule color
+\item \texttt{\textbackslash{}flushcolumns}: balanced columns
+\item \texttt{\textbackslash{}raggedcolumns}: unbalanced columns
+\item \texttt{\textbackslash{}begin\{multicols\}\{<num>\}}: beginning of multicolumn enviromnemt
+\item \texttt{\textbackslash{}end\{multicols\}}: end of multicolumn environment
+\item \texttt{\textbackslash{}multicoltolerance}: no effect on HTML output
+\end{enumerate}
+
+Some of the CSS properties do not have equivalent commands in
+\texttt{multicol} package. For instance, \texttt{column-width} can be
+specified in CSS as either \texttt{auto} or as a legal dimension, but
+in \texttt{multicol}, it is always automatically computed. Hence, we
+can safely ignore such properties. Conversely, certain
+\texttt{multicol} commands like
+\texttt{\textbackslash{}multicoltolerance} has no effect in HTML, so
+we can ignore such commands in the source documents.
+
+We have written the \texttt{multicol.4ht} to redefine the related
+\texttt{multicol} commands to generate the equivalent CSS properties
+for HTML output so that multicolumn layout is visually similar to PDF
+output.
+
+\section*{Usage}
+\label{sec-3}
+
+The multicolumn layout can be tailored using
+\texttt{\textbackslash{}Configure} command on various items as given
+below:
+
+\begin{verbatim}
+\Configure{columngap}{\the\columnsep}
+\end{verbatim}
+\texttt{columngap} will default to the dimension provided by
+\texttt{multicol}'s \texttt{\textbackslash{}columsep}
+command. However, if you want to override, you can make use of the
+above command. The legal values admissible are any valid
+\texttt{dimen} or simply \texttt{normal} which is considered to be
+1em.
+
+\begin{verbatim}
+\Configure{columnrulewidth}{\the\columnseprule}
+\end{verbatim}
+\texttt{columnrulewidth} defaults to \LaTeX{} dimension provided by
+\texttt{\textbackslash{}columnseprule} which can be overridden by the
+above command. The legal values are \texttt{thin | medium | thick} or
+any valid dimension.
+
+\begin{verbatim}
+\Configure{columnrulecolor}{\#555;}
+\end{verbatim}
+You can specify any valid color for \texttt{columnrulecolor}. Default
+is provided above.
+
+\begin{verbatim}
+\Configure{columnrulestyle}{outset}
+\end{verbatim}
+\texttt{columnrulestyle} has no equivalent in \texttt{multicol}. Specify rule style
+with the above hook. Legal values are provided below:
+ \texttt{none}, \texttt{hidden}, \texttt{dotted}, \texttt{dashed}, \texttt{solid}, \texttt{double},  \texttt{groove},
+     \texttt{ridge}, \texttt{inset},  \texttt{outset}, 
+
+\begin{verbatim}
+\Configure{columnspan}{none}
+\end{verbatim}
+     \texttt{columnspan} has no equivalent command in
+     \texttt{multicol}. This is to provide CSS directive of any column
+     spanning all the columns, the default value being
+     \texttt{none}. Alternate value is \texttt{all}.
+
+\begin{verbatim}
+\Configure{columnfill}{balance}
+\end{verbatim}
+     \texttt{columnfill} does the job what
+     \texttt{\textbackslash{}raggedcolumns} and
+     \texttt{\textbackslash{}flushcolumns} do in
+     \texttt{multicol}. \texttt{balance}, meaning, balanced columns is
+     the default value, the other being \texttt{auto}.
+
+\begin{verbatim}
+\Configure{multicols}{columns}
+\end{verbatim}
+This command provides the name of class attribute of the multicolumn
+chunk of text. You can assign any string of your choice, the default
+is \texttt{columns}. 
+\section*{Example}
+\label{sec-4}
+Here is an example of a working document that can be used to test
+these newly introduced features.
+
+\begin{verbatim}
+\documentclass[a4paper]{article}
+\usepackage{xspace}
+\usepackage{lipsum}
+\usepackage[margin=1cm,ignoreall]{geometry}
+
+\usepackage{multicol}
+\columnseprule=.1pt
+\columnsep=1em
+
+\begin{document}
+
+\parindent=0pt
+
+% For webkit browsers (Chrome, for example),
+% kindly remove comment marks from two lines below:
+%
+% \Configure{columnrulecolor}{\#000;}
+% \Configure{columnrulewidth}{1px}
+
+\title{Support for Multicolumn Layout in \TeX4ht}
+\author{\TeX4ht Project Team}
+
+\maketitle
+
+\lipsum[1]
+
+\begin{multicols}{2}[\section{Testing the Section Heading}]
+
+\lipsum[2-8]
+
+\end{multicols}
+
+\lipsum[1]
+
+\begin{multicols}{3}[\section{Three Column Layout}]
+
+\lipsum[2-8]
+
+\end{multicols}
+
+\lipsum[1]
+
+\begin{multicols}{4}[\section{Four Column Layout}]
+
+\lipsum[2-8]
+
+\end{multicols}
+
+\lipsum[1]
+\ifx\HCode\undefined\raggedright\fi
+
+\begin{multicols}{11}[\section{More Than Ten Columns (limit of
+    multicol package)}]
+
+\lipsum[2-8]
+
+\end{multicols}
+
+\end{document}
+\end{verbatim}
+
+The HTML output can be viewed \href{http://localhost/mcoltest.html}{here}.
+\section*{W3C References}
+\label{sec-5}
+
+More detailed information is available at
+\href{http://www.w3.org/TR/css3-multicol/#property-index}{Property
+  Index} page provided at Word Wide Web Consortium web site.
+
+
+Generated by Org mode 8.0.6 in Emacs 24.3.1.
+
+\end{document}
