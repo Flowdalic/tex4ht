@@ -2,6 +2,12 @@ $Id$
 This file is public domain.  Originally written 2010, Karl Berry.
 
 Eitan devised his own literate programming system, which supports
-multiple output files from a single source.  The files here are all the
-"literate" source files.  They are processed with (ht)(la)tex, as given
-by commands at the top.
+multiple output files from a single source (http://ctan.org/pkg/protex).
+The files here are such "literate" source files.  They are processed
+with (ht)(la)tex, as given by commands at the top.
+
+This directory contains do-nothing scripts named xmllint and vcss, which
+are called for validation via tex4ht-env.tex.  (Of course they won't be
+used unless . is early enough in PATH.)  The real xmllint can take a
+long time to run, and fails to find the DTD on the tex4ht-docbook*.html
+output, for no apparent reason.

@@ -2,7 +2,6 @@
 # This file is public domain.  Originally written 2010, Karl Berry.
 # 
 # todo: look for xx below
-# todo: ohio-state url in tex4ht-cond4ht.tex
 
 wd = work.dir
 tex_opts = --interaction=nonstopmode #--file-line-error
@@ -177,7 +176,8 @@ $(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
 $(tex4ht_env_derived): tex4ht-env.tex $(common)
 	htlatex $< "xhtml,3" "" "-d./" $(tex_1opt)
 
-$(tex4ht_fonts_noncjk_derived): tex4ht-fonts-noncjk.tex $(common)
+$(tex4ht_fonts_noncjk_derived): \
+  tex4ht-fonts-noncjk.tex tex4ht-fonts-modern.tex $(common)
 	ht tex $<
 
 $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)

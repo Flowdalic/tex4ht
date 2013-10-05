@@ -9,6 +9,7 @@ This file is public domain.  Originally written 2013, Karl Berry.
 - update to current year
 - current year first
 - "This Current Maintainer" -> "The Current Maintainer"
+   "is the TeX4ht Project <http://tug.org/tex4ht>."
 - eliminate multi-%'s, shorten lines
 
 * http://www.tug.org/texlive/Contents/live/texmf-dist/doc/xetex/XeTeX-notes.pdf
