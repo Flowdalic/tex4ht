@@ -12,8 +12,6 @@ $(relname).tar.gz: force
 	  --transform="s,^,$(relname)/," --exclude-vcs \
 	  *
 	tar tf $@ | head
+# * won't really work, just a placeholder.
 
 force:
-
-4ht: tex4ht-4ht.tex
-	ht tex tex4ht-4ht

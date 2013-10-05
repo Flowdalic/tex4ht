@@ -2,7 +2,7 @@
 % (1)  tex tex4ht-cond4ht    or   xhtex tex4ht-cond4ht
 % (2)  tex cond4ht.4ht
 %
-% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2009-2013 TeX Users Group
 % Copyright (C) 1997-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -17,7 +17,7 @@
 
 \<cond4ht.4ht\><<<<
 %Needs: tex cond4ht.4ht
-\def\ConfigFiles{\input mktex4ht.cnf}  %  Please,modify the bodies of the 
+\def\ConfigFiles{\input mktex4ht.cnf}  %  Please, modify the bodies of the 
 \def\mkfilename{mktex4ht.4ht}          %  first four macros.
                                        %  The input file should consist
                                        %  of records \AddFile{i}{name}
@@ -29,8 +29,8 @@
                              % \AddFile{5}{amsmath} \AddFile{2}{report} ...
 
 % cond4ht.4ht (?version), generated from ?jobname.tex
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) ?CopyYear.2001. Eitan M. Gurari
+% Copyright (C) 2009-2013 TeX Users Group
+% Copyright (C) 1997-2009 Eitan M. Gurari
 ?<TeX4ht copywrite?>
 
 \ifx \BREAK\UnDef
@@ -447,23 +447,22 @@ tex4ht-4ht, e.g., for adding cases to {\tt\string\exit:ifnot}.
 %  and read the instructions at mktex4ht.html => index => mktex4ht.
 %
 %  The compilation needs the files ProTex.sty & AlProTex.sty from
-%    http://www.cse.ohio-state.edu/~gurari/systems.html
+%    http://ctan.org/pkg/protex
 %
 %  This file is designed for machines--not human beings! You
 %  are strongly advised not to look at the code which follows
 %  the copyright notice.
 %
 % |mkfilename (|version), generated from |jobname.4ht
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) 1999-2009 Eitan M. Gurari
+% Copyright (C) 2009-2013 TeX Users Group
+% Copyright (C) 1997-2009 Eitan M. Gurari
 |<TeX4ht copywrite|>
 
 |<list of info files|>
 
 \openin15=ProTex.sty \ifeof15
     \immediate\write16{--- Needs ProTex.sty \& AlProTex.sty
-    from http://www.cse.ohio-state.edu/\string
-    ~gurari/systems.html --}
+    from http://ctan.org/pkg/protex --}
 \fi  \closein15
 
 
@@ -734,16 +733,16 @@ WARNING: Missing definition for {\tt \string\CONFIG }
 %                                                        %
 % This work has the LPPL maintenance status "maintained".%
 %                                                        %
-% This Current Maintainer of this work                   %
-% is Eitan M. Gurari.                                    %
+% The Current Maintainer of this work                    %
+% is TeX4ht Project Team.                                %
 %                                                        %
 % If you modify this program your changing its signature %
 % with a directive of the following form will be         %
 % appreciated.                                           %
 %            \message{signature}                         %
 %                                                        %
-%                             gurari@cse.ohio-state.edu  %
-%                 http://www.cse.ohio-state.edu/~gurari  %
+%                                        tex4ht@tug.org  %
+%                             http://www.tug.org/tex4ht  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \immediate\write-1{version ?version}
 >>>>

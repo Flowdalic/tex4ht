@@ -3,6 +3,7 @@ This file is public domain.  Originally written 2009, Karl Berry.
 
 This is tex4ht, a package to convert LaTeX, ConTeXt, and other
 TeX-related documents to HTML, XML, and other related formats.
+It is released under the LaTeX Project Public License, v1.3 or later.
 
 Home page:            http://tug.org/tex4ht
 General mailing list: http://lists.tug.org/tex4ht
@@ -30,7 +31,7 @@ Installation:
 TeX4ht was created by Eitan Gurari at Ohio State University,
 who died unexpectedly in June 2009.  We miss you, Eitan.
 
-With the encouragement and support of Eitan's family, CV Radhakrishnan
-at River Valley Technologies, Karl Berry, and others have taken over
-maintenance of the package, and welcome other volunteers. Any
-involvement, from bug reports to major new development, is appreciated.
+With the permission and encouragement of Eitan's family,
+CV Radhakrishnan, Karl Berry, and others have taken over maintenance of the
+package, and welcome other volunteers.  Any involvement, from bug reports
+to major new development, is appreciated.

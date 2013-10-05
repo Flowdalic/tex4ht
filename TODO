@@ -1,0 +1,16 @@
+$Id$
+This file is public domain.  Originally written 2013, Karl Berry.
+
+* ctan.org/pkg/protex needs post-Eitan updating too.
+
+* remove all ohio-state and gurari links and paths.
+
+* fix copyrights (again)
+- update to current year
+- current year first
+- "This Current Maintainer" -> "The Current Maintainer"
+- eliminate multi-%'s, shorten lines
+
+* http://www.tug.org/texlive/Contents/live/texmf-dist/doc/xetex/XeTeX-notes.pdf
+has stuff?
+
