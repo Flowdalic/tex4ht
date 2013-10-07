@@ -2,7 +2,7 @@
 %          tex tex4ht-fonts-noncjk
 % or    ht tex tex4ht-fonts-noncjk   
 %
-% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2009-2013 TeX Users Group
 % Copyright (C) 1997-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -441,9 +441,9 @@
 % this run needs capacity increases to succeed.
 %\Needs{"xhlatex tex4ht-fonts-4hf 'html,3' '' '-d./'"}%
 
-% are these really needed?
-\Needs{"tex tex4ht-fonts-cjk ; tex4ht tex4ht-fonts-cjk ; t4ht tex4ht-fonts-cjk"}
-\Needs{"tex tex4ht-fonts-cjk-utf8 ; tex4ht tex4ht-fonts-cjk-utf8 ; t4ht tex4ht-fonts-cjk-utf8"}
+% do these separately.
+%\Needs{"tex tex4ht-fonts-cjk ; tex4ht tex4ht-fonts-cjk ; t4ht tex4ht-fonts-cjk"}
+%\Needs{"tex tex4ht-fonts-cjk-utf8 ; tex4ht tex4ht-fonts-cjk-utf8 ; t4ht tex4ht-fonts-cjk-utf8"}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -581,7 +581,7 @@ A.12\EndLink{} at the CSS specifications.
 
 \<SearchFonts.java\><<<
 /* SearchFonts.java (`version), generated from `jobname.tex
-   Copyright (C) 2009-2010 TeX Users Group
+   Copyright (C) 2009-2013 TeX Users Group
    Copyright (C) `CopyYear.2002. Eitan M. Gurari
 `<TeX4ht copyright`> */
 import java.io.*;

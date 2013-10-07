@@ -12,6 +12,12 @@ This file is public domain.  Originally written 2013, Karl Berry.
    "is the TeX4ht Project <http://tug.org/tex4ht>."
 - eliminate multi-%'s, shorten lines
 
+* noncjk-fonts:
+System call: mv pxbsyc.htf ./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/pxfonts/pxbsyc.htf
+mv: cannot stat 'pxbsyc.htf': No such file or directory
+--- Warning --- System return: 256
+  (also, eliminate "System return: 0" on success.)
+
 * http://www.tug.org/texlive/Contents/live/texmf-dist/doc/xetex/XeTeX-notes.pdf
 has stuff?
 

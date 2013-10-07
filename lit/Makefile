@@ -35,8 +35,14 @@ tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
 derived += $(tex4ht_env_derived)
 tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
 
-#xx derived += $(tex4ht_fonts_noncjk_derived)
-tex4ht_fonts_noncjk_derived = SearchFonts.java cmtex.htf # and thousands more
+derived += $(tex4ht_fonts_cjk_derived)
+tex4ht_fonts_cjk_derived = tex4ht-fonts-cjk.html # and lots more
+
+derived += $(tex4ht_fonts_cjk_utf8_derived)
+tex4ht_fonts_cjk_utf8_derived = tex4ht-fonts-cjk-utf8.html # and lots more
+
+derived += $(tex4ht_fonts_noncjk_derived)
+tex4ht_fonts_noncjk_derived = SearchFonts.java cmtex.htf # and lots more
 # also, whither lm-htf.tex?  whither tmp?  how change target dir?
 
 # htcmd not used
@@ -175,6 +181,12 @@ $(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
 
 $(tex4ht_env_derived): tex4ht-env.tex $(common)
 	htlatex $< "xhtml,3" "" "-d./" $(tex_1opt)
+
+$(tex4ht_fonts_cjk_derived): tex4ht-fonts-cjk.tex
+	ht tex $<
+
+$(tex4ht_fonts_cjk_utf8_derived): tex4ht-fonts-cjk-utf8.tex
+	ht tex $<
 
 $(tex4ht_fonts_noncjk_derived): \
   tex4ht-fonts-noncjk.tex tex4ht-fonts-modern.tex $(common)

@@ -1,3 +1,9 @@
+2013-10-07  Karl Berry  <karl@gnu.org>
+
+	* Makefile (tex4ht-fonts-{cjk,cjk-utf8,noncjk}*): new targets and vars.
+	* tex4ht-fonts-noncjk.tex: do not generate cjk and cjk-utf8.
+	* tex4ht-fonts-cjk-utf8.tex: copyright update.
+
 2013-07-02  Peter Breitenlohner  <peb@mppmu.mpg.de>
 
 	* tex4ht-c.tex, tex4ht-t4ht.tex: Always include system headers
