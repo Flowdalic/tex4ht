@@ -1,6 +1,18 @@
 % $Id$
+% Copyright 2009-2013 CV Radhakrishnan.
+% Released under LPPLv1.3+.
+% 
+% TeX4ht translation process basics.
 
-\chapter{The Translation Process}
+\ifx\texhtstandalonedoc1
+\documentclass[a4paper]{article}
+\usepackage{xspace,graphicx,blog}
+\begin{document}
+\section{The Translation Process}
+\else
+\chapter{The \TeX4ht Translation Process}
+\fi
+
 The system can be activated with a sequence of
 commands of the following form, typically embedded within a script.
 
@@ -62,3 +74,4 @@ proper links.  The approach is illustrated in the following picture.
 
 \end{itemize}
 
+\ifx\texhtstandalonedoc1 \end{document}\fi

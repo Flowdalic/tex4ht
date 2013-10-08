@@ -1,6 +1,17 @@
 % $Id$
+% Copyright 2009-2013 CV Radhakrishnan.
+% Released under LPPLv1.3+.
+% 
+% TeX4ht and \Configure, part 2.
 
+\ifx\texhtstandalonedoc1
+\documentclass[a4paper]{article}
+\usepackage{xspace,graphicx,blog}
+\begin{document}
+\section{Cross-linking}
+\else
 \section{\textbackslash{}Configure Cross-linking}
+\fi
 
 \begin{verbatim}
   \Link[@1 @2]{@3}{@4}...\EndLink
@@ -202,3 +213,5 @@
   \Configure{XrefFile}{foo}   \Link...\EndLink
   \LoadRef{another-file}
 \end{verbatim}
+
+\ifx\texhtstandalonedoc1 \end{document}\fi

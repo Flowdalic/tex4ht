@@ -1,6 +1,17 @@
 % $Id$
+% Copyright 2009-2013 CV Radhakrishnan.
+% Released under LPPLv1.3+.
+% 
+% TeX4ht's \Configure command, part 1.
 
+\ifx\texhtstandalonedoc1
+\documentclass[a4paper]{article}
+\usepackage{xspace,graphicx,blog}
+\begin{document}
+\section{Introduction}
+\else
 \chapter{\TeX4ht \textbackslash{}Configure}
+\fi
 
 The \Verb=\Configure= command is the most powerful user command in
 \texht system.  It helps to add various kinds of hooks to insert
@@ -697,3 +708,5 @@ The content to be displayed in the pointers.
      {\ifvmode \IgnorePar\fi \EndP
       \HCode{</div>}}
 \end{verbatim}
+
+\ifx\texhtstandalonedoc1 \end{document}\fi

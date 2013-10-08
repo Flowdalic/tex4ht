@@ -1,0 +1,86 @@
+% $Id$
+% Copyright 2011-2013 CV Radhakrishnan.
+% Released under LPPLv1.3+.
+% 
+% TeX4ht and lettrine support.
+
+\ifx\texhtstandalonedoc1
+\documentclass[a4paper]{article}
+\usepackage{xspace,graphicx,blog}
+\usepackage{xspace,graphicx,blog}
+\let\hlink\href
+\begin{document}
+\section{\TeX4ht Supports Lettrine}
+\else
+\chapter{\TeX4ht Supports Lettrine}
+\fi
+
+\hlink{http://www.raphink.info}{Rapha\"el Pinson} has kindly
+contributed the code that enables \texht to support \Verb=lettrine=
+package. (\Verb=lettrine.sty= helps to typeset dropped capitals in a
+\latex document.) This probably will solve the long standing problem
+of drop capital support in \texht, even if all the options of
+\Verb=lettrine= package are not supported at this time. Hope,
+Rapha\"el will continue support to enhance \texht by adding all the
+missing options of \Verb=lettrine=.
+
+Only \Verb=ante= option is supported now apart from basic command
+\Verb=\lettrine= with two arguments, the first being the character for
+dropped capital and second, rest of characters in that string or
+chosen to form what is usually called \Verb=lettrine line=.
+
+Seven \texht hooks have been provided to configure \Verb=lettrine= as
+given hereunder:
+\begin{enumerate}
+\item Before \Verb=\lettrine=
+\item After  \Verb=\lettrine=
+\item Before lettrine initial character
+\item Between lettrine initial character and lettrine line
+\item After lettrine line
+\item Before lettrine ante
+\item After lettrine ante
+\end{enumerate}
+Further hooks, namely, \Verb=\HlettrineChar= and
+\Verb=\HlettrineString= have been defined to access initial character
+and lettrine line respectively, in case, we want to further
+re-configure \Verb=\lettrine=.  The default configuration is provided
+below:
+\begin{verbatim}
+\Configure{lettrine}
+   {\HCode{<span class="lettrine lettrine-\HlettrineChar">}}
+   {\HCode{</span>}}
+   {\HCode{<span class="lettrine-letter">}}
+   {\HCode{</span><span class="lettrine-line">}}
+   {\HCode{</span>}}
+   {\HCode{<span class="lettrine-ante">}}
+   {\HCode{</span>}}
+\end{verbatim}
+Users shall write their own custom \Verb=css= declarations to format the
+dropcapital and lettrine line to suit their taste. The default
+\Verb=css= declarations are:
+\begin{verbatim}
+\Css{.lettrine{float: left;
+    line-height: 0.7; margin-left: -0.1em;
+    margin-bottom: -.5em; margin-right: 0.2em;}}
+\Css{.lettrine-ante{vertical-align: top;}}
+\Css{.lettrine-letter{font-family: InitialsFont; font-style: normal;
+    font-size: 4em; color: gray;}}
+\Css{.lettrine-A{margin-right: 0.3em;}}
+\Css{.lettrine-A + .lettrine-line{margin-left: -0.4em;}}
+\Css{.lettrine-À{margin-right: 0.3em;}}
+\Css{.lettrine-À + .lettrine-line{margin-left: -0.4em;}}
+\Css{.lettrine-J{line-height: 1; margin-right: 0;}}
+\Css{.lettrine-H, .lettrine-I, .lettrine-N, .lettrine-U{margin-right: 0;}}
+\Css{.lettrine-V{margin-right: -0.3em;}}
+\Css{.lettrine-V + .lettrine-line{margin-left: 0.3em;}}
+\Css{.lettrine-Q{padding-bottom: 1em;margin-top: -0.6em;}}
+\Css{.lettrine-line{font-variant: small-caps;}}
+\end{verbatim}
+
+A typical \Verb=html= page generated with the help of this newly
+created
+\hlink{http://download.river-valley.com/tex4ht/lettrine/lettrine.4ht}
+{\Verb=lettrine.4ht=} can be seen
+\hlink{http://download.river-valley.com/tex4ht/lettrine/ltrn-test.html}{here}.
+
+\ifx\texhtstandalonedoc1 \end{document}\fi
