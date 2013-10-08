@@ -6,6 +6,7 @@
 
 \documentclass[a4paper,11pt]{report}
 \usepackage{fullpage,xspace,graphicx,cvrblog}
+\let\clearpage=\relax
 
 \title{\TeX4ht}
 \author{CV Radhakrishnan}
@@ -13,6 +14,7 @@
 \begin{document}
 \tableofcontents
 
+\include{tex4ht-intro}
 \include{tex4ht-process}
 \include{tex4ht-configure1}
 \include{tex4ht-configure2}
@@ -21,5 +23,6 @@
 \include{tex4ht-annotated-source}
 \include{tex4ht-mcol}
 \include{tex4ht-mathml}
+\include{tex4ht-implementation}
 
 \end{document}

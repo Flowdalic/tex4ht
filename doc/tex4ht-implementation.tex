@@ -1,0 +1,308 @@
+% $Id$
+% Copyright 2009-2013 CV Radhakrishnan.
+% Released under LPPLv1.3+.
+% 
+% TeX4ht internals.
+
+\chapter{Implementation: How \TeX{}4ht works}
+
+\TeX{}4ht has a three-step approach to the translation process:
+
+\section{Preprocessing with ht* to DVI}
+
+\Verb=foo.tex= is processed with the appropriate script (\Verb=htex=,
+\Verb=htlatex=, \Verb=htcontext=, \Verb=...=) which will load
+\Verb=tex4ht.sty= and other relevant packages to create \Verb=foo.dvi=
+by calling the \Verb=tex= compiler with appropriate format. \TeX{}4ht
+adopts a different pattern of package loading. It loads
+\Verb=tex4ht.sty= at the beginning of the document, stops after a
+while, then allows loading all the packages which the author wants
+with \Verb=\usepackage= function.  Once it reaches the
+\Verb=\begin{document}= hook, which means that all extra package
+loading has been completed, \Verb=tex4ht= loads itself for the second
+time. This time, since it has the information about all additional
+packages loaded, it will call the relevant \Verb=.4ht= macro packages
+to assist the main \Verb=tex4ht.sty=.
+
+For instance, if the author has used \Verb=biblatex.sty=,
+\Verb=tex4ht= will call \Verb=biblatex.4ht= or if \Verb=amsmath.sty=
+was used, \Verb=amsmath.4ht= will be input, and so on.  Eitan wrote a
+\Verb=*.4ht= for nearly all of the most often used \LaTeX{}
+packages.
+
+Then the source \Verb=foo.tex= is processed in the usual manner to
+create \Verb=foo.dvi=.  With \TeX{}4ht, we always need \Verb=.dvi=
+output since \Verb=.pdf= output is not useful for conversion. This is
+the first stage in the translation process.
+
+
+\section{Processing with tex4ht}
+
+The second stage is to call the \Verb=tex4ht= binary to post-process
+\Verb=foo.dvi=. This is the real meat of the process where ASCII
+characters of element and attribute names, attribute values, etc.,
+which are output in \Verb=\special=s in the \Verb=.dvi=, are
+extracted. Also, it does the substitution of characters in textual
+strings in the typeset version.
+
+As you may be aware, the \Verb=.dvi= file has font and position
+information of all characters of all strings in the document. Suppose
+the \Verb=.dvi= has a character $\gamma$. When rendered to a
+particular media, the character is taken from the 13th position of the
+font by name, \Verb=cmmi=.  When extracting text from the \Verb=.dvi=,
+instead of taking the glyph from \Verb=cmmi.pfb=, \Verb=tex4ht= takes
+the character from the 13th position in the corresponding hypertext
+font, \Verb=cmmi.htf= (\Verb=htf= denoting hypertext font, multitudes
+of which were again created by Eitan).
+
+A ``hypertext font'' is an ASCII file, created by hand in a text
+editor, with each line defining a character of the font.  The first
+line corresponds to character code 0, the second to character code 1,
+etc.  For example, in (a lightly old version of) \Verb=cmmi.htf=, the
+first 13 lines look something like this:
+
+\begin{verbatim}
+cmmi 0 127
+'&#x0393;' ''  Gamma     0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x0394;' ''  Delta     1 % cmmi.htf (unicode)            2003-03-27 %
+'&#x0398;' ''  Theta     2 % Copyright (C) 2000--2003 Michel Goossens %
+'&#x039B;' ''  Lambda    3 %                          Eitan M. Gurari %
+'&#x039E;' ''  Xi        4 %                                          % 
+'&#x03A0;' ''  Pi        5 % This file can redistributed and/or       % 
+'&#x03A3;' ''  Sigma     6 % modified under the terms of the LaTeX    % 
+'&#x03A5;' ''  Upsilon   7 % Project Public License Distributed from  % 
+'&#x03A6;' ''  Phi       8 % CTAN archives in directory               % 
+'&#x03A8;' ''  Psi       9 % macros/latex/base/lppl.txt; either       % 
+'&#x03A9;' ''  Omega    10 % version 1 of the License, or (at your    % 
+'&#x03B1;' ''  alpha    11 % option) any later version.               % 
+'&#x03B2;' ''  beta     12 %    However, you are allowed to modify    % 
+'&#x03B3;' ''  gamma    13 % this file without changing its name, if  % 
+...
+\end{verbatim}
+
+The character code given in the 13th position of \Verb=cmmi.htf= is
+\Verb=&#x03B3;=, which is the Unicode entity for lower case gamma
+($\gamma$). \Verb=tex4ht= will happily substitute this code in
+place of the typeset gamma character in the \Verb=dvi= during
+post-processing the \Verb=.dvi=.  Hence, the converted document will
+have appropriate entities (or whatever we want) in place of the
+\TeX{}-font-specific \Verb=.dvi= references.  You can add prefixes or
+suffixes to the entities or character codes. eg.,
+\Verb=<mi>&#x03B3;</mi>= (MathML code for $\gamma$).
+
+\section{Post-processing}
+
+The third and final stage is to post-process the translated
+document further which may involve:
+
+\begin{itemize}
+\item parse the document with appropriate parser.
+
+\item create \Verb=.png= or other images of math formulae
+and equations, if requested (for the sake of browsers which do not
+support MathML).
+
+\item write out \Verb=.css= files for proper rendering in a
+browser.
+
+\item perform system dependent tasks like copying to target
+directories or \Verb=ftp= to different destinations, etc.
+
+\item During post-processing, one can output the translated document
+as several chunks, such as one file for each section, instead of
+having a single long document.  We use this feature to write out many
+files to overcome various I/O limitations of \TeX{}.
+
+\end{itemize}
+
+
+\chapter{Literate sources}
+
+Following are the literate source files which comprise \TeX{}4ht.
+Some modifications to specific files are described below.  We have
+globally updated the license information.
+
+Specific processing instructions are provided as remarks at the top of
+each source file.  All packages, C and Java sources, fonts, DTD's,
+etc., are generated from the literate sources by running \TeX{},
+\LaTeX{} or any of the many \TeX{}4ht scripts such as \Verb=ht=,
+\Verb=htlatex=, \ldots
+
+\begin{enumerate}
+\item \Verb=tex4ht-4ht.tex=
+\item \Verb=tex4ht-auto-script.tex=
+\item \Verb=tex4ht-bibtex2.tex=
+\item \Verb=tex4ht-c.tex=
+\item \Verb=tex4ht-cond4ht.tex=
+\item \Verb=tex4ht-cpright.tex=
+\item \Verb=tex4ht-dir.tex=
+\item \Verb=tex4ht-docbook-xtpipes.tex=
+\item \Verb=tex4ht-docbook.tex=
+\item \Verb=tex4ht-env.tex=
+\item \Verb=tex4ht-fonts-4hf.tex=
+\item \Verb=tex4ht-fonts-cjk-utf8.tex=
+\item \Verb=tex4ht-fonts-cjk.tex=
+\item \Verb=tex4ht-fonts-modern.tex=
+\item \Verb=tex4ht-fonts-noncjk.tex=
+\item \Verb=tex4ht-htcmd.tex=
+\item \Verb=tex4ht-html-speech-xtpipes.tex=
+\item \Verb=tex4ht-html-speech.tex=
+\item \Verb=tex4ht-html0.tex=
+\item \Verb=tex4ht-html32.tex=
+\item \Verb=tex4ht-html4.tex=
+\item \Verb=tex4ht-info-html4.tex=
+\item \Verb=tex4ht-info-javahelp.tex=
+\item \Verb=tex4ht-info-mml.tex=
+\item \Verb=tex4ht-info-ooffice.tex=
+\item \Verb=tex4ht-info-svg.tex=
+\item \Verb=tex4ht-info.tex=
+\item \Verb=tex4ht-javahelp-xtpipes.tex=
+\item \Verb=tex4ht-javahelp.tex=
+\item \Verb=tex4ht-jsmath.tex=
+\item \Verb=tex4ht-jsml-xtpipes.tex=
+\item \Verb=tex4ht-jsml.tex=
+\item \Verb=tex4ht-mathltx.tex=
+\item \Verb=tex4ht-mathml.tex=
+\item \Verb=tex4ht-mathplayer.tex=
+\item \Verb=tex4ht-mkht.tex=
+\item \Verb=tex4ht-moz.tex=
+\item \Verb=tex4ht-oo-xtpipes.tex=
+\item \Verb=tex4ht-ooffice.tex=
+\item \Verb=tex4ht-ooimpress.tex=
+\item \Verb=tex4ht-options.tex=
+\item \Verb=tex4ht-sty.tex=
+\item \Verb=tex4ht-svg.tex=
+\item \Verb=tex4ht-t4ht.tex=
+\item \Verb=tex4ht-tei.tex=
+\item \Verb=tex4ht-unicode.tex=
+\item \Verb=tex4ht-word.tex=
+\item \Verb=tex4ht-xhtml-xtpipes.tex=
+\item \Verb=tex4ht-xhtmml-xtpipes.tex=
+\item \Verb=xtpipes.tex=
+\end{enumerate}
+
+\section{tex4ht-4ht.tex}
+
+This is the (extremely large) literate source for all the \Verb=.4ht=
+files in the \TeX{}4ht bundle.  Run the following command to generate
+all \Verb=.4ht= files:
+
+\begin{verbatim}
+ht tex tex4ht-4ht
+\end{verbatim}
+
+Nicholas Cole posted a bug report on the \Verb=texhax= mailing list
+regarding an undefined control sequence error of
+\verb|\blx\resetpuncthook| and \verb|\blx\csq\ifkernmark|.  The
+reason was that these macros were not initialized.  So, we added the
+following lines at the beginning of \Verb=\<config biblatex\>=:
+
+\begin{verbatim}
+\let\blx\resetpuncthook\\empty
+\let\blx\csq\ifkernmark\\empty
+\end{verbatim}
+
+Christoph Haug reported that \verb|\bib\field\entrykey| creates an
+undefined control sequence error if \Verb=\printbibliography= is
+invoked.  Another of with uninitialized macros, solved by adding:
+
+\begin{verbatim}
+\let\bib\field\keyentry\\empty
+\end{verbatim}
+
+Also, Christoph said that there were a few spurious spaces after the
+opening parenthesis of year in an author-year citation and few other
+places.  All were fixed.
+
+
+\section{tex4ht-cpright.tex}
+
+The standard copyright statement was changed to the following:
+
+\begin{verbatim}
+\<TeX4ht copyright\><<<
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+% 
+% If you modify this program, changing the 
+% version identification would be appreciated.
+>>>
+\end{verbatim}
+
+Filename, author name and date are inserted at the top of this
+statement.
+
+
+\section{tex4ht-dir.tex}
+
+Defines the path of your \Verb=tex4ht= package files.  The default
+provided by Eitan was:
+\begin{verbatim}
+\def\HOME{/home/4/gurari/tex4ht.dir/}
+\def\DTDS{/home/4/gurari/dtd.dir/}           
+\end{verbatim}
+
+We switched these to use `\texttt{.}' instead of his hardcoded path.
+
+
+\section{tex4ht-fonts-4ht.tex}
+
+This file generates all the \Verb=*.4hf=---hypertext font files---of
+the \TeX{}4ht bundle.  The file has 101806 lines! We had to increase
+\TeX{}'s memory and make new format for \latex to run this file. Here
+are the new values:
+\begin{itemize}
+\item \Verb|strings=494909|
+\item \Verb|pool_size=1180334| (string characters)
+\item \Verb|main_memory=7999999| (words of memory)
+\item \Verb|multiletter control sequences=15000+50000|
+\end{itemize}
+
+Also, these needed values are the default in \TeX{} Live 2009:
+\begin{itemize}
+\item \Verb|font_mem_size=3000000| (words of font info)
+\item \Verb|hyph_size=8191| (hyphenation exceptions)
+\end{itemize}
+
+
+\section{tex4ht-mkht.tex}
+
+CVR made significant changes in September 2009:
+
+\begin{itemize}
+
+\item All the backslash characters in the path names (conventional directory
+Separators under Windows) have been changed to forward slash.  This is
+per the suggestion of Akira Kakuto, primary Windows developer for
+\TeX{} Live.
+
+\item \Verb=\version= has been redefined.
+
+\item New functions, \Verb=\ScriptFileName= and \Verb=\AddExtn= have
+been defined to add file names of the script at the top of each script
+or batch file.  These were not provided in the versions written by
+Eitan, but now needed for best license practices.
+
+\item \Verb=\AddExtn= will add \Verb=.bat= if and only if the script
+is a batch file.
+
+\item A new function \Verb=\<Mycopyrightnotice\>= has been defined to
+add the usual copyright information (see above) to
+each script when written out.
+
+\item The \Verb=\Rem= macro used in \Verb=\<Mycopyrightnotice\>=
+expands to the \Verb=#= character in Unix scripts and \Verb=Rem= in
+Windows batch files.
+
+\end{itemize}
