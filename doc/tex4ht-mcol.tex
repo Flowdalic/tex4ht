@@ -21,14 +21,17 @@
 \section*{Prolog}
 \label{sec-1}
 
-\href{http://www.12000.org/}{Nasser M. Abbassi} had filed a feature request at \href{http://puszcza.gnu.org.ua/bugs/?188}{TeX4ht} project for
-multicolumn support in TeX4ht which is lacking at the moment. \href{http://www.w3.org/TR/css3-multicol/}{This
-page} provides the latest specifications of \href{http://www.w3.org}{W3C} relating to multicolumn
-layout in HTML which some of the mainstream browsers support in
-varying degrees.  Our initial efforts are pointed towards \texttt{multicol}
-package so that TeX4ht provides enough hooks to generate output with
-multicolumn layout as envisaged in \LaTeX{} by \texttt{multicol} package.
-Support for \texttt{\textbackslash{}twocolumn} still remains to be done, though.
+\href{http://www.12000.org/}{Nasser M. Abbassi} had filed a feature
+request at \href{http://puszcza.gnu.org.ua/bugs/?188}{TeX4ht} project
+for multicolumn support in TeX4ht which is lacking at the
+moment. \href{http://www.w3.org/TR/css3-multicol/}{This page} provides
+the latest specifications of \href{http://www.w3.org}{W3C} relating to
+multicolumn layout in HTML which some of the mainstream browsers support
+in varying degrees.  Our initial efforts are pointed towards
+\texttt{multicol} package so that TeX4ht provides enough hooks to
+generate output with multicolumn layout as envisaged in \LaTeX{} by
+\texttt{multicol} package.  Support for
+\texttt{\textbackslash{}twocolumn} still remains to be done, though.
 
 \section*{Approach to the Problem}
 \label{sec-2}
@@ -58,7 +61,8 @@ are listed below:
 \item \texttt{\textbackslash{}columnseprulecolor}: rule color
 \item \texttt{\textbackslash{}flushcolumns}: balanced columns
 \item \texttt{\textbackslash{}raggedcolumns}: unbalanced columns
-\item \texttt{\textbackslash{}begin\{multicols\}\{<num>\}}: beginning of multicolumn enviromnemt
+\item \texttt{\textbackslash{}begin\{multicols\}\{<num>\}}: beginning of
+        multicolumn enviromnemt
 \item \texttt{\textbackslash{}end\{multicols\}}: end of multicolumn environment
 \item \texttt{\textbackslash{}multicoltolerance}: no effect on HTML output
 \end{enumerate}
@@ -111,10 +115,11 @@ is provided above.
 \begin{verbatim}
 \Configure{columnrulestyle}{outset}
 \end{verbatim}
-\texttt{columnrulestyle} has no equivalent in \texttt{multicol}. Specify rule style
-with the above hook. Legal values are provided below:
- \texttt{none}, \texttt{hidden}, \texttt{dotted}, \texttt{dashed}, \texttt{solid}, \texttt{double},  \texttt{groove},
-     \texttt{ridge}, \texttt{inset},  \texttt{outset}, 
+\texttt{columnrulestyle} has no equivalent in \texttt{multicol}. Specify
+rule style with the above hook. Valid values are:
+ \texttt{none}, \texttt{hidden}, \texttt{dotted}, \texttt{dashed},
+ \texttt{solid}, \texttt{double},  \texttt{groove},
+ \texttt{ridge}, \texttt{inset},  \texttt{outset}.
 
 \begin{verbatim}
 \Configure{columnspan}{none}
