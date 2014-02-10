@@ -1523,9 +1523,9 @@ Contributed by Andreas Gobel:
 \<xtpipes: my oo\><<<
 <ooxtpipes>
 .4oo mv %%0.4oo %%0.tmp 
-.4oo java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -o %%0.4oo %%0.tmp 
+.4oo java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%0.4oo %%0.tmp 
 .4om mv %%1.4om %%1.tmp
-.4om java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -o %%1.4om %%1.tmp
+.4om java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.4om %%1.tmp
 </ooxtpipes>
 >>>
 
@@ -1559,7 +1559,7 @@ Contributed by Andreas Gobel:
 \<xtpipes: my java help\><<<
 <javahelp>
 .html mv %%1.html %%1.tmp
-.html java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -s javahelp.4xt -o %%1.html %%1.tmp 
+.html java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s javahelp.4xt -o %%1.html %%1.tmp 
 .jhm echo "java -jar ${HOME}/javahelp.dir/jh2.0/javahelp/bin/jhindexer.jar -db %%0-doc/%%1-jhs %%1*.html"
 .jhm echo "--- Warning --- Beware of leftover %%1*.html files from other compilations"
 .jhm java -jar ${HOME}/javahelp.dir/jh2.0/javahelp/bin/jhindexer.jar -db %%0-doc/%%1-jhs %%1*.html
@@ -1720,10 +1720,10 @@ Note: the permission option `S' takes into account also trailing spaces.
 .css vcss %%1.css
  .4om echo "rxp -V -s -e %%1.4om"   
  .4om rxp -V -s -e %%1.4om
- .4oo xmllint --relaxng /home/4/gurari/dtd.dir/openoffice/relaxng.dir/OpenDocument-schema-v1.0-os.rng -noout %%0.4oo
-.4oo xmllint --relaxng /home/4/gurari/dtd.dir/openoffice/relaxng.dir/OpenDocument-schema-v1.1.rng -noout %%0.4oo
- .4oy xmllint --relaxng /home/4/gurari/dtd.dir/openoffice/relaxng.dir/OpenDocument-schema-v1.0-os.rng -noout %%0-styles.4oy
-.4oy xmllint --relaxng /home/4/gurari/dtd.dir/openoffice/relaxng.dir/OpenDocument-schema-v1.1.rng -noout %%0-styles.4oy
+ .4oo xmllint --relaxng ~/dtd.dir/openoffice/relaxng.dir/OpenDocument-schema-v1.0-os.rng -noout %%0.4oo
+.4oo xmllint --relaxng  ~/dtd.dir/openoffice/relaxng.dir/OpenDocument-schema-v1.1.rng -noout %%0.4oo
+ .4oy xmllint --relaxng ~/dtd.dir/openoffice/relaxng.dir/OpenDocument-schema-v1.0-os.rng -noout %%0-styles.4oy
+.4oy xmllint --relaxng  ~/dtd.dir/openoffice/relaxng.dir/OpenDocument-schema-v1.1.rng -noout %%0-styles.4oy
 .4om perl -pe 's/math://g' %%1.4om | perl -pe 's/xmlns:[^=]*="[^"]*"//g' | perl -pe 's/xlink:[^=]*="[^"]*"//g' > tmp.tmp ; xmllint --valid --noout --catalogs tmp.tmp
 </validate>
  Xmake -f \HOME texmf/base/NSGMLS name=%%1  ext=%%2 %%3
@@ -1740,7 +1740,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my emacspeak\><<<
 <emspk>
 .html mv %%1.html %%1.tmp
-.html java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -o %%1.html %%1.tmp
+.html java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.html %%1.tmp
 .html xmllint --noout %%1.html 
 </emspk>
 >>>
@@ -1769,7 +1769,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my jsml\><<<
 <jsml>
 .jsml mv %%1.jsml %%1.tmp
-.jsml java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -o %%1.jsml %%1.tmp
+.jsml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.jsml %%1.tmp
 .jsml xmllint --noout %%1.jsml 
 </jsml>
 >>>
@@ -1803,7 +1803,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my docbk\><<<
 <docbk>
 .xml cp %%1.xml %%1.tmp
-.xml java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -o %%1.xml %%1.tmp
+.xml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.xml %%1.tmp
 .xml xmllint --relaxng /home/4/gurari/dtd.dir/docbook.dir/docbook-5.0/rng/docbook.rng -noout -dropdtd -nonet %%0.xml
 </docbk>
 >>>
@@ -1838,13 +1838,13 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my xhtml\><<<
 <xhtml>
 .html mv %%1.html %%1.tmp
-.html java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.html %%1.tmp 
+.html java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.html %%1.tmp 
 .html xmllint --noout %%1.html 
 .xht mv %%1.xht %%1.tmp
-.xht java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xht %%1.tmp 
+.xht java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xht %%1.tmp 
 .xht xmllint --noout %%1.xht 
 .xml mv %%1.xml %%1.tmp
-.xml java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xml %%1.tmp 
+.xml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xml %%1.tmp 
 .xml xmllint --noout %%1.xml 
 </xhtml>
 >>>
@@ -1882,13 +1882,13 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my xhtmml\><<<
 <xhtmml>
 .html mv %%1.html %%1.tmp
-.html java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.html %%1.tmp 
+.html java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.html %%1.tmp 
 .html xmllint --noout %%1.html 
 .xht mv %%1.xht %%1.tmp
-.xht java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xht %%1.tmp 
+.xht java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xht %%1.tmp 
 .xht xmllint --noout %%1.xht 
 .xml mv %%1.xml %%1.tmp
-.xml java -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xml %%1.tmp 
+.xml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xml %%1.tmp 
 .xml xmllint --noout %%1.xml 
 </xhtmml>
 >>>

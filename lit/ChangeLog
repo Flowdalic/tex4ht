@@ -1,3 +1,8 @@
+2014-02-10  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-env.tex: use gs instead of convert for making bitmaps
+	(from dick, + notes)
+
 2013-10-07  Karl Berry  <karl@gnu.org>
 
 	* Makefile (tex4ht-fonts-{cjk,cjk-utf8,noncjk}*): new targets and vars.
