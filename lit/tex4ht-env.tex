@@ -2,7 +2,7 @@
 %      latex tex4ht-env
 % or htlatex tex4ht-env "xhtml,3"
 %
-% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2009-2014 TeX Users Group
 % Copyright (C) 1997-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -768,17 +768,19 @@ G.
 
 
 %%%%%%%%%%%%%
-\subsection{Script: dvips + convert}
+\subsection{Script: dvips + gs}
+% duplicated below, as well as twice here.  must fixx!
+% we don't want to use convert for the sake of simplifying mactex.
 %%%%%%%%%%%%%
 
 \<dvips convert (personal)\><<<
-Gdvips -E -Ppdf -mode ibmvga -D 110 -f %%1 -pp %%2  > zz%%4.ps
-Gconvert -trim +repage -density 110x110 -transparent '#FFFFFF' zz%%4.ps %%3
+Gdvips -E -q -Ppdf -f %%1 -pp %%2 > zz%%4.ps
+Ggs -sDEVICE=pngalpha -sOutputFile=%%3 -r110x110 -dEPSCrop -dBackgroundColor=16#ffffff -dTextAlphaBits=2 -dGraphicsAlphaBits=2 -q -dbatch -dNOPAUSE zz%%4.ps -c quit 
 Grm zz%%4.ps >>>
 
 \<unix dvips convert\><<<
-Gdvips -E -Ppdf -mode ibmvga -D 110 -f %%1 -pp %%2  > zz%%4.ps
-Gconvert -trim +repage -density 110x110 -transparent '#FFFFFF' zz%%4.ps %%3
+Gdvips -E -q -Ppdf -f %%1 -pp %%2 > zz%%4.ps
+Ggs -sDEVICE=pngalpha -sOutputFile=%%3 -r110x110 -dEPSCrop -dBackgroundColor=16#ffffff -dTextAlphaBits=2 -dGraphicsAlphaBits=2 -q -dbatch -dNOPAUSE zz%%4.ps -c quit 
 Grm zz%%4.ps >>>
 
 
@@ -934,9 +936,11 @@ Gdvipng -T tight -x 1400 -D 72 -bg Transparent -pp %%2:%%2 %%1 -o %%3
 G.gif
 Gdvipng -T tight -x 1400 -D 72 -bg Transparent -gif -pp %%2:%%2 %%1 -o %%3
 G.
-Gdvips -Ppdf -mode ibmvga -D 110 -f %%1 -pp %%2 > zz%%4.ps
-Gconvert -crop 0x0 -density 110x110 -transparent '#FFFFFF' zz%%4.ps %%3
-Grm zz%%4.ps
+Gdvipng -T tight -x 1400 -D 72 -bg Transparent -pp %%2:%%2 %%1 -o %%3
+% avoiding convert for mactex.
+% Gdvips -Ppdf -mode ibmvga -D 110 -f %%1 -pp %%2 > zz%%4.ps
+% Gconvert -crop 0x0 -density 110x110 -transparent '#FFFFFF' zz%%4.ps %%3
+%Grm zz%%4.ps
 </dvipng>
 >>>
 
@@ -1926,7 +1930,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 
 \<unix copyright\><<<
 % tex4ht.env-unix or .tex4ht (@version), generated from @jobname.tex
-% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2009-2014 TeX Users Group
 % Copyright (C) @CopyYear.1997. Eitan M. Gurari
 @<TeX4ht copyright@>>>>
 
@@ -1946,7 +1950,59 @@ Note: the permission option `S' takes into account also trailing spaces.
 \OutputCodE\<tex4ht.env-unix\>
 \OutputCodE\<tex4ht.env-win32\>
 
-
-%\Needs{"mv tex4ht.env \HOME texmf/tex4ht/base/solaris/tex4ht.env"}
-
 \end{document}
+
+Date: Thu, 14 Nov 2013 13:08:12 -0800
+From: Richard Koch <koch@math.uoregon.edu>
+To: Karl Berry <karl@freefriends.org>
+
+[...]
+
+The syntax of tex4ht.env is certainly unclear. Eitan says at the top
+that <tag> is ignored if it doesn't start a line, and then has a vague
+comment about defaults.
+
+Looking at the <convert> section, everything here seems to call dvips to get a
+ps, and then output a graphic, either png or svg. The section has
+
+	G.png prefaced by a space
+	G.svg prefaced by no space
+	G. prefaced by no space
+
+I guessed this meant that output of either a png or svg was acceptable, and
+the preferred method is G.
+
+So as a test, I left everything alone except the existing "G." section, which I
+commented out. Then I added my own "G." section, containing the existing
+G.png code, because it calls ghostscript rather than convert.
+
+Next there is a netpbm section. The Mac doesn't have netpbm, so this section
+seems to do no harm and I left it alone.
+
+The final graphic section has tag <dvipng> and the programs inside seem to
+all start with a dvi, skip the ps step, and get either a png or a gif. The
+section has
+
+	G.png with no initial space
+	G.gif with no initial space
+	G. with no initial space
+
+With little evidence, I took this to mean that conversion starting with a dvi
+file can end with either a png or a gif, but that the preferred method is in G.
+As before, I commented out the old "G." because it used convert, and replaced
+it with a "G." section containing the contents of G.png because it uses
+Gdvipng instead of convert.
+
+Then I tried a sample file. It worked fine, even when I disabled
+convert.  Earlier attempts to change tex4ht.env resulted in no png files
+and lots "missing picture" icons in the html, but this time all those
+png files were created and the html output looked fine on a browser.
+
+This evidence suggests, but does not prove, that Ghostscript itself
+would be a satisfactory conversion method. The change seems to take more
+time, but perhaps this is startup time and large projects wouldn't see
+much difference.
+
+END OF TODAY'S HOBBY SESSION
+
+Dick
