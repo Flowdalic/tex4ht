@@ -1,7 +1,14 @@
+2014-02-21  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-html4.tex (font-size): need \%, not %, for the 70%.
+	Found by Raphael Pinson, http://puszcza.gnu.org.ua/bugs/?189.
+
 2014-02-10  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-env.tex: use gs instead of convert for making bitmaps
-	(from dick, + notes)
+	(from dick, + notes).
+	
+	* tex4ht-env.tex: use %%~ or ~ instead of hardwired gurari dir.
 
 2013-10-07  Karl Berry  <karl@gnu.org>
 
