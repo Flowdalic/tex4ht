@@ -2,7 +2,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % tex4ht-4ht.tex                                         
-% Copyright (C) 2009-2013             TeX Users Group    
+% Copyright (C) 2009-2014             TeX Users Group    
 %               1996-2009             Eitan M. Gurari    
 %                                                        
 % This work may be distributed and/or modified under the 
@@ -3605,7 +3605,7 @@ xr-hyper,>>>
 \HLet\url\:temp
 >>>
 
-Old url.sty filesemploy \''\Url@use', new ones employ \''Url@Left'.
+Old url.sty files employ \''\Url@use', new ones employ \''Url@Left'.
 
 
 \<url-2004.sty\><<<
@@ -3645,6 +3645,11 @@ Old url.sty filesemploy \''\Url@use', new ones employ \''Url@Left'.
 
 \<shared url\><<<
 \NewConfigure{path}{2}
+
+\def\set@mathnolig#1{\ifnum\mathcode`#1<32768
+   \begingroup\lccode`\~`#1\lowercase{\endgroup
+     \edef~}{\mathchar\number\mathcode`#1_{\/}}%
+   \mathcode`#1=32768 \fi}
 >>>
 
 

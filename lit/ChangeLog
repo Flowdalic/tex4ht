@@ -1,3 +1,9 @@
+2014-05-22  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-4ht.tex (shared url): must use definition
+	of \set@mathnolig from previous url.sty, since we must
+	use literal _ rather than \sb for tex4ht.  (From CVR.)
+
 2014-02-21  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-html4.tex (font-size): need \%, not %, for the 70%.
