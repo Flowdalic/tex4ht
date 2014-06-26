@@ -1,3 +1,9 @@
+2014-06-26  Karl Berry  <karl@gnu.org>
+
+	* Makefile (tex4ht_fonts_noncjk_derived): evidently lm-htf.tex
+	is created from tex4ht-fonts-noncjk.tex, but not cmtex.htf.
+	Don't see where/how cmtex.htf is created.
+
 2014-05-22  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-4ht.tex (shared url): must use definition
