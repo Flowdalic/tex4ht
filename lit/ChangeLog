@@ -1,4 +1,15 @@
+2014-06-26  Chris Horler  <cshorler@googlemail.com>
+
+	* tex4ht-mathltx.tex,
+	* tex4ht-mathml.tex: use different align= values
+	instead of CSS text-align: values, per current standards.
+	Affects mathltx.4ht and mathml.4ht.
+	https://puszcza.gnu.org.ua/bugs/?219
+	
 2014-06-26  Karl Berry  <karl@gnu.org>
+
+	* Makefile (tex4ht_mathml_derived): new variable and target,
+	for tex4ht-mathml.tex.
 
 	* Makefile (tex4ht_fonts_noncjk_derived): evidently lm-htf.tex
 	is created from tex4ht-fonts-noncjk.tex, but not cmtex.htf.

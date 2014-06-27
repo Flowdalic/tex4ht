@@ -97,6 +97,9 @@ tex4ht_jsml_derived = jsml.4ht jsml-math.4ht
 derived += $(tex4ht_mathltx_derived)
 tex4ht_mathltx_derived = mathltx.4ht html-mltx.4ht
 
+derived += $(tex4ht_mathml_derived)
+tex4ht_mathml_derived = mathml.4ht html-mml.4ht
+
 derived += $(tex4ht_mathplayer_derived)
 tex4ht_mathplayer_derived = mathplayer.4ht
 
@@ -238,6 +241,9 @@ $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
+
+$(tex4ht_mathml_derived): tex4ht-mathml.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)

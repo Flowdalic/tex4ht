@@ -1102,9 +1102,9 @@ of \verb'\mathop', \verb'\mathrel',...., for the next parameter.
 
 \<configure html-mml tex4ht\><<< 
 \Configure{halignTBL}
-   {t}{\ifmathml \HCode{ style="text-align:top;|<border lines|>" }\fi}
-   {b}{\ifmathml \HCode{ style="text-align:baseline;|<border lines|>" }\fi}
-   {c}{\ifmathml \HCode{ style="text-align:axis;|<border lines|>" }\fi}
+   {t}{\ifmathml \HCode{ align="baseline 1" style="|<border lines|>" }\fi}
+   {b}{\ifmathml \HCode{ align="baseline -1" style="|<border lines|>" }\fi}
+   {c}{\ifmathml \HCode{ align="axis" style="|<border lines|>" }\fi}
    {}
 >>>
 

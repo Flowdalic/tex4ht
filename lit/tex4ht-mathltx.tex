@@ -888,9 +888,9 @@ of \verb'\mathop', \verb'\mathrel',...., for the next parameter.
 \def\:MT{\ifmathltx m\fi}
 \Configure{halignTB}{\HCode{<\:MT table }\halignTBL}{\HCode{>}}
 \Configure{halignTBL}
-   {t}{\ifmathltx \HCode{ style="text-align:top;" }\fi}
-   {b}{\ifmathltx \HCode{ style="text-align:baseline;" }\fi}
-   {c}{\ifmathltx \HCode{ style="text-align:axis;" }\fi}
+   {t}{\ifmathltx \HCode{ align="baseline 1" }\fi}
+   {b}{\ifmathltx \HCode{ align="baseline -1" }\fi}
+   {c}{\ifmathltx \HCode{ align="axis" }\fi}
    {}
 \def\t:HA{\HCode{</\:MT table>}}
 \def\R:HA{\HCode{<\:MT tr \Hnewline style="vertical-align:baseline;">}}
