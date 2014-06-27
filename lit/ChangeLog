@@ -1,5 +1,11 @@
 2014-06-27  Karl Berry  <karl@gnu.org>
 
+	* tex4ht-4ht.tex (mwcls divs): omit error if not in vertical mode
+	in mwbk.cls. Report from Sylwester Arabas, fix from Deimantas Galcius.
+	http://puszcza.gnu.org.ua/bugs/?214
+
+2014-06-27  Karl Berry  <karl@gnu.org>
+
 	* tex4ht-fonts-noncjk.tex,
 	* tex4ht-mathltx.tex,
 	* tex4ht-mathml.tex: copyright years and notices.
