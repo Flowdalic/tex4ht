@@ -1,12 +1,21 @@
 2014-07-13  Karl Berry  <karl@gnu.org>
 
+	* Makefile (tex4ht_4ht_derived): add listings.4ht.
+	* tex4ht-4ht.tex (listings.4ht): handle listings' escapechar
+	feature. From Michal Hoftich.
+	http://tex.stackexchange.com/q/188322/2891
+	http://puszcza.gnu.org.ua/bugs/?221
+
+2014-07-13  Karl Berry  <karl@gnu.org>
+
 	* Makefile (tex4ht_4ht_derived): add tocloft.4ht.
 	* tex4ht-4ht.tex (tocloft.4ht): new generated file,
 	to turn off tocloft toc's.  Fix from Michal Hoftich.
 	http://tex.stackexchange.com/q/190991/2891
 	http://puszcza.gnu.org.ua/bugs/?220
-	(TeX4ht license text): new macro without copyright line,
-	used in the new .4ht file.
+
+	* tex4ht-4ht.tex (TeX4ht license text): new macro without
+	copyright line, used in the new .4ht file.
 	(TeX4ht copyright): use that after the copyright line.
 
 2014-06-27  Karl Berry  <karl@gnu.org>
