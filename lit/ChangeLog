@@ -1,3 +1,11 @@
+2014-07-14  Karl Berry  <karl@gnu.org>
+
+	* Makefile (tex4ht_4ht_derived): add titlesec.4ht.
+	(titlesec 2005) <\ttl:straight@i>: use {#2} in case arg contains
+	brackets.  From Michal Hoftich.
+	http://tex.stackexchange.com/q/185866/
+	http://puszcza.gnu.org.ua/bugs/?215
+
 2014-07-13  Karl Berry  <karl@gnu.org>
 
 	* Makefile (tex4ht_4ht_derived): add listings.4ht.
