@@ -16968,12 +16968,10 @@ unnumberedsubsubsec%
 
 See report at screnggu.tex
 
-
 \<scrbook.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% scrbook.4ht                           |version %
-% Copyright (C) |CopyYear.1999.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% scrbook.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.1999. Eitan M. Gurari
+|<TeX4ht copywrite|>
 \let\o:maketitle:|=\maketitle
 |<general scrbook|>
 |<addchap confic|>
@@ -17027,21 +17025,13 @@ See report at screnggu.tex
 \def\minisec#1{\:minisec{#1}\@afterheading}
 >>>
 
-
-
-
-
-
-
 %%%%%%%%%%%%%%%%%%
 \Section{srcbook}
-%%%%%%%%%%%%%%%%%%
 
 \<scrartcl.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% scrartcl.4ht                          |version %
-% Copyright (C) |CopyYear.1999.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% scrartcl.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.1999. Eitan M. Gurari
+|<TeX4ht copywrite|>
 \input article.4ht
 |<scr artcl, reprt, book|>
 \Hinput{scrartcl}
@@ -17050,14 +17040,12 @@ See report at screnggu.tex
 
 
 %%%%%%%%%%%%%%%%%%
-\Section{srcbook}
-%%%%%%%%%%%%%%%%%%
+\Section{scrbook}
 
 \<scrreprt.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% scrreprt.4ht                           |version %
-% Copyright (C) |CopyYear.1999.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% scrreprt.4ht (|version), generated from |jobname.tex
+% Copyright (C) |CopyYear.1999. Eitan M. Gurari
+|<TeX4ht copywrite|>
 |<general scrreprt|>
 |<addchap confic|>
 |<scr artcl, reprt, book|>
@@ -17068,7 +17056,6 @@ See report at screnggu.tex
 %%%%%%%%%%%%%%%%%%
 \Section{maketitle}
 %%%%%%%%%%%%%%%%%%
-
 
 \<general scrreprt\><<<
 |<redefine maketitle|>
@@ -17235,10 +17222,11 @@ UnDFexyz}%
 \expandafter\:temp\usepackage!*?: 
 \def\:tempa{\@latex@e@error}
 \ifx \:temp\:tempa \else
+   \def\popthree#1#2#3#4{#4}
    \def\:tempa#1#2#3#4{\tmp:toks{#1{#2}}%
    \long\expandafter\edef\csname #4 \endcsname{\the\tmp:toks
         {\expandafter\noexpand
-   \csname o:\expandafter\:gobble\string #3:\endcsname}}}
+	 \csname o:\expandafter\expandafter\:gobble\expandafter\string \popthree#3:\endcsname}}} 
 \def\:temp#1{%
   \expandafter\expandafter\expandafter\:tempa\csname #1 \endcsname{#1}}
 \:temp{rm}
@@ -17450,10 +17438,11 @@ UnDFexyz}%
 \expandafter\:temp\usepackage!*?: 
 \def\:tempa{\@latex@e@error}
 \ifx \:temp\:tempa \else
+   \def\popthree#1#2#3#4{#4}
    \def\:tempa#1#2#3#4{\tmp:toks{#1{#2}}%
    \long\expandafter\edef\csname #4 \endcsname{\the\tmp:toks
         {\expandafter\noexpand
-   \csname o:\expandafter\:gobble\string #3:\endcsname}}}
+  \csname o:\expandafter\expandafter\:gobble\expandafter\string \popthree#3:\endcsname}}}
 \def\:temp#1{%
   \expandafter\expandafter\expandafter\:tempa\csname #1 \endcsname{#1}}
 \:temp{rm}

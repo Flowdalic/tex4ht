@@ -1,3 +1,12 @@
+2014-07-15  Michal Hoftich <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (scrbook.4ht, scrreprt.4ht, scrartcl.4ht): Update 
+	KOMA-Script configurations to handle recent changes in the classes
+	for the \rm, etc., font commands.
+	http://tug.org/pipermail/tex4ht/2014q1/000913.html
+	http://puszcza.gnu.org.ua/bugs/?205
+	* Makefile (tex4ht_4ht_derived): add the affected scr*.4ht.
+
 2014-07-14  Karl Berry  <karl@gnu.org>
 
 	* Makefile (tex4ht_4ht_derived): add titlesec.4ht.

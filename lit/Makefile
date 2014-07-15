@@ -14,7 +14,10 @@ common_info = $(common) common-info.tex
 derived = 
 
 derived += $(tex4ht_4ht_derived)
-tex4ht_4ht_derived = book.4ht listings.4ht titlesec.4ht tocloft.4ht
+tex4ht_4ht_derived = \
+  book.4ht listings.4ht \
+  scrartcl.4ht scrbook.4ht scrreprt.4ht \
+  titlesec.4ht tocloft.4ht
 # and many, many more.
 
 derived += $(tex4ht_bibtex2_derived)
