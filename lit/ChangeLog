@@ -1,3 +1,8 @@
+2014-10-10  Peter Breitenlohner  <peb@mppmu.mpg.de>
+
+	* tex4ht-c.tex: Avoid compiler warning [-Wunused-value].
+	(Backport from TeX Live.)
+
 2014-07-15  Michal Hoftich <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (scrbook.4ht, scrreprt.4ht, scrartcl.4ht): Update 

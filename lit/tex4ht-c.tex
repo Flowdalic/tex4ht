@@ -9233,7 +9233,7 @@ for( i = (INTEGER) get_unt(1) `% font name `%
        + (INTEGER) get_unt(1) `% font style name `%
     ; i>0 
     ; i-- ){ ch = get_char(); }
-if( flags & `<xdv flag colored`> ){ (INTEGER) get_unt(4); }
+if( flags & `<xdv flag colored`> ){ (void) get_unt(4); }
 if( flags & `<xdv flag variations`> ){ 
    int n =  (INTEGER) get_unt(2);
    int i;
