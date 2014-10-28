@@ -1,3 +1,9 @@
+2014-10-28   Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex: Spurious comma in css selector causes CSS
+	validation error.
+	https://puszcza.gnu.org.ua/bugs/index.php?232
+
 2014-10-10  Peter Breitenlohner  <peb@mppmu.mpg.de>
 
 	* tex4ht-c.tex: Avoid compiler warning [-Wunused-value].
