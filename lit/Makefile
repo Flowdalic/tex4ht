@@ -64,6 +64,9 @@ tex4ht_html0_derived = html0.4ht
 derived += $(tex4ht_html32_derived)
 tex4ht_html32_derived = html32.4ht html32-math.4ht 
 
+# the html4.4ht and html4-uni.4ht regenerated from tex4ht-html4.tex
+# are significantly different from what we're distributing.  need to
+# figure it out before enabling this.
 #xx derived += $(tex4ht_html4_derived)
 tex4ht_html4_derived = \
   html4.4ht html4-math.4ht html4-uni.4ht onmouseover.4ht exerqz.4ht

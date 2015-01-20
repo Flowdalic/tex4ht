@@ -1,4 +1,12 @@
-2014-10-28   Michal Hoftich  <michal.h21@gmail.com>
+2015-01-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex,
+	* tex4ht-unicode.tex: remove spurious semicolon produced by
+	\textregistered command.
+	http://puszcza.gnu.org.ua/bugs/?242
+	http://tex.stackexchange.com/questions/223804/tex4ht-textregistered-and-an-unwanted-semicolon
+
+2014-10-28 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex: Spurious comma in css selector causes CSS
 	validation error.
