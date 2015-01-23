@@ -64,10 +64,7 @@ tex4ht_html0_derived = html0.4ht
 derived += $(tex4ht_html32_derived)
 tex4ht_html32_derived = html32.4ht html32-math.4ht 
 
-# the html4.4ht and html4-uni.4ht regenerated from tex4ht-html4.tex
-# are significantly different from what we're distributing.  need to
-# figure it out before enabling this.
-#xx derived += $(tex4ht_html4_derived)
+derived += $(tex4ht_html4_derived)
 tex4ht_html4_derived = \
   html4.4ht html4-math.4ht html4-uni.4ht onmouseover.4ht exerqz.4ht
 
@@ -216,8 +213,11 @@ $(tex4ht_html0_derived): tex4ht-html0.tex $(common)
 $(tex4ht_html32_derived): tex4ht-html32.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
+# must create/update html4.4ht-released by hand.
 $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
-	htlatex $< "html,sections+" "" "-d./" $(tex_1opt)
+	cp html4.4ht-released html4.4ht && latex $(tex_opts) $<
+	cp html4.4ht-released html4.4ht && latex $(tex_opts) $<
+	latex $(tex_opts) $<
 
 $(tex4ht_info_mml_derived): tex4ht-info-mml.tex $(common_info)
 	htlatex $< "html,sections+" "" "-d./" $(tex_1opt)

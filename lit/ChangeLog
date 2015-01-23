@@ -1,3 +1,10 @@
+2015-01-23  Karl Berry  <karl@gnu.org>
+
+	* html4.4ht-released: new file, copied from current TL.
+	* Makefile (tex4ht_html4_derived): enable, and intersperse
+	copying of html4.4ht-released to html4.4ht with latex runs,
+	per comments at top of file.  No significant differences remain.
+
 2015-01-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex,
