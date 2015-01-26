@@ -15,7 +15,7 @@ derived =
 
 derived += $(tex4ht_4ht_derived)
 tex4ht_4ht_derived = \
-  book.4ht listings.4ht \
+  book.4ht listings.4ht multicol.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht \
   titlesec.4ht tocloft.4ht
 # and many, many more.
@@ -66,7 +66,8 @@ tex4ht_html32_derived = html32.4ht html32-math.4ht
 
 derived += $(tex4ht_html4_derived)
 tex4ht_html4_derived = \
-  html4.4ht html4-math.4ht html4-uni.4ht onmouseover.4ht exerqz.4ht
+  html4.4ht html4-math.4ht html4-uni.4ht html4-l2-url html4-russian-accents \
+  onmouseover.4ht exerqz.4ht  
 
 derived += $(tex4ht_info_mml_derived)
 tex4ht_info_mml_derived = infomml.4ht

@@ -1,3 +1,10 @@
+2015-01-26  Michal Hoftich <michal.h21@gmail.com> and Karl Berry <karl@gnu.org>
+
+	* tex4ht-html4.tex: generate {html4-l2-url,html4-russian-accents}.4ht
+	as separate files, to avoid having html4.4ht with multiple encodings,
+	which lualatex does not like to read.
+	* Makefile (tex4ht_html4_derived): add the new files.
+
 2015-01-23  Karl Berry  <karl@gnu.org>
 
 	* html4.4ht-released: new file, copied from current TL.

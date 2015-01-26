@@ -1,6 +1,5 @@
 % $Id$
 % Compile 3 times: latex tex4ht-html4
-%           or   xhlatex tex4ht-html4 "html,3,sections+"
 % Copy html4.4ht into the work directory before each of the 
 %            first two compilations
 %
@@ -10,7 +9,7 @@
 % See tex4ht-cpright.tex for license text.
 
 \ifx \HTML\UnDef
-   \def\HTML{html4,html4-math,html4-uni} 
+   \def\HTML{html4,html4-math,html4-uni,html4-l2-url,html4-russian-accents} 
    \def\CONFIG{\jobname}
    \def\MAKETITLE{\author{Eitan M. Gurari}}
    \def\next{\input mktex4ht.4ht  \endinput}
@@ -67,16 +66,16 @@
 
 \<html4\><<<
 % html4.4ht (|version), generated from |jobname.tex
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) |CopyYear.1997. Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.1997. Eitan M. Gurari
 |<TeX4ht copywrite|>
 >>>
 
 
 \<html4-math\><<<
 % html4-math.4ht (|version), generated from |jobname.tex
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) |CopyYear.1999. Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.1999. Eitan M. Gurari
 |<TeX4ht copywrite|>
 >>>
 
@@ -6925,8 +6924,8 @@ is reported in Overlib's page).
   \string:RestoreCatcodes\endcsname{\catcode`\%|=\the
   \catcode`\%}\catcode`\%|=14\fi
 % onmouseover.4ht (|version), generated from |jobname.tex
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) |CopyYear.2001. Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.2001. Eitan M. Gurari
 |<TeX4ht copywrite|>
 
 \hbadness=10000 \vbadness=10000 \hfuzz=99in \vfuzz=\hfuzz
@@ -13075,6 +13074,17 @@ will kick in.
 
 
 \<russian\><<<
+\input{html4-russian-accents.4ht}
+>>>
+
+\<html4-russian-accents\><<<
+% html4-russian-accents.4ht (|version), generated from |jobname.tex
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.1999. Eitan M. Gurari
+%
+% Extracted to a separate file so the main file has a consistent
+% (and UTF-8 compatible) encoding.
+|<TeX4ht copywrite|>
 \Configure{accent}\"\ddot{|<diaeresis codes|>å{00EB}%
            {\@use@text@encoding \@curr@enc A}{00C4}%
            {\@use@text@encoding \@curr@enc E}{00CB}%
@@ -13098,7 +13108,7 @@ will kick in.
 >>> 
 
 %%%%%%%%%%%%%%%%%%
-\section{Assents Style}
+\section{Accents Style}
 %%%%%%%%%%%%%%%%%%
 
 \<configure html4-math accents\><<<
@@ -18097,6 +18107,17 @@ Only one of the following is needed for a given document!!!
 
 
 \<il2-pl.tcx url encoder\><<<
+\input{html4-l2-url.4ht}
+>>>
+
+\<html4-l2-url\><<<
+% html4-l2-url.4ht (|version), generated from |jobname.tex
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.1999. Eitan M. Gurari
+%
+% Extracted to a separate file so the main file has a consistent
+% (and UTF-8 compatible) encoding.
+|<TeX4ht copywrite|>
 \Configure{url-encoder}
       {%}{%25}
       {&}{%26}
@@ -20057,8 +20078,8 @@ The \verb'size="1"' makes the select a popout memnu
 
 \<exerqz\><<<
 % exerqz.4ht (|version), generated from |jobname.tex
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) |CopyYear.1999. Eitan M. Gurari, Donald P. Story
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.1999. Eitan M. Gurari, Donald P. Story
 |<TeX4ht copywrite|>
 |<exerqz's vars|>
 |<predefined exerquiz javascript|>
