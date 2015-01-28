@@ -1,3 +1,11 @@
+2015-01-28  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-4ht.tex (\CopyYear, \TeX4ht copyright): no need for
+	en-dash in copyrights.
+	(frenchb.4ht): rework copyrights, and install in TL,
+	including previously-unreleased testing for
+	\FDP@space vs. \FDP@colonspace.
+
 2015-01-26  Michal Hoftich <michal.h21@gmail.com> and Karl Berry <karl@gnu.org>
 
 	* tex4ht-html4.tex: generate {html4-l2-url,html4-russian-accents}.4ht
