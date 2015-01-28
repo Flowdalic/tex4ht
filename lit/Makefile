@@ -66,7 +66,8 @@ tex4ht_html32_derived = html32.4ht html32-math.4ht
 
 derived += $(tex4ht_html4_derived)
 tex4ht_html4_derived = \
-  html4.4ht html4-math.4ht html4-uni.4ht html4-l2-url html4-russian-accents \
+  html4.4ht html4-math.4ht html4-uni.4ht \
+  html4-l2-url.4ht html4-russian-accents.4ht \
   onmouseover.4ht exerqz.4ht  
 
 derived += $(tex4ht_info_mml_derived)
@@ -202,11 +203,11 @@ $(tex4ht_fonts_noncjk_derived): \
 $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)
 	ht tex $<
 
-$(tex4ht_html_speech_xtpipes_derived): tex4ht-html-speech-xtpipes.tex $(common)
-	htlatex $< "html,next,3" "" "-d./" $(tex_1opt)
-
 $(tex4ht_html_speech_derived): tex4ht-html-speech.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
+
+$(tex4ht_html_speech_xtpipes_derived): tex4ht-html-speech-xtpipes.tex $(common)
+	htlatex $< "html,next,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_html0_derived): tex4ht-html0.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
@@ -409,6 +410,13 @@ clean: mostlyclean
 
 clean1:
 	rm -f $(f).[0-s]* $(f).[u-z]* $(f).trc
+
+diff_files = $(tex4ht_mathml_derived) $(tex4ht_html_speech_derived) \
+             $(tex4ht_jsml_derived) $(tex4ht_mathltx_derived)
+inst_dir = /usr/local/texlive/dev/texmf-dist/tex/generic/tex4ht
+diff = diff --ignore-all-space
+diff:
+	-for f in $(diff_files); do $(diff) -u0 $(inst_dir)/$$f .; done
 
 mostlyclean:
 	rm -f $(derived)

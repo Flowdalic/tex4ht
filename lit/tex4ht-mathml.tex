@@ -3431,7 +3431,7 @@ but not \verb=$\mathop{div} (\mathbf{F})$=
 
 \<configure mathml fontmath\><<<
 \def\:tempd#1#2{%
-   \expandafter\def\csname #1\endcsname{\mathchar"13#2}%
+   \expandafter\def\csname #1\endcsname{\mathchar"13#2\relax}%
    \MathSymbol\mathop{#1}%
    \expandafter\def\csname #1:limits\endcsname{\expandafter
                     \:same \math:sym\mathop{#1}\limits}%

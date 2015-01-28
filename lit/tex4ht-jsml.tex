@@ -4,8 +4,8 @@
 % Copy html.4ht into the work directory before each of the 
 %            first two compilations
 %
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) 2000-2009 Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright 2000-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
 
@@ -65,16 +65,16 @@
 
 \<jsml\><<<
 % jsml.4ht (|version), generated from |jobname.tex
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) |CopyYear.2006. Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.2006. Eitan M. Gurari
 |<TeX4ht copywrite|>
 >>>
 
 
 \<jsml-math\><<<
 % jsml-math.4ht (|version), generated from |jobname.tex
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) |CopyYear.2006. Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.2006. Eitan M. Gurari
 |<TeX4ht copywrite|>
 >>>
 
@@ -4463,7 +4463,7 @@ How do we deal with accents (e.g., \verb+ M\"obius+)
 
 \<configure jsml-math fontmath\><<<
 \def\:tempd#1#2{%
-   \expandafter\def\csname #1\endcsname{\mathchar"13#2}%
+   \expandafter\def\csname #1\endcsname{\mathchar"13#2\relax}%
    \MathSymbol\mathop{#1}%
    \expandafter\def\csname #1:limits\endcsname{\expandafter
                     \:same \math:sym\mathop{#1}\limits}%

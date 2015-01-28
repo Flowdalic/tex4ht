@@ -1,11 +1,10 @@
 % $Id$
 % Compile 3 times: latex tex4ht-html-speech
 %           or   xhlatex tex4ht-html-speech "html,3,sections+"
-% Copy html.4ht into the work directory before each of the 
-%            first two compilations
+% (html4*.4ht must be up to date.)
 %
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) 2006-2009 Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright 2006-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
 
@@ -41,16 +40,6 @@
   \input ls\string-links.log
 \egroup
 \fi
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%
@@ -70,56 +59,27 @@
 
 
 \<html-speech\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% html-speech.4ht                       |version %
-% Copyright (C) |CopyYear.2006.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% html-speech.4ht (|version), generated from |jobname.tex
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.1997. Eitan M. Gurari
+|<TeX4ht copywrite|>
 >>>
-
 
 \<html-speech-math\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% html-speech-math.4ht                  |version %
-% Copyright (C) |CopyYear.2006.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% html-speech-math.4ht (|version), generated from |jobname.tex
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.2006. Eitan M. Gurari
+|<TeX4ht copywrite|>
 >>>
-
-
 
 \<emacspeak\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% emacspeak.4ht                         |version %
-% Copyright (C) |CopyYear.2006.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% emacspeak.4ht (|version), generated from |jobname.tex
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.2006. Eitan M. Gurari
+|<TeX4ht copywrite|>
 >>>
 
 
-\<TeX4ht copyright\><<<
-%                                                        %
-% This work may be distributed and/or modified under the %
-% conditions of the LaTeX Project Public License, either %
-% version 1.3 of this license or (at your option) any    %
-% later version. The latest version of this license is   %
-% in                                                     %
-%   http://www.latex-project.org/lppl.txt                %
-% and version 1.3 or later is part of all distributions  %
-% of LaTeX version 2003/12/01 or later.                  %
-%                                                        %
-% This work has the LPPL maintenance status "maintained".%
-%                                                        %
-% This Current Maintainer of this work                   %
-% is Eitan M. Gurari.                                    %
-%                                                        %
-% If you modify this program your changing its signature %
-% with a directive of the following form will be         %
-% appreciated.                                           %
-%            \message{signature}                         %
-%                                                        %
-%                             gurari@cse.ohio-state.edu  %
-%                 http://www.cse.ohio-state.edu/~gurari  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{version |version}
->>>
 \<par del\><<<
 !*?: >>>
 \<tag of Tag\><<<
@@ -2864,7 +2824,7 @@ a:active      { voice-family: betty, female; pitch-range: 80; pitch: x-high }
 
 \<configure html-speech-math fontmath\><<<
 \def\:tempd#1#2{%
-   \expandafter\def\csname #1\endcsname{\mathchar"13#2}%
+   \expandafter\def\csname #1\endcsname{\mathchar"13#2\relax}%
    \MathSymbol\mathop{#1}%
    \expandafter\def\csname #1:limits\endcsname{\expandafter
                     \:same \math:sym\mathop{#1}\limits}%
@@ -6455,34 +6415,6 @@ applets. a candidadte for delition.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Shared}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\<TeX4ht copyright\><<<
-%                                                        %
-% This work may be distributed and/or modified under the %
-% conditions of the LaTeX Project Public License, either %
-% version 1.3 of this license or (at your option) any    %
-% later version. The latest version of this license is   %
-% in                                                     %
-%   http://www.latex-project.org/lppl.txt                %
-% and version 1.3 or later is part of all distributions  %
-% of LaTeX version 2003/12/01 or later.                  %
-%                                                        %
-% This work has the LPPL maintenance status "maintained".%
-%                                                        %
-% This Current Maintainer of this work                   %
-% is Eitan M. Gurari.                                    %
-%                                                        %
-% If you modify this program your changing its signature %
-% with a directive of the following form will be         %
-% appreciated.                                           %
-%            \message{signature}                         %
-%                                                        %
-%                             gurari@cse.ohio-state.edu  %
-%                 http://www.cse.ohio-state.edu/~gurari  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\immediate\write-1{version |version}
->>>
 
 
 \<par del\><<<
@@ -12749,7 +12681,7 @@ is reported in Overlib's page).
   \catcode`\%}\catcode`\%|=14\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 % onmouseover.4ht                       |version %
-% Copyright (C) |CopyYear.2001.       Eitan M. Gurari         %
+% Copyright |CopyYear.2001.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
 
 \hbadness=10000 \vbadness=10000 \hfuzz=99in \vfuzz=\hfuzz
