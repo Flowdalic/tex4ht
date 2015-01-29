@@ -1,3 +1,11 @@
+2015-01-29  Michal Hoftich <michal.h21@gmail.com> and Karl Berry <karl@gnu.org>
+
+	* Makefile (tex4ht_4ht_derived): add quoting.4ht.
+	* tex4ht-4ht.tex (quoting.4ht): new generated file,
+        to restore <p> when quoting.sty is sued.
+	http://puszcza.gnu.org.ua/bugs/?198
+	http://tex.stackexchange.com/q/140986/2891
+
 2015-01-28  Michal Hoftich <michal.h21@gmail.com>
 
 	* tex4ht-mathltx.tex

@@ -1,31 +1,10 @@
 % $Id$
 % tex tex4ht-4ht   or   ht tex tex4ht-4ht
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% tex4ht-4ht.tex                                         
-% Copyright 2009-2014             TeX Users Group    
-%           1996-2009             Eitan M. Gurari    
-%                                                        
-% This work may be distributed and/or modified under the 
-% conditions of the LaTeX Project Public License, either 
-% version 1.3c of this license or (at your option) any   
-% later version. The latest version of this license is in
-%   http://www.latex-project.org/lppl.txt                
-% and version 1.3c or later is part of all distributions 
-% of LaTeX version 2005/12/01 or later.                  
-%                                                        
-% This work has the LPPL maintenance status "maintained".
-%                                                        
-% The Current Maintainer of this work                    
-% is TeX4ht Project Team.                                
-%                                                        
-% If you modify this file your changing the signature    
-% in \message{(signature)} below will be appreciated.    
-%                                                        
-%                                        tex4ht@tug.org  
-%                             http://www.tug.org/tex4ht  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\message{(<signature>)}
+% Copyright 2009-2015 TeX Users Group    
+% Copyright 1996-2009 Eitan M. Gurari    
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
 \input DraTex.sty
@@ -2753,14 +2732,12 @@ X\the\c@refsection --%:
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-\SubSection{reading.bbx}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\SubSection{reading.4ht}
 
 \<reading.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% reading.4ht                           |version %
-% Copyright (C) |CopyYear.2008.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% reading.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.2008. Eitan M. Gurari
+|<TeX4ht copywrite|>
    |<config reading|> 
 \Hinput{reading}
 \endinput
@@ -29684,15 +29661,11 @@ with small  shifting.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \Section{everyshi(pment)}
-%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 \<everyshi.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% everyshi.4ht                          |version %
-% Copyright (C) |CopyYear.2004.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% everyshi.4ht (|version), generated from |jobname.tex
+% Copyright (C) |CopyYear.2004.       Eitan M. Gurari
+|<TeX4ht copywrite|>
   |<everyshi configurations|>
 \Hinput{everyshi}
 \endinput
@@ -29702,14 +29675,41 @@ with small  shifting.
 \let\@EveryShipout@Init\empty
 >>>
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\Section{quoting.4ht}
+
+\<quoting.4ht\><<<
+% quoting.4ht (|version), generated from |jobname.tex
+% Copyright 2015 TeX Users Group
+|<TeX4ht license text|>
+\newtoks\quoting@parht
+\NewConfigure{quoting}{2}
+\Configure{quoting}
+{\ifvmode \IgnorePar\fi \EndP\HCode{<blockquote>}\HtmlParOn}
+{\ifvmode \IgnorePar\fi \EndP\HCode{</blockquote>}\HtmlParOn\par}
+
+\ConfigureEnv{quoting}
+{\quoting@parht=\everypar%
+\a:quoting\par\ShowPar}
+{\par%
+\b:quoting%
+\everypar=\quoting@parht\par\ShowPar}
+{}{}
+
+\ConfigureList{quoting}{}{}
+{%
+\everypar=\quoting@parht\par\ShowPar%
+}{}
+\endinput
+\Hinput{quoting}
+>>>        \AddFile{9}{quoting}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 \Section{res}
-%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 \<res.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 % res.4ht                               |version %
 % Copyright (C) |CopyYear.2003.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
