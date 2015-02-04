@@ -2074,6 +2074,7 @@ and \''\Tg'.
 >>>
 
 \<config biblatex\><<<
+\ifx\a:printshorthands\Undef\let\blx@shorthands\@empty\fi
 \ifx\blx@startbib\:UnDef
  \pend:def\blx@shorthands{%
    \pend:def\blx@bibinit{%
@@ -2598,6 +2599,7 @@ X\the\c@refsection --%:
        {\begingroup
           \let\blx@begunit\@empty
           \let\blx@endunit\@empty
+          \let\blx@endnounit\@empty
           \blx@unitpunct\blx@postpunct
         \endgroup
         \global\togglefalse{blx@unit}%
@@ -2607,6 +2609,7 @@ X\the\c@refsection --%:
        {\begingroup
           \let\blx@begunit\@empty
           \let\blx@endunit\@empty
+          \let\blx@endnounit\@empty
           \newblockpunct
         \endgroup
         \global\togglefalse{blx@block}%
@@ -2729,8 +2732,25 @@ X\the\c@refsection --%:
     \string\@namedef{#1.\thepage}{\FileName}}}
 \let\blx@addpagesum\@gobbletwo
 \let\nolinkurl\relax
->>>
 
+%
+% biblatex 2.9a
+%
+% Newly added to process {keylist} environment (CVR)
+% 
+\let\keylist\description
+\let\endkeylist\enddescription
+\def\keyitem#1{\item[#1]}%
+\ConfigureList{keylist}%
+   {\EndP\HCode{<dl \a:LRdir class="description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}%
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd></dl>}\ShowPar}%
+   {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
+        class="description">}\bgroup \bf}%
+   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}}
+>>>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 \SubSection{reading.4ht}
 
