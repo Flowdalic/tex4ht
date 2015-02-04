@@ -1,3 +1,8 @@
+2015-02-04  Karl Berry  <karl@gnu.org>
+
+	* tex4ht-4ht.tex (biblatex.4ht): fixes from CVR for
+	http://puszcza.gnu.org.ua/bugs/?227.
+
 2015-01-29  Michal Hoftich <michal.h21@gmail.com> and Karl Berry <karl@gnu.org>
 
 	* Makefile (tex4ht_4ht_derived): add quoting.4ht.
