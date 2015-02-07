@@ -1,3 +1,9 @@
+2015-02-07  Michal Hoftich <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (scrartcl.4ht, scrbook.4ht, scrreprt.4ht):
+	koma-script patch, mail of 6 Feb 2015 12:32:10.
+	Original report from Alexander Willand.
+
 2015-02-04  Karl Berry  <karl@gnu.org>
 
 	* tex4ht-4ht.tex (biblatex.4ht): fixes from CVR for
