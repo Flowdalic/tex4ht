@@ -1,12 +1,18 @@
+2015-02-09  Michal Hoftich <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (config start mtext): conditionalize
+	<config math within mtext> to avoid some (but not all)
+	problems.  https://puszcza.gnu.org.ua/bugs/?244
+
 2015-02-07  Michal Hoftich <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (scrartcl.4ht, scrbook.4ht, scrreprt.4ht):
 	koma-script patch, mail of 6 Feb 2015 12:32:10.
 	Original report from Alexander Willand.
 
-2015-02-04  Karl Berry  <karl@gnu.org>
+2015-02-04  Radhakrishnan CV  <cvr@river-valley.org>
 
-	* tex4ht-4ht.tex (biblatex.4ht): fixes from CVR for
+	* tex4ht-4ht.tex (biblatex.4ht): biblatex fixes for
 	http://puszcza.gnu.org.ua/bugs/?227.
 
 2015-01-29  Michal Hoftich <michal.h21@gmail.com> and Karl Berry <karl@gnu.org>

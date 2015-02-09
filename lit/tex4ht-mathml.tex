@@ -2,7 +2,7 @@
 % compile 3 times: latex tex4ht-mathltx
 %           or   xhlatex tex4ht-mathltx "html,3,sections+"
 %
-% Copyright 2009-2014 TeX Users Group
+% Copyright 2009-2015 TeX Users Group
 % Copyright 1999-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -519,14 +519,14 @@ xmlns="http://www.w3.org/1999/xhtml"
 
 \<mathml\><<<
 % mathml.4ht (|version), generated from |jobname.tex
-% Copyright 2009-2014 TeX Users Group
+% Copyright 2009-2015 TeX Users Group
 % Copyright |CopyYear.1999. Eitan M. Gurari
 |<TeX4ht copywrite|>
 >>>
 
 \<html-mml\><<<
 % html-mml.4ht (|version), generated from |jobname.tex
-% Copyright 2009-2014 TeX Users Group
+% Copyright 2009-2015 TeX Users Group
 % Copyright |CopyYear.1999. Eitan M. Gurari
 |<TeX4ht copywrite|>
 >>>
@@ -1316,7 +1316,9 @@ space, without having them ignored, must use &nbsp; or other
 \mtexttrue
 \HCode{<\a:mathml mstyle\Hnewline \mml:class="#1"><\a:mathml
    mtext \a:@mtext>}|<start mtext space|>\PauseMathClass
+   \ifmmode\else
    |<config math within mtext|>%
+   \fi
 >>>
 
 
