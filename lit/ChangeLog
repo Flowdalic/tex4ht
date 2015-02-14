@@ -1,6 +1,12 @@
+2015-02-13  Michal Hoftich <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht) <config mathml fontmath>: 
+	output <mi mathvariant=...
+	https://puszcza.gnu.org.ua/bugs/?226
+
 2015-02-09  Michal Hoftich <michal.h21@gmail.com>
 
-	* tex4ht-mathml.tex (config start mtext): conditionalize
+	* tex4ht-mathml.tex (mathml.4ht) <config start mtext>: \ifmmode\else
 	<config math within mtext> to avoid some (but not all)
 	problems.  https://puszcza.gnu.org.ua/bugs/?244
 

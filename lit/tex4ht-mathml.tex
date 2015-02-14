@@ -1706,36 +1706,36 @@ The \verb+\bgroup...\egroup+ is to handle cases like
 \<configure mathml fontmath\><<<
 \def\bold:version{bold}
 \Configure{mathbf}%
-  {\bgroup \Tg<\a:mathml mstyle 
-             mathvariant="bold">}%
-  {\Tg</\a:mathml mstyle>\egroup }%
+  {\bgroup \Tg<\a:mathml mi 
+             mathvariant="bold">\PauseMathClass}%
+  {\Tg</\a:mathml mi>\egroup }%
 \Configure{mathit}%
-  {\bgroup \Tg<\a:mathml mstyle  mathvariant="\ifx 
-                 \bold:version\math@version bold-\fi italic">}%
-  {\Tg</\a:mathml mstyle>\egroup }%
+  {\bgroup \Tg<\a:mathml mi  mathvariant="\ifx 
+                 \bold:version\math@version bold-\fi italic">\PauseMathClass}%
+  {\EndPauseMathClass\Tg</\a:mathml mi>\egroup }%
 \Configure{mathrm}%
-  {\bgroup \Tg<\a:mathml mstyle 
+  {\bgroup \Tg<\a:mathml mi 
              mathvariant="\ifx 
-                 \bold:version\math@version bold\else normal\fi">}%
-  {\Tg</\a:mathml mstyle>\egroup }%
+                 \bold:version\math@version bold\else normal\fi">\PauseMathClass}%
+  {\EndPauseMathClass\Tg</\a:mathml mi>\egroup }%
 \Configure{mathsf}%
-  {\bgroup \Tg<\a:mathml mstyle  mathvariant="\ifx
-            \bold:version\math@version bold-\fi sans-serif">}%
-  {\Tg</\a:mathml mstyle>\egroup }%
+  {\bgroup \Tg<\a:mathml mi  mathvariant="\ifx
+            \bold:version\math@version bold-\fi sans-serif">\PauseMathClass}%
+  {\EndPauseMathClass\Tg</\a:mathml mi>\egroup }%
 \Configure{mathtt}%
-  {\bgroup \Tg<\a:mathml mstyle mathvariant="monospace">}%
-  {\Tg</\a:mathml mstyle>\egroup }%
+  {\bgroup \Tg<\a:mathml mi mathvariant="monospace">\PauseMathClass}%
+  {\EndPauseMathClass\Tg</\a:mathml mi>\egroup }%
 >>>
 
 \<configure mathml fontmath\><<<
 \Css{ 
-   math mstyle[mathvariant="bold"]  mi {  
+   math mi[mathvariant="bold"]  {  
       font-weight: bold;  
       font-style: normal;  
    }  
 }
 \Css{ 
-   math mstyle[mathvariant="normal"]  mi {  
+   math mi[mathvariant="normal"]  {  
       font-weight: normal;  
       font-style: normal;  
    }  
