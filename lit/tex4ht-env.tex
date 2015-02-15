@@ -2,8 +2,8 @@
 %      latex tex4ht-env
 % or htlatex tex4ht-env "xhtml,3"
 %
-% Copyright (C) 2009-2014 TeX Users Group
-% Copyright (C) 1997-2009 Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright 1997-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
 
@@ -779,6 +779,7 @@ Ggs -sDEVICE=pngalpha -sOutputFile=%%3 -r110x110 -dEPSCrop -dBackgroundColor=16#
 Grm zz%%4.ps >>>
 
 \<unix dvips convert\><<<
+%echo "dbg: got to dvips to png via gs (unix dvips convert)"
 Gdvips -E -q -Ppdf -f %%1 -pp %%2 > zz%%4.ps
 Ggs -sDEVICE=pngalpha -sOutputFile=%%3 -r110x110 -dEPSCrop -dBackgroundColor=16#ffffff -dTextAlphaBits=2 -dGraphicsAlphaBits=2 -q -dbatch -dNOPAUSE zz%%4.ps -c quit 
 Grm zz%%4.ps >>>
@@ -932,6 +933,7 @@ Gif exist temp.ppm DEL temp.ppm
 \<dvipng\><<<
 <dvipng>
 G.png
+%echo "dbg: got to dvi to png via (dvipng)"
 Gdvipng -T tight -x 1400 -D 72 -bg Transparent -pp %%2:%%2 %%1 -o %%3
 G.gif
 Gdvipng -T tight -x 1400 -D 72 -bg Transparent -gif -pp %%2:%%2 %%1 -o %%3
@@ -1157,9 +1159,9 @@ when such a value is unavailable.
 .4ot mv    %%1.4ot         sxw-%%0.dir/meta.xml
 .4oy mv    %%1.4oy         sxw-%%0.dir/styles.xml
 % .4og cp  --parents %%1   Pictures    
-.4og mkdir -p              sxw-%%0.dir/Pictures/%%1 
-.4og rmdir                 sxw-%%0.dir/Pictures/%%1 
-.4og cp    %%1             sxw-%%0.dir/Pictures/%%1 
+% .4og mkdir -p              sxw-%%0.dir/Pictures/%%1 
+% .4og rmdir                 sxw-%%0.dir/Pictures/%%1 
+.4og cp    %%1             sxw-%%0.dir/Pictures/
 %-- sxw --                                                          %
 .4ox cd sxw-%%0.dir; zip -r %%0.sxw * ; cd ..
 %                                                                   %
@@ -1203,7 +1205,7 @@ when such a value is unavailable.
 %
 .4ot move  %%1.4ot    sxw-%%0.dir\meta.xml
 .4oy move  %%1.4oy    sxw-%%0.dir\styles.xml
-.4og copy  %%1        sxw-%%0.dir\Pictures\%%1
+.4og copy  %%1        sxw-%%0.dir\Pictures\
 .4od cd    sxw-%%0.dir & zip -r -m  %%0.zip * & cd ..
 % .4od cd    sxw-%%0.dir & 7za a -y  %%0.zip * & cd ..
 .4od move sxw-%%0.dir\%%0.zip %%0.odt
@@ -1481,7 +1483,7 @@ Contributed by Andreas Gobel:
 %  
 .4ot mv  %%1.4ot    meta.xml  
 .4oy mv  %%1.4oy    styles.xml  
-.4og cp  --parents %%1        Pictures    
+.4og cp   %%1        Pictures\
 %-- sxw --  
 .4ox zip  %%0.sxw Pictures  
 .4ox zip  %%0.sxw settings.xml            
@@ -1512,7 +1514,6 @@ Contributed by Andreas Gobel:
 %%%%%%%%%%%%%
 \subsection{xtpipes}
 %%%%%%%%%%%%%
-
 
 
 
@@ -1929,19 +1930,23 @@ Note: the permission option `S' takes into account also trailing spaces.
 
 
 \<unix copyright\><<<
-% tex4ht.env-unix or .tex4ht (@version), generated from @jobname.tex
-% Copyright (C) 2009-2014 TeX Users Group
-% Copyright (C) @CopyYear.1997. Eitan M. Gurari
+% tex4ht.env-unix (@version), generated from @jobname.tex
+% (can be used as ~/.tex4ht)
+% Copyright 2009-2015 TeX Users Group
+% Copyright @CopyYear.1997. Eitan M. Gurari
 @<TeX4ht copyright@>>>>
 
 \<private copyright\><<<
-% tex4ht.env or .tex4ht (private) (@version), generated from @jobname.tex
-% Copyright (C) @CopyYear.1997. Eitan M. Gurari
+% tex4ht.env (private) (@version), generated from @jobname.tex
+% (can be used as ~/.tex4ht)
+% Copyright 2009-2015 TeX Users Group
+% Copyright @CopyYear.1997. Eitan M. Gurari
 @<TeX4ht copyright@>>>>
 
 \<win32 copyright\><<<
 % tex4ht.env-win32 (@version), generated from @jobname.tex
-% Copyright (C) @CopyYear.1997. Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright @CopyYear.1997. Eitan M. Gurari
 @<TeX4ht copyright@>>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

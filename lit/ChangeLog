@@ -1,16 +1,23 @@
-2015-02-13  Michal Hoftich <michal.h21@gmail.com>
+2015-02-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): fix images in subfolders
+	handling -- everything in Pictures/.
+	* tex4ht-env.tex: likewise, copy all images to one directory.
+	https://puszcza.gnu.org.ua/bugs/?240
+
+2015-02-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht) <config mathml fontmath>: 
 	output <mi mathvariant=...
 	https://puszcza.gnu.org.ua/bugs/?226
 
-2015-02-09  Michal Hoftich <michal.h21@gmail.com>
+2015-02-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht) <config start mtext>: \ifmmode\else
 	<config math within mtext> to avoid some (but not all)
 	problems.  https://puszcza.gnu.org.ua/bugs/?244
 
-2015-02-07  Michal Hoftich <michal.h21@gmail.com>
+2015-02-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (scrartcl.4ht, scrbook.4ht, scrreprt.4ht):
 	koma-script patch, mail of 6 Feb 2015 12:32:10.

@@ -1,8 +1,8 @@
 % $Id$
 % compile 3 times: latex tex4ht-ooffice
 %      htlatex tex4ht-ooffice "xhtml,4,sections+"
-% Copyright (C) 2009-2013 TeX Users Group
-% Copyright (C) 2001-2009 Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+% Copyright 2001-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
 
@@ -108,10 +108,8 @@ tail>>>
 
 
 \<copy right notice\><<<
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) |CopyYear.2001. Maarten Wisse, James Naughton, Eitan M. Gurari
-% Maarten.Wisse@urz.uni-heidelberg.de, http://home.wanadoo.nl/pmwisse
-% james.naughton@st-edmund-hall.oxford.ac.uk
+% Copyright 2009-2015 TeX Users Group
+% Copyright |CopyYear.2001. Maarten Wisse, James Naughton, Eitan M. Gurari
 |<TeX4ht copywrite|>
 >>>
 
@@ -569,7 +567,7 @@ Writer2LaTeX (w2l) doesn't currently allow line breaks with DOCTYPE
 
 \<graphics obj manifest\><<<
 <manifest:file-entry
-    manifest:full-path="Pictures/|<graphics file name|>"/>\Hnewline
+    manifest:full-path="Pictures/|<graphics base name|>"/>\Hnewline
 >>>
 
 \<shared manifest\><<<
@@ -1008,28 +1006,48 @@ TeX4ht from \jobname.tex,
 >>>
 
 
-
+All images should be saved in one directory (`Pictures' by default),
+regardless of the original path structure. We must save image names and
+original paths to be able to copy pictures to correct location.
 
 \<configure ooffice graphics\><<<
+\def\getImgFileParser#1/{%
+  \ifx#1\relax
+    \let\next\relax
+  \else
+    \do{#1}\let\next\getImgFileParser
+  \fi\next
+}
+\newcommand\getImgFile[2]{%
+  \def\do##1{\def\imgBaseName{##1#2}\def\imgBase{##1}}
+  \def\imgFullName{#1#2}
+  \getImgFileParser#1/\relax/
+}
+
 \Configure{graphics*}
    {gif}
-   {\Picture[IMG]{\Gin@base.gif |<graphics dimensions|> }}
+   {|<save image name|>\Picture[IMG]{\imgBase.gif |<graphics dimensions|> }}
 \Configure{graphics*}
    {png}
-   {\Picture[IMG]{\Gin@base.png |<graphics dimensions|> }}
+   {|<save image name|>\Picture[IMG]{\imgBase.png |<graphics dimensions|> }}
 \Configure{graphics*}
    {jpg}
-   {\Picture[IMG]{\Gin@base.jpg  |<graphics dimensions|> }}
+   {|<save image name|>\Picture[IMG]{\imgBase.jpg  |<graphics dimensions|> }}
 \Configure{graphics*}
    {jpeg}
-   {\Picture[IMG]{\Gin@base.jpeg |<graphics dimensions|> }}
+   {|<save image name|>\Picture[IMG]{\imgBase.jpeg |<graphics dimensions|> }}
 >>>
 
 \<\><<<
 \Configure{graphics*}
    {eps}
-   {\Picture[IMG]{\Gin@base.eps  |<graphics dimensions|> }}
+   {|<save image name|>\Picture[IMG]{\imgBase.eps  |<graphics dimensions|> }}
 >>>
+
+\<save image name\><<<
+\expandafter\getImgFile\expandafter{\Gin@base}{\PictExt}
+>>>
+
 
 
 \<graphics dimensions\><<<
@@ -1045,7 +1063,7 @@ TeX4ht from \jobname.tex,
 \Configure{IMG}
   {|<insert shadowing fig file|>%
    \ht:special{t4ht=<draw:frame  
-      draw:name="|<graphics file name|>"  
+      draw:name="|<graphics base name|>"  
       text:anchor-type="as-char"  % "paragraph"  
 %      svg:width="...pt"  
 %      svg:height="...pt"  
@@ -1057,6 +1075,10 @@ TeX4ht from \jobname.tex,
          xlink:type="simple"  
         xlink:show="embed"  
         xlink:actuate="onLoad" 
+				\ifx\noBoundingBox\UnDefined
+				 \string svg:width="\the\Gin@req@width"
+				  svg:height="\the\Gin@req@height"
+				\fi
         /><!--draw:name="}}
   {" }
   {\ht:special{t4ht=" }}
@@ -1069,7 +1091,7 @@ TeX4ht from \jobname.tex,
       \Configure{IMG}
         {|<insert shadowing fig file|>%
          \ht:special{t4ht=<draw:frame  
-            draw:name="|<graphics file name|>"  
+            draw:name="|<graphics base name|>"  
             text:anchor-type="as-char"  
             draw:style-name="jtree"
             draw:z-index="0"
@@ -1111,9 +1133,9 @@ TeX4ht from \jobname.tex,
 
 
 \<insert shadowing fig file\><<<
-\ht:special{t4ht>|<graphics file name|>.4og}%
+\ht:special{t4ht>|<graphics full name|>.4og}%
 \ht:special{t4ht*>}%
-\ht:special{t4ht<|<graphics file name|>.4og}%
+\ht:special{t4ht<|<graphics full name|>.4og}%
 \OOmanifest{|<graphics obj manifest|>}%
 >>>
 
@@ -1121,6 +1143,11 @@ TeX4ht from \jobname.tex,
 \<graphics file name\><<<
 \PictureFile>>>
 
+\<graphics base name\><<<
+\imgBaseName>>>
+
+\<graphics full name\><<<
+\imgFullName>>>
 
 \<configure ooffice tex4ht\><<<
 \Configure{PictureAlt*+[]}
