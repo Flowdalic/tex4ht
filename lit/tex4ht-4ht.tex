@@ -40204,9 +40204,9 @@ Latex  records current encoding in \`'\cf@encoding'.
 
 \<spanish.4ht\><<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% spanish.4ht                          |version %
-% Copyright (C) |CopyYear.2000.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% spanish.4ht (|version), generated from |jobname.tex
+% Copyright (C) |CopyYear.2000. Eitan M. Gurari
+|<TeX4ht copywrite|>
   |<spanish defs|>
 \Hinput{spanish}
 \endinput
@@ -40214,7 +40214,7 @@ Latex  records current encoding in \`'\cf@encoding'.
 
 
 
-The followings are needed to componsate for the extra \''\relax\space' in
+The following is needed to compensate for the extra \''\relax\space' in
 \''\def\protect##1{\string\protect\string##1\relax\space}'.
 
 \<spanish defsNO\><<<
@@ -40335,7 +40335,7 @@ The followings are needed to componsate for the extra \''\relax\space' in
 \def\gob:acc#1#2{\if !#2!\expandafter\gobe:acc
    \else \expandafter\gob:acc\fi 
 }
-\ifes@LaTeXe 
+\expandafter\ifx\csname documentclass\endcsname\relax\then
    \def\gobe:acc#1\@text@composite#2\@text@composite#3{}
 \else 
    \let\gobe:acc=\:gobble

@@ -17,6 +17,7 @@ derived += $(tex4ht_4ht_derived)
 tex4ht_4ht_derived = \
   book.4ht listings.4ht multicol.4ht quoting.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht \
+  spanish.4ht \
   titlesec.4ht tocloft.4ht
 # and many, many more.
 

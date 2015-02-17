@@ -1,3 +1,10 @@
+2015-02-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (spanish.4ht): fix missing csname when Spanish
+	babel is used.
+	https://puszcza.gnu.org.ua/bugs/?245
+	* Makefile (tex4ht_4ht_derived): add spanish.4ht.
+
 2015-02-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): fix images in subfolders
