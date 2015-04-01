@@ -1,3 +1,8 @@
+2015-04-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex: configure wrapfig to avoid spurious \par.
+	https://puszcza.gnu.org.ua/bugs/?247
+
 2015-02-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (spanish.4ht): fix missing csname when Spanish
