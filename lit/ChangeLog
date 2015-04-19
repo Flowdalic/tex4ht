@@ -1,3 +1,10 @@
+2015-04-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* Makefile (tex4ht_4ht_derived): add memoir.4ht.
+	* tex4ht-4ht.tex: improve array and tabular support for memoir;
+	input array,dcolumn,tabularx,booktabs.4ht, disable \columnlines.
+	http://puszcza.gnu.org.ua/bugs/?249
+
 2015-04-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex: configure wrapfig to avoid spurious \par.

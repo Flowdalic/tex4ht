@@ -12275,7 +12275,7 @@ The first argument should be an encoding:accent-number pair.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\Link[http://ctan.tug.org/ctan/tex-archive/macros/latex/base/ltoutput.dtx]{}{}ltoutput.dtx\EndLink
+\Link[http://mirror.ctan.org/macros/latex/base/ltoutput.dtx]{}{}ltoutput.dtx\EndLink
 
 \SubSection{Head and Foot Lines}
 
@@ -14905,12 +14905,18 @@ DIV.right
 
 
 \<memoir.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% memoir.4ht                           |version %
-% Copyright (C) |CopyYear.2003.      Eitan M. Gurari         %
+% memoir.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.2003. Eitan M. Gurari
 |<TeX4ht copyright|>
 \input book.4ht
 \input verse.4ht
+% Table handling:
+\input array.4ht
+\input dcolumn.4ht
+\input tabularx.4ht
+\input booktabs.4ht
+\let\columnlines\empty
+
 |<memoir cfg|>
 \ifx \memgobble\:UnDef
    |<memoir pre 2008|>
