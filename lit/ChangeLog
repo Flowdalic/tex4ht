@@ -1,3 +1,14 @@
+2015-05-25  Michal Hoftich  <michal.h21@gmail.com>
+        and Karl Berry <karl@gnu.org>
+
+	* tex4ht-fonts-noncjk.tex (eccc): new font support.
+	https://puszcza.gnu.org.ua/bugs/?253
+
+	* Makefile (tex4ht_fonts_noncjk_derived): add the new
+	 tex4ht.dir/texmf/tex4ht/ht-fonts/alias/ec/eccc.htf
+	 tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/ec/eccc-uni.htf
+	as htf output examples.
+
 2015-04-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* Makefile (tex4ht_4ht_derived): add memoir.4ht.

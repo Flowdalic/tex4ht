@@ -46,7 +46,11 @@ derived += $(tex4ht_fonts_cjk_utf8_derived)
 tex4ht_fonts_cjk_utf8_derived = tex4ht-fonts-cjk-utf8.html # and lots more
 
 derived += $(tex4ht_fonts_noncjk_derived)
-tex4ht_fonts_noncjk_derived = SearchFonts.java lm-htf.tex # and lots more
+tex4ht_fonts_noncjk_derived = \
+  tex4ht.dir/texmf/tex4ht/ht-fonts/alias/ec/eccc.htf \
+  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/ec/eccc-uni.htf \
+  SearchFonts.java lm-htf.tex
+# and lots more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
 
 # htcmd not used
