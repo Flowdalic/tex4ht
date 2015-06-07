@@ -1,3 +1,13 @@
+2015-06-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex: huge update of T1-encoded fonts 
+ 	not previously supported by tex4ht.
+ 	* t1fontmake.lua: new script.
+ 	* t1fontsample.tex: new sample tex file.
+	* Makefile (tex4ht_fonts_noncjk_derived): add two of
+	the new aliases/t1fonts/*.htf files.
+ 	Mail of http://tug.org/pipermail/tex4ht/2015q2/001180.html.
+
 2015-05-25  Michal Hoftich  <michal.h21@gmail.com>
         and Karl Berry <karl@gnu.org>
 
