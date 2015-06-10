@@ -1976,10 +1976,19 @@ and \''\Tg'.
 \NewConfigure{@shorthands}[1]{\concat:config\a:@shorthands{#1}} 
 \let\a:@shorthands\empty 
 \def\nolinkurl{\o:url:}
-\def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
-  \blx@warning@noline {Page references have changed.\MessageBreak
-    Rerun to get references right}\@tempswatrue \blx@reruntrue \fi
-  \@nameuse {blx@rerun}}
+% \def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
+%   \blx@warning@noline {Page references have changed.\MessageBreak
+%     Rerun to get references right}\@tempswatrue \blx@reruntrue \fi
+%   \@nameuse {blx@rerun}}
+\def\blx@checksum#1#2#3{%
+  \begingroup
+  \blx@tempcnta\the\numexpr0#2*0#3\relax
+  \blx@tempcntb\blx@tempcnta
+  \divide\blx@tempcntb10
+  \multiply\blx@tempcntb10
+  \advance\blx@tempcnta-\blx@tempcntb
+  \xdef#1{#1\the\blx@tempcnta}%
+  \endgroup}
 \pend:def\blx@bibliography{\bibSecConfigure%
   \pend:def\blx@bibinit{%
     \bibConfigure
