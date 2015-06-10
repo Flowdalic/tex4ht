@@ -1,3 +1,9 @@
+2015-06-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (save image name): use \Gin@ext rather than
+	\PictExt (which is apparently always png).  Report from Simon Spiegel,
+	10 Jun 2015 10:21:19.
+
 2015-06-10  Radhakrishnan CV  <cvr@river-valley.org>
 
 	* tex4ht-4ht.tex (biblatex): \blx@checksum was a parameterless
