@@ -1,3 +1,11 @@
+2015-06-10  Radhakrishnan CV  <cvr@river-valley.org>
+
+	* tex4ht-4ht.tex (biblatex): \blx@checksum was a parameterless
+         macro, while the current biblatex defines it as a macro with three
+         parameters. The macro has been redefined to match the package. The bug
+         was reported by Simon Spiegel and fix suggested by Michal Hoftich.
+         http://tug.org/pipermail/tex4ht/2015q2/001211.html (and previous).
+
 2015-06-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex: huge update of T1-encoded fonts 
