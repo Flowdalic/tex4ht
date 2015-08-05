@@ -1,3 +1,10 @@
+2015-08-05  Michal Hoftich  <michal.h21@gmail.com>
+        and Karl Berry <karl@gnu.org>
+
+	* Makefile (derived): add graphicx.4ht.
+	* tex4ht-4ht.tex (graphicx.4ht): usee .xbb for png/jpg/gif.
+	https://puszcza.gnu.org.ua/bugs/?257
+
 2015-06-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (save image name): use \Gin@ext rather than

@@ -23602,9 +23602,9 @@ For xml
 
 \<graphicx.4ht\><<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% graphicx.4ht                          |version %
-% Copyright (C) |CopyYear.2003.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
+% graphicx.4ht (|version), generated from |jobname.tex
+% Copyright (C) |CopyYear.2003. Eitan M. Gurari
+|<TeX4ht copywrite|>
    |<fix graphicx|>
 \Hinput{graphicx}
 \endinput
@@ -23627,6 +23627,9 @@ For xml
    \fi
    \Gin:esetsize
 }
+\DeclareGraphicsRule{.png}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.jpg}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.gif}{bmp}{.xbb}{}
 >>>
 
 The calc package redefined \`'\setlength' to allow expressions of the
