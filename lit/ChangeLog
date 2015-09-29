@@ -1,3 +1,11 @@
+2015-09-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (configure ooffice subscript),
+	* tex4ht-4ht.tex (subscript.4ht),
+	* tex4ht-html4.tex (configure html4 subscript):
+	support for \textsubscript.  http://puszcza.gnu.org.ua/bugs/?262
+	* Makefile (derived): add subscript.4ht.
+
 2015-08-05  Michal Hoftich  <michal.h21@gmail.com>
         and Karl Berry <karl@gnu.org>
 

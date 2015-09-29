@@ -11674,7 +11674,20 @@ OO doesn't seem to hono mfenced
     {\endWrap}
 >>>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{subscript}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\<configure ooffice subscript\><<<
+\Configure{textsubscript}
+  {\HCode{<text:span text:style-name="textsubscript">}}
+  {\HCode{</text:span>}} 
+\OOstyles{%
+<style:style style:name="textsubscript" style:family="text">\Hnewline
+   <style:text-properties style:text-position="sub"/>\Hnewline
+</style:style>\Hnewline
+}
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Notes}
