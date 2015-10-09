@@ -1,3 +1,14 @@
+2015-10-09  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex4ht_fonts_modern_derived): new var for l7x,
+ 	and make it a target in addition to noncjk_derived.
+
+2015-10-09   Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-modern.tex (l7x-lmcsc.htf, l7x-lm.htf): fixed
+	diacritic marks for Lithuanian language.
+	https://puszcza.gnu.org.ua/bugs/?263
+
 2015-09-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (configure ooffice subscript),
