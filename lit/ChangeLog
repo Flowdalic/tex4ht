@@ -1,3 +1,11 @@
+2015-10-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (tcrm-uni): Updated support for textcomp
+	font tcrm.
+	* Makefile (tex4ht_fonts_noncjk_derived): add derived file
+	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/jknappen/tc/tcrm.htf.
+	https://puszcza.gnu.org.ua/bugs/?264
+
 2015-10-09  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (tex4ht_fonts_modern_derived): new var for l7x,
