@@ -1,3 +1,16 @@
+2015-12-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (il2-pl.tcx url encoder): Fix the file
+	encoding. It is related to a earlier bug in tex4ht-html4.tex,
+	where input encoding error was reported with package babel when
+	LuaLaTeX was used for compilation.  Just
+	\input{html4-l2-url.4ht}.
+	Report from Guido Milanese, Dec 18 23:29:28 CET 2015,
+	http://tug.org/pipermail/tex4ht/2015q4/001326.html.
+
+	* tex4ht-4ht.tex (<frenchb luatex>, frenchn.4ht): disable LuaTeX
+	callback which causes tex4ht command to fail.
+
 2015-10-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (tcrm-uni): Updated support for textcomp

@@ -21443,6 +21443,7 @@ Note: we should distinguish between
 |<TeX4ht copyright|>
 |<declare frenchb shorthand|>
 |<frenchb nbsp|>
+|<frenchb luatex|>
 \Hinput{frenchb}
 \endinput
 >>>        \AddFile{8}{frenchb}
@@ -21480,6 +21481,12 @@ Note: we should distinguish between
 \NewConfigure{frenchb-nbsp}{2}
 \NewConfigure{frenchb-thinspace}{2}
 \NewConfigure{system-nbsp}{2}
+>>>
+
+\<frenchb luatex\><<<
+\ifFB@luatex@punct
+\FB@luatex@punctfalse
+\fi
 >>>
 
 \<pre 2001/09/09 v1.5g frenchb\><<<
