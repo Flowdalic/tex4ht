@@ -1,3 +1,7 @@
+2016-01-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): Fix for version checking
+
 2015-12-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (il2-pl.tcx url encoder): Fix the file

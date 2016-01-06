@@ -1843,7 +1843,7 @@ and \''\Tg'.
 >>>
 
 \<config biblatex\><<<
-\ifdefstring{\abx@version}{3.0}{\xdef\blx:ver:no{3}}{\xdef\blx:ver:no{2.9}}
+\ifdim\abx@version pt< 3pt \xdef\blx:ver:no{2}\else\xdef\blx:ver:no{3}\fi
 \ifx\a:printshorthands\Undef\let\blx@shorthands\@empty\fi
 \ifx\blx@startbib\:UnDef
  \pend:def\blx@shorthands{%
