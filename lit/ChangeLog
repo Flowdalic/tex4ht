@@ -1,3 +1,9 @@
+2016-01-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (hyperref.4ht): Added support for \nameref* command,
+	http://tex.stackexchange.com/q/285339/2891,
+	http://puszcza.gnu.org.ua/bugs/?269.
+
 2016-01-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): Fix for version checking
