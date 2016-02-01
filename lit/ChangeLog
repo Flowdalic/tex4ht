@@ -1,3 +1,8 @@
+2016-02-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (pcrro8r.htf): Fixed some wrong characters.
+        http://puszcza.gnu.org.ua/bugs/?271
+
 2016-01-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (hyperref.4ht): Added support for \nameref* command,
