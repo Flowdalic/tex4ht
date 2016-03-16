@@ -2034,6 +2034,40 @@ and \''\Tg'.
 \else
 % Biblatex 3.0
 % 
+% Hacks for biblatex
+% MakeUppercase is redefined by tex4ht, biblatex tries to redefine it as well, but it relies on original 
+% LaTeX version:
+\DeclareRobustCommand{\MakeUppercase}[1]{{%
+    \def\i{I}\def\j{J}%
+    \def\reserved@a##1##2{\let##1##2\reserved@a}%
+    \expandafter\reserved@a\@uclclist\reserved@b{\reserved@b\@gobble}%
+    \protected@edef\reserved@a{\uppercase{#1}}%
+    \reserved@a
+}}
+% Same applies also for \MakeLowercase
+\DeclareRobustCommand{\MakeLowercase}[1]{{%
+    \def\reserved@a##1##2{\let##2##1\reserved@a}%
+    \expandafter\reserved@a\@uclclist\reserved@b{\reserved@b\@gobble}%
+    \protected@edef\reserved@a{\lowercase{#1}}%
+    \reserved@a
+}}
+
+% I don't really understand this, but language processing is broken by default
+% with biblatex. It loads language file, but it executes code which should be 
+% executed only in the case if the language file fails, it displays an error message
+% and language handling doesn't work. When we execute following code, the language 
+% files are loaded before checking of the success and it seems to work.
+ 
+\@ifpackageloaded{babel}
+      {% This is required for languages which are never explicitly selected
+        \def\do#1{\blx@lbxinput{#1}{}{}}%
+       \ifx\@empty\bbl@loaded\else%
+       \expandafter\docsvlist\expandafter{\bbl@loaded}%
+      \fi}{}%
+
+% Following macros doesn't seem to work with biblatex 3.4. We should make another test for
+% biblatex > 3.0 and < 3.3
+\ifdim\abx@version pt < 3.3pt 
  \protected\def\blx@bbl@entry#1#2#3{%
   \begingroup
   \edef\abx@field@entrykey{\detokenize{#1}}%
@@ -2096,6 +2130,7 @@ and \''\Tg'.
   \blx@bbl@titles
   \blx@bbl@hooks
   \endgroup}
+  \fi
 \fi % end of version boolean
 >>>
 

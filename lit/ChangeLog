@@ -1,3 +1,12 @@
+2016-03-16  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex4ht_4ht_derived): add biblatex.4ht.
+
+2016-03-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): support for biblatex 3.0.
+	http://puszcza.gnu.org.ua/bugs/?273>
+
 2016-02-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (pcrro8r.htf): Fixed some wrong characters.
