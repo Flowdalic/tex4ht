@@ -242,6 +242,7 @@ $(tex4ht_html32_derived): tex4ht-html32.tex $(common)
 $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
 	cp html4.4ht-released html4.4ht && latex $(tex_opts) $<
 	cp html4.4ht-released html4.4ht && latex $(tex_opts) $<
+	cp html4.4ht-released html4.4ht && latex $(tex_opts) $<
 	latex $(tex_opts) $<
 
 $(tex4ht_info_html4_derived): tex4ht-info-html4.tex $(common_info)
