@@ -2,7 +2,7 @@
 % compile 3 times:     latex tex4ht-docbook   
 %                or  xhlatex tex4ht-docbook "html,3,sections+"
 %
-% Copyright (C) 2009-2013 TeX Users Group
+% Copyright (C) 2009-2016 TeX Users Group
 % Copyright (C) 2000-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -352,9 +352,8 @@ The front and back elements are optional.
 
 
 \<tex4ht sig\><<<
-\HCode{\Hnewline<!--translated from \jobname.tex, on \:today,
-     \Hnewline by TeX4ht  (http://www.cse.ohio-state.edu/\string
-       ~gurari/TeX4ht/) 
+\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (http://tug.org/tex4ht/) 
      \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
 \:CheckOption{-xtpipes} \if:Option 
    \Log:Note{Use the `-xtpipes' command line option to 
@@ -2697,7 +2696,7 @@ accent="true">&\#x0332;</\a:mathml mo></\a:mathml munder>}%
 \Configure{Preamble}
    {|<default cascade style sheets|>} {}
 \Configure{CssFile}{\jobname.css}
-  {/* \aa:CssFile\space from \jobname.tex (TeX4ht, \:today) */}
+  {/* \aa:CssFile\space from \jobname.tex (TeX4ht) */}
 \Configure{Needs}{l. 
    \the\inputlineno\space--- needs --- #1 ---}
 \Configure{Needs-}{l.

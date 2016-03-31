@@ -30,11 +30,11 @@ tex4ht_c_derived = tex4ht.c
 derived += $(tex4ht_cond4ht_derived)
 tex4ht_cond4ht_derived = cond4ht.4ht mktex4ht.4ht
 
-derived += $(tex4ht_docbook_xtpipes_derived)
-tex4ht_docbook_xtpipes_derived = docbook.4xt DbUtilities.java
-
 derived += $(tex4ht_docbook_derived)
 tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
+
+derived += $(tex4ht_docbook_xtpipes_derived)
+tex4ht_docbook_xtpipes_derived = docbook.4xt DbUtilities.java
 
 derived += $(tex4ht_env_derived)
 tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
@@ -66,11 +66,11 @@ tex4ht_fonts_modern_derived = \
 #derived += $(tex4ht_htcmd_derived)
 #tex4ht_htcmd_derived = htcmd.c
 
-derived += $(tex4ht_html_speech_xtpipes_derived)
-tex4ht_html_speech_xtpipes_derived = htspk.4xt HtSpk.java
-
 derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
+
+derived += $(tex4ht_html_speech_xtpipes_derived)
+tex4ht_html_speech_xtpipes_derived = htspk.4xt HtSpk.java
 
 derived += $(tex4ht_html0_derived)
 tex4ht_html0_derived = html0.4ht
@@ -84,6 +84,15 @@ tex4ht_html4_derived = \
   html4-l2-url.4ht html4-russian-accents.4ht \
   onmouseover.4ht exerqz.4ht  
 
+#xx big changes for unknown reasons derived += $(tex4ht_info_derived)
+tex4ht_info_derived = info4ht.4ht
+
+derived += $(tex4ht_info_html4_derived)
+tex4ht_info_html4_derived = infoht4.4ht
+
+derived += $(tex4ht_info_javahelp_derived)
+tex4ht_info_javahelp_derived = infojh.4ht
+
 derived += $(tex4ht_info_mml_derived)
 tex4ht_info_mml_derived = infomml.4ht
 
@@ -93,14 +102,11 @@ tex4ht_info_ooffice_derived = infoof.4ht
 derived += $(tex4ht_info_svg_derived)
 tex4ht_info_svg_derived = infosvg.4ht
 
-#xx derived += $(tex4ht_info_derived)
-tex4ht_info_derived = info4ht.4ht
+derived += $(tex4ht_javahelp_derived)
+tex4ht_javahelp_derived = javahelp.4ht javahelp-a.4ht
 
 derived += $(tex4ht_javahelp_xtpipes_derived)
 tex4ht_javahelp_xtpipes_derived = javahelp.4xt
-
-derived += $(tex4ht_javahelp_derived)
-tex4ht_javahelp_derived = javahelp.4ht javahelp-a.4ht
 
 derived += $(tex4ht_jsmath_derived)
 tex4ht_jsmath_derived = jsmath.4ht html-jsmath.4ht
@@ -121,6 +127,9 @@ tex4ht_mathml_derived = mathml.4ht html-mml.4ht
 
 derived += $(tex4ht_mathplayer_derived)
 tex4ht_mathplayer_derived = mathplayer.4ht
+
+derived += $(tex4ht_misc_derived)
+tex4ht_misc_derived = lettrine.4ht
 
 derived += $(tex4ht_mkht_derived)
 tex4ht_mkht_derived = mkht.4ht mk4ht.perl mkht-scripts.4ht
@@ -195,10 +204,10 @@ $(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex $(common)
 	tex $(tex_opts) $<
 	tex $(tex_opts) cond4ht.4ht
 
-$(tex4ht_docbook_xtpipes_derived): tex4ht-docbook-xtpipes.tex $(common)
+$(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
 	xhlatex $< "html,3" "" "-d./" $(tex_1opt)
 
-$(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
+$(tex4ht_docbook_xtpipes_derived): tex4ht-docbook-xtpipes.tex $(common)
 	xhlatex $< "html,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_env_derived): tex4ht-env.tex $(common)
@@ -235,6 +244,12 @@ $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
 	cp html4.4ht-released html4.4ht && latex $(tex_opts) $<
 	latex $(tex_opts) $<
 
+$(tex4ht_info_html4_derived): tex4ht-info-html4.tex $(common_info)
+	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
+
+$(tex4ht_info_javahelp_derived): tex4ht-info-javahelp.tex $(common_info)
+	htlatex $< "html,sections+" "" "-d./" $(tex_1opt)
+
 $(tex4ht_info_mml_derived): tex4ht-info-mml.tex $(common_info)
 	htlatex $< "html,sections+" "" "-d./" $(tex_1opt)
 
@@ -247,11 +262,11 @@ $(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common_info)
 $(tex4ht_info_derived): tex4ht-info.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
-$(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
-	htlatex $< "xhtml,next,3" "" "-d./" $(tex_1opt)
-
 $(tex4ht_javahelp_derived): tex4ht-javahelp.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
+
+$(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
+	htlatex $< "xhtml,next,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
@@ -270,6 +285,9 @@ $(tex4ht_mathml_derived): tex4ht-mathml.tex $(common)
 
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
+
+$(tex4ht_misc_derived): tex4ht-misc.tex $(common)
+	ht tex $<
 
 $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
 	latex $(tex_opts) $<
