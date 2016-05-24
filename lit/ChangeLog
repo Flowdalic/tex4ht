@@ -1,3 +1,9 @@
+2016-05-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (geometry.4ht): new file to turn off frame-drawing.
+	<http://puszcza.gnu.org.ua/bugs/?303>
+	* Makefile (tex4ht_4ht_derived): add it.
+
 2016-05-22  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-c.tex (search_file): return NULL rather than FALSE
