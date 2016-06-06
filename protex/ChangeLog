@@ -1,3 +1,8 @@
+2016-06-06  Karl Berry  <karl@freefriends.org>
+
+	* ProTex.sty,
+	* AlProTex.sty: update copyright notices.
+
 2016-06-05 Deimantas Galcius <deimi@vtex.lt>
 
 	* ProTex.sty (ExpandDefSrcLineNo): new macro, with friends.
