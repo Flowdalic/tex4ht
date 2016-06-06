@@ -67,12 +67,28 @@
 \newtoks\:tokens
 \def\:ExpandDef#1#2#3{%
    \:tokens=\expandafter{#1#2}%
-   \xdef#1{\the\:tokens #3}}\def\:defaultcats{%
+   \xdef#1{\the\:tokens #3}}
+
+\def\:defaultcats{%
   \:NoSpecials{12}{0}{255}%
   \:NoSpecials{11}{65}{90}%
   \:NoSpecials{11}{97}{122}%
   \catcode`\\=0  \catcode`\{=1    \catcode`\}=2
   \catcode`\ =13 \catcode`\^^M=13 \catcode`\^^I=13 }
+
+\newtoks\:tokensi
+\newtoks\:tokensii
+\def\:ExpandDefSrcLineNo#1#2#3{%
+   \:tokens=\expandafter{#1}%
+   \:tokensii={#2}%
+   \edef\@a@{\noexpand\:tokensi={\CodeInputLine}}\@a@
+   \xdef#1{\the\:tokens\the\:tokensi\the\:tokensii #3}}
+\def\:srclinebol{\%}
+\def\srclineBOL#1{\gdef\:srclinebol{#1}}
+\def\CodeInputLine{%
+  ^^J\:srclinebol line \CodeInputLineNo\space "./\jobname.tex"^^J}%
+\def\SetOutputWithLineNo{\let\:ExpandDef\:ExpandDefSrcLineNo}
+\let\CodeLineNo\SetOutputWithLineNo
 
 \def\:NoSpecials#1#2#3{\edef\:temp{\the\:CodeNumber}%
   \global\:CodeNumber=#3

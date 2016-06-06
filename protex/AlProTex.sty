@@ -953,6 +953,21 @@
       \:temp}}
   \fi
 \fi
+
+%% Set source line numbers in the output
+%% \srclineBOL{symbol} - to change a beginning-of-line symbol
+%% \CodeInputLine - to change all the string. 
+%% 
+\:CheckOption{CodeLineNo}
+\if:Option
+  %% Set beginning-of-line symbol to #
+  %% if extension is c (case sensitive) 
+  \if\:InitAlProTex c\relax
+    \srclineBOL{\#}  
+  \fi
+ \SetOutputWithLineNo
+\fi
+
 \:CheckOption{eline}
 \catcode`\%=12
 \if:Option
