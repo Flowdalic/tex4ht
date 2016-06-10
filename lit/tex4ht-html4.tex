@@ -1757,7 +1757,7 @@ should be used whe addcontentline instructions are present.
 \<configure html4 latex\><<<
 \Configure{TocAt}
    {|<save configure tableofcontents|>%
-    \Configure{tableofcontents}
+           \Configure{tableofcontents}
        {\IgnorePar\EndP\HCode{<div class="\sec:typ TOCS">}\IgnorePar}
        {}{\IgnorePar\HCode{</div>}\ShowPar}{\HCode{<br />}}{}%
     \ifvmode \IgnorePar\fi \EndP
@@ -14896,7 +14896,7 @@ imported from aux or another file.
    {\gHAdvance\fancyvrb:cnt by 1
     \ifnum \fancyvrb:cnt>1 
     \HCode{<br class="fancyvrb" />}\fi} {}
-   {\ \ }{}
+   {}{}
 \Css{P.fancyvrb {white-space: nowrap; margin:0em;}}
 >>>
 
