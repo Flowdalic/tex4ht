@@ -129,9 +129,6 @@ tex4ht_mathml_derived = mathml.4ht html-mml.4ht
 derived += $(tex4ht_mathplayer_derived)
 tex4ht_mathplayer_derived = mathplayer.4ht
 
-derived += $(tex4ht_misc_derived)
-tex4ht_misc_derived = lettrine.4ht
-
 derived += $(tex4ht_mkht_derived)
 tex4ht_mkht_derived = mkht.4ht mk4ht.perl mkht-scripts.4ht
 
@@ -287,9 +284,6 @@ $(tex4ht_mathml_derived): tex4ht-mathml.tex $(common)
 
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
-
-$(tex4ht_misc_derived): tex4ht-misc.tex $(common)
-	ht tex $<
 
 $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
 	latex $(tex_opts) $<
