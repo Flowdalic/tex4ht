@@ -15349,9 +15349,11 @@ IE doesn't distinguish between upper and lower case characters in css
    {\egroup \ifvmode \IgnorePar\fi \HCode{</div>}}
    {}{}
 \Configure{ALCitem}
-   {\HCode{\ifnum \c@ALC@line>1 <br />\fi <span class="ALCitem">}}
-   {\HCode{</span><span style="width:\the\ALC@tlm ;">&nbsp;</span>}}
-\Css{.ALCitem {width:2em; text-align:right;}}
+   {\NoFonts\HCode{\ifnum \c@ALC@line>1 <br />\fi <span class="ALCitem">}}
+   {\HCode{</span><span class="ALIndent" style="width:\the\ALC@tlm ;">&nbsp;</span>}\EndNoFonts}
+\Css{.ALCitem {width:2em; text-align:right;display:inline-block;font-size:0.8em;}}
+\Css{.ALIndent{display:inline-block;}}
+
 >>>
 
 

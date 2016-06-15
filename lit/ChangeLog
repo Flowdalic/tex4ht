@@ -1,5 +1,11 @@
 2016-06-15  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex: Fixed configurations for algorithmic package -
+	indentation and line number align
+	<https://puszcza.gnu.org.ua/bugs/index.php?314>
+
+2016-06-15  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-4ht.tex,
 	* tex4ht-misc.tex: move definitions for lettrine to tex4ht-4ht.tex
 	* Makefile: don't compile tex4ht-misc.tex, it causes overwritting of
