@@ -23,6 +23,16 @@
 	* tex4ht-4ht.tex: enable new protex option CodeLineNo.
 	http://puszcza.gnu.org.ua/bugs/?136
 
+2016-06-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex:  added \:dontusepackage macro for package loading
+	preventing. Changed \@onefilewithoptions patching, second argument is read
+	and saved.
+	* tex4ht-4ht.tex:  added savetrees.sty to list of packages detected upon
+	their loading. It is blocked from loading, as it causes tex4ht to fail
+	* Makefile: added derived files
+	https://puszcza.gnu.org.ua/bugs/?309
+
 2016-05-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (geometry.4ht): new file to turn off frame-drawing.

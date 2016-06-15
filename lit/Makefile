@@ -19,7 +19,7 @@ tex4ht_4ht_derived = \
   geometry.4ht graphicx.4ht hyperref.4ht listings.4ht \
   memoir.4ht multicol.4ht quoting.4ht reading.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht spanish.4ht subscript.4ht \
-  titlesec.4ht tocloft.4ht wrapfig.4ht 
+  titlesec.4ht tocloft.4ht wrapfig.4ht usepackage.4ht
 # and many, many more.
 
 derived += $(tex4ht_bibtex2_derived)
@@ -45,6 +45,10 @@ tex4ht_fonts_cjk_derived = tex4ht-fonts-cjk.html # and lots more
 
 derived += $(tex4ht_fonts_cjk_utf8_derived)
 tex4ht_fonts_cjk_utf8_derived = tex4ht-fonts-cjk-utf8.html # and lots more
+
+
+derived += $(tex4ht_sty_derived)
+tex4ht_sty_derived = tex4ht.sty
 
 # noncjk.tex \input's modern, but seems more maintainable
 # to have separate lists.

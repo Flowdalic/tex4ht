@@ -560,6 +560,7 @@ and the *.4ht files.
    |<try taking care of hyperref.sty|>
    |<early latex subs/sups|> 
 \fi
+|<block package loading|>
 |<hook at usepackage|>
 >>>
 
@@ -570,18 +571,26 @@ The following is a temporary patch, waiting fo a fix in hyperref.sty.
 \expandafter\def\csname opt@hyperref.sty\endcsname{tex4ht}
 >>>
 
+\<block package loading\><<<
+\def\:dontusepackage#1{%
+  \typeout{tex4ht warning: package #1 was prevented from loading}
+  \@namedef{ver@#1.sty}{9999/12/31}%
+  \@namedef{opt@#1.sty}{\:currentoptions}
+}
+>>>
+
 \<hook at usepackage\><<<
 \let\:onefilewithoptions\@onefilewithoptions
-\def\@onefilewithoptions#1[{%
+\def\@onefilewithoptions#1[#2]{%
    \let\:temp\@reset@ptions
    \def\@reset@ptions{%
       \let\@reset@ptions\:temp
       |<cats for usepackage|>\a:usepackage
       |<recall usepackage cats|>}%
-   \:onefilewithoptions#1[}
+      \def\:currentoptions{#2}
+ \:onefilewithoptions#1[#2]}
 \def\a:usepackage{\input usepackage.4ht }
 >>>
-
 \<cats for usepackage\><<<
 \edef\TivhTcats{%
    \catcode`:=\the\catcode`:%
@@ -592,7 +601,6 @@ The following is a temporary patch, waiting fo a fix in hyperref.sty.
 \<recall usepackage cats\><<<
 \TivhTcats
 >>>
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Second Pass}
