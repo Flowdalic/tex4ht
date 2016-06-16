@@ -1,3 +1,7 @@
+2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex: Fixed lstinline configuration - spurious \aftergroup
+
 2016-06-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex: Fixed configurations for algorithmic package -
