@@ -8658,10 +8658,10 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \Configure{appendix}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="appendixHead"\a:LRdir>}%
      \TitleMark{\HCode{<br />}}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{likechapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="likechapterHead"\a:LRdir>}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 >>>
 
 \<32,4 report,book\><<<
@@ -8796,14 +8796,14 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \Configure{chapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="chapterHead"\a:LRdir>}%
     \if@mainmatter \TitleMark{\HCode{<br />}}\fi }
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{appendix}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="appendixHead"\a:LRdir>}%
     \if@mainmatter \TitleMark{\HCode{<br />}}\fi }
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{likechapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="likechapterHead"\a:LRdir>}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 >>>
 
 
@@ -9041,7 +9041,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \<ams book\><<<
 \Configure{likepart}{}{}
    {\IgnorePar\EndP\HCode{<h1 class="likepartHead"\a:LRdir>}}
-   {\HCode{</h1>}\IgnoreIndent}
+   {\HCode{</h1>}\IgnoreIndent\par}
 \Configure{likepartTITLE+}{#1}
 >>>
 
@@ -9146,11 +9146,11 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \Configure{appendix}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="appendixHead"\a:LRdir>}%
     \TitleMark{\HCode{<br />}}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{appendixTITLE+}{\thechapter\space#1}
 \Configure{likechapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="likechapterHead"\a:LRdir>}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{likechapterTITLE+}{#1}
 >>>
 
@@ -10246,7 +10246,7 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
    \thechapter\HCode{</span>}}
 \Configure{appendix}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="appendixHead"\a:LRdir>}\TitleMark{}.~~}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{appendixTITLE+}{\thechapter\space#1}
 \Configure{likechapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="likechapterHead"\a:LRdir>}}
@@ -10986,7 +10986,7 @@ a \par b
 \<mwcls divs\><<<
 \Configure{likepart}{}{}
    {\IgnorePar\EndP\HCode{<h1 class="likepartHead"\a:LRdir>}}
-   {\HCode{</h1>}\IgnoreIndent}
+   {\HCode{</h1>}\IgnoreIndent\par}
 \Configure{likepartTITLE+}{#1}
 >>>
 
@@ -11252,68 +11252,68 @@ a \par b
 \ConfigureMark{chapter}{\the\chapno}
 \Configure{chapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="chapterHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \ConfigureMark{appendix}{\appendixletter}
 \Configure{appendix}{}{}
    {\IgnorePar\EndP
     \HCode{<h2 class="appendixHead"\a:LRdir>}Appendix \TitleMark\space}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{unnumbered}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="unnumberedHead"\a:LRdir>}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \ConfigureMark{numberedsec}{\the\chapno.\the\secno}
 \Configure{numberedsec}{}{}
    {\IgnorePar\EndP\HCode{<h3 
        class="numberedsecHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h3>}\IgnoreIndent}
+   {\HCode{</h3>}\IgnoreIndent\par}
 \ConfigureMark{appendixsec}{\appendixletter.\the\secno}
 \Configure{appendixsec}{}{}
    {\IgnorePar\EndP\HCode{<h3 
        class="appendixsecHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h3>}\IgnoreIndent}
+   {\HCode{</h3>}\IgnoreIndent\par}
 \Configure{unnumberedsec}{}{}
    {\IgnorePar\EndP\HCode{<h3 class="unnumberedsecHead"\a:LRdir>}}
-   {\HCode{</h3>}\IgnoreIndent}
+   {\HCode{</h3>}\IgnoreIndent\par}
 \ConfigureMark{numberedsubsec}{\the\chapno.\the\secno .\the\subsecno}
 \Configure{numberedsubsec}{}{}
    {\IgnorePar\EndP\HCode{<h4 
        class="numberedsubsecHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h4>}\IgnoreIndent}
+   {\HCode{</h4>}\IgnoreIndent\par}
 \ConfigureMark{appendixsubsec}{\appendixletter .\the\secno.\the\subsecno}
 \Configure{appendixsubsec}{}{}
    {\IgnorePar\EndP\HCode{<h4 
      class="appendixsubsecHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h4>}\IgnoreIndent}
+   {\HCode{</h4>}\IgnoreIndent\par}
 \ConfigureMark{appendixsubsec}{\appendixletter.\the\secno
                                         .\the\subsecno}
 \Configure{appendixsubsec}{}{}
    {\IgnorePar\EndP\HCode{<h4 
        class="appendixsubsecHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h4>}\IgnoreIndent}
+   {\HCode{</h4>}\IgnoreIndent\par}
 \Configure{unnumberedsubsec}{}{}
    {\IgnorePar\EndP\HCode{<h4 class="unnumberedsubsecHead"\a:LRdir>}}
-   {\HCode{</h4>}\IgnoreIndent}
+   {\HCode{</h4>}\IgnoreIndent\par}
 \ConfigureMark{numberedsubsubsec}{\the\chapno.\the\secno
                       .\the\subsecno.\the\subsubsecno}
 \Configure{numberedsubsubsec}{}{}
    {\IgnorePar\EndP\HCode{<h5 
        class="numberedsubsubsecHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h5>}\IgnoreIndent}
+   {\HCode{</h5>}\IgnoreIndent\par}
 \ConfigureMark{appendixsubsubsec}{\appendixletter
              .\the\secno.\the\subsecno.\the\subsubsecno}
 \Configure{appendixsubsubsec}{}{}
    {\IgnorePar\EndP\HCode{<h5 
      class="appendixsubsubsecHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h5>}\IgnoreIndent}
+   {\HCode{</h5>}\IgnoreIndent\par}
 \ConfigureMark{appendixsubsubsec}{\appendixletter.\the\secno
                                   .\the\subsecno.\the\subsubsecno}
 \Configure{appendixsubsubsec}{}{}
    {\IgnorePar\EndP\HCode{<h5 
        class="appendixsubsubsecHead"\a:LRdir>}\TitleMark\space}
-   {\HCode{</h5>}\IgnoreIndent}
+   {\HCode{</h5>}\IgnoreIndent\par}
 \Configure{unnumberedsubsubsec}{}{}
    {\IgnorePar\EndP\HCode{<h5 class="unnumberedsubsubsecHead"\a:LRdir>}}
-   {\HCode{</h5>}\IgnoreIndent}
+   {\HCode{</h5>}\IgnoreIndent\par}
 >>>
 
 \<configure html4 texinfo\><<<
@@ -16878,7 +16878,7 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 \Configure{chapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="chapterHead"\a:LRdir>}%
     \TitleMark{\HCode{<br />}}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{chapterTITLE+}{\if@mainmatter\thechapter\space\fi#1}
 \renewcommand\thechapter {\if@mainmatter\@arabic\c@chapter\fi}
 
@@ -16887,11 +16887,11 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 \Configure{appendix}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="appendixHead"\a:LRdir>}%
      \TitleMark{\HCode{<br />}}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{appendixTITLE+}{\thechapter\space#1}
 \Configure{likechapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="likechapterHead"\a:LRdir>}}
-   {\HCode{</h2>}\IgnoreIndent}
+   {\HCode{</h2>}\IgnoreIndent\par}
 >>>
 
 

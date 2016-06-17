@@ -1,5 +1,11 @@
 2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex: added \par command to sectioning commands, there would
+	be text outside paragraphs otherwise
+	<https://puszcza.gnu.org.ua/bugs/?279>
+
+2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-4ht.tex: Replaced non-breaking space with normal spaces
 	<https://puszcza.gnu.org.ua/bugs/?316>
 
