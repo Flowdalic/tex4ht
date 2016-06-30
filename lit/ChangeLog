@@ -1,36 +1,41 @@
+2016-06-30  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (latex.4ht): unify copyright notice.
+
 2016-06-30  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex: added \hbox{} to actived hyphen in order to prevent
-	ligatures in environments defined with \ScriptEnv
-	<https://puszcza.gnu.org.ua/bugs/?319>
+	* tex4ht-4ht.tex (latex.4ht): added \hbox{} to active
+	hyphen in order to prevent ligatures in environments defined
+	with \ScriptEnv.
+        <https://puszcza.gnu.org.ua/bugs/?319>
 
 2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex: added \par command to sectioning commands, there would
-	be text outside paragraphs otherwise
+	* tex4ht-html4.tex: added \par command to sectioning commands,
+	there would be text outside paragraphs otherwise.
 	<https://puszcza.gnu.org.ua/bugs/?279>
 
 2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex: Replaced non-breaking space with normal spaces
+	* tex4ht-4ht.tex: Replaced non-breaking space with normal spaces.
 	<https://puszcza.gnu.org.ua/bugs/?316>
 
 2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex: Fixed lstinline configuration - spurious \aftergroup
+	* tex4ht-4ht.tex: Fixed lstinline configuration - spurious \aftergroup.
 
 2016-06-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex: Fixed configurations for algorithmic package -
-	indentation and line number align
+	indentation and line number align.
 	<https://puszcza.gnu.org.ua/bugs/index.php?314>
 
 2016-06-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex,
-	* tex4ht-misc.tex: move definitions for lettrine to tex4ht-4ht.tex
+	* tex4ht-misc.tex: move definitions for lettrine to tex4ht-4ht.tex.
 	* Makefile: don't compile tex4ht-misc.tex, it causes overwritting of
-	mktex4ht.cnf
+	mktex4ht.cnf.
 
 2016-06-10  Michal Hoftich  <michal.h21@gmail.com>
 
