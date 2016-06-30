@@ -1,3 +1,9 @@
+2016-06-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex: added \hbox{} to actived hyphen in order to prevent
+	ligatures in environments defined with \ScriptEnv
+	<https://puszcza.gnu.org.ua/bugs/?319>
+
 2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex: added \par command to sectioning commands, there would

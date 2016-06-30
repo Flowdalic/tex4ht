@@ -19,7 +19,8 @@ tex4ht_4ht_derived = \
   geometry.4ht graphicx.4ht hyperref.4ht listings.4ht \
   memoir.4ht multicol.4ht quoting.4ht reading.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht spanish.4ht subscript.4ht \
-  titlesec.4ht tocloft.4ht wrapfig.4ht usepackage.4ht algorithmic.4ht
+  titlesec.4ht tocloft.4ht wrapfig.4ht usepackage.4ht algorithmic.4ht \
+	latex.4ht
 # and many, many more.
 
 derived += $(tex4ht_bibtex2_derived)

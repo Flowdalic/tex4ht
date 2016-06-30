@@ -5202,6 +5202,7 @@ Postbus 23656
 
 \<html latex local env\><<<
 \bgroup
+\gdef\:scriptenv:breakhyphen{\hbox{}}
   \catcode`\-=13
   \catcode`\(=1   \catcode`\)=2  \catcode`\/=0
   \catcode`\{=12   \catcode`\}=12  \catcode`\\=12
@@ -5215,7 +5216,7 @@ Postbus 23656
    /expandafter/def/csname
       b:#1/endcsname(/bgroup /catcode`/-=13 
      /def/:temp####1\end{#1}(/egroup 
-         /def-(/string-/relax)%
+         /def-(/string-/:scriptenv:breakhyphen/relax)%
          ####1/:EndVerbatim%
          /expandafter/def/csname end#1/endcsname()%
          /end(#1))%
