@@ -16,12 +16,11 @@ derived =
 derived += $(tex4ht_4ht_derived)
 tex4ht_4ht_derived = \
   algorithmic.4ht biblatex.4ht book.4ht frenchb.4ht \
-  geometry.4ht graphicx.4ht hyperref.4ht listings.4ht \
+  geometry.4ht graphicx.4ht hyperref.4ht latex.4ht listings.4ht \
   memoir.4ht multicol.4ht quoting.4ht reading.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht spanish.4ht subscript.4ht \
-  titlesec.4ht tocloft.4ht wrapfig.4ht usepackage.4ht \
-	latex.4ht
-# and many, many more.
+  titlesec.4ht tocloft.4ht wrapfig.4ht usepackage.4ht
+# xx and many, many more.
 
 derived += $(tex4ht_bibtex2_derived)
 tex4ht_bibtex2_derived = bibtex2.4ht
@@ -47,10 +46,6 @@ tex4ht_fonts_cjk_derived = tex4ht-fonts-cjk.html # and lots more
 derived += $(tex4ht_fonts_cjk_utf8_derived)
 tex4ht_fonts_cjk_utf8_derived = tex4ht-fonts-cjk-utf8.html # and lots more
 
-
-derived += $(tex4ht_sty_derived)
-tex4ht_sty_derived = tex4ht.sty
-
 # noncjk.tex \input's modern, but seems more maintainable
 # to have separate lists.
 derived += $(tex4ht_fonts_noncjk_derived)
@@ -65,7 +60,7 @@ tex4ht_fonts_noncjk_derived = \
 tex4ht_fonts_modern_derived = \
   tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/l7x-lmcsc.htf \
   tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/l7x-lm.htf  
-# and lots more
+# xx and lots more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
 
 # htcmd not used
@@ -153,6 +148,9 @@ tex4ht_ooimpress_derived = ooimpress.4ht
 
 derived += $(tex4ht_options_derived)
 tex4ht_options_derived = tex4ht.4ht
+
+derived += $(tex4ht_sty_derived)
+tex4ht_sty_derived = tex4ht.sty
 
 derived += $(tex4ht_svg_derived)
 tex4ht_svg_derived = svg.4ht html4-svg.4ht

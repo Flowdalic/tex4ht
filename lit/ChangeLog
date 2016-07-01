@@ -1,3 +1,8 @@
+2016-07-01  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-sty.tex (tex4ht.sty),
+	* tex4ht-4ht.tex (usepackage.4ht): unify copyright notices.	
+
 2016-06-30  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (latex.4ht): unify copyright notice.
@@ -11,13 +16,14 @@
 
 2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex: added \par command to sectioning commands,
-	there would be text outside paragraphs otherwise.
+	* tex4ht-html4.tex (html4.4ht): added \par command to sectioning
+	commands, text can be outside paragraphs otherwise.
 	<https://puszcza.gnu.org.ua/bugs/?279>
 
 2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex: Replaced non-breaking space with normal spaces.
+	* tex4ht-4ht.tex (html4.4ht): Replaced non-breaking Unicode space with
+	normal spaces.
 	<https://puszcza.gnu.org.ua/bugs/?316>
 
 2016-06-16  Michal Hoftich  <michal.h21@gmail.com>
@@ -26,8 +32,8 @@
 
 2016-06-15  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex: Fixed configurations for algorithmic package -
-	indentation and line number align.
+	* tex4ht-html4.tex (html4.4ht): Fixed configurations for
+	algorithmic package - indentation and line number align.
 	<https://puszcza.gnu.org.ua/bugs/index.php?314>
 
 2016-06-15  Michal Hoftich  <michal.h21@gmail.com>
@@ -57,12 +63,13 @@
 
 2016-06-09  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-sty.tex:  added \:dontusepackage macro for package loading
-	preventing. Changed \@onefilewithoptions patching, second argument is read
-	and saved.
-	* tex4ht-4ht.tex:  added savetrees.sty to list of packages detected upon
-	their loading. It is blocked from loading, as it causes tex4ht to fail
-	* Makefile: added derived files
+	* tex4ht-sty.tex (tex4ht.sty): added \:dontusepackage macro for
+	package loading preventing. Changed \@onefilewithoptions
+	patching, second argument is read and saved.
+	* tex4ht-4ht.tex (usepackage.4ht): added savetrees.sty to list
+	of packages detected upon their loading. It is blocked from
+	loading, as it causes tex4ht to fail.
+	* Makefile: add derived files.
 	https://puszcza.gnu.org.ua/bugs/?309
 
 2016-05-24  Michal Hoftich  <michal.h21@gmail.com>
