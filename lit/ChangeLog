@@ -1,3 +1,8 @@
+2016-07-02  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (lettrine.4ht): delete the .lettrine-Agrave css
+	with literal Agraves, to avoid encoding agony.  Update copyright.
+
 2016-07-01  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-sty.tex (tex4ht.sty),

@@ -16,7 +16,7 @@ derived =
 derived += $(tex4ht_4ht_derived)
 tex4ht_4ht_derived = \
   algorithmic.4ht biblatex.4ht book.4ht frenchb.4ht \
-  geometry.4ht graphicx.4ht hyperref.4ht latex.4ht listings.4ht \
+  geometry.4ht graphicx.4ht hyperref.4ht latex.4ht lettrine.4ht listings.4ht \
   memoir.4ht multicol.4ht quoting.4ht reading.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht spanish.4ht subscript.4ht \
   titlesec.4ht tocloft.4ht wrapfig.4ht usepackage.4ht
@@ -445,9 +445,12 @@ clean1:
 diff_files = $(tex4ht_mathml_derived) $(tex4ht_html_speech_derived) \
              $(tex4ht_jsml_derived) $(tex4ht_mathltx_derived)
 inst_dir = /usr/local/texlive/dev/texmf-dist/tex/generic/tex4ht
-diff = diff --ignore-all-space
+diff = diff --ignore-all-space --ignore-blank-lines
 diff:
 	-for f in $(diff_files); do $(diff) -u0 $(inst_dir)/$$f .; done
+
+dif:
+	htdiff $d
 
 mostlyclean:
 	rm -f $(derived)
