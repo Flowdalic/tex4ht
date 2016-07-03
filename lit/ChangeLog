@@ -1,3 +1,10 @@
+2016-07-03  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex,
+	* tex4ht-auto-script.tex,
+	* tex4ht-env.tex,
+	* tex4ht-sty.tex: 
+
 2016-07-02  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (lettrine.4ht): delete the .lettrine-Agrave css

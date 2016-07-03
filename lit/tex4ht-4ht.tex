@@ -3099,7 +3099,7 @@ sectional unit. It has been fixed now.
 
 % Version 2 configurations for nameref.4ht was added consequent to
 % bugs reported by Martin Heller <mr_heller@yahoo.dk> and  Denis
-% Bitouzé <dbitouze@wanadoo.fr>. A thorough revamping was needed to
+% Bitouz\'e <dbitouze@wanadoo.fr>. A thorough revamping was needed to
 % fix the problems. Apparently, in my tests, all reported problems
 % seem to have been fixed, though, \label{...} when used inside the
 % caption appears when \nameref'ed. Also, \@begintheorem with amsthm
@@ -21503,7 +21503,7 @@ Note: we should distinguish between
 % \catcode`\:=11
 % >>>
 
-% \`=With the package « \usepackage[francais]{babel} », every `;' `:' ...
+% \`=With the package \usepackage[francais]{babel} , every `;' `:' ...
 %  must be preceded by an unbreakable space.  This works okay for the
 %  input `a:' and `a :', but for `a~:' TeX4ht introduces _2_ unbreakable
 %  spaces instead of one.=
@@ -21623,7 +21623,7 @@ The following is for code such as
 \catcode`\:=11
 >>>
 
-\`=With the package « \usepackage[francais]{babel} », every `;' `:' ...
+\`=With the package  \usepackage[francais]{babel} , every `;' `:' ...
  must be preceded by an unbreakable space.  This works okay for the
  input `a:' and `a :', but for `a~:' TeX4ht introduces _2_ unbreakable
  spaces instead of one.=
@@ -21661,12 +21661,12 @@ The following is for code such as
 
 > A minor problem showed up with hyphenation hints. In the german
 > language, compound words of different languages are built with
-> a hyphen between them, e.g. "Select-Klausel" or "depends-Abhängigkeit", 
+> a hyphen between them, e.g. "Select-Klausel" or "depends-Abh\"angigkeit", 
 > to make the change of language clear (there are other reasons for
 > explicit hyphens, too). Since TeX does not hyphenate such compounds,
 > and they can get very long in german, we use a macro "" (with active
 > doublequote), defined as \hskip\z@skip, so TeX will hyphenate again:
-> Select-""Klausel, depends-""Abh"angigkeit ("a is short for \"{a} = ä).
+> Select-""Klausel, depends-""Abh"angigkeit ("a is short for \"{a}).
 > tex4ht translates this to a space, which makes sense since browsers
 > will not break the compounds without that space either. However, I'd
 > prefer to not have such spaces. Could this be configurable?
