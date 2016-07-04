@@ -9,7 +9,7 @@ tex_1opt = "$(tex_opts)"
 
 default: all
 
-common = tex4ht-cpright.tex common.tex common-code.tex
+common = tex4ht-cpright.tex common.tex common-code.tex #ProTex.sty AlProTex.sty
 common_info = $(common) common-info.tex
 derived = 
 
@@ -445,8 +445,9 @@ clean1:
 diff_files = $(tex4ht_mathml_derived) $(tex4ht_html_speech_derived) \
              $(tex4ht_jsml_derived) $(tex4ht_mathltx_derived)
 inst_dir = /usr/local/texlive/dev/texmf-dist/tex/generic/tex4ht
-diff = diff --ignore-all-space --ignore-blank-lines
-diff:
+diff = diff --ignore-all-space --ignore-blank-lines \
+  --ignore-matching-lines='write-1.version\|, generated from\|Copyright'
+diff-all:
 	-for f in $(diff_files); do $(diff) -u0 $(inst_dir)/$$f .; done
 
 dif:

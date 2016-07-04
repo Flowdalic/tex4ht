@@ -1,5 +1,12 @@
 2016-07-04  Karl Berry  <karl@freefriends.org>
 
+	* tex4ht-html-speech.tex,
+	* tex4ht-jsml.tex,
+	* tex4ht-mathltx.tex: update copyrights.
+	* Makefile (diff-all): --ignore-matching-lines for boilerplate.
+
+2016-07-04  Karl Berry  <karl@freefriends.org>
+
 	* tex4ht-mkht.tex: don't hardwire c: paths.
 
 2016-07-03  Karl Berry  <karl@freefriends.org>
