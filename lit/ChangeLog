@@ -1,9 +1,13 @@
+2016-07-04  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-mkht.tex: don't hardwire c: paths.
+
 2016-07-03  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex,
 	* tex4ht-auto-script.tex,
 	* tex4ht-env.tex,
-	* tex4ht-sty.tex: 
+	* tex4ht-sty.tex: remove nonascii chars in comments.
 
 2016-07-02  Karl Berry  <karl@freefriends.org>
 
