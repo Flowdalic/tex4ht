@@ -9,7 +9,7 @@ tex_1opt = "$(tex_opts)"
 
 default: all
 
-common = tex4ht-cpright.tex common.tex common-code.tex #ProTex.sty AlProTex.sty
+common = tex4ht-cpright.tex common.tex common-code.tex ProTex.sty AlProTex.sty
 common_info = $(common) common-info.tex
 derived = 
 

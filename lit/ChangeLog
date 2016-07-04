@@ -1,3 +1,15 @@
+2016-06-05  Karl Berry  <karl@freefriends.org>
+
+	* ProTex.sty,
+	* AlProTex.sty: symlinks to ../protex, so dev versions will be used.
+	* Makefile (common): depend on them.
+
+	* tex4ht-4ht.tex,
+	* tex4ht-c.tex,
+	* tex4ht-4ht.tex: enable new protex option CodeLineNo to generate
+	#line directives in the .c files, and %line comments in *.4ht.
+	http://puszcza.gnu.org.ua/bugs/?136
+
 2016-07-04  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-html-speech.tex,
@@ -74,15 +86,6 @@
 	* tex4ht-ooffice.tex: remove explicit two-space indentation in
 	fancyvrb configuration; found by deimi.
 	<https://puszcza.gnu.org.ua/bugs/?308>
-
-2016-06-05  Karl Berry  <karl@freefriends.org>
-
-	* ProTex.sty,
-	* AlProTex.sty: symlinks to ../protex, so dev versions will be used.
-	* Makefile (common): depend on them.
-	* tex4ht-c.tex,
-	* tex4ht-4ht.tex: enable new protex option CodeLineNo.
-	http://puszcza.gnu.org.ua/bugs/?136
 
 2016-06-09  Michal Hoftich  <michal.h21@gmail.com>
 
