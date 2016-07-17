@@ -1,10 +1,14 @@
+2016-07-17  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (\CodeLineNo): disable again since Michal's
+	compilation fails.
+
 2016-06-05  Karl Berry  <karl@freefriends.org>
 
 	* ProTex.sty,
 	* AlProTex.sty: symlinks to ../protex, so dev versions will be used.
 	* Makefile (common): depend on them.
 
-	* tex4ht-4ht.tex,
 	* tex4ht-c.tex,
 	* tex4ht-4ht.tex: enable new protex option CodeLineNo to generate
 	#line directives in the .c files, and %line comments in *.4ht.
