@@ -1,3 +1,10 @@
+2016-07-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): make macros patched by \pend:def and similar
+	patching commands \long, in order to correctly support macros defined with
+	\newcommand.
+	<https://puszcza.gnu.org.ua/bugs/index.php?330>.
+
 2016-07-17  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (\CodeLineNo): disable again since Michal's

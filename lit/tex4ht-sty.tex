@@ -10726,18 +10726,18 @@ The \''\long' below is to allow \''\par' in the second argument.
 
 \<early utilities\><<<
 \long\def\append:def#1#2{%
-   \def\:temp{\def#1}%
+   \long\def\:temp{\long\def#1}%
    \expandafter\expandafter\expandafter\:temp\expandafter{#1#2}}
 \long\def\pend:def#1#2{%
-   \def\:temp{#2}%
-   \def\:tempa{\def#1}%
+   \long\def\:temp{#2}%
+   \long\def\:tempa{\long\def#1}%
    \expandafter\expandafter\expandafter\expandafter
        \expandafter\expandafter\expandafter\:tempa
    \expandafter\expandafter\expandafter{\expandafter\:temp #1}}
 \long\def\pend:defI#1#2{%
-   \def\:tempa{\def#1####1}%
+   \long\def\:tempa{\long\def#1####1}%
    \ex:pend{#2}{\expandafter\:temp #1{##1}}}
-\long\def\ex:pend#1{\def\:temp{#1}%
+\long\def\ex:pend#1{\long\def\:temp{#1}%
   \expandafter\expandafter\expandafter\expandafter
        \expandafter\expandafter\expandafter\:tempa
    \expandafter\expandafter\expandafter}
@@ -10745,19 +10745,19 @@ The \''\long' below is to allow \''\par' in the second argument.
 
 \<utilities\><<<
 \long\def\append:defI#1#2{%
-   \def\:temp{\def#1####1}%
+   \long\def\:temp{\long\def#1####1}%
    \expandafter\expandafter\expandafter\:temp\expandafter{#1{##1}#2}}   
 \long\def\pend:defII#1#2{%
-   \def\:tempa{\def#1####1####2}%
+   \long\def\:tempa{\long\def#1####1####2}%
    \ex:pend{#2}{\expandafter\:temp #1{##1}{##2}}}
 \long\def\append:defII#1#2{%
-   \def\:temp{\def#1####1####2}%
+   \long\def\:temp{\long\def#1####1####2}%
    \expandafter\expandafter\expandafter\:temp\expandafter{#1{##1}{##2}#2}}
 \long\def\pend:defIII#1#2{%
-   \def\:tempa{\def#1####1####2####3}%
+   \long\def\:tempa{\long\def#1####1####2####3}%
    \ex:pend{#2}{\expandafter\:temp #1{##1}{##2}{##3}}}
 \long\def\append:defIII#1#2{%
-   \def\:temp{\def#1####1####2####3}%
+   \long\def\:temp{\long\def#1####1####2####3}%
    \expandafter\expandafter\expandafter
       \:temp\expandafter{#1{##1}{##2}{##3}#2}}
 >>>
