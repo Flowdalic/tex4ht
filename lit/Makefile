@@ -5,7 +5,8 @@
 
 wd = work.dir
 tex_opts = --interaction=nonstopmode #--file-line-error
-tex_1opt = "$(tex_opts)"
+tex_1opt = "$(tex_opts)" # must be quoted, passing to shell script
+dev_null = </dev/null    # when we don't call tex directly.
 
 default: all
 
@@ -215,17 +216,17 @@ $(tex4ht_env_derived): tex4ht-env.tex $(common)
 	htlatex $< "xhtml,3" "" "-d./" $(tex_1opt)
 
 $(tex4ht_fonts_cjk_derived): tex4ht-fonts-cjk.tex
-	ht tex $<
+	ht tex $< $(dev_null)
 
 $(tex4ht_fonts_cjk_utf8_derived): tex4ht-fonts-cjk-utf8.tex
-	ht tex $<
+	ht tex $< $(dev_null)
 
 $(tex4ht_fonts_noncjk_derived) $(tex4ht_fonts_modern_derived): \
   tex4ht-fonts-noncjk.tex tex4ht-fonts-modern.tex $(common)
-	ht tex $<
+	ht tex $< $(dev_null)
 
 $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)
-	ht tex $<
+	ht tex $< $(dev_null)
 
 $(tex4ht_html_speech_derived): tex4ht-html-speech.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
@@ -306,16 +307,16 @@ $(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
 	htlatex $< "xhtml,4,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_options_derived): tex4ht-options.tex $(common)
-	mk4ht xhlatex $<
+	mk4ht xhlatex $< $(dev_null)
 
 $(tex4ht_sty_derived): tex4ht-sty.tex $(common)
-	ht tex $<
+	ht tex $< $(dev_null)
 
 $(tex4ht_svg_derived): tex4ht-svg.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
 
 $(tex4ht_t4ht_derived): tex4ht-t4ht.tex $(common)
-	ht tex $<
+	ht tex $< $(dev_null)
 
 $(tex4ht_tei_derived): tex4ht-tei.tex $(common)
 	xhlatex $< "html,3,sections+" "" "-d./" $(tex_1opt)
@@ -442,16 +443,24 @@ clean: mostlyclean
 clean1:
 	rm -f $(f).[0-s]* $(f).[u-z]* $(f).trc
 
+# to compare newly-built files with what's installed.
+diff_files = $(derived) # lots of changes to be figured out ...
 diff_files = $(tex4ht_mathml_derived) $(tex4ht_html_speech_derived) \
              $(tex4ht_jsml_derived) $(tex4ht_mathltx_derived)
 inst_dir = /usr/local/texlive/dev/texmf-dist/tex/generic/tex4ht
-diff = diff --ignore-all-space --ignore-blank-lines \
+#
+diff = diff -u0 --ignore-all-space --ignore-blank-lines \
   --ignore-matching-lines='write-1.version\|, generated from\|Copyright'
+#
+# the --ignore-matching-lines only works when that's the only change in
+# the hunk, so ignore them all explicitly. also ignore commented changes.
 diff-all:
-	-for f in $(diff_files); do $(diff) -u0 $(inst_dir)/$$f .; done
+	-for f in $(diff_files); do $(diff) $(inst_dir)/$$f .; done \
+	| tee /tmp/u | egrep -v '^ *[-+]%|write-1.version'
 
-dif:
-	htdiff $d
+# diff one file specified as d=
+diff1:
+	$(diff) $(inst_dir)/$(d) .
 
 mostlyclean:
 	rm -f $(derived)
