@@ -1,3 +1,8 @@
+2016-07-19  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (lettrine.4ht) <\@lettrine>: use lettrine-*
+	for the <span class= name, since that's what is defined.
+
 2016-07-18  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (dev_null): new macro for </dev/null.
