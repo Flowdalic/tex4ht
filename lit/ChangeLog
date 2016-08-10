@@ -1,3 +1,9 @@
+2016-08-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): use \mathunderscore in math mode for \_ macro
+	* tex4ht-mathml.tex (mathml.4ht): fix for mathml 
+	https://puszcza.gnu.org.ua/bugs/?337
+
 2016-07-19  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (lettrine.4ht) <\@lettrine>: use lettrine-*

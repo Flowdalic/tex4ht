@@ -4630,6 +4630,8 @@ unicode):
 \NewConfigure{textundescore}[1]{\expandafter
    \def\csname ?\string\textunderscore\endcsname{\leavevmode#1}}
 \Configure{textundescore}{\HChar{95}}
+\DeclareRobustCommand{\_}{%
+\ifmmode\mathunderscore\else\textunderscore\fi}
 >>>
 
 The math underscore below is represented by a ruler drawing.
