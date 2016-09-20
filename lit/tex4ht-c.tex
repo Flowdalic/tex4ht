@@ -2156,7 +2156,7 @@ do{
 eof_op_n = file_len;
 if( (i<4) 
     || 
-    ((ch != `<version dvi`>) && (ch != `<version xdv`>))
+    ((ch != `<version dvi`>) && (ch > `<version xdv`>))
   )  bad_dvi; 
 version_id = ch;
 >>>
@@ -2284,10 +2284,13 @@ for( i= get_char(); i>0; i-- ) ch = get_char();
 2 >>>
 
 
-The following is from xetex.
+The following is from xetex.  As of XeTeX 3.14159265-2.6-0.99996 (TeX
+Live 2016), the id value is 7, but it seems prudent and harmless to
+allow for a few future updates without recompiling.  Or perhaps we
+should not check this value at all with xdv.
 
 \<version xdv\><<<
-5
+10
 >>>
 
 

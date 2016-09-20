@@ -1,3 +1,11 @@
+2016-09-20  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-c.tex (scan postamble): allow any value <= the xdv byte,
+	instead of requiring equality.  That way the same tex4ht binary
+	can be used with different versions of XeTeX.  As of
+	XeTeX 3.14159265-2.6-0.99996 (TeX Live 2016), the id value is 7.
+	(version xdv): update value to 10.
+
 2016-08-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): use \mathunderscore in math mode for
