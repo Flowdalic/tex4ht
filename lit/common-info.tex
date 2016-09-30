@@ -22,7 +22,13 @@
 % version identification would be appreciated.
 
 \expandafter\ifx \csname YES\HTML\endcsname\relax
-    \def\CleanComment{[0]}
+    % begin comment. 21/07/2016 (dg)
+    %   on first run \infoIVht expects \ConfigureHinput
+    %   ( \def\infoIVht#1\ConfigureHinput{..} )
+    %   so we feed it with "\ConfigureHinput" (no expansion here, merely a delimiter)
+    %   the rest is slurped until the "//".
+    % end
+    \def\CleanComment{[0]\ConfigureHinput\id:gobble}
 \else
     \let\saveCd=\<
     \def\<{\edef\FIRST{\the\inputlineno}\let\<\saveCd \saveCd}

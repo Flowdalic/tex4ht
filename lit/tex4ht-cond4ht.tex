@@ -17,7 +17,11 @@
 
 \<cond4ht.4ht\><<<<
 %Needs: tex cond4ht.4ht
-\def\ConfigFiles{\input mktex4ht.cnf}  %  Please, modify the bodies of the 
+%% begin comment 29/09/2016 (dg)
+%% detaching mktex4ht.cnf as
+%% a separate file mktex4ht-cnf.tex (copy of mktex4ht.cnf)
+%% end
+\def\ConfigFiles{\input mktex4ht-cnf.tex}  %  Please, modify the bodies of the
 \def\mkfilename{mktex4ht.4ht}          %  first four macros.
                                        %  The input file should consist
                                        %  of records \AddFile{i}{name}
@@ -34,23 +38,8 @@
 ?<TeX4ht copywrite?>
 
 \ifx \BREAK\UnDef
-
-\csname newcount\endcsname\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day
-   -\ifnum \temp<10 0\fi \temp
-   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
-
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
-\def\BREAK{^^J}
-
+  \def\BREAK{^^J}
+  \input common.tex
 \fi
 
 
@@ -640,15 +629,35 @@ WARNING: Missing definition for {\tt \string\CONFIG }
 
 |<set Hinclude|>
 
+%% begin comment 29/09/2016 (dg)
+%% file \jobname.4ct does not exist on first run;
+%% it should be available on second and third run
+%% end
+\newif\ifFirstPass\FirstPassfalse
+\openin15=\Jobname.4ct
+  \ifeof15
+    \FirstPasstrue
+    \message{^^J warning *********** FIRST PASS **************************** ^^J}
+  \fi
+\closein15
+
 
 \chapter{Containers for the Configurations}
 
+%%
+%% Skip processing lit entries on first pass
+%%
+
+\ifFirstPass\else
 
    \catcode`\:=11
 \expandafter\GetLit\HTML,,,?<par del?>\relax
    \catcode`\:=12
 
+\fi
+
 |<include info4ht|>
+
 
 \end{document}
 \endinput
@@ -712,6 +721,13 @@ WARNING: Missing definition for {\tt \string\CONFIG }
 >>>
 
 
+%%
+%% set a hook for skipping mktex4ht.4ht generation from tex4ht-4ht.tex
+%% The file should be generated when cond4ht.4ht is processed,
+%% not when tex4ht-4ht.
+%%
+%%
+\csname Skipmkfilename\endcsname
   \expandafter\OutputCodE\expandafter\<\mkfilename\>
 
 \csname BYE\endcsname
