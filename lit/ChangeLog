@@ -1,3 +1,18 @@
+2016-10-03 Deimantas Galcius <deimantas.galcius@gmail.com>
+
+	* Makefile (PATH): set PATH to look into $extra_bin and $ht_bin;
+	TeXLive 2016 (DVD) does not ship with 'xhlatex', so we find it in $ht_bin.
+	* Makefile (tex_options): set '-recorder' option to $tex_opts. We want to know
+	deps/derived files
+	* Makefile (clean): add '*.fls' for removal
+	* Makefile (ht tex): replace with $(HTTEX) which respects $tex_opts
+	* Makefile ("-d./" in htlatex calls): replace "-d./" with "".
+	"-d./" means move generated files to current folder, which does not make sense.
+	* Makefile (html4): Amend $(tex4ht_html4_derived) rule. No dependency on
+	html4.4ht-released
+	* Remove (html4.4-released): Delete file. (hopefully) not needed any more.
+	* Makefile: change $(dev_null) to "".
+
 2016-09-29 Deimantas Galcius <deimantas.galcius@gmail.com>
 
 	* common-info.tex (CleanComment): fix CleanComment to not
