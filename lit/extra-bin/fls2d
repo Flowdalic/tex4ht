@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# Summary: process *.fls file, output *.d file (Makefile format)
+#          with  lists of dependencies and derived files
+#
+# Usage: fls2d foo.fls
+#
+# 
+# 
+
+set -e
+input=$1
+stem=${1%.*}
+
+source ${0%/*}/fls2x
+
+echo -e "##\n## Script generated file. Please do not edit\n##"
+fls2dd $input $stem ${stem}_derived OUTPUT "derived files list from ${input}."
+fls2dd $input $stem ${stem}_deps    INPUT "deps files list from ${input}."
+
+
+

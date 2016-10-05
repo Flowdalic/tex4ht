@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+#
+# fls2dd:
+#     Read *.fls file, output *.d file (simple makefile with var definition).
+# call: fls2dd <flsfile> <stem> <var-name> <comment-in-makefile>
+# E.g.: fls2dd foo.fls foo foo_derived OUTPUT "derived files from foo.fls."
+# E.g.: fls2dd foo.fls foo foo_deps INPUT "dependency files from foo.fls."
+fls2dd ()
+{
+  echo -e "# $5"
+  echo define $3
+  
+  grep -v $2 $1 | # read foo.fls; filter out lines with foo* (e.g., foo.aux,foo.log)
+    grep -v "^$4 /" | # filter out lines with absolute path, e.g. /usr/local/...
+    grep -v ".log" | # remove unicode.log, etc
+    awk "/$4/ { print \" \" \$2 \"\\\\\" }" | # print (INPUT|OUTPUT) entries only
+    sort --unique
+  
+  echo -e "\nendef "
+
+}
+
+# fls2dd_lg:
+#     Process *.lg file; output sed script
+# call: fls2dd_lg
+# E.g.: fls2dd_lg foo.lg
+fls2dd_lg ()
+{
+    grep 'needs' $1 |
+        grep -v 'tmp;' |
+        grep -v "mkdir"|
+         awk '/--- needs ---/ { str = $8; gsub("\"", "", str); print "s!" $7 "!" str "!" }'  
+}
+
+# fls2dd_fls:
+#     Process *.fls file. 
+# call: fls2dd_fls
+# E.g.: fls2dd_fls foo.fls foo foo_deps OUTPUT "dependency files from foo.fls." temp.sed
+fls2dd_fls ()
+{
+    echo -e "# $5"
+    echo define $3
+
+    grep -v $2 $1 |
+        grep -v ".log" | # remove unicode.log, etc
+        sed -f $6 |
+        awk '/OUTPUT/ { print "  " $2 "\\" }' # always OUTPUT
+
+    echo -e "\nendef "
+}
+
+# fls2dd_fls:
+#      Process *.lg and *.fls files; output *.d (derived part)
+# call: flslg2dd
+# E.g.: flslg2dd foo.lg foo.fls foo foo_deps OUTPUT "dependency files from foo.fls."
+flslg2dd ()
+{
+  fls2dd_lg $1 > temp.sed
+  fls2dd_fls $2 $3 $4 $5 "$6" temp.sed
+  rm -f temp.sed
+}
