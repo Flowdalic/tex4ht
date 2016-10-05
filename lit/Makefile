@@ -13,6 +13,10 @@ export PATH:=$(ht_bin):$(extra_bin):$(PATH)
 
 
 wd = work.dir
+htmldir = html.dir
+xtpipesdir = xtpipes.dir
+deriveddir = derived.dir
+
 tex_opts = --interaction=nonstopmode -recorder #--file-line-error
 tex_1opt = "$(tex_opts)" # must be quoted, passing to shell script
 dev_null = </dev/null    # when we don't call tex directly.
@@ -472,3 +476,99 @@ diff1:
 
 mostlyclean:
 	rm -f $(derived)
+
+# ** experimental section **
+# post 'make all' actions
+sources = \
+ tex4ht-cond4ht.tex\
+ tex4ht-4ht.tex\
+ tex4ht-info-html4.tex\
+ tex4ht-info-javahelp.tex\
+ tex4ht-info-mml.tex\
+ tex4ht-info-ooffice.tex\
+ tex4ht-info-svg.tex\
+ tex4ht-c.tex\
+ tex4ht-t4ht.tex\
+ tex4ht-docbook.tex\
+ tex4ht-bibtex2.tex\
+ tex4ht-env.tex\
+ tex4ht-fonts-cjk.tex\
+ tex4ht-fonts-cjk-utf8.tex\
+ tex4ht-fonts-noncjk.tex\
+ tex4ht-unicode.tex\
+ tex4ht-html-speech.tex\
+ tex4ht-html0.tex\
+ tex4ht-html32.tex\
+ tex4ht-html4.tex\
+ tex4ht-javahelp.tex\
+ tex4ht-jsmath.tex\
+ tex4ht-jsml.tex\
+ tex4ht-mathltx.tex\
+ tex4ht-mathml.tex\
+ tex4ht-mathplayer.tex\
+ tex4ht-mkht.tex\
+ tex4ht-moz.tex\
+ tex4ht-ooffice.tex\
+ tex4ht-ooimpress.tex\
+ tex4ht-options.tex\
+ tex4ht-sty.tex\
+ tex4ht-svg.tex\
+ tex4ht-tei.tex\
+ tex4ht-word.tex\
+ tex4ht-docbook-xtpipes.tex\
+ tex4ht-html-speech-xtpipes.tex\
+ tex4ht-javahelp-xtpipes.tex\
+ tex4ht-jsml-xtpipes.tex\
+ tex4ht-oo-xtpipes.tex\
+ tex4ht-xhtml-xtpipes.tex\
+ tex4ht-xhtmml-xtpipes.tex\
+ xtpipes.tex
+
+# whats wrong with tex4ht-info.tex?
+extra_sources := \
+ tex4ht-info.tex
+
+sources_d := $(sources:%.tex=%.d)
+
+## Generate *.d (dependency) file. Trying to mimick automake dependency computation.
+## Automake:
+##   Dependency computation is done at build time, as a side-effect of compilation.
+##   If I understand it right, gcc -MD option generates *.d file(s) (small Makefile)
+##   which are included in main Makefile with 'include' directive.
+## An attemp to mimick automake dependency computation. Generate (small) Makefiles with
+## vars for dependencies and derived files from *.fls.
+%.d: %.fls
+	$(extra_bin)/fls2d $< >$@
+
+## Fonts need to parse *.fls and *.lg files
+tex4ht-fonts-cjk.d: tex4ht-fonts-cjk.lg tex4ht-fonts-cjk.fls
+	$(extra_bin)/flslg2d $^ >$@
+
+tex4ht-fonts-cjk-utf8.d: tex4ht-fonts-cjk-utf8.lg tex4ht-fonts-cjk-utf8.fls
+	$(extra_bin)/flslg2d $^ >$@
+
+tex4ht-fonts-noncjk.d: tex4ht-fonts-noncjk.lg tex4ht-fonts-noncjk.fls
+	$(extra_bin)/flslg2d $^ >$@
+
+d: $(sources_d)
+
+derived:
+	for f in *.fls ; do \
+	grep -v  $${f%.*} $$f | awk '/OUTPUT/ { print $$2 }' > $${f%.*}.derived ;  \
+done
+
+## move *.html files to ./htmldir subfolder
+## process lg file
+tohtmldir:
+	for f in *.lg ; do \
+	echo Processing $$f && mkdir -p $(htmldir)/$${f%.*} \
+	&& grep "File: $${f%.*}" $$f | awk -v outdir=$(htmldir)/$${f%.*} '{system("[ -f "$$2" ] &&  mv -f " $$2" "outdir)}'  ; \
+done
+
+## move derived files to ./derived.dir
+## process derived files
+toderiveddir: derived
+	for f in *.derived ; do \
+	echo $$f && mkdir -p $(deriveddir)/$${f%.*} \
+	&& awk -v outdir=$(deriveddir)/$${f%.*} '{system("[ -f "$$0" ] &&  mv -f " $$0" "outdir)}' $$f ; \
+done

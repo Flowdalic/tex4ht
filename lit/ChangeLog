@@ -1,3 +1,10 @@
+2016-10-05 Deimantas Galcius <deimantas.galcius@gmail.com>
+	* Makefile (d) Experimental target "d" for dependency/derived files.
+	* Makefile (tohtmldir) move html files to html.dir
+	* Makefile (toderivedir) move derived files to derived.dir
+	* extra-bin/fls2d, extra-bin/flslg2d: scripts to read *fls/*.lg
+	and output *.d file
+
 2016-10-03 Deimantas Galcius <deimantas.galcius@gmail.com>
 
 	* Makefile (PATH): set PATH to look into $extra_bin and $ht_bin;
