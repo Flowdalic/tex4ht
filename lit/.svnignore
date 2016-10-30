@@ -5,6 +5,7 @@ tex4ht.dir
 tex4ht.env
 tex4ht.env-unix
 tex4ht.env-win32
+tex4ht.sty
 tmp
 work.dir
 *.4ct
@@ -18,6 +19,7 @@ work.dir
 *.css
 *.dtd
 *.dvi
+*.fls
 *.htf
 *.html
 *.idv
