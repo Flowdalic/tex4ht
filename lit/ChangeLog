@@ -1,3 +1,7 @@
+2016-11-21 Michal Hoftich <michal.h21@gmail.com>
+	* tex4ht-mathml.tex: added \let\columnlines\empty before use of \columnlines
+	in \Configure{halignTB<>}. It caused compilation error in ooffice mode.
+
 2016-10-05 Deimantas Galcius <deimantas.galcius@gmail.com>
 	* Makefile (d) Experimental target "d" for dependency/derived files.
 	* Makefile (tohtmldir) move html files to html.dir
