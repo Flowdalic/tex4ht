@@ -1422,9 +1422,9 @@ configurations, respectively.
       \HCode{</\a:mathml mrow>}\o:over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml mrow></\a:mathml mfrac>}
    \else
-      \Send{GROUP}{0}{<\a:mathml mfenced separators=""\Hnewline
-          open="|<lr del 2|>" close="|<lr del 3|>"><\a:mathml mfrac
-          linethickness="0"><\a:mathml mrow>}%
+      \Send{GROUP}{0}{<\a:mathml mfenced \a:mathml separators=""\Hnewline
+          \a:mathml open="|<lr del 2|>" \a:mathml close="|<lr del 3|>"><\a:mathml mfrac
+          \a:mathml linethickness="0"><\a:mathml mrow>}%
       \HCode{</\a:mathml mrow>}\o:@@over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml
                                     mrow></\a:mathml mfrac></\a:mathml mfenced>}
@@ -1458,9 +1458,9 @@ configurations, respectively.
       \HCode{</\a:mathml mrow>}\o:over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml mrow></\a:mathml mfrac>}
    \else
-      \Send{GROUP}{0}{<\a:mathml mfenced separators=""\Hnewline
-          open="|<lr del 2|>" close="|<lr del 3|>"><\a:mathml mfrac
-          linethickness="\the\tmp:dim"><\a:mathml mrow>}%
+      \Send{GROUP}{0}{<\a:mathml mfenced \a:mathml separators=""\Hnewline
+          \a:mathml open="|<lr del 2|>" \a:mathml close="|<lr del 3|>"><\a:mathml mfrac
+          \a:mathml linethickness="\the\tmp:dim"><\a:mathml mrow>}%
       \HCode{</\a:mathml mrow>}\o:over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml 
                                 mrow></\a:mathml mfrac></\a:mathml mfenced>}
@@ -1476,9 +1476,9 @@ configurations, respectively.
       \HCode{</\a:mathml mrow>}\o:atop:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml mrow></\a:mathml mfrac>}
    \else
-      \Send{GROUP}{0}{<\a:mathml mfenced separators=""\Hnewline
-          open="|<lr del 2|>" close="|<lr del 3|>"><\a:mathml mfrac
-          linethickness="0"><\a:mathml mrow>}%
+      \Send{GROUP}{0}{<\a:mathml mfenced \a:mathml separators=""\Hnewline
+          \a:mathml open="|<lr del 2|>" \a:mathml close="|<lr del 3|>"><\a:mathml mfrac
+          \a:mathml linethickness="0"><\a:mathml mrow>}%
       \HCode{</\a:mathml mrow>}\o:atop:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml
                               mrow></\a:mathml mfrac></\a:mathml mfenced>}
@@ -1493,8 +1493,8 @@ configurations, respectively.
       \HCode{</\a:mathml mrow>}\o:over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml mrow></\a:mathml mfrac>}
    \else
-      \Send{GROUP}{0}{<\a:mathml mfenced separators=""\Hnewline
-          open="|<lr del 2|>" close="|<lr del 3|>"><\a:mathml mfrac><\a:mathml mrow>}%
+      \Send{GROUP}{0}{<\a:mathml mfenced \a:mathml separators=""\Hnewline
+          \a:mathml open="|<lr del 2|>" \a:mathml close="|<lr del 3|>"><\a:mathml mfrac><\a:mathml mrow>}%
       \HCode{</\a:mathml mrow>}\o:over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml 
                                mrow></\a:mathml mfrac></\a:mathml mfenced>}
@@ -1514,9 +1514,9 @@ configurations, respectively.
       \HCode{</\a:mathml mrow>}\o:@@over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml mrow></\a:mathml mfrac>}
    \else
-      \Send{GROUP}{0}{<\a:mathml mfenced separators=""\Hnewline
-          open="|<lr del 2|>" close="|<lr del 3|>"><\a:mathml mfrac
-          linethickness="\the\tmp:dim"><\a:mathml mrow>}%
+      \Send{GROUP}{0}{<\a:mathml mfenced \a:mathml separators=""\Hnewline
+          \a:mathml open="|<lr del 2|>" \a:mathml close="|<lr del 3|>"><\a:mathml mfrac
+          \a:mathml linethickness="\the\tmp:dim"><\a:mathml mrow>}%
       \HCode{</\a:mathml mrow>}\o:@@over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml
                                   mrow></\a:mathml mfrac></\a:mathml mfenced>}
@@ -1528,13 +1528,13 @@ configurations, respectively.
    {}
 \def\atopwithdelims:III#1#2#3{%
    \def\:temp{#2#3}\def\:tempa{..}\ifx \:temp\:tempa
-      \Send{GROUP}{0}{<\a:mathml mfrac linethickness="0"><\a:mathml mrow>}%
+      \Send{GROUP}{0}{<\a:mathml mfrac \a:mathml linethickness="0"><\a:mathml mrow>}%
       \HCode{</\a:mathml mrow>}\o:@@atop:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml mrow></\a:mathml mfrac>}
    \else
-      \Send{GROUP}{0}{<\a:mathml mfenced separators=""\Hnewline
-          open="|<lr del 2|>" close="|<lr del 3|>"><\a:mathml mfrac
-          linethickness="0"><\a:mathml mrow>}%
+      \Send{GROUP}{0}{<\a:mathml mfenced \a:mathml separators=""\Hnewline
+          \a:mathml open="|<lr del 2|>" \a:mathml close="|<lr del 3|>"><\a:mathml mfrac
+          \a:mathml linethickness="0"><\a:mathml mrow>}%
       \HCode{</\a:mathml mrow>}\o:@@atop:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml
                                mrow></\a:mathml mfrac></\a:mathml mfenced>}
@@ -1549,8 +1549,8 @@ configurations, respectively.
       \HCode{</\a:mathml mrow>}\o:@@over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml mrow></\a:mathml mfrac>}
    \else
-      \Send{GROUP}{0}{<\a:mathml mfenced separators=""\Hnewline
-          open="|<lr del 2|>" close="|<lr del 3|>"><\a:mathml mfrac><\a:mathml mrow>}%
+      \Send{GROUP}{0}{<\a:mathml mfenced \a:mathml separators=""\Hnewline
+          \a:mathml open="|<lr del 2|>" \a:mathml close="|<lr del 3|>"><\a:mathml mfrac><\a:mathml mrow>}%
       \HCode{</\a:mathml mrow>}\o:@@over:
       \HCode{<\a:mathml mrow>}\Send{EndGROUP}{0}{</\a:mathml
                                  mrow></\a:mathml mfrac></\a:mathml mfenced>}
@@ -1828,11 +1828,11 @@ subformulas. Hence, the `'.' below is needed.
 \def\:temp#1{\a:right{#1}\o:right:.\b:right{#1}}\HLet\right|=\:temp
 \Configure{left}
    {}
-   {\HCode{<\a:mathml mfenced separators=""\Hnewline 
-       open="|<lr del 1|>"\space }\bgroup 
+   {\HCode{<\a:mathml mfenced \a:mathml separators=""\Hnewline 
+       \a:mathml open="|<lr del 1|>"\space }\bgroup 
                               \HCode{><\a:mathml mrow>}\bgroup}
 \Configure{right}
-   {\egroup\Send{GROUP}{0}{ close="|<lr del 1|>"\space}\egroup}
+   {\egroup\Send{GROUP}{0}{ \a:mathml close="|<lr del 1|>"\space}\egroup}
    {\HCode{</\a:mathml mrow></\a:mathml mfenced>}}
 \def\def:DEL#1{\def\:DEL{#1}}
 \def\check:DEL#1#2{\def\:tempa{#1}\ifx \:tempa\:DEL \def\:DEL{#2}\fi}
