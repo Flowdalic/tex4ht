@@ -1,3 +1,9 @@
+2016-11-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html5.tex (html5.4ht): basic html5 template
+	* tex4ht-options.tex (tex4ht.4ht): added html5 option
+	* Makefile: generate html5 files
+
 2016-11-23  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mathml.tex: Copyright 2016.

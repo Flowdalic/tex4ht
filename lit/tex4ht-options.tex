@@ -109,6 +109,7 @@ tail>>>
 |<html4 settings|>
 |<0.0 and 3.2 settings|>
 |<mozilla settings|>
+|<html5 settings|>
 |<tei settings|>
 |<docbook settings|>
 |<html for word settings|>
@@ -253,6 +254,21 @@ Allows cleanup using xtpipes.
        \Log:Note{For MathML on MSIE + MathPlayer use
            the command line option `mathplayer'}
    \fi
+}
+>>>
+
+
+\<html5 settings\><<<
+\Configure{html5}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infomml.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{html-mml.4ht}%
+   \Hinclude[*]{html5.4ht}%
 }
 >>>
 

@@ -151,6 +151,9 @@ tex4ht_mkht_derived = mkht.4ht mk4ht.perl mkht-scripts.4ht
 derived += $(tex4ht_moz_derived)
 tex4ht_moz_derived = mozilla.4ht
 
+derived += $(tex4ht_html5_derived)
+tex4ht_html5_derived = html5.4ht
+
 derived += $(tex4ht_oo_xtpipes_derived)
 tex4ht_oo_xtpipes_derived = \
    oo-math.4xt oo-text.4xt \
@@ -308,6 +311,9 @@ $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
 $(tex4ht_moz_derived): tex4ht-moz.tex $(common)
 	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
+$(tex4ht_html5_derived): tex4ht-html5.tex $(common)
+	xhlatex $< "xhtml,3,sections+" "" "" $(tex_1opt)
+
 $(tex4ht_oo_xtpipes_derived): tex4ht-oo-xtpipes.tex $(common)
 	htlatex $< "xhtml,next,3" "" "" $(tex_1opt)
 
@@ -412,6 +418,8 @@ update: all
 	$(update) $(tex4ht_mathplayer_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_moz_derived) $(dest_texmf)/
+#
+	$(update) $(tex4ht_html5_derived) $(dest_texmf)/
 #
 	$(update) oo-text.4xt oo-math.4xt $(dest_xtpipes)/
 	$(update) OoUtilities.java OomFilter.java $(dest_java)/
