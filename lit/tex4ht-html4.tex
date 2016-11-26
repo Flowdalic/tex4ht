@@ -21590,9 +21590,15 @@ gets something wrong there.
 >>>
 
 
+We can't use styles from .htf files with fontspec, so we must add meaning to
+font commands
 
-
-
+\<configure html4 fontspec\><<<
+\Configure{textit}{\Tg<i>}{\Tg</i>}
+\Configure{textbf}{\Tg<strong>}{\Tg</strong>}
+\Configure{textsc}{\Tg<span class="small-caps">}{\Tg</span>}
+\Css{.small-caps{font-variant: small-caps;}}
+>>>
 
 
 
@@ -21663,7 +21669,6 @@ them in the same row.
 \Configure{enoteformat}
    {\Link{enmark-\endnoteN}{ennote-\endnoteN}} {\EndLink}
 >>>
-
 
 
 
