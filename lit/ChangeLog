@@ -1,4 +1,8 @@
 2016-11-27  Michal Hoftich  <michal.h21@gmail.com>
+	* mktex4ht-cnf.tex: added requests for fontspec
+	* Makefile: added mktex4ht-cnf.tex as dependency for tex4ht-cond4ht.tex
+
+2016-11-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, fontspec.4ht, fontspec-4ht.lua,
 	fontspec-xetex.4ht): Added support for Fontspec package, for both 

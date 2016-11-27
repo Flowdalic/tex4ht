@@ -221,7 +221,7 @@ $(tex4ht_bibtex2_derived): tex4ht-bibtex2.tex $(common)
 $(tex4ht_c_derived): tex4ht-c.tex $(common)
 	tex $(tex_opts) $<
 
-$(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex $(common)
+$(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex mktex4ht-cnf.tex $(common)
 	tex $(tex_opts) $<
 	tex $(tex_opts) cond4ht.4ht
 
