@@ -1,4 +1,9 @@
 2016-11-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (multirow.4ht): fixed support for package multirow
+
+2016-11-27  Michal Hoftich  <michal.h21@gmail.com>
+
 	* mktex4ht-cnf.tex: added requests for fontspec
 	* Makefile: added mktex4ht-cnf.tex as dependency for tex4ht-cond4ht.tex
 

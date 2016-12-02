@@ -9155,18 +9155,41 @@ the  recursive macro \`'\inspect:cline' checks the digits separately.
 >>>        \AddFile{9}{multirow}
 
 \<multirow hooks\><<<
-\def\@xmultirow#1[#2]#3[#4]#5{\@tempcnta=#1%
-  \@tempdima\@tempcnta\ht\@arstrutbox
-  \advance\@tempdima\@tempcnta\dp\@arstrutbox
-  \ifnum\@tempcnta<0\@tempdima=-\@tempdima\fi
-  \advance\@tempdima#2\bigstrutjot
-  \leavevmode \a:multirow
-  \if*#3\vtop to \@tempdima{\vfill\multirowsetup
-    \hbox{\strut#5\strut}\vfill}%
+\def\@xmultirow[#1]#2[#3]#4[#5]#6{%
+  \expandafter\multirow@piii#3\relax\end%
+  \multirow@dima=#2\ht\@arstrutbox
+  \advance\multirow@dima#2\dp\@arstrutbox
+  \ifdim#2pt<\z@\multirow@dima=-\multirow@dima\fi
+  \advance\multirow@dima \multirow@cntb\bigstrutjot
+  \if*#4\multirow@vbox{#1}{}{\hbox{\strut#6\strut}}%
+  \else \if=#4\multirow@setcolwidth{#6}%
+    \multirow@vbox{#1}{\hsize\multirow@colwidth\@parboxrestore}{\strut#6\strut\par}%
+  \else \multirow@vbox{#1}{\hsize#4\@parboxrestore}{\strut#6\strut\par}%
+  \fi \fi
+  \ifdim#2pt>\z@
+    \if#1t\relax\multirow@dima=\ht0\else
+      \multirow@dima=\ht\@arstrutbox
+      \ifmultirow@prefixt \advance\multirow@dima\bigstrutjot\fi
+      \if#1b\relax \advance\multirow@dima\dp\@arstrutbox
+        \ifmultirow@prefixb \advance\multirow@dima\bigstrutjot\fi
+      \fi
+    \fi
   \else
-      \vtop to \@tempdima{\hsize#3\@parboxrestore
-                \vfill \multirowsetup \strut#5\strut\par\vfill}%
-  \fi \b:multirow}
+    \if#1b\relax\else
+      \advance\multirow@dima-\dp\@arstrutbox
+      \ifmultirow@prefixb \advance\multirow@dima-\bigstrutjot\fi
+      \if#1t\relax\advance\multirow@dima-\ht\@arstrutbox
+        \ifmultirow@prefixt \advance\multirow@dima-\bigstrutjot\fi
+        \advance\multirow@dima\ht0
+      \fi
+    \fi
+  \fi
+  \advance\multirow@dima#5\relax
+  \leavevmode\a:multirow
+  \setbox0\vtop{\vskip-\multirow@dima\box0\vss}\dp0=\z@
+  \ifmultirowdebug{\showboxdepth=5 \showboxbreadth=10 \showbox0}\fi
+  \box0\b:multirow
+}
 \NewConfigure{multirow}{2}
 >>>
 

@@ -33,7 +33,7 @@ derived += $(tex4ht_4ht_derived)
 tex4ht_4ht_derived = \
   algorithmic.4ht biblatex.4ht book.4ht frenchb.4ht \
   geometry.4ht graphicx.4ht hyperref.4ht latex.4ht lettrine.4ht listings.4ht \
-  memoir.4ht multicol.4ht quoting.4ht reading.4ht \
+  memoir.4ht multicol.4ht multirow.4ht quoting.4ht reading.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht spanish.4ht subscript.4ht \
   titlesec.4ht tocloft.4ht wrapfig.4ht usepackage.4ht fontspec.4ht \
 	xetex-fontspec.4ht fontspec-4ht.lua
