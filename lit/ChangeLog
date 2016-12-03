@@ -1,6 +1,22 @@
-2016-11-27  Michal Hoftich  <michal.h21@gmail.com>
+2016-12-03  Karl Berry  <karl@freefriends.org>
 
-	* tex4ht-4ht.tex (multirow.4ht): fixed support for package multirow
+	* .svnignore (fontspec-4ht.lua): add.
+	
+	* Makefile (tex4ht_4ht_derived),
+	* mktex4ht-cnf.tex,
+	* tex4ht-4ht.tex: rename xetex-fontspec.4ht to fontspec-xetex.4ht.
+
+	* tex4ht-4ht.tex (fontspec.4ht, fontspec-4ht.lua, fontspec-xetex.4ht),
+	* mktex4ht-cnf.tex: copyrights, svn:keywords, comments.
+
+2016-12-02  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (multirow.4ht): copyright.
+
+2016-12-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (multirow.4ht): fixed support for package multirow.
+	https://puszcza.gnu.org.ua/bugs/index.php?342
 
 2016-11-27  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -14,6 +30,7 @@
 	LuaLaTeX and XeLaTeX
 	* tex4ht-html4.tex: Configuration for basic font commands when
 	fontspec is used.
+	https://puszcza.gnu.org.ua/bugs/?123
 
 2016-11-25  Karl Berry  <karl@freefriends.org>
 
@@ -25,6 +42,7 @@
 	* tex4ht-html5.tex (html5.4ht): basic html5 template
 	* tex4ht-options.tex (tex4ht.4ht): added html5 option
 	* Makefile: generate html5 files
+	https://puszcza.gnu.org.ua/bugs/index.php?341
 
 2016-11-23  Karl Berry  <karl@freefriends.org>
 

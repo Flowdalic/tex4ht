@@ -3501,12 +3501,11 @@ fontspec,>>>
 
 We need to add support for utf-8 input. Different methods are used for LuaTeX
 and XeTeX. In LuaTeX, node callbacks are used, in XeTeX, all used characters
-must be declared first. This is done in xetex-fontspec.4ht file.
+must be declared first. This is done in the fontspec-xetex.4ht file.
 
 \<fontspec.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% fontspec.4ht                               |version %
-% Copyright (C) |CopyYear.2016.       TeX Users Group %
+% fontspec.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.2016. TeX Users Group
 |<TeX4ht copyright|>
 % LuaTeX support
 \ifdefined\directlua
@@ -3519,7 +3518,7 @@ must be declared first. This is done in xetex-fontspec.4ht file.
   luatexbase.add_to_callback("hpack_filter", fontspec.char_to_entity, "hpack-char-to-entity")
 \end{luacode*}
 \else
-\input xetex-fontspec.4ht
+\input fontspec-xetex.4ht
 \xeuniuseblock{Latin}
 \ExplSyntaxOn
 \seq_map_inline:Nn \fontspec_ht_scripts {\typeout{use block #1}\xeuniuseblock{#1}}
@@ -3530,9 +3529,11 @@ must be declared first. This is done in xetex-fontspec.4ht file.
 >>> \AddFile{9}{fontspec}
 
 \<fontspec-4ht.lua\><<<
--- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
---  fontspec-4ht.lua                            |version %
--- Copyright (C) |CopyYear.2016.       TeX Users Group %
+-- fontspec-4ht.lua (|version), generated from |jobname.tex
+-- Copyright |CopyYear.2016. TeX Users Group
+--[[
+|<TeX4ht copyright|>
+--]]
 local M = {}
 
 local glyph_id = node.id "glyph"
@@ -3640,10 +3641,9 @@ Alternatively, you can eiter directly declare unicode range using
 \`|\xeuniregisterblock{start charcode}{end charcode}|, or load ranges for
 given Script using \`|\xeuniuseblock{Script name}|. 
 
-\<xetex-fontspec.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% xetex-fontspec.4ht                               |version %
-% Copyright (C) |CopyYear.2016.       TeX Users Group  %
+\<fontspec-xetex.4ht\><<<
+% fontspec-xetex.4ht, generated from |jobname.tex
+% Copyright |CopyYear.2016. TeX Users Group
 |<TeX4ht copyright|>
 
 \input binhex
@@ -3989,7 +3989,7 @@ given Script using \`|\xeuniuseblock{Script name}|.
 \xeuniblockdef{CJK Unified Ideographs Extension E}{\xeuniregisterblockhex{2B820}{2CEAF}}
 \xeuniblockdef{CJK Compatibility Ideographs Supplement}{\xeuniregisterblockhex{2F800}{2FA1F}}
 \endinput
->>> \AddFile{7}{xetex-fontspec}
+>>> \AddFile{9}{fontspec-xetex}
 
 %%%%%%%%%%%%%%%%%%
 \Section{url.sty}
@@ -9145,9 +9145,8 @@ the  recursive macro \`'\inspect:cline' checks the digits separately.
 %%%%%%%%%%%%%%%%%%%
 
 \<multirow.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% multirow.4ht                         |version %
-% Copyright (C) |CopyYear.2004.      Eitan M. Gurari         %
+% multirow.4ht (|version), generated from |jobname.tex
+% Copyright (C) |CopyYear.2004. Eitan M. Gurari
 |<TeX4ht copyright|>
  |<multirow hooks|>
 \Hinput{multirow}

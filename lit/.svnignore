@@ -32,3 +32,4 @@ work.dir
 *.trc
 *.unix
 *.xref
+fontspec-4ht.lua
