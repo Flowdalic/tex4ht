@@ -3507,24 +3507,7 @@ must be declared first. This is done in the fontspec-xetex.4ht file.
 % fontspec.4ht (|version), generated from |jobname.tex
 % Copyright |CopyYear.2016. TeX Users Group
 |<TeX4ht copyright|>
-% LuaTeX support
-\ifdefined\directlua
-\RequirePackage{luatexbase}
-\RequirePackage{luacode}
-
-\begin{luacode*}
-  local fontspec = require "fontspec-4ht"
-  luatexbase.add_to_callback("pre_linebreak_filter", fontspec.char_to_entity, "Char to entity")
-  luatexbase.add_to_callback("hpack_filter", fontspec.char_to_entity, "hpack-char-to-entity")
-\end{luacode*}
-\else
-\input fontspec-xetex.4ht
-\xeuniuseblock{Latin}
-\ExplSyntaxOn
-\seq_map_inline:Nn \fontspec_ht_scripts {\typeout{use block #1}\xeuniuseblock{#1}}
-\ExplSyntaxOff
 \Hinput{fontspec}
-\fi
 
 >>> \AddFile{9}{fontspec}
 
@@ -3988,8 +3971,32 @@ given Script using \`|\xeuniuseblock{Script name}|.
 \xeuniblockdef{CJK Unified Ideographs Extension D}{\xeuniregisterblockhex{2B740}{2B81F}}
 \xeuniblockdef{CJK Unified Ideographs Extension E}{\xeuniregisterblockhex{2B820}{2CEAF}}
 \xeuniblockdef{CJK Compatibility Ideographs Supplement}{\xeuniregisterblockhex{2F800}{2FA1F}}
+% load default latin block and blocks requested through Script option in fontspec's font 
+% selection commands
+\ExplSyntaxOn
+\xeuniuseblock{Latin}
+\seq_map_inline:Nn \fontspec_ht_scripts {\typeout{use block #1}\xeuniuseblock{#1}}
+\ExplSyntaxOff
+\Hinput{fontspec-xetex}
 \endinput
 >>> \AddFile{9}{fontspec-xetex}
+
+
+\<fontspec-luatex.4ht\><<<
+% fontspec-luatex.4ht, generated from |jobname.tex
+% Copyright |CopyYear.2016. TeX Users Group
+|<TeX4ht copyright|>
+\RequirePackage{luatexbase}
+\RequirePackage{luacode}
+
+\begin{luacode*}
+  local fontspec = require "fontspec-4ht"
+  luatexbase.add_to_callback("pre_linebreak_filter", fontspec.char_to_entity, "Char to entity")
+  luatexbase.add_to_callback("hpack_filter", fontspec.char_to_entity, "hpack-char-to-entity")
+\end{luacode*}
+\Hinput{fontspec-luatex}
+\endinput
+>>> \AddFile{9}{fontspec-luatex}
 
 %%%%%%%%%%%%%%%%%%
 \Section{url.sty}

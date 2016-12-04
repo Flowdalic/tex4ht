@@ -1,3 +1,10 @@
+2016-12-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (fontspec.4ht, fontspec-luatex.4ht, fontspec-xetex.4ht):
+	moved luatex and xetex definitions for fontspec to fontspec-xetex.4ht and
+	fontspec-luatex.4ht
+	* mktex4ht-cnf.tex (mktex4ht.4ht): added fontspec-luatex
+
 2016-12-03  Karl Berry  <karl@freefriends.org>
 
 	* .svnignore (fontspec-4ht.lua): add.

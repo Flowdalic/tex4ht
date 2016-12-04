@@ -36,7 +36,7 @@ tex4ht_4ht_derived = \
   memoir.4ht multicol.4ht multirow.4ht quoting.4ht reading.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht spanish.4ht subscript.4ht \
   titlesec.4ht tocloft.4ht wrapfig.4ht usepackage.4ht fontspec.4ht \
-	fontspec-xetex.4ht fontspec-4ht.lua
+	fontspec-xetex.4ht fontspec-4ht.lua fontspec-luatex.4ht
 # xx and many, many more.
 
 derived += $(tex4ht_bibtex2_derived)
