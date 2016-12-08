@@ -687,6 +687,10 @@ lc:\tex4ht\tex4ht.fls
 %   magnification: -x mag  (e.g., -x 1200)                          %
 %   page size:     -T x,y  (e.g., -T 14in,14in)                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<netpbm>
+@<unix netpbm@>
+</netpbm>
+@<dvipng@>
  <convert>
 @<unix png gs@>
 @<unix svg@>
@@ -694,10 +698,6 @@ G.
 @<unix dvips convert@>
 @<variants of convert@>
  </convert>    
-<netpbm>
-@<unix netpbm@>
-</netpbm>
-@<dvipng@>
 @<request scripts@> %
 >>>
 
@@ -717,18 +717,18 @@ G.
 %   magnification: -x mag  (e.g., -x 1200)                          %
 %   page size:     -T x,y  (e.g., -T 14in,14in)                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  <convert>
-@<dos png gs@>
-@<win32 svg@>
-G.
-@<dos dvips convert@>
-  </convert>
 @<variants of convert@>
 <netpbm>
 @<dos netpbm@>
 </netpbm>
 @<dvipng@>
 @<win gs@>
+  <convert>
+@<dos png gs@>
+@<win32 svg@>
+G.
+@<dos dvips convert@>
+  </convert>
 @<request scripts@> %
 >>>
 
@@ -748,9 +748,6 @@ G.
 %   page size:     -T x,y  (e.g., -T 14in,14in)                     %
 %   gs fonts:      -Pfont  (e.g., -Pcmz -Pamz)                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- <convert>
-@<dvips convert (personal)@>
- </convert>
 <convert-old>
 @<unix png gs@>
 @<unix svg@>
@@ -762,6 +759,9 @@ G.
 @<unix netpbm@>
 </netpbm>
 @<dvipng@>
+ <convert>
+@<dvips convert (personal)@>
+ </convert>
 @<request scripts@> %
 >>>
 

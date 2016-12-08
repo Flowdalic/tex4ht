@@ -1,3 +1,10 @@
+2016-12-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-env.tex (tex4ht.env): moved default picture conversion scripts
+	below alternative scripts, in order to enable their selection with -c option
+	of t4ht
+
+
 2016-12-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (fontspec.4ht, fontspec-luatex.4ht, fontspec-xetex.4ht):
