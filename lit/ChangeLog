@@ -1,6 +1,11 @@
+2016-12-09  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (usepackage.4ht): |<TeX4ht copyright|>
+	not copywrite, so the full notice is inserted.
+	
 2016-12-08  Karl Berry  <karl@freefriends.org>
 
-	* tex4ht-cond4ht.tex: copyright 2016.
+	* tex4ht-cond4ht.tex (mktex4ht.4ht): copyright 2016.
 
 2016-12-07  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -10,10 +15,10 @@
 
 2016-12-04  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (fontspec.4ht, fontspec-luatex.4ht, fontspec-xetex.4ht):
-	moved luatex and xetex definitions for fontspec to fontspec-xetex.4ht and
-	fontspec-luatex.4ht
-	* mktex4ht-cnf.tex (mktex4ht.4ht): added fontspec-luatex
+	* tex4ht-4ht.tex (fontspec.4ht, fontspec-luatex.4ht,
+	fontspec-xetex.4ht): moved luatex and xetex definitions for
+	fontspec to fontspec-xetex.4ht and fontspec-luatex.4ht.
+	* mktex4ht-cnf.tex (mktex4ht.4ht): added fontspec-luatex.
 
 2016-12-03  Karl Berry  <karl@freefriends.org>
 
