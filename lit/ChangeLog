@@ -1,5 +1,7 @@
 2016-12-09  Karl Berry  <karl@freefriends.org>
 
+	* tex4ht-env.tex: copyright 2016.
+
 	* tex4ht-4ht.tex (usepackage.4ht): |<TeX4ht copyright|>
 	not copywrite, so the full notice is inserted.
 	
