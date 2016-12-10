@@ -1,3 +1,10 @@
+2016-12-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): There was catcode issue with 
+	`:` character, it was 11 instead of 12.
+	* tex4ht-4ht.tex (fontspec-4ht.lua): There could be Lua error caused
+	by some fonts.
+
 2016-12-09  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-env.tex: copyright 2016.

@@ -3496,7 +3496,21 @@ fontspec,>>>
   \global\expandafter\let\csname opt@fontenc.sty\endcsname\relax
 }
 \ExplSyntaxOff
+|<Restore TivhTcats|>
 \fi
+>>>
+
+I am not really sure what is the problem here, but I've found that use of
+Expl3 package in fontspec patch causes catcode problems in packages which
+are loaded latter, for example with calc.sty. The catcodes are stored in
+\`|\TivhTcats| macro, we need to set catcode of : to 12 manually, saved catcode 
+of @ is OK, so we don't need to reset it.
+
+\<Restore TivhTcats\><<<
+\edef\TivhTcats{%                                                                                                                                     
+  \catcode`:=12%
+  \catcode`@=\the\catcode`@%
+} 
 >>>
 
 We need to add support for utf-8 input. Different methods are used for LuaTeX
@@ -3538,7 +3552,7 @@ local make_node = function(data)
 end
 
 -- this should be table with patterns for allowed fonts
-local allowed_names = {"^cmr", "^cmb","^cmt", "^cmb", "^cmcs", "^rm%-l"}
+local allowed_names = {"^cmr", "^cmb","^cmt", "^cmb", "^cmcs", "^rm%-l", "^cmi", "none"}
 
 local testfont = function(name)
   -- test font name for all allowed names, when it is found, return true
@@ -3554,7 +3568,7 @@ end
 local fonttypes = {}
 local get_font_type = function(id)
   if fonttypes[id]~=nil then return fonttypes[id] end
-  local f = font.getfont(id)
+  local f = font.getfont(id) or {name = "none"} -- font object can be nil sometimes
   local name = f.name
   local type = testfont(string.lower(name))
   if not type then
