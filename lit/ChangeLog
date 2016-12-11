@@ -1,3 +1,11 @@
+2016-12-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-modern.tex
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/rm-lm.htf,
+	tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmt.htf,
+	tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmvt.htf): Typewritter lmodern
+	fonts in OT1 encoding containded wrong backslashes and other characters.
+	
 2016-12-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): There was catcode issue with 
