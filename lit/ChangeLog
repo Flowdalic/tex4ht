@@ -1,10 +1,19 @@
+2016-12-11  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-fonts-noncjk.tex ([g]version 2..18): eliminate
+	right-justified %'s, typos.
+
+	* tex4ht-fonts-modern.tex (rm-lm): copyright for
+	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/rm-lm.htf.
+
 2016-12-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-modern.tex
 	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/rm-lm.htf,
 	tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmt.htf,
-	tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmvt.htf): Typewritter lmodern
-	fonts in OT1 encoding containded wrong backslashes and other characters.
+	tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmvt.htf):
+	Typewriter lmodern fonts in OT1 encoding containded wrong
+	backslashes and other characters.
 	
 2016-12-10  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -12,6 +21,7 @@
 	`:` character, it was 11 instead of 12.
 	* tex4ht-4ht.tex (fontspec-4ht.lua): There could be Lua error caused
 	by some fonts.
+	https://puszcza.gnu.org.ua/bugs/?123
 
 2016-12-09  Karl Berry  <karl@freefriends.org>
 
