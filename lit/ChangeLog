@@ -1,7 +1,8 @@
 2016-12-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (colortbl.4ht): Use xcolor.sty commands 
-	to convert color specifications to CSS
+	to convert color specifications to CSS.
+	https://puszcza.gnu.org.ua/bugs/?346
 
 2016-12-11  Karl Berry  <karl@freefriends.org>
 

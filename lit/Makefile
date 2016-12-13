@@ -78,6 +78,7 @@ tex4ht_fonts_noncjk_derived = \
 tex4ht_fonts_modern_derived = \
   tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/l7x-lmcsc.htf \
   tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/l7x-lm.htf \
+  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/rm-lm.htf \
   tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmt.htf \
   tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmvt.htf
 # xx and lots more
