@@ -24875,16 +24875,30 @@ The same is true for array.sty.
 \endinput
 >>>        \AddFile{7}{colortbl}
 
+color.sty is obsoleted by xcolor, so we will load the latter package in 
+order to get access to the color space conversion commands.
+
+\<fix colortbl\><<<
+\RequirePackage{xcolor}
+>>>
+
 \<fix colortbl\><<<
 \CT@everycr{\o:noalign:{\global\let\CT@row@color\relax}\the\everycr}
 >>>
+
+We use xcolor's \`|\convertcolorspec| command to convert argument of
+\`|\columncolor| to HTML color specification.
+
 
 \<fix colortbl\><<<
 \def\columncolor#1{{\def\current@color{#1}%
                     \csname a:cell-colortbl\endcsname}}
 \Odef\columncolor[#1]#2{{\if :#1:\def\current@color{#2}%
                          \else 
-                            \Configure{tblcol:#1}{#2}%
+                           \gHAdvance\tblcol:N by 1
+                           \convertcolorspec{#1}{#2}{HTML}\tmp:tblcolor
+                           \Configure{HColor}{tblcol-\tblcol:N}{\#\tmp:tblcolor}%
+                           \def\current@color{tblcol-\tblcol:N}%
                          \fi
                     \csname a:cell-colortbl\endcsname}%
    \futurelet\:temp\left:colcol}
@@ -24899,38 +24913,6 @@ The same is true for array.sty.
 }
 \def\right::colcol[#1]{}
 \HAssign\tblcol:N = 0
-\NewConfigure{tblcol:gray}[1]{%
-   \gHAdvance\tblcol:N by 1
-   \def\:temp##1 ##2//{%
-       \int:of\:tempa{255}{##1}%
-       \Configure{HColor}{tblcol-\tblcol:N}{rgb(\:tempa,\:tempa,\:tempa)}%
-   }\:temp #1 //%
-   \def\current@color{tblcol-\tblcol:N}%
-}
-\NewConfigure{tblcol:rgb}[1]{%
-   \gHAdvance\tblcol:N by 1
-   \def\:temp##1 ##2 ##3 ##4//{%
-       \int:of\:tempa{255}{##1}%
-       \int:of\:tempb{255}{##2}%
-       \int:of\:tempc{255}{##3}%
-       \Configure{HColor}{tblcol-\tblcol:N}{rgb(\:tempa,\:tempb,\:tempc)}%
-   }\:temp #1 //%
-   \def\current@color{tblcol-\tblcol:N}%
-}
-\NewConfigure{tblcol:cmyk}[1]{%
-   \gHAdvance\tblcol:N by 1
-   \def\:temp##1 ##2 ##3 ##4 ##5//{%
-      \int:of\:Cyan{255}{##1}%
-      \int:of\:Magenta{255}{##2}%
-      \int:of\:Yellow{255}{##3}%
-      \int:of\:Black{255}{##4}%
-      \:cmyk\:tempa\:Cyan
-      \:cmyk\:tempb\:Magenta
-      \:cmyk\:tempc\:Yellow
-       \Configure{HColor}{tblcol-\tblcol:N}{rgb(\:tempa,\:tempb,\:tempc)}%
-   }\:temp #1 //%
-   \def\current@color{tblcol-\tblcol:N}%
-}
 >>>
 
 The followning is a redefinition of a macro from array.sty
