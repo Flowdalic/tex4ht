@@ -1227,6 +1227,12 @@ This file is public domain.  Started 2010, Karl Berry.
 	conflicting declaration for boolean from kpathsea/types.h.
 	Declare various param strings as const.
 
+2010-01-11  Karl Berry  <karl@tug.org>
+
+	* texmf/tex/generic/tex4ht/frenchb.4ht: patch from
+	daniel.flipo@univ-lille1.fr to improve compatibility
+	with different versions of frenchb.
+
 2009-09-30  Peter Breitenlohner  <peb@mppmu.mpg.de>
 
 	* t4ht.c, tex4ht.c: Declare numerous param and local strings as

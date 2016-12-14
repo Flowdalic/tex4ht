@@ -1,12 +1,12 @@
+2016-12-13  Karl Berry  <karl@freefriends.org>
+
+	* tests: new dir with assorted tests.
+	* src/tests/testa.tex: move again, now to tests/.
+	* src/tests/testb.tex: turns out it's the same as testa, remove.
+
 2010-01-18  Karl Berry  <karl@gnu.org>
 
 	* lit: import literate sources from CVR.
 	* src/tests: rename top-level temp/ subdir.
-
-2010-01-11  Karl Berry  <karl@tug.org>
-
-	* texmf/tex/generic/tex4ht/frenchb.4ht: patch from
-	daniel.flipo@univ-lille1.fr to improve compatibility
-	with different versions of frenchb.
 
 This file is public domain.  Started 2010, Karl Berry.
