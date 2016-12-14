@@ -24758,7 +24758,9 @@ fragments.
 >>>
 
 \<config xcolor\><<<
+\def\strip:fin:excl#1!{#1} 
 \expandafter\def\csname get!HColor\endcsname#1!#2//{%
+  \def\current:color:name{#1\if!#2!\else!\strip:fin:excl#2\fi}%
   \expandafter\ifx \csname HColor!#1\endcsname\relax
      \let\HColor=\relax
      |<xcolor from def|>%
@@ -24780,6 +24782,10 @@ fragments.
 \<xcolor from def\><<<
 \expandafter\ifx \csname\string\color @#1\endcsname \relax\else 
    \expandafter\ifx \csname colortyp:\endcsname\relax \else
+   \extractcolorspec{#1\if!#2!\else!\strip:fin:excl#2\fi}\tmp:color%
+   \expandafter\convertcolorspec\tmp:color{HTML}\tmp:color% 
+   \def\HColor{\#\tmp:color}%
+   \Configure{HColor}{\current:color:name}{\HColor}%
       \csname colortyp:\expandafter\expandafter\expandafter\endcsname
          \csname\string\color @#1\expandafter\endcsname
          \space .!//%
@@ -25000,11 +25006,37 @@ need also a treatment similar to \''\CT@column@color'?
 
 \SubSection{Utilities}
 
+This should enable use of \`|\color| command in array declaration
+
 \<fix colortbl\><<<
+\def\convert:colorspec#1 #2 #3 #4{%
+  \edef\current:color{%
+    \ifx\relax#1\relax\else%
+    #1\ifx\relax#2\relax\else%
+    , #2\ifx\relax#3\relax\else%
+      , #3\ifx\relax#4\relax\else%
+        , #4%
+        \fi%
+      \fi%
+    \fi%
+  \fi%
+  }%
+}
+
+\def\save:color#1 #2//{%
+  \convert:colorspec#2 {} {} {} {}
+  \convertcolorspec{#1}{\current:color}{HTML}\tmp:col
+  \def\current@color{#2}
+  \Configure{HColor}{\current@color}{\tmp:col}
+}
+
 \def\begin:current@color{\let\sv:curcolor|=\current@color}
 \def\end:current@color{%
    \ifx \current@color\sv:curcolor 
-   \else \csname a:text-colortbl\endcsname \fi
+   \else%
+   \expandafter\save:color\current@color//%
+   \csname a:text-colortbl\endcsname 
+   \fi
 }
 \NewConfigure{text-colortbl}{1}
 \def\GET@column@color{}

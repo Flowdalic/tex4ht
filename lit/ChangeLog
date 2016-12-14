@@ -1,3 +1,10 @@
+2016-12-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (colortbl.4ht): Added support for \color 
+	command in table column specifivation.
+	* tex4ht-4ht.tex (xcolor.4ht): Added support for colors 
+	defined by the user.
+
 2016-12-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (colortbl.4ht): Use xcolor.sty commands 
