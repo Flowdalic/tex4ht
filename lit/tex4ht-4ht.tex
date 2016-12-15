@@ -28295,10 +28295,13 @@ d|<haddr prefix|>\last:haddr
 \endinput
 >>>        \AddFile{9}{listings}
 
+I don't know why there used to be clearing of math environment, it 
+disabled  listings option to work correctly. Also patching of 
+\`|\lsthk@EveryLine| should be done in every call to this command.
+
 \<listings sty\><<<
 \newif\iflstnest
 \append:defII\lst@EnterMode{%
-  \iflstnest\else
   \ifx \lsthk:EveryLine\:UnDef
      \let\lsthk:EveryLine\lsthk@EveryLine
   \fi
@@ -28307,8 +28310,9 @@ d|<haddr prefix|>\last:haddr
              \def\dd:listings{\d:listings\let\dd:listings\empty}}%
   \fi  
   \append:def\lsthk@EveryPar{\dd:listings}%
+  \iflstnest\else
   \a:listings\fi\bgroup  
-  \Configure{$}{}{}{}%
+  %\Configure{$}{}{}{}%
   \aftergroup\lst:EnterMode  }
 \def\lst:EnterMode{\iflstnest\else\b:listings\fi\egroup}
 \NewConfigure{listings}{4}

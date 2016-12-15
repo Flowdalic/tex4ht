@@ -1,3 +1,8 @@
+2016-12-15  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (listings.4ht): Fixed support for mathescape
+	option
+
 2016-12-14  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (xcolor.4ht): copyright.
