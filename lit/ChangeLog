@@ -1,3 +1,8 @@
+2016-12-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): Added support for inclusion of
+	SVG images
+
 2016-12-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (listings.4ht): Fixed support for mathescape
