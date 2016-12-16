@@ -3130,11 +3130,21 @@ sectional unit. It has been fixed now.
 %
 % CVR 2013-06-28 15:00
 % 
+
+% Michal 2016-12-16 
+Bug 348: Support for amsmath environments
+
+We can easily define \`|\NR:Type| and \`|\NR:Title| in 
+\`|\Configure{@begin}{env name}{definitions}|. I didn't knew about this
+configuration until now. It seems to be useful when we need to inject something
+into the environment without messing the existing \`|\ConfigureEnv|
+definitions.
+
 \<nameref v.2 configurations\><<<
 \let\NR:Type\relax
 \let\ltx@label\label
 \def\prf:label{{\ifx \NR:Title\:UnDef \else \NR:Title\fi}%
-               {\ifx \NR:Type\:UnDef \else \NR:Type .1\fi}{}}%
+               {\ifx \NR:Type\relax \else \NR:Type .1\fi}{}}%
 \let\NR:StartSec\:StartSec
 \let\NR:no@sect\no@sect
 \def\no@sect#1#2#3#4#5#6[#7]#8{\gdef\NR:Title{\a:newlabel{#7}}%
@@ -3224,6 +3234,34 @@ sectional unit. It has been fixed now.
          \gdef\@currentlabelname{listing}}
       \HLet\NROrg@lst@MakeCaption\:tempc
   }{}%
+  % bug [348]
+  \@ifpackageloaded{amsmath}{%
+     \def\:tempc{%
+       \gdef\NR:Title{\a:newlabel{equation}}%
+       \gdef\NR:Type{equation}%
+       \gdef\@currentlabelname{equation}%
+     }
+     \Configure{@begin}{multline}{\:tempc}
+     \Configure{@begin}{equation}{\:tempc}
+     \Configure{@begin}{boxed}{\:tempc}
+     \Configure{@begin}{equations}{\:tempc}
+     \Configure{@begin}{equation}{\:tempc}
+     \Configure{@begin}{gather*}{\:tempc}
+     \Configure{@begin}{gather}{\:tempc}
+     \Configure{@begin}{genfrac}{\:tempc}
+     \Configure{@begin}{measure@}{\:tempc}
+     \Configure{@begin}{multline*}{\:tempc}
+     \Configure{@begin}{multline}{\:tempc}
+     \Configure{@begin}{overset}{\:tempc}
+     \Configure{@begin}{smallmatrix}{\:tempc}
+     \Configure{@begin}{split}{\:tempc}
+     \Configure{@begin}{subarray}{\:tempc}
+     \Configure{@begin}{substack}{\:tempc}
+     \Configure{@begin}{underset}{\:tempc}
+     \Configure{@begin}{xleftarrow}{\:tempc}
+     \Configure{@begin}{xrightarrow}{\:tempc}
+  }{}
+
 }
 \let\T:ref=\::ref
 \def\::ref{\protect\T@ref}

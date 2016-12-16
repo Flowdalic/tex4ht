@@ -1,5 +1,10 @@
 2016-12-16  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (nameref.4ht): Fixed support for empty nameref
+	types in labels, added support for asmath environments.
+
+2016-12-16  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-html4.tex (html4.4ht): Added support for inclusion of
 	SVG images
 
