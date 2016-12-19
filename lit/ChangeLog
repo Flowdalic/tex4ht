@@ -1,17 +1,24 @@
+2016-12-18  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (nameref.4ht): copyright.
+
 2016-12-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (nameref.4ht): Fixed support for empty nameref
 	types in labels, added support for asmath environments.
+	https://puszcza.gnu.org.ua/bugs/?348
 
 2016-12-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): Added support for inclusion of
 	SVG images
+	https://puszcza.gnu.org.ua/bugs/?348
 
 2016-12-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (listings.4ht): Fixed support for mathescape
 	option
+	https://puszcza.gnu.org.ua/bugs/?347>
 
 2016-12-14  Karl Berry  <karl@freefriends.org>
 
