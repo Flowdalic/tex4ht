@@ -3358,6 +3358,7 @@ before \''\begin{document}'.
 % Copyright (C) |CopyYear.1997.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
    |<fix xr|>
+   |<fix xr-nonhyper|>
 \Hinput{xr}
 \endinput
 >>>        \AddFile{7}{xr}
@@ -3410,7 +3411,7 @@ xr,>>>
 \fi
 >>>
 
-\<fix xr\><<<
+\<fix xr-nonhyper\><<<
 \def\XRrEfLiNK[#1]#2#3{\a:xr[#1]{#2}{}%
    \ifx\hyperrefLabel\:UnDef #3\else \hyperrefLabel\fi \b:xr}
 \NewConfigure{xr}{2}
@@ -3456,17 +3457,43 @@ got into the picture? Did \''\aXrefFile' introduced it? where?
 % Copyright (C) |CopyYear.2003.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
    |<fix xr|>
+   |<fix xr-hyper|>
 \Hinput{xr}
 \endinput
 >>>        \AddFile{7}{xr-hyper}
+
+
+Hyperref pasess five arguments to \`|\newlabel|, we must adapt \`|\XR:rEfLiNK| to that
+
+\<fix xr-hyper\><<<
+\def\XRrEfLiNK[#1]#2#3{\a:xr[#1]{#2}{}%
+   \ifx\hyperrefLabel\:UnDef #3\else \hyperrefLabel\fi \b:xr}
+\NewConfigure{xr}{2}
+\Configure{xr}{\Link}{\EndLink}
+\def\XR:rEfLiNK#1#2#3#4#5{{\xr:rEfLiNK#1}{\xr:rEfLiNK#2}{\xr:rEfLiNK#3}}
+\def\xr:rEfLiNK#1#2{\noexpand\XRrEfLiNK[\Get:HFile#2-]{#2}}
+\def\Get:HFile#1-#2-{\:LikeRef{)F\:gobble #1F-}}
+>>>
 
 \<use package\><<<
 xr-hyper,>>>
 
 \<add to usepackage\><<<
 \def\:temp{xr-hyper}\ifx \@currname\:temp
-   |<wait with xr|>
+   |<wait with xr-hyper|>
 \fi
+>>>
+
+xr-hyper add optional argument after mandatory argument of
+\`|\externaldocument|. It is a full path to the PDF file. We don't really need
+it, so we can safely eat that.
+
+\<wait with xr-hyper\><<<
+\def\eat:optional[#1]{}
+\AtEndOfPackage{\let\XR:\XR@ 
+   \def\XR@[#1]#2{%
+     \Configure{AtBeginDocument}{\XR:[#1]{#2}}{}\@ifnextchar[\eat:optional{}}%
+}
 >>>
 
 %%%%%%%%%%%%%%%%%%

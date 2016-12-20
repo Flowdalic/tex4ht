@@ -1,3 +1,9 @@
+2016-12-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, xr-hyper.4ht): Fixed support for
+	additional optional argument of \externaldocument and fixed support for
+	hyperref's label in the cross references
+
 2016-12-18  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (nameref.4ht): copyright.
