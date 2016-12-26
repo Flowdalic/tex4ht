@@ -1,3 +1,9 @@
+2016-12-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (nameref.4ht): changed \:tempc to \:tempams, in order
+	to avoid collision with pic-align option
+	http://tex.stackexchange.com/q/345689/2891
+
 2016-12-21  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (xr.4ht, xr-hyper.4ht): copyrights.

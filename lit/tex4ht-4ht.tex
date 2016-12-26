@@ -3235,30 +3235,31 @@ definitions.
   }{}%
   % bug [348]
   \@ifpackageloaded{amsmath}{%
-     \def\:tempc{%
+     \def\:tempams{%
        \gdef\NR:Title{\a:newlabel{equation}}%
        \gdef\NR:Type{equation}%
        \gdef\@currentlabelname{equation}%
      }
-     \Configure{@begin}{multline}{\:tempc}
-     \Configure{@begin}{equation}{\:tempc}
-     \Configure{@begin}{boxed}{\:tempc}
-     \Configure{@begin}{equations}{\:tempc}
-     \Configure{@begin}{equation}{\:tempc}
-     \Configure{@begin}{gather*}{\:tempc}
-     \Configure{@begin}{gather}{\:tempc}
-     \Configure{@begin}{genfrac}{\:tempc}
-     \Configure{@begin}{measure@}{\:tempc}
-     \Configure{@begin}{multline*}{\:tempc}
-     \Configure{@begin}{multline}{\:tempc}
-     \Configure{@begin}{overset}{\:tempc}
-     \Configure{@begin}{smallmatrix}{\:tempc}
-     \Configure{@begin}{split}{\:tempc}
-     \Configure{@begin}{subarray}{\:tempc}
-     \Configure{@begin}{substack}{\:tempc}
-     \Configure{@begin}{underset}{\:tempc}
-     \Configure{@begin}{xleftarrow}{\:tempc}
-     \Configure{@begin}{xrightarrow}{\:tempc}
+     \Configure{@begin}{align}{\:tempams}
+     \Configure{@begin}{multline}{\:tempams}
+     \Configure{@begin}{equation}{\:tempams}
+     \Configure{@begin}{boxed}{\:tempams}
+     \Configure{@begin}{equations}{\:tempams}
+     \Configure{@begin}{equation}{\:tempams}
+     \Configure{@begin}{gather*}{\:tempams}
+     \Configure{@begin}{gather}{\:tempams}
+     \Configure{@begin}{genfrac}{\:tempams}
+     \Configure{@begin}{measure@}{\:tempams}
+     \Configure{@begin}{multline*}{\:tempams}
+     \Configure{@begin}{multline}{\:tempams}
+     \Configure{@begin}{overset}{\:tempams}
+     \Configure{@begin}{smallmatrix}{\:tempams}
+     \Configure{@begin}{split}{\:tempams}
+     \Configure{@begin}{subarray}{\:tempams}
+     \Configure{@begin}{substack}{\:tempams}
+     \Configure{@begin}{underset}{\:tempams}
+     \Configure{@begin}{xleftarrow}{\:tempams}
+     \Configure{@begin}{xrightarrow}{\:tempams}
   }{}
 
 }
