@@ -1,3 +1,9 @@
+2017-01-23  Michal However  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): prevent the selection of TU font encoding, 
+	because it loads OpenType fonts. Use OT1 instead
+	https://puszcza.gnu.org.ua/bugs/?352
+
 2016-12-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (nameref.4ht): changed \:tempc to \:tempams, in order

@@ -5301,6 +5301,18 @@ The math underscore below is represented by a ruler drawing.
 \Configure{textcircled}{}
 >>>
 
+January 2017: LaTeX core started to use new font encoding with
+Unicode engines, TU. This encoding loads OpenType fonts by default
+It breaks tex4ht compilation due to a bug in tex4ht command.
+
+We need to check for TU encoding and use the old default one, OT1
+\<latex ltoutenc\><<<
+\edef\test:f:encoding{\f@encoding}
+\edef\test:tu:encoding{TU}
+\ifx\test:f:encoding\test:tu:encoding
+\RequirePackage[OT1]{fontenc}
+\fi
+>>>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Blocks: The /begin.../end Delimiters}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
