@@ -1,3 +1,11 @@
+2017-01-24  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (tuenc-luatex.4ht, tuenc-xetex.4ht,
+	fontspec-luatex.4ht, fontspec-xetex.4ht,
+	fontspec-4ht.lua, fontspec.4ht):
+	use |<TeX4ht license text|> and direct copyright lines
+	for these new files, instead of various macro invocations.
+
 2017-01-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tuenc-luatex.4ht, tuenc-xetex.4ht,
