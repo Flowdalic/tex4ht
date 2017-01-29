@@ -1,3 +1,13 @@
+2017-01-29  Karl Berry  <karl@freefriends.org>
+
+	* common-info.tex,
+	* common.tex,
+	* tex4ht-fonts-4hf.tex,
+	* tex4ht-info-html4.tex,
+	* tex4ht-info-javahelp.tex,
+	* tex4ht-info-mml.tex,
+	* tex4ht-info.tex: copyright cleanups.
+	
 2017-01-24  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (tuenc-luatex.4ht, tuenc-xetex.4ht,
