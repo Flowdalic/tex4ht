@@ -953,28 +953,15 @@ Gdvipng -T tight -x 1400 -D 72 -bg Transparent -pp %%2:%%2 %%1 -o %%3
 
 \<unix svg\><<<
 G.svg
-Gdvips -Ppdf -mode ibmvga -D 110 -f %%1 -pp %%2 > zz%%4.eps
-Gpstoedit -f svg zz%%4.eps %%3      >>>
+Gdvisvgm -n -p %%2 -c 1.4,1.4 -s %%1 > %%3  >>>
 
 
 \<win32 svg\><<<
 G.svg
-Gif exist zz%%4.ps DEL zz%%4.ps >nul
-Gif exist %%3 DEL %%3 >nul
-Gdvips -Ppdf -mode ibmvga -D 110 -f %%1 -pp %%2 > zz%%4.eps
-Gpstoedit -f svg zz%%4.eps %%3
-Gif exist zz%%4.ps DEL zz%%4.ps >nul >>>
+Gdvisvgm -n -p %%2 -c 1.4,1.4 -s %%1 > %%3 >>>
 
-\begin{itemize}
-\item
-\Link[http://www.cityinthesky.co.uk/pdf2svg.html]{}{}pdf2svg\EndLink ?
-
-The LaTeX distribution offers pdfcrop, in case it is needed
-
-
-\end{itemize}
-
-
+dvisvm is included with all \TeX distributions nowadays and the
+conversion is quite fast and efficient.
 
 
 %%%%%%%%%%%%%

@@ -1,3 +1,8 @@
+2017-02-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-env.tex (tex4ht.env-unix, tex4ht.env-win32):
+	Use dvisvgm for SVG production by default. 
+
 2017-01-31  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, 
