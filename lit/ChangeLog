@@ -1,3 +1,8 @@
+2017-02-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-env.tex (tex4ht.env-win32): replaced backslashes with normal
+	slashes in HTF paths on Windows 
+
 2017-02-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-env.tex (tex4ht.env-win32): fixed file paths on Windows
