@@ -39,7 +39,7 @@ before validations.
 @<unix note fonts@>%
 @<unix texmf dir@>%
 @<unix tfm fonts@>%
-@<unix htf fonts@>%
+@<win32 htf fonts@>%
 @<unix G script@>%
 @<unix tex4ht.fls@>%
 @<unix t4ht commands@>%
@@ -86,7 +86,7 @@ before validations.
 @<my note fonts@>%
 @<my texmf dir@>%
 @<my tfm fonts@>%
-@<my htf fonts@>%
+@<win32 htf fonts@>%
 @<my G script@>%
 @<my shared@>%
 @<my t4ht commands@>%
@@ -208,24 +208,8 @@ during the compilation by tex.
 \subsection{HTF Files}
 %%%%%%%%%%%%%%%%%%%
 
-
-\<unix htf fonts\><<<
-@<unix iso1 htf@>
-@<unix moz htf@>
-@<unix iso2 htf@>
-@<unix iso5 htf@>
-@<unix iso7 htf@>
-@<unix iso8 htf@>
-@<unix iso15 htf@>
-@<unix koi8r htf@>
-@<unix sym htf@>
-@<unix win1251 htf@>
-@<unix uni htf@>
-@<unix emspk htf@>
-@<unix jsml htf@>
->>>
-
-
+The structure of htf fonts is the same on Windows and Unix, so it
+doesn't make sense to keep two versions.
 
 
 
@@ -247,55 +231,15 @@ during the compilation by tex.
 
 
 
-\<my htf fonts\><<<
-@<unix iso1 htf@>
-@<unix moz htf@>
-@<unix iso2 htf@>
-@<unix iso5 htf@>
-@<unix iso7 htf@>
-@<unix iso8 htf@>
-@<unix iso15 htf@>
-@<unix koi8r htf@>
-@<unix sym htf@>
-@<unix win1251 htf@>
-@<unix uni htf@>
-@<unix emspk htf@>
-@<unix jsml htf@>
->>>
-
-
-
-\<unix iso1 htf\><<<
-<default>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/1/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-</default>             
->>>
-
-
 \<win32 iso1 htf\><<<
 <default>
 i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/1/!
 i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
 i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
+i%%~/texmf-dist/tex4ht/ht-fonts/mozilla/!
 i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 </default>
 >>>
-
-
-\<unix moz htf\><<<
-<mozhtf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</mozhtf>
->>>
-
-
 
 
 \<win32 moz htf\><<<
@@ -309,36 +253,12 @@ i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 
 
 
-\<unix uni htf\><<<
-<unihtf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</unihtf>
->>>
-
-
-
 \<win32 uni htf\><<<
 <unihtf>
 i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
 i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 </unihtf>
->>>
-
-
-
-
-
-\<unix emspk htf\><<<
-<emspkhtf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/html-speech/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/css/emacspeak/!
-</emspkhtf>
 >>>
 
 
@@ -354,37 +274,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/css/emacspeak/!
 >>>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\<unix jsml htf\><<<
-<jsmlhtf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/jsml/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</jsmlhtf>
->>>
-
-
-
 \<win32 jsml htf\><<<
 <jsmlhtf>
 i%%~/texmf-dist/tex4ht/ht-fonts/jsml/!
@@ -395,20 +284,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 >>>
 
 
-
-
-
-
-\<unix iso2 htf\><<<
-<iso2htf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/2/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</iso2htf>
->>>
-
-
 \<win32 iso2 htf\><<<
 <iso2htf>
 i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/2/!
@@ -416,23 +291,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
 i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 </iso2htf>
->>>
-
-
-
-
-
-
-
-
-
-\<unix iso5 htf\><<<
-<iso5htf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/5/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</iso5htf>
 >>>
 
 
@@ -447,16 +305,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 
 
 
-\<unix iso7 htf\><<<
-<iso7htf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/7/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</iso7htf>
->>>
-
-
 \<win32 iso7 htf\><<<
 <iso7htf>
 i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/7/!
@@ -468,17 +316,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 
 
 
-
-\<unix iso28htf\><<<
-<iso8htf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/8/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</iso8htf>
->>>
-
-
 \<win32 iso8 htf\><<<
 <iso8htf>
 i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/8/!
@@ -486,16 +323,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
 i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 </iso8htf>
->>>
-
-
-\<unix iso15 htf\><<<
-<iso15htf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/15/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</iso15htf>
 >>>
 
 
@@ -510,20 +337,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 
 
 
-
-
-
-
-\<unix koi8r htf\><<<
-<koi8rhtf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/koi/8r/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</koi8rhtf>
->>>
-
-
 \<win32 koi8r htf\><<<
 <koi8rhtf>
 i%%~/texmf-dist/tex4ht/ht-fonts/koi/8r/!
@@ -533,17 +346,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 </koi8rhtf>
 >>>
 
-
-
-
-\<unix sym htf\><<<                                                      %
-<symhtf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/symbol/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</symhtf>
->>>
 
 \<win32 sym htf\><<<                                                     %
 <symhtf>
@@ -555,16 +357,6 @@ i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 >>>
 
 
-
-
-\<unix win1251 htf\><<<                                                      %
-<win1251htf>
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/win/1251/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/ascii/!
-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/!
-</win1251htf>
->>>
 
 \<win32 win1251 htf\><<<                                                     %
 <win1251htf>
