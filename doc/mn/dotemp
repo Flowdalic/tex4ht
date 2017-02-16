@@ -1,0 +1,18 @@
+
+  #     !/usr/local/bin/tcsh
+  ##        onintr -
+  ##        set path=($path ~/main.dir/bin.dir)
+#	Compile twice
+#	domn 
+	chmod 711 /n/gold/5/gurari/WWW/temp/TeX4ht
+	mkdir     /n/gold/5/gurari/WWW/temp/TeX4ht/
+	chmod 711 /n/gold/5/gurari/WWW/temp/TeX4ht
+	chmod 755 /n/gold/5/gurari/WWW/temp/TeX4ht/*
+#	ht tex mn 3 t4ht $1
+#	tex ' \input '  mn
+	tex  mn
+	tex  mn
+	tex  mn
+	tex4ht mn
+	t4ht mn   -d/n/gold/5/gurari/WWW/temp/TeX4ht/  -m644   
+

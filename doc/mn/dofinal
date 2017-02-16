@@ -1,0 +1,16 @@
+#	!/usr/local/bin/tcsh
+        onintr -
+        set path=($path ~/main.dir/bin.dir)
+#	Compile twice
+#	domn TeX4ht
+	mkdir /n/gold/5/gurari/WWW/temp/TeX4ht/
+	mkdir /n/gold/5/gurari/WWW/temp/TeX4ht/temp/
+#	mkdir /n/gold/5/gurari/WWW/TeX4ht/temp/
+#	ht tex mn 3 t4ht $1
+	tex "\def\ROOT{TeX4ht/} \input " mn
+	tex "\def\ROOT{TeX4ht/} \input " mn
+	tex "\def\ROOT{TeX4ht/} \input " mn
+	tex4ht mn
+	t4ht mn   -d/n/gold/5/gurari/WWW/TeX4ht/  -m644   
+	rm -r -f /n/gold/5/gurari/WWW/temp/TeX4ht/temp/*
+#	rm -r -f /n/gold/5/gurari/WWW/TeX4ht/temp/*
