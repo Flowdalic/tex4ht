@@ -1,5 +1,10 @@
 2017-03-11  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (graphics.4ht): Fixed support for images with spaces
+	in their filenames
+
+2017-03-11  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-4ht.tex (memoir.4ht): redefinition for \legend command
 	* tex4ht-html4.tex (html4.4ht): default configuration for \legend
 

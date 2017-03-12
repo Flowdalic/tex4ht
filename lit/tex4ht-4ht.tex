@@ -24376,6 +24376,10 @@ graphics.sty\EndLink.
 \EndHPage{}]
 
 \<fix graphics\><<<
+\def\grf:removequote"#1"{#1}
+\def\grf:thrashname#1\relax{}
+\def\grf:fixquotes{%
+    \@ifnextchar"{\edef\Gin@base{\expandafter\grf:removequote\Gin@base}\grf:thrashname}{\grf:thrashname}}
 \def\grp:warning#1{\no:bound#1(no BoundingBox)//\:warning{#1}}
 \def\no:bound#1(no BoundingBox)#2//{\gdef\noBoundingBox{#2}\ifx
    \noBoundingBox\empty \global\let\noBoundingBox\:UnDef\fi}
@@ -24398,8 +24402,11 @@ graphics.sty\EndLink.
    \fi }
 \NewConfigure{graphics}{2}
 \def\grf:gobble#1\leavevmode#2grf:gobble{%
-   \PictureOff#1\PictureOn \G:cnfg \let\G:cnfg|=\relax}
+   \PictureOff\expandafter\grf:fixquotes\Gin@base\relax#1\PictureOn \G:cnfg \let\G:cnfg|=\relax}
 \let\G:cnfg|=\relax
+
+\let\old:GreadEps\Gread@eps
+\def\Gread@eps#1{\old:GreadEps{"#1"}}
 >>>
 
 %\expandafter\def\csname c:graphics-file:\endcsname#1{\Gin@drafttrue
