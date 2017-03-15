@@ -99,6 +99,9 @@ tex4ht_fonts_modern_derived = \
 #derived += $(tex4ht_htcmd_derived)
 #tex4ht_htcmd_derived = htcmd.c
 
+derived += $(tex4ht_fonts_4hf)
+tex4ht_fonts_4hf = unicode.4hf
+
 derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
 
@@ -258,6 +261,9 @@ $(tex4ht_fonts_cjk_utf8_derived): tex4ht-fonts-cjk-utf8.tex
 $(tex4ht_fonts_noncjk_derived) $(tex4ht_fonts_modern_derived): \
   tex4ht-fonts-noncjk.tex tex4ht-fonts-modern.tex $(common)
 	$(HTTEX) $< ""
+
+$(tex4ht_fonts_4hf): tex4ht-fonts-4hf.tex
+	make4ht -lm draft $< ""
 
 $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)
 	$(HTTEX) $< ""
@@ -519,6 +525,7 @@ sources = \
  tex4ht-fonts-cjk.tex\
  tex4ht-fonts-cjk-utf8.tex\
  tex4ht-fonts-noncjk.tex\
+ tex4ht-fonts-4hf.tex \
  tex4ht-unicode.tex\
  tex4ht-html-speech.tex\
  tex4ht-html0.tex\

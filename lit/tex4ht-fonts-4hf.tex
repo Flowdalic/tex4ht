@@ -8,9 +8,7 @@
 
 \documentclass{article}
   
-   \ifx \HOME\UnDef
-       \def\HOME{/opt/cvr/tex4ht.dir/}
-   \fi
+\input tex4ht-dir
    \def\MYdir{\HOME texmf/tex4ht/ht-fonts}
 
    \ifx \HCode\UnDef \usepackage[xhtml,3,sections+]{tex4ht} \fi 
@@ -69,7 +67,7 @@
 
 \begin{document}
 
-\<TeX4ht copyright\><<<
+% unicode.4hf files can't contain coments
 %                                                        %
 % This work may be distributed and/or modified under the %
 % conditions of the LaTeX Project Public License, either %
@@ -93,6 +91,7 @@
 %                                        tex4ht@tug.org  %
 %                             http://www.tug.org/tex4ht  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\<TeX4ht copyright\><<<
 >>>
 
 
@@ -101354,7 +101353,7 @@ GBK is a subset of GB18030. GBK has 23940 characters. GB18030 has
 '&#x003C;' '' '&#x003C;' '' `%<`%
 '&#x003E;' '' '&#x003E;' '' `%>`%
 '&#x0022;' '' '&#x0022;' '' `%"`%
-'&#x2019;' '' '&#x2019;' '' `%quot`%
+'&#x0027;' '' '&#x0027;' '' `%'`%
 '&#x0026;' '' '&#x0026;' '' `%&`%
 >>>
 
