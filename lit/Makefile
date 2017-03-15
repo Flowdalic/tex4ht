@@ -100,7 +100,9 @@ tex4ht_fonts_modern_derived = \
 #tex4ht_htcmd_derived = htcmd.c
 
 derived += $(tex4ht_fonts_4hf)
-tex4ht_fonts_4hf = unicode.4hf
+tex4ht_fonts_4hf = tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/charset/unicode.4hf \
+  tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/charset/unicode.4hf
+# and many more
 
 derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht

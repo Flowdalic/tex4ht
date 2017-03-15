@@ -1,3 +1,11 @@
+2017-03-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* Makefile (tex4ht_fonts_4hf_derived): added support for
+	tex4ht-fonts-4hf.tex
+	* tex4ht-fonts-4hf.tex
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/charset/unicode.4hf) and others:
+	request xml entity for single quote, removed xml entity for ` character
+
 2017-03-13  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (tex4ht_4ht_derived): spread out by first letter.
