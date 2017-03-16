@@ -265,7 +265,9 @@ $(tex4ht_fonts_noncjk_derived) $(tex4ht_fonts_modern_derived): \
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_4hf): tex4ht-fonts-4hf.tex
-	make4ht -lm draft $< ""
+	dvilualatex $< 
+	tex4ht $(<:.tex=.dvi)
+	t4ht $(<:.tex=.dvi)
 
 $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)
 	$(HTTEX) $< ""

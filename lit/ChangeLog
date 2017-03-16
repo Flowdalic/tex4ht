@@ -1,4 +1,8 @@
-2017-03-11  Michal Hoftich  <michal.h21@gmail.com>
+2017-03-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* Makefile (tex4ht_fonts_4hf_derived): use dvilualatex for compilation
+
+2017-03-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* Makefile (tex4ht_fonts_4hf_derived): added support for
 	tex4ht-fonts-4hf.tex
