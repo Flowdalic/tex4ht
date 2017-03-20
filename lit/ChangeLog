@@ -2,6 +2,8 @@
 
 	* tex4ht-html4.tex (html4.4ht): check for new-accents option in
 	configuration for \bbl@umlauta accent.
+	* tex4ht-html4.tex (html4.4ht): prevent including of
+	html4-russian-accents.4ht with XeLaTeX and LuaLaTeX.
 	* tex4ht-4ht.tex (russianb.4ht): prevent usage of OpenType fonts with
 	LuaLaTX and XeLaTeX, load definitions for Cyrillic characters 
 	with XeLaTeX.

@@ -13084,9 +13084,14 @@ documentation since a cmtt10 font is in use and it doesn't covet those
 symbols. The problem will probably vanish once the new accent approach
 will kick in.
 
+We definitely don't want to use it with XeLaTeX and LuaLaTeX.
+
 
 \<russian\><<<
+\ifdefined\XeTeXrevision\else
+\ifdefined\luatexversion\else
 \input{html4-russian-accents.4ht}
+\fi\fi
 >>>
 
 \<html4-russian-accents\><<<
