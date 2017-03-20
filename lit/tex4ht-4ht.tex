@@ -36247,11 +36247,22 @@ Latex  records current encoding in \`'\cf@encoding'.
 \endinput
 >>>                        \AddFile{9}{romanian}
 
+We must prevent russian.ldf from loading EU1 or EU2 font encoding.
+Declarationf for Cyrillics characters are loaded with XeLaTeX
+
 \<russianb.4ht\><<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% russianb.4ht                          |version %
+% russianb.4ht (|version), generated from |jobname.tex
 % Copyright (C) |CopyYear.2000.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
+
+\if@uni@ode                                                                                                                                           
+\DeclareRobustCommand{\cyrillictext}{%                                                                                                                
+\language\l@russian}%
+\fi
+\ifdefined\XeTeXrevision%
+\xeuniuseblock{Cyrillic}%
+\fi%
 
 \Hinput{russianb}
 \endinput

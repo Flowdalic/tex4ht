@@ -1,7 +1,10 @@
 2017-03-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): check for new-accents option in
-	configuration for \bbl@umlauta accent
+	configuration for \bbl@umlauta accent.
+	* tex4ht-4ht.tex (russianb.4ht): prevent usage of OpenType fonts with
+	LuaLaTX and XeLaTeX, load definitions for Cyrillic characters 
+	with XeLaTeX.
 
 2017-03-20  Karl Berry  <karl@freefriends.org>
 
