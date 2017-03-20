@@ -36636,12 +36636,20 @@ The following is needed to compensate for the extra \''\relax\space' in
 
 \<greek.4ht\><<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% greek.4ht                          |version %
+% greek.4ht (|version), generated from |jobname.tex
 % Copyright (C) |CopyYear.2000.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
 
 \Configure{AtBeginDocument}
   {\immediate\write\@mainaux{\catcode`\string\^=7}} {}
+
+\ifdefined\XeTeXrevision%
+\renewcommand*{\greekfontencoding}{OT1}
+\xeuniuseblock{Greek}
+\fi
+\ifdefined\luatexversion
+\renewcommand*{\greekfontencoding}{OT1}
+\fi
 
 \Hinput{greek}
 \endinput
