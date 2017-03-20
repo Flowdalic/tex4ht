@@ -13024,9 +13024,11 @@ GB2312 (1980) has been superceded by GBK (circa 1993?) and GB18030 (2000).
 
 
 \<u mlaut\><<<
+\:CheckOption{new-accents}     \if:Option \else
 \Configure{accent}\bbl@umlauta
    \bbl@umlaute{|<diaeresis codes|>{}{34}}
    {\a:accents{uml}{#1}}     {\b:accents{uml}{#1}{#2}}
+\fi
 >>>
 
 %%%%%%%%%%%%%%%%%%%

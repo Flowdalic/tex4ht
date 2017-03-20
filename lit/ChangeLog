@@ -1,3 +1,8 @@
+2017-03-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): check for new-accents option in
+	configuration for \bbl@umlauta accent
+
 2017-03-20  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (tex4ht_fonts_4hf): use basename instead of make features.
