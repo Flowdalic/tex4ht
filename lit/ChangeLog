@@ -7,6 +7,7 @@
 	* tex4ht-4ht.tex (russianb.4ht): prevent usage of OpenType fonts with
 	LuaLaTX and XeLaTeX, load definitions for Cyrillic characters 
 	with XeLaTeX.
+	* tex4ht-4ht.tex (fontspec-4ht.lua): Added ec-lm as supported font.
 
 2017-03-20  Karl Berry  <karl@freefriends.org>
 
