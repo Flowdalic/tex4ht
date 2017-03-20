@@ -1,14 +1,25 @@
+2017-03-20  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex4ht_fonts_4hf): use basename instead of make features.
+	(install-unicode-4hf): new target to install all unicode.4hf files.
+	(diff-ht-fonts): new target to compare dev vs. installed ht-fonts.
+	New variables to support the above.
+	* tex4ht-fonts-4hf.tex: use \input common.
+	(TeX4ht copyright): remove, since it was only used in unicode.4hf
+	files and it turns out they don't allow comments.
+	(unicode.4hf): in all the many encodings, remove leading comments.
+
 2017-03-16  Michal Hoftich  <michal.h21@gmail.com>
 
-	* Makefile (tex4ht_fonts_4hf_derived): use dvilualatex for compilation
+	* Makefile (tex4ht_fonts_4hf_derived): use dvilualatex for compilation.
 
 2017-03-15  Michal Hoftich  <michal.h21@gmail.com>
 
-	* Makefile (tex4ht_fonts_4hf_derived): added support for
-	tex4ht-fonts-4hf.tex
+	* Makefile (tex4ht_fonts_4hf_derived): support tex4ht-fonts-4hf.tex.
 	* tex4ht-fonts-4hf.tex
-	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/charset/unicode.4hf) and others:
-	request xml entity for single quote, removed xml entity for ` character
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/charset/unicode.4hf)
+	and others: request xml entity for single quote, removed xml
+	entity for ` character.
 
 2017-03-13  Karl Berry  <karl@freefriends.org>
 

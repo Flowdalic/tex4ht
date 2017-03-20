@@ -9,8 +9,7 @@ ht_bin := ../bin/ht/unix
 PATH := $(shell echo $$PATH)
 # setting PATH as TeX Live 2016 (DVD) does not ship with 'xhlatex'
 # and look for xmlint/vcss in ./extra-bin
-export PATH:=$(ht_bin):$(extra_bin):$(PATH)
-
+export PATH := $(ht_bin):$(extra_bin):$(PATH)
 
 wd = work.dir
 htmldir = html.dir
@@ -48,7 +47,6 @@ tex4ht_4ht_derived = \
   usepackage.4ht usepackage-fontspec.4ht \
   wrapfig.4ht \
   xcolor.4ht xr.4ht xr-hyper.4ht 
-	
 # xx and many, many more.
 
 derived += $(tex4ht_bibtex2_derived)
@@ -92,7 +90,7 @@ tex4ht_fonts_modern_derived = \
   tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/rm-lm.htf \
   tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmt.htf \
   tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmvt.htf
-# xx and lots more
+# xx and many more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
 
 # htcmd not used
@@ -100,9 +98,10 @@ tex4ht_fonts_modern_derived = \
 #tex4ht_htcmd_derived = htcmd.c
 
 derived += $(tex4ht_fonts_4hf)
-tex4ht_fonts_4hf = tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/charset/unicode.4hf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/charset/unicode.4hf
-# and many more
+tex4ht_fonts_4hf = \
+  tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/charset/unicode.4hf \
+  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/charset/unicode.4hf \
+# xx and many more
 
 derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
@@ -264,10 +263,11 @@ $(tex4ht_fonts_noncjk_derived) $(tex4ht_fonts_modern_derived): \
   tex4ht-fonts-noncjk.tex tex4ht-fonts-modern.tex $(common)
 	$(HTTEX) $< ""
 
+# requires more memory than configured in other tex programs.
 $(tex4ht_fonts_4hf): tex4ht-fonts-4hf.tex
 	dvilualatex $< 
-	tex4ht $(<:.tex=.dvi)
-	t4ht $(<:.tex=.dvi)
+	tex4ht `basename $< .tex`
+	t4ht `basename $< .tex`
 
 $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)
 	$(HTTEX) $< ""
@@ -489,11 +489,25 @@ clean: mostlyclean
 clean1:
 	rm -f $(f).[0-s]* $(f).[u-z]* $(f).trc
 
+
+# painful, so let's write out the commands. --20mar17
+ht_fonts_devdir = tex4ht.dir/texmf/tex4ht/ht-fonts
+ht_fonts_instdir = $(inst_dir_top)/ht-fonts
+
+install-unicode-4hf:
+	cd $(ht_fonts_devdir) && tar cf - `find . -name unicode.4hf` \
+	| (cd $(ht_fonts_instdir) && tar xf -)
+	svn diff $(ht_fonts_instdir)
+
+# 
 # to compare newly-built files with what's installed.
 diff_files = $(derived) # lots of changes to be figured out ...
 diff_files = $(tex4ht_mathml_derived) $(tex4ht_html_speech_derived) \
              $(tex4ht_jsml_derived) $(tex4ht_mathltx_derived)
-inst_dir = /usr/local/texlive/dev/texmf-dist/tex/generic/tex4ht
+#texmf = /usr/local/texlive/dev/texmf-dist
+texmf = /r/tug/home/texlive/karl/Master/texmf-dist
+inst_dir_4ht = $(texmf)/tex/generic/tex4ht
+inst_dir_top = $(texmf)/tex4ht
 #
 diff = diff -u0 --ignore-all-space --ignore-blank-lines \
   --ignore-matching-lines='write-1.version\|, generated from\|Copyright'
@@ -501,16 +515,20 @@ diff = diff -u0 --ignore-all-space --ignore-blank-lines \
 # the --ignore-matching-lines only works when that's the only change in
 # the hunk, so ignore them all explicitly. also ignore commented changes.
 diff-all:
-	-for f in $(diff_files); do $(diff) $(inst_dir)/$$f .; done \
+	-for f in $(diff_files); do $(diff) $(inst_dir_4ht)/$$f .; done \
 	| tee /tmp/u | egrep -v '^ *[-+]%|write-1.version'
 
 # diff one file specified as d=
 diff1:
-	$(diff) $(inst_dir)/$(d) .
+	$(diff) $(inst_dir_4ht)/$(d) .
+
+diff-ht-fonts:
+	$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir)
 
 mostlyclean:
 	rm -f $(derived)
 
+# 
 # ** experimental section **
 # post 'make all' actions
 sources = \

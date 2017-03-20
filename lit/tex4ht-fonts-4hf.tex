@@ -47,51 +47,14 @@
    \fi
 }
 
-\newcount\tmpcnt  \tmpcnt\time  \divide\tmpcnt  60
-\edef\temp{\the\tmpcnt}
-\multiply\tmpcnt  -60 \advance\tmpcnt  \time
-
-
-\edef\version{\the\year-\ifnum \month<10 0\fi
-  \the\month-\ifnum \day<10 0\fi\the\day
-   -\ifnum \temp<10 0\fi \temp
-   :\ifnum \tmpcnt<10 0\fi\the\tmpcnt}
-
-\def\CopyYear.#1.{%
-   \ifnum #1=\year #1\space\space\space\space\space\space
-    \else          #1--\the\year\fi
-}
-
+\input{common}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-% unicode.4hf files can't contain coments
-%                                                        %
-% This work may be distributed and/or modified under the %
-% conditions of the LaTeX Project Public License, either %
-% version 1.3c of this license or (at your option) any   %
-% later version. The latest version of this license is   %
-% in                                                     %
-%   http://www.latex-project.org/lppl.txt                %
-% and version 1.3c or later is part of all distributions %
-% of LaTeX version 2005/12/01 or later.                  %
-%                                                        %
-% This work has the LPPL maintenance status "maintained".%
-%                                                        %
-% This Current Maintainer of this work                   %
-% is the TeX4ht Project <tex4ht@tug.org>.                %
-%                                                        %
-% If you modify this program your changing its signature %
-% with a directive of the following form will be         %
-% appreciated.                                           %
-%            \message{signature}                         %
-%                                                        %
-%                                        tex4ht@tug.org  %
-%                             http://www.tug.org/tex4ht  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\<TeX4ht copyright\><<<
+% unicode.4hf files can't contain comments; they have the same copyright
+% and license as the rest of tex4ht; see tex4ht-cpright.tex.
 >>>
 
 
@@ -122,10 +85,6 @@ browsers will comply with hexa decimal values this segment can be
 eliminated.)
 
 \<iso-8859-1\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<hexa to decimal`>
 `<ascii base`>
 '&#x00A1;' ''   '\161\' ''     `% INVERTED EXCLAMATION MARK `%
@@ -277,10 +236,6 @@ codes\EndLink
 \AtEndDocument{\AddFont{iso-8859-2}{iso8859/2/charset/unicode}}
 
 \<iso-8859-2\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<ascii base`>
 '&#x0104;' ''   '\161\' ''  `%LATIN CAPITAL LETTER A WITH OGONEK`%
 '&#x02D8;' ''   '\162\' ''  `%BREVE`%
@@ -410,10 +365,6 @@ codes\EndLink
 
 
 \<iso-8859-5\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<hexa to decimal`>
 `<ascii base`>
 '&#x0401;' ''   '\161\' ''     `% CYRILLIC CAPITAL LETTER IO `%
@@ -583,10 +534,6 @@ codes\EndLink
 \AtEndDocument{\AddFont{iso-8859-6}{iso8859/6/charset/unicode}}
 
 \<iso-8859-6\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<ascii base`>
 '&#x00A0;' '' '\160\' ''  `%NO-BREAK SPACE`%
 '&#x00A4;' '' '\161\' ''  `%CURRENCY SIGN`%
@@ -663,10 +610,6 @@ codes\EndLink
 \AtEndDocument{\AddFont{cp1256}{cp1256/charset/unicode}}
 
 \<cp1256\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<ascii base`>
 '&#x20AC;' '' '\128\' ''  `%EURO SIGN`%
 '&#x067E;' '' '\129\' '' `%ARABIC LETTER PEH`%
@@ -808,10 +751,6 @@ codes\EndLink
 
 
 \<iso-8859-7\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<hexa to decimal`>
 `<ascii base`>
 '&#x2018;' ''  '\161\' ''       `% LEFT SINGLE QUOTATION MARK `%
@@ -917,10 +856,6 @@ codes\EndLink
 
 
 \<win-1251\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<hexa to decimal`>
 `<ascii base`>
 '&#x00A0;' ''   '\160\' ''   `% NO-BREAK SPACE `%
@@ -1107,10 +1042,6 @@ codes\EndLink
 \AtEndDocument{\AddFont{koi8-r}{koi/8r/charset/unicode}}
 
 \<koi8-r\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 '&#x2500;' ''   '\128\' ''  `%  BOX DRAWINGS LIGHT HORIZONTAL `%
 '&#x2502;' ''   '\129\' ''  `%  BOX DRAWINGS LIGHT VERTICAL `%
 '&#x250C;' ''   '\130\' ''  `%  BOX DRAWINGS LIGHT DOWN AND RIGHT `%
@@ -1284,10 +1215,6 @@ codes\EndLink
 
 
 \<viscii\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<ascii base`>
 '&#x1EB2;' '' '\2\' ''         `%A + breve + hook above`%
 '&#x1EB4;' '' '\5\' ''         `%A + breve + tilde`%
@@ -1435,10 +1362,6 @@ codes\EndLink
 
 
 \<viqr\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<ascii base`>
 !&#x00C0;! !! !A``! !!
 !&#x00C1;! !! !A'! !!
@@ -1586,10 +1509,6 @@ codes\EndLink
 
 
 \<symbol-1251\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<ms symbol font`>
 `<win-1251`>
 '&#xFB00;' ''  'ff' ''               
@@ -1767,10 +1686,6 @@ codes\EndLink
 
 
 \<mozilla\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<xml entities`>
 `<undo ligatures`>
 `<uni into ascii`>
@@ -1785,10 +1700,6 @@ codes\EndLink
 >>>
 
 \<mozilla-mnemonic\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<undo ligatures`>
 `<uni into ascii`>
 `<fraktur into letters-mnemonic`>
@@ -1803,10 +1714,6 @@ codes\EndLink
 
 
 \<mozilla-native\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<xml entities`>
 `<undo ligatures`>
 `<uni into ascii`>
@@ -2561,10 +2468,6 @@ file is provided.
 
 
 \<unicode\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<xml entities`>
 >>>
 
@@ -2588,10 +2491,6 @@ the following (contributed by Yu Yuwei)?
  \AtEndDocument{\AddFont{utf8}{utf8/charset/unicode}}
 
 \<utf8\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<utf8-0`>
 `<utf8-1`>
 `<utf8-2`>
@@ -66924,10 +66823,6 @@ the following (contributed by Yu Yuwei)?
 \AtEndDocument{\AddFont{gb2312}{gb2312/charset/unicode}}
 
 \<gb2312\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 '&#x00A4;' '' '\161\\232\' ''
 '&#x00A7;' '' '\161\\236\' ''
 '&#x00A8;' '' '\161\\167\' ''
@@ -74390,10 +74285,6 @@ GBK is a subset of GB18030. GBK has 23940 characters. GB18030 has
 \AtEndDocument{\AddFont{gbk}{gbk/charset/unicode}}
 
 \<gbk\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 '&#x00A4;' '' '\161\\232\' ''
 '&#x00A7;' '' '\161\\236\' ''
 '&#x00A8;' '' '\161\\167\' ''
@@ -98347,10 +98238,6 @@ GBK is a subset of GB18030. GBK has 23940 characters. GB18030 has
 
 
 \<speech\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<script math to speech`>
 `<speech 00xx`>
 `<speech 01xx`>
@@ -98380,10 +98267,6 @@ GBK is a subset of GB18030. GBK has 23940 characters. GB18030 has
 
 
 \<jsml\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% unicode.4hf                           `version %
-% Copyright (C) `CopyYear.1997.              Eitan M. Gurari  %
-`<TeX4ht copyright`>
 `<script math to speech`>
 `<speech 00xx`>
 `<speech 01xx`>
@@ -101356,7 +101239,6 @@ GBK is a subset of GB18030. GBK has 23940 characters. GB18030 has
 '&#x0027;' '' '&#x0027;' '' `%'`%
 '&#x0026;' '' '&#x0026;' '' `%&`%
 >>>
-
 
 
 %%%%%%%%%%%%%
