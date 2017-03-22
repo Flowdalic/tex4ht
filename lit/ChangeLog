@@ -1,5 +1,10 @@
 2017-03-22  Karl Berry  <karl@freefriends.org>
 
+	* tex4ht-fonts-cjk.tex,
+	* tex4ht-fonts-cjk-utf8.tex,
+	* tex4ht-docbook-xtpipes.tex,
+	* tex4ht-4ht.tex: "The" Current Maintainer, not "This".
+
 	* tex4ht-html4.tex (html4): copyright 2017.
 
 	* tex4ht-4ht.tex (greek.4ht, russianb.4ht): copyright cleanup.
