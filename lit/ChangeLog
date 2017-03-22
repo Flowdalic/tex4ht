@@ -1,3 +1,13 @@
+2017-03-22  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-html4.tex (html4): copyright 2017.
+
+	* tex4ht-4ht.tex (greek.4ht, russianb.4ht): copyright cleanup.
+
+	(\<usepackage-fontspec.4ht\><<<): add h, was
+ 	"\<usepackage-fontspec.4t\><<<", in order to avoid this error:
+	! \OutputCode\usepackage-fontspec without \Code\usepackage-fontspec.
+
 2017-03-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): check for new-accents option in
