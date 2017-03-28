@@ -1,3 +1,10 @@
+2017-03-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): The CSS code for align equations declared 
+	width 100% and margin-left:5%. This means that the equation numbers were
+	moved by 5% out of the window. The width should be 95%, so the sum with
+	margin-left is 100%
+
 2017-03-22  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-fonts-cjk.tex,
