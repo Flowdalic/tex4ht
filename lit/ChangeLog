@@ -1,8 +1,13 @@
+2017-03-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht): Configure AMS math align-type
+	environments to start a new paragraph. 
+
 2017-03-28  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-html4.tex (html4-math.4ht): copyright 2017.
 
-2017-03-20  Michal Hoftich  <michal.h21@gmail.com>
+2017-03-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht): The CSS code for align equations
 	declared width 100% and margin-left:5%. This means that the

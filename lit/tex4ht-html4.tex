@@ -9561,7 +9561,9 @@ read within the environment, in gather it is read at the \verb'\begin{equation}'
       class="align-\ifnum \HCol>\maxfields@ label\else 
          \ifodd\HCol\space  odd\else     even\fi 
        \fi">}}
-   {\HCode{</td>}}}
+   {\HCode{</td>}}
+   \ConfigureEnv{#1}{}{\par}{}{}
+ }
 \Css{table.align, table.alignat, table.xalignat, table.xxalignat, 
      table.flalign
    {width:95\%; margin-left:5\%; white-space: nowrap;}}
