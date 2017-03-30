@@ -43,7 +43,7 @@
 |<patch charset|>
 \Configure{VERSION}{}
 \Configure{DOCTYPE}{\HCode{<!DOCTYPE html>\Hnewline}}
-\Configure{HTML}{\HCode{<html lang="\Get:Language" xml:lang="\Get:Language">\Hnewline}}{\HCode{\Hnewline</html>}}
+\Configure{HTML}{\HCode{<html lang="\Get:Language" xml:lang="\Get:Language" \html:xmlns>\Hnewline}}{\HCode{\Hnewline</html>}}
 \Configure{@HEAD}{}
 \Configure{@HEAD}{\HCode{<meta \use:charset />\Hnewline}}
 \Configure{@HEAD}{\HCode{<meta name="generator" content="TeX4ht
@@ -71,6 +71,9 @@ in charset=name form. We need to add quotes around name in html5, thus the follo
 }
 >>>
 
+
+We can interfere the document language from \verb|\bbl@main@language| macro. It
+is supported by both Babel and Polyglossia.
 
 \<configure html5 tex4ht\><<<
 \def\Declare:Language#1#2{%
@@ -144,7 +147,19 @@ in charset=name form. We need to add quotes around name in html5, thus the follo
 \Declare:Language{welsh}{cy}
 >>>
 
+Support for xml name spaces. It must be configured after
+\verb|\begin{document}| in the configuration file.
 
+\<configure html5 tex4ht\><<<
+\edef\html:xmlns{}
+\NewConfigure{xmlns}[2]{%
+  \ifx\relax#2\relax%
+    \edef\html:xmlns{}%
+  \else%
+    \edef\html:xmlns{\html:xmlns xmlns\ifx\relax#1\relax\else :#1\fi="#2"}%
+  \fi%
+}
+>>>
 
 
 

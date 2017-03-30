@@ -2,6 +2,7 @@
 
 	* tex4ht-html5.tex (html5.4ht): Added support for xml:lang and lang
 	attributes in <html> element. 
+	Added support for xmlns in <html> tag.
 
 2017-03-30  Michal Hoftich  <michal.h21@gmail.com>
 
