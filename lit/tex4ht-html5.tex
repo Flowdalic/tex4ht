@@ -43,7 +43,7 @@
 |<patch charset|>
 \Configure{VERSION}{}
 \Configure{DOCTYPE}{\HCode{<!DOCTYPE html>\Hnewline}}
-\Configure{HTML}{\HCode{<html>\Hnewline}}{\HCode{\Hnewline</html>}}
+\Configure{HTML}{\HCode{<html lang="\Get:Language" xml:lang="\Get:Language">\Hnewline}}{\HCode{\Hnewline</html>}}
 \Configure{@HEAD}{}
 \Configure{@HEAD}{\HCode{<meta \use:charset />\Hnewline}}
 \Configure{@HEAD}{\HCode{<meta name="generator" content="TeX4ht
@@ -70,6 +70,80 @@ in charset=name form. We need to add quotes around name in html5, thus the follo
   \fi
 }
 >>>
+
+
+\<configure html5 tex4ht\><<<
+\def\Declare:Language#1#2{%
+\expandafter\gdef\csname rfclang#1\endcsname{#2}%
+}
+\def\Get:Language{%
+\ifx\bbl@main@language\@undefined en-US%  
+\else%
+\expandafter\ifdefined\csname rfclang\bbl@main@language\endcsname \csname rfclang\bbl@main@language\endcsname\fi%
+\fi%
+}
+
+\Declare:Language{english}{en}
+\Declare:Language{czech}{cs}
+\Declare:Language{french}{fr}
+\Declare:Language{polish}{pl}
+\Declare:Language{german}{de}
+\Declare:Language{bulgarian}{bg}
+\Declare:Language{catalan}{ca}
+\Declare:Language{croatian}{hr}
+\Declare:Language{danish}{da}
+\Declare:Language{dutch}{nl}
+\Declare:Language{USenglish}{en}
+\Declare:Language{american}{en}
+\Declare:Language{UKenglish}{en}
+\Declare:Language{british}{en}
+\Declare:Language{canadian}{en}
+\Declare:Language{australian}{en}
+\Declare:Language{newzealand}{en}
+\Declare:Language{esperanto}{eo}
+\Declare:Language{estonian}{et}
+\Declare:Language{finnish}{f\/i}
+\Declare:Language{francais}{fr}
+\Declare:Language{canadien}{fr}
+\Declare:Language{acadian}{fr}
+\Declare:Language{galician}{gl}
+\Declare:Language{austrian}{de}
+\Declare:Language{german}{de}
+\Declare:Language{germanb}{de}
+\Declare:Language{ngerman}{de}
+\Declare:Language{naustrian}{de}
+\Declare:Language{greek}{el}
+\Declare:Language{polutonikogreek}{el}
+\Declare:Language{hebrew}{he}
+\Declare:Language{magyar}{hu}
+\Declare:Language{hungarian}{hu}
+\Declare:Language{icelandic}{is}
+\Declare:Language{interlingua}{ie}
+\Declare:Language{irish}{ga}
+\Declare:Language{italian}{it}
+\Declare:Language{latin}{la}
+\Declare:Language{lowersorbian}{dsb}
+\Declare:Language{samin}{se}
+\Declare:Language{norsk}{no}
+\Declare:Language{nynorsk}{no}
+\Declare:Language{portuges}{pt}
+\Declare:Language{portuguese}{pt}
+\Declare:Language{brazilian}{pt}
+\Declare:Language{brazil}{pt}
+\Declare:Language{romanian}{ro}
+\Declare:Language{russian}{ru}
+\Declare:Language{scottish}{gd}
+\Declare:Language{spanish}{es}
+\Declare:Language{slovak}{sk}
+\Declare:Language{slovene}{sl}
+\Declare:Language{swedish}{sv}
+\Declare:Language{serbian}{sr}
+\Declare:Language{turkish}{tr}
+\Declare:Language{ukrainian}{uk}
+\Declare:Language{uppersorbian}{hsb}
+\Declare:Language{welsh}{cy}
+>>>
+
 
 
 

@@ -1,5 +1,10 @@
 2017-03-30  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html5.tex (html5.4ht): Added support for xml:lang and lang
+	attributes in <html> element. 
+
+2017-03-30  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-html4.tex (html4-math.4ht): Configure AMS math align-type
 	environments to start a new paragraph. 
 
