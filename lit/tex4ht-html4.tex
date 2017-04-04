@@ -4642,12 +4642,13 @@ The `index=i' provides the initial setting.
    {\HCode{</td></tr></table></div>}|<caption label comment|>%
 }
 \Css{.caption td.id{font-weight: bold; white-space: nowrap; }}
-\Css{div.cation {text-align:center;}}
+\Css{div.caption {text-align:center;}}
 >>>
 
 \<amsppt captions\><<<
 \Configure{caption}
-   {\:xhtml{\IgnorePar\EndP}\HCode{<center>}}{}{\HCode{</center>}}
+   {\:xhtml{\IgnorePar\EndP}\HCode{<div class="caption">}}{}{\HCode{</div>}}
+\Css{div.caption {text-align:center;}}
 >>>
 
 \<config span caption\><<<
@@ -9296,9 +9297,9 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
    {\endgroup\IgnorePar\HCode{</div>}}
 \Css{div.title {margin-top: 0.5em;}}
 \Configure{author}
-   {\IgnorePar\EndP\HCode{<br /><center>}\IgnorePar\par}
-   {\IgnorePar\EndP\HCode{</center>}}
-
+   {\IgnorePar\EndP\HCode{<br /><div class="author">}\IgnorePar\par}
+   {\IgnorePar\EndP\HCode{</div>}}
+   \Css{div.author{text-align:center;}}
 >>>
 
 \<32,4 amsppt\><<<
@@ -9306,8 +9307,8 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
    {\IgnorePar\EndP\HCode{<h1 class="amsspecialheadHead"\a:LRdir>}}
    {\HCode{</h1>}\IgnoreIndent}
 \ConfigureToc{specialhead}
-   {\HCode{<center>}\ignorespaces}{ }
-   {}{\HCode{</center>}}
+   {\HCode{<div class="center">}\ignorespaces}{ }
+   {}{\HCode{</div>}}
 \Configure{head}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="amsheadHead"\a:LRdir>}}
    {\HCode{</h2>}\IgnoreIndent}
@@ -9353,16 +9354,19 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 >>>
 
 \<NO\><<<
-\def\m:env#1{\:xhtml{\IgnorePar\EndP}\HCode{<center><table class="#1"
+\def\m:env#1{\:xhtml{\IgnorePar\EndP}\HCode{<div class="center"><table class="#1"
    border="0" cellpadding="0" cellspacing="15"><tr><td>}}
 \def\endm:env{\HCode
   {</td></tr></table></center>}\IgnorePar}
+  \Css{div.center{text-align:center;}}
 >>>
 
 \<amsmath / amstex1 m:env\><<<
 \def\m:env#1{\relax\ifmmode\else\par\fi\:xhtml{\IgnorePar\EndP}%
-  \HCode{<center class="#1"><table class="#1"\Hnewline
-   border="0" cellpadding="0" cellspacing="15"><tr><td>}}
+  \HCode{<div class="center-#1"><table class="#1"\Hnewline
+   border="0" cellpadding="0" cellspacing="15"><tr><td>}
+   \Css{div.center-#1{text-align: center;}}
+ }
 \def\endm:env{\:xhtml{\IgnorePar\EndP}%
    \HCode{</td></tr></table></center>}\IgnorePar
    \ifmmode\else\par\fi}

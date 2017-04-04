@@ -1,3 +1,8 @@
+2017-04-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): changed some deprecated <center>
+	elements to <div>
+
 2017-04-01  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-html5.tex: copyright 2017.
