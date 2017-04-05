@@ -1,3 +1,9 @@
+2017-04-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): added \EndPauseMathClass to
+	\Configure{mathbf}
+	http://tex.stackexchange.com/q/362178/2891
+
 2017-04-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): changed some deprecated <center>
