@@ -1,3 +1,8 @@
+2017-04-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): Round dimensions and remove units in width
+	and height attributes in <img> elements.
+
 2017-04-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): added \EndPauseMathClass to

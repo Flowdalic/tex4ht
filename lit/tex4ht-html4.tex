@@ -13627,9 +13627,8 @@ for margin pars.
       `graphics-num' or `graphics-'. The `num' should provide
       the density of pixels in the bitmaps (e.g., 110).
    }
-\else
-   \def\int:pt#1.#2|<par del|>{#1}
 \fi
+\def\int:pt#1.#2|<par del|>{#1}
 >>>
 
 
@@ -13683,8 +13682,8 @@ for margin pars.
 \<pixels graphics width/height\><<<
 \ifx \gr:density\empty
    \HCode{
-      width="\the\Gin@req@width"
-      height="\the\Gin@req@height"
+      width="\expandafter\int:pt\the\Gin@req@width|<par del|>"
+      height="\expandafter\int:pt\the\Gin@req@height|<par del|>"
    }%
 \else
    \bgroup
@@ -13702,8 +13701,8 @@ for margin pars.
 
 
 \<graphics width/height\><<<
-width="\the\Gin@req@width"
-height="\the\Gin@req@height"
+width="\expandafter\int:pt\the\Gin@req@width|<par del|>"
+height="\expandafter\int:pt\the\Gin@req@height|<par del|>"
 >>>
 
 \<graphicx width/height\><<<
