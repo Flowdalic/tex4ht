@@ -3543,7 +3543,7 @@ The actual configurations which are used when fontspec is loaded:
 |<TeX4ht license text|>
 \:dontusepackage{fontenc}
 \RequirePackage{expl3}
-\append:def\config:opt{,new-accents}
+\PassOptionsToPackage{no-math}{fontspec}
 \ExplSyntaxOn
 \AtEndOfPackage{%
   \tl_gset:Nx \l__fontspec_nfss_enc_tl {T1}
