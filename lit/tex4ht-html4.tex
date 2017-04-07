@@ -11887,8 +11887,7 @@ Y{1EF8}y{1EF9}\i{0129}%
 
 
 
-NOT USED!!!!!
-
+It wasn't used, but why?
 
 \<bar below codes\><<<
 B{1E06}b{1E07}%
@@ -11914,6 +11913,10 @@ V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
 A{0100}a{0101}E{0112}%
 e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}Y{0232}%
 y{0233}G{1E20}g{1E21}%
+>>>
+
+\<hungarian umlaut codes\><<<
+O{0150}o{0151}U{0170}u{0171}%
 >>>
 
 %%%%%%%%%%%%%%%%%%%%
@@ -11955,15 +11958,15 @@ y{0233}G{1E20}g{1E21}%
    {\a:accents{udot}{#1}}     {\b:accents{udot}{#1}{#2}}
 \expand:after{\expand:after{\Configure{accent}}%
    \csname T1\string\H\endcsname}%
-   \csname T1\string\H\endcsname{{}{}} 
+   \csname T1\string\H\endcsname{|<double acute code|>{}{}} 
    {\a:accents{Huml}{#1}} {\b:accents{Huml}{#1}{#2}}
 \expand:after{\expand:after{\Configure{accent}}%
    \csname T1\string\b\endcsname}%
-   \csname T1\string\b\endcsname{{}{}}
+   \csname T1\string\b\endcsname{|<bar below codes|>{}{}}
    {\a:accents{b}{#1}}     {\b:accents{b}{#1}{#2}}
 \expand:after{\expand:after{\Configure{accent}}%
    \csname T1\string\d\endcsname}%
-   \csname T1\string\d\endcsname{{}{}}
+   \csname T1\string\d\endcsname{|<dot below codes|>{}{}}
    {\a:accents{d}{#1}}     {\b:accents{d}{#1}{#2}}
 >>>
 
@@ -12051,15 +12054,15 @@ The following are also placed under accents configuration.
    {\a:accents{udot}{#1}}     {\b:accents{udot}{#1}{#2}}
 \expand:after{\expand:after{\Configure{accent}}%
    \csname OT1\string\H\endcsname}%
-   \csname OT1\string\H\endcsname{{}{}}
+   \csname OT1\string\H\endcsname{|<double acute code|>{}{}}
    {\a:accents{Huml}{#1}} {\b:accents{Huml}{#1}{#2}}
 \expand:after{\expand:after{\Configure{accent}}%
    \csname OT1\string\b\endcsname}%
-   \csname OT1\string\b\endcsname{{}{}}
+   \csname OT1\string\b\endcsname{|<bar below codes|>{}{}}
    {\a:accents{b}{#1}}     {\b:accents{b}{#1}{#2}}
 \expand:after{\expand:after{\Configure{accent}}%
    \csname OT1\string\d\endcsname}%
-   \csname OT1\string\d\endcsname{{}{}}
+   \csname OT1\string\d\endcsname{|<dot below codes|>{}{}}
    {\a:accents{d}{#1}}     {\b:accents{d}{#1}{#2}}
 >>>
 
@@ -12270,11 +12273,11 @@ The following originally have been defined to be parameter-less.
    {\a:accents{Huml}{#1}}{\b:accents{Huml}{#1}{#2}}
 \expand:after{\expand:after{\Configure{accent}}%
    \csname T1\string\b\endcsname}%
-   \csname T1\string\b\endcsname{{}{}}
+   \csname T1\string\b\endcsname{|<bar below codes|>{}{}}
    {\a:accents{b}{#1}}     {\b:accents{b}{#1}{#2}}
 \expand:after{\expand:after{\Configure{accent}}%
    \csname T1\string\d\endcsname}%
-   \csname T1\string\d\endcsname{{}{}}
+   \csname T1\string\d\endcsname{|<dot below codes|>{}{}}
    {\a:accents{d}{#1}}     {\b:accents{d}{#1}{#2}}
 >>>
 
