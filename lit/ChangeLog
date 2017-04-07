@@ -1,3 +1,7 @@
+2017-04-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex: fixed XML entities in ctib-uni block
+
 2017-04-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): Round dimensions and remove units in width
