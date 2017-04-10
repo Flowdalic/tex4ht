@@ -265,8 +265,14 @@ Allows cleanup using xtpipes.
                \Hinclude[*]{infomml.4ht}\fi
    \Hinclude[*]{html4.4ht}%
    \Hinclude[*]{unicode.4ht}%
-   \Hinclude[*]{mathml.4ht}%
-   \Hinclude[*]{html-mml.4ht}%
+   \:CheckOption{mathml}\if:Option%
+   \else\:CheckOption{mathml-}\fi%
+   \if:Option%
+      \Hinclude[*]{mathml.4ht}%
+      \Hinclude[*]{html-mml.4ht}%
+   \else
+      \Hinclude[*]{html4-math.4ht}%
+   \fi
    \Hinclude[*]{html5.4ht}%
 }
 >>>
