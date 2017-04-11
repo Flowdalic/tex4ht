@@ -83,6 +83,8 @@ tex4ht_fonts_noncjk_derived = \
   tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/ipxg-r-t1.htf \
   tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/jknappen/tc/tcrm.htf \
   tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/adobe/courier/pcrro8r.htf \
+  tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/1/tibetan/ctib.htf \
+  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tibetan/ctib.htf \
   SearchFonts.java lm-htf.tex
 tex4ht_fonts_modern_derived = \
   tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/l7x-lmcsc.htf \

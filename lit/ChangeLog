@@ -1,30 +1,39 @@
+2017-04-11  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex4ht_fonts_noncjk_derived): add tibetan/ctib.htf.
+	* tex4ht-mathml.tex (mathml.4ht),
+	* tex4ht-options.tex (tex4ht.4ht): copyright 2017.
+
 2017-04-10  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-options.tex (tex4ht.4ht): Don't load MathML by default for HTML5.
+	* tex4ht-options.tex (tex4ht.4ht): Don't load MathML by default
+	for HTML5.
 
 2017-04-07  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-fonts-noncjk.tex: fixed XML entities in ctib-uni block.
+	* tex4ht-fonts-noncjk.tex
+          (tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tibetan/ctib.htf):
+          fixed XML entities in ctib-uni block.
 	* tex4ht-html4.tex (html4.4ht): added Unicode codes for some combined
 	accents.
-	* tex4ht-4ht.tex (usepackage-fontspec.4ht): don't use "new-accents" option,
-	pass "no-math" option to Fontspec instead.
+	* tex4ht-4ht.tex (usepackage-fontspec.4ht): don't use
+	"new-accents" option, pass "no-math" option to Fontspec instead.
 
 2017-04-06  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): Round dimensions and remove units in width
-	and height attributes in <img> elements.
+	* tex4ht-html4.tex (html4.4ht): Round dimensions and remove units
+	in width and height attributes in <img> elements.
 
 2017-04-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): added \EndPauseMathClass to
-	\Configure{mathbf}
+	\Configure{mathbf}.
 	http://tex.stackexchange.com/q/362178/2891
 
 2017-04-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): changed some deprecated <center>
-	elements to <div>
+	elements to <div>.
 
 2017-04-01  Karl Berry  <karl@freefriends.org>
 
