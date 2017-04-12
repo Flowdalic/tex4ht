@@ -1,3 +1,9 @@
+2017-04-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tibetan/ctib.htf):
+	one entity missed closing semicolon.
+
 2017-04-11  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (tex4ht_fonts_noncjk_derived): add tibetan/ctib.htf.
@@ -12,8 +18,8 @@
 2017-04-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex
-          (tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tibetan/ctib.htf):
-          fixed XML entities in ctib-uni block.
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tibetan/ctib.htf):
+	fixed XML entities in ctib-uni block.
 	* tex4ht-html4.tex (html4.4ht): added Unicode codes for some combined
 	accents.
 	* tex4ht-4ht.tex (usepackage-fontspec.4ht): don't use
