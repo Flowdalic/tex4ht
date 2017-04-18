@@ -123,7 +123,8 @@ tex4ht_html4_derived = \
   html4-l2-url.4ht html4-russian-accents.4ht \
   onmouseover.4ht exerqz.4ht  
 
-#xx big changes for unknown reasons derived += $(tex4ht_info_derived)
+#xx big changes for unknown reasons 
+derived += $(tex4ht_info_derived)
 tex4ht_info_derived = info4ht.4ht
 
 derived += $(tex4ht_info_html4_derived)
