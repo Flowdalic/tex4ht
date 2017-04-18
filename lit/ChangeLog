@@ -1,6 +1,10 @@
 2017-04-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* Makefile: added info4ht.4ht to the list of derived files.
+	* tex4ht-4ht.tex (framed.4ht),
+	* tex4ht-html4.tex (html4.4ht),
+	* mktex4ht-cnf.tex: added basic support for Framed package,
+	https://puszcza.gnu.org.ua/bugs/?217.
 
 2017-04-12  Michal Hoftich  <michal.h21@gmail.com>
 

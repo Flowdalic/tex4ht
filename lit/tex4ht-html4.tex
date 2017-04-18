@@ -15835,6 +15835,16 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
    {\HCode{</span>}}%
 >>>
 
+%%%%%%%%%%%%%%%%
+\section{framed}
+
+\<configure html4 framed\><<<
+\newcount\framed:cnt
+\Configure{makeframed}{\advance\framed:cnt by 1\relax\def\framed@id{\@currenvir-\the\framed:cnt}\ifvmode\IgnorePar\fi\EndP\HCode{<div class="framedenv" id="\framed@id">}\par}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+\Css{.framedenv{border: 1px solid black;}}
+
+>>>
 
 %%%%%%%%%%%%%%%%
 \section{verse}

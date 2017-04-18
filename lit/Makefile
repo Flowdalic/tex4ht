@@ -35,6 +35,7 @@ tex4ht_4ht_derived = \
   color.4ht colortbl.4ht \
   frenchb.4ht \
   fontspec.4ht fontspec-4ht.lua fontspec-luatex.4ht fontspec-xetex.4ht \
+	framed.4ht \
   geometry.4ht graphics.4ht graphicx.4ht \
   hyperref.4ht \
   latex.4ht lettrine.4ht listings.4ht \
