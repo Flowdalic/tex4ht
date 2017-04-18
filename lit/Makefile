@@ -32,7 +32,7 @@ derived += $(tex4ht_4ht_derived)
 tex4ht_4ht_derived = \
   algorithmic.4ht \
   biblatex.4ht book.4ht \
-  color.4ht colortbl.4ht \
+  caption.4ht color.4ht colortbl.4ht \
   frenchb.4ht \
   fontspec.4ht fontspec-4ht.lua fontspec-luatex.4ht fontspec-xetex.4ht \
 	framed.4ht \

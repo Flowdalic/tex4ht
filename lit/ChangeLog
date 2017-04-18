@@ -5,6 +5,7 @@
 	* tex4ht-html4.tex (html4.4ht),
 	* mktex4ht-cnf.tex: added basic support for Framed package,
 	https://puszcza.gnu.org.ua/bugs/?217.
+	* tex4ht-4ht.tex (caption.4ht): Added missing C to the macro name.
 
 2017-04-12  Michal Hoftich  <michal.h21@gmail.com>
 
