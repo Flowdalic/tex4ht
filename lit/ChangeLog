@@ -1,3 +1,8 @@
+2017-04-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (listings.4ht): added custom configuration for 
+	\lst@makecaption, in order to get correct cross-references
+
 2017-04-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* Makefile: added info4ht.4ht to the list of derived files.

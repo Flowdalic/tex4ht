@@ -28498,11 +28498,19 @@ d|<haddr prefix|>\last:haddr
 \endinput
 >>>        \AddFile{9}{listings}
 
+For some reason we need the followng version of \`|\@makecaption| in order to
+get correct cross-references. There were duplicate IDs sometimes.
+
+\<listings sty\><<<
+\def\lst@makecaption#1#2{\cptA: #1 \cptB: \cptC: #2 \cptD:}
+>>>
+
 I don't know why there used to be clearing of math environment, it 
 disabled  listings option to work correctly. Also patching of 
 \`|\lsthk@EveryLine| should be done in every call to this command.
 
 \<listings sty\><<<
+
 \newif\iflstnest
 \append:defII\lst@EnterMode{%
   \ifx \lsthk:EveryLine\:UnDef
