@@ -4158,20 +4158,30 @@ instead of
                     \left. ...\right)...\end{array}'.
 %
 \item
+Unmatched parentheses within math, such as \`'$a = b)$' instead of 
+\`'$\left.a = b\right)$'. It is also possibl to use `mathml-' command line
+option without need to modify the first form, but it may result in wrong 
+parentheses size.
+%
+\item
 Incorrect annotation of  delimiters, such as \`'\bigl\{...\bigr|...\bigr\}'
 instead of
        \`'\bigl\{...\bigg|...\bigr\}'
 %
-\item
-%%\relax\relax\--\string_//\string\tt/%
-\relax\relax\--!//{\string\tt\char \space 95}\string\csname\space :gobble\string\endcsname/%
-%%\relax\relax\--\string^///%
-\relax\relax\--!//{\string\tt\char \space 94}\string\csname\space :gobble\string\endcsname/%
- Empty bases for subscripts and superscripts, 
-such as \`'{}^{...},  {}_{...}' instead of
-\`'{\csname HCode\endcsname{}}^{...},  {\csname HCode\endcsname{}}_{...}'.
 %
-
+% 21/04/2017 Michal:
+% What does the following example mean? It produces identical code, but the recomended form doesn't
+% make any sense
+% \item
+% %%\relax\relax\--\string_//\string\tt/%
+% \relax\relax\--!//{\string\tt\char \space 95}\string\csname\space :gobble\string\endcsname/%
+% %%\relax\relax\--\string^///%
+% \relax\relax\--!//{\string\tt\char \space 94}\string\csname\space :gobble\string\endcsname/%
+%  Empty bases for subscripts and superscripts, 
+% such as \`'{}^{...},  {}_{...}' instead of
+% \`'{\csname HCode\endcsname{}}^{...},  {\csname HCode\endcsname{}}_{...}'.
+% %
+%
 \item
 Missing grouping for bases of subscripts and superscripts, such as
 \`'10^6' instead of \`'{10}^6'. (Some fixing of the problem can be requested through a `-cxhtmml' command line option for t4ht.c.  For instance,
@@ -6830,7 +6840,7 @@ the \''oolatex' command.
 the current document.
 %
 \item
-\Link[http://www.cse.ohio-state.edu/\string
+\Link[http://web.archive.org/web/20140909114942/http://www.cse.ohio-state.edu/\string
     ~gurari/publications.html]{}{}Conference presentations\EndLink
 %
 %\item In the .log files of the compilations.
