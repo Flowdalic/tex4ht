@@ -1,6 +1,7 @@
 2017-04-22  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (caption.4ht): copyright.
+	(framed.4ht): no copyright 2016.
 
 2017-04-20  Michal Hoftich  <michal.h21@gmail.com>
 
