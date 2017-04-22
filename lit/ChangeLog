@@ -1,7 +1,11 @@
+2017-04-22  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (caption.4ht): copyright.
+
 2017-04-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (listings.4ht): added custom configuration for 
-	\lst@makecaption, in order to get correct cross-references
+	\lst@makecaption, in order to get correct cross-references.
 
 2017-04-18  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -10,6 +14,7 @@
 	* tex4ht-html4.tex (html4.4ht),
 	* mktex4ht-cnf.tex: added basic support for Framed package,
 	https://puszcza.gnu.org.ua/bugs/?217.
+
 	* tex4ht-4ht.tex (caption.4ht): Added missing C to the macro name.
 
 2017-04-12  Michal Hoftich  <michal.h21@gmail.com>
