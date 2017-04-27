@@ -24977,6 +24977,19 @@ fragments.
 \fi \fi
 >>>
 
+The following command can convert xcolor color specification to formusable
+in CSS. The color is extracted to command which needs to b passed as a
+second parameter.
+
+\<config xcolor\><<<
+\def\get:xcolorcss#1#2{%
+   \expandafter\extractcolorspec\expandafter{#1}{\tsf:color}%
+   \expandafter\convertcolorspec\tsf:color{HTML}\tsf:color%
+   \edef#2{\#\tsf:color}%
+}
+
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%
 \Section{framed}
 %%%%%%%%%%%%%%%%%%%%%%%

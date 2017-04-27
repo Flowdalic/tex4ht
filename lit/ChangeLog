@@ -2,6 +2,8 @@
 
 	* tex4ht-html4.tex (html4.4ht): use CSS instead of rules="groups"
 	attribute for vertical lines in tables
+	* tex4ht-4ht.tex (xcolor.4ht): new command \get:xcolorcss, for 
+	conversion from xcolor color spec to CSS colors.
 
 2017-04-22  Karl Berry  <karl@freefriends.org>
 
