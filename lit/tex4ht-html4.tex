@@ -15849,6 +15849,24 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 >>>
 
 %%%%%%%%%%%%%%%%
+\section{mdframed}
+%%%%%%%%%%%%%%%%
+
+
+\<configure html4 mdframed\><<<
+\Configure{mdframed}{%
+  \ifvmode\IgnorePar\fi\EndP\HCode{<div class="mdframed" id="\mdf:id">}\par
+}{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+\Configure{mdframedstyle}{%
+  \get:xcolorcss{\mdf@backgroundcolor}\mdf:bgcolor
+  \get:xcolorcss{\mdf@linecolor}\mdf:bordercolor
+  \get:xcolorcss{\mdf@fontcolor}\mdf:fontcolor
+  \def\mdf:border{\ifdefined\mdfl@linewidth\mdfl@linewidth\else 1px\fi\space solid \mdf:bordercolor}
+  \Css{\#\mdf:id{border:\mdf:border; background-color: \mdf:bgcolor; color:\mdf:fontcolor;}}
+}
+>>>
+
+%%%%%%%%%%%%%%%%
 \section{verse}
 %%%%%%%%%%%%%%%%%
 

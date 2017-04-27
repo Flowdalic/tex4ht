@@ -4,6 +4,10 @@
 	attribute for vertical lines in tables
 	* tex4ht-4ht.tex (xcolor.4ht): new command \get:xcolorcss, for 
 	conversion from xcolor color spec to CSS colors.
+	* tex4ht-4ht.tex (mdframed.4ht),
+	* tex4ht-html4.tex (html4.4ht): added basic support for Mdframed
+	package.
+	https://puszcza.gnu.org.ua/bugs/?217.
 
 2017-04-22  Karl Berry  <karl@freefriends.org>
 

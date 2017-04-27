@@ -35,11 +35,11 @@ tex4ht_4ht_derived = \
   caption.4ht color.4ht colortbl.4ht \
   frenchb.4ht \
   fontspec.4ht fontspec-4ht.lua fontspec-luatex.4ht fontspec-xetex.4ht \
-    framed.4ht \
+  framed.4ht \
   geometry.4ht graphics.4ht graphicx.4ht \
   hyperref.4ht \
   latex.4ht lettrine.4ht listings.4ht \
-  memoir.4ht multicol.4ht multirow.4ht \
+  mdframed.4ht memoir.4ht multicol.4ht multirow.4ht \
   nameref.4ht \
   quoting.4ht \
   reading.4ht \
