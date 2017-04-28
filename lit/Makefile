@@ -24,7 +24,14 @@ HTTEX = ht "tex $(tex_opts)"  # set tex options for plain tex
 
 default: all
 
-common = tex4ht-cpright.tex common.tex common-code.tex ProTex.sty AlProTex.sty
+# most files (not all, but it's not worth worrying about) read
+# mktex4ht.4ht, but we have to avoid depending on it for the file which
+# generates it (cond4ht), so we need two different variables.
+# Similarly for tex4ht.sty, though that is modified far less often.
+# 
+common_no_cond_sty = tex4ht-cpright.tex common.tex common-code.tex \
+  ProTex.sty AlProTex.sty
+common = mktex4ht.4ht tex4ht.sty $(common_no_cond_sty)
 common_info = $(common) common-info.tex
 derived = 
 
@@ -33,9 +40,8 @@ tex4ht_4ht_derived = \
   algorithmic.4ht \
   biblatex.4ht book.4ht \
   caption.4ht color.4ht colortbl.4ht \
-  frenchb.4ht \
   fontspec.4ht fontspec-4ht.lua fontspec-luatex.4ht fontspec-xetex.4ht \
-  framed.4ht \
+    framed.4ht frenchb.4ht \
   geometry.4ht graphics.4ht graphicx.4ht \
   hyperref.4ht \
   latex.4ht lettrine.4ht listings.4ht \
@@ -235,7 +241,7 @@ xtpipes_derived = \
 # 
 all: $(derived)
 
-$(tex4ht_4ht_derived): tex4ht-4ht.tex $(common)
+$(tex4ht_4ht_derived): tex4ht-4ht.tex cond4ht.4ht $(common)
 	tex $(tex_opts) $<
 
 $(tex4ht_bibtex2_derived): tex4ht-bibtex2.tex $(common)
@@ -244,7 +250,8 @@ $(tex4ht_bibtex2_derived): tex4ht-bibtex2.tex $(common)
 $(tex4ht_c_derived): tex4ht-c.tex $(common)
 	tex $(tex_opts) $<
 
-$(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex mktex4ht-cnf.tex $(common)
+$(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex mktex4ht-cnf.tex \
+                           $(common_no_cond_sty)
 	tex $(tex_opts) $<
 	tex $(tex_opts) cond4ht.4ht
 
@@ -356,7 +363,7 @@ $(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
 $(tex4ht_options_derived): tex4ht-options.tex $(common)
 	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
-$(tex4ht_sty_derived): tex4ht-sty.tex $(common)
+$(tex4ht_sty_derived): tex4ht-sty.tex $(common_no_cond_sty)
 	$(HTTEX) $< ""
 
 $(tex4ht_svg_derived): tex4ht-svg.tex $(common)

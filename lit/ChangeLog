@@ -1,19 +1,29 @@
+2017-04-28  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (common): include mktex4ht.4ht and tex4ht.sty.
+	(common_no_cond_sty): new variable without either of those.
+	(tex4ht_cond4ht_derived,tex4ht_sty_derived): use
+	  $(common_no_cond_sty) instead of $(common). 
+	(tex4ht_4ht_derived): depend on cond4ht.4ht.
+	
+	* mktex4ht-cnf.tex: copyright 2017.
+
 2017-04-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fixed error which happened when 
 	xcolor haven't been loaded in the document. Fixed line widths.
 	Start paragraph after mdframed environment.
+	https://puszcza.gnu.org.ua/bugs/?217
 
 2017-04-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use CSS instead of rules="groups"
-	attribute for vertical lines in tables
+	attribute for vertical lines in tables.
 	* tex4ht-4ht.tex (xcolor.4ht): new command \get:xcolorcss, for 
 	conversion from xcolor color spec to CSS colors.
 	* tex4ht-4ht.tex (mdframed.4ht),
-	* tex4ht-html4.tex (html4.4ht): added basic support for Mdframed
-	package.
-	https://puszcza.gnu.org.ua/bugs/?217.
+	* tex4ht-html4.tex (html4.4ht): added basic support for mdframed
+	package. https://puszcza.gnu.org.ua/bugs/?217
 
 2017-04-22  Karl Berry  <karl@freefriends.org>
 
