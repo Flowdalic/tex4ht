@@ -1,3 +1,9 @@
+2017-04-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): fixed error which happened when 
+	xcolor haven't been loaded in the document. Fixed line widths.
+	Start paragraph after mdframed environment.
+
 2017-04-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use CSS instead of rules="groups"
