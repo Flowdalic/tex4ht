@@ -3508,6 +3508,66 @@ savetrees,>>>
 \fi
 >>>
 
+%%%%%%%%%%%%%%%%%
+\Section{biblatex}
+%%%%%%%%%%%%%%%%%
+
+This is a fix for XeLaTeX, it sometimes 
+reported that English language strings
+can't be loaded, even if they were loaded
+correctly. This just removes the error message.
+
+\<use package\><<<
+biblatex,>>>
+
+\<add to usepackage\><<<
+\def\:temp{biblatex}\ifx \@currname\:temp
+\AtEndOfPackage{%
+  \def\blx@mknoautolang{%
+    \blx@lbxinput{\blx@languagename}%
+    {}{}%
+  }%
+}
+\fi
+>>>
+
+
+%%%%%%%%%%%%%%%%%
+\Section{xeCJK}
+%%%%%%%%%%%%%%%%%
+
+The xeCJK package makes CJK characters active and the macros they call fall.
+Best what we can do is to block it.
+
+\<use package\><<<
+xeCJK,>>>
+
+We need to load fontspec explicitly, block the package, define some basic commands
+this package provides and load definitions for CJK Unicode block.
+
+Note that not all commands are provided, more can be added on user request.
+
+\<add to usepackage\><<<
+\def\:temp{xeCJK}\ifx \@currname\:temp
+\:dontusepackage{xeCJK}
+\AtEndOfPackage{%
+  \RequirePackage{fontspec}
+}
+\DeclareDocumentCommand\setCJKmainfont{o m o}{}
+\let\setCJKsansfont\setCJKmainfont
+\let\setCJKmonofont\setCJKmainfont
+
+\DeclareDocumentCommand\setCJKfamilyfont {m o m }{}
+\DeclareDocumentCommand\newCJKfontfamily {o m o m}{\expandafter\gdef\csname #2\endcsname{\relax}}
+
+\DeclareDocumentCommand\xeCJKsetup{m}{}
+% }
+\AtBeginDocument{%
+  \xeuniuseblock{CJK}
+}
+\fi
+>>>
+
 
 %%%%%%%%%%%%%%%%%
 \Section{fontspec}
