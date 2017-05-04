@@ -2,6 +2,8 @@
 
 	* tex4ht-html4.tex (html4.4ht): round dimensions and remove 
 	``pt'' units from image dimensions.
+	* tex4ht-html4.tex (html4.4ht): Require horizontal stacking 
+	of subfigures.
 
 2017-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
