@@ -1,3 +1,8 @@
+2017-05-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): round dimensions and remove 
+	``pt'' units from image dimensions.
+
 2017-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): added basic support for

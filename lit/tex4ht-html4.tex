@@ -13662,12 +13662,12 @@ for margin pars.
                |<graphics width/height|>%
             \fi
          \else
-            height="\Gin:eheight"
+            height="\expandafter\int:pt\Gin:eheight|<par del|>"
          \fi
       \else
-         width="\Gin:ewidth"
+         width="\expandafter\int:pt\Gin:ewidth|<par del|>"
          \ifx \Gin:eheight\Gin@exclamation \else
-            height="\Gin:eheight"
+            height="\expandafter\int:pt\Gin:eheight|<par del|>"
          \fi
       \fi
       class="includegraphics"
@@ -13712,10 +13712,10 @@ height="\expandafter\int:pt\the\Gin@req@height|<par del|>"
 
 \<graphicx width/height\><<<
 \ifx \Gin:ewidth\Gin@exclamation \else
-   width="\Gin:ewidth"
+   width="\expandafter\int:pt\Gin:ewidth|<par del|>"
 \fi
 \ifx \Gin:eheight\Gin@exclamation \else
-   height="\Gin:eheight"
+   height="\expandafter\int:pt\Gin:eheight|<par del|>"
 \fi
 >>>
 
