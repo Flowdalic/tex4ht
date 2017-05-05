@@ -49,7 +49,7 @@ tex4ht_4ht_derived = \
   nameref.4ht \
   quoting.4ht \
   reading.4ht \
-  scrartcl.4ht scrbook.4ht scrreprt.4ht spanish.4ht subscript.4ht \
+  scrartcl.4ht scrbook.4ht scrreprt.4ht skak.4ht spanish.4ht subscript.4ht \
   titlesec.4ht tocloft.4ht tuenc-luatex.4ht tuenc-xetex.4ht \
   usepackage.4ht usepackage-fontspec.4ht \
   wrapfig.4ht \
