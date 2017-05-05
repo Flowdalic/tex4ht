@@ -31,7 +31,11 @@
 |<TeX4ht copywrite|>
 >>>
 
+% 2017-05-05 Michal
+% Change DTD and other stuff only for svg-inline
+% this is legacy option which will hold the original `svg` option behaviour
 \<configure svg tex4ht\><<<    
+\:CheckOption{svg-inline}\if:Option
 \Configure{VERSION}
   {\IgnorePar\HCode{<?xml version="1.0" |<xml encoding|> ?> \Hnewline}}
 \Configure{DOCTYPE}{\HCode
@@ -76,6 +80,7 @@
 \<configure svg tex4ht\><<<    
 \Configure{@HTML}
   {\Hnewline xmlns:svg="http://www.w3.org/2000/svg"\Hnewline }
+\fi
 >>>
 
 
@@ -101,7 +106,9 @@
 \else 
       \Log:Note{for external SVG files
              try the command line options `svg-obj' and 'svg-'}
+\:CheckOption{svg-inline}\if:Option
       |<internal svg|>
+\fi
 \fi\fi
 >>>
 

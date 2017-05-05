@@ -131,6 +131,7 @@ tail>>>
             \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option
                 \Hinclude[*]{svg.4ht}%
                 \Hinclude[*]{html4-svg.4ht}%
@@ -147,6 +148,7 @@ tail>>>
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option \Hinclude[*]{svg.4ht}%
                         \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
              \fi
@@ -164,6 +166,7 @@ tail>>>
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option \Hinclude[*]{svg.4ht}%
                         \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
              \fi
@@ -189,6 +192,7 @@ tail>>>
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option \Hinclude[*]{svg.4ht}%
                         \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
              \fi
@@ -244,6 +248,7 @@ Allows cleanup using xtpipes.
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option \Hinclude[*]{svg.4ht}%
                         \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
              \fi
@@ -273,6 +278,13 @@ Allows cleanup using xtpipes.
    \else
       \Hinclude[*]{html4-math.4ht}%
    \fi
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
    \Hinclude[*]{html5.4ht}%
 }
 >>>
@@ -285,6 +297,7 @@ Allows cleanup using xtpipes.
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option \Hinclude[*]{svg.4ht}%
                         \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
              \fi
@@ -299,6 +312,7 @@ Allows cleanup using xtpipes.
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option \Hinclude[*]{svg.4ht}%
                         \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
              \fi
@@ -314,6 +328,7 @@ Allows cleanup using xtpipes.
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option \Hinclude[*]{svg.4ht}%
                         \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
              \fi
@@ -328,6 +343,7 @@ Allows cleanup using xtpipes.
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
              \if:Option \Hinclude[*]{svg.4ht}%
                         \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
              \fi
