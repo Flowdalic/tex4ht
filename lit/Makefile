@@ -82,23 +82,26 @@ tex4ht_fonts_cjk_utf8_derived = tex4ht-fonts-cjk-utf8.html # and lots more
 
 # noncjk.tex \input's modern, but seems more maintainable
 # to have separate lists.
+ht_fonts_devdir = tex4ht.dir/texmf/tex4ht/ht-fonts
 derived += $(tex4ht_fonts_noncjk_derived)
 tex4ht_fonts_noncjk_derived = \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/alias/ec/eccc.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/ec/eccc-uni.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/ClearSans-BoldItalic-lf-t1.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/ipxg-r-t1.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/jknappen/tc/tcrm.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/adobe/courier/pcrro8r.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/1/tibetan/ctib.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tibetan/ctib.htf \
+  $(ht_fonts_devdir)/alias/ec/eccc.htf \
+  $(ht_fonts_devdir)/unicode/ec/eccc-uni.htf \
+  $(ht_fonts_devdir)/alias/t1fonts/ClearSans-BoldItalic-lf-t1.htf \
+  $(ht_fonts_devdir)/alias/t1fonts/ipxg-r-t1.htf \
+  $(ht_fonts_devdir)/unicode/jknappen/tc/tcrm.htf \
+  $(ht_fonts_devdir)/unicode/misc/SkakNew.htf \
+  $(ht_fonts_devdir)/unicode/adobe/courier/pcrro8r.htf \
+  $(ht_fonts_devdir)/iso8859/1/tibetan/ctib.htf \
+  $(ht_fonts_devdir)/unicode/tibetan/ctib.htf \
   SearchFonts.java lm-htf.tex
 tex4ht_fonts_modern_derived = \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/l7x-lmcsc.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/l7x-lm.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/rm-lm.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmt.htf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/rm-lmvt.htf
+  $(ht_fonts_devdir)/unicode/lm/l7x-lmcsc.htf \
+  $(ht_fonts_devdir)/unicode/lm/l7x-lm.htf \
+  $(ht_fonts_devdir)/unicode/lm/rm-lm.htf \
+  $(ht_fonts_devdir)/alias/lm/rm-lmt.htf \
+  $(ht_fonts_devdir)/alias/lm/rm-lmvt.htf \
+
 # xx and many more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
 
@@ -108,8 +111,9 @@ tex4ht_fonts_modern_derived = \
 
 derived += $(tex4ht_fonts_4hf)
 tex4ht_fonts_4hf = \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/charset/unicode.4hf \
-  tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/charset/unicode.4hf \
+  $(ht_fonts_devdir)/mozilla/charset/unicode.4hf \
+  $(ht_fonts_devdir)/unicode/charset/unicode.4hf \
+
 # xx and many more
 
 derived += $(tex4ht_html_speech_derived)
@@ -502,7 +506,6 @@ clean1:
 
 
 # painful, so let's write out the commands. --20mar17
-ht_fonts_devdir = tex4ht.dir/texmf/tex4ht/ht-fonts
 ht_fonts_instdir = $(inst_dir_top)/ht-fonts
 
 install-unicode-4hf:
