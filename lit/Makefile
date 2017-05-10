@@ -309,13 +309,13 @@ $(tex4ht_info_javahelp_derived): tex4ht-info-javahelp.tex $(common_info)
 	htlatex $< "html,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_info_mml_derived): tex4ht-info-mml.tex $(common_info)
-	htlatex $< "html,sections+" "" "" $(tex_1opt)
+	latex $(tex_opts) $<
 
 $(tex4ht_info_ooffice_derived): tex4ht-info-ooffice.tex $(common_info)
 	htlatex $< "html,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common_info)
-	htlatex $< "html,sections+" "" "" $(tex_1opt)
+	latex $(tex_opts) $<
 
 $(tex4ht_info_derived): tex4ht-info.tex $(common)
 	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
