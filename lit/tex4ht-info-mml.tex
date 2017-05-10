@@ -16,9 +16,14 @@
    \expandafter\next
 \fi
 
+% \input{tex4ht-cpright}
 \input{common-info}
 \input{common}
-\input{tex4ht-cpright}
+\expandafter\ifx \csname YES\HTML\endcsname\relax
+\else
+    \def\CleanComment#1tex4ht-info-mml#2#3#4.#5>#6//{[#4%     <--jobname
+                  \if,\ifnum \FIRST=#6 .\else ,0\fi\fi]#6//}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Info MML}
