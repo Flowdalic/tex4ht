@@ -34,7 +34,7 @@ default: all
 common_no_cond_sty = tex4ht-cpright.tex common.tex common-code.tex \
   ProTex.sty AlProTex.sty
 # common = mktex4ht.4ht tex4ht.sty $(common_no_cond_sty)
-common = $(common_no_cond_sty)
+common = tex4ht.sty $(common_no_cond_sty)
 common_info = $(common) common-info.tex
 derived = 
 
