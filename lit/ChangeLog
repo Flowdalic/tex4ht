@@ -1,3 +1,14 @@
+2017-05-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* mktex4ht-cnf.tex: uncommented mktex4ht configuration.
+	* tex4ht-info.tex (info4ht.4ht),
+	tex4ht-info-html4.tex (infoht4.4ht),
+	tex4ht-info-mml.tex (infomml.4ht,
+	tex4ht-info-svg.tex (infosvg.4ht): Added definition of \CleanComment 
+	macro to each of these files, because it needs current filename in 
+	it's definition. Generated info files, except infosvg.4ht, should work
+	now.
+
 2017-05-09  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-info-svg.tex (infosvg.4ht),
