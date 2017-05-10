@@ -8,6 +8,7 @@
 	macro to each of these files, because it needs current filename in 
 	it's definition. Generated info files, except infosvg.4ht, should work
 	now.
+	* Makefile: removed mktex4ht.4ht from common dependencies.
 
 2017-05-09  Karl Berry  <karl@freefriends.org>
 

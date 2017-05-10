@@ -29,9 +29,12 @@ default: all
 # generates it (cond4ht), so we need two different variables.
 # Similarly for tex4ht.sty, though that is modified far less often.
 # 
+# Michal 10/05/2017: it seems that when mktex4ht.4ht is included as
+# common, it causes constant recompilatiations
 common_no_cond_sty = tex4ht-cpright.tex common.tex common-code.tex \
   ProTex.sty AlProTex.sty
-common = mktex4ht.4ht tex4ht.sty $(common_no_cond_sty)
+# common = mktex4ht.4ht tex4ht.sty $(common_no_cond_sty)
+common = $(common_no_cond_sty)
 common_info = $(common) common-info.tex
 derived = 
 
