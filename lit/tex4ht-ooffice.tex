@@ -10905,6 +10905,51 @@ semicolons from catcode changes when loaded, e.g., in french.
 \Hnewline
 >>>
 
+\subsection{mdwlist}
+
+\<configure ooffice mdwlist\><<<
+
+\ConfigureList{itemize*}%
+   {\EndP\HCode{|<input line num|><\text:unorderedlist
+      text:style-name="Itemize|<cond rtl class|>"
+        >\Hnewline}\def\end@Item{}\bgroup
+     \Configure{HtmlPar}
+        {\EndP\HCode{<text:p
+            text:style-name="Inside-itemize|<cond rtl class|>"
+                     >}}
+        {\EndP\HCode{<text:p
+            text:style-name="Inside-itemize|<cond rtl class|>"
+                      >}}
+        {\HCode{</text:p>\Hnewline}}
+        {\HCode{</text:p>\Hnewline}}%
+     \gHAdvance\BegEnd:D by 1
+   }
+   {\gHAdvance\BegEnd:D by -1
+    \EndP\IgnorePar \egroup \HCode{</text:list-item>\Hnewline
+      </\text:unorderedlist>\Hnewline}\ShowPar}
+   {\EndP\end@Item\DeleteMark}
+   {\HCode{<text:list-item>}\par\ShowPar
+      \def\end@Item{\HCode{</text:list-item>\Hnewline}}}
+
+\ConfigureList{enumerate*}%
+   {\EndP\HCode{<\text:orderedlist
+      text:style-name="Enumerate|<cond rtl class|>"
+       >\Hnewline}\def\end@Item{}\bgroup
+     \Configure{HtmlPar}
+      {\EndP\HCode{<text:p
+           text:style-name="Inside-enumerate|<cond rtl class|>"
+            >}}
+      {\EndP\HCode{<text:p
+           text:style-name="Inside-enumerate|<cond rtl class|>"
+             >}}
+      {\HCode{</text:p>\Hnewline}}     {\HCode{</text:p>\Hnewline}}}
+   {\EndP\IgnorePar \egroup \HCode{</text:list-item>\Hnewline
+     </\text:orderedlist>\Hnewline}\ShowPar}
+   {\EndP\end@Item\DeleteMark}
+   {\HCode{<text:list-item>}\par\ShowPar
+     \def\end@Item{\HCode{</text:list-item>\Hnewline}}}
+>>>
+
 %%%%%%%%%%%%%%%%%%
 \section{Verbatim}
 %%%%%%%%%%%%%%%%%%

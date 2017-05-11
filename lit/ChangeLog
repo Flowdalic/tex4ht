@@ -1,5 +1,10 @@
 2017-05-10  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-ooffice.tex (ooffice.4ht): Added basic support for mdwlist
+	environments enumerate* and itemize*
+
+2017-05-10  Michal Hoftich  <michal.h21@gmail.com>
+
 	* mktex4ht-cnf.tex: uncommented mktex4ht configuration.
 	* tex4ht-info.tex (info4ht.4ht),
 	tex4ht-info-html4.tex (infoht4.4ht),
