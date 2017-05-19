@@ -3,12 +3,29 @@
 \usepackage{colortbl}
 \usepackage{array}
 \usepackage{amsmath}
+\usepackage{url}
+\date{2017/05/19}
+\author{Michal Hoftich}
+\title{Test for colortbl and array packages with mathml output}
 
 \usepackage[table]{xcolor}
 
 \definecolor{maroon}{cmyk}{0,0.87,0.68,0.32}
 
 \begin{document}
+
+\maketitle
+
+The original configuration for array package caused HTML code to be inserted when \verb|\hline| was used
+in math arrays\footnote{For more info see \url{https://tex.stackexchange.com/q/370450/2891}}. 
+
+Compile using
+
+\begin{verbatim}
+make4ht array-test.tex "html5,mathml,fn-in"
+\end{verbatim}
+
+
 \[\begin{array}{|l|c|} \hline 1 & 2\\ \end{array}\]
 
 
