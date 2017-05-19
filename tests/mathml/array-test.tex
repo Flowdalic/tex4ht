@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{amsmath}
+
+\usepackage[table]{xcolor}
+
+\definecolor{maroon}{cmyk}{0,0.87,0.68,0.32}
+
+\begin{document}
+\[\begin{array}{|l|c|} \hline 1 & 2\\ \end{array}\]
+
+
+\[
+\begin{array}{|l|cr}
+  left1 & center1 & right1\\
+  \hline
+  d & e & f
+\end{array} 
+\]
+
+\begin{tabular}{l|l}
+  l & l\\
+  \hline
+  l & l\\
+\end{tabular}
+
+\noindent\begin{tabular}{|l|c|}
+  \rowcolor{maroon}
+  one & two \\
+  \rowcolor{maroon!50}
+  three & four \\
+  \rowcolor{maroon!10}
+  five & six
+\end{tabular}
+
+\end{document}
