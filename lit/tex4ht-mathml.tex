@@ -1202,6 +1202,7 @@ space, without having them ignored, must use &nbsp; or other
 
 \<mathml latex\><<<
 \def\:MM{m}
+\def\mathml:hborder{%
 \Configure{HBorder}
    {<\a:mathml mtr\Hnewline \mml:class="hline">} 
    {|<mml hline|>}
@@ -1214,6 +1215,8 @@ space, without having them ignored, must use &nbsp; or other
          \mml:class="vspace" style="font-size:\HBorderspace">}
    {<\a:mathml mtd\Hnewline></\a:mathml mtd>}
    {</\a:mathml mtr>}
+  }
+  \mathml:hborder
 >>>
 
 \<configure html-mml latex\><<<
@@ -4093,6 +4096,7 @@ catching of  left subscripts and superscripts.
     \xdef\VBorder{\VBorder<col\Hnewline id="TBL-\TableNo
        -\ar:cnt"\xml:empty>}\xdef\AllColMargins{\AllColMargins1}}
    {\xdef\AllColMargins{\AllColMargins 0}}
+   \Configure{putHBorder}{\bgroup\ifmathml\mathml:hborder\fi\HCode{\HBorder}\egroup}
 >>>
 
 
