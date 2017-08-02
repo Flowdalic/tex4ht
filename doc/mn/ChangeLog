@@ -1,0 +1,6 @@
+2017-08-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* TeX4ht-doc.tex: updated information about onmouseover. 
+	Clarified info about \JavaScript ... \EndJavaScript. 
+
+

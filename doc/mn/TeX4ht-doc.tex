@@ -3792,10 +3792,12 @@ may be used for such a purpose.
 
 This option currently relies on
 the JavaScript utility  
-      \Link[http://www.bosrup.com/web/overlib/]{}{}overlib.js\EndLink{}
-of Erik Bosrup.  The file might need to be fixed at line 234, by
-introducing \`'return "";' instead of \`'return;' (an already 
-\Link[http://www.egroups.com/message/overlib/133]{}{}reported\EndLink{}  problem).
+\Link[https://github.com/overlib/overlib]{}{}overlib.js\EndLink{}
+of Erik Bosrup. The {\tt overlib.js} file must be placed to the directory
+along the html files.
+%The file might need to be fixed at line 234, by
+% introducing \`'return "";' instead of \`'return;' (an already 
+% \Link[http://www.egroups.com/message/overlib/133]{}{}reported\EndLink{}  problem).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -6655,6 +6657,8 @@ prefix and postfix.
 \Item{\tt
 \--JavaScript//{{\tt\char92}}/%
 \string\JavaScript...\string\EndJavaScript}\ContItem
+
+\IgnoreIndent This command is available when {\tt javascript} option is used.
 
 \EndList
 
