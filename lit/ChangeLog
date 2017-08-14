@@ -1,14 +1,20 @@
+2017-08-14  Vincent Belaiche  <vincent.b.1@hotmail.fr>
+
+	* tex4ht-sty.tex: \openin ./tex4ht.sty, to be sure we get the
+	development version.
+	https://puszcza.gnu.org.ua/bugs/?366
+
 2017-08-01  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): use `mk4ht xhtex` command with onmouseover
-	option
-	Details: https://tex.stackexchange.com/q/384371/2891
+	* tex4ht-html4.tex (html4.4ht): use `mk4ht xhtex` command with
+	onmouseover option.
+	https://tex.stackexchange.com/q/384371/2891
 
 2017-05-19  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathml.tex (html-mml.4ht): configuration for array caused ivalid
-	MathML
-	Details: https://tex.stackexchange.com/q/370450/2891
+	* tex4ht-mathml.tex (html-mml.4ht): configuration for array caused
+	invalid MathML.
+	https://tex.stackexchange.com/q/370450/2891
 
 2017-05-15  Michal Hoftich  <michal.h21@gmail.com>
 
