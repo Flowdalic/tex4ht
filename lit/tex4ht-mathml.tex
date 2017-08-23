@@ -1140,7 +1140,7 @@ space, without having them ignored, must use &nbsp; or other
 \let\columnlines\empty
 \Configure{halignTB<>}{array}{\HCode{\Hnewline
    \a:mathml equalrows="false"
-   \a:mathml columnlines="\columnlines"
+   \ifx\columnlines\empty\else\a:mathml columnlines="\columnlines" \fi
    \a:mathml equalcolumns="false" \a:mathml class="array"}<>\HAlign}
 \Configure{array} 
    {\halignTB{array}}
