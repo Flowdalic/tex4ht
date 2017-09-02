@@ -3293,6 +3293,23 @@ definitions.
 >>>
 
 %%%%%%%%%%%%%%%%%%
+\Section{authblk}
+
+This is a basic fix for authblk package. 
+\Link[https://tex.stackexchange.com/a/309246/2891]{}{}More context.\EndLink
+\<authblk.4ht\><<<
+% authblk.4ht (|version), generated from |jobname.tex
+% Copyright 2017 TeX Users Group
+|<TeX4ht license text|>
+\def\maketitle{\bgroup%
+ \AB@maketitle%
+\egroup}
+
+\Hinput{authblk}
+\endinput
+>>> \AddFile{8}{authblk}
+
+%%%%%%%%%%%%%%%%%%
 \Section{geometry}
 
 Geometry with {\tt showframe} option writes spurious lines before 
