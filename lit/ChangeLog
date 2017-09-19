@@ -1,3 +1,10 @@
+2017-09-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex 
+	 (tex4ht.dir/texmf/tex4ht/ht-fonts/alias/ec/ecxc.htf,
+		tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/laxc.htf):
+		fixed some small-caps fonts.
+
 2017-09-09  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mathml.tex (html-mml.4ht): copyright.
