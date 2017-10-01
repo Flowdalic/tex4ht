@@ -1,3 +1,14 @@
+2017-10-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex 
+	 (tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/labi.htf,
+		tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/latc.htf,
+		tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/lait.htf):
+		new cyrillics fonts
+	* tex4ht-fonts-noncjk.tex 
+	 (tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/lacc.htf):
+	 fixed wrong character
+	
 2017-09-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex 
