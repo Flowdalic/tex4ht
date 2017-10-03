@@ -77,4 +77,5 @@ local process = filter{ function(s)
   return dom:serialize()
 end }
 
-Make:match("html$", process)
+-- it removed the whole TOC. What is the issue?
+-- Make:match("html$", process)

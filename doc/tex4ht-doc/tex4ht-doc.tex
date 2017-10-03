@@ -1,6 +1,8 @@
 \documentclass{book}
 
-\usepackage{glossaries}
+\usepackage{url}
+\usepackage{tex4ht-styles}
+% \usepackage{glossaries}
 \title{TeX4ht Documentation}
 
 \author{by TeX4ht Project}
@@ -8,14 +10,15 @@
 \begin{document}
 
 \maketitle
-
 \tableofcontents
+
 
 \chapter{Introduction}
 
 \chapter{Output Formats}
-\chapter{command Line Options}
+\chapter{Command Line Options}
 
+\url{https://web.archive.org/web/20120611070816/http://www.cvr.cc/tex4ht-options/}
 
 \chapter{Configurations}
 \section{Configuration files}
@@ -33,12 +36,19 @@
 \section{Colors}
 
 \section{Graphics}
-\section{TikZ }
-\section{Pstricks}
+\subsection{Pictorial representation of local content}
+\subsection{Images}
+\begin{enumerate}
+  \item \verb|\Configure{Graphics*}|
+  \item Image format conversion
+  \item Image dimensions
+\end{enumerate}
+\subsection{TikZ }
+\subsection{Pstricks}
 
 \section{Math}
-\section{MathML}
-\section{MathJax}
+\subsection{MathML}
+\subsection{MathJax}
 
 \section{Bibliographies}
 \section{Indexing}
