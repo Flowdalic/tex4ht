@@ -24,4 +24,4 @@ final: mode=final
 final: tex4ht-doc.html
 
 clean:
-	rm *.html *.aux *.4tc *.4ct *.toc *.xref 
+	rm *.html *.aux *.4tc *.4ct *.xref 
