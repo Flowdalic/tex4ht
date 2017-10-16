@@ -3858,6 +3858,47 @@ given Script using \`|\xeuniuseblock{Script name}|.
 \endinput
 >>> \AddFile{9}{fontspec-luatex}
 
+
+%%%%%%%%%%%%%%%%%%
+\Section{TikZ}
+%%%%%%%%%%%%%%%%%
+
+\<use package\><<<
+tikz,>>>
+
+There is a support for TikZ externalization. TikZ has been instucted to don't
+externalize pictures when tex4ht is used. It is necessary to  create the PDF
+images for TikZ pictures first, by compiling the document using a PDF producing
+engine. 
+
+The tex4ht configuration for PDF graphics is used for PDF inclusion, it will be
+converted to SVG by default.
+
+\<add to usepackage\><<<
+\def\:temp{tikz}\ifx \@currname\:temp
+\AtEndOfPackage{%
+\let\use:tikzlibrary\usetikzlibrary
+\def\find:externalize#1external#2\@nil{%
+\if\relax#2\relax\else
+  \let\tikz:externalize\tikzexternalize
+  \renewcommand\tikzexternalize[1][]{\tikz:externalize[##1,mode=only graphics]}
+    \tikzset{%
+      tex4ht inc/.style={%
+        /pgf/images/include external/.code={%
+          \includegraphics[]{####1.pdf}%
+        }%
+      }
+    }
+    \tikzset{tex4ht inc}
+  \fi
+}
+\renewcommand\usetikzlibrary[1]{%
+  \use:tikzlibrary{#1}%
+  \find:externalize#1external\@nil%
+}
+}
+\fi
+>>>
 %%%%%%%%%%%%%%%%%%
 \Section{url.sty}
 %%%%%%%%%%%%%%%%%%

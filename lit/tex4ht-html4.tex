@@ -13618,6 +13618,15 @@ for margin pars.
    {svg}
    {{\Configure{Needs}{File: \Gin@base.svg}\Needs{}}%
    \Picture[\a:GraphicsAlt]{{\Gin@base.svg} |<graphics dim|>}}
+
+\NewConfigure{PdfConvert}{2}
+\Configure{PdfConvert}{svg}{"inkscape -z -f '\Gin@base.pdf' -l '\Gin@base.\a:PdfConvert'"}
+\Configure{graphics*}
+   {pdf}
+   {\Needs{\b:PdfConvert}%
+   {\Configure{Needs}{File: \Gin@base.\a:PdfConvert}\Needs{}}%
+   \Picture[\a:GraphicsAlt]{{\Gin@base.\a:PdfConvert}|<graphics dim|>}}
+
 \NewConfigure{GraphicsAlt}{1}
 \Configure{GraphicsAlt}{PIC}
 |<includegraphics dim|>
