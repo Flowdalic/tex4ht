@@ -1,6 +1,9 @@
 2017-10-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (graphicx.4ht): added xbb support for PDF and SVG
+	* tex4ht-html4.tex (html4.4ht): use pdf2svg for pdf to svg conversion, the
+	pdf images will be converted to png by default, use "svg" option to request
+	the svg output.
 
 2017-10-16  Michal Hoftich  <michal.h21@gmail.com>
 
