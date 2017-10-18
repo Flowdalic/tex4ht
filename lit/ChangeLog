@@ -1,3 +1,7 @@
+2017-10-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (graphicx.4ht): added xbb support for PDF and SVG
+
 2017-10-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): added support for TikZ externalization.
