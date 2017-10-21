@@ -1,32 +1,46 @@
+2017-10-21  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-fonts-noncjk.tex
+     (ctib -> tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/1/tibetan/ctib.htf,
+  ctib-uni -> tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tibetan/ctib.htf):
+        correct |jobname to `jobname for this context.
+
+	* tex4ht-fonts-noncjk.tex
+     (lacc-uni -> tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lh/lh-t2a/lacc.htf),
+	* tex4ht-4ht.tex (graphicx.4ht): copyright.
+
 2017-10-18  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (graphicx.4ht): added xbb support for PDF and SVG
-	* tex4ht-html4.tex (html4.4ht): use pdf2svg for pdf to svg conversion, the
-	pdf images will be converted to png by default, use "svg" option to request
-	the svg output.
+	* tex4ht-4ht.tex (graphicx.4ht): add xbb support for pdf and svg.
+	* tex4ht-html4.tex (html4.4ht): use pdf2svg for pdf to svg
+	conversion, the pdf images will be converted to png by default,
+	use "svg" option to request the svg output.
 
 2017-10-16  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht): added support for TikZ externalization.
-	* tex4ht-html4.tex (html4.4ht): added support for PDF image inclusion.
+	* tex4ht-4ht.tex (usepackage.4ht): added support for TikZ
+	externalization.
+	http://puszcza.gnu.org.ua/bugs/?371
+	* tex4ht-html4.tex (html4.4ht): added support for pdf image inclusion.
 
 2017-10-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex 
-	 (tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/labi.htf,
-		tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/latc.htf,
-		tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/lait.htf):
-		new cyrillics fonts
+        (tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/labi.htf,
+         tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/latc.htf,
+         tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/lait.htf):
+	new Cyrillic fonts.
 	* tex4ht-fonts-noncjk.tex 
-	 (tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/lacc.htf):
-	 fixed wrong character
+        (tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lh/lh-t2a/lacc.htf):
+        fixed wrong character.
+        https://puszcza.gnu.org.ua/bugs/index.php?370
 	
 2017-09-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex 
-	 (tex4ht.dir/texmf/tex4ht/ht-fonts/alias/ec/ecxc.htf,
-		tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/laxc.htf):
-		fixed some small-caps fonts.
+        (tex4ht.dir/texmf/tex4ht/ht-fonts/alias/ec/ecxc.htf,
+         tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lh/lh-t2a/laxc.htf):
+	fixed some small-caps fonts.
 
 2017-09-09  Karl Berry  <karl@freefriends.org>
 
@@ -59,6 +73,7 @@
 	* tex4ht-mathml.tex (html-mml.4ht): configuration for array caused
 	invalid MathML.
 	https://tex.stackexchange.com/q/370450/2891
+	https://puszcza.gnu.org.ua/bugs/?368
 
 2017-05-15  Michal Hoftich  <michal.h21@gmail.com>
 
