@@ -1,7 +1,9 @@
 2017-10-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added configurations for Frenchb spaces.
-	Changed definition of \:nbsp macro to produce actual non-breaking space.
+	* tex4ht-ooffice.tex (ooffice-mml.4ht): Changed definition of \:nbsp macro
+	to produce actual non-breaking space.
+
 
 2017-10-21  Karl Berry  <karl@freefriends.org>
 
