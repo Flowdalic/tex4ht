@@ -9467,7 +9467,10 @@ The following configuration does not show.
    {\HChar{#1}}      {\b:accents{bar}{#1}{#2}}
 >>>
 
-
+\<configure ooffice frenchb\><<<
+\Configure{frenchb-thinspace}{\HCode{\string&\:sharp x202F;}\setbox\tmp:bx=\hbox\bgroup}{\egroup}
+\Configure{frenchb-nbsp}{\:nbsp\setbox\tmp:bx=\hbox\bgroup}{\egroup}
+>>>
 
 %%%%%%%%%%%%%%%%%%
 \section{ElsArt}
@@ -10082,7 +10085,7 @@ Y{0178}\i{00EF}%
 >>> 
 
 \<oo space\><<<
-\ht:special{t4ht@+<text{58}s/>}x%
+\ht:special{t4ht@+\string&{35}x00A0{59}}x%
 >>>
 
 Nonbraking spaces may go to aux files and need protect the colon and 
