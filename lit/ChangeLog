@@ -1,3 +1,8 @@
+2017-10-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): define dummy vallue for \Gin@page when it is
+	undefined.
+
 2017-10-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added configurations for Frenchb spaces.
