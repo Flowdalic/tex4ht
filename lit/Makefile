@@ -536,7 +536,7 @@ diff-all:
 	| tee /tmp/u | egrep -v '^ *[-+]%|write-1.version'
 
 # diff one file specified as d=
-diff1:
+diff1 d1:
 	$(diff) $(inst_dir_4ht)/$(d) .
 
 diff-ht-fonts:
