@@ -1,3 +1,7 @@
+2017-11-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-docbook.tex (docbook.4ht): added support for the quote environment.
+
 2017-11-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-env.tex (tex4ht.env): use the --exact option for dvisvgm, it
