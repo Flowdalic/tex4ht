@@ -1,6 +1,14 @@
+2017-11-12  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (update-env): separate out target.
+	(update: call it.
+
+	* tex4ht-docbook.tex: copyright.
+
 2017-11-11  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-docbook.tex (docbook.4ht): added support for the quote environment.
+	* tex4ht-docbook.tex (docbook.4ht): added support for the quote
+	environment.
 
 2017-11-10  Michal Hoftich  <michal.h21@gmail.com>
 
