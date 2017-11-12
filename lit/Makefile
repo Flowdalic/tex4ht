@@ -413,8 +413,8 @@ mkdir = install -d
 #
 update-env:
 	$(mkdir) $(dest_base)/unix $(dest_base)/win32
-	$(update) tex4ht.env-unix $(dest_base)/unix/
-	$(update) tex4ht.env-win32 $(dest_base)/win32/
+	$(update) tex4ht.env-unix $(dest_base)/unix/tex4ht.env
+	$(update) tex4ht.env-win32 $(dest_base)/win32/tex4ht.env
 
 update: all
 	$(update) $(tex4ht_bibtex2_derived) $(dest_src)/
