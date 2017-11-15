@@ -1845,7 +1845,12 @@ and \''\Tg'.
 >>>
 
 \<config biblatex\><<<
-\ifdim\abx@version pt< 3pt \xdef\blx:ver:no{2}\else\xdef\blx:ver:no{3}\fi
+\def\make:blx:ver#1.#2#3\relax{%
+   %\ifdim#1pt< 3pt \xdef\blx:ver:no{2}\else\xdef\blx:ver:no{3}\fi%
+   \gdef\blx:ver:no{#1}
+   \gdef\blx:subver:no{#2}
+}
+\expandafter\make:blx:ver\abx@version.0\relax
 \ifx\a:printshorthands\Undef\let\blx@shorthands\@empty\fi
 \ifx\blx@startbib\:UnDef
  \pend:def\blx@shorthands{%
@@ -2069,7 +2074,7 @@ and \''\Tg'.
 
 % Following macros doesn't seem to work with biblatex 3.4. We should make another test for
 % biblatex > 3.0 and < 3.3
-\ifdim\abx@version pt < 3.3pt 
+\ifdim\blx:ver:no.\blx:subver:no pt < 3.3pt
  \protected\def\blx@bbl@entry#1#2#3{%
   \begingroup
   \edef\abx@field@entrykey{\detokenize{#1}}%

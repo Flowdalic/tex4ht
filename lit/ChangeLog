@@ -1,3 +1,7 @@
+2017-11-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): fixed version checking
+
 2017-11-12  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (update-env): separate out target.
