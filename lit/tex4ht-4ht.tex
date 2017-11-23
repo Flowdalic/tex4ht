@@ -3239,12 +3239,12 @@ definitions.
       \HLet\NROrg@lst@MakeCaption\:tempc
   }{}%
   % bug [348]
+  \def\:tempams{%
+    \gdef\NR:Title{\a:newlabel{equation}}%
+    \gdef\NR:Type{equation}%
+    \gdef\@currentlabelname{equation}%
+  }
   \@ifpackageloaded{amsmath}{%
-     \def\:tempams{%
-       \gdef\NR:Title{\a:newlabel{equation}}%
-       \gdef\NR:Type{equation}%
-       \gdef\@currentlabelname{equation}%
-     }
      \Configure{@begin}{align}{\:tempams}
      \Configure{@begin}{multline}{\:tempams}
      \Configure{@begin}{equation}{\:tempams}
@@ -3265,7 +3265,9 @@ definitions.
      \Configure{@begin}{underset}{\:tempams}
      \Configure{@begin}{xleftarrow}{\:tempams}
      \Configure{@begin}{xrightarrow}{\:tempams}
-  }{}
+  }{
+     \Configure{@begin}{equation}{\:tempams}
+}
 
 }
 \let\T:ref=\::ref
