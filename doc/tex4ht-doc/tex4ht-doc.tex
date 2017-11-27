@@ -1,8 +1,7 @@
 \documentclass{book}
-
 \usepackage{url}
-\usepackage{tex4ht-styles}
-% \usepackage{glossaries}
+
+\usepackage{glossaries}
 \title{TeX4ht Documentation}
 
 \author{by TeX4ht Project}
@@ -10,20 +9,17 @@
 \begin{document}
 
 \maketitle
-\tableofcontents
 
+\tableofcontents
 
 \chapter{Introduction}
 
-\chapter{Output Formats}
-\chapter{Command Line Options}
+\chapter{Basic tutorial}
+\chapter{Basic usage}
+\section{Calling commands}
+\section{Output Formats}
+\section{Command Line Options}
 
-\begin{itemize}
-  \item \url{https://web.archive.org/web/20120611070816/http://www.cvr.cc/tex4ht-options/}
-  \item mathjax?
-  \item sec-filename
-  \item Gin-dim, Gin-dim+
-\end{itemize}
 
 \chapter{Configurations}
 \section{Configuration files}
@@ -41,31 +37,41 @@
 \section{Colors}
 
 \section{Graphics}
-\subsection{Pictorial representation of local content}
-\subsection{Images}
-\begin{enumerate}
-  \item \verb|\Configure{Graphics*}|
-  \item Image format conversion
-  \item Image dimensions
-\end{enumerate}
-\subsection{TikZ}
-\subsubsection{Externalization}
-\subsubsection{TikZ SVG export}
-\subsubsection{Export using Dvisvgm}
-\url{https://tex.stackexchange.com/a/386775/2891}
-\subsection{Pstricks}
+\section{TikZ }
+\section{Pstricks}
 
 \section{Math}
-\subsection{MathML}
-\subsection{MathJax}
-
-Create clean HTML code for math using \verb|mathjax-node|:
-\url{https://tex.stackexchange.com/a/402159/2891}
+\section{MathML}
+\section{MathJax}
 
 \section{Bibliographies}
 \section{Indexing}
 
 \chapter{Make4ht Build Files}
+\section{Calling commands}
+\section{Filters}
+
+Some samples:
+
+\begin{itemize}
+  \item Render math by Mathjax during tex4ht compilation \url{https://tex.stackexchange.com/a/402159/2891}
+\end{itemize}
+\section{Image conversion}
+
+\chapter{For developers}
+
+\section{Writing basic support for a new package}
+\begin{itemize}
+  \item \url{https://tex.stackexchange.com/a/402283/2891}
+\end{itemize}
+
+\section{Two types of .4ht files}
+
+\subsection{Inserting configurable hooks for packages}
+
+\subsection{Configure the hooks in output format configuration files}
+
+
 
 \chapter{Glossary}
 \chapter{Bibliography}
