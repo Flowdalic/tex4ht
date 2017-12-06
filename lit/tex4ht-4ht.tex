@@ -3906,7 +3906,41 @@ converted to SVG by default.
 }
 \fi
 >>>
+
 %%%%%%%%%%%%%%%%%%
+\Section{pdfbase.sty}
+%%%%%%%%%%%%%%%%%%
+\<use package\><<<
+pdfbase,>>>
+%%%%%%%%%%%%%%%%%%
+
+The pdfbase package redefines \`|\@outputpage| macro, which causes tex4ht patches to fail.
+
+\<add to usepackage\><<<
+\def\:temp{pdfbase}\ifx\@currname\:temp
+\AtEndOfPackage{%
+  \let\old:outputpage\@outputpage
+  \def\@outputpage{\old:outputpage{}}
+}
+\fi
+>>>
+
+%%%%%%%%%%%%%%%%%
+\Section{animate.sty}
+%%%%%%%%%%%%%%%%%
+
+\<animate.4ht\><<<
+% animate.4ht (|version), generated from |jobname.tex
+% Copyright 2017 TeX Users Group
+|<TeX4ht license text|>
+\NewConfigure{animinline}{2}
+\let\:anim:xinline\@anim@xinline
+\def\@anim@xinline#1#2#3#4{\a:animinline\:anim:xinline{#1}{#2}{#3}{#4}\b:animinline}
+
+\Hinput{animate}
+>>> \AddFile{9}{animate}
+
+
 \Section{url.sty}
 %%%%%%%%%%%%%%%%%%
 
