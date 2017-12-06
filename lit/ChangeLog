@@ -1,5 +1,6 @@
 2017-12-06  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht), 
 	* tex4ht-4ht.tex (animate.4ht, usepackage.4ht): added support for the
 	animate package.
 

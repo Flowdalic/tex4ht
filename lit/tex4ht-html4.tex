@@ -21683,6 +21683,12 @@ font commands
 >>>
 
 
+\<configure html4 animate\><<<
+\Configure{animinline}{\Picture+{}}{\EndPicture}
+\ConfigureEnv{animateinline}{%
+   \ifvmode\IgnorePar\fi\EndP\HCode{<div class="animateinline">}%
+}{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}{}{}
+>>>
 
 
 \<configure html4 booktabs\><<<
