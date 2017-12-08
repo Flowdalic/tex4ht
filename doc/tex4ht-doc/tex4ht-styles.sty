@@ -1,3 +1,22 @@
 \ProvidesPackage{tex4ht-styles}
+\RequirePackage{listings}
+\RequirePackage{xparse}
+
+% shortcuts 
+\newcommand\texfourht{\texttt{tex4ht}}
+\newcommand\HTML{\texttt{HTML}}
+\newcommand\HTMLV{\texttt{HTML5}}
+\newcommand\ProTeX{\texttt{ProTeX}}
+
+
+% formatting commands
+\newcommand\file[1]{\texttt{#1}}
+
+% this trick will enable us to take verbatim arguments
+% https://tex.stackexchange.com/a/45292/2891
+\NewDocumentCommand\texcommand{v}{\texttt{#1}}
+
+\lstnewenvironment{texsource}{\lstset{language=TeX}}{}
+\newcommand\texinput[1]{\lstinputlisting[language=TeX]{#1}}
 
 \endinput
