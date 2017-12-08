@@ -3940,6 +3940,25 @@ The pdfbase package redefines \`|\@outputpage| macro, which causes tex4ht patche
 \Hinput{animate}
 >>> \AddFile{9}{animate}
 
+%%%%%%%%%%%%%%%%%%
+\Section{sectionbreak.sty}
+%%%%%%%%%%%%%%%%%%
+
+\<sectionbreak.4ht\><<<
+% sectionbreak.4ht (|version), generated from |jobname.tex
+% Copyright 2017 TeX Users Group
+|<TeX4ht license text|>
+\NewConfigure{sectionbreak}{2}
+\NewConfigure{asterism}{1}
+
+\renewcommand\sectionbreak[1][\sectionbreak@mark]{%
+  \a:sectionbreak\bgroup\sectionbreak@style #1\egroup\b:sectionbreak%
+}
+
+\renewcommand\asterism{\a:asterism}
+
+\Hinput{sectionbreak}
+>>> \AddFile{9}{sectionbreak}
 
 \Section{url.sty}
 %%%%%%%%%%%%%%%%%%

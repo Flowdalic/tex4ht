@@ -1,3 +1,11 @@
+2017-12-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht),
+	* tex4ht-4ht.tex (sectionbreak.4ht): added support for the sectionbreak
+	package
+	* Makefile: request compilation of tex4ht-cond4ht.tex before 
+	tex4ht-4ht.tex. 
+	
 2017-12-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht), 

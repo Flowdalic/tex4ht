@@ -38,6 +38,8 @@ common = tex4ht.sty $(common_no_cond_sty)
 common_info = $(common) common-info.tex
 derived = 
 
+derived += $(tex4ht_cond4ht_derived)
+tex4ht_cond4ht_derived = cond4ht.4ht mktex4ht.4ht
 derived += $(tex4ht_4ht_derived)
 tex4ht_4ht_derived = \
   algorithmic.4ht animate.4ht authblk.4ht \
@@ -52,7 +54,8 @@ tex4ht_4ht_derived = \
   nameref.4ht \
   quoting.4ht \
   reading.4ht \
-  scrartcl.4ht scrbook.4ht scrreprt.4ht skak.4ht spanish.4ht subscript.4ht \
+  scrartcl.4ht scrbook.4ht scrreprt.4ht sectionbreak.4ht \
+	skak.4ht spanish.4ht subscript.4ht \
   titlesec.4ht tocloft.4ht tuenc-luatex.4ht tuenc-xetex.4ht \
   usepackage.4ht usepackage-fontspec.4ht \
   wrapfig.4ht \
@@ -65,8 +68,6 @@ tex4ht_bibtex2_derived = bibtex2.4ht
 derived += $(tex4ht_c_derived)
 tex4ht_c_derived = tex4ht.c
 
-derived += $(tex4ht_cond4ht_derived)
-tex4ht_cond4ht_derived = cond4ht.4ht mktex4ht.4ht
 
 derived += $(tex4ht_docbook_derived)
 tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht

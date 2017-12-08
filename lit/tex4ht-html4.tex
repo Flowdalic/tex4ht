@@ -21691,6 +21691,20 @@ font commands
 >>>
 
 
+\<configure html4 sectionbreak\><<<
+\Configure{sectionbreak}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="sectionbreak">}}{\HCode{</div>}}
+
+\Css{div.sectionbreak{
+  margin-top:3rem;
+  margin-bottom:3rem;
+  text-align:center;
+}}
+
+% use the asterism HTML entity
+\Configure{asterism}{\HCode{\string&\:sharp8258;}}
+>>>
+
+
 \<configure html4 booktabs\><<<
 \Configure{toprule}
    {|<booktabs rule mag|>%
