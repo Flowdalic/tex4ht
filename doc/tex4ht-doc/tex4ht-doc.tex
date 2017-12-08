@@ -98,12 +98,12 @@ Let's say that we want to insert some \HTML\ tags before and after the text cont
 
 Basic template for \file{tex4ht-4ht.tex}
 
+% examples/basicpackage/sample.4ht
 \begin{texsource}
 \<sample.4ht\><<<
 % sample.4ht (|version), generated from |jobname.tex
 % Copyright 2017 TeX Users Group
 |<TeX4ht license text|>
-
 \NewConfigure{hello}{2}
 \pend:def\hello{\a:hello}
 \append:def\hello{\b:hello}
@@ -127,6 +127,8 @@ commands can insert code  at the beginning, respective at the end of the redefin
 
 The configuration for \HTML\ must be placed in the \file{tex4ht-html4.tex} file:
 
+
+% examples/basicpackage/config.cfg
 \begin{texsource}
 \<configure html4 sample\><<<
 \Configure{hello}{\HCode{<span class="hello">}}{\HCode{</span>}}
@@ -135,7 +137,7 @@ The configuration for \HTML\ must be placed in the \file{tex4ht-html4.tex} file:
 \end{texsource}
 
 The configuration for a package must be placed in \texcommand{\<configure html4 packagename\>} block.
-
+% ToDo: write more info
 
 
 The package name must be also included in \file{mktex4ht-cnf.tex}:
@@ -144,6 +146,33 @@ The package name must be also included in \file{mktex4ht-cnf.tex}:
 \AddFile{9}{sample}
 \end{texsource}
 
+The \file{.4ht} files can be generated simply using 
+
+\begin{shellcommand}
+make
+\end{shellcommand}
+
+command.
+
+The following sample \TeX\ file:
+
+
+% examples/basicpackage/hello.tex
+\begin{texsource}
+\documentclass{article}
+\usepackage{sample}
+\begin{document}
+  \hello\ world.
+\end{document}
+\end{texsource}
+
+Produces a following \HTML\ code:
+
+\begin{htmlsource}
+<!--l. 4--><p class="noindent" >
+<span class="hello">world</span> world. 
+</p> 
+\end{htmlsource}
 \chapter{Glossary}
 \chapter{Bibliography}
 \chapter{Index}
