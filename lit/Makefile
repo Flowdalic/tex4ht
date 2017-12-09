@@ -305,6 +305,7 @@ $(tex4ht_html32_derived): tex4ht-html32.tex $(common)
 
 $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
 	latex $(tex_opts) $<
+	latex $(tex_opts) $<
 
 $(tex4ht_info_html4_derived): tex4ht-info-html4.tex $(common_info)
 	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
