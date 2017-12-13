@@ -1,3 +1,7 @@
+2017-12-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): use hexadecimal entity for the asterism.
+
 2017-12-09  Michal Hoftich  <michal.h21@gmail.com>
 	* Makefile: compile the tex4ht-html4.tex file twice in order to get all
 	configurations included.
