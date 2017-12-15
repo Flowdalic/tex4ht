@@ -1,16 +1,17 @@
 2017-12-13  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): use hexadecimal entity for the asterism.
+	* tex4ht-html4.tex (html4.4ht): use hexadecimal entity for the
+	asterism.
 
 2017-12-09  Michal Hoftich  <michal.h21@gmail.com>
-	* Makefile: compile the tex4ht-html4.tex file twice in order to get all
-	configurations included.
+
+	* Makefile: compile the tex4ht-html4.tex file twice in order to
+	get all configurations included.
 
 2017-12-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht),
-	* tex4ht-4ht.tex (sectionbreak.4ht): added support for the sectionbreak
-	package
+	* tex4ht-4ht.tex (sectionbreak.4ht): support for sectionbreak package.
 	* Makefile: request compilation of tex4ht-cond4ht.tex before 
 	tex4ht-4ht.tex. 
 	
