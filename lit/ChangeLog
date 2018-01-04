@@ -1,3 +1,8 @@
+2017-01-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): removed macros for older Biblatex versions
+	support. See https://tex.stackexchange.com/q/408742/2891 for more details.
+
 2017-12-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use hexadecimal entity for the
