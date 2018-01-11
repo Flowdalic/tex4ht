@@ -10397,6 +10397,16 @@ available in latex209.
 This is a variant of textsuperscript.
 
 \<subscript.4ht\><<<
+|<subscript def|>
+\Hinput{subscript}
+\endinput
+>>>  \AddFile{9}{subscript}
+
+\<latex ltfloat\><<<
+|<subscript def|>
+\Hinput{subscript}
+>>>
+\<subscript def\><<<
 \def\:temp#1{%
    {\m@th\ensuremath{_{\mbox{\fontsize\sf@size\z@#1}}}}}
 \ifx \@textsubscript\:temp
@@ -10412,9 +10422,7 @@ This is a variant of textsuperscript.
 \Configure{textsubscript}
    {$\relax{\HCode{}}\sb}
    {$}
-\Hinput{subscript}
-\endinput
->>>  \AddFile{9}{subscript}
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{subfigure.sty}

@@ -1,3 +1,10 @@
+2017-01-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht),
+	* tex4ht-ooffice.tex (ooffice.4ht),
+	* tex4ht-html4.tex (html4.4ht): fixed support for \textsubscript and
+	\textsuperscript
+
 2017-01-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): removed macros for older Biblatex versions
