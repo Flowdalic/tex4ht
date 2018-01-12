@@ -1,14 +1,22 @@
+2018-01-12  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-html4.tex,
+	* tex4ht-ooffice.tex: it's 2018.
+
 2017-01-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht),
 	* tex4ht-ooffice.tex (ooffice.4ht),
 	* tex4ht-html4.tex (html4.4ht): fixed support for \textsubscript and
-	\textsuperscript
+	\textsuperscript.
+	http://tug.org/pipermail/tex4ht/2018q1/001870.html
 
 2017-01-04  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (biblatex.4ht): removed macros for older Biblatex versions
-	support. See https://tex.stackexchange.com/q/408742/2891 for more details.
+	* tex4ht-4ht.tex (biblatex.4ht): removed macros for older
+	Biblatex versions support.
+	https://tex.stackexchange.com/q/408742/2891
+	http://puszcza.gnu.org.ua/bugs/?376
 
 2017-12-13  Michal Hoftich  <michal.h21@gmail.com>
 
