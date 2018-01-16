@@ -102,6 +102,7 @@ tex4ht_fonts_noncjk_derived = \
 tex4ht_fonts_modern_derived = \
   $(ht_fonts_devdir)/unicode/lm/l7x-lmcsc.htf \
   $(ht_fonts_devdir)/unicode/lm/l7x-lm.htf \
+  $(ht_fonts_devdir)/unicode/lm/lm-ts1.htf \
   $(ht_fonts_devdir)/unicode/lm/rm-lm.htf \
   $(ht_fonts_devdir)/alias/lm/rm-lmt.htf \
   $(ht_fonts_devdir)/alias/lm/rm-lmvt.htf \

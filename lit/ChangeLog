@@ -1,8 +1,13 @@
+2018-01-15  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex4ht_fonts_modern_derived): add lm-ts1.htf.
+	* tex4ht-fonts-modern.tex (lm-ts1-LM-05): copyright.
+
 2018-01-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-modern.tex
-	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/lm-ts1.htf): use apostrophe for
-	the \textquotesingle symbol
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/lm-ts1.htf): use
+	ASCII apostrophe (x0027) for the \textquotesingle symbol.
 	http://tug.org/pipermail/tex4ht/2018q1/001873.html
 
 2018-01-12  Karl Berry  <karl@freefriends.org>
