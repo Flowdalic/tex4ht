@@ -1,5 +1,5 @@
 \ProvidesPackage{elementstruct}
-% stack structure. we need it for ent tags
+% stack structure. we need it for end tags
 \def\newstack#1{\def#1{}}
 \newcommand{\stack@item}[1]{\ERROR}
 \newcommand{\stack@push}[2]{%
@@ -30,6 +30,10 @@
 }
 
 \newstack\endtag
+
+% basic command for block insertion
+% the three arguments are: logical block name
+% \def\inserttag
 
 
 \endinput
