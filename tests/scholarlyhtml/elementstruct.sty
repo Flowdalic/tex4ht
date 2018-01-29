@@ -1,0 +1,35 @@
+\ProvidesPackage{elementstruct}
+% stack structure. we need it for ent tags
+\def\newstack#1{\def#1{}}
+\newcommand{\stack@item}[1]{\ERROR}
+\newcommand{\stack@push}[2]{%
+  \edef#1{%
+    \unexpanded{\stack@item{#2}}%
+    \unexpanded\expandafter{#1}%
+  }%
+}
+\newcommand{\stack@pop}[2]{%
+  \ifx#1\@empty
+  \expandafter\stack@pop@error
+  \else
+  \expandafter\stack@pop@aux
+  \fi
+  #1#2%
+}
+\newcommand{\stack@pop@error}[2]{%
+  \PackageError{mystackpackage}
+  {Cannot pop from empty stack #1}
+  {Some more text!}%
+}
+\newcommand{\stack@pop@aux}[2]{%
+  \expandafter\stack@pop@aux@ii#1\q@stop#1#2%
+}
+\long\def\stack@pop@aux@ii\stack@item#1#2\q@stop#3#4{%
+  \def#3{#2}%
+  \def#4{#1}%
+}
+
+\newstack\endtag
+
+
+\endinput
