@@ -1,39 +1,42 @@
 \ProvidesPackage{elementstruct}
-% stack structure. we need it for end tags
-\def\newstack#1{\def#1{}}
-\newcommand{\stack@item}[1]{\ERROR}
-\newcommand{\stack@push}[2]{%
-  \edef#1{%
-    \unexpanded{\stack@item{#2}}%
-    \unexpanded\expandafter{#1}%
-  }%
+
+
+% The following macro should not be used directly in the user
+% configurations. Higher level macros like \InlineTagStart 
+% should be used instead
+% #1 logical block name
+% #2 attributes used only for the current element
+\def\InsertTagStart#1#2{%
+  \edef\local@properties{\ifx\relax#2\relax\else\space#2\fi}
+  \HCode{<\get@tag{#1}\get@block@properties{#1}\local@properties>}%
 }
-\newcommand{\stack@pop}[2]{%
-  \ifx#1\@empty
-  \expandafter\stack@pop@error
-  \else
-  \expandafter\stack@pop@aux
-  \fi
-  #1#2%
-}
-\newcommand{\stack@pop@error}[2]{%
-  \PackageError{mystackpackage}
-  {Cannot pop from empty stack #1}
-  {Some more text!}%
-}
-\newcommand{\stack@pop@aux}[2]{%
-  \expandafter\stack@pop@aux@ii#1\q@stop#1#2%
-}
-\long\def\stack@pop@aux@ii\stack@item#1#2\q@stop#3#4{%
-  \def#3{#2}%
-  \def#4{#1}%
+\def\InsertTagEnd#1{\HCode{</\get@tag{#1}>}}
+
+\long\def\InlineElementStart#1#2{\InsertTagStart{#1}{#2}}
+\long\def\InlineElementEnd#1{\InsertTagEnd{#1}}
+
+\long\def\BlockElementStart#1#2{\ifvmode\IgnorePar\fi\EndP\InsertTagStart{#1}{#2}}
+\long\def\BlockElementEnd#1#2{\ifvmode\IgnorePar\fi\EndP\InsertTagEnd{#1}}
+
+% define default values for a new logical block
+\def\NewLogicalBlock#1{%
+  \SetTag{#1}{span}%
+  \expandafter\def\csname #1:properties\endcsname{}
 }
 
-\newstack\endtag
+\def\SetTag#1#2{\expandafter\xdef\csname #1:tagname\endcsname{#2}}
+\def\get@tag#1{\expandafter\expandafter\csname #1:tagname\endcsname}
 
-% basic command for block insertion
-% the three arguments are: logical block name
-% \def\inserttag
+\def\SetBlockProperty#1#2#3{%
+  \expandafter\ifcsname #1:property:#2\endcsname\else%
+  \expandafter\edef\csname #1:properties\endcsname{\csname #1:properties\endcsname\space\csname #1:property:#2\endcsname }
+  \fi%
+  \expandafter\def\csname #1:property:#2\endcsname{#2="#3"}
+}
+
+\def\get@block@properties#1{%
+\expandafter\csname #1:properties\endcsname%
+}
 
 
 \endinput
