@@ -1,3 +1,8 @@
+2018-01-31  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html5.tex (html5.4ht): added meta tags for source file, date and
+	instructions for mobile devices.
+
 2018-01-15  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (tex4ht_fonts_modern_derived): add lm-ts1.htf.

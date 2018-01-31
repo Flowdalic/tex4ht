@@ -48,9 +48,20 @@
 \Configure{@HEAD}{\HCode{<meta \use:charset />\Hnewline}}
 \Configure{@HEAD}{\HCode{<meta name="generator" content="TeX4ht
 (http://www.tug.org/tex4ht/)" />\Hnewline}}
+\Configure{@HEAD}{\HCode{<meta name="viewport" content="width=device-width,initial-scale=1" />\Hnewline}}
 \Configure{@HEAD}{\HCode{<link
              rel="stylesheet" type="text/css"
                       href="\expandafter\csname aa:CssFile\endcsname" />\Hnewline}}
+\Configure{@HEAD}
+   {\HCode{<meta name="src"
+                 content="\jobname.tex"\xml:empty>\Hnewline}} 
+\:CheckOption{timestamp}\if:Option
+\Configure{@HEAD}
+   {\HCode{<meta name="date"
+                 content="\:today"\xml:empty>\Hnewline}} 
+\else
+  \Log:Note{To print a timestamp, use the command line option timestamp}
+\fi
 >>>
 
 Charset can be set using charset=charsetcode option for tex4ht.sty. It is saved in \verb|\a:charset| macro. 
