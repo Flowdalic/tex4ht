@@ -1,3 +1,8 @@
+2018-02-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): new commands for semantic elements.
+	https://puszcza.gnu.org.ua/bugs/index.php?387
+	
 2018-01-31  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-html5.tex: copyright.
