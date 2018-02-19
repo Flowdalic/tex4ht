@@ -98,13 +98,14 @@ tex4ht_fonts_noncjk_derived = \
   $(ht_fonts_devdir)/unicode/adobe/courier/pcrro8r.htf \
   $(ht_fonts_devdir)/iso8859/1/tibetan/ctib.htf \
   $(ht_fonts_devdir)/unicode/tibetan/ctib.htf \
-	$(ht_fonts_devdir)/alias/adobe/bera/fveb8r.htf \
-	$(ht_fonts_devdir)/alias/adobe/bera/fveb8t.htf \
-	$(ht_fonts_devdir)/alias/adobe/bera/fver8r.htf \
-	$(ht_fonts_devdir)/alias/adobe/bera/fver8t.htf \
-	$(ht_fonts_devdir)/alias/adobe/bera/fvero8r.htf \
-	$(ht_fonts_devdir)/alias/adobe/bera/fvero8t.htf \
-  SearchFonts.java lm-htf.tex
+  $(ht_fonts_devdir)/alias/bera/fveb8r.htf \
+  $(ht_fonts_devdir)/alias/bera/fveb8t.htf \
+  $(ht_fonts_devdir)/alias/bera/fver8r.htf \
+  $(ht_fonts_devdir)/alias/bera/fver8t.htf \
+  $(ht_fonts_devdir)/alias/bera/fvero8r.htf \
+  $(ht_fonts_devdir)/alias/bera/fvero8t.htf \
+  SearchFonts.java \
+  lm-htf.tex
 tex4ht_fonts_modern_derived = \
   $(ht_fonts_devdir)/unicode/lm/l7x-lmcsc.htf \
   $(ht_fonts_devdir)/unicode/lm/l7x-lm.htf \
