@@ -18285,30 +18285,32 @@ See issues in:
 
 \<configure html4 latex\><<<
 \:CheckOption{fonts} \if:Option
-  \Configure{textbf}{\Protect\HCode{<span class="textbf">}}
-                    {\Protect\HCode{</span>}}
-  \Configure{textit}{\Protect\HCode{<span class="textit">}}
-                    {\Protect\HCode{</span>}}
-  \Configure{textrm}{\Protect\HCode{<span class="textrm">}}
-                    {\Protect\HCode{</span>}}
-  \Configure{textup}{\Protect\HCode{<span class="textup">}}
-                    {\Protect\HCode{</span>}}  
-  \Configure{textsc}{\Protect\HCode{<span class="textsc">}}
-                    {\Protect\HCode{</span>}}
-  \Configure{textsf}{\Protect\HCode{<span class="textsf">}}
-                    {\Protect\HCode{</span>}}  
-  \Configure{textsl}{\Protect\HCode{<span class="textsl">}}
-                    {\Protect\HCode{</span>}}
-  \Configure{texttt}{\Protect\HCode{<span class="texttt">}}
-                    {\Protect\HCode{</span>}}
-  \Configure{emph}{\Protect\HCode{<span class="emph">}}
-                    {\Protect\HCode{</span>}}
+  \Configure{textbf}{\Protect\HCode{<span class="textbf">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}
+  \Configure{textit}{\Protect\HCode{<span class="textit">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}
+  \Configure{textrm}{\Protect\HCode{<span class="textrm">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}
+  \Configure{textup}{\Protect\HCode{<span class="textup">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}  
+  \Configure{textsc}{\Protect\HCode{<span class="textsc">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}
+  \Configure{textsf}{\Protect\HCode{<span class="textsf">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}  
+  \Configure{textsl}{\Protect\HCode{<span class="textsl">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}
+  \Configure{texttt}{\Protect\HCode{<span class="texttt">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}
+  \Configure{emph}{\Protect\HCode{<span class="emph">}\NoFonts}
+                    {\EndNoFonts\Protect\HCode{</span>}}
   \Css{span.textbf { font-weight: bold; }}
   \Css{span.textit { font-style: italic; }}
   \Css{span.textrm { font-family: serif; }}
   \Css{span.textsc { font-variant: small-caps; }}
   \Css{span.textsf { font-family: sans-serif; }}
   \Css{span.texttt { font-family: monospace; }}
+  \Css{span.emph   { font-style: italic;}}
+  \Css{span.emph span.emph {font-style: normal;}}
 \else
   \Log:Note{for tracing of latex font commands, 
           use the command line option `fonts'}

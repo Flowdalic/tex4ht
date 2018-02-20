@@ -1,3 +1,8 @@
+2018-02-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): disabled ht-fonts for basic font formatting
+	commands.
+
 2018-02-19  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-fonts-noncjk.tex,
