@@ -1616,40 +1616,46 @@ Use variant of original LaTeX macro used in \textunderscore
 % \Configure{math}{}
 
 \<mathml fonts\><<<
+
+\def\providemtextclass#1{%
+  \Configure{@mtext}{#1}%
+  \HCode{</mtext>}\ht:special{t4ht@,}\HCode{<mtext \a:@mtext>}\ht:special{t4ht@,&\#x00A0;}%
+}
+
 \Configure{texttt}
-   {\ifmathml \Configure{@mtext}{\mml:class="texttt"
+   {\ifmathml \providemtextclass{\mml:class="texttt"
          mathvariant="monospace" }\fi}
    {}%
 \Configure{textit}
-   {\ifmathml \Configure{@mtext}{\mml:class="textit"
+   {\ifmathml \providemtextclass{\mml:class="textit"
          mathvariant="italic" }\fi}
    {}%
 \Configure{textrm}
-   {\ifmathml \Configure{@mtext}{\mml:class="textrm"
+   {\ifmathml \providemtextclass{\mml:class="textrm"
          mathvariant="normal" }\fi}
    {}%
 \Configure{textup}
-   {\ifmathml \Configure{@mtext}{\mml:class="textup"
+   {\ifmathml \providemtextclass{\mml:class="textup"
          mathvariant="normal" }\fi}
    {}%
 \Configure{textsl}
-   {\ifmathml \Configure{@mtext}{\mml:class="textsl"
+   {\ifmathml \providemtextclass{\mml:class="textsl"
          mathvariant="italic" }\fi}
    {}%
 \Configure{textsf}
-   {\ifmathml \Configure{@mtext}{\mml:class="textsf"
+   {\ifmathml \providemtextclass{\mml:class="textsf"
          mathvariant="sans-serif" }\fi}
    {}%
 \Configure{textbf}
-   {\ifmathml \Configure{@mtext}{\mml:class="textbf"
+   {\ifmathml \providemtextclass{\mml:class="textbf"
          mathvariant="bold" }\fi}
    {}%
 \Configure{textsc}
-   {\ifmathml \Configure{@mtext}{\mml:class="textsc"
+   {\ifmathml \providemtextclass{\mml:class="textsc"
          mathvariant="normal" }\fi}
    {}%
 \Configure{emph}
-   {\ifmathml \Configure{@mtext}{\mml:class="emph"
+   {\ifmathml \providemtextclass{\mml:class="emph"
          mathvariant="italic" }\fi}
    {}%
 >>>
@@ -1660,47 +1666,47 @@ Use variant of original LaTeX macro used in \textunderscore
 \<configure html-mml latex\><<<
 \:CheckOption{fonts} \if:Option
 \Configure{texttt}
-     {\ifmathml \Configure{@mtext}{\mml:class="texttt" 
+     {\ifmathml \providemtextclass{\mml:class="texttt" 
              mathvariant="monospace" }%
       \else     \HCode{<span class="texttt">}\NoFonts\fi}
      {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
   \Configure{textit}
-     {\ifmathml \Configure{@mtext}{\mml:class="textit" 
+     {\ifmathml \providemtextclass{\mml:class="textit" 
              mathvariant="italic" }%
       \else     \HCode{<span class="textit">}\NoFonts\fi}
      {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
   \Configure{textrm}
-     {\ifmathml \Configure{@mtext}{ \mml:class="textrm" 
+     {\ifmathml \providemtextclass{ \mml:class="textrm" 
              mathvariant="normal" }%
       \else     \HCode{<span class="textrm">}\NoFonts\fi}
      {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
   \Configure{textup}
-     {\ifmathml \Configure{@mtext}{ \mml:class="textup" 
+     {\ifmathml \providemtextclass{ \mml:class="textup" 
              mathvariant="normal" }%
       \else     \HCode{<span class="textup">}\NoFonts\fi}
      {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
   \Configure{textsl}
-     {\ifmathml \Configure{@mtext}{ \mml:class="textst" 
+     {\ifmathml \providemtextclass{ \mml:class="textst" 
              mathvariant="italic" }%
       \else     \HCode{<span class="textsl">}\NoFonts\fi}
      {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
   \Configure{textsf}
-     {\ifmathml \Configure{@mtext}{ \mml:class="textsf" 
+     {\ifmathml \providemtextclass{ \mml:class="textsf" 
              mathvariant="sans-serif" }%
       \else     \HCode{<span class="textsf">}\NoFonts\fi}
      {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
   \Configure{textbf}
-     {\ifmathml \Configure{@mtext}{ \mml:class="textbf" 
+     {\ifmathml \providemtextclass{ \mml:class="textbf" 
              mathvariant="bold" }%
       \else     \HCode{<span class="textbf">}\NoFonts\fi}
      {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
   \Configure{textsc}
-     {\ifmathml \Configure{@mtext}{ \mml:class="textsc" 
+     {\ifmathml \providemtextclass{ \mml:class="textsc" 
              mathvariant="normal" }%
       \else     \HCode{<span class="textsc">}\NoFonts\fi}
      {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
   \Configure{emph}
-     {\ifmathml \Configure{@mtext}{ \mml:class="emph" 
+     {\ifmathml \providemtextclass{ \mml:class="emph" 
              mathvariant="italic" }%
       \else     \HCode{<span class="emph">}\NoFonts\fi}
      {\ifmathml\else\EndNoFonts \HCode{</span>}\fi}

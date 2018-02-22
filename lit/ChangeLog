@@ -2,6 +2,9 @@
 
 	* tex4ht-mathml.tex (html-mml.4ht): disabled ht-fonts for basic font formatting 
 	commands also in MathML.
+	* tex4ht-mathml.tex (mathml, html-mml.4ht): print <mtext> elements when text
+	formatting commands are used.
+	https://tex.stackexchange.com/a/416613/2891
 
 2018-02-20  Michal Hoftich  <michal.h21@gmail.com>
 
