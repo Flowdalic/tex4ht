@@ -1,6 +1,6 @@
 2018-02-22  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathml.tex (mathml.4ht): disabled ht-fonts for basic font formatting 
+	* tex4ht-mathml.tex (html-mml.4ht): disabled ht-fonts for basic font formatting 
 	commands also in MathML.
 
 2018-02-20  Michal Hoftich  <michal.h21@gmail.com>
