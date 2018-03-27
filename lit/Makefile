@@ -101,6 +101,7 @@ tex4ht_fonts_noncjk_derived = \
   $(ht_fonts_devdir)/alias/bera/fveb8r.htf \
   $(ht_fonts_devdir)/alias/bera/fveb8t.htf \
   $(ht_fonts_devdir)/alias/bera/fver8r.htf \
+  $(ht_fonts_devdir)/alias/bera/fvmr8r.htf \
   $(ht_fonts_devdir)/alias/bera/fver8t.htf \
   $(ht_fonts_devdir)/alias/bera/fvero8r.htf \
   $(ht_fonts_devdir)/alias/bera/fvero8t.htf \

@@ -1,3 +1,9 @@
+2018-03-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/bera/fvmr8r.htf): Monospaced
+	Bera font
+
 2018-02-23  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mathml.tex: copyright 2018.
