@@ -8999,7 +8999,7 @@ and \`'\Configure{SUP}{ before }{ after }' get into effect.
 \<defs for early latex subs/sups\><<<
 \append:def\:RestoreCatcodes{\early:sub\early:sup}
 \let\:IfFileExists\IfFileExists
-\def\IfFileExists#1#2#3{%
+\long\def\IfFileExists#1#2#3{%
    \csname recall:sub\endcsname   
    \csname recall:sup\endcsname
    \expandafter\let\csname #1:sub\endcsname=\early:sub
