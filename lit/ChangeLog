@@ -1,3 +1,8 @@
+2018-03-29  Michal Hoftich  <michal.h21@gmail.com>
+	* tex4ht-fonts-noncjk.tex
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/XCharter*.htf): Support for
+	XCharter fonts
+
 2018-03-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): use \long for definition of \IfFileExists,
