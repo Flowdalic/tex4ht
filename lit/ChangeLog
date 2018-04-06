@@ -1,24 +1,28 @@
 2018-04-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): use \pend:defI for patching of
-	\blx@bibliography in the current Biblatex version
+	\blx@bibliography in the current Biblatex version.N
+	Report from Anonymous,
+	http://tug.org/pipermail/tex4ht/2018q2/001929.html
 
 2018-03-29  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-fonts-noncjk.tex
-	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/XCharter*.htf): Support for
-	XCharter fonts
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/XCharter*.htf):
+	Support for XCharter fonts.
 
 2018-03-28  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-sty.tex (tex4ht.sty): use \long for definition of \IfFileExists,
-	because it may contain blank lines in its branches.
+	* tex4ht-sty.tex (tex4ht.sty): use \long for definition of
+	\IfFileExists, because it may contain blank lines in its branches.
 	https://tex.stackexchange.com/q/423725/2891
 
 2018-03-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex
-	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/bera/fvmr8r.htf): Monospaced
-	Bera font
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/bera/fvmr8r.htf):
+	Monospaced Bera font.
+	https://puszcza.gnu.org.ua/bugs/?390
 
 2018-02-23  Karl Berry  <karl@freefriends.org>
 
