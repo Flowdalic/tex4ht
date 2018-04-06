@@ -1996,7 +1996,9 @@ and \''\Tg'.
   \advance\blx@tempcnta-\blx@tempcntb
   \xdef#1{#1\the\blx@tempcnta}%
   \endgroup}
-\pend:def\blx@bibliography{\bibSecConfigure%
+
+\@ifpackagelater{biblatex}{2018/03/01}{\let\blx:pend:def\pend:defI}{\let\blx:pend:def\pend:def}
+\blx:pend:def\blx@bibliography{\bibSecConfigure%
   \pend:def\blx@bibinit{%
     \bibConfigure
      \csname onthebibliography:list\endcsname
