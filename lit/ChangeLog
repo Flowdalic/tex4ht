@@ -1,3 +1,8 @@
+2018-04-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): removed \leavevmode from fbox
+	configuration, it produced wrong results in the vertical mode.
+
 2018-04-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): use \pend:defI for patching of

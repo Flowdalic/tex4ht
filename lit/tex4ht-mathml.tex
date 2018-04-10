@@ -1296,8 +1296,7 @@ space, without having them ignored, must use &nbsp; or other
 \def\:temp{\relax\ifmmode
     \Configure{fbox}{\leavevmode\Configure{HtmlPar}{}{}{}{}\IgnoreRule
                      \AA:text{fbox}}{\BB:text\EndIgnoreRule}\else
-    \Configure{fbox}{\leavevmode
-                     \IgnoreRule\A:fbox}{\B:fbox\EndIgnoreRule}\fi
+    \Configure{fbox}{\IgnoreRule\A:fbox}{\B:fbox\EndIgnoreRule}\fi
     \OLDf:box}
 \HLet\fbox\:temp
 \let\A:mbox|=\a:mbox
