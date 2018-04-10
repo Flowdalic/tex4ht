@@ -3,6 +3,9 @@
 	* tex4ht-mathml.tex (mathml.4ht): removed \leavevmode from fbox
 	configuration, it produced wrong results in the vertical mode.
 
+	* tex4ht-4ht.tex (braket.4ht): patched the braket package, it produced wrong
+	MathML code.
+
 2018-04-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): use \pend:defI for patching of
