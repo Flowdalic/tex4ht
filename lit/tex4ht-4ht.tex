@@ -3456,6 +3456,27 @@ it, so we can safely eat that.
 >>>
 
 %%%%%%%%%%%%%%%%%%
+\Section{eso-pic}
+%%%%%%%%%%%%%%%%%%
+
+Eso-pic can add some code at every page, using picture commands. This results in lots on unvanted
+images in the HTML file. It seems best to just disable this functionality.
+
+
+\<use package\><<<
+eso-pic,>>>
+
+\<add to usepackage\><<<
+\def\:temp{eso-pic}\ifx \@currname\:temp
+\:dontusepackage{eso-pic}
+\newcommand\AddToShipoutPicture{\@ifstar{}{}}
+\let\AddToShipoutPictureBG\AddToShipoutPicture
+\let\AddToShipoutPictureFG\AddToShipoutPicture
+\fi
+>>>
+
+
+%%%%%%%%%%%%%%%%%%
 \Section{savetrees.sty}
 %%%%%%%%%%%%%%%%%%
 
