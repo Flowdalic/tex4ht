@@ -1,3 +1,8 @@
+2018-05-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (memoir.4ht): include code which was invoked only for
+	mempatch.sty in memoir.4ht, since mempatch is not used anymore.
+
 2018-05-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): disabled package eso-pic, it cannot do
