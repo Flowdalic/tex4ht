@@ -1,3 +1,8 @@
+2018-05-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html5.tex (html5.4ht): added declarations for additional languages
+	supported by Polyglossia.
+
 2018-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (memoir.4ht): include code which was invoked only for
