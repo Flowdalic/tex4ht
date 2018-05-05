@@ -1,7 +1,7 @@
 2018-05-04  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html5.tex (html5.4ht): added declarations for additional languages
-	supported by Polyglossia.
+	* tex4ht-html5.tex (html5.4ht): added declarations for
+	additional languages supported by Polyglossia.
 
 2018-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -10,22 +10,22 @@
 
 2018-05-02  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht): disabled package eso-pic, it cannot do
-	anything useful under tex4ht.
+	* tex4ht-4ht.tex (usepackage.4ht): disabled package eso-pic, it
+	cannot do anything useful under tex4ht.
 
 2018-04-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex 
 	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bera/fveb8r):
-	fixed reference to the master .htf file
+	fixed reference to the master .htf file.
 
 2018-04-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): removed \leavevmode from fbox
 	configuration, it produced wrong results in the vertical mode.
 
-	* tex4ht-4ht.tex (braket.4ht): patched the braket package, it produced wrong
-	MathML code.
+	* tex4ht-4ht.tex (braket.4ht): patched the braket package, it
+	produced wrong MathML code.
 
 2018-04-06  Michal Hoftich  <michal.h21@gmail.com>
 
