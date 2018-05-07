@@ -16,7 +16,7 @@
 2018-04-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex 
-	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bera/fveb8r):
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/arev/favb8r.htf):
 	fixed reference to the master .htf file.
 
 2018-04-10  Michal Hoftich  <michal.h21@gmail.com>
