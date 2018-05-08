@@ -561,6 +561,7 @@ and the *.4ht files.
    |<early latex subs/sups|> 
 \fi
 |<block package loading|>
+|<xetex active characters|>
 |<hook at usepackage|>
 >>>
 
@@ -577,6 +578,16 @@ The following is a temporary patch, waiting fo a fix in hyperref.sty.
   \@namedef{ver@#1.sty}{9999/12/31}%
   \@namedef{opt@#1.sty}{\:currentoptions}
 }
+>>>
+
+Input definitions for Unicode blocks in XeLaTeX. It loads full Latin by default,
+others must be activated using \xeuniuseblock{blockname}
+
+\<xetex active characters\><<<
+\ifx\XeTeXversion\@undefined\else
+\ifx\xeuniuseblock\@undefined
+\input tuenc-xetex-input.4ht
+\fi\fi
 >>>
 
 \<hook at usepackage\><<<

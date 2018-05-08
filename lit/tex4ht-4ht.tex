@@ -3475,6 +3475,23 @@ eso-pic,>>>
 \fi
 >>>
 
+%%%%%%%%%%%%%%%%%
+\Section{expl3.sty}
+%%%%%%%%%%%%%%%%%
+
+Expl3 package makes some unicode characters active. This clashes
+with out active characters for XeTeX, so we must deactivate them 
+temporarily.
+
+\<use package\><<<
+expl3,>>>
+
+\<add to usepackage\><<<
+\def\:temp{expl3}\ifx \@currname\:temp
+\xenunidelblock{Latin-expl3}%
+\AtEndOfPackage{\xeuniuseblock{Latin-expl3}}
+\fi
+>>>
 
 %%%%%%%%%%%%%%%%%%
 \Section{savetrees.sty}
@@ -3583,7 +3600,13 @@ The actual configurations which are used when fontspec is loaded:
 % Copyright 2017 TeX Users Group
 |<TeX4ht license text|>
 \:dontusepackage{fontenc}
-\RequirePackage{expl3}
+\ifdefined\XeTeXversion%
+\xenunidelblock{Latin-expl3}% expl3 package makes some characters active
+\RequirePackage{expl3}% we need to disable them before loading
+\xeuniuseblock{Latin-expl3}% and define again
+\else%
+\RequirePackage{expl3}%
+\fi%
 \PassOptionsToPackage{no-math}{fontspec}
 \ExplSyntaxOn
 \AtEndOfPackage{%
@@ -3591,9 +3614,15 @@ The actual configurations which are used when fontspec is loaded:
   \tl_gset:Nx \g_fontspec_encoding_tl {T1}
   \seq_new:N \fontspec_ht_scripts
   \seq_new:N \fontspec_ht_fontfamilies
+  \ifdefined\XeTeXversion
+  \keys_define:nn {fontspec4ht}{
+    Script .code:n = \xeuniuseblock{#1}
+  }
+  \else
   \keys_define:nn {fontspec4ht}{
     Script .code:n = \seq_put_right:Nn \fontspec_ht_scripts {#1}
   }
+  \fi
 \cs_set:Nn \fontspec_set_family:Nnn
  {
   % \tl_set:Nn \l__fontspec_family_label_tl { #1 }
@@ -5181,7 +5210,18 @@ used for Fontspec support.
 
 \<tuenc-xetex.4ht\><<<
 % tuenc-xetex.4ht, generated from |jobname.tex
-% Copyright 2017 TeX Users Group
+% Copyright 2018 TeX Users Group
+|<TeX4ht license text|>
+\ifdefined\xeuniuseblock\else
+\input tuenc-xetex-input.4ht
+\fi
+\Hinput{tuenc-xetex}
+\endinput
+>>> \AddFile{9}{tuenc-xetex}
+
+\<tuenc-xetex-input.4ht\><<<
+% tuenc-xetex.4ht, generated from |jobname.tex
+% Copyright 2018 TeX Users Group
 |<TeX4ht license text|>
 \input binhex
 
@@ -5193,7 +5233,11 @@ used for Fontspec support.
   % the code inside \special will be converted back to utf8 by tex4ht
   \lowercase{\endgroup\protected\def~}{\special{t4ht@+&{35}x\hex{#1}{59}}x}
 }
-% \pokus{64}
+
+% remove character definition
+\newcommand\xeuniunregisterchar[1]{%
+  \global\catcode#1=11%
+}
 
 \newcount\xeuniblock
 
@@ -5220,6 +5264,8 @@ used for Fontspec support.
 % declarations multiple times
 \newcommand\xeuniuseblock[1]{\@nameuse{block:#1}\@namedef{block:#1}{\relax}}
 
+% disable active characters of given block
+\newcommand\xenunidelblock[1]{\bgroup\let\xeuniregisterchar\xeuniunregisterchar\@nameuse{block:#1}\egroup}
 
 % Unicode blocks definitions
 \xeuniblockdef{Latin}{%
@@ -5261,6 +5307,27 @@ used for Fontspec support.
   \xeuniregisterblockhex{2980}{29FF}%
   \xeuniregisterblockhex{2A00}{2AFF}%
   \xeuniregisterblockhex{2B00}{2BFF}%
+}
+% this block is used for temporarily disabling some characters
+% which are made active by expl3
+\xeuniblockdef{Latin-expl3}{
+  \xeuniregisterchar{"00CB}
+  \xeuniregisterchar{"00CC}
+  \xeuniregisterchar{"00CD}
+  \xeuniregisterchar{"0126}
+  \xeuniregisterchar{"0128}
+  \xeuniregisterchar{"012E}
+  \xeuniregisterchar{"012F}
+  \xeuniregisterchar{"0120}
+  \xeuniregisterchar{"0130}
+  \xeuniregisterchar{"0131}
+  \xeuniregisterchar{"0300}
+  \xeuniregisterchar{"0301}
+  \xeuniregisterchar{"0303}
+  \xeuniregisterchar{"0307}
+  \xeuniregisterchar{"1E9C}
+  \xeuniregisterchar{"1E9E}
+  \xeuniregisterchar{"1EA0}
 }
 \xeuniblockdef{Greek}{
   \xeuniregisterblockhex{0370}{03FF}
@@ -5528,9 +5595,8 @@ used for Fontspec support.
 % load default latin block and blocks requested through Script option in fontspec's font 
 % selection commands
 \xeuniuseblock{Latin}
-\Hinput{tuenc-xetex}
 \endinput
->>> \AddFile{9}{tuenc-xetex}
+>>> \AddFile{9}{tuenc-xetex-input}
 
 
 \<tuenc-luatex.4ht\><<<

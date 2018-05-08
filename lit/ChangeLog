@@ -1,7 +1,15 @@
+2018-05-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): patch for expl3 package
+	* tex4ht-4ht.tex (usepackage-fontspec.4ht, tuenc-xetex.4ht,
+	tuenc-xetex-input.4ht): fixed XeTeX support.
+
 2018-05-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html5.tex (html5.4ht): added declarations for
 	additional languages supported by Polyglossia.
+	* tex4ht-sty.tex (tex4ht.sty): load XeTeX encoding support code if XeTeX is
+	active in order to support Unicode characters in the preamble.
 
 2018-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
