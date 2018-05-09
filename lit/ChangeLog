@@ -3,6 +3,8 @@
 	* tex4ht-html4.tex (html4.4ht): removed testing snippet, it contained text
 	in Latin 1 encoding and current LaTeX defaults to utf8, which caused
 	compilation errror.
+	* Makefile: removed $(ht_fonts_devdir)/alias/bera/fvmr8r.htf, this file
+	doesn't exist and it caused constant recompilations of font files. 
 
 2018-05-08  Michal Hoftich  <michal.h21@gmail.com>
 

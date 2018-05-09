@@ -101,7 +101,6 @@ tex4ht_fonts_noncjk_derived = \
   $(ht_fonts_devdir)/alias/bera/fveb8r.htf \
   $(ht_fonts_devdir)/alias/bera/fveb8t.htf \
   $(ht_fonts_devdir)/alias/bera/fver8r.htf \
-  $(ht_fonts_devdir)/alias/bera/fvmr8r.htf \
   $(ht_fonts_devdir)/alias/bera/fver8t.htf \
   $(ht_fonts_devdir)/alias/bera/fvero8r.htf \
   $(ht_fonts_devdir)/alias/bera/fvero8t.htf \
@@ -110,6 +109,7 @@ tex4ht_fonts_noncjk_derived = \
 	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Bold-tlf-t1--base.htf \
   SearchFonts.java \
   lm-htf.tex
+derived += $(tex4ht_fonts_modern_derived)
 tex4ht_fonts_modern_derived = \
   $(ht_fonts_devdir)/unicode/lm/l7x-lmcsc.htf \
   $(ht_fonts_devdir)/unicode/lm/l7x-lm.htf \
