@@ -5,6 +5,8 @@
 	compilation errror.
 	* Makefile: removed $(ht_fonts_devdir)/alias/bera/fvmr8r.htf, this file
 	doesn't exist and it caused constant recompilations of font files. 
+	* tex4ht-4ht.tex (usepackage.4ht): patch XeTeX active characters only in
+	XeTeX compilation.
 
 2018-05-08  Michal Hoftich  <michal.h21@gmail.com>
 

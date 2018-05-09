@@ -3488,8 +3488,10 @@ expl3,>>>
 
 \<add to usepackage\><<<
 \def\:temp{expl3}\ifx \@currname\:temp
+\ifdefined\XeTeXversion%
 \xenunidelblock{Latin-expl3}%
 \AtEndOfPackage{\xeuniuseblock{Latin-expl3}}
+\fi
 \fi
 >>>
 
