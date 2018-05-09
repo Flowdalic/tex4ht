@@ -1,3 +1,9 @@
+2018-05-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): removed testing snippet, it contained text
+	in Latin 1 encoding and current LaTeX defaults to utf8, which caused
+	compilation errror.
+
 2018-05-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): patch for expl3 package

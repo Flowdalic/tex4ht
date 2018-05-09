@@ -17830,30 +17830,8 @@ dir="\if@rl rtl\else ltr\fi"
     |<try inline par|>\if@rl \beginL\fi \beginR }
 >>>
 
-Test data
-
-\begin{verbatim}
-\def\providehyphenmins#1#2{}
-\documentclass[english,hebrew]{article}
-\usepackage[T1]{fontenc}
-
-\makeatletter
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-%% Bold symbol macro for standard LaTeX users
-\newcommand{\boldsymbol}[1]{\mbox{\boldmath $#1$}}
 
 
-\usepackage{babel}
-\makeatother
-\begin{document}
-פיסקה בעברית
- \[F=ma\quad(\textrm{\L{Newton's 2nd Law}\R{בעברית }})\]
- \[F=ma\quad(\mbox{Newton's 2nd Law בעברית} )\]
- \R{\[F=ma\quad(\mbox{Newton's 2nd Law בעברית} )\]}
-ועוד קצת עברית
-\end{document}
-
-\end{verbatim}
 
 
 %%%%%%%%%%%%%
