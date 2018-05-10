@@ -1,12 +1,14 @@
 2018-05-09  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): removed testing snippet, it contained text
-	in Latin 1 encoding and current LaTeX defaults to utf8, which caused
-	compilation errror.
+	* tex4ht-html4.tex (html4.4ht): removed testing snippet, it
+	contained text in Latin 1 encoding and current LaTeX defaults to
+	utf8, causing a compilation errror.
+
 	* Makefile: removed $(ht_fonts_devdir)/alias/bera/fvmr8r.htf, this file
 	doesn't exist and it caused constant recompilations of font files. 
-	* tex4ht-4ht.tex (usepackage.4ht): patch XeTeX active characters only in
-	XeTeX compilation.
+
+	* tex4ht-4ht.tex (usepackage.4ht): patch XeTeX active characters
+	only in XeTeX compilation.
 
 2018-05-08  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -18,8 +20,9 @@
 
 	* tex4ht-html5.tex (html5.4ht): added declarations for
 	additional languages supported by Polyglossia.
-	* tex4ht-sty.tex (tex4ht.sty): load XeTeX encoding support code if XeTeX is
-	active in order to support Unicode characters in the preamble.
+	* tex4ht-sty.tex (tex4ht.sty): load XeTeX encoding support code
+	if XeTeX is active in order to support Unicode characters in the
+	preamble.
 
 2018-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
