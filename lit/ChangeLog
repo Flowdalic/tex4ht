@@ -1,3 +1,8 @@
+2018-05-18  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (diff_files): diff all $(derived) as a test;
+	use = when := is not necessary; doc tweaks.
+
 2018-05-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): removed testing snippet, it

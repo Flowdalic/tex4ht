@@ -3,9 +3,9 @@
 # 
 # todo: look for xx below
 
-SHELL := /bin/sh
-extra_bin := ./extra-bin
-ht_bin := ../bin/ht/unix
+SHELL = /bin/sh
+extra_bin = ./extra-bin
+ht_bin = ../bin/ht/unix
 PATH := $(shell echo $$PATH)
 # setting PATH as TeX Live 2016 (DVD) does not ship with 'xhlatex'
 # and look for xmlint/vcss in ./extra-bin
@@ -536,8 +536,8 @@ install-unicode-4hf:
 # 
 # to compare newly-built files with what's installed.
 diff_files = $(derived) # lots of changes to be figured out ...
-diff_files = $(tex4ht_mathml_derived) $(tex4ht_html_speech_derived) \
-             $(tex4ht_jsml_derived) $(tex4ht_mathltx_derived)
+#diff_files = $(tex4ht_mathml_derived) $(tex4ht_html_speech_derived) \
+#             $(tex4ht_jsml_derived) $(tex4ht_mathltx_derived)
 #texmf = /usr/local/texlive/dev/texmf-dist
 texmf = /r/tug/home/texlive/karl/Master/texmf-dist
 inst_dir_4ht = $(texmf)/tex/generic/tex4ht
@@ -615,19 +615,23 @@ sources = \
 extra_sources := \
  tex4ht-info.tex
 
+# 
+# Generate *.d (dependency) file. 
 sources_d := $(sources:%.tex=%.d)
 
-## Generate *.d (dependency) file. Trying to mimick automake dependency computation.
-## Automake:
-##   Dependency computation is done at build time, as a side-effect of compilation.
-##   If I understand it right, gcc -MD option generates *.d file(s) (small Makefile)
-##   which are included in main Makefile with 'include' directive.
-## An attemp to mimick automake dependency computation. Generate (small) Makefiles with
-## vars for dependencies and derived files from *.fls.
+# Automake: Dependency computation is done at build time, as a
+# side-effect of compilation. If I understand it right, gcc -MD option
+# generates *.d file(s) (small Makefile) which are included in main
+# Makefile with 'include' directive.
+# 
+# So, here is an attempt to mimic that automake dependency computation.
+# Generate (small) Makefiles with vars for dependencies and derived
+# files from *.fls.
+# 
 %.d: %.fls
 	$(extra_bin)/fls2d $< >$@
 
-## Fonts need to parse *.fls and *.lg files
+# Fonts need to parse *.fls and *.lg files
 tex4ht-fonts-cjk.d: tex4ht-fonts-cjk.lg tex4ht-fonts-cjk.fls
 	$(extra_bin)/flslg2d $^ >$@
 
@@ -644,16 +648,16 @@ derived:
 	grep -v  $${f%.*} $$f | awk '/OUTPUT/ { print $$2 }' > $${f%.*}.derived ;  \
 done
 
-## move *.html files to ./htmldir subfolder
-## process lg file
+# move *.html files to ./htmldir subfolder
+# process lg file
 tohtmldir:
 	for f in *.lg ; do \
 	echo Processing $$f && mkdir -p $(htmldir)/$${f%.*} \
 	&& grep "File: $${f%.*}" $$f | awk -v outdir=$(htmldir)/$${f%.*} '{system("[ -f "$$2" ] &&  mv -f " $$2" "outdir)}'  ; \
 done
 
-## move derived files to ./derived.dir
-## process derived files
+# move derived files to ./derived.dir
+# process derived files
 toderiveddir: derived
 	for f in *.derived ; do \
 	echo $$f && mkdir -p $(deriveddir)/$${f%.*} \
