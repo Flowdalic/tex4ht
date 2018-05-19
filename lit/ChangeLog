@@ -1,3 +1,8 @@
+2018-05-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tuenc-xetex.4ht): new release of l3kernel defined more
+	active chars, it is necessary to undefine them for XeTeX.
+
 2018-05-18  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (diff_files): diff all $(derived) as a test;
