@@ -1,3 +1,7 @@
+2018-06-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (ooffice.4ht): require new page for \clearpage command
+
 2018-05-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tuenc-xetex-input.4ht): new release of l3kernel
