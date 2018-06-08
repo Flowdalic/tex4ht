@@ -4,7 +4,8 @@
 
 2018-06-06  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-oofice.tex (ooffice.4ht): require new page for \clearpage command.
+	* tex4ht-ooffice.tex (ooffice.4ht): require new page for
+	\clearpage command.
 
 2018-05-19  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -22,8 +23,9 @@
 	contained text in Latin 1 encoding and current LaTeX defaults to
 	utf8, causing a compilation errror.
 
-	* Makefile: removed $(ht_fonts_devdir)/alias/bera/fvmr8r.htf, this file
-	doesn't exist and it caused constant recompilations of font files. 
+	* Makefile: removed $(ht_fonts_devdir)/alias/bera/fvmr8r.htf,
+	this file doesn't exist and it caused constant recompilations of
+	font files.
 
 	* tex4ht-4ht.tex (usepackage.4ht): patch XeTeX active characters
 	only in XeTeX compilation.
