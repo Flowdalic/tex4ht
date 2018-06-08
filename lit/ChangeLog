@@ -1,6 +1,10 @@
+2018-06-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (cleveref.4ht): basic support for Cleveref package.
+
 2018-06-06  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (ooffice.4ht): require new page for \clearpage command
+	* tex4ht-oofice.tex (ooffice.4ht): require new page for \clearpage command.
 
 2018-05-19  Michal Hoftich  <michal.h21@gmail.com>
 
