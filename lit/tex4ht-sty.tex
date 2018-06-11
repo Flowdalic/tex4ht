@@ -12,10 +12,10 @@
 
 \DrawOff
 
-\immediate\write16{----------Verify length of lines!!!!------------}
-\immediate\write16{----------Verify length of lines!!!!------------}
-\immediate\write16{----------Verify length of lines!!!!------------}
-\immediate\write16{----------Verify length of lines!!!!------------}
+\writesixteen{----------Verify length of lines!!!!------------}
+\writesixteen{----------Verify length of lines!!!!------------}
+\writesixteen{----------Verify length of lines!!!!------------}
+\writesixteen{----------Verify length of lines!!!!------------}
 
 
 \newif\ifalprotex \alprotexfalse
@@ -29,7 +29,7 @@
           \ifeof15
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% replacement for TeX4ht %%%%%%%%%%%%%%%%%%
-\immediate\write16{........dvi mode}
+\writesixteen{........dvi mode}
 \csname newif\endcsname\ifHtml \Htmlfalse
 \def\-#1{\ifx#1-\expandafter\TEMP\else\expandafter#1\fi}
 \expandafter\let\csname bye\endcsname=\end
@@ -91,14 +91,14 @@
 
    \closein15 
        \def\next{%\input DraTex.sty
-\immediate\write16{.................requesting non-html mode}%
+\writesixteen{.................requesting non-html mode}%
                  \input ProTex.sty
              \AlProTex{sty,<<<>>>,|,title,list,[],ClearCode}}
    \catcode`\:=12
 \else 
    \closein15 
       \def\next{%\input DraTex.sty
-\immediate\write16{.................requesting html mode}%
+\writesixteen{.................requesting html mode}%
                 \input tex4ht.sty
                 \Preamble{xhtml,th4,family,sections+}
                 \Configure{@HEAD}{\HCode{<link rev="made"\Hnewline 
@@ -174,6 +174,7 @@
    \csname expand:after\endcsname{\csname 
        BeforeTeXIVht\endcsname\let\BeforeTeXIVht|=\UnDef}
 \fi
+\def\writesixteen#1{\immediate\write1616{#1}}
 |<save cat codes|>
 |<ifs for TeX4ht|>
 |<check if latex|>
@@ -1355,7 +1356,7 @@ See also LaTeX part
    |<trace+ comamnds|>
    \def\edit:p#1#2{\let#2|=\empty \:gobble}%
 \else \:CheckOption{hooks+}  \if:Option
-       \def\trc:wrt{\immediate\write16}
+       \def\trc:wrt{\writesixteen}
     \else \:CheckOption{hooks}  \if:Option
        \let\trc:wrt|=\:gobble
     \fi\fi
@@ -1668,7 +1669,7 @@ we temporarily take one more pop to check who was the old parent.
    \PushStack\:CHK{#1}%
    \expandafter\ifx \csname \:CurrentChk +#1\endcsname\relax
       \expandafter\gdef  \csname \:CurrentChk +#1\endcsname{}%
-         \immediate\write16{\the\inputlineno. 
+         \writesixteen{\the\inputlineno. 
             --- warning --- \:CurrentChk\space --> #1 ?}%
    \fi
    \xdef\:CurrentChk{#1}%
@@ -1677,7 +1678,7 @@ we temporarily take one more pop to check who was the old parent.
 \def\trace:endchk#1 #2|<par del|>{%
    \:chk:trc{Close......#1}%
    \expandafter\ifx \csname #1Level:\endcsname\relax
-      \immediate\write16{\the\inputlineno. 
+      \writesixteen{\the\inputlineno. 
          --- warning --- </#1> witout <#1>}%
       \expandafter\gHAssign\csname #1Level:\endcsname|=0
    \else
@@ -1689,7 +1690,7 @@ we temporarily take one more pop to check who was the old parent.
          \PopStack\:CHK\:CurrentChk
          \PushStack\:CHK\:CurrentChk
      \else  
-         \immediate\write16{\the\inputlineno. 
+         \writesixteen{\the\inputlineno. 
             --- warning --- </\:temp> instead of </#1>}%
       \fi
    \fi
@@ -1699,7 +1700,7 @@ we temporarily take one more pop to check who was the old parent.
    \:chk:trc{Empty......#1}%
    \expandafter \ifx \csname \:CurrentChk +#1\endcsname\relax
       \expandafter\gdef  \csname \:CurrentChk +#1\endcsname{}%
-         \immediate\write16{\the\inputlineno. 
+         \writesixteen{\the\inputlineno. 
          --- warning --- \:CurrentChk\space --> #1 ?}%
    \fi
 }
@@ -2708,7 +2709,7 @@ Why the \''\noexpand' above. Put a \`'\special' instead.
 
 \<utilities\><<<
 \:CheckOption{hshow} \if:Option 
-   \def\hshow#1{\immediate\write16
+   \def\hshow#1{\writesixteen
      {..#1.......\expandafter\meaning\csname #1\endcsname}}
    |<Show Configure|>
 \fi
@@ -2718,7 +2719,7 @@ Why the \''\noexpand' above. Put a \`'\special' instead.
 \def\ShowConfigure#1{%
    \edef\:tempb{\expandafter \meaning\csname c:#1:\endcsname}%
    \expandafter\par:N  \:tempb////%
-   \immediate\write16{\string\Configure{#1}}%
+   \writesixteen{\string\Configure{#1}}%
    {\show:Arg{1}{a:#1}%
    \show:Arg{2}{b:#1}%
    \show:Arg{3}{c:#1}%
@@ -2737,7 +2738,7 @@ Why the \''\noexpand' above. Put a \`'\special' instead.
 \def\show:Arg#1#2{%
    \ifnum \:tempb=#1 \let\show:Arg=\:gobbleII \fi
    \expandafter\let\expandafter\:temp \csname #2\endcsname
-   \immediate\write16{ {\ifx \:temp\relax ???\else
+   \writesixteen{ {\ifx \:temp\relax ???\else
       \expandafter\:gobbleM \meaning \:temp\fi}}}
 \def\:gobbleM#1->{}
 >>>
@@ -2864,7 +2865,7 @@ restricted  environments (\`'\edef', \`'\write').
     \documentclass{article}
     \begin{document}
     
-    \immediate\write16
+    \writesixteen
        {\csname file:name\endcsname...\csname FileName\endcsname}
     
     \end{document}
@@ -3457,7 +3458,7 @@ Had \`'\yes:trc' and changed to \`'\yes:pic' without checking what  I'm doing.
 
 \<html debug\><<<
 \def\HTraceHPageOn{%
-   \def\:buttrc##1##2{\no:pic  \immediate\write16{%
+   \def\:buttrc##1##2{\no:pic  \writesixteen{%
        l.\the\inputlineno -[\HPageDepth]- \string##1##2}\yes:pic
    }}
 \def\HTraceHPageOff{\def\:buttrc##1##2{}}
@@ -5526,7 +5527,7 @@ table is assumed to be stored in a file that carries the name
 \<blocs for tocs\><<<
 \openin15=\jobname.4tc
 \ifeof15  \closein15
-   \def\:TableOfContents[#1]{\immediate\write16{No file \jobname.4tc}}
+   \def\:TableOfContents[#1]{\writesixteen{No file \jobname.4tc}}
    |<undef /TableOfContents|>
 \else  
    \ifHtml  |<def html /TableOfContents|>
@@ -9066,10 +9067,10 @@ and \`'\Configure{SUP}{ before }{ after }' get into effect.
                \xdef\recall:sub{%
                   \mathcode`\noexpand\_=\the\mathcode`\_
                   \catcode`\noexpand\_=\the\catcode`\_
-   % \immediate\write16{.....sub \the\catcode`\_}%
+   % \writesixteen{.....sub \the\catcode`\_}%
                }%
               \mathcode`\_="8000 \catcode`\_=12 
-   % \immediate\write16{.....sub 12}
+   % \writesixteen{.....sub 12}
           }
       \fi
    \fi
@@ -9096,10 +9097,10 @@ and \`'\Configure{SUP}{ before }{ after }' get into effect.
                \xdef\recall:sup{%
                   \mathcode`\noexpand\^=\the\mathcode`\^
                   \catcode`\noexpand\^=\the\catcode`\^
-   % \immediate\write16{.....sup \the\catcode`\^}%
+   % \writesixteen{.....sup \the\catcode`\^}%
                }%
               \mathcode`\^="8000 \catcode`\^=12
-   % \immediate\write16{.....sup 12}% 
+   % \writesixteen{.....sup 12}% 
           }
       \fi
    \fi
@@ -11121,7 +11122,7 @@ and gets the tags into \`+.xref+ files.
 
 
 \<check that TeX4ht is not loaded after protex\><<<
-\def\:warning#1{\immediate\write16{l.\the\inputlineno\space
+\def\:warning#1{\writesixteen{l.\the\inputlineno\space
             --- TeX4ht warning --- #1 ---}}
 \ifx \:ShowCode\:UnDeF \else 
    \:warning{|<TeX4ht name|>.sty loaded after ProTeX?}
@@ -11164,9 +11165,9 @@ Create saving at direct programming of HREF and HTAG in \`'<A>' coomands, becaus
 
 \openin15= wripro.tex
 \ifeof15 \closein15 
-   \immediate\write16{*********************************}
-   \immediate\write16{* - error - missing wripro.tex  *}
-   \immediate\write16{*********************************}
+   \writesixteen{*********************************}
+   \writesixteen{* - error - missing wripro.tex  *}
+   \writesixteen{*********************************}
 \else \closein15 \input wripro.tex \fi
 
 \<warnings for missing /Link\><<<
@@ -11202,11 +11203,11 @@ tex4ht>>>
 %-------------------------------------------------------
 \openin15= wripro.tex
 \ifeof15 \closein15 
-   \immediate\write16{***********************************}
-   \immediate\write16{* -- error -- missing wripro.tex -*}
-   \immediate\write16{* Making a broken tex4ht.sty file.*}
-   \immediate\write16{* Don't use this tex4ht.sty file! *}
-   \immediate\write16{***********************************}
+   \writesixteen{***********************************}
+   \writesixteen{* -- error -- missing wripro.tex -*}
+   \writesixteen{* Making a broken tex4ht.sty file.*}
+   \writesixteen{* Don't use this tex4ht.sty file! *}
+   \writesixteen{***********************************}
 \else \closein15  \fi
 %-------------------------------------------------------
 

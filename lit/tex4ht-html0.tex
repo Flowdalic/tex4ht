@@ -61,7 +61,7 @@
 \<default cascade style sheets\><<<
 {\ifdim \lastskip>\z@ \unskip\fi  \IgnorePar\parindent\z@
 \leavevmode}%
-\immediate\write16{--- file \aa:CssFile\space ---}%
+\writesixteen{--- file \aa:CssFile\space ---}%
 \ht:special{t4ht>\aa:CssFile}\ht:special{t4ht=\Hnewline /* css.sty */}%
 \ht:special{t4ht<\aa:CssFile}%
 >>>
@@ -82,7 +82,7 @@ the start of the files. Hence, in latex we give them special treatment.
 
 \<cascade style sheets\><<<
 \ScriptCommand{\CssFile}{%
-  \immediate\write16{--- file \aa:CssFile\space ---}%
+  \writesixteen{--- file \aa:CssFile\space ---}%
   \def\FontSize##1##2{\:Context{##1}\ht:special{t4ht;\%##2}\%}%
   \def\FontName##1{\:Context{##1}\ht:special{t4ht;=}}%
   \def\:Context##1{\ht:special{t4ht>\jobname.tmp}##1\ht:special

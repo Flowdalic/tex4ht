@@ -35,3 +35,9 @@
 
 % #1 is the first year for Eitan.  The last year is always 2009.  RIP.
 \def\CopyYear.#1.{#1-2009}
+
+% command for write to terminal and the log file
+% this version is used in the .4ht files build
+% identical command is defined also in tex4ht-sty.tex, 
+% it is used in TeX document compilation
+\def\writesixteen#1{\immediate\write1616{#1}}

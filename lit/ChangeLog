@@ -1,3 +1,18 @@
+2018-06-11  Michal Hoftich  <michal.h21@gmail.com>
+	* common.tex,
+	* tex4ht-4ht.tex (amsart.4ht, amsbook.4ht, amsproc.4ht, article.4ht,
+	book.4ht, eplain.4ht, glossary.4ht, latex.4ht, mwart.4ht, mwbk.4ht,
+	mwrep.4ht, report.4ht, scrbook.4ht, scrreprt.4ht, showfonts.4ht, th4.4ht), 
+	* tex4ht-html0.tex (html0.4ht),
+	* tex4ht-html32.tex (html32.4ht),
+	* tex4ht-html4.tex (html4.4ht, onmouseover.4ht),
+	* tex4ht-info.tex (info4ht.4ht),
+	* tex4ht-options.tex (tex4ht.4ht),
+	* tex4ht-sty.tex (tex4ht.sty),
+	* tex4ht-tei.tex (tei-mml.4ht, tei.4ht): changed \immediate\write16 to
+	\writesixteen
+
+
 2018-06-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (cleveref.4ht): basic support for Cleveref package.

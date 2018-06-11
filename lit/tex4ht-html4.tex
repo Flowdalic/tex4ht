@@ -6972,7 +6972,7 @@ is reported in Overlib's page).
 \def<#1>{\bgroup
    \expandafter \ifx \csname js #1\endcsname \relax \jselement{#1}\fi
    \def<##1>{\TagTrace{\def\x{##1}\def\y####1:->{}%
-      \immediate\write16{...\string<\expandafter\y\meaning\x>}}%
+      \writesixteen{...\string<\expandafter\y\meaning\x>}}%
        \string<\scan ##1"<>>}%
    \NoSpecials{12}{0}{255}\NoSpecials{11}{65}{90}\NoSpecials{11}{97}{122}%
    \catcode`\ =10 \catcode`\^^M=10 \catcode`\^^I=10 \catcode`\<=13
@@ -20248,7 +20248,7 @@ function Corrections(lbl1,lbl2,quizN) {
 >>>
 
 \<32,4 exerquiz\><<<
-\immediate\write16{%
+\writesixteen{%
 ***********************************************************\Hnewline
 The `\eq@CA' button fails under Netscape, \Hnewline
 due to a code of the following form.\Hnewline

@@ -12,10 +12,11 @@
 
 \DrawOff
 
-\immediate\write16{----------Verify length of lines!!!!------------}
-\immediate\write16{----------Verify length of lines!!!!------------}
-\immediate\write16{----------Verify length of lines!!!!------------}
-\immediate\write16{----------Verify length of lines!!!!------------}
+\def\writesixteen#1{\immediate\write1616{#1}}
+\writesixteen{----------Verify length of lines!!!!------------}
+\writesixteen{----------Verify length of lines!!!!------------}
+\writesixteen{----------Verify length of lines!!!!------------}
+\writesixteen{----------Verify length of lines!!!!------------}
 
 \newif\ifalprotex \alprotexfalse
 
@@ -225,7 +226,7 @@
    \bgroup \catcode`\_=12 \next
 }
 \def\finishAddFile[#1]#2#3{\egroup
-   \immediate\write16{ ==> <#1, #2, #3>}%
+   \writesixteen{ ==> <#1, #2, #3>}%
    \csname append:def\endcsname\OutFiles{\OutputCodE\<\if !#1!#3\else #1\fi.4ht\>}%
    \csname append:def\endcsname\ConfigFiles{\AddFile{#2}{#3}}%
 }
@@ -6091,7 +6092,7 @@ the third or the fourth parameter is not empty.
 
 \<latex trace configurations\><<<
 \:CheckOption{hooks+}  \if:Option
-    \def\trc:wrt{\immediate\write16}
+    \def\trc:wrt{\writesixteen}
 \else \:CheckOption{hooks}  \if:Option
     \let\trc:wrt|=\:gobble
 \fi\fi
@@ -6105,7 +6106,7 @@ XML as a backend for LaTeX
 \:CheckOption{hooks++} \if:Option
    |<latex.ltx latex edit+ commands|>
 \else \:CheckOption{hooks+}  \if:Option
-       \def\trc:wrt{\immediate\write16}
+       \def\trc:wrt{\writesixteen}
     \else \:CheckOption{hooks}  \if:Option
        \let\trc:wrt|=\:gobble
     \fi\fi
@@ -6147,7 +6148,7 @@ XML as a backend for LaTeX
    \pend:defI\begin{\expandafter
       \ifx\csname before:begin##1\endcsname\relax
       \expandafter\ifx\csname bfr:begin##1\endcsname\relax
-         \immediate\write16{....\string\ConfigureEnv{##1}{}{}{}{}}%
+         \writesixteen{....\string\ConfigureEnv{##1}{}{}{}{}}%
          \expandafter\let\csname bfr:begin##1\endcsname=\empty
       \fi\fi}
 \fi
@@ -10871,7 +10872,7 @@ The following was in \`'\theinsex'
   \expandafter\ifx \csname #1warn:idx\endcsname\relax
      \expandafter\global
          \expandafter\let \csname #1warn:idx\endcsname|=\def
-     \immediate\write16
+     \writesixteen
         {---------------------------------------------------------}%
      \:warning{If not done so, the index is to be processed by
       ^^J\space\space tex '\string\def\string\filename
@@ -11416,7 +11417,7 @@ The above are problematic when spaces are present.
   \expandafter\ifx \csname #1warn:glo\endcsname\relax
      \expandafter\global
          \expandafter\let \csname #1warn:glo\endcsname|=\def
-     \immediate\write16
+     \writesixteen
         {---------------------------------------------------------}%
      \:warning{If not done so, the glossary is to be processed by
       ^^J\space\space tex '\string\def\string\filename
@@ -30749,7 +30750,7 @@ Old amstex.sty: 1985, 1986 BY MICHAEL SPIVAK
 \def\ShowFontU#1#2{%
    \font\font:nm=#2
    \openin\in:strm=#1\relax 
-   \ifeof\in:strm  \immediate\write16{.........can't  open #1}\else
+   \ifeof\in:strm  \writesixteen{.........can't  open #1}\else
      \read\in:strm to\in:buf\relax
      \HAssign\char:n=0 \HCode{<table class="unicodes" border="1"><tr>
         <td>char<br\xml:empty>number</td>
@@ -30848,18 +30849,18 @@ Old amstex.sty: 1985, 1986 BY MICHAEL SPIVAK
      \fi
    }
 \ifx \section\undefined
-   \immediate\write16{-----------------------------------------------}
-   \immediate\write16{|| This style file provides the command}
-   \immediate\write16{||      \noexpand\showfonts {font1} ... {fontN} {}}
-   \immediate\write16{|| for exhibiting fonts.}
-   \immediate\write16{|| }
-   \immediate\write16{|| Example:}
-   \immediate\write16{|| \noexpand\documentclass{article}}
-   \immediate\write16{||    \noexpand\input showfonts.4ht}
-   \immediate\write16{|| \noexpand\begin{document}}
-   \immediate\write16{||    \noexpand\showfonts {cmr10}{cmtt10} {}}
-   \immediate\write16{|| \noexpand\end{document}}
-   \immediate\write16{-----------------------------------------------}
+   \writesixteen{-----------------------------------------------}
+   \writesixteen{|| This style file provides the command}
+   \writesixteen{||      \noexpand\showfonts {font1} ... {fontN} {}}
+   \writesixteen{|| for exhibiting fonts.}
+   \writesixteen{|| }
+   \writesixteen{|| Example:}
+   \writesixteen{|| \noexpand\documentclass{article}}
+   \writesixteen{||    \noexpand\input showfonts.4ht}
+   \writesixteen{|| \noexpand\begin{document}}
+   \writesixteen{||    \noexpand\showfonts {cmr10}{cmtt10} {}}
+   \writesixteen{|| \noexpand\end{document}}
+   \writesixteen{-----------------------------------------------}
    \def\next{%
      \csname bye\endcsname
      \documentclass {article}
@@ -36804,7 +36805,7 @@ The following is needed to compensate for the extra \''\relax\space' in
 >>>
 
 % \def\@text@composite#1#2#3\@text@composite{%
-%    \immediate\write16{....\string#1-\string#2...\expandafter
+%    \writesixteen{....\string#1-\string#2...\expandafter
 %                      \meaning\csname\string#1-\string#2\endcsname}%
 %    \expandafter\@text@composite@x 
 %       \csname\string#1-\string#2\endcsname} 
@@ -37441,7 +37442,7 @@ MC stands for multi-choice
    \openin15=\HOME/#1
 %   \ifeof15    \Needs{"ln -s #1 \HOME/#1"} 
     \ifeof15    \Needs{"cp -f #1 \HOME#1"} 
-        \immediate\write16{"cd \HOME; ln -s \SOURCE/#1 . ; cd \SOURCE"} \fi
+        \writesixteen{"cd \HOME; ln -s \SOURCE/#1 . ; cd \SOURCE"} \fi
    \closein15
    \OPO\<#1\>}
 
