@@ -1,18 +1,31 @@
+2018-06-12  Karl Berry  <karl@freefriends.org>
+
+	* wripro.tex,
+	* tex4ht-sty.tex: more \writesixteen.
+	(\xeuniuseblock): quote use in doc.
+	* tex4ht-html0.tex,
+	* tex4ht-html32.tex,
+	* tex4ht-info.tex,
+	* tex4ht-options.tex,
+	* tex4ht-tei.tex: copyright 2018.
+
 2018-06-12  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): removed \clearpage patch, it breaks math
+	* tex4ht-ooffice.tex (ooffice.4ht): removed \clearpage patch, it
+	breaks math.
 
 2018-06-11  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-sty.tex (tex4ht.sty): use higher number for \write, in order to
-	avoid possible conflicts
+	* tex4ht-sty.tex (tex4ht.sty): use higher number for \write,
+	to try even harder to avoid possible conflicts.
 
 2018-06-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* common.tex,
 	* tex4ht-4ht.tex (amsart.4ht, amsbook.4ht, amsproc.4ht, article.4ht,
 	book.4ht, eplain.4ht, glossary.4ht, latex.4ht, mwart.4ht, mwbk.4ht,
-	mwrep.4ht, report.4ht, scrbook.4ht, scrreprt.4ht, showfonts.4ht, th4.4ht), 
+	mwrep.4ht, report.4ht, scrbook.4ht, scrreprt.4ht, showfonts.4ht,
+	th4.4ht),
 	* tex4ht-html0.tex (html0.4ht),
 	* tex4ht-html32.tex (html32.4ht),
 	* tex4ht-html4.tex (html4.4ht, onmouseover.4ht),
@@ -20,8 +33,7 @@
 	* tex4ht-options.tex (tex4ht.4ht),
 	* tex4ht-sty.tex (tex4ht.sty),
 	* tex4ht-tei.tex (tei-mml.4ht, tei.4ht): changed \immediate\write16 to
-	\writesixteen
-
+	\writesixteen macro, and define it.
 
 2018-06-08  Michal Hoftich  <michal.h21@gmail.com>
 
