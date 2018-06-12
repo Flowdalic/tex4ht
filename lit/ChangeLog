@@ -1,4 +1,10 @@
 2018-06-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): use higher number for \write, in order to
+	avoid possible conflicts
+
+2018-06-11  Michal Hoftich  <michal.h21@gmail.com>
+
 	* common.tex,
 	* tex4ht-4ht.tex (amsart.4ht, amsbook.4ht, amsproc.4ht, article.4ht,
 	book.4ht, eplain.4ht, glossary.4ht, latex.4ht, mwart.4ht, mwbk.4ht,
