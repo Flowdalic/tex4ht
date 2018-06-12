@@ -1,3 +1,7 @@
+2018-06-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): removed \clearpage patch, it breaks math
+
 2018-06-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): use higher number for \write, in order to
