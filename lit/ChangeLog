@@ -1,3 +1,8 @@
+2018-06-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed support for images included
+	without extension.
+
 2018-06-12  Karl Berry  <karl@freefriends.org>
 
 	* wripro.tex,

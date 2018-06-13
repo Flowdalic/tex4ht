@@ -567,7 +567,7 @@ Writer2LaTeX (w2l) doesn't currently allow line breaks with DOCTYPE
 
 \<graphics obj manifest\><<<
 <manifest:file-entry
-    manifest:full-path="Pictures/|<graphics base name|>"/>\Hnewline
+    manifest:full-path="Pictures/\PictureFile>"/>\Hnewline
 >>>
 
 \<shared manifest\><<<
@@ -1067,7 +1067,7 @@ original paths to be able to copy pictures to correct location.
 \Configure{IMG}
   {|<insert shadowing fig file|>%
    \ht:special{t4ht=<draw:frame  
-      draw:name="|<graphics base name|>"  
+      draw:name="\PictureFile"  
       text:anchor-type="as-char"  % "paragraph"  
 %      svg:width="...pt"  
 %      svg:height="...pt"  
@@ -1137,9 +1137,9 @@ original paths to be able to copy pictures to correct location.
 
 
 \<insert shadowing fig file\><<<
-\ht:special{t4ht>|<graphics full name|>.4og}%
+\ht:special{t4ht>\PictureFile.4og}%
 \ht:special{t4ht*>}%
-\ht:special{t4ht<|<graphics full name|>.4og}%
+\ht:special{t4ht<\PictureFile.4og}%
 \OOmanifest{|<graphics obj manifest|>}%
 >>>
 
