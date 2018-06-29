@@ -1,3 +1,8 @@
+2018-06-29  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-c.tex (command line options): mention A in option summary
+	as well as text. (And push current *.c to TL.)
+
 2018-06-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed support for images included
