@@ -4430,12 +4430,14 @@ p->prev_file = cur_o_file;
 
 \<close tex4ht file\><<<
 if( p == (struct files_rec *)  0 ) bad_special( name );
+else { /* if p is null, do nothing more */
 `<fix pointers around file to be closed`>
 if( opened_files !=  (struct files_rec*) 0 )
   { if( out_file == p->file )  out_file = opened_files->file; }
 else out_file = (FILE *) 0;
 (IGNORED) fclose( p->file );   free((void *)  p->name );   
 free((void *) p );
+}
 >>>
 
 
@@ -4462,7 +4464,7 @@ while( opened_files != (struct files_rec*) 0 )
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SubSection{Backup to Previou File}
+\SubSection{Backup to Previous File}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \<back up to previous output file\><<<
