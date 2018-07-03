@@ -2,7 +2,7 @@
 %      latex tex4ht-env
 % or htlatex tex4ht-env "xhtml,3"
 %
-% Copyright 2009-2017 TeX Users Group
+% Copyright 2009-2018 TeX Users Group
 % Copyright 1997-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -36,7 +36,7 @@ before validations.
 \<tex4ht.env-unix\><<<
 @<unix copyright@>%
 @<unix opening comment@>%
-@<unix note fonts@>%
+@<generic note fonts@>%
 @<unix texmf dir@>%
 @<unix tfm fonts@>%
 @<win32 htf fonts@>%
@@ -59,7 +59,7 @@ before validations.
 \<tex4ht.env-win32\><<<
 @<win32 copyright@>%
 @<win32 opening comment@>%
-@<win32 note fonts@>%
+@<generic note fonts@>%
 @<win32 texmf dir@>%
 @<win32 tfm fonts@>%
 @<win32 htf fonts@>%
@@ -82,8 +82,8 @@ before validations.
 
 \<tex4ht\><<<
 @<private copyright@>%
-@<my opening comment@>%
-@<my note fonts@>%
+@<unix opening comment@>%
+@<generic note fonts@>%
 @<my texmf dir@>%
 @<my tfm fonts@>%
 @<win32 htf fonts@>%
@@ -111,24 +111,6 @@ before validations.
 \section{Opening Comments}
 %%%%%%%%%%%%%%%%%%%
 
-\<my opening comment\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% Notes:                                                            %
-%  1. Empty lines might be harmful                                  %
-%  2. Tagged script segments <tag>...</tag> are scanned only if     %
-%     their names are specified within -ctag switches of tex4ht.c   %
-%     and t4ht.c. When -c switches are not supplied, a -cdefault    %
-%     is implicitly assumed.                                        % 
-%        The tags <tag> and </tag>, but not their bodies, are       %
-%     ignored if they are not located at the start of their lines.  %
-%  3. Place this file in your work directory and/or root directory  %
-%     and/or in directory `xxx' of your choice. In the latest case, %
-%     compile tex4ht.c and t4ht.c with `#define ENVFILE xxx', or    %
-%     provide the address of the file to tex4ht and t4ht throught   %
-%     the -e switch                                                 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
->>>
-
 \<unix opening comment\><<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 % Notes:                                                            %
@@ -145,29 +127,14 @@ before validations.
 %     provide the address of the file to tex4ht and t4ht throught   %
 %     the -e switch                                                 %
 %  4. Under kpathsea, the substring `%%~' may be employed in        %
-%     commands to indirectly obtain the value of ${SELFAUTOPARENT}. %
+%     commands to obtain the value of ${TEXMFDIST}.                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 >>>
 
 
 \<win32 opening comment\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% Notes:                                                            %
-%  1. Empty lines might be harmful                                  %
-%  2. Tagged script segments <tag>...</tag> are scanned only if     %
-%     their names are specified within -ctag switches of tex4ht.c   %
-%     and t4ht.c. When -c switches are not supplied, a -cdefault    %
-%     is implicitly assumed.                                        % 
-%        The tags <tag> and </tag>, but not their bodies, are       %
-%     ignored if they are not located at the start of their lines.  %
-%  3. Place this file in your work directory and/or in the same     %
-%     directory as tex4ht.exe and t4ht.exe and/or in directory      %
-%     `xxx' of your choice. In the latest case, compile tex4ht.c    %
-%     and t4ht.c with `#define ENVFILE xxx', or provide the address %
-%     of the file to tex4ht and t4ht throught the -e switch         %
-%  4. Under kpathsea, the substring `%%~' may be employed in        %
-%     commands to indirectly obtain the value of ${SELFAUTOPARENT}. %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+% See comments in the Unix tex4ht.env for how this file gets found,
+% except on Windows, we also look in the directory of tex4ht.exe/t4ht.exe.
 >>>
 
 
@@ -233,21 +200,21 @@ doesn't make sense to keep two versions.
 
 \<win32 iso1 htf\><<<
 <default>
-i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/1/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
-i%%~/texmf-dist/tex4ht/ht-fonts/mozilla/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/iso8859/1/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/mozilla/!
+i%%~/tex4ht/ht-fonts/unicode/!
 </default>
 >>>
 
 
 \<win32 moz htf\><<<
 <mozhtf>
-i%%~/texmf-dist/tex4ht/ht-fonts/mozilla/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/mozilla/!
+i%%~/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
 </mozhtf>
 >>>
 
@@ -255,9 +222,9 @@ i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 
 \<win32 uni htf\><<<
 <unihtf>
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
 </unihtf>
 >>>
 
@@ -265,41 +232,41 @@ i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 
 \<win32 emspk htf\><<<
 <emspkhtf>
-i%%~/texmf-dist/tex4ht/ht-fonts/html-speech/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
-i%%~/texmf-dist/tex4ht/ht-fonts/css/emacspeak/!
+i%%~/tex4ht/ht-fonts/html-speech/!
+i%%~/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/css/emacspeak/!
 </emspkhtf>
 >>>
 
 
 \<win32 jsml htf\><<<
 <jsmlhtf>
-i%%~/texmf-dist/tex4ht/ht-fonts/jsml/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/jsml/!
+i%%~/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
 </jsmlhtf>
 >>>
 
 
 \<win32 iso2 htf\><<<
 <iso2htf>
-i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/2/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/iso8859/2/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/unicode/!
 </iso2htf>
 >>>
 
 
 \<win32 iso5 htf\><<<
 <iso5htf>
-i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/5/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/iso8859/5/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/unicode/!
 </iso5htf>
 >>>
 
@@ -307,10 +274,10 @@ i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 
 \<win32 iso7 htf\><<<
 <iso7htf>
-i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/7/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/iso8859/7/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/unicode/!
 </iso7htf>
 >>>
 
@@ -318,20 +285,20 @@ i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 
 \<win32 iso8 htf\><<<
 <iso8htf>
-i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/8/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/iso8859/8/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/unicode/!
 </iso8htf>
 >>>
 
 
 \<win32 iso15 htf\><<<
 <iso15htf>
-i%%~/texmf-dist/tex4ht/ht-fonts/iso8859/15/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/iso8859/15/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/unicode/!
 </iso15htf>
 >>>
 
@@ -339,20 +306,20 @@ i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
 
 \<win32 koi8r htf\><<<
 <koi8rhtf>
-i%%~/texmf-dist/tex4ht/ht-fonts/koi/8r/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/koi/8r/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/unicode/!
 </koi8rhtf>
 >>>
 
 
 \<win32 sym htf\><<<                                                     %
 <symhtf>
-i%%~/texmf-dist/tex4ht/ht-fonts/symbol/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/symbol/!
+i%%~/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
 </symhtf>
 >>>
 
@@ -360,10 +327,10 @@ i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
 
 \<win32 win1251 htf\><<<                                                     %
 <win1251htf>
-i%%~/texmf-dist/tex4ht/ht-fonts/win/1251/!
-i%%~/texmf-dist/tex4ht/ht-fonts/unicode/!
-i%%~/texmf-dist/tex4ht/ht-fonts/ascii/!
-i%%~/texmf-dist/tex4ht/ht-fonts/alias/!
+i%%~/tex4ht/ht-fonts/win/1251/!
+i%%~/tex4ht/ht-fonts/unicode/!
+i%%~/tex4ht/ht-fonts/ascii/!
+i%%~/tex4ht/ht-fonts/alias/!
 </win1251htf>
 >>>
 
@@ -408,45 +375,14 @@ lc:\tex4ht\tex4ht.fls
 \subsection{Notes}
 %%%%%%%%%%%%%%%%%%%
 
-\<my note fonts\><<<
+\<generic note fonts\><<<
 % * Replace `path', and possibly what follows, with appropriate     %
 %   content                                                         %
 % * A path may start with:                                          %
 %   ~ for environment variable HOME                                 %
 %   ~~ for environment variable TEX4HTTFM                           %
+%   %%~ for ${TEXMFDIST} of KPATHSEA                                %
 % * A ! requests recursive search into subdirectories               %
-% * Multiple entries of each type are allowed                       %
-% * When supported by kpathsea                                      %
-%   + t entries are ignored                                         %
-%   + the path before /ht-fonts/ is ignored in i records that don't %
-%     represent real addresses                                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
->>>
-
-\<unix note fonts\><<<
-% * Replace `path', and possibly what follows, with appropriate     %
-%   content                                                         %
-% * A path may start with:                                          %
-%   ~ for environment variable HOME                                 %
-%   ~~ for environment variable TEX4HTTFM                           %
-%   %%~ for ${SELFAUTOPARENT} of KPATHSEA                           %
-% * A ! requests recursive search into subdirectories               %
-% * Multiple t and i entries are allowed                            %
-% * When supported by kpathsea                                      %
-%   + t entries are ignored                                         %
-%   + the path before /ht-fonts/ is ignored in i records that don't %
-%     represent real addresses                                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
->>>
-
-
-\<win32 note fonts\><<<
-% * Fix the paths                                                   %
-% * A path may start with:                                          %
-%   ~ for environment variable HOME                                 %
-%   ~~ for environment variable TEX4HTTFM                           %
-%   %%~ for ${SELFAUTOPARENT} of KPATHSEA                           %
-% * A ! requests recursive search into  subdirectories              %
 % * Multiple t and i entries are allowed                            %
 % * When supported by kpathsea                                      %
 %   + t entries are ignored                                         %
@@ -917,7 +853,7 @@ A `.foo command' record in the script asks to execute the given
 command for each entry 'File: abc.foo' in the .lg file.  A \verb=%%0=
 stands for the job name, a \verb=%%1= stands for the file name
 (e.g., 'abc') without  the extension. A \verb=%%~= stands for the
-value  of \verb=${SELFAUTOPARENT}= under KPATHSEA, and just `\verb=~='
+value  of \verb=${TEXMFDIST}= under KPATHSEA, and `\verb=~=' (home dir)
 when such a value is unavailable.
 
 
@@ -1304,9 +1240,9 @@ Contributed by Andreas Gobel:
 \<xtpipes: my oo\><<<
 <ooxtpipes>
 .4oo mv %%0.4oo %%0.tmp 
-.4oo java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%0.4oo %%0.tmp 
+.4oo java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%0.4oo %%0.tmp 
 .4om mv %%1.4om %%1.tmp
-.4om java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.4om %%1.tmp
+.4om java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.4om %%1.tmp
 </ooxtpipes>
 >>>
 
@@ -1314,9 +1250,9 @@ Contributed by Andreas Gobel:
 \<xtpipes: unix oo\><<<
 <ooxtpipes>
 .4oo mv %%0.4oo %%0.tmp 
-.4oo java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%0.4oo %%0.tmp 
+.4oo java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%0.4oo %%0.tmp 
 .4om mv %%1.4om %%1.tmp
-.4om java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.4om %%1.tmp
+.4om java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.4om %%1.tmp
 </ooxtpipes>
 >>>
 
@@ -1324,9 +1260,9 @@ Contributed by Andreas Gobel:
 \<xtpipes: win32 oo\><<<
 <ooxtpipes>
 .4oo move %%0.4oo %%0.tmp
-.4oo java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%0.4oo %%0.tmp
+.4oo java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%0.4oo %%0.tmp
 .4om move %%1.4om %%1.tmp
-.4om java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.4om %%1.tmp
+.4om java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.4om %%1.tmp
 </ooxtpipes>
 >>>
 
@@ -1340,7 +1276,7 @@ Contributed by Andreas Gobel:
 \<xtpipes: my java help\><<<
 <javahelp>
 .html mv %%1.html %%1.tmp
-.html java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s javahelp.4xt -o %%1.html %%1.tmp 
+.html java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s javahelp.4xt -o %%1.html %%1.tmp 
 .jhm echo "java -jar ${HOME}/javahelp.dir/jh2.0/javahelp/bin/jhindexer.jar -db %%0-doc/%%1-jhs %%1*.html"
 .jhm echo "--- Warning --- Beware of leftover %%1*.html files from other compilations"
 .jhm java -jar ${HOME}/javahelp.dir/jh2.0/javahelp/bin/jhindexer.jar -db %%0-doc/%%1-jhs %%1*.html
@@ -1387,7 +1323,7 @@ javac -classpath ${HOME}/javahelp.dir/jh1.1.3/javahelp/lib/jh.jar jhprog.java
 \<xtpipes: unix java help\><<<
 <javahelp>
 .html mv %%1.html %%1.tmp
-.html java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s javahelp.4xt -o %%1.html %%1.tmp
+.html java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s javahelp.4xt -o %%1.html %%1.tmp
 .jhm echo "java -jar ${HOME}/jh2.0/javahelp/bin/jhindexer.jar -db %%0-doc/%%1-jhs %%1*.html"
 .jhm echo "--- Warning ---  Beware of leftover %%1*.html files from other compilations"
 .jhm java -jar ${HOME}/jh2.0/javahelp/bin/jhindexer.jar -db %%0-doc/%%1-jhs %%1*.html
@@ -1401,7 +1337,7 @@ javac -classpath ${HOME}/javahelp.dir/jh1.1.3/javahelp/lib/jh.jar jhprog.java
 \<xtpipes: win32 java help\><<<
 <javahelp>
 .html move %%1.html %%1.tmp
-.html java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s javahelp.4xt -o %%1.html %%1.tmp
+.html java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s javahelp.4xt -o %%1.html %%1.tmp
 .jhm java -jar c:\jh2.0\javahelp\bin\jhindexer.jar -db %%0-doc\%%1-jhs %%1*.html
 </javahelp>
 <javahelp1>
@@ -1521,7 +1457,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my emacspeak\><<<
 <emspk>
 .html mv %%1.html %%1.tmp
-.html java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.html %%1.tmp
+.html java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.html %%1.tmp
 .html xmllint --noout %%1.html 
 </emspk>
 >>>
@@ -1530,7 +1466,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: unix emacspeak\><<<
 <emspk>
 .html mv %%1.html %%1.tmp
-.html java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.html %%1.tmp
+.html java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.html %%1.tmp
 </emspk>
 >>>
 
@@ -1538,7 +1474,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: win32 emacspeak\><<<
 <emspk>
 .html move %%1.html %%1.tmp
-.html java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.html %%1.tmp
+.html java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.html %%1.tmp
 </emspk>
 >>>
 
@@ -1550,7 +1486,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my jsml\><<<
 <jsml>
 .jsml mv %%1.jsml %%1.tmp
-.jsml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.jsml %%1.tmp
+.jsml java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.jsml %%1.tmp
 .jsml xmllint --noout %%1.jsml 
 </jsml>
 >>>
@@ -1559,7 +1495,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: unix jsml\><<<
 <jsml>
 .jsml mv %%1.jsml %%1.tmp
-.jsml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.jsml %%1.tmp
+.jsml java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.jsml %%1.tmp
 </jsml>
 >>>
 
@@ -1567,7 +1503,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: win32 jsml\><<<
 <jsml>
 .jsml move %%1.jsml %%1.tmp
-.jsml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.jsml %%1.tmp
+.jsml java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.jsml %%1.tmp
 </jsml>
 >>>
 
@@ -1584,7 +1520,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my docbk\><<<
 <docbk>
 .xml cp %%1.xml %%1.tmp
-.xml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.xml %%1.tmp
+.xml java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.xml %%1.tmp
 .xml xmllint --relaxng /home/4/gurari/dtd.dir/docbook.dir/docbook-5.0/rng/docbook.rng -noout -dropdtd -nonet %%0.xml
 </docbk>
 >>>
@@ -1593,7 +1529,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: unix docbk\><<<
 <docbk>
 .xml cp %%1.xml %%1.tmp
-.xml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.xml %%1.tmp
+.xml java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.xml %%1.tmp
 </docbk>
 >>>
 
@@ -1601,7 +1537,7 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: win32 docbk\><<<
 <docbk>
 .xml copy %%1.xml %%1.tmp
-.xml java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -o %%1.xml %%1.tmp
+.xml java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -o %%1.xml %%1.tmp
 </docbk>
 >>>
 
@@ -1619,13 +1555,13 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my xhtml\><<<
 <xhtml>
 .html mv %%1.html %%1.tmp
-.html java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.html %%1.tmp 
+.html java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.html %%1.tmp 
 .html xmllint --noout %%1.html 
 .xht mv %%1.xht %%1.tmp
-.xht java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xht %%1.tmp 
+.xht java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xht %%1.tmp 
 .xht xmllint --noout %%1.xht 
 .xml mv %%1.xml %%1.tmp
-.xml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xml %%1.tmp 
+.xml java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xml %%1.tmp 
 .xml xmllint --noout %%1.xml 
 </xhtml>
 >>>
@@ -1634,11 +1570,11 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: unix xhtml\><<<
 <xhtml>
 .html mv %%1.html %%1.tmp
-.html java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.html %%1.tmp
+.html java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.html %%1.tmp
 .xht mv %%1.xht %%1.tmp
-.xht java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xht %%1.tmp
+.xht java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xht %%1.tmp
 .xml mv %%1.xml %%1.tmp
-.xml java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xml %%1.tmp
+.xml java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xml %%1.tmp
 </xhtml>
 >>>
 
@@ -1646,11 +1582,11 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: win32 xhtml\><<<
 <xhtml>
 .html move %%1.html %%1.tmp
-.html java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.html %%1.tmp
+.html java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.html %%1.tmp
 .xht move %%1.xht %%1.tmp
-.xht java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xht %%1.tmp
+.xht java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xht %%1.tmp
 .xml move %%1.xml %%1.tmp
-.xml java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xml %%1.tmp
+.xml java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtml.4xt -o %%1.xml %%1.tmp
 </xhtml>
 >>>
 
@@ -1663,13 +1599,13 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: my xhtmml\><<<
 <xhtmml>
 .html mv %%1.html %%1.tmp
-.html java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.html %%1.tmp 
+.html java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.html %%1.tmp 
 .html xmllint --noout %%1.html 
 .xht mv %%1.xht %%1.tmp
-.xht java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xht %%1.tmp 
+.xht java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xht %%1.tmp 
 .xht xmllint --noout %%1.xht 
 .xml mv %%1.xml %%1.tmp
-.xml java -classpath %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xml %%1.tmp 
+.xml java -classpath %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xml %%1.tmp 
 .xml xmllint --noout %%1.xml 
 </xhtmml>
 >>>
@@ -1678,11 +1614,11 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: unix xhtmml\><<<
 <xhtmml>
 .html mv %%1.html %%1.tmp
-.html java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.html %%1.tmp
+.html java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.html %%1.tmp
 .xht mv %%1.xht %%1.tmp
-.xht java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xht %%1.tmp
+.xht java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xht %%1.tmp
 .xml mv %%1.xml %%1.tmp
-.xml java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xml %%1.tmp
+.xml java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xml %%1.tmp
 </xhtmml>
 >>>
 
@@ -1690,11 +1626,11 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<xtpipes: win32 xhtmml\><<<
 <xhtmml>
 .html move %%1.html %%1.tmp
-.html java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.html %%1.tmp
+.html java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.html %%1.tmp
 .xht move %%1.xht %%1.tmp
-.xht java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xht %%1.tmp
+.xht java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xht %%1.tmp
 .xml move %%1.xml %%1.tmp
-.xml java -classpath  %%~/texmf-dist/tex4ht/bin/tex4ht.jar xtpipes -i %%~/texmf-dist/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xml %%1.tmp
+.xml java -classpath  %%~/tex4ht/bin/tex4ht.jar xtpipes -i %%~/tex4ht/xtpipes/ -s xhtmml.4xt -o %%1.xml %%1.tmp
 </xhtmml>
 >>>
 
@@ -1712,20 +1648,20 @@ Note: the permission option `S' takes into account also trailing spaces.
 \<unix copyright\><<<
 % tex4ht.env-unix (@version), generated from @jobname.tex
 % (can be used as ~/.tex4ht)
-% Copyright 2009-2017 TeX Users Group
+% Copyright 2009-2018 TeX Users Group
 % Copyright @CopyYear.1997. Eitan M. Gurari
 @<TeX4ht copyright@>>>>
 
 \<private copyright\><<<
 % tex4ht.env (private) (@version), generated from @jobname.tex
 % (can be used as ~/.tex4ht)
-% Copyright 2009-2017 TeX Users Group
+% Copyright 2009-2018 TeX Users Group
 % Copyright @CopyYear.1997. Eitan M. Gurari
 @<TeX4ht copyright@>>>>
 
 \<win32 copyright\><<<
 % tex4ht.env-win32 (@version), generated from @jobname.tex
-% Copyright 2009-2017 TeX Users Group
+% Copyright 2009-2018 TeX Users Group
 % Copyright @CopyYear.1997. Eitan M. Gurari
 @<TeX4ht copyright@>>>>
 

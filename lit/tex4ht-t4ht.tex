@@ -1,7 +1,7 @@
 % $Id$
 % tex tex4ht-t4ht   or   ht tex tex4ht-t4ht
 %
-% Copyright 2009-2016 TeX Users Group
+% Copyright 2009-2018 TeX Users Group
 % Copyright 1998-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -144,7 +144,7 @@ while( eoln_ch != EOF ) {
 
 \<t4ht.c\><<<
 /* t4ht.c (`version), generated from `jobname.tex
-   Copyright (C) 2009-2012 TeX Users Group
+   Copyright (C) 2009-2018 TeX Users Group
    Copyright (C) `CopyYear.1998. Eitan M. Gurari
 `<TeX4ht copyright`> 
 */
@@ -1451,13 +1451,17 @@ while( *p != '\0' ){
 >>>
 
 The argument `\Verb=%%~=' is replaced with the value of
-\Verb=${SELFAUTOPARENT}= under KPATHSEA.  If such a value 
+\Verb=${TEXMFDIST}= under Kpathsea.  If such a value 
 is not available, the character `\Verb=~=' is used.   The variable
-offers the grandparent directory of where texmf resides.
+offers the parent directory of where tex4ht resides, e.g.,
+\Verb=/usr/local/texlive/2018/texmf-dist=. We use TEXMFDIST in
+preference to SELFAUTOPARENT (as was done until June 2018), or
+TEXMFROOT, because in practice it works on both \TeX\ Live and MiK\TeX,
+while the others do not.
 
 \<texmf := ...\><<<
 #ifdef KPATHSEA   
-const char * texmf = kpse_var_value( "SELFAUTOPARENT" );
+const char * texmf = kpse_var_value( "TEXMFDIST" );
 #endif
 >>>
 

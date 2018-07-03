@@ -1,3 +1,14 @@
+2018-07-03  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-t4ht.tex (texmf :=): replace %%~ with $TEXMFDIST,
+	not $SELFAUTOPARENT, for consistency with MiKTeX, to help
+	distros, etc.
+	* tex4ht-env.tex (generic note fonts): replace <unix/win32 note fonts>.
+	(unix opening comment): replace <my opening comment>; TEXMFDIST.
+	Omit texmf-dist/ after %%~/ throughout.
+	https://puszcza.gnu.org.ua/bugs/index.php?394
+	https://tug.org/pipermail/tex4ht/2018q2/001975.html
+
 2018-06-30  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-c.tex (close tex4ht file): don't try to dereference
