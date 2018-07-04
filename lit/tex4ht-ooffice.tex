@@ -131,13 +131,13 @@ tail>>>
 \<configure ooffice-mml tex4ht\><<<
 \Configure{math-xmlns}
   { 
-     xmlns:math="http://www.w3.org/1998/Math/MathML"\Hnewline
+     xmlns="http://www.w3.org/1998/Math/MathML"\Hnewline
      xmlns:xlink="http://www.w3.org/1999/xlink"
  }
 >>>
 
 \<configure ooffice-mml Preamble\><<<
-\Configure{mathml}{math:}
+\Configure{mathml}{}
 >>>
 
 \<configure ooffice Preamble\><<<
@@ -854,7 +854,7 @@ TeX4ht from \jobname.tex,
 
 
 \<config mathml object file\><<<
-\Configure{DOCTYPE}{}%
+\Configure{DOCTYPE}{\HCode{<!DOCTYPE math PUBLIC "-//W3C//DTD MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd">}}%
 |<oo math xtpipes|>%
 \Configure{HTML}{}{\noindent}%
 \Configure{BODY}{}{}%
@@ -873,6 +873,7 @@ TeX4ht from \jobname.tex,
 >>>
 
 \<tex4ht math note\><<<
+<!DOCTYPE math PUBLIC "-//W3C//DTD MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd">\Hnewline
 <?xtpipes file="oo-math.4xt" ?>\Hnewline
 <!-- |<math obj name|>\space
      by TeX4ht from \jobname.tex line \the\inputlineno\space
@@ -5824,7 +5825,7 @@ zeros before the 1's that represent the current and following 1's.
 
 
 \<mml mtd hline\><<<
-<\a:mathml mtd><math:mo> \string&\#x0332; </math:mo></\a:mathml mtd>
+<\a:mathml mtd><\a:mathml mo> \string&\#x0332; </\a:mathml mo></\a:mathml mtd>
 >>>
 
 
@@ -9840,9 +9841,9 @@ The following configuration does not show.
 
 \<configure ooffice ulem\><<<
 \Configure{uline}
-     {\ifmmode \HCode{<math:mrow class="uline">}%
+     {\ifmmode \HCode{<\a:mathml mrow class="uline">}%
       \else \HCode{<text:span text:style-name="uline">}\fi}
-     {\ifmmode \HCode{</math:mrow>}\else \HCode{</text:span>}\fi}
+     {\ifmmode \HCode{</\a:mathml mrow>}\else \HCode{</text:span>}\fi}
 \NewConfigureOO{uline}
 \ConfigureOO{uline}{|<oo uline style|>}
 >>>
@@ -9860,9 +9861,9 @@ The following configuration does not show.
 
 \<configure ooffice ulem\><<<
 \Configure{uuline}
-     {\ifmmode \HCode{<math:mrow class="uuline">}%
+     {\ifmmode \HCode{<\a:mathml mrow class="uuline">}%
       \else \HCode{<text:span text:style-name="uuline">}\fi}
-     {\ifmmode \HCode{</math:mrow>}\else \HCode{</text:span>}\fi}
+     {\ifmmode \HCode{</\a:mathml mrow>}\else \HCode{</text:span>}\fi}
 \NewConfigureOO{uuline}
 \ConfigureOO{uuline}{|<oo uuline style|>}
 >>>
@@ -9879,9 +9880,9 @@ The following configuration does not show.
 
 \<configure ooffice ulem\><<<
 \Configure{uwave}
-     {\ifmmode \HCode{<math:mrow class="uwave">}%
+     {\ifmmode \HCode{<\a:mathml mrow class="uwave">}%
       \else \HCode{<text:span text:style-name="uwave">}\fi}
-     {\ifmmode \HCode{</math:mrow>}\else \HCode{</text:span>}\fi}
+     {\ifmmode \HCode{</\a:mathml mrow>}\else \HCode{</text:span>}\fi}
 \NewConfigureOO{uwave}
 \ConfigureOO{uwave}{|<oo uwave style|>}
 >>>
@@ -9901,9 +9902,9 @@ The following configuration does not show.
 
 \<configure ooffice ulem\><<<
 \Configure{sout}
-     {\ifmmode \HCode{<math:mrow class="sout">}%
+     {\ifmmode \HCode{<\a:mathml mrow class="sout">}%
       \else \HCode{<text:span text:style-name="sout">}\fi}
-     {\ifmmode \HCode{</math:mrow>}\else \HCode{</text:span>}\fi}
+     {\ifmmode \HCode{</\a:mathml mrow>}\else \HCode{</text:span>}\fi}
 \NewConfigureOO{sout}
 \ConfigureOO{sout}{|<oo sout style|>}
 >>>
@@ -9920,9 +9921,9 @@ The following configuration does not show.
 
 \<configure ooffice ulem\><<<
 \Configure{xout}
-     {\ifmmode \HCode{<math:mrow class="xout">}%
+     {\ifmmode \HCode{<\a:mathml mrow class="xout">}%
       \else \HCode{<text:span text:style-name="xout">}\fi}
-     {\ifmmode \HCode{</math:mrow>}\else \HCode{</text:span>}\fi}
+     {\ifmmode \HCode{</\a:mathml mrow>}\else \HCode{</text:span>}\fi}
 \NewConfigureOO{xout}
 \ConfigureOO{xout}{|<oo xout style|>}
 >>>
