@@ -147,13 +147,14 @@ tail>>>
 \def\oo:dtd:ver{2.0}
 >>>
 
+The DOCTYPE can actually make the ODT file invalid. Just insert xtpipes instruction.
+
 \<configure ooffice tex4ht\><<<
 \Configure{VERSION}{\HCode{|<VERSION|>}}
 \:CheckOption{-xtpipes} \if:Option 
-   \Configure{DOCTYPE}{\HCode{|<DOCTYPE|>}}
+   \Configure{DOCTYPE}{}
 \else
-   \Configure{DOCTYPE}{\HCode{|<DOCTYPE|>\Hnewline
-        <?xtpipes file="oo-text.4xt" ?>\Hnewline}}
+   \Configure{DOCTYPE}{\HCode{<?xtpipes file="oo-text.4xt" ?>\Hnewline}}
 \fi
 >>>
 
@@ -283,9 +284,6 @@ xmlns:xlink="http://www.w3.org/1999/xlink"\Hnewline
 >>>
 
 \<DOCTYPE\><<<
-<!DOCTYPE office:document-content PUBLIC
-   "-//OpenOffice.org//DTD OfficeDocument \oo:dtd:ver//|<dtd lang|>" 
-   "office.dtd">\Hnewline
 >>>
 
 
@@ -369,15 +367,11 @@ hook is sent to the file upon reaching the end of the source.
 >>>
 
 
-Writer2LaTeX (w2l) doesn't currently allow line breaks with DOCTYPE
 
 
 
 \<oo2 styles.xml\><<<
 |<VERSION|>%
-<!DOCTYPE office:document-styles PUBLIC
-    "-//OpenOffice.org//DTD OfficeDocument \oo:dtd:ver//|<dtd lang|>"
-    "office.dtd">\Hnewline
 <office:document-styles \Hnewline
        |<xml styles name spaces 2.0|>\Hnewline
        office:version="1.0">\Hnewline
@@ -472,9 +466,6 @@ Writer2LaTeX (w2l) doesn't currently allow line breaks with DOCTYPE
 \jobname-settings.4os>>>
 
 \<settings DOCTYPE\><<<
-<!DOCTYPE office:document-settings PUBLIC
-    "-//OpenOffice.org//DTD OfficeDocument \oo:dtd:ver//|<dtd lang|>" 
-    "office.dtd">\Hnewline
 >>>
 
 
@@ -535,9 +526,6 @@ Writer2LaTeX (w2l) doesn't currently allow line breaks with DOCTYPE
 
 \<oo2 manifest.xml\><<<
 |<VERSION|>%
-<!DOCTYPE manifest:manifest PUBLIC 
-       "-//OpenOffice.org//DTD 
-       Manifest \oo:dtd:ver//|<dtd lang|>" "Manifest.dtd">\Hnewline
 <manifest:manifest       
        xmlns:manifest =
        "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0">\Hnewline
@@ -602,7 +590,6 @@ Writer2LaTeX (w2l) doesn't currently allow line breaks with DOCTYPE
 \<oo2 meta.xml\><<<
 \ht:special{t4ht>|<meta file name|>}%
   \ht:special{t4ht=|<VERSION|>}%
-  \ht:special{t4ht=|<meta DOCTYPE|>}%
   \ht:special{t4ht=|<oo2 start meta|>}%
   \ht:special{t4ht=\a:META}%
   \ht:special{t4ht=|<close meta|>}%
@@ -628,11 +615,6 @@ Writer2LaTeX (w2l) doesn't currently allow line breaks with DOCTYPE
 \jobname-meta.4ot>>>
 
 
-\<meta DOCTYPE\><<<
-<!DOCTYPE office:document-meta PUBLIC
-    "-//OpenOffice.org//DTD OfficeDocument \oo:dtd:ver//|<dtd lang|>"
-    "office.dtd">\Hnewline
->>>
 
 
 
@@ -872,23 +854,11 @@ TeX4ht from \jobname.tex,
 
 
 \<config mathml object file\><<<
-\Configure{DOCTYPE}{|<oo2 mml doctype|>}%
+\Configure{DOCTYPE}{}%
 |<oo math xtpipes|>%
 \Configure{HTML}{}{\noindent}%
 \Configure{BODY}{}{}%
 >>>
-
-
-
-
-\<oo2 mml doctype\><<<
-\HCode{<!DOCTYPE \a:mathml math PUBLIC
-    "-//W3C//DTD MathML 2.0//|<dtd lang|>" 
-    "math.dtd">\Hnewline}
->>>
-
-%    "-//OpenOffice.org//DTD Modified W3C MathML 1.01//|<dtd lang|>" 
-
 
 
 \<oo math xtpipes\><<<
@@ -897,7 +867,6 @@ TeX4ht from \jobname.tex,
              avoid xtpipes post processing}
 \else
       \Configure{DOCTYPE}{%%
-          |<oo2 mml doctype|>%
           \HCode{|<tex4ht math note|>}%
       }%
 \fi
