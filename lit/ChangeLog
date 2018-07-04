@@ -2,6 +2,7 @@
 
   * tex4ht-ooffice.tex (ooffice.4ht): removed all DOCTYPE definitions, they
 	cause validation failure in https://odfvalidator.org/. 
+	* tex4ht-ooffice.tex (ooffice-mml.4ht): fixed mime type.
 
 2018-07-03  Karl Berry  <karl@freefriends.org>
 
