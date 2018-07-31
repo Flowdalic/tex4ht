@@ -1,3 +1,8 @@
+2018-07-32  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): removed &npsp; entity from configuration
+	for HBorder, it caused Xtpipes error.
+
 2018-07-04  Michal Hoftich  <michal.h21@gmail.com>
 
   * tex4ht-ooffice.tex (ooffice.4ht): removed all DOCTYPE definitions, they
