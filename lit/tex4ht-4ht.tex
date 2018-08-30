@@ -5235,6 +5235,14 @@ used for Fontspec support.
 \edef\test:tu:encoding{TU}
 \ifx\test:f:encoding\test:tu:encoding
   \RequirePackage[OT1]{fontenc}
+  %  load tuenc definitions for commands like \quotedblbase 
+  \ifdefined\old:DeclareTextSymbol\else
+    \input binhex
+    \def\DeclareTextSymbol#1#2#3{\gdef#1{\special{t4ht@+&{35}x\hex{#3}{59}}x}}
+    \input tuenc.def
+    \let\DeclareTextSymbol\old:DeclareTextSymbol
+  \fi
+
   \ifdefined\directlua%
     \input tuenc-luatex.4ht
   \fi

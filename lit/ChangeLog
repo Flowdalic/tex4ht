@@ -1,4 +1,11 @@
-2018-07-32  Michal Hoftich  <michal.h21@gmail.com>
+2018-08-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tuenc-luatex.4ht): added vpack_filter callback, in order
+	to process all characters
+	* tex4ht-4ht.tex (latex.4ht): load tuenc.def to get definitions for text
+	symbols
+
+2018-07-31  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): removed &npsp; entity from configuration
 	for HBorder, it caused Xtpipes error.
