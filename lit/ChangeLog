@@ -1,19 +1,20 @@
 2018-08-30  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (tuenc-luatex.4ht): added vpack_filter callback, in order
-	to process all characters
-	* tex4ht-4ht.tex (latex.4ht): load tuenc.def to get definitions for text
-	symbols
+	* tex4ht-4ht.tex (tuenc-luatex.4ht): added vpack_filter
+	callback, in order to process all characters.
+	* tex4ht-4ht.tex (latex.4ht): load tuenc.def to get definitions
+	for text symbols.
 
 2018-07-31  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): removed &npsp; entity from configuration
-	for HBorder, it caused Xtpipes error.
+	* tex4ht-ooffice.tex (ooffice.4ht): removed &nbsp; entity from
+	configuration for HBorder, it caused Xtpipes error.
 
 2018-07-04  Michal Hoftich  <michal.h21@gmail.com>
 
-  * tex4ht-ooffice.tex (ooffice.4ht): removed all DOCTYPE definitions, they
-	cause validation failure in https://odfvalidator.org/. 
+	* tex4ht-ooffice.tex (ooffice.4ht): removed all DOCTYPE
+	definitions, they cause validation failure in
+	https://odfvalidator.org/.
 	* tex4ht-ooffice.tex (ooffice-mml.4ht): fixed mime type.
 	Replaced literal math: prefix with \a:mathml in some configurations.
 	Configured \Configure{mathml} to not use a prefix at all.
