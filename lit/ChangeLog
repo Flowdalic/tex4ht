@@ -1,3 +1,8 @@
+2018-09-02  Michal Hoftich  <michal.h21@gmail.com>
+	* tex4ht-unicode.tex (unicode.4ht): fixed definition of \x:unicode to use 
+	the same pattern for declaration of Unicode characters as the rest of tex4ht
+	sources.
+
 2018-08-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tuenc-luatex.4ht): added vpack_filter

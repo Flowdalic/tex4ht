@@ -898,7 +898,8 @@ inserted.
 because the mathml marking on it get confused.
 
 \<configure unicode tex4ht\><<<
-\def\x:unicode#1{\leavevmode\ht:special{t4ht@+{38}{35}x#1;}x}
+\def\x:unicode#1{\leavevmode\ht:special{t4ht@+\string&{35}x#1{59}}x}
+
 \Configure{htf}{12}{+}
    {<!--span\Hnewline class="htf-calligraphy"-->}{}{}{}{}{}{<!--/span-->}
 >>>
