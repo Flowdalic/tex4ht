@@ -1,7 +1,13 @@
+2018-09-02  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-unicode.tex: copyright.
+
 2018-09-02  Michal Hoftich  <michal.h21@gmail.com>
-	* tex4ht-unicode.tex (unicode.4ht): fixed definition of \x:unicode to use 
-	the same pattern for declaration of Unicode characters as the rest of tex4ht
-	sources.
+
+	* tex4ht-unicode.tex (unicode.4ht): fixed definition of
+	\x:unicode to use the same pattern for declaration of Unicode
+	characters as the rest of tex4ht sources.
+
 	* tex4ht-html4.4ht (html4.4ht): added \ttfamily to the listings-init
 	configuration. It fixes some issues when listings are used inside the
 	\Picture*.
