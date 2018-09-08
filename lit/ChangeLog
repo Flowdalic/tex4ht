@@ -1,3 +1,7 @@
+2018-09-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex-chicago.4ht): fix for correct punctuation.
+
 2018-09-02  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-unicode.tex: copyright.

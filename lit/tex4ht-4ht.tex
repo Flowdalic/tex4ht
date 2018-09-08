@@ -2612,6 +2612,7 @@ X\the\c@refsection --%:
         class="description">}\bgroup \bf}%
    {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}}
 >>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 \SubSection{reading.4ht}
 
@@ -2814,6 +2815,23 @@ of the same in biblatex.sty v 1.6. [CVR 2011/09/10]
 \<config biblatex-???\><<<
 \NewConfigure{blx@unit}{2}
 >>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\SubSection{biblatex-chicago.4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+
+The tex4ht output contains wrong punctuation, it should follow 
+US rules.
+\Link[https://tex.stackexchange.com/q/301287/2891]{}{}Source.\EndLink
+
+\<biblatex-chicago.4ht\><<<
+% biblatex-chicago.4ht (|version), generated from |jobname.tex
+|<TeX4ht copywrite|>
+\blx@defbibextras{english}{\uspunctuation}
+\Hinput{biblatex-chicago}
+\endinput
+>>> \AddFile{6}{biblatex-chicago}
+
 
 %%%%%%%%%%%%%
 \SubSection{debug.bbx}
