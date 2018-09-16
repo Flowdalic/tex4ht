@@ -1,3 +1,8 @@
+2018-09-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (titlesec.4ht): fix for the runin and display formats.
+	https://tex.stackexchange.com/q/451077/2891
+
 2018-09-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex-chicago.4ht): fix for correct punctuation.

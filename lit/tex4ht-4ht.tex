@@ -791,6 +791,7 @@ $\mathfrak{A}a^{\mathfrak{A}}$
    \:seccntformat{#1}\fi}
 >>>
 
+
 \<titlesec 2005\><<<
 \let\ttl:straight@i\ttl@straight@i
 \def\ttl@straight@i#1[#2]#3{%
@@ -813,6 +814,14 @@ $\mathfrak{A}a^{\mathfrak{A}}$
    \o:ttl@select:
 }
 \HLet\ttl@select\:tempc
+>>>
+
+% runin and display formats ruin tex4ht section patching
+% letting them to the \ttl@hang format seems to fix that
+% https://tex.stackexchange.com/q/451077/2891
+\<titlesec 2005\><<<
+\let\ttlh@runin\ttlh@hang
+\let\ttlh@display\ttlh@hang
 >>>
 
 \<skip extra sec and subsec toc\><<<
