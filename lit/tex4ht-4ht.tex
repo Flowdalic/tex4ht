@@ -24832,6 +24832,11 @@ For xml
 \DeclareGraphicsRule{.gif}{bmp}{.xbb}{}
 \DeclareGraphicsRule{.pdf}{bmp}{.xbb}{}
 \DeclareGraphicsRule{.svg}{bmp}{.xbb}{}
+
+\NewConfigure{rotatebox}{2}
+\pend:def\Grot@box{\a:rotatebox}
+\append:def\Grot@box{\b:rotatebox}
+
 >>>
 
 The calc package redefined \`'\setlength' to allow expressions of the

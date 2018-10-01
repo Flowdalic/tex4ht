@@ -1,3 +1,9 @@
+2018-10-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (graphicx.4ht): defined configurations for \rotatebox
+	* tex4ht-html4.tex (html4.4ht): configured \rotatebox
+	https://tex.stackexchange.com/a/453376/2891
+
 2018-09-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (titlesec.4ht): fix for the runin and display formats.
