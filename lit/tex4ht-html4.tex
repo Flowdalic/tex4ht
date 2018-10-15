@@ -13622,6 +13622,15 @@ for margin pars.
    {svg}
    {{\Configure{Needs}{File: \Gin@base.svg}\Needs{}}%
    \Picture[\a:GraphicsAlt]{{\Gin@base.svg} |<graphics dim|>}}
+\Configure{graphics*}
+   {eps}
+   {\openin15=\csname Gin@base\endcsname\PictExt\relax%
+   \ifeof15% 
+   \Needs{"convert \csname Gin@base\endcsname.eps \csname Gin@base\endcsname\PictExt"}% 
+   \fi%
+   \closein15%
+   {\Configure{Needs}{File: \Gin@base\PictExt}\Needs{}}%
+   \Picture[\a:GraphicsAlt]{{\Gin@base\PictExt} |<graphics dim|>}}
 
 
 \NewConfigure{PdfConvert}{2}

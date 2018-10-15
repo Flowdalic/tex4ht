@@ -2,6 +2,8 @@
 
 	* tex4ht-html4.tex (html4.4ht): test for presence of image converted from
 	pdf file.
+	added support for conversion of eps files to the current picture format.
+
 
 2018-10-01  Michal Hoftich  <michal.h21@gmail.com>
 
