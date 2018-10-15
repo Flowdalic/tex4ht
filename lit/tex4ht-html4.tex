@@ -13634,8 +13634,13 @@ for margin pars.
 \Configure{graphics*}
    {pdf}
    {\ifdefined\Gin@page\else\def\Gin@page{1}\fi%
-   \Needs{\b:PdfConvert}%
      \edef\svg:filename{\Gin@base-\Gin@page.\a:PdfConvert}%
+     % test for existence of the converted file
+     \openin15=\svg:filename\relax
+      \ifeof15 
+      \Needs{\b:PdfConvert}%
+      \fi 
+      \closein15 
      { \Configure{Needs}{File: \svg:filename}\Needs{}}%
    \Picture[\a:GraphicsAlt]{{\svg:filename} |<graphics dim|>}}
 
