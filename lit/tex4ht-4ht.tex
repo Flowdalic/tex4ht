@@ -13350,6 +13350,7 @@ The issue of font decoration in math is currently problematic.
 \fi
 >>>
 
+
 \<not latex209 base fonts\><<<
 \def\:tempa#1#2#3#4{\tmp:toks{#1{#2}}%
    \long\expandafter\edef\csname #4 \endcsname{\the\tmp:toks
@@ -13367,13 +13368,21 @@ The issue of font decoration in math is currently problematic.
 \:temp{it}
 >>>
 
-\<book / report / article\><<<
-|<base fonts|>
->>>
+I don't really understand what the above code does. Is it really necessary anymore?
+The short font commands are deprecated for quite some time, KOMA classes removed them
+and this definition causes issues with it.
 
-\<ams art + book + proc\><<<
-|<base fonts|>       
->>>
+Michal, October 2018
+
+Just disable the old font commands patching for now.
+
+% \<book / report / article\><<<
+% |<base fonts|>
+% >>>
+% 
+% \<ams art + book + proc\><<<
+% |<base fonts|>       
+% >>>
 
 The else part is for compabibility when the \`'fonts' option is 
 inactive.
@@ -15284,26 +15293,28 @@ UnDFexyz>>>
 \NewConfigure{quotation}{1}
 \NewConfigure{listof}{6}
      
-\ifx \@openbib@code\:UnDef \else
- \pend:def\@openbib@code{\labelsep\z@}
-\fi
-\def\:temp#1#2!*?: {\def\:temp{#1}}
-\expandafter\:temp\usepackage!*?: 
-\def\:tempa{\@latex@e@error}
-\ifx \:temp\:tempa \else
-   \def\:tempa#1#2#3#4{\tmp:toks{#1{#2}}%
-   \long\expandafter\edef\csname #4 \endcsname{\the\tmp:toks
-        {\expandafter\noexpand
-   \csname o:\expandafter\:gobble\string #3:\endcsname}}}
-\def\:temp#1{%
-  \expandafter\expandafter\expandafter\:tempa\csname #1 \endcsname{#1}}
-\:temp{rm}
-\:temp{sf}
-\:temp{tt}
-\:temp{bf}
-\:temp{it}
 
-\fi
+% We removed this code from base class declarations, so we can disable it here as well
+% \ifx \@openbib@code\:UnDef \else
+%  \pend:def\@openbib@code{\labelsep\z@}
+% \fi
+% \def\:temp#1#2!*?: {\def\:temp{#1}}
+% \expandafter\:temp\usepackage!*?: 
+% \def\:tempa{\@latex@e@error}
+% \ifx \:temp\:tempa \else
+%    \def\:tempa#1#2#3#4{\tmp:toks{#1{#2}}%
+%    \long\expandafter\edef\csname #4 \endcsname{\the\tmp:toks
+%         {\expandafter\noexpand
+%    \csname o:\expandafter\:gobble\string #3:\endcsname}}}
+% \def\:temp#1{%
+%   \expandafter\expandafter\expandafter\:tempa\csname #1 \endcsname{#1}}
+% \:temp{rm}
+% \:temp{sf}
+% \:temp{tt}
+% \:temp{bf}
+% \:temp{it}
+
+% \fi
 
   \let\:tempc\listoffigures
 \pend:def\:tempc{\begingroup \a:listoffigures
@@ -16590,26 +16601,27 @@ UnDFexyz}%
 }
 >>>
 
-\<scr old fonts\><<<
-\def\:temp#1#2!*?: {\def\:temp{#1}}
-\expandafter\:temp\usepackage!*?: 
-\def\:tempa{\@latex@e@error}
-\ifx \:temp\:tempa \else
-   \def\popthree#1#2#3#4{#4}
-   \def\:tempa#1#2#3#4{\tmp:toks{#1{#2}}%
-   \long\expandafter\edef\csname #4 \endcsname{\the\tmp:toks
-        {\expandafter\noexpand
-  \csname o:\expandafter\expandafter\:gobble\expandafter\string \popthree#3:\endcsname}}}
-\def\:temp#1{%
-  \expandafter\expandafter\expandafter\:tempa\csname #1 \endcsname{#1}}
-\:temp{rm}
-\:temp{sf}
-\:temp{tt}
-\:temp{bf}
-\:temp{it}
+% we disabled this in the base classes, so it isn't necessary anymore
+% \<scr old fonts\><<<
+% \def\:temp#1#2!*?: {\def\:temp{#1}}
+% \expandafter\:temp\usepackage!*?: 
+% \def\:tempa{\@latex@e@error}
+% \ifx \:temp\:tempa \else
+%    \def\popthree#1#2#3#4{#4}
+%    \def\:tempa#1#2#3#4{\tmp:toks{#1{#2}}%
+%    \long\expandafter\edef\csname #4 \endcsname{\the\tmp:toks
+%         {\expandafter\noexpand
+%   \csname o:\expandafter\expandafter\:gobble\expandafter\string \popthree#3:\endcsname}}}
+% \def\:temp#1{%
+%   \expandafter\expandafter\expandafter\:tempa\csname #1 \endcsname{#1}}
+% \:temp{rm}
+% \:temp{sf}
+% \:temp{tt}
+% \:temp{bf}
+% \:temp{it}
 
-\fi
->>>
+% \fi
+% >>>
 
 \<addchap confic\><<<
 \ifx \@@maybeautodot\:UnDef

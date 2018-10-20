@@ -1,3 +1,11 @@
+2018-10-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (book.4ht, report.4ht, article.4ht, amsart.4ht,
+	amsbook.4ht, amsproc.4ht, scrartcl.4ht, scrreprt.4ht, mwbk.4ht, mwart.4ht,
+	mwrep.4ht): disabled patching of the old commands, it seemd like really old
+	weird hack that is not useful anymore.
+	https://tex.stackexchange.com/q/455994/2891
+
 2018-10-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): test for presence of image converted from
