@@ -8456,7 +8456,7 @@ referring to names.
 
 \<footnote text\><<<
 \Configure{footnotetext}
-   {\Tag{|<footnote id|>-tx}{}%
+   {\special{t4ht@)}\Tag{|<footnote id|>-tx}{}%
     |<check duplicate footnote text|>%
     \SaveEndP \NoFonts  \let\@textsuperscript\hbox
     \HCode{<\text:footnote\Hnewline\text:note:class
@@ -8523,7 +8523,8 @@ referring to names.
 \Configure{footnotemark}
    {\Tag{|<footnote id|>}{}%
     |<footnote mark without text|>}
-   {|<end footnote mark without text|>}
+   {|<end footnote mark without text|>%
+   \special{t4ht@(}}
 >>>
 
 \<check duplicate footnote text\><<<

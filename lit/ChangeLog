@@ -1,3 +1,8 @@
+2018-10-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): removed space before footnote mark.
+	https://puszcza.gnu.org.ua/bugs/?172
+
 2018-10-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (book.4ht, report.4ht, article.4ht, amsart.4ht,
