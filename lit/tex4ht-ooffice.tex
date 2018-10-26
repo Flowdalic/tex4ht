@@ -4768,7 +4768,7 @@ Why we need the following in content.xml instead of styles.xml
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \<configure ooffice tex4ht\><<<
-\:CheckOption{info}\if:Option 
+\:CheckOption{TocLink}\if:Option 
    \Configure{TocLink}{\Link{#2}{#3}#4\ifvmode\IgnorePar\fi\EndLink} 
 \else
     \Log:Note{to request links from the tables of contents,
