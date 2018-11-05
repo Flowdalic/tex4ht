@@ -1,3 +1,7 @@
+2018-11-05  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (lettrine.4ht): copyright 2018.
+
 2018-11-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (lettrine.4ht): use the same keyval namespace as
@@ -16,17 +20,17 @@
 2018-10-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (book.4ht, report.4ht, article.4ht, amsart.4ht,
-	amsbook.4ht, amsproc.4ht, scrartcl.4ht, scrreprt.4ht, mwbk.4ht, mwart.4ht,
-	mwrep.4ht): disabled patching of the old commands, it seemd like really old
-	weird hack that is not useful anymore.
+	amsbook.4ht, amsproc.4ht, scrartcl.4ht, scrreprt.4ht, mwbk.4ht,
+	mwart.4ht, mwrep.4ht): disabled patching of the old commands, it
+	seemd like really old weird hack that is not useful anymore.
 	https://tex.stackexchange.com/q/455994/2891
 
 2018-10-15  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): test for presence of image converted from
-	pdf file.
-	added support for conversion of eps files to the current picture format.
-
+	* tex4ht-html4.tex (html4.4ht): test for presence of image
+	converted from pdf file.
+	added support for conversion of eps files to the current picture
+	format.
 
 2018-10-01  Michal Hoftich  <michal.h21@gmail.com>
 
