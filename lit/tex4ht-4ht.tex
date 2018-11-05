@@ -30258,17 +30258,17 @@ of  \''<a>' elements.
 
 \<config lettrine\><<<
 \NewConfigure{lettrine}{7}
-\define@key{LH}{ante}{\def\LH:ante{#1}}%
-\define@key{LH}{findent}{\def\LH:findent{#1}}%
-\define@key{LH}{lhang}{\def\LH:lhang{#1}}%
-\define@key{LH}{lines}{\def\LH:lines{#1}}%
+\define@key{L}{ante}{\def\LH:ante{#1}}%
+\define@key{L}{findent}{\def\LH:findent{#1}}%
+\define@key{L}{lhang}{\def\LH:lhang{#1}}%
+\define@key{L}{lines}{\def\LH:lines{#1}}%
 \def\reset:LH:keys{\let\LH:ante\@empty
     \def\LH:lines{2}%
     \def\LH:lhang{0}%
     \def\LH:findent{0pt}}
 \reset:LH:keys
 %
-\def\@lettrine[#1]#2#3{\setkeys{LH}{#1}%
+\def\@lettrine[#1]#2#3{\setkeys{L}{#1}%
      \def\HlettrineChar{#2}%
      \def\HlettrineString{#3}%
      \a:lettrine
