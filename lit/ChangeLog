@@ -1,3 +1,7 @@
+2018-11-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (plain.4ht, fontmath.4ht): added definition of \ldots 
+
 2018-11-05  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (lettrine.4ht): copyright 2018.
