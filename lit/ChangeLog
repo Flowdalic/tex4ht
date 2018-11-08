@@ -1,3 +1,8 @@
+2018-11-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht.4ht (czech.4ht): use \quotedblbase instead of custom code for
+	opening quote.
+
 2018-11-06  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (plain.4ht, fontmath.4ht): "copywrite"
