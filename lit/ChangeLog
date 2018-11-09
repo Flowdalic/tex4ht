@@ -1,3 +1,9 @@
+2018-11-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-4hf.tex
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/charset/unicode.4hf): removed lot
+	of unnecessary mappings from Unicode math to ASCII.
+
 2018-11-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht.4ht (czech.4ht): use \quotedblbase instead of custom code for
