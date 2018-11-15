@@ -1,3 +1,8 @@
+2018-11-15  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (magyar.4ht): added support for \az command in Magyar
+	Babel.
+
 2018-11-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-4hf.tex

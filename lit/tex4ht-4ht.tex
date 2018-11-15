@@ -37073,6 +37073,24 @@ grrek.sty sends \`'\catcode`^^9f\active' into the aux file.
 Hence the change of \`'^' into catcode 7. The aux file is
 loaded within group, so the above changes are local.
 
+
+\<magyar.4ht\><<<
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+% magyar.4ht (|version), generated from |jobname.tex
+% Copyright 2018 TeX Users Group
+% Copyright (C) |CopyYear.2018.       Eitan M. Gurari         %
+|<TeX4ht copyright|>
+|<magyar fixes|>
+\Hinput{magyar}
+\endinput
+>>>        \AddFile{5}{magyar}
+
+
+\<magyar fixes\><<<
+\def\magyar:third:arg#1#2#3{#3}
+\def\@@magyar@firsthfuzz#1#2\hfuzz{\bgroup\magyar:third:arg#1\egroup}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%
 \Section{Exams}
 %%%%%%%%%%%%%%%%%%%%%%%
