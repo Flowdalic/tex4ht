@@ -1,12 +1,17 @@
+2018-11-24  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (amsmath.4ht): <TeX4ht copywrite>.
+
 2018-11-24  Michal Hoftich  <michal.h21@gmail.com>
 
-	*  tex4ht-4ht.tex (amsmath.4ht): fixed redefintion of \xrightarrow and
-	\xleftarrow.
+	*  tex4ht-4ht.tex (amsmath.4ht): fixed redefinition of
+	\xrightarrow and \xleftarrow.
 	https://tex.stackexchange.com/q/461445/2891
 
 2018-11-17  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (magyar.4ht): fixed support for \aref and \Aref commands.
+	* tex4ht-4ht.tex (magyar.4ht): fixed support for \aref and \Aref
+	commands.
 
 2018-11-15  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -16,13 +21,13 @@
 2018-11-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-4hf.tex
-	(tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/charset/unicode.4hf): removed lot
-	of unnecessary mappings from Unicode math to ASCII.
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/mozilla/charset/unicode.4hf):
+	removed many unnecessary mappings from Unicode math to ASCII.
 
 2018-11-08  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht.4ht (czech.4ht): use \quotedblbase instead of custom code for
-	opening quote.
+	* tex4ht-4ht.tex (czech.4ht): use \quotedblbase instead of
+	custom code for opening quote.
 
 2018-11-06  Karl Berry  <karl@freefriends.org>
 
