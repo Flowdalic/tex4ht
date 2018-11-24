@@ -1,3 +1,9 @@
+2018-11-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	*  tex4ht-4ht.tex (amsmath.4ht): fixed redefintion of \xrightarrow and
+	\xleftarrow.
+	https://tex.stackexchange.com/q/461445/2891
+
 2018-11-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (magyar.4ht): fixed support for \aref and \Aref commands.

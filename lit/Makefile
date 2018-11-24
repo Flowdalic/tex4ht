@@ -42,7 +42,7 @@ derived += $(tex4ht_cond4ht_derived)
 tex4ht_cond4ht_derived = cond4ht.4ht mktex4ht.4ht
 derived += $(tex4ht_4ht_derived)
 tex4ht_4ht_derived = \
-  algorithmic.4ht animate.4ht authblk.4ht \
+  algorithmic.4ht amsmath.4ht animate.4ht authblk.4ht \
   biblatex.4ht biblatex-chicago.4ht book.4ht \
   caption.4ht cleveref.4ht color.4ht colortbl.4ht \
   fontspec.4ht fontspec-4ht.lua fontspec-luatex.4ht fontspec-xetex.4ht \
