@@ -17212,12 +17212,12 @@ sent to the lg file (where else it can be sent?).
 \<external scripts and styles\><<<
 
 \NewConfigure{AddCss}[1]{%
-  \Configure{Needs}{File: #1}\Needs{}
+  {\Configure{Needs}{File: #1}\Needs{}}
   \Configure{@HEAD}{\HCode{<link rel="stylesheet" type="text/css" href="#1" />\Hnewline}}
 }
 
 \NewConfigure{AddJs}[1]{%
-  \Configure{Needs}{File: #1}\Needs{}
+  {\Configure{Needs}{File: #1}\Needs{}}
   \Configure{@HEAD}{\HCode{\Hnewline<script type="text/javascript" src="#1"></script>\Hnewline}}
 }
 >>>
@@ -17263,7 +17263,7 @@ supported by browsers, such as \textit{woff} or \textit{otf}.
         url('#3');
     #4
  }}
- \Configure{Needs}{File: #3}\Needs{}
+ {\Configure{Needs}{File: #3}\Needs{}}
 }
 
 
