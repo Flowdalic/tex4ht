@@ -13633,12 +13633,14 @@ for margin pars.
    \Picture[\a:GraphicsAlt]{{\Gin@base\PictExt} |<graphics dim|>}}
 
 
+\NewConfigure{GhostScript}{1}
 \NewConfigure{PdfConvert}{2}
+\Configure{GhostScript}{rungs}
 \edef\svg:ext{.svg}
 \ifx\PictExt\svg:ext
 \Configure{PdfConvert}{svg}{"pdf2svg '\Gin@base.pdf' '\Gin@base-\Gin@page.\a:PdfConvert' \Gin@page"}
 \else
-\Configure{PdfConvert}{png}{"rungs -q -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r300 \ifx\Gin@page\@empty\else -dFirstPage='\Gin@page'  -dLastPage='\Gin@page'\fi\space -sOutputFile='\Gin@base-\Gin@page.\a:PdfConvert' \Gin@base.pdf"}
+\Configure{PdfConvert}{png}{"\a:GhostScript\space -q -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r300 \ifx\Gin@page\@empty\else -dFirstPage='\Gin@page'  -dLastPage='\Gin@page'\fi\space -sOutputFile='\Gin@base-\Gin@page.\a:PdfConvert' \Gin@base.pdf"}
 \fi
 \Configure{graphics*}
    {pdf}
