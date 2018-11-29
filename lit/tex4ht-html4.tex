@@ -17207,6 +17207,7 @@ sent to the lg file (where else it can be sent?).
    \expandafter\:temp\expandafter{\aa:Css}\Needs{#1}}}
 >>>
 
+\section{External scripts and styles}
 
 \<external scripts and styles\><<<
 
@@ -17221,7 +17222,62 @@ sent to the lg file (where else it can be sent?).
 }
 >>>
 
+\section{Web fonts support}
 
+These commands declare new font family in the CSS file
+
+
+The default font family name which should be used in the Css
+\textit{font-family} command for a declared font is \textit{rmfamily}. 
+It use the Latin Modern font installed on the viewer's system. 
+The Css font family and the local font name can be changed using
+\verb|\Configure{FontFamily}{cssfamilyname}{LocalFontName}| command.
+
+\begin{verbatim}
+\Configure{FontFamily}{rmfamily}{Latin Modern}
+\end{verbatim}
+
+The font shapes can be configure using \verb|\Configure{NormalFont}|, 
+\verb|\Configure{ItalicFont}|, \verb|\Configure{BoldItalicFont}| and
+\verb|Configure{BoldFont}|. The argument should be font file in the format
+supported by browsers, such as \textit{woff} or \textit{otf}.
+
+\begin{verbatim}
+\Configure{NormalFont}{normal-font-file.otf}
+\Configure{BoldFont}{bold-font-file.otf}
+\Configure{BoldItalicFont}{bold-italic-font-file.otf}
+\Configure{ItalicFont}{italic-font-file.otf}
+% Add another font family
+\Configure{FontFamily}{hello}{Linux Libertine O}
+\Configure{NormalFont}{hello-font-file.otf}
+\Css{body{font-family: rmfamily, "AnotherFontFamilyName", serif;}}
+\Css{span.hello{font-family: hello, sans-serif;}}
+\end{verbatim}
+
+\<external web fonts\><<<
+
+\newcommand\AddFontFace[4]{%
+\Css{@font-face {
+    font-family: #1;
+    src: local("#2"),
+        url('#3');
+    #4
+ }}
+ \Configure{Needs}{File: #3}\Needs{}
+}
+
+
+% If more font families are used, they need to have different names
+\NewConfigure{FontFamily}{2}
+
+\Configure{FontFamily}{rmfamily}{Latin Modern}
+
+% Declarations for common font styles, just local family name and font file name are needed to be provided
+\NewConfigure{NormalFont}[1]{\AddFontFace{\a:FontFamily}{\b:FontFamily}{#1}{font-weight: normal;font-style: normal;}}
+\NewConfigure{BoldFont}[1]{\AddFontFace{\a:FontFamily}{\b:FontFamily}{#1}{font-weight: bold;font-style: normal;}}
+\NewConfigure{ItalicFont}[1]{\AddFontFace{\a:FontFamily}{\b:FontFamily}{#1}{font-weight: normal;font-style: italic;}}
+\NewConfigure{BoldItalicFont}[1]{\AddFontFace{\a:FontFamily}{\b:FontFamily}{#1}{font-weight: bold;font-style: italic;}}
+>>>
 
 
 %%%%%%%%%%%%%%%%
@@ -20536,6 +20592,7 @@ send it.  It now sems to be more trouble than help.
      |<delay postscript|>}
 
 |<external scripts and styles|>
+|<external web fonts|>
 >>>
 
 

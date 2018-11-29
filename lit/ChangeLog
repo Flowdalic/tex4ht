@@ -2,6 +2,7 @@
 
 	* tex4ht-html4.tex (html4.4ht): Added \Configure{AddJs} and
 	\Configure{AddCss} for external script and style sheet inclusion.
+	* tex4ht-html4.tex (html4.4ht): Added support for web fonts.
 
 2018-11-24  Karl Berry  <karl@freefriends.org>
 
