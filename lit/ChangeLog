@@ -1,3 +1,8 @@
+2018-11-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): Added \Configure{AddJs} and
+	\Configure{AddCss} for external script and style sheet inclusion.
+
 2018-11-24  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (amsmath.4ht): <TeX4ht copywrite>.

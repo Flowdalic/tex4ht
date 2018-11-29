@@ -17208,6 +17208,19 @@ sent to the lg file (where else it can be sent?).
 >>>
 
 
+\<external scripts and styles\><<<
+
+\NewConfigure{AddCss}[1]{%
+  \Configure{Needs}{File: #1}\Needs{}
+  \Configure{@HEAD}{\HCode{<link rel="stylesheet" type="text/css" href="#1" />\Hnewline}}
+}
+
+\NewConfigure{AddJs}[1]{%
+  \Configure{Needs}{File: #1}\Needs{}
+  \Configure{@HEAD}{\HCode{\Hnewline<script type="text/javascript" src="#1"></script>\Hnewline}}
+}
+>>>
+
 
 
 
@@ -20521,6 +20534,8 @@ send it.  It now sems to be more trouble than help.
      \csname EndPauseMathClass\endcsname \EndNoFonts
      |<tex4ht halign and cr/crcr|>%
      |<delay postscript|>}
+
+|<external scripts and styles|>
 >>>
 
 
