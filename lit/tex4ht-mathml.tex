@@ -1805,6 +1805,14 @@ suit (maybe because of the use of latex fonts in mozilla). However,
 unicode maps already seem to assume raised representation for the
 primes.
 
+
+\<configure html-mml latex\><<<
+\:CheckOption{mathjax}\if:Option
+\Configure{MathjaxSource}{https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=MML_HTMLorMML}
+\Configure{@HEAD}{\HCode{ <script type="text/javascript" src="\a:MathjaxSource"></script> \Hnewline}}
+\fi
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{plain.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%

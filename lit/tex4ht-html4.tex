@@ -8552,7 +8552,8 @@ MathJax.Hub.Config({
 });                  
 </script>\Hnewline
 }}
-\Configure{@HEAD}{\HCode{ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script> \Hnewline}}
+\Configure{MathjaxSource}{https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML}
+\Configure{@HEAD}{\HCode{ <script type="text/javascript" src="\a:MathjaxSource"></script> \Hnewline}}
 \Configure{$}{}{}{\expandafter\AltMathOne} 
 \Configure{()}{\AltlMath}{}
 \Configure{[]}{\AltlDisplay}{}
