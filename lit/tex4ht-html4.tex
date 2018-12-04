@@ -17286,7 +17286,8 @@ supported by browsers, such as \textit{woff} or \textit{otf}.
 
 \<external web fonts\><<<
 
-\newcommand\AddFontFace[4]{%
+% \newcommand\AddFontFace[4]{%
+\def\AddFontFace#1#2#3#4{%
 \Css{@font-face {
     font-family: #1;
     src: local("#2"),

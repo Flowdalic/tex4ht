@@ -3,6 +3,8 @@
 	* tex4ht-html4.tex (html4-math.4ht): added "mathjax" option.
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): new literate source holding
 	definitions for keeping of LaTeX commands in math commands and environments.
+	* tex4ht-html4.tex (html4.4ht): use \def instead of \newcommand for
+	\AddFontFace, it causes compilation error.
 
 2018-11-29  Michal Hoftich  <michal.h21@gmail.com>
 
