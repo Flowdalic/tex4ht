@@ -242,7 +242,12 @@ tex4ht_xhtml_xtpipes_derived = xhtml.4xt XhtmlEmails.java
 derived += $(tex4ht_xhtmml_xtpipes_derived)
 tex4ht_xhtmml_xtpipes_derived = xhtmml.4xt XhtmmlUtilities.java
 
+derived += $(tex4ht_mathjax_derived)
+tex4ht_mathjax_derived = mathjax-latex-4ht.4ht
+
 # wripro.tex generates nothing (not literate).
+#
+
 
 derived += $(xtpipes_derived)
 xtpipes_derived = \
@@ -410,6 +415,9 @@ $(tex4ht_xhtmml_xtpipes_derived): tex4ht-xhtmml-xtpipes.tex $(common)
 
 $(xtpipes_derived): xtpipes.tex $(common)
 	htlatex $< "xhtml,3,next" "" "" $(tex_1opt)
+
+$(tex4ht_mathjax_derived): tex4ht-mathjax.tex
+	htlatex $<  "xhtml,3,next" "" "" $(tex_1opt)
 # Derived files are generated in . and $(wd).
 # (corresponds to src/java for xtpipes.tex)
 

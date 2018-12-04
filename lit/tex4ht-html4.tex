@@ -8414,6 +8414,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 |<picmath latex|>
 |<32,4 picmath latex|>
 |<shared plain/latex pmatrix 4.0t|>
+|<mathjax|>
 >>>
 
 
@@ -8529,7 +8530,34 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \Configure{underbrace} {}{\Picture+{}}{\EndPicture}
 >>>
 
-
+\<mathjax\><<<
+\:CheckOption{mathjax}\if:Option
+\input{mathjax-latex-4ht.4ht}
+\Configure{@HEAD}{\HCode{
+<script type="text/x-mathjax-config">                                           
+MathJax.Hub.Config({
+    'fast-preview': {disabled: true}, 
+    TeX: {           
+      extensions: ["color.js","AMSmath.js"], 
+      equationNumbers: { autoNumber: "AMS" }
+    },        
+    extensions: ["tex2jax.js"], 
+    tex2jax: {       
+      \unexpanded{
+        inlineMath: [ ["\\\(","\\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],}
+      processEscapes: true,
+      processEnvironments: true
+    }                   
+});                  
+</script>\Hnewline
+}}
+\Configure{@HEAD}{\HCode{ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script> \Hnewline}}
+\Configure{$}{}{}{\expandafter\AltMathOne} 
+\Configure{()}{\AltlMath}{}
+\Configure{[]}{\AltlDisplay}{}
+\fi
+>>>
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
