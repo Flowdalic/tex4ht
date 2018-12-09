@@ -1,3 +1,8 @@
+2018-12-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): configure environments and
+	other redefinitions inside \AtBeginDocument.
+
 2018-12-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht): added "mathjax" option.
@@ -8,6 +13,7 @@
 	for MathML output.
 	* tex4ht-html4.tex (html4.4ht): use \def instead of \newcommand for
 	\AddFontFace, it causes compilation error.
+	* tex4ht-4ht.tex (latex.4ht): added \NewConfigure{MathjaxSource}.
 
 2018-11-29  Michal Hoftich  <michal.h21@gmail.com>
 
