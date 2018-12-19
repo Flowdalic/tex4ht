@@ -293,7 +293,14 @@ Allows cleanup using xtpipes.
 \Configure{tei}{%
    \Hinclude[*]{tei.4ht}%
    \Hinclude[*]{unicode.4ht}%
-   \Hinclude[*]{tei-math.4ht}%
+   \:CheckOption{mathml}\if:Option%
+   \else\:CheckOption{mathml-}\fi%
+   \if:Option%
+      \Hinclude[*]{mathml.4ht}%
+      \Hinclude[*]{tei-mml.4ht}%
+   \else
+      \Hinclude[*]{tei-math.4ht}%
+   \fi
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
@@ -324,7 +331,14 @@ Allows cleanup using xtpipes.
 \Configure{docbook}{%
    \Hinclude[*]{docbook.4ht}%
    \Hinclude[*]{unicode.4ht}%
-   \Hinclude[*]{docbook-math.4ht}%
+   \:CheckOption{mathml}\if:Option%
+   \else\:CheckOption{mathml-}\fi%
+   \if:Option%
+      \Hinclude[*]{mathml.4ht}%
+      \Hinclude[*]{docbook-mml.4ht}%
+   \else
+      \Hinclude[*]{docbook-math.4ht}%
+   \fi
    \:CheckOption{svg}%
              \if:Option \else\:CheckOption{svg-}\fi
              \if:Option \else\:CheckOption{svg-obj}\fi
