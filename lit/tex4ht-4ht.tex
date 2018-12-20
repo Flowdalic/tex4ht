@@ -24806,6 +24806,20 @@ For xml
 
 \EndVerbatim
 
+Fix for XeTeX graphics - PDF inclusion doesn't work with default driver, 
+dvips needs to be used instead
+
+\<use package\><<<
+graphics,>>>
+
+\<add to usepackage\><<<
+\def\:temp{graphics}\ifx\@currname\:temp
+  \ifdefined\XeTeXversion
+    \PassOptionsToPackage{dvips}{graphics}
+  \fi
+\fi
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%
 \SubSection{graphicx}
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -25322,6 +25336,19 @@ second parameter.
    \edef#2{\#\tsf:color}%
 }
 
+>>>
+
+We need to use dvips driver with XeLaTeX
+
+\<use package\><<<
+xcolor,>>>
+
+\<add to usepackage\><<<
+\def\:temp{xcolor}\ifx\@currname\:temp
+  \ifdefined\XeTeXversion
+    \PassOptionsToPackage{dvips}{xcolor}
+  \fi
+\fi
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%
