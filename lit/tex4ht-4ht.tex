@@ -24868,8 +24868,31 @@ form `\Verb!width=.625\textwidth+5mm!'.  The macros \`'Gin@ewidth' and
 use  instructions like \`'\setlength\tmp:dim\Gin@ewidth'  instead of 
 \`'\tmp:dim=\Gin@ewidth'.
 
+
 %%%%%%%%%%%%%%%%%%%%%%%
-\SubSection{endfloat}
+\Section{svg}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\<svg.4ht\><<<
+% svg.4ht (|version), generated from |jobname.tex
+% Copyright 2018 TeX Users Group
+|<TeX4ht license text|>
+|<svg config|>
+\Hinput{svg}
+\endinput
+>>>  \AddFile{9}{svg}
+
+\<svg config\><<<
+\renewcommand\includesvg[2][]{%
+% detect if an extension has been used
+\filename@parse{#2}
+\@ifundefined{filename@ext}{\edef\svg:filename{#2.svg}}{\edef\svg:filename{#2}}
+\includegraphics{\svg:filename}
+}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\Section{endfloat}
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \<endfloat.4ht\><<<
