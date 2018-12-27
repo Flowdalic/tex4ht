@@ -223,7 +223,7 @@ derived += $(tex4ht_sty_derived)
 tex4ht_sty_derived = tex4ht.sty
 
 derived += $(tex4ht_svg_derived)
-tex4ht_svg_derived = svg.4ht html4-svg.4ht
+tex4ht_svg_derived = svg-option.4ht html4-svg.4ht
 
 derived += $(tex4ht_t4ht_derived)
 tex4ht_t4ht_derived = t4ht.c
