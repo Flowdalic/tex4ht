@@ -49,13 +49,14 @@ tex4ht_4ht_derived = \
     framed.4ht frenchb.4ht \
   geometry.4ht graphics.4ht graphicx.4ht \
   hyperref.4ht \
+	jurabibib.4ht \
   latex.4ht lettrine.4ht listings.4ht \
   magyar.4ht mdframed.4ht memoir.4ht multicol.4ht multirow.4ht \
   nameref.4ht \
   pstricks.4ht \
   quoting.4ht \
   reading.4ht \
-  scrartcl.4ht scrbook.4ht scrreprt.4ht sectionbreak.4ht \
+  scrartcl.4ht scrbook.4ht scrreprt.4ht scrjura.4ht sectionbreak.4ht \
 	skak.4ht spanish.4ht subscript.4ht svg.4ht \
   tabu.4ht titlesec.4ht tocloft.4ht tuenc-luatex.4ht tuenc-xetex.4ht \
   usepackage.4ht usepackage-fontspec.4ht \

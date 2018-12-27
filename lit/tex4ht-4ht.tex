@@ -21706,6 +21706,78 @@ the `@' is not allowed in XML ids.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{scrjura}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<scrjura.4ht\><<< 
+% sample.4ht (|version), generated from |jobname.tex 
+% Copyright 2018 TeX Users Group 
+|<TeX4ht license text|> 
+|<scrjura configure|>
+\Hinput{scrjura} 
+\endinput 
+>>> \AddFile{9}{scrjura}
+
+Why is needed the \Verbatim\:qtchr\EndVerbatim instead of quotes? I don't know :(
+But quotes don't work
+
+\<scrjura configure\><<<
+\def\:qtchr{\expandafter\@gobble\string\"}
+
+\pend:def\contract@paragraph@font{\a:contract@paragraph@font} 
+\append:def\contract@paragraph@font{\b:contract@paragraph@font\gdef\end:prevpara{}} 
+
+\NewConfigure{contract@paragraph@font}{2}
+
+% \end:prevpara is needed to correctly handle paragraphs
+\def\end:prevpara{}
+\pend:def\parformat{\end:prevpara\a:parformat} 
+\append:def\parformat{\b:parformat\global\let\end:prevpara\c:parformat} 
+
+\NewConfigure{parformat}{3}
+
+
+% this is a modified version of original macro from scrjura.sty
+\renewcommand*{\ref@Par}[2]{%
+  \expandafter\ifx\csname r@#2\endcsname\relax
+    \ref#1{#2}%
+  \else
+    \begingroup
+      % this definitions are needed to get correct content from the \csname r@#2\endcsname
+      \def\rEfLiNK##1##2{##2}
+      \expandafter\expandafter\expandafter\expandafter
+      \expandafter\expandafter\expandafter\def
+      \expandafter\expandafter\expandafter\expandafter
+      \expandafter\expandafter\expandafter\@tempb
+      \expandafter\expandafter\expandafter\expandafter
+      \expandafter\expandafter\expandafter{%
+        \expandafter\expandafter\expandafter\@gobble\csname r@#2\endcsname}%
+      \def\@tempc##1##2\@nil{##1}%
+      \let\scrjura@separator\@gobble
+      \protected@edef\@tempa{\expandafter\expandafter\expandafter\@tempc
+        \csname r@#2\endcsname\noexpand\@nil}%
+      \def\@tempc##1##2##3\@nil{##2}%
+      \protected@edef\@tempa{\expandafter\expandafter\expandafter\@tempc
+        \@tempa{%
+          \protect\G@refundefinedtrue
+          \nfss@text{\reset@font\bfseries ??}%
+          \@latex@warning{Reference `#2' on page \thepage \space
+            with undefined par number}%
+        }\noexpand\@nil}%
+      \let\@@protect\protect
+      \let\protect\noexpand
+      \expandafter\edef\csname r@#2\endcsname{{\@tempa}\@tempb}%
+      \let\protect\@@protect
+      \ref#1{#2}%
+    \endgroup
+  \fi
+}
+ \Css{.sentence{margin-left:2em; padding-top: .5em;}}
+ \Css{.paragraph{margin: 1em;}}
+ \Css{.para{margin: .5em;}}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{natbib.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

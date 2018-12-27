@@ -15545,6 +15545,25 @@ IE doesn't distinguish between upper and lower case characters in css
        border-bottom: 1px solid black; margin-bottom:1pt; }}
 >>>
 
+%%%%%%%%%%%%%%%%%%
+\section{scrjura}
+%%%%%%%%%%%%%%%%%%
+
+\<configure html4 scrjura\><<<
+\ConfigureEnv{contract}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<div class=\:qtchr contract\:qtchr>}}
+{\ifvmode\IgnorePar\fi\end:prevpara\HCode{</div>}}
+{}{}
+
+\Configure{contract@paragraph@font}
+  {\ifvmode\IgnorePar\fi\end:prevpara\HCode{<div class=\:qtchr paragraph\:qtchr>}}
+  {\Tg</div>}
+
+\Configure{parformat}
+{\EndP\HCode{<p class=\:qtchr para\:qtchr>\Hnewline
+<span class=\:qtchr sentence\:qtchr>}}
+    {\Tg</span>}{\Tg</p>}
+>>>
 
 %%%%%%%%%%%%%%%%%%%
 \section{Bibliography}

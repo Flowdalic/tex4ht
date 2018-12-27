@@ -5,6 +5,8 @@
 	* tex4ht-options.tex (tex4ht.4ht): use svg-option.4ht instead of svg.4ht.
 	* tex4ht-4ht.tex (svg.4ht): added basic support for the svg.sty package.
 	* tex4ht-4ht.tex (tabu.4ht): added basic support for the tabu package.
+	* tex4ht-4ht.tex (scrjura.4ht),
+	tex4ht-html4.tex (html4.4ht): added basic support for the scrjura package.
 
 2018-12-20  Michal Hoftich  <michal.h21@gmail.com>
 
