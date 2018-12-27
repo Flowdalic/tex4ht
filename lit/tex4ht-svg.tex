@@ -10,7 +10,7 @@
 %%%%%%%%%%%%%%%%%% load style files %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifx \HTML\UnDef
-   \def\HTML{svg,html4-svg}                   
+   \def\HTML{svg-option,html4-svg}                   
    \def\CONFIG{\jobname}
    \def\MAKETITLE{\author{Eitan M. Gurari}}         
    \def\next{\input mktex4ht.4ht  \endinput}
@@ -24,8 +24,8 @@
 \chapter{Preamble}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\<svg\><<<
-% svg.4ht (|version), generated from |jobname.tex
+\<svg-option\><<<
+% svg-option.4ht (|version), generated from |jobname.tex
 % Copyright 2009-2017 TeX Users Group
 % Copyright |CopyYear.2001. Eitan M. Gurari
 |<TeX4ht copywrite|>
@@ -34,7 +34,7 @@
 % 2017-05-05 Michal
 % Change DTD and other stuff only for svg-inline
 % this is legacy option which will hold the original `svg` option behaviour
-\<configure svg tex4ht\><<<    
+\<configure svg-option tex4ht\><<<    
 \:CheckOption{svg-inline}\if:Option
 \Configure{VERSION}
   {\IgnorePar\HCode{<?xml version="1.0" |<xml encoding|> ?> \Hnewline}}
@@ -52,7 +52,7 @@
    \else \expandafter\:encoding\a:charset\fi"
 >>>
 
-\<configure svg tex4ht\><<<    
+\<configure svg-option tex4ht\><<<    
 \Configure{@DOCTYPE}
   {<!ENTITY \% svg.dtd PUBLIC "-//W3C//DTD SVG 20010719//|<dtd lang|>"\Hnewline
      "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">\Hnewline
@@ -77,7 +77,7 @@
 \fi
 >>>
 
-\<configure svg tex4ht\><<<    
+\<configure svg-option tex4ht\><<<    
 \Configure{@HTML}
   {\Hnewline xmlns:svg="http://www.w3.org/2000/svg"\Hnewline }
 \fi
@@ -97,7 +97,7 @@
 
 
 
-\<configure svg tex4ht\><<<    
+\<configure svg-option tex4ht\><<<    
 \Configure{Picture}{.svg}
 \:CheckOption{svg-obj} \if:Option 
    |<object svg-obj|>
@@ -157,7 +157,7 @@
 \section{Include graphics}
 %%%%%%%%%%%%%%%%%%
 
-\<configure svg graphics\><<<
+\<configure svg-option graphics\><<<
 \Configure{graphics*} 
    {svg} 
    {{\Configure{Needs}{File: \csname Gin@base\endcsname.svg}\Needs{}}%
@@ -178,7 +178,7 @@
 
 
 
-\<configure svg th4\><<<    
+\<configure svg-option th4\><<<    
 \:CheckOption{draw} \if:Option \:CheckOption{th4} \if:Option 
    \Configure{Fig}
       {\Svg}

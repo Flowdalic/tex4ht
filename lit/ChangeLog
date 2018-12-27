@@ -1,3 +1,9 @@
+2018-12-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-svg.tex (svg-option.4ht, html4-svg.4ht): renamed svg.4ht to
+	svg-option.4ht due to name conflict with svg.sty.
+	* tex4ht-options.tex (tex4ht.4ht): use svg-option.4ht instead of svg.4ht.
+
 2018-12-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): load dvips driver for graphicx and xcolor
