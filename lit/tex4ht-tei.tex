@@ -603,6 +603,69 @@ we need to textually include the entity file, not reference it.
 |<early xslt Decl|>
 >>>
 
+%%%%%%%%%%%%%%%%%%%%
+\section{Css}
+%%%%%%%%%%%%%%%%%%%%
+
+The following code has been copied from tex4ht-docbook.tex. It provides basic
+support for writing to the CSS file produced by tex4ht.
+
+\<configure tei tex4ht\><<<
+|<cascade style sheets|>
+\Configure{Preamble}
+   {|<default cascade style sheets|>} {}
+\Configure{CssFile}{\jobname.css}
+  {/* \aa:CssFile\space from \jobname.tex (TeX4ht) */}
+\Configure{Needs}{l. 
+   \the\inputlineno\space--- needs --- #1 ---}
+\Configure{Needs-}{l.
+   \the\inputlineno\space--- needs --- #1 ---}
+>>>
+
+\<default cascade style sheets\><<<
+{\ifdim \lastskip>\z@ \unskip\fi  \IgnorePar\parindent\z@
+\leavevmode}%
+\immediate\write-1{--- file \aa:CssFile\space ---}%
+\ht:special{t4ht>\aa:CssFile}\ht:special{t4ht=\Hnewline /* css.sty */}%
+\ht:special{t4ht<\aa:CssFile}%
+>>>
+
+
+\<cascade style sheets\><<<
+\ScriptCommand{\CssFile}{%
+  \immediate\write-1{--- file \aa:CssFile\space ---}%
+  \def\FontSize##1##2{\:Context{##1}\ht:special{t4ht;\%##2}\%}%
+  \def\FontName##1{\:Context{##1}\ht:special{t4ht;=}}%
+  \def\:Context##1{\ht:special{t4ht>\jobname.tmp}##1\ht:special
+     {t4ht>\aa:CssFile}}%
+  \ht:special{t4ht>\jobname.tmp}\ht:special{t4ht>\aa:CssFile}\bb:CssFile
+  \hfil\break\NoFonts}{\EndNoFonts
+  \ht:special{t4ht<\aa:CssFile}\ht:special{t4ht<\jobname.tmp}}
+\let\Css:File|=\CssFile
+\def\CssFile{\futurelet\:temp\Css:Fl}
+\def\Css:Fl{\ifx [\:temp  \expandafter\Css:fl
+   \else \expand:after{\Css:File \space}\fi}
+\def\Css:fl[#1]{\Css:File\space \css:files #1,,|<par del|>}
+\def\css:files#1,#2|<par del|>{\def\:temp{#1}\ifx \:temp\empty
+   \else \def\:temp{\in:css#1.|<par del|>\css:files#2,,|<par del|>}\fi
+   \:temp }
+\def\in:css#1.#2|<par del|>{\def\:temp{#2}\ifx \:temp\empty \input #1.css
+   \else \inc:ss#1.#2|<par del|>\fi}
+\def\inc:ss#1.|<par del|>{\input #1 }
+\NewConfigure{CssFile}[2]{\def\aa:CssFile{#1}\def\bb:CssFile{#2}}
+>>>
+
+
+
+\<cascade style sheets\><<<
+\def\Css#1{{\def\:temp{\Configure{Needs}}%
+   \expandafter\:temp\expandafter{\aa:Css}\Needs{#1}}}
+
+\expandafter\ifx \csname aa:Css\endcsname\relax
+   \Configure{Css}{Css: ##1}
+\fi
+>>>
+
 
 %%%%%%%%%%%%%%%%%%
 \section{Sections}

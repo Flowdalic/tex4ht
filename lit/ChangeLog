@@ -1,3 +1,7 @@
+2019-01-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-tei.tex (tei.4ht): added definitions of the CSS support commands.
+
 2018-12-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-svg.tex (svg-option.4ht, html4-svg.4ht): renamed svg.4ht to
