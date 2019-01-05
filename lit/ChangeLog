@@ -1,6 +1,7 @@
 2019-01-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-tei.tex (tei.4ht): added definitions of the CSS support commands.
+	* tex4ht-4ht.tex (titlesec.4ht): fixed issues with TOC.
 
 2018-12-27  Michal Hoftich  <michal.h21@gmail.com>
 

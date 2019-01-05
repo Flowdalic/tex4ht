@@ -809,9 +809,10 @@ $\mathfrak{A}a^{\mathfrak{A}}$
          \else \csname the\sc:tp\endcsname \fi \fi
        }{#8}%
 }
-\def\:tempc{%
+\def\:tempc#1#2#3#4{%
+  \edef\sc:tp{\ifttl@label\else like\fi #1}%
    \let\ttl@savewrite\empty
-   \o:ttl@select:
+   \o:ttl@select:{#1}{#2}{#3}{#4}
 }
 \HLet\ttl@select\:tempc
 >>>
