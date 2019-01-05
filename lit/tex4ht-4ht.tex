@@ -14233,6 +14233,13 @@ DIV.right
    \HtmlEnv   \Toc:Title{#1}\:chapter{#2}}
 >>>
 
+Memoir supports starred version ot the TOC command
+
+\<memoir cfg\><<<
+\def\:tempc{\@ifstar\o:tableofcontents:\o:tableofcontents:}
+\HLet\tableofcontents\:tempc
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{verse}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
