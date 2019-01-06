@@ -1,3 +1,9 @@
+2019-01-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (memoir.4ht): Support for optional argument of \chapter.
+	Thanks to Deimantas Galčius
+	https://puszcza.gnu.org.ua/bugs/?406
+
 2019-01-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-tei.tex (tei.4ht): added definitions of CSS support commands.
