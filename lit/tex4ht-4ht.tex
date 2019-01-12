@@ -3591,10 +3591,30 @@ biblatex,>>>
     \blx@lbxinput{\blx@languagename}%
     {}{}%
   }%
+  |<fix biblatex lang handling|>
 }
 \fi
 >>>
 
+Some biblatex styles reported error missing English language. 
+\Link[https://tex.stackexchange.com/q/469718/2891]{}{}For example here\EndLink.
+The issue was that patched version of \Verb|\IfFileExists| command contains
+some additional tokens that caused the \Verb|\@firstoftwo| command to read
+a wrong code. The saved version of that command must be used instead.
+
+\<fix biblatex lang handling\><<<
+\def\blx@lbxinput@iii#1#2{%
+  \global\csundef{blx@lng@#2}%
+  \:IfFileExists{#1.lbx}
+    {\blx@lbxinput@iv{#2}{#1}{language '#2' -> '#1'}}
+    {\ifcsdef{blx@suffmaptried@#2}
+      {}
+      {\blx@warning@noline{%
+          File '#1.lbx' not found!\MessageBreak
+          Ignoring mapping '#2' -> '#1'}%
+       \global\cslet{blx@suffmaptried@#2}\@empty}%
+     \blx@lbxinput@iv{#2}{#2}{language '#2'}}}
+>>>
 
 %%%%%%%%%%%%%%%%%
 \Section{xeCJK}

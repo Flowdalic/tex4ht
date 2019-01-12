@@ -1,3 +1,8 @@
+2019-01-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): fixed Biblatex language handling.
+	https://tex.stackexchange.com/q/469718/2891
+
 2019-01-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (memoir.4ht): Support for optional argument of \chapter.
