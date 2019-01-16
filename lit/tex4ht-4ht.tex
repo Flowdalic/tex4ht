@@ -14249,6 +14249,7 @@ DIV.right
    |<adjust minipageNum for setcounter footnote 0|>%
    {\SkipRefstepAnchor \let\addcontentsline\:gobbleIII\no@chapter[#1]{}%
     \global\let\f@rtoc\f@rtoc
+    \ifx\f@rtoc\empty\gdef\f@rtoc{#2}\fi
     \global\let\f@rhdr\f@rhdr  }%
    \HtmlEnv   \Toc:Title{\f@rtoc}\:chapter{#2}}
 >>>
