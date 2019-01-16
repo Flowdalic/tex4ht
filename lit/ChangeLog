@@ -2,6 +2,9 @@
 
 	* tex4ht-4ht.tex (memoir.4ht): fixed chapter TOC creation
 	https://tex.stackexchange.com/q/470352/2891
+	* tex4ht-ooffice.tex (ooffice.4ht): renamed quote-trl to quote-rtl, in order
+	to fix the direction support.
+	https://tex.stackexchange.com/a/470434/2891
 
 2019-01-12  Michal Hoftich  <michal.h21@gmail.com>
 
