@@ -8873,7 +8873,7 @@ MathJax.Hub.Config({
 |<base font size|>
 \ConfigureEnv{verse}
    {\ifvmode \IgnorePar\fi\EndP\Tg<div class="verse">}
-   {\ifvmode \IgnorePar\fi\EndP\Tg</div>}
+   {\ifvmode \IgnorePar\fi\EndP\Tg</div>\par\ShowPar}
    {}{}
 \ConfigureList{verse}
    {}{}
@@ -10219,7 +10219,7 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
 |<scr reprt/book captions|>
 \ConfigureEnv{verse}
    {\ifvmode \IgnorePar\fi\EndP\Tg<div class="verse">}
-   {\ifvmode \IgnorePar\fi\EndP\Tg</div>}
+   {\ifvmode \IgnorePar\fi\EndP\Tg</div>\par\ShowPar}
    {}{}
 \ConfigureList{verse}
    {}{}
@@ -10405,7 +10405,7 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
 
 \ConfigureEnv{verse}
    {\ifvmode \IgnorePar\fi\EndP\Tg<div class="verse">}
-   {\ifvmode \IgnorePar\fi\EndP\Tg</div>}
+   {\ifvmode \IgnorePar\fi\EndP\Tg</div>\par\ShowPar}
    {}{}
 \ConfigureList{verse}
    {}{}
@@ -10991,7 +10991,7 @@ a \par b
 |<quote config|>
 \ConfigureEnv{verse}
    {\ifvmode \IgnorePar\fi\EndP\Tg<div class="verse">}
-   {\ifvmode \IgnorePar\fi\EndP\Tg</div>}
+   {\ifvmode \IgnorePar\fi\EndP\Tg</div>\par\ShowPar}
    {}{}
 \ConfigureList{verse}
    {}{}
@@ -15993,7 +15993,7 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
           {\HCode{</span>}} {}
        \let\end:verseln\empty
    }
-   {\egroup \ifvmode \IgnorePar\fi \EndP \HCode{</div>}}
+   {\egroup \ifvmode \IgnorePar\fi \EndP \HCode{</div>}\par\ShowPar}
    {}{}
 
 \ConfigureList{verse}
@@ -17442,7 +17442,7 @@ command
 \<config book-report-article\><<<
 \ConfigureEnv{verse}
    {\ifvmode \IgnorePar\fi\EndP\Tg<div class="verse">}
-   {\ifvmode \IgnorePar\fi\EndP\Tg</div>}
+   {\ifvmode \IgnorePar\fi\EndP\Tg</div>\par\ShowPar}
    {}{}
 \ConfigureList{verse}
    {}{}

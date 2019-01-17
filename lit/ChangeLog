@@ -2,6 +2,10 @@
 
 	* tex4ht-4ht.tex (tuenc-xetex-input.4ht): fixed Unicode range character
 	declaration.
+	* tex4ht-html4.tex (html4.4ht),
+	tex4ht-ooffice.4ht (ooffice.4ht): Start a new paragraph after the verse
+	environment.
+	https://tex.stackexchange.com/q/470546/2891
 
 2019-01-16  Michal Hoftich  <michal.h21@gmail.com>
 
