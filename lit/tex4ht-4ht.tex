@@ -5338,9 +5338,10 @@ used for Fontspec support.
 % register unicode range #1 - #2
 \newcommand\xeuniregisterblock[2]{%
   \xeuniblock=#1%
-  \loop\advance\xeuniblock by 1\relax%
+  \loop%
   \expandafter\xeuniregisterchar\expandafter{\the\xeuniblock}%
-  \ifnum\xeuniblock<#2%
+  \advance\xeuniblock by 1\relax%
+  \ifnum\xeuniblock<\the\numexpr #2+1\relax%
   \repeat%
 }
 
