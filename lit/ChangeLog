@@ -6,6 +6,8 @@
 	tex4ht-ooffice.4ht (ooffice.4ht): Start a new paragraph after the verse
 	environment.
 	https://tex.stackexchange.com/q/470546/2891
+	* tex4ht-html4.tex (html4.4ht): set zero bottom margin for paragraphs inside
+	the verse environment in order to prevent unvanted blank lines.
 
 2019-01-16  Michal Hoftich  <michal.h21@gmail.com>
 
