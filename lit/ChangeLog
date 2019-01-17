@@ -11,8 +11,8 @@
 
 	* tex4ht-4ht.tex (memoir.4ht): fixed chapter TOC creation
 	https://tex.stackexchange.com/q/470352/2891
-	* tex4ht-ooffice.tex (ooffice.4ht): renamed quote-trl to quote-rtl, in order
-	to fix the direction support.
+	* tex4ht-ooffice.tex (ooffice.4ht): renamed quote-trl to
+	quote-rtl, to fix the direction support.
 	https://tex.stackexchange.com/a/470434/2891
 
 2019-01-12  Michal Hoftich  <michal.h21@gmail.com>
@@ -22,8 +22,8 @@
 
 2019-01-06  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (memoir.4ht): Support for optional argument of \chapter.
-	Thanks to Deimantas Galčius
+	* tex4ht-4ht.tex (memoir.4ht): Support for optional argument of
+	\chapter. Thanks to Deimantas Gal\v{c}ius.
 	https://puszcza.gnu.org.ua/bugs/?406
 
 2019-01-05  Michal Hoftich  <michal.h21@gmail.com>
@@ -50,8 +50,8 @@
 
 2018-12-20  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht): load dvips driver for graphicx and xcolor
-	packages with XeLaTeX. It fixes PDF support.
+	* tex4ht-4ht.tex (usepackage.4ht): load dvips driver for
+	graphicx and xcolor packages with XeLaTeX. It fixes PDF support.
 
 2018-12-19  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -69,7 +69,8 @@
 
 2018-12-10  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): configure environments and
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): configure
+	environments and 
 	other redefinitions inside \AtBeginDocument.
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): added configurations for
 	eqnarray.
