@@ -6768,6 +6768,70 @@ The following two sample codes provide different behavior.
 \Hnewline}
 >>>
 
+\<configure ooffice verse\><<<
+\ConfigureEnv{verse}
+   {|<begin env section|>%
+    \HCode{<!--start verse-->}%
+    \bgroup
+\Configure{HtmlPar}
+   {\ifvmode \IgnorePar\fi \EndP\end:verseln
+    \HCode{<text:p text:style-name="verse-stanza"  >}}
+   {\ifvmode \IgnorePar\fi \EndP\end:verseln
+     \HCode{<text:p text:style-name="verse-stanza"  >}}
+   {\HCode{</text:p>}\let\end:verseln\empty}
+   {\HCode{</text:p>}\let\end:verseln\empty}%
+       \let\end:verseln\empty
+   }
+   {\egroup 
+   \ifvmode \IgnorePar\fi \EndP\HCode{<!--end verse-->}|<end env section|>
+   \par\ShowPar}
+   {}{}
+
+\ConfigureList{verse}
+   {} {\ifvmode \IgnorePar\fi \EndP \end:verseln}
+   {\parindent=\z@}  {}
+
+\Configure{verseline}
+   {\ifvmode \IgnorePar\fi \EndP \end:verseln  
+    \HCode{<text:p text:style-name="verse">}\def\end:verseln{\HCode{</text:p>}}}
+   {\ifvmode \IgnorePar\fi \EndP \end:verseln
+    \HCode{<text:p text:style-name="verse">}%
+    \def\end:verseln{\HCode{</text:p>}}}  
+
+\ConfigureOO{verse}{\Hnewline
+<style:style style:name="verse"
+             style:family="paragraph"
+             style:parent-style-name="Text-body"
+             style:next-style-name="Text-body">
+<style:paragraph-properties  fo:margin-left="1.499cm"
+             fo:margin-right="1cm"
+             fo:margin-top="0cm"
+             fo:margin-bottom="0cm"
+             fo:text-indent="-0.499cm"
+             style:auto-text-indent="false">
+   <style:tab-stops/>
+</style:paragraph-properties >
+</style:style>
+\Hnewline}
+
+\NewConfigureOO{verse-stanza}
+\ConfigureOO{verse-stanza}{\Hnewline
+<style:style style:name="verse-stanza"
+             style:family="paragraph"
+             style:parent-style-name="Text-body"
+             style:next-style-name="Text-body">
+<style:paragraph-properties  fo:margin-left="1.499cm"
+             fo:margin-right="1cm"
+             fo:margin-top="0.5cm"
+             fo:margin-bottom="0cm"
+             fo:text-indent="-0.499cm"
+             style:auto-text-indent="false">
+   <style:tab-stops/>
+</style:paragraph-properties >
+</style:style>
+\Hnewline}
+>>>
+
 %%%%%%%%%%%%%
 \subsection{Paragraph}
 %%%%%%%%%%%%%
@@ -6784,6 +6848,7 @@ The following two sample codes provide different behavior.
    {\HCode{</text:p>}}
    {\HCode{</text:p>}}%
 >>>
+
 
 
 

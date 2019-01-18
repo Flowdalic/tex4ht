@@ -1,3 +1,7 @@
+2019-01-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): added configurations for verse.4ht.
+
 2019-01-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tuenc-xetex-input.4ht): fixed Unicode range character
