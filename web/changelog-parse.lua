@@ -51,7 +51,7 @@ local buffer = io.read("*all")
 -- initialize variables
 local pos = 0
 local entry, entries = nil, {}
-local news_entries = 5 -- number of printed changelog entries
+local news_entries = tonumber(arg[1]) or 2 -- number of printed changelog entries
 
 
 -- parse changelog
