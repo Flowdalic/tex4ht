@@ -36,10 +36,9 @@ local function print_entry(entry)
   -- escape links
   text = text:gsub("(http[^%s]+)", "<br><a href='%1'>%1</a>")
   -- escape file names
-  text = text:gsub("<p>(.-):", function(a)
-    local texfile, generated = a:match("(.-tex)(%s+.+)")
+  text = text:gsub("([a-zA-z0-9%-%.]+tex)%s+(%([^%)]+%))", function(texfile, generated)
     texfile = string.format("<a href='http://svn.gnu.org.ua/viewvc/tex4ht/trunk/lit/%s'>%s</a>", texfile, texfile)
-    return "<p><em>" .. texfile .. generated .. "</em>"
+    return texfile .. " " .. generated
   end)
   print("<td>")
   print(text)
