@@ -32,10 +32,15 @@ local function print_entry(entry)
   end)
   :gsub("%s*$", "") -- remove space at the end
   .. "\n</p>" -- we need to close the paragraph explicitly
-  -- escape file names
-  text = text:gsub("<p>(.-):", "<p><em>%1</em>:")
+  -- text = text:gsub("<p>(.-):", "<p><em>%1</em>:")
   -- escape links
   text = text:gsub("(http[^%s]+)", "<br><a href='%1'>%1</a>")
+  -- escape file names
+  text = text:gsub("<p>(.-):", function(a)
+    local texfile, generated = a:match("(.-tex)(%s+.+)")
+    texfile = string.format("<a href='http://svn.gnu.org.ua/viewvc/tex4ht/trunk/lit/%s'>%s</a>", texfile, texfile)
+    return "<p><em>" .. texfile .. generated .. "</em>"
+  end)
   print("<td>")
   print(text)
   print("</td>\n</tr>")
