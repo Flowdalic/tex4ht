@@ -1,8 +1,8 @@
-all: changes.html changelog.html
+all: changes.html changelog-include.html
 # Create html file for inclusion from the ChangeLog
 changes.html: ../lit/ChangeLog
 	texlua changelog-parse.lua < $< > $@
 
 # Larger changelog
-changelog.html: ../lit/ChangeLog 
+changelog-include.html: ../lit/ChangeLog 
 	texlua changelog-parse.lua 300 < $< > $@

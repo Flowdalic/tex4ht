@@ -1,3 +1,7 @@
+2019-01-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* index.html: moved changelog  to the bottom of the page.
+	* index.html: use 
 2019-01-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* index.html: added links to tex.sx, make4ht and tex4ebook. Added more
