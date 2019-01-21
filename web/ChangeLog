@@ -1,0 +1,6 @@
+2019-01-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* index.html: added links to tex.sx, make4ht and tex4ebook. Added more
+	headers.
+	* google5fe6afe7d7955962.html: added file for Google verification. I hope to
+	be able to investigate the missing web from Google search.
