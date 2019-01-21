@@ -1,3 +1,8 @@
+2019-01-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (memoir.4ht): removed loading of table related packages.
+	Recent Memoir doesn't use them anymore.
+
 2019-01-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added configurations for verse.4ht.
