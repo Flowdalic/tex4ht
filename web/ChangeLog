@@ -1,7 +1,11 @@
 2019-01-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* index.html: moved changelog  to the bottom of the page.
-	* index.html: use 
+	* index.html: use line leading only on small screens.
+	* changelog.html: full changelog template.
+	* changelog-parse.lua: made number of parser entries configurable.
+	* Makefile: generate changelog-include.html.
+
 2019-01-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* index.html: added links to tex.sx, make4ht and tex4ebook. Added more
