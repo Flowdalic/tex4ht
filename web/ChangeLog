@@ -2,5 +2,10 @@
 
 	* index.html: added links to tex.sx, make4ht and tex4ebook. Added more
 	headers.
+	* index.html: added changelog.
+	* index.html: fixes for Google issues: set the <meta viewport property,
+	added canonical URL, added HTML5 doctype.
+	* Makefile: generate the changelog.html.
+	* changelog-parse.lua: script for ChangeLog conversion to HTML.
 	* google5fe6afe7d7955962.html: added file for Google verification. I hope to
 	be able to investigate the missing web from Google search.
