@@ -38,7 +38,7 @@ local function print_entry(entry)
   -- escape file names
   text = text:gsub("([a-zA-z0-9%-%.]+tex)%s+(%([^%)]+%))", function(texfile, generated)
     texfile = string.format("<a href='http://svn.gnu.org.ua/viewvc/tex4ht/trunk/lit/%s'>%s</a>", texfile, texfile)
-    return texfile .. " " .. generated
+    return texfile .. "&nbsp;" .. generated
   end)
   print("<td>")
   print(text)
