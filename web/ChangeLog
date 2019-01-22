@@ -2,8 +2,11 @@
 
 	* index.html: moved changelog  to the bottom of the page.
 	* index.html: use line leading only on small screens.
+	* index.html: changes heading levele structure.
 	* changelog.html: full changelog template.
 	* changelog-parse.lua: made number of parser entries configurable.
+	* changelog-parse.lua: use non-breaking space for separating TeX file and
+	generated .4ht files.
 	* Makefile: generate changelog-include.html.
 
 2019-01-21  Michal Hoftich  <michal.h21@gmail.com>
