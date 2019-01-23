@@ -5,8 +5,8 @@
 
 2019-01-22  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (memoir.4ht): removed loading of table related packages.
-	Recent Memoir doesn't use them anymore.
+	* tex4ht-4ht.tex (memoir.4ht): removed loading of table related
+	packages. Recent Memoir doesn't use them anymore.
 
 2019-01-18  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -20,8 +20,9 @@
 	tex4ht-ooffice.tex (ooffice.4ht): Start a new paragraph after the verse
 	environment.
 	https://tex.stackexchange.com/q/470546/2891
-	* tex4ht-html4.tex (html4.4ht): set zero bottom margin for paragraphs inside
-	the verse environment in order to prevent unvanted blank lines.
+	* tex4ht-html4.tex (html4.4ht): set zero bottom margin for
+	paragraphs inside the verse environment in order to prevent
+	unwanted blank lines. 
 
 2019-01-16  Michal Hoftich  <michal.h21@gmail.com>
 
