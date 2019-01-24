@@ -18764,11 +18764,11 @@ due to a \''\vtop' in the macro definition.
 %   \noexpand\catcode`\noexpand\_=\the\catcode`\_ }
 
 \<body of amsmath.sty\><<<
-\def\:temp#1#2{\a:xrightarrow {\o:xrightarrow:{#1}{#2}}\b:xrightarrow}
-\HLet\xrightarrow|=\:temp
+\newcommand\:temp:xrightarrow[2][]{\a:xrightarrow {\o:xrightarrow:[#1]{#2}}\b:xrightarrow}
+\HLet\xrightarrow|=\:temp:xrightarrow
 \NewConfigure{xrightarrow}{2}
-\def\:temp#1#2{\a:xleftarrow {\o:xleftarrow:{#1}{#2}}\b:xleftarrow}
-\HLet\xleftarrow|=\:temp
+\newcommand\:temp:xleftarrow[2][]{\a:xleftarrow {\o:xleftarrow:[#1]{#2}}\b:xleftarrow}
+\HLet\xleftarrow|=\:temp:xleftarrow
 \NewConfigure{xleftarrow}{2}
 >>>
 
