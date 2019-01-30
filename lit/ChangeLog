@@ -1,3 +1,8 @@
+2019-01-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): horizontally center longtables.
+	https://tex.stackexchange.com/a/472643/2891
+
 2019-01-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (amsmath.4ht): fixed definition of \xrightarrow and
