@@ -6,6 +6,9 @@ pdflatex = pdflatex -interaction=nonstopmode -file-line-error
 tex4ht.pdf: tex4ht.tex cvrblog.sty *.tex
 	$(pdflatex) $<
 
+tex4ht.man1.pdf man: tex4ht.1
+	groff -man -t -rS11 $< | ps2pdf - $@ || rm -f $@
+
 # texinfo attempt.
 #texi2pdf = texi2pdf
 ##
