@@ -3268,7 +3268,7 @@ definitions.
 %%%%%%%%%%%%%%%%%%
 \Section{cleveref}
 
-This basic support for the cleveref package. 
+This is a  basic support for the cleveref package. 
 \Link[https://tex.stackexchange.com/a/220345/2891]{}{}Source.\EndLink
 
 \<cleveref.4ht\><<<
@@ -3296,8 +3296,28 @@ This basic support for the cleveref package.
     [\@tempa][\arabic{#2}][\cref@result]%
     \csname p@#2\endcsname\csname the#2\endcsname}}%
 \Hinput{cleveref}
+
+|<cleveref links|>
 \endinput
 >>> \AddFile{8}{cleveref}
+
+
+Support for links from the \Verb|\cref| command. 
+\Link[https://tex.stackexchange.com/a/475664/2891]{}{}More information.\EndLink
+
+\<cleveref links\><<<
+\ifdefined\@firstoffive\else%
+  \def\@firstoffive#1#2#3#4#5{#1}
+\fi
+\def\:tempa#1#2{\bgroup%
+  \def\rEfLiNK##1##2{\Link{##1}{}}%
+  \expandafter\expandafter\expandafter\@firstoffive\csname r@#2\endcsname{}{}{}{}{}%
+  \o:@@@setcref:{#1}{#2}%
+  \EndLink\egroup%
+}%
+
+\HLet\@@@setcref=\:tempa
+>>>
 
 %%%%%%%%%%%%%%%%%%
 \Section{authblk}

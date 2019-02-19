@@ -1,3 +1,7 @@
+2019-02-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (cleveref.4ht): added support for reference hyperlinks.
+
 2019-01-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): horizontally center longtables.
