@@ -1,10 +1,13 @@
 2019-02-19  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (cleveref.4ht): added support for reference hyperlinks.
+	* tex4ht-4ht.tex (cleveref.4ht): added support for reference
+	hyperlinks.
 	https://tex.stackexchange.com/a/475664/2891
+	
 	* tex4ht-4ht.tex (csquotes.4ht): fix for footnotes inside blockquote
 	environment.
 	https://tex.stackexchange.com/a/474605/2891
+	
 2019-01-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): horizontally center longtables.
