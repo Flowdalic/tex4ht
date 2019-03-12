@@ -2080,10 +2080,12 @@ and \''\Tg'.
  
 \@ifpackageloaded{babel}
       {% This is required for languages which are never explicitly selected
+        % It seems this code was executed also with Polyglossia, where it caused compilation error
+        \@ifpackageloaded{polyglossia}{}{% 
         \def\do#1{\blx@lbxinput{#1}{}{}}%
        \ifx\@empty\bbl@loaded\else%
        \expandafter\docsvlist\expandafter{\bbl@loaded}%
-      \fi}{}%
+      \fi}}{}%
 
 \fi % end of version boolean
 >>>
