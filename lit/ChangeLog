@@ -3,6 +3,8 @@
 	* tex4ht-4ht.tex (biblatex.4ht): fix for Polyglossia package.
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed issues with pictures in
 	subdirectories.
+	* tex4ht-ooffice.tex (ooffice.4ht): set image dimensions on draw:frame
+	element, we got validation error otherwise.
 
 2019-02-19  Michal Hoftich  <michal.h21@gmail.com>
 
