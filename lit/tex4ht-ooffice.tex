@@ -1025,9 +1025,10 @@ original paths to be able to copy pictures to correct location.
       \Needs{\b:PdfConvert}%
       \fi 
       \closein15 
-      \def\Gin@ext{.\a:PdfConvert}
-    \expandafter\getImgFile\expandafter{\Gin@base}{\a:PdfConvert}%
-   \Picture[IMG]{\svg:filename |<graphics dimensions|>}}
+      \def\Gin@ext{.\a:PdfConvert}% fix to get correct extension for the generated png file
+    \expandafter\getImgFile\expandafter{\Gin@base-\Gin@page}{\a:PdfConvert}%
+    \edef\Gin@base{\Gin@base-\Gin@page}% the generated file contains page number
+    \Picture[IMG]{{\imgBase.\a:PdfConvert} |<graphics dimensions|>}}
 >>>
 
 \<\><<<
