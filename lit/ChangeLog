@@ -1,3 +1,7 @@
+2019-03-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): fix for non-ascii cite keys with XeLaTeX.
+
 2019-03-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): fix for Polyglossia package.
