@@ -1,6 +1,8 @@
 2019-03-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): fix for non-ascii cite keys with XeLaTeX.
+	* tex4ht-html4.tex (html4.4ht),
+	* tex4ht-javahelp.tex (javahelp.4ht): use white-space:normal in Css.
 
 2019-03-12  Michal Hoftich  <michal.h21@gmail.com>
 
