@@ -1,6 +1,8 @@
 2019-03-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed image filename parsers.
+	* tex4ht-ooffice.tex (ooffice.4ht): added image mimetypes to the
+	manifest.xml file.
 
 2019-03-13  Michal Hoftich  <michal.h21@gmail.com>
 

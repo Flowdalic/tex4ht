@@ -555,7 +555,7 @@ hook is sent to the file upon reaching the end of the source.
 
 \<graphics obj manifest\><<<
 <manifest:file-entry
-    manifest:full-path="Pictures/\PictureFile"/>\Hnewline
+    manifest:full-path="Pictures/\PictureFile" manifest:media-type="\get:image:mime:type\Gin@ext"/>\Hnewline
 >>>
 
 \<shared manifest\><<<
@@ -1054,6 +1054,14 @@ original paths to be able to copy pictures to correct location.
 
 
 \<configure ooffice tex4ht\><<<
+\def\svg:width{0.0pt}\def\svg:height{0.0pt}
+\def\def:image:mime:type#1#2{\@namedef{image:mime#1}{#2}}
+\def\get:image:mime:type#1{\@nameuse{image:mime#1}}
+\def:image:mime:type{.png}{image/png}
+\def:image:mime:type{.jpg}{image/jpeg}
+\def:image:mime:type{.jpeg}{image/jpeg}
+\def:image:mime:type{.gif}{image/gif}
+\def:image:mime:type{.svg}{image/svg+xml}
 \def\svg:width{0.0pt}\def\svg:height{0.0pt}
 \Configure{IMG}
   {|<insert shadowing fig file|>%
