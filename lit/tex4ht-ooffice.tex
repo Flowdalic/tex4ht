@@ -11764,10 +11764,10 @@ OO doesn't seem to hono mfenced
 
 \Configure{wrapfloat}
     {\ifvmode\IgnorePar\EndP
-       \HCode{<text:p><text:span text:class-name="wrapfig-\WFplace">}%
+       \HCode{<text:p><text:span text:class-names="wrapfig-\WFplace">}%
        \def\endWrap{\ifvmode\IgnorePar\fi\EndP\HCode{</text:span></text:p>}\par}%
      \else
-       \HCode{<text:span text:class-name="wrapfig-\WFplace">}\bgroup
+       \HCode{<text:span text:class-names="wrapfig-\WFplace">}\bgroup
        \def\endWrap{\egroup\HCode{</text:span>}}%
      \fi
     }
