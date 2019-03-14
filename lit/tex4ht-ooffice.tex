@@ -986,7 +986,7 @@ original paths to be able to copy pictures to correct location.
 
 \<configure ooffice graphics\><<<
 \def\getImgFileParser#1/{%
-  \ifx#1\relax
+  \ifx\relax#1\relax
     \let\next\relax
   \else
     \do{#1}\let\next\getImgFileParser
@@ -995,7 +995,7 @@ original paths to be able to copy pictures to correct location.
 \newcommand\getImgFile[2]{%
   \def\do##1{\def\imgBaseName{##1#2}\def\imgBase{##1}}
   \def\imgFullName{#1#2}
-  \getImgFileParser#1/\relax/
+  \getImgFileParser#1//
 }
 
 \Configure{graphics*}
