@@ -1,8 +1,9 @@
 2019-03-15  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html5.tex(html5.4ht): use semantic elements for floats, figures and
-	captions.
-	* tex4ht-4ht.tex (memoir.4ht): we should input definitions for booktabs.
+	* tex4ht-html5.tex (html5.4ht): use semantic elements for floats,
+	figures and captions.
+
+	* tex4ht-4ht.tex (memoir.4ht): input definitions for booktabs.
 	https://tex.stackexchange.com/q/479652/2891
 
 2019-03-14  Michal Hoftich  <michal.h21@gmail.com>
