@@ -203,9 +203,47 @@ Support for xml name spaces. It must be configured after
 }
 >>>
 
+\section{LaTeX}
 
 \<configure html5 latex\><<<
 |<tabular fixes|>
+>>>
+
+\section{Article, book and report classes}
+\<configure html5 article\><<<
+|<article,report,book|>
+>>>
+
+\<configure html5 book\><<<
+|<article,report,book|>
+>>>
+
+\<configure html5 report\><<<
+|<article,report,book|>
+>>>
+
+Shared configurations for base LaTeX classes.
+
+\<article,report,book\><<<
+|<figcaption|>
+>>>
+
+\section{Configurations for Koma Script}
+
+\<configure html5 scrartcl\><<<
+|<scr article,report,book|>
+>>>
+
+\<configure html5 scrbook\><<<
+|<scr article,report,book|>
+>>>
+
+\<configure html5 scrreprt\><<<
+|<scr article,report,book|>
+>>>
+
+\<scr article,report,book\><<<
+|<figcaption|>
 >>>
 
 cellspacing and cellpading attributes are prohibited in html5
@@ -216,5 +254,41 @@ cellspacing and cellpading attributes are prohibited in html5
 \Css{table.tabular{border-collapse: collapse; border-spacing: 0;}}
 >>>
 
+Configure HTML5 figures. Floats are converted as captions too.
+
+\<figcaption\><<<
+\Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%    
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}|<try env inline par|>\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img {text-align:center;}}
+\Css{figure.figure img {text-align:center;}}
+\Css{figure.figure > p {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+>>>
+
+\section{Utilities}
+\<try env inline par\><<<
+\ShowPar 
+>>>
 
 \endinput

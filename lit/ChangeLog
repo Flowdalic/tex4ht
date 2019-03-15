@@ -1,3 +1,8 @@
+2019-03-15  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html5.tex(html5.4ht): use semantic elements for floats, figures and
+	captions.
+
 2019-03-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed image filename parsers.
