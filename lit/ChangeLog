@@ -1,3 +1,8 @@
+2019-03-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): removed second argument for \BlockElementEnd,
+	it isn't used.
+
 2019-03-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): the wrapfix configuration generated

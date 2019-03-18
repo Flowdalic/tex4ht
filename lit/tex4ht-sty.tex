@@ -1600,7 +1600,7 @@ extra tags, which can also introduce extra paragraph ends.
 \long\def\InlineElementEnd#1{\InsertTagEnd{#1}}
 
 \long\def\BlockElementStart#1#2{\ifvmode\IgnorePar\fi\EndP\InsertTagStart{#1}{#2}}
-\long\def\BlockElementEnd#1#2{\ifvmode\IgnorePar\fi\EndP\InsertTagEnd{#1}}
+\long\def\BlockElementEnd#1{\ifvmode\IgnorePar\fi\EndP\InsertTagEnd{#1}}
 
 % define default values for a new logical block
 \def\NewLogicalBlock#1{%
