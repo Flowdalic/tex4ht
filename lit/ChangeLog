@@ -2,6 +2,7 @@
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added group around \@textsuperscript
 	reset, in order to support superscripts in footnotes.
+	* Makefile: renamed jurabibib.4ht to jurabib.4ht.
 
 2019-03-18  Michal Hoftich  <michal.h21@gmail.com>
 
