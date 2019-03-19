@@ -1,3 +1,8 @@
+2019-03-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): added group around \@textsuperscript
+	reset, in order to support superscripts in footnotes.
+
 2019-03-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): removed second argument for \BlockElementEnd,

@@ -8554,13 +8554,13 @@ referring to names.
 \Configure{footnotetext}
    {\special{t4ht@)}\Tag{|<footnote id|>-tx}{}%
     |<check duplicate footnote text|>%
-    \SaveEndP \NoFonts  \let\@textsuperscript\hbox
+    \SaveEndP \NoFonts \bgroup\let\@textsuperscript\hbox%
     \HCode{<\text:footnote\Hnewline\text:note:class
              text:id="}|<footnote id|>%
                \HCode{"><\text:footnote-citation>}%
     \IgnorePar \special{t4ht@(}%
    }
-   {\EndNoFonts \RecallEndP
+   {\egroup\EndNoFonts \RecallEndP
     \HCode{</\text:footnote-citation><\text:footnote-body>
     <text:p\Hnewline text:style-name="Footnote">}\NoFonts
 %     |<footnotetext space|>%
