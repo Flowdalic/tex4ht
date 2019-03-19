@@ -49,7 +49,7 @@ tex4ht_4ht_derived = \
     framed.4ht frenchb.4ht \
   geometry.4ht graphics.4ht graphicx.4ht \
   hyperref.4ht \
-	jurabibib.4ht \
+	jurabib.4ht \
   latex.4ht lettrine.4ht listings.4ht \
   magyar.4ht mdframed.4ht memoir.4ht multicol.4ht multirow.4ht \
   nameref.4ht \
