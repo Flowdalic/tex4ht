@@ -1,3 +1,7 @@
+2019-03-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): changed footnote font size to 80%.
+
 2019-03-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added group around \@textsuperscript
