@@ -2,6 +2,7 @@
 
 	* tex4ht-ooffice.tex (ooffice.4ht): use superscript for a footnote anchor.
 	https://tex.stackexchange.com/q/474000/2891
+	* tex4ht-html4.tex (html4.4ht): added support for \reversemarginpar.
 
 2019-03-21  Michal Hoftich  <michal.h21@gmail.com>
 

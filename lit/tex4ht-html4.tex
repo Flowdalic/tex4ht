@@ -13206,23 +13206,26 @@ for margin pars.
 
 \<configure html4 latex\><<<
 \Configure{marginpar}
-   {\ifvmode
-      \IgnorePar\EndP\HCode{<div class="marginpar">}%
+   {%   
+     \def\marginpar:class{marginpar}%
+     \if@reversemargin\def\marginpar:class{reversemarginpar}\fi%
+     \ifvmode\IgnorePar\EndP\HCode{<div class="\marginpar:class">}%
       \def\end:margp{\ifvmode \IgnorePar\fi \EndP \HCode{</div>}}%
       \par
     \else
       \SaveEndP
-      \HCode{<span class="marginpar">}%
+      \HCode{<span class="\marginpar:class">}%
       \bgroup
          \Configure{HtmlPar}{\HCode{<br />}}{\HCode{<br />}}{}{}%
       \def\end:margp{\egroup\HCode{</span>}\RecallEndP}%
     \fi
    }
    {\end:margp}
-\Css{.marginpar {width:20\%; float:right; text-align:left;
+\Css{.marginpar,.reversemarginpar {width:20\%; float:right; text-align:left;
   margin-left:auto; margin-top:0.5em; font-size:85\%;
   text-decoration:underline;}}
-\Css{.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}}
+\Css{.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}}
+\Css{.reversemarginpar{float:left;}}
 >>>
 
 \verb'margin-left:auto'  instead of \verb'margin-left:1em'
