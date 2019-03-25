@@ -1,7 +1,10 @@
 2019-03-25  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): use superscript for a footnote anchor.
-	https://tex.stackexchange.com/q/474000/2891
+	* tex4ht-ooffice.tex (ooffice.4ht): use superscript for a
+	footnote anchor. https://tex.stackexchange.com/q/474000/2891
+
+2019-03-25  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-html4.tex (html4.4ht): added support for \reversemarginpar.
 
 2019-03-21  Michal Hoftich  <michal.h21@gmail.com>
@@ -10,14 +13,14 @@
 
 2019-03-19  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): added group around \@textsuperscript
-	reset, in order to support superscripts in footnotes.
+	* tex4ht-ooffice.tex (ooffice.4ht): added group around
+	\@textsuperscript reset, in order to support superscripts in footnotes.
 	* Makefile: renamed jurabibib.4ht to jurabib.4ht.
 
 2019-03-18  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-sty.tex (tex4ht.sty): removed second argument for \BlockElementEnd,
-	it isn't used.
+	* tex4ht-sty.tex (tex4ht.sty): removed second argument for
+	\BlockElementEnd, it isn't used.
 
 2019-03-16  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -81,8 +84,8 @@
 
 2019-01-23  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (pstricks.4ht): fixed generated file name in the copyright
-	notice.
+	* tex4ht-4ht.tex (pstricks.4ht): fixed generated file name in
+	the copyright notice.
 
 2019-01-22  Michal Hoftich  <michal.h21@gmail.com>
 
