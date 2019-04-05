@@ -63,6 +63,9 @@ environments. They will then keep the LaTeX code unchanged.
 \long\def\AltlMath#1\){\expandafter\alteqtoks{\(#1\)}\)}
 \long\def\AltlDisplay#1\]{\alteqtoks{\[#1\]}\]}
 \long\def\AltMathOne#1${\alteqtoks{\(#1\)}$}
+% this seems a bit hacky -- we need to skip some code inserted at the 
+% beginning of each display math
+\long\def\AltlDisplayDollars\fi#1$${\alteqtoks{\[#1\]}$$}
 
 \newcommand\VerbMathToks[2]{%
   \alteqtoks{\begin{#2}
