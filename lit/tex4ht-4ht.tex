@@ -25397,7 +25397,8 @@ and it assignes that value to \Verb=\HColor=.
 
 \<fix color\><<<
 \def\get:HColor#1 #2//{%
-  \expandafter\ifx \csname HColor:#1\endcsname\relax
+  \if\relax#2\relax
+  % \expandafter\ifx \csname HColor:#1\endcsname\relax
      \let\HColor=\relax
      |<color from def|>%
   \else
@@ -25510,17 +25511,18 @@ fragments.
 \HLet\boxframe\:temp
 >>>
 
-\<config xcolor\><<<
-\let\XC:definec@lor\XC@definec@lor
-\def\XC@definec@lor[#1]#2[#3]#4#5{%
-   \expandafter\ifx\csname HColor!#2\endcsname\relax\else
-        \csname HColor!#4\endcsname #3!//%
-        \edef\:temp{{HColor}{#1}{\HColor}}%
-        \expandafter\Configure\:temp
-   \fi
-   \XC:definec@lor[#1]{#2}[#3]{#4}{#5}%
-}
->>>
+% This isn't necessary anymore, it even could cause compilation errors
+% \<config xcolor\><<<
+% \let\XC:definec@lor\XC@definec@lor
+% \def\XC@definec@lor[#1]#2[#3]#4#5{%
+%    \expandafter\ifx\csname HColor!#2\endcsname\relax\else
+%         \csname HColor!#4\endcsname #3!//%
+%         \edef\:temp{{HColor}{#1}{\HColor}}%
+%         \expandafter\Configure\:temp
+%    \fi
+%    \XC:definec@lor[#1]{#2}[#3]{#4}{#5}%
+% }
+% >>>
 
 \<xcolor SetHColor\><<<
 \expandafter\ifx \csname get!HColor\endcsname\relax \else
@@ -25532,7 +25534,8 @@ fragments.
 \def\strip:fin:excl#1!{#1} 
 \expandafter\def\csname get!HColor\endcsname#1!#2//{%
   \def\current:color:name{#1\if!#2!\else!\strip:fin:excl#2\fi}%
-  \expandafter\ifx \csname HColor!#1\endcsname\relax
+  \if\relax#2\relax
+  %\expandafter\ifx \csname HColor!#1\endcsname\relax
      \let\HColor=\relax
      |<xcolor from def|>%
   \else
