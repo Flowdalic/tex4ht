@@ -1,6 +1,6 @@
 2019-04-10  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html5.tex: added support for HTML5 figures for AMS classes.
+	* tex4ht-html5.tex (html5.4ht): added support for HTML5 figures for AMS classes.
 	
 2019-04-09  Michal Hoftich  <michal.h21@gmail.com>
 
