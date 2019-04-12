@@ -1,3 +1,7 @@
+2019-04-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (nameref.4ht): fix for amsart and amsproc \part.
+
 2019-04-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html5.tex (html5.4ht): added support for HTML5 figures for AMS classes.

@@ -3155,7 +3155,14 @@ definitions.
    \gdef\NR:Title{\a:newlabel{#1}}%
    \gdef\NR:Type{part}%
    \o:no@part:[{#1}]{#2}}
+
+% this definition clashes with asmart and amsproc classes, so we
+% need to skip if these are active
+\@ifundefined{opt@amsart.cls}{% 
+\@ifundefined{opt@amsproc.cls}{%
 \HLet\no@part\:tempc
+}{}}{} 
+
 
 \def\:tempc#1{%
    \gdef\NR:Title{\a:newlabel{#1}}%
