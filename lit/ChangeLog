@@ -1,3 +1,9 @@
+2019-04-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-nonjk.tex: removed EB Garamond fonts.
+	* tex4ht-fonts-ebgaramond.tex: added new literate source for EB Garamond HTF
+	files.
+
 2019-04-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (nameref.4ht): fix for amsart and amsproc \part.
