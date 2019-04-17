@@ -1,7 +1,9 @@
 2019-04-17  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-fonts-nonjk.tex: removed EB Garamond fonts.
+	* tex4ht-fonts-nonjk.tex: removed EB Garamond and Linux Libertine fonts.
 	* tex4ht-fonts-ebgaramond.tex: added new literate source for EB Garamond HTF
+	files.
+	* tex4ht-fonts-libertine.tex: added literate sources for Libertine HTF
 	files.
 
 2019-04-12  Michal Hoftich  <michal.h21@gmail.com>

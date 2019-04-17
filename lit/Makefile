@@ -124,6 +124,12 @@ derived += $(tex4ht_fonts_ebgaramond_derived)
 tex4ht_fonts_ebgaramond_derived = \
 	$(ht_fonts_devdir)/unicode/EB_Garamond/EBGaramond-Regular-lf-swash-t1.htf \
 	$(ht_fonts_devdir)/alias/EB_Garamond/EBGaramond-Bold-lf-titling-t1.htf
+
+
+derived += $(tex4ht_fonts_libertine_derived)
+tex4ht_fonts_ebgaramond.texlibertine_derived = \
+	$(ht_fonts_devdir)unicode/Linux_Biolinum_T/LinBiolinumTB-lf-sc-ly1.htf
+
 # xx and many more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
 
@@ -306,6 +312,9 @@ $(tex4ht_fonts_noncjk_derived) $(tex4ht_fonts_modern_derived): \
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_ebgaramond_derived): tex4ht-fonts-ebgaramond.tex
+	$(HTTEX) $< ""
+
+$(tex4ht_fonts_libertine_derived): tex4ht-fonts-libertine.tex
 	$(HTTEX) $< ""
 
 # requires more memory than configured in other tex programs.
@@ -600,6 +609,7 @@ sources = \
  tex4ht-fonts-noncjk.tex\
  tex4ht-fonts-4hf.tex \
  tex4ht-fonts-ebgaramond.tex \
+ tex4ht-fonts-libertine.tex \
  tex4ht-unicode.tex\
  tex4ht-html-speech.tex\
  tex4ht-html0.tex\
