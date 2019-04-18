@@ -127,8 +127,8 @@ tex4ht_fonts_ebgaramond_derived = \
 
 
 derived += $(tex4ht_fonts_libertine_derived)
-tex4ht_fonts_ebgaramond.texlibertine_derived = \
-	$(ht_fonts_devdir)unicode/Linux_Biolinum_T/LinBiolinumTB-lf-sc-ly1.htf
+tex4ht_fonts_libertine_derived = \
+	$(ht_fonts_devdir)/unicode/Linux_Biolinum_T/LinBiolinumTB-lf-sc-ly3.htf
 
 # xx and many more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
