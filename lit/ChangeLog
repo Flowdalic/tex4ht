@@ -1,3 +1,9 @@
+2019-04-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex: returned back the XCharter fonts.
+	* tex4ht-fonts-libertine.tex: fixed family names for Libertine fonts. This
+	changes the directory where the HTF fonts are generated.
+
 2019-04-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-nonjk.tex: removed EB Garamond and Linux Libertine fonts.
