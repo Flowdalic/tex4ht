@@ -3,6 +3,9 @@
 	* tex4ht-fonts-noncjk.tex: returned back the XCharter fonts.
 	* tex4ht-fonts-libertine.tex: fixed family names for Libertine fonts. This
 	changes the directory where the HTF fonts are generated.
+	* tex4ht-4ht.tex (floatpag.4ht): redefine the \thisfloatpagestyle command to
+	be ignored with tex4ht.
+	https://github.com/michal-h21/tex4ebook/issues/58
 
 2019-04-17  Michal Hoftich  <michal.h21@gmail.com>
 
