@@ -1,3 +1,8 @@
+2019-04-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex: regenerated  Zapf fonts using Htfgen. The old
+	version produced incorrect characters
+
 2019-04-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex: returned back the XCharter fonts.
