@@ -1,28 +1,29 @@
-2019-04-24  Michal Hoftich  <michal.h21@gmail.com>
-
-	* tex4ht-fonts-noncjk.tex: regenerated  Zapf fonts using Htfgen. The old
-	version produced incorrect characters
-
-2019-04-20  Michal Hoftich  <michal.h21@gmail.com>
+2019-05-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): redefine the 
 	problematic commands for TOC only in \Configure{writetoc}.
 	https://tug.org/pipermail/tex4ht/2019q2/002262.html
 
+2019-04-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex: regenerated Zapf fonts using Htfgen.
+	The old version produced incorrect characters
+
 2019-04-18  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-fonts-noncjk.tex: returned back the XCharter fonts.
-	* tex4ht-fonts-libertine.tex: fixed family names for Libertine fonts. This
-	changes the directory where the HTF fonts are generated.
-	* tex4ht-4ht.tex (floatpag.4ht): redefine the \thisfloatpagestyle command to
-	be ignored with tex4ht.
+	* tex4ht-fonts-noncjk.tex: restore XCharter fonts.
+	* tex4ht-fonts-libertine.tex: fixed family names for Libertine
+	fonts. This changes the directory where the HTF fonts are generated.
+	* tex4ht-4ht.tex (floatpag.4ht): redefine the
+	\thisfloatpagestyle command to be ignored with tex4ht.
 	https://github.com/michal-h21/tex4ebook/issues/58
 
 2019-04-17  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-fonts-nonjk.tex: removed EB Garamond and Linux Libertine fonts.
-	* tex4ht-fonts-ebgaramond.tex: added new literate source for EB Garamond HTF
-	files.
+	* tex4ht-fonts-noncjk.tex: removed EB Garamond and Linux
+	Libertine fonts.
+	* tex4ht-fonts-ebgaramond.tex: added new literate source for EB
+	Garamond HTF files.
 	* tex4ht-fonts-libertine.tex: added literate sources for Libertine HTF
 	files.
 
@@ -32,7 +33,8 @@
 
 2019-04-10  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html5.tex (html5.4ht): added support for HTML5 figures for AMS classes.
+	* tex4ht-html5.tex (html5.4ht): added support for HTML5 figures
+	for AMS classes.
 	
 2019-04-09  Michal Hoftich  <michal.h21@gmail.com>
 
