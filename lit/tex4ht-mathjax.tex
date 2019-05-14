@@ -85,7 +85,7 @@ The \verb|\fixmathjaxtoc| command is used for patching commands which should
 keep their verbatim appearance in the TOC
 
 \<defined commands\><<<
-\def\fixmathjaxtoc#1{\def#1{\detokenize{#1}}}
+\def\fixmathjaxtoc#1{\Configure{writetoc}{\def#1{\detokenize{#1}}}}
 >>>
 
 

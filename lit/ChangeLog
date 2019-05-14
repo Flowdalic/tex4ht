@@ -3,6 +3,12 @@
 	* tex4ht-fonts-noncjk.tex: regenerated  Zapf fonts using Htfgen. The old
 	version produced incorrect characters
 
+2019-04-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): redefine the 
+	problematic commands for TOC only in \Configure{writetoc}.
+	https://tug.org/pipermail/tex4ht/2019q2/002262.html
+
 2019-04-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex: returned back the XCharter fonts.
