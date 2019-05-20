@@ -1,3 +1,8 @@
+2019-05-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex(adjustbox.4ht),
+	tex4ht-html4.tex (html4.4ht): added support for the adjustbox package.
+
 2019-05-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): redefine the 

@@ -15356,6 +15356,24 @@ IE doesn't distinguish between upper and lower case characters in css
    {\HCode{</td>}}
 >>>
 
+%%%%%%%%%%%%%%%%%%
+\subsection{adjustbox}
+%%%%%%%%%%%%%%%%%%
+
+\<configure html4 adjustbox\><<<
+% add support for vertical alignment of table rows
+\Configure{halignTR}{}
+\Configure{AdjustboxValignTop}{\Css{\#TBL-\TableNo-\HRow-{vertical-align:top;}}}
+\Configure{AdjustboxValignMiddle}{\Css{\#TBL-\TableNo-\HRow-{vertical-align:middle;}}}
+\Configure{AdjustboxValignCenter}{\Css{\#TBL-\TableNo-\HRow-{vertical-align:middle;}}}
+\Configure{AdjustboxValignBottom}{\Css{\#TBL-\TableNo-\HRow-{vertical-align:bottom;}}}
+% convert size in pt to em, based on the current font size
+\def\pt:to:em#1{\strip@pt\dimexpr#1/\f@size em}
+\Configure{Adjustbox}
+{\IgnorePar\EndP\IgnorePar\HCode{<div class="adjustbox" id="\AdjustboxId">}}
+{\Css{\#\AdjustboxId{border: \pt:to:em{\fboxrule} solid black;padding: \pt:to:em{\fboxsep};}}%
+\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+>>>
 
 
 %%%%%%%%%%%%%%%%%%%
