@@ -9998,7 +9998,7 @@ ntheorem\EndLink
 
 \<bussproofs.4ht\><<<
 % bussproofs.4ht (|version), generated from |jobname.tex
-% Copyright 2017 TeX Users Group
+% Copyright 2019 TeX Users Group
 |<TeX4ht license text|>
 
 \NewConfigure{DisplayProof}{2}
@@ -10009,6 +10009,23 @@ ntheorem\EndLink
 \endinput
 
 >>> \AddFile{8}{bussproofs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<proof.4ht\><<<
+% proof.4ht (|version), generated from |jobname.tex
+% Copyright 2019 TeX Users Group
+|<TeX4ht license text|>
+\NewConfigure{infer}{2}
+\def\:temp[#1]#2#3{%
+\a:infer\o:@infer:[#1]{#2}{#3}\b:infer
+}
+\HLet\@infer|=\:temp
+\Hinput{proof}
+\endinput
+>>> \AddFile{8}{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Sectioning Commands}

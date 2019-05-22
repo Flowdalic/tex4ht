@@ -2,6 +2,8 @@
 
 	* tex4ht-4ht.tex (bussproofs.4ht),
 	tex4ht-html4.tex (html4.4ht): added support for the bussproofs package.
+	* tex4ht-4ht.tex (proof.4ht),
+	tex4ht-html4.tex (html4.4ht): added support for the proof package.
 
 2019-05-20  Michal Hoftich  <michal.h21@gmail.com>
 
