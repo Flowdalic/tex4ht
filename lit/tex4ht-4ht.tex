@@ -3921,7 +3921,7 @@ function M.char_to_entity(head)
     elseif n.id == dir_id then
       -- when text direction is TRT, the spaces in the DVI file have negative width and they are not recognized by tex4ht
       -- so we just change the direction to normal TLT
-      n.dir = "TLT"
+      n.dir = "+TLT"
     end
   end
   return head
