@@ -1,3 +1,8 @@
+2019-06-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (memoir.4ht),
+	tex4ht-html4.tex (html4.4ht): added support for the \book command.
+
 2019-05-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (fontspec-4ht.lua): current LuaTeX needs + sign before

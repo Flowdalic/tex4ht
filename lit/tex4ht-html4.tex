@@ -9891,6 +9891,14 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
 \Css{.poemline {text-align:right; width:6em;}}
 
 \Configure{legend}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="legend">}}{\HCode{</div>}}
+
+\Configure{book}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<h2 class="bookHead"><span class="booknumber">}%
+\bookname\refstepcounter{book}\space\thebook\HtmlParOff\HCode{</span><span class="booktitle">}}
+{\HCode{</span></h2>}\HtmlParOn}{}{}
+\Css{.booknumber{display:block;}}
+\Configure{toToc}{book}{part}
+
 >>>
 
 
