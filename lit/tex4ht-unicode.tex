@@ -921,9 +921,11 @@ because the mathml marking on it get confused.
 
 
 \<configure unicode babel\><<<
+\:CheckOption{new-accents}\if:Option\else
 \Configure{accent}\bbl@umlauta
    \bbl@umlaute{|<diaeresis codes|>{}{34}}
    {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\fi
 >>>
 
 
