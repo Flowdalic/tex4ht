@@ -28718,6 +28718,63 @@ multind.sty\EndLink
   {\def\indexname{#2}\@input{#1.ind}}}
 >>>
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\SubSection{imakeidx.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<imakeidx.4ht\><<<
+% imakeidx.4ht (|version), generated from |jobname.tex
+% Copyright 2019 TeX Users Group
+|<TeX4ht license text|>
+
+|<imakeidx.sty|>
+
+
+\Hinput{imakeidx}
+\endinput
+>>> \AddFile{7}{imakeidx}
+
+Patch the index writting commands to introduce the index destination and link to the
+destination to the idx file
+
+Note that the splitindex option doesn't work, as splitindex doesn't keep the
+tex4ht commands inserted in the idx file.
+
+\<imakeidx.sty\><<<
+\def\:temp#1#2#3{\html:addr%
+\hbox{\Link-{}{|<index haddr|>}\EndLink}%
+\protected@write\@indexfile{}%
+{\string\beforeentry{\RefFileNumber\FileNumber}{|<index haddr|>}{\a:makeindex}}
+\o:imki@wrindexentryunique:{#1}{#2}{#3}%
+}
+\HLet\imki@wrindexentryunique\:temp
+
+\def\:temp#1#2#3{\html:addr%
+\hbox{\Link-{}{|<index haddr|>}\EndLink}%
+\expandafter\protected@write\csname#1@idxfile\endcsname{}%
+{\string\beforeentry{\RefFileNumber\FileNumber}{|<index haddr|>}{\a:makeindex}}%
+\o:imki@wrindexentrysplit:{#1}{#2}{#3}%
+}
+\HLet\imki@wrindexentrysplit\:temp
+
+\ifx \a:makeindex\:UnDef
+\NewConfigure{makeindex}{}\Configure{makeindex}{}
+\fi
+>>>
+
+\<use package\><<<
+imakeidx,>>>
+
+Prevent the automatic index compilation, the index produced by tex4ht
+needs a special treatment.
+
+\<add to usepackage\><<<
+\def\:temp{imakeidx}\ifx\@currname\:temp
+  \PassOptionsToPackage{noautomatic}{imakeidx}
+\fi
+>>>
+
 \<index haddr\><<<
 d|<haddr prefix|>\last:haddr
 >>>

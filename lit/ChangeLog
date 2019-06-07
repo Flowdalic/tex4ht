@@ -1,3 +1,8 @@
+2019-06-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, imakeidx.4ht): added support for the
+	Imakeidx package.
+
 2019-06-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (memoir.4ht),
