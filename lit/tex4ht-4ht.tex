@@ -28735,13 +28735,10 @@ multind.sty\EndLink
 \endinput
 >>> \AddFile{7}{imakeidx}
 
-Patch the index writting commands to introduce the index destination and link to the
-destination to the idx file
+This code would be used with the splitindex option, but it seems index handling is
+already done, so it is not useful.
 
-Note that the splitindex option doesn't work, as splitindex doesn't keep the
-tex4ht commands inserted in the idx file.
-
-\<imakeidx.sty\><<<
+\<imakeidx-do-not-use\><<<
 \def\:temp#1#2#3{\html:addr%
 \hbox{\Link-{}{|<index haddr|>}\EndLink}%
 \protected@write\@indexfile{}%
@@ -28749,7 +28746,11 @@ tex4ht commands inserted in the idx file.
 \o:imki@wrindexentryunique:{#1}{#2}{#3}%
 }
 \HLet\imki@wrindexentryunique\:temp
+>>>
 
+Patch the index writting commands to introduce the index destination and link to the
+destination to the idx file
+\<imakeidx.sty\><<<
 \def\:temp#1#2#3{\html:addr%
 \hbox{\Link-{}{|<index haddr|>}\EndLink}%
 \expandafter\protected@write\csname#1@idxfile\endcsname{}%
