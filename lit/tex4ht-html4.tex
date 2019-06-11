@@ -13693,7 +13693,7 @@ for margin pars.
 % the resulting SVG is basically PNG encapsulated in SVG
 % \Configure{EpsConvert}{"\a:ImageMagick\space '\Gin@base.eps' '\Gin@base.svg'"}
 % it is better to use the following command. pdf2svg must be installed separately.
-\Configure{EpsConvert}{"epstopdf '\Gin@base.eps' '\Gin@base.pdf' && pdf2svg '\Gin@base.pdf' '\Gin@base.svg'"}
+\Configure{EpsConvert}{"epstopdf '\Gin@base.eps'  && pdf2svg '\Gin@base.pdf' '\Gin@base.svg'"}
 \else
 \Configure{PdfConvert}{png}{"\a:Ghostscript\space -q -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r300 \ifx\Gin@page\@empty\else -dFirstPage='\Gin@page'  -dLastPage='\Gin@page'\fi\space -sOutputFile='\Gin@base-\Gin@page.\a:PdfConvert' \Gin@base.pdf"}
 \Configure{EpsConvert}{"\a:Ghostscript\space -dSAFER    -dBATCH    -dNOPAUSE    -dEPSCrop    -r120  -sDEVICE=pngalpha -sOutputFile='\Gin@base.png' '\Gin@base.eps' "}
