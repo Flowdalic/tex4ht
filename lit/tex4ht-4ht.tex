@@ -3869,6 +3869,14 @@ local make_node = function(data)
   return n
 end
 
+local function first_node(head)
+  local head = head
+  while head.prev do
+    head = head.prev
+  end
+  return head
+end
+
 -- this should be table with patterns for allowed fonts
 local allowed_names = {"^cmr", "^cmb","^cmt", "^cmb", "^cmcs", "^rm%-l", "^cmi", "^ec%-lm", "none"}
 
@@ -3924,7 +3932,7 @@ function M.char_to_entity(head)
       n.dir = "+TLT"
     end
   end
-  return head
+  return first_node(head)
 end
 
 M.allowed = allowed_names
