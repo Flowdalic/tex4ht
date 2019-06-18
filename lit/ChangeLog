@@ -1,17 +1,17 @@
 2019-06-18  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (fontspec-4ht.lua): fix for unicode specials inserted at the
-	beginning of a node list.
+	* tex4ht-4ht.tex (fontspec-4ht.lua): fix for unicode specials
+	inserted at the beginning of a node list.
 
 2019-06-11  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): don't pass the PDF name to epstopdf, it can
-	fail on Windows
+	* tex4ht-html4.tex (html4.4ht): don't pass the PDF name to
+	epstopdf, it can fail on Windows.
 
 2019-06-10  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): made the command used for the EPS graphics
-	support configurable
+	* tex4ht-html4.tex (html4.4ht): made the command used for the
+	EPS graphics support configurable.
 
 2019-06-07  Michal Hoftich  <michal.h21@gmail.com>
 
