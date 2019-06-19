@@ -3691,6 +3691,49 @@ Note that not all commands are provided, more can be added on user request.
 \fi
 >>>
 
+%%%%%%%%%%%%%%%%%
+\Section{polyglossia}
+%%%%%%%%%%%%%%%%%
+
+The direction option for Polyglossia's language selection commands causes
+tex4ht support for XeLaTeX fail. tex4ht use a different mechanism for direction
+handling, so we can just disable it.
+
+\<use package\><<<
+polyglossia,>>>
+
+\<add to usepackage\><<<
+\AtEndOfPackage{
+  \let\orig@xpg@define@keys\xpg@define@keys
+  \def\xpg@define@keys#1{%
+    \orig@xpg@define@keys{#1}%
+    \define@choicekey+[xpg@setup]{#1}{direction}[\val\nr]{LR,RL}[LR]%
+    {
+      \togglefalse{#1@RL}%
+      \ifcase\nr\relax%
+        \csgappto{init@extras@#1}{%
+          a:PolyglossiaRtl%
+        }
+      \or
+        \csgappto{init@extras@#1}{%
+          \b:PolyglossiaRtl%
+        }
+      \fi
+    }%
+    {\xpg@warning{#1: Invalid value \val\space for key "direction"}}%
+}}
+
+>>>
+
+\<polyglossia.4ht\><<<
+% polyglossia.4ht (|version), generated from |jobname.tex
+% Copyright 2019 TeX Users Group
+|<TeX4ht license text|>
+\NewConfigure{PolyglossiaRtl}{2}
+\Hinput{polyglossia}
+\endinput
+>>> \AddFile{9}{polyglossia}
+
 
 %%%%%%%%%%%%%%%%%
 \Section{fontspec}
