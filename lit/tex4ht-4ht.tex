@@ -29442,6 +29442,28 @@ main()
 \EndList
 
 %%%%%%%%%%%%%%%%%%%
+\Section{minted}
+%%%%%%%%%%%%%%%%%%%
+
+The breaklines option for Minted environments and commands causes source code
+lines to collapse into one line. We try to prevent that by basically disabling
+this option.
+
+As it can be declared in the preamble, we must patch the usepackage code.
+
+\<use package\><<<
+minted,>>>
+
+
+\<add to usepackage\><<<
+\def\:temp{minted}\ifx\@currname\:temp
+  \AtEndOfPackage{%
+    \define@booleankey{minted@opt@g}{breaklines}{}{}{}%
+  }
+\fi
+>>>
+
+%%%%%%%%%%%%%%%%%%%
 \Section{alphanum}
 %%%%%%%%%%%%%%%%%%%
 
