@@ -1,3 +1,8 @@
+2019-03-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): removed invalid attribute
+	table:value-type.
+
 2019-06-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): fixed the breaklines option for Minted
