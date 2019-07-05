@@ -1,3 +1,8 @@
+2019-03-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-docbook.tex (docbook.4ht): added support for scrartcl, scrreprt and
+	memoir classes.
+
 2019-03-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): removed invalid attribute
