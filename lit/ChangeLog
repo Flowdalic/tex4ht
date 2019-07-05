@@ -1,7 +1,7 @@
 2019-07-05  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-docbook.tex (docbook.4ht): added support for scrartcl, scrreprt and
-	memoir classes.
+	* tex4ht-docbook.tex (docbook.4ht): added support for scrartcl,
+	scrreprt and memoir classes.
 
 2019-07-03  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -10,14 +10,15 @@
 
 2019-06-24  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht): fixed the breaklines option for Minted
-	package.
+	* tex4ht-4ht.tex (usepackage.4ht): fixed the breaklines option
+	for Minted package.
 
 2019-06-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, polyglossia.4ht),
 	tex4ht-html4.tex (html4.4ht),
-	tex4ht-ooffice.tex (ooffice.4ht): fixed direction support for polyglossia.
+	tex4ht-ooffice.tex (ooffice.4ht): fixed direction support for
+	polyglossia.
 
 2019-06-18  Michal Hoftich  <michal.h21@gmail.com>
 
