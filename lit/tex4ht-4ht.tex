@@ -27874,6 +27874,25 @@ with small  shifting.
 >>>        \AddFile{9}{quoting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
+\Section{titling}
+
+\<titling.4ht\><<<
+% tex4ht.4ht (|version), generated from |jobname.tex
+% Copyright 2019 TeX Users Group
+|<TeX4ht license text|>
+|<titling configurations|>
+\Hinput{titling}
+\endinput
+>>>     \AddFile{9}{titling}
+
+
+\<titling configurations\><<<
+\let\titling:maketitle\maketitle
+\def\new:titling:maketitle{\titling:maketitle\let\maketitle\new:titling:maketitle}
+\def\maketitle{\new:titling:maketitle}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{res}
 
 \<res.4ht\><<<

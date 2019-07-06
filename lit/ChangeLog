@@ -1,3 +1,8 @@
+2019-07-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (titling.4ht): added basic support for the titling package.
+	https://tex.stackexchange.com/a/498887/2891
+
 2019-07-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-docbook.tex (docbook.4ht): added support for scrartcl,
