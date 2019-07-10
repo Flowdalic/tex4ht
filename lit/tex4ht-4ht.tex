@@ -3730,6 +3730,7 @@ polyglossia,>>>
 % Copyright 2019 TeX Users Group
 |<TeX4ht license text|>
 \NewConfigure{PolyglossiaRtl}{2}
+|<arabic digits|>
 \Hinput{polyglossia}
 \endinput
 >>> \AddFile{9}{polyglossia}
@@ -22214,6 +22215,7 @@ This modification is needed since Stefan
 \def\:temp#1{{\leavevmode #1}}
 \HLet\save@sf@q|=\:temp
 |<set@low@box|>
+|<arabic digits|>
 >>>
 
 \<set@low@box\><<<
@@ -22229,6 +22231,19 @@ This modification is needed since Stefan
 
 % \expandafter\def\csname glqq \endcsname{\HCode{&\#132;}}
 % \expandafter\def\csname glq \endcsname{\HCode{&\#130;}}
+
+% this command will convert normal numbers to arabic
+% it fixes both babel and polyglossia version
+% Unicode block for Arabic numerals starts at U+0660
+% the following special command inserts the XML entity
+% for the number, which will be converted to Unicode char
+% by tex4ht
+\<arabic digits\><<<
+\def\arabic:loopoverdigits#1{\ifx\relax#1\else%
+\special{t4ht@+&{35}x066#1{59}}x%
+\expandafter\arabic:loopoverdigits\fi}
+\def\arabicdigits#1{\arabic:loopoverdigits#1\relax}
+>>>
 
 \<robust babel\><<<
 \def\@newl@bel#1#2{{\:SUBOff\:SUPOff \@safe@activestrue 

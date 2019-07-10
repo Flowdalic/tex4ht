@@ -1,3 +1,9 @@
+2019-07-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (babel.4ht,polyglossia.4ht): added support for the
+	\arabicdigits macro.
+	https://tex.stackexchange.com/q/495709/2891
+
 2019-07-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (titling.4ht): added basic support for the titling package.
