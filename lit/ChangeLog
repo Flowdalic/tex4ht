@@ -1,3 +1,8 @@
+2019-07-26 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (natbib.4ht): added support for \Configure{cite}.
+	https://tex.stackexchange.com/q/501572/2891
+
 2019-07-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (babel.4ht,polyglossia.4ht): added support for the

@@ -22035,14 +22035,15 @@ Section \ref{sec:Algorithms} presents
 \<hyperref for natbib\><<<
 \expandafter\ifx \csname hyper@linkstart\endcsname\relax
    \def\hyper@linkstart#1#2{%
+     \a:cite%
      \def\:temp{#1}%
      \ifx\:temp\@urltype
-       \Link[#2]{}{}%
+       \cIteLink[#2]{}{}%
      \else
-       \ifx\rel:hyper\def\Link{#2}{}\else\Link[\##2]{}{}\fi
+       \ifx\rel:hyper\def\cIteLink{#2}{}\else\cIteLink[\##2]{}{}\fi
      \fi  \global\let\rel:hyper=\:UnDef
    }
-   \def\hyper@linkend{\EndLink}
+   \def\hyper@linkend{\EndcIteLink\b:cite}
 \fi
 \long\def\:temp#1{}\ifx \:temp\hyper@natanchorstart
    \def\hyper@natanchorstart#1{\Link{}{X#1}\EndLink}

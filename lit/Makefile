@@ -53,7 +53,7 @@ tex4ht_4ht_derived = \
 	jurabib.4ht \
   latex.4ht lettrine.4ht listings.4ht \
   magyar.4ht mdframed.4ht memoir.4ht multicol.4ht multirow.4ht \
-  nameref.4ht \
+  nameref.4ht natbib.4ht \
   proof.4ht pstricks.4ht \
   quoting.4ht \
   reading.4ht \
