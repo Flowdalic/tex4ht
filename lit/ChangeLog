@@ -1,3 +1,9 @@
+2019-08-16 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex: fixed support for avant, newcent, bookman and
+	chancery text fonts.
+	https://puszcza.gnu.org.ua/bugs/?433
+
 2019-07-26 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (natbib.4ht): added support for \Configure{cite}.
