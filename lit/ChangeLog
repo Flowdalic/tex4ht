@@ -3,6 +3,9 @@
 	* tex4ht-html4.tex (html4.4ht),
 	tex4ht-ooffice.tex (ooffice.4ht): enable supported graphics types out of the
 	box.
+	* tex4ht-fonts-modern.tex
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/vntex/arevvn/fav.htf): added CSS
+	declarations for more font styles and weights.
 
 2019-08-16 Michal Hoftich  <michal.h21@gmail.com>
 
