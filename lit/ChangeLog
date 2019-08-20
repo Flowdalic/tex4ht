@@ -1,3 +1,9 @@
+2019-08-20 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht),
+	tex4ht-ooffice.tex (ooffice.4ht): enable supported graphics types out of the
+	box.
+
 2019-08-16 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex: fixed support for avant, newcent, bookman and

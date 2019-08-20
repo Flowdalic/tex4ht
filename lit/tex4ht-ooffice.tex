@@ -1011,6 +1011,9 @@ original paths to be able to copy pictures to correct location.
    {jpeg}
    {|<save image name|>\Picture[IMG]{\imgBase.jpeg |<graphics dimensions|> }}
 
+
+|<graphics default extensions|>
+
 \NewConfigure{Ghostscript}{1}
 \NewConfigure{PdfConvert}{2}
 \Configure{Ghostscript}{rungs}
@@ -1052,6 +1055,11 @@ original paths to be able to copy pictures to correct location.
 \fi
 >>>  
 
+Enable supported image extensions out of the box.
+
+\<graphics default extensions\><<<
+\DeclareGraphicsExtensions{.png,.jpg,.eps,.pdf}
+>>>
 
 \<configure ooffice tex4ht\><<<
 \def\svg:width{0.0pt}\def\svg:height{0.0pt}

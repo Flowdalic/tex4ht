@@ -13674,6 +13674,8 @@ for margin pars.
    {\Configure{Needs}{File: \Gin@base\PictExt}\Needs{}}%
    \Picture[\a:GraphicsAlt]{{\Gin@base\PictExt} |<graphics dim|>}}
 
+|<graphics default extensions|>
+
 \edef\svg:ext{.svg}
 
 \NewConfigure{ImageMagick}{1}
@@ -13811,6 +13813,14 @@ height="\expandafter\int:pt\the\Gin@req@height|<par del|>"
    height="\expandafter\int:pt\Gin:eheight|<par del|>"
 \fi
 >>>
+
+Declare default graphics extensions supported in HTML or converted to these
+supported formats by tex4ht.
+
+\<graphics default extensions\><<<
+\DeclareGraphicsExtensions{.png,.svg,.jpg,.eps,.pdf}
+>>>
+
 
 %%%%%%%%%%%%%%%%%%
 \subsection{graphicx}
