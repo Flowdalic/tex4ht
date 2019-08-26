@@ -702,11 +702,15 @@ We reserve code 254 (and 255) for unknown symbols.
       |<vanilla mathml|>
   >>>
 
-     \<plain,latex mathml\><<<
+  I've calculated the space widths according to
+  \Link[https://chenfuture.wordpress.com/2008/03/22/math-spacing-and-length-units/]{}{}Math
+  Spacing and Length Units\EndLink\ blog post.
+
+\<plain,latex mathml\><<<
 \let\mathml:on|=\relax
 \Configure{ }
    {\ifmathml \ifmtext \space \else\Tg<\a:mathml mspace 
-    width="1em" \mml:class="nbsp" />\fi
+    width="0.33em" \mml:class="nbsp" />\fi
     \else \:nbsp\fi} 
 >>>
 
@@ -4055,7 +4059,15 @@ catching of  left subscripts and superscripts.
    {\HCode{<\a:mathml mspace width="2em" \mml:class="qquad"/>}}\fi
     \else \o:qquad: \fi}}
 \Configure{,}
-   {{\HCode{<\a:mathml mspace width="0em" \mml:class="thinspace"/>}}}
+   {{\HCode{<\a:mathml mspace width="0.17em" \mml:class="thinspace"/>}}}
+\Configure{:}
+   {{\HCode{<\a:mathml mspace width="0.22em" \mml:class="thinspace"/>}}}
+\Configure{;}
+   {{\HCode{<\a:mathml mspace width="0.28em" \mml:class="thickpace"/>}}}
+\Configure{>}
+   {{\HCode{<\a:mathml mspace width="0.30em" \mml:class="medspace"/>}}}
+\Configure{!}
+   {{\HCode{<\a:mathml mspace width="-0.17em" \mml:class="negthinspace"/>}}}
 >>>
 
 

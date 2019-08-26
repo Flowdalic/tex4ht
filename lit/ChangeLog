@@ -1,3 +1,9 @@
+2019-08-26 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht),
+	tex4ht-mathml.tex (mathml.4ht): added support for different math space
+	commands.
+
 2019-08-20 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht),

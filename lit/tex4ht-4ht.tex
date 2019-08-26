@@ -6587,6 +6587,7 @@ parameterless definitions.
 \NewConfigure{qquad}{1}       \Configure{qquad}{\o:qquad:}
 >>>
 
+
 % \def\,{\mskip\thinmuskip}
 % \def\>{\mskip\medmuskip}
 % \def\;{\mskip\thickmuskip}
@@ -6595,6 +6596,20 @@ parameterless definitions.
 % \DeclareRobustCommand{\,}{%
 %    \relax\ifmmode\mskip\thinmuskip\else\thinspace\fi
 % }
+
+We should try to support more math space commands. These definitions should
+keep the original meaning by default.
+
+\<latex math\><<<
+\def\:tempc{\csname a:>\endcsname} \HLet\>|=\:tempc
+\def\:tempc{\csname a:;\endcsname} \HLet\;|=\:tempc
+\def\:tempc{\csname a:!\endcsname} \HLet\!|=\:tempc
+\def\:tempc{\csname a::\endcsname} \HLet\:|=\:tempc
+\NewConfigure{>}{1} \Configure{>}{\csname o:>\endcsname}
+\NewConfigure{;}{1} \Configure{;}{\csname o:;\endcsname}
+\NewConfigure{!}{1} \Configure{!}{\csname o:!\endcsname}
+\NewConfigure{:}{1} \Configure{:}{\csname o::\endcsname}
+>>>
 
 \<latex math\><<<
 \def\:tempc{\relax\ifmmode\csname a:,\endcsname\else\thinspace\fi}
