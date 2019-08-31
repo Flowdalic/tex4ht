@@ -15725,24 +15725,40 @@ Definition of \jbincollcrossref
 %   {\Configure{color}
 %       {\Configure{SetHColor}{\Css{body {background-color:\HColor}}}}}
 
-
+Configurations for saving colors to CSS. When the color declaration specified
+by the user contains spaces, the parameter for the last color is empty and 
+we may get compilation errors. This is why it is necessary to test the 
+argument for content. If it is empty, then the next argument contains the 
+actual color.
 
 \<configure html4 color\><<<
 \Configure{HColor:gray}{%
+  \if :#1:%
+   \int:of\:tempa{255}{#2}%
+  \else%
    \int:of\:tempa{255}{#1}%
+  \fi%
    \Configure{HColor}{}{rgb(\:tempa,\:tempa,\:tempa)}%
 }
 \Configure{HColor:rgb}{%
    \int:of\:tempa{255}{#1}%
    \int:of\:tempb{255}{#2}%
+   \if :#3:
+   \int:of\:tempc{255}{#4}%
+   \else%
    \int:of\:tempc{255}{#3}%
+   \fi%
    \Configure{HColor}{}{rgb(\:tempa,\:tempb,\:tempc)}%
 }
 \Configure{HColor:cmyk}{%
    \int:of\:Cyan{255}{#1}%
    \int:of\:Magenta{255}{#2}%
    \int:of\:Yellow{255}{#3}%
+   \if :#4:%
+   \int:of\:Black{255}{#5}%
+   \else%
    \int:of\:Black{255}{#4}%
+   \fi%
    \:cmyk\:tempa\:Cyan
    \:cmyk\:tempb\:Magenta
    \:cmyk\:tempc\:Yellow
