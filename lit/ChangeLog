@@ -1,3 +1,8 @@
+2019-09-03 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): use double quotes for command parameters
+	instead of single quotes. This caused run time error on Windows.
+
 2019-09-01 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added support for the EPS images.
