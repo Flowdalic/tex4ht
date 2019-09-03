@@ -1,6 +1,7 @@
 2019-09-03 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): use double quotes for command parameters
+	* tex4ht-ooffice.tex (ooffice.4ht), 
+	* tex4ht-html4.tex (html4.4ht): use double quotes for command parameters
 	instead of single quotes. This caused run time error on Windows.
 
 2019-09-01 Michal Hoftich  <michal.h21@gmail.com>

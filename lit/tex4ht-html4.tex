@@ -13690,15 +13690,15 @@ for margin pars.
 
 % test the picture output format
 \ifx\PictExt\svg:ext
-\Configure{PdfConvert}{svg}{"pdf2svg '\Gin@base.pdf' '\Gin@base-\Gin@page.\a:PdfConvert' \Gin@page"}
+\Configure{PdfConvert}{svg}{"pdf2svg "\Gin@base.pdf" "\Gin@base-\Gin@page.\a:PdfConvert" \Gin@page"}
 % the quality of conversion using ImageMagick is quite bad, it rasterizes the vectors and
 % the resulting SVG is basically PNG encapsulated in SVG
 % \Configure{EpsConvert}{"\a:ImageMagick\space '\Gin@base.eps' '\Gin@base.svg'"}
 % it is better to use the following command. pdf2svg must be installed separately.
-\Configure{EpsConvert}{"epstopdf '\Gin@base.eps'  && pdf2svg '\Gin@base.pdf' '\Gin@base.svg'"}
+\Configure{EpsConvert}{"epstopdf "\Gin@base.eps"  && pdf2svg "\Gin@base.pdf" "\Gin@base.svg""}
 \else
-\Configure{PdfConvert}{png}{"\a:Ghostscript\space -q -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r300 \ifx\Gin@page\@empty\else -dFirstPage='\Gin@page'  -dLastPage='\Gin@page'\fi\space -sOutputFile='\Gin@base-\Gin@page.\a:PdfConvert' \Gin@base.pdf"}
-\Configure{EpsConvert}{"\a:Ghostscript\space -dSAFER    -dBATCH    -dNOPAUSE    -dEPSCrop    -r120  -sDEVICE=pngalpha -sOutputFile='\Gin@base.png' '\Gin@base.eps' "}
+\Configure{PdfConvert}{png}{"\a:Ghostscript\space -q -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r300 \ifx\Gin@page\@empty\else -dFirstPage="\Gin@page"  -dLastPage="\Gin@page"\fi\space -sOutputFile="\Gin@base-\Gin@page.\a:PdfConvert" "\Gin@base.pdf" "}
+\Configure{EpsConvert}{"\a:Ghostscript\space -dSAFER    -dBATCH    -dNOPAUSE    -dEPSCrop    -r120  -sDEVICE=pngalpha -sOutputFile="\Gin@base.png" "\Gin@base.eps" "}
 \fi
 \Configure{graphics*}
    {pdf}
