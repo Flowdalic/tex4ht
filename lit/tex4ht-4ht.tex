@@ -14514,6 +14514,18 @@ Support for the \Verb=\book= command
 \renewcommand\legend[1]{\a:legend #1\b:legend}
 >>>
 
+There is a clash between Memoir and Hyperref, as it uses the
+Hfootnote counter, which isn't declared. 
+
+\<memoir cfg\><<<
+\@ifpackageloaded{hyperref}{%
+\ifHy@hyperfootnotes
+\Hy@hyperfootnotesfalse
+\newcounter{Hfootnote}
+\fi
+}{}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{mempatch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,3 +1,9 @@
+2019-09-05 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (memoir.4ht): fix for footnotes when the Hyperref package
+	is loaded.
+	https://tex.stackexchange.com/q/507129/2891
+
 2019-09-03 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht), 
