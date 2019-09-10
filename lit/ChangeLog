@@ -1,3 +1,11 @@
+2019-09-10 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht),
+	tex4ht-ooffice.tex (ooffice.4ht): disabled check for the missing bounding
+	box, this prevented use of dimensions specified in
+	\includegraphics[width=...].
+	https://tex.stackexchange.com/q/501648/2891
+
 2019-09-05 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (memoir.4ht): fix for footnotes when the Hyperref package
