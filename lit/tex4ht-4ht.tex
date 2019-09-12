@@ -25106,6 +25106,12 @@ graphics.sty\EndLink.
 \def\Gread@eps#1{\old:GreadEps{"#1"}}
 >>>
 
+Show dimensions only for pictures that have dimensions specified explicitly or using the .xbb file
+
+\<fix graphics\><<<
+\def\if:boundingbox#1#2{\ifdim\Gin@req@width=\Gin@nat@width\ifx\noBoundingBox\UnDefined#1\else#2\fi\else#1\fi}
+>>>
+
 %\expandafter\def\csname c:graphics-file:\endcsname#1{\Gin@drafttrue
 %   \def\Gin@setfile##1##2##3{%
 %     \def\:temp####1####2{#1}\:temp{##3}{\Gin@base}}}
@@ -25177,7 +25183,7 @@ For xml
 
 \EndVerbatim
 
-Fix for XeTeX graphics - PDF inclusion doesn't work with default driver, 
+Fix for XeTeX graphics - PDF inclusion doesn't work with the default driver, 
 dvips needs to be used instead
 
 \<use package\><<<

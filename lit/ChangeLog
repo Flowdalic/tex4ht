@@ -1,3 +1,10 @@
+2019-09-12 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht),
+	tex4ht-ooffice.tex (ooffice.4ht),
+	tex4ht-4ht.tex (graphics.4ht): fixed support for image dimensions, tex4ht
+	will try to explicitly set them when possible.
+
 2019-09-10 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht),

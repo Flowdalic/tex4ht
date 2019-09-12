@@ -13772,7 +13772,7 @@ for margin pars.
        `Gin-dim'; for key dimensions when bounding box is unavailable 
        try `Gin-dim+'; neither is recommended}
    \Configure{Gin-dim}
-     {|<graphics width/height|>}
+   {\if:boundingbox{|<graphics width/height|>}{}}
 \fi \fi
 >>>
 
