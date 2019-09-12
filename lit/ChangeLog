@@ -4,6 +4,9 @@
 	tex4ht-ooffice.tex (ooffice.4ht),
 	tex4ht-4ht.tex (graphics.4ht): fixed support for image dimensions, tex4ht
 	will try to explicitly set them when possible.
+	* tex4ht-html4.tex (html4.4ht),
+	tex4ht-ooffice.tex (ooffice.4ht): use the -dusecropbox option for
+	GhostScript in the PDF conversion.
 
 2019-09-10 Michal Hoftich  <michal.h21@gmail.com>
 

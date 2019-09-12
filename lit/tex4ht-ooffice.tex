@@ -1032,7 +1032,7 @@ original paths to be able to copy pictures to correct location.
    \Picture[IMG]{{\imgBase\PictExt} |<graphics dimensions|>}}
 
 \NewConfigure{PdfConvert}{2}
-\Configure{PdfConvert}{png}{"\a:Ghostscript\space -q -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r300 \ifx\Gin@page\@empty\else -dFirstPage="\Gin@page"  -dLastPage="\Gin@page"\fi\space -sOutputFile="\Gin@base-\Gin@page.\a:PdfConvert" "\Gin@base.pdf""}
+\Configure{PdfConvert}{png}{"\a:Ghostscript\space -q -dNOPAUSE -dusecropbox -dBATCH -sDEVICE=pngalpha -r300 \ifx\Gin@page\@empty\else -dFirstPage="\Gin@page"  -dLastPage="\Gin@page"\fi\space -sOutputFile="\Gin@base-\Gin@page.\a:PdfConvert" "\Gin@base.pdf""}
 
 \Configure{graphics*}
    {pdf}
