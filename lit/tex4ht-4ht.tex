@@ -4676,9 +4676,13 @@ The following should be offered in nameref.4ht.
 \let\o:ref|=\:temp
 >>>
 
+The second parameter of hypertarget is outside of the link because
+it can often contain block elements such as headers and it would
+produce invalid HTML
+
 \<hyperref utils\><<<
 \def\hyperlink#1#2{\Link{#1}{}#2\EndLink}
-\def\hypertarget#1#2{\Link{}{#1}#2\EndLink}
+\def\hypertarget#1#2{\Link{}{#1}\EndLink#2}
 \ifx \hyperpage\:UnDef  \let\hyperpage=\empty  \fi
 >>>
 
@@ -30530,7 +30534,7 @@ of  \''<a>' elements.
 
 \let\sv:tocsection|=\tocsection
 \def\tocsection{\let\toclikesection|=\:gobbleIII \sv:tocsection}
-\def\hypertarget#1#2{\Link{}{#1}#2\EndLink}
+\def\hypertarget#1#2{\Link{}{#1}\EndLink#2}
 \def\hyperlink#1#2{\Link{#1}{}#2\EndLink}
 
 \append:def\exercise{\Link{}{page.ex\the@exno}\EndLink }

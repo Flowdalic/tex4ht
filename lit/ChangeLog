@@ -1,3 +1,9 @@
+2019-09-13 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (hyperref.4ht, exerquiz.4ht): moved contents of the second
+	argument of \hypertarget outside the generated link, in order to prevent
+	creation of invalid HTML tags.
+
 2019-09-12 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht),
