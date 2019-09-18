@@ -9234,6 +9234,16 @@ longtable.sty\EndLink{ \tt|}
 \HLet\endlastfoot\:tempc
 >>>
 
+Fix for the \Link[https://puszcza.gnu.org.ua/bugs/?437]{}{}starred linebreak issue\EndLink
+
+\<longtable code\><<<
+\def\LT@tabularcr{%
+  \relax\iffalse{\fi\ifnum0=`}\fi
+  \@ifstar
+    {\LT@t@bularcr}%
+    {\LT@t@bularcr}}
+>>>
+
 \<longtable hline\><<<
 \def\:tempc{%
   \o:noalign:{\ifnum0=`}\fi
