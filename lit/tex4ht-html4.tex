@@ -8555,10 +8555,11 @@ MathJax.Hub.Config({
 }}
 \Configure{MathjaxSource}{https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML}
 \Configure{@HEAD}{\HCode{ <script type="text/javascript" src="\a:MathjaxSource"></script> \Hnewline}}
-\Configure{$}{}{}{\expandafter\AltMathOne} 
-\Configure{()}{\AltlMath}{}
-\Configure{[]}{\AltlDisplay}{}
-\Configure{$$}{}{}{\AltlDisplayDollars}
+\def\:HandleMathjaxCatcodes{\edef\:RestoreMathjaxCatcodes{\catcode`\noexpand \&=\the\catcode`\&}\catcode`\&=11}
+\Configure{$}{\:HandleMathjaxCatcodes}{\:RestoreMathjaxCatcodes}{\expandafter\AltMathOne}
+% for some reason, it is necessary to specify the catcode change directly in the configuration
+\Configure{()}{\:HandleMathjaxCatcodes\catcode`\&=11\AltlMath}{\:RestoreMathjaxCatcodes}
+\Configure{[]}{\:HandleMathjaxCatcodes\catcode`\&=11\AltlDisplay}{\:RestoreMathjaxCatcodes}
 \fi
 >>>
 
