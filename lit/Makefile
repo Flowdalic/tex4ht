@@ -584,7 +584,8 @@ diff1 d1:
 	$(diff) $(inst_dir_4ht)/$(d) .
 
 diff-ht-fonts:
-	$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir)
+	$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) | tee /tmp/htd
+	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd |sort >/tmp/htf
 
 mostlyclean:
 	rm -f $(derived)

@@ -1,3 +1,7 @@
+2019-09-23  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-html4.tex: copyright 2019.
+
 2019-09-22 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht): fix for tables inside math in the
@@ -6,21 +10,22 @@
 
 2019-09-18 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (longtable.4ht): fix for the \\* commands inside longtable.
+	* tex4ht-4ht.tex (longtable.4ht): fix for the \\* commands
+	inside longtable.
 	https://puszcza.gnu.org.ua/bugs/?437
 
 2019-09-13 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (hyperref.4ht, exerquiz.4ht): moved contents of the second
-	argument of \hypertarget outside the generated link, in order to prevent
-	creation of invalid HTML tags.
+	* tex4ht-4ht.tex (hyperref.4ht, exerquiz.4ht): moved contents of
+	the second argument of \hypertarget outside the generated
+	link, in order to prevent creation of invalid HTML tags.
 
 2019-09-12 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht),
 	tex4ht-ooffice.tex (ooffice.4ht),
-	tex4ht-4ht.tex (graphics.4ht): fixed support for image dimensions, tex4ht
-	will try to explicitly set them when possible.
+	tex4ht-4ht.tex (graphics.4ht): fixed support for image dimensions,
+	tex4ht will try to explicitly set them when possible.
 	* tex4ht-html4.tex (html4.4ht),
 	tex4ht-ooffice.tex (ooffice.4ht): use the -dusecropbox option for
 	GhostScript in the PDF conversion.
@@ -28,22 +33,23 @@
 2019-09-10 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht),
-	tex4ht-ooffice.tex (ooffice.4ht): disabled check for the missing bounding
-	box, this prevented use of dimensions specified in
+	tex4ht-ooffice.tex (ooffice.4ht): disabled check for the missing
+	bounding box, this prevented use of dimensions specified in
 	\includegraphics[width=...].
 	https://tex.stackexchange.com/q/501648/2891
 
 2019-09-05 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (memoir.4ht): fix for footnotes when the Hyperref package
-	is loaded.
+	* tex4ht-4ht.tex (memoir.4ht): fix for footnotes when the Hyperref
+	package is loaded.
 	https://tex.stackexchange.com/q/507129/2891
 
 2019-09-03 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht), 
-	* tex4ht-html4.tex (html4.4ht): use double quotes for command parameters
-	instead of single quotes. This caused run time error on Windows.
+	* tex4ht-html4.tex (html4.4ht): use double quotes for command
+	parameters instead of single quotes. This caused run time error on
+	Windows.
 
 2019-09-01 Michal Hoftich  <michal.h21@gmail.com>
 
@@ -58,8 +64,8 @@
 2019-08-30 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added non breaking space to remove
-	spurious space inserted on every odd line in the algorithmicx environment.
-	https://github.com/michal-h21/make4ht/issues/20
+	spurious space inserted on every odd line in the algorithmicx
+	environment. https://github.com/michal-h21/make4ht/issues/20
 
 2019-08-26 Michal Hoftich  <michal.h21@gmail.com>
 
@@ -70,16 +76,16 @@
 2019-08-20 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht),
-	tex4ht-ooffice.tex (ooffice.4ht): enable supported graphics types out of the
-	box.
+	tex4ht-ooffice.tex (ooffice.4ht): enable supported graphics types
+	out of the box.
 	* tex4ht-fonts-modern.tex
-	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/vntex/arevvn/fav.htf): added CSS
-	declarations for more font styles and weights.
+	(tex4ht.dir/texmf/tex4ht/ht-fonts/alias/vntex/arevvn/fav.htf):
+	added CSS declarations for more font styles and weights.
 
 2019-08-16 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-fonts-noncjk.tex: fixed support for avant, newcent, bookman and
-	chancery text fonts.
+	* tex4ht-fonts-noncjk.tex: fixed support for avant, newcent,
+	bookman and chancery text fonts.
 	https://puszcza.gnu.org.ua/bugs/?433
 
 2019-07-26 Michal Hoftich  <michal.h21@gmail.com>
@@ -95,7 +101,8 @@
 
 2019-07-06  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (titling.4ht): added basic support for the titling package.
+	* tex4ht-4ht.tex (titling.4ht): added basic support for the
+	titling package. 
 	https://tex.stackexchange.com/a/498887/2891
 
 2019-07-05  Michal Hoftich  <michal.h21@gmail.com>
