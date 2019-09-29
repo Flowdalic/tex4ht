@@ -1,4 +1,4 @@
-2019-09-22 Michal Hoftich  <michal.h21@gmail.com>
+2019-09-29 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-cond4ht.tex (cond4ht.4ht, docbook.4ht, html0.4ht, html32.4ht,
 	html4.4ht, mktex4ht.4ht, ooffice.4ht, ooimpress.4ht, tei.4ht): Use
