@@ -325,6 +325,18 @@ it an explicitly check. On the other hand, we should avoid duplications.
 
 
 \<Hinclude latex lib\><<<
+\ifx\InputIfFileExists\UnDef%
+\def\input:if:fileexists#1#2#3{%
+   \openin15 #1.4ht%
+   \ifeof15%
+   #3%
+   \else%
+   \input #1%
+   \fi\closein15%
+}%
+\else
+\let\input:if:fileexists\InputIfFileExists%
+\fi%
 \Hinclude{\input #1.4ht}{fontmath}
 |<*.4ht out of order|>
 \def\h:input#1.#2.#3?<par del?>{%
@@ -333,16 +345,13 @@ it an explicitly check. On the other hand, we should avoid duplications.
    \else 
       \let\:temp\empty
       \no:dupl{#1}{%
-         \openin15 #1.4ht
-         \ifeof15
-            \:CheckOption{debug}\if:Option 
-               \:warning{No configuration file for
-                   #1.\if .#2.tex\else #2\fi}%
-            \fi
-            \let\:temp\empty
-         \else
-            \def\:temp{\input #1.4ht }%
-         \fi   \closein15
+        \def\:warn:msg{}
+        \:CheckOption{debug}\if:Option 
+          \def\:warn:msg{%
+            \:warning{No configuration file for #1.\if .#2.tex\else #2\fi}%
+          }
+        \fi%
+        \def\:temp{\input:if:fileexists{#1.4ht}{}{\:warn:msg}}%
        }%
    \fi  \:temp}
 \edef\:temp{\noexpand\Hinclude
