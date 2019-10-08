@@ -29546,6 +29546,25 @@ minted,>>>
 >>>
 
 %%%%%%%%%%%%%%%%%%%
+\Section{fancyhdr}
+%%%%%%%%%%%%%%%%%%%
+
+The Fancyhdr package breaks the sectioning support, it is necessary to suppress
+the fancy page style.
+\Link[https://tex.stackexchange.com/q/511350/2891]{}{}More info\EndLink.
+
+\<use package\><<<
+fancyhdr,>>>
+
+\<add to usepackage\><<<
+\def\:temp{fancyhdr}\ifx\@currname\:temp
+  \AtEndOfPackage{%
+  \def\ps@fancy{}%
+  }
+\fi
+>>>
+
+%%%%%%%%%%%%%%%%%%%
 \Section{alphanum}
 %%%%%%%%%%%%%%%%%%%
 

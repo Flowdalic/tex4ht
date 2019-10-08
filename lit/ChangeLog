@@ -1,3 +1,7 @@
+2019-10-08 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): fix for Fancyhdr fancy style.
+
 2019-09-29 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-cond4ht.tex (cond4ht.4ht, docbook.4ht, html0.4ht, html32.4ht,
