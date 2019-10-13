@@ -25107,7 +25107,7 @@ graphics.sty\EndLink.
    \def\:temp{#2}\ifx \:temp\empty
      \expandafter\let\csname :.#1\endcsname\:UnDef
    \else
-     \expandafter\def\csname :.#1\endcsname{\def\:temp{.#1}%
+     \expandafter\def\csname :.#1\endcsname{\edef\:temp{\detokenize{.#1}}%
         \ifx \:temp\Gin@ext  \let\a:graphics|=\relax
            \def\G:cnfg{#2}\expandafter\grf:gobble \fi}%
    \fi }
