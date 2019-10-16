@@ -21886,9 +21886,9 @@ We can't use styles from .htf files with fontspec, so we must add meaning to
 font commands
 
 \<configure html4 fontspec\><<<
-\Configure{textit}{\Tg<i>}{\Tg</i>}
-\Configure{textbf}{\Tg<strong>}{\Tg</strong>}
-\Configure{textsc}{\Tg<span class="small-caps">}{\Tg</span>}
+\Configure{textit}{\HCode{<i>}\NoFonts}{\EndNoFonts\Tg</i>}
+\Configure{textbf}{\HCode{<strong>}\NoFonts}{\EndNoFonts\Tg</strong>}
+\Configure{textsc}{\HCode{<span class="small-caps">}\NoFonts}{\EndNoFonts\Tg</span>}
 \Css{.small-caps{font-variant: small-caps;}}
 >>>
 
