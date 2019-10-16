@@ -3,6 +3,8 @@
 	* tex4ht-html4.tex (html4.4ht): fix for basic text formatting commands on
 	the beginning of the paragraph when Fontspec package is used.
 	http://puszcza.gnu.org.ua/bugs/?441
+	* tex4ht-html4.tex (html4.4ht): changed style for horizontal lines in
+	tables.
 
 2019-10-13 Michal Hoftich  <michal.h21@gmail.com>
 

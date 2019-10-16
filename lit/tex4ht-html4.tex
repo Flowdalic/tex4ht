@@ -7606,7 +7606,9 @@ Currently, we either have empty \verb'\VBorder', or one defined to
    {</tr>}
 \Configure{putHBorder}{\HCode{\HBorder}}
 \HAssign\Next:TableNo|=0 \global\let\TableNo=\Next:TableNo
-\Css{.hline hr, .cline hr{  height : 1px; margin:0px; }}
+\Css{.hline hr, .cline hr{  height : 0px; margin:0px; }}
+\Css{.hline td, .cline td{ padding: 0; }}
+\Css{.hline hr, .cline hr{border:none;border-top:1px solid black;}}
 >>>
 
 When \verb'\putVBorder' is call  in \verb'\VBorder' 
