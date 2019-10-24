@@ -27955,6 +27955,30 @@ with small  shifting.
 \def\maketitle{\new:titling:maketitle}
 >>>
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{appendix}
+
+\<appendix.4ht\><<<
+% appendix.4ht (|version), generated from |jobname.tex
+% Copyright 2019 TeX Users Group
+|<TeX4ht license text|>
+\renewcommand{\@chap@pppage}{%
+  \chapter*{\appendixpagename}
+}
+
+\renewcommand{\@sec@pppage}{%
+  \section*{\appendixpagename}
+  \nobreak
+  \@afterheading
+}
+
+\ifdefined\theHchapter\else\newcommand\theHchapter{\Alph{chapter}}\fi
+\ifdefined\theHsection\else\newcommand\theHsection{\Alph{section}}\fi
+\Hinput{appendix}
+\endinput
+>>> \AddFile{9}{appendix}
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 \Section{res}
 
