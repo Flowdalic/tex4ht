@@ -3551,10 +3551,10 @@ xr-hyper add optional argument after mandatory argument of
 it, so we can safely eat that.
 
 \<wait with xr-hyper\><<<
-\def\eat:optional[#1]{}
-\AtEndOfPackage{\let\XR:\XR@ 
-   \def\XR@[#1]#2{%
-     \Configure{AtBeginDocument}{\XR:[#1]{#2}}{}\@ifnextchar[\eat:optional{}}%
+\AtEndOfPackage{\let\XR:\XR@
+    \def\XR@[#1][#2]#3{%
+      \AtBeginDocument{\XR:[#1][#2]{#3}}
+    }%
 }
 >>>
 
