@@ -1,3 +1,8 @@
+2019-11-06 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): fixed test for existence of the
+	\mdfl@linewidth command in the configuration for mdframed.
+
 2019-10-31 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): fix for the xr-hyper package.
