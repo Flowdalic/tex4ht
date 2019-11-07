@@ -25791,16 +25791,26 @@ xcolor,>>>
 % mdframed.4ht (|version), generated from |jobname.tex
 % Copyright 2017 TeX Users Group
 |<TeX4ht license text|>
+
 \NewConfigure{mdframed}{2}
 \NewConfigure{mdframedstyle}{1}
+\NewConfigure{mdframetitle}{2}
 \newcount\mdf:env:cnt
 \def\mdf:id{mdframed-\the\mdf:env:cnt}
-\def\mdf@trivlist#1{\global\advance\mdf:env:cnt by1\relax\a:mdframed\a:mdframedstyle}
-\def\endmdf@trivlist{\b:mdframed}
- \def\mdf@lrbox#1{}
- \def\endmdf@lrbox{}
+\def\mdf@trivlist#1{\global\advance\mdf:env:cnt by1\relax\a:mdframed\a:mdframedstyle%
+    \ifdefempty{\mdf@frametitle}{}{\mdfframedtitleenv{\mdf@frametitle}\a:mdframetitle\mdf@@frametitle@use\b:mdframetitle}\let\mdf@frametitle\relax%
+}
 
+\def\endmdf@trivlist{\b:mdframed}
+
+% disable frame drawing, it can be supported using CSS
+\def\detected@mdf@put@frame{}%
+
+\append:def\mdf@@ignorelastdescenders{\let\orig:unskip\unskip\def\unskip{\let\unskip\orig:unskip}}%
+\def\mdf@lrbox#1{}
+\def\endmdf@lrbox{}
 \Hinput{mdframed}
+\endinput
 >>> \AddFile{9}{mdframed}
 
 

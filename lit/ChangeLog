@@ -1,3 +1,8 @@
+2019-11-07 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (mdframed.4ht): fixed support for frame titles. Disabled
+	native frame drawing.
+
 2019-11-06 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fixed test for existence of the
