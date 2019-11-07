@@ -1,7 +1,11 @@
+2019-11-07  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-cond4ht.tex (cond4ht.4ht, mktex4ht.4ht): copyright years.
+
 2019-11-07 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (mdframed.4ht): fixed support for frame titles. Disabled
-	native frame drawing.
+	* tex4ht-4ht.tex (mdframed.4ht): fixed support for frame titles.
+	Disabled native frame drawing.
 	* tex4ht-4ht.tex (minted.4ht),
 	tex4ht-html4.tex (html4.4ht): fixed support for inline syntax
 	highlighting with the Minted package.
@@ -26,16 +30,17 @@
 
 2019-10-16 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): fix for basic text formatting commands on
-	the beginning of the paragraph when Fontspec package is used.
+	* tex4ht-html4.tex (html4.4ht): fix for basic text formatting
+	commands at the beginning of the paragraph when fontspec is used.
 	http://puszcza.gnu.org.ua/bugs/?441
 	* tex4ht-html4.tex (html4.4ht): changed style for horizontal lines in
 	tables.
 
 2019-10-13 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (graphics.4ht): fix for serious error that showed after a
-	recent LaTeX core update -- all pictures were included as EPS images.
+	* tex4ht-4ht.tex (graphics.4ht): fix for serious error that
+	showed after a recent LaTeX core update -- all pictures were
+	included as EPS images.
 
 2019-10-08 Michal Hoftich  <michal.h21@gmail.com>
 
@@ -43,10 +48,9 @@
 
 2019-09-29 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-cond4ht.tex (cond4ht.4ht, docbook.4ht, html0.4ht, html32.4ht,
-	html4.4ht, mktex4ht.4ht, ooffice.4ht, ooimpress.4ht, tei.4ht): Use
-	\InputIfFileExists to include the package .4ht files. This should support
-	the \input@path.
+	* tex4ht-cond4ht.tex (cond4ht.4ht, html4.4ht, mktex4ht.4ht):
+	Use \InputIfFileExists to include the package .4ht files. This
+	should support the \input@path.
 	https://tex.stackexchange.com/q/510155/2891
 
 2019-09-23  Karl Berry  <karl@freefriends.org>
