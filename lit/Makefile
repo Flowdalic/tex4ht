@@ -52,7 +52,7 @@ tex4ht_4ht_derived = \
 	imakeidx.4ht \
 	jurabib.4ht \
   latex.4ht lettrine.4ht listings.4ht longtable.4ht \
-  magyar.4ht mdframed.4ht memoir.4ht multicol.4ht multirow.4ht \
+  magyar.4ht mdframed.4ht memoir.4ht minted.4ht multicol.4ht multirow.4ht \
   nameref.4ht natbib.4ht \
   proof.4ht pstricks.4ht \
   quoting.4ht \

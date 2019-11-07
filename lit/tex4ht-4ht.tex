@@ -23693,6 +23693,34 @@ We mimic, and using components from, the standard verbatim environment
 of LaTeX.  The \''\:gobbleII' is for getting rid of the
 \`'\insert\footins'.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{minted}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<minted.4ht\><<<
+% minted.4ht (|version), generated from |jobname.tex
+% Copyright 2019 TeX Users Group
+|<TeX4ht license text|>
+\NewConfigure{InlineCode}{2}
+
+\def\:tempa#1{%
+  \endgroup%
+  \begingroup%
+  \Configure{BVerbatimInput}{}{}{}{}{}\a:InlineCode%
+  \begingroup%
+  \o:minted@inline@iii:{#1}%
+  \b:InlineCode%
+  \endgroup%
+}
+
+\HLet\minted@inline@iii\:tempa
+
+\Hinput{minted}
+\endinput
+>>> \AddFile{9}{minted}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Slides}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
