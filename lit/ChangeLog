@@ -5,6 +5,9 @@
 	* tex4ht-4ht.tex (minted.4ht),
 	tex4ht-html4.tex (html4.4ht): fixed support for inline syntax
 	highlighting with the Minted package.
+	* tex4ht-4ht.tex (pythontex.4ht),
+	tex4ht-html4.tex (html4.4ht): fixed support for inline syntax
+	highlighting with the Pythontex package.
 
 2019-11-06 Michal Hoftich  <michal.h21@gmail.com>
 

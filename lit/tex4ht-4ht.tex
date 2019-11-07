@@ -23721,6 +23721,34 @@ of LaTeX.  The \''\:gobbleII' is for getting rid of the
 \endinput
 >>> \AddFile{9}{minted}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{pythontex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<pythontex.4ht\><<<
+% pythontex.4ht (|version), generated from |jobname.tex
+% Copyright 2019 TeX Users Group
+|<TeX4ht license text|>
+\def\:tempa#1{%
+  \endgroup%
+  \begingroup%
+  \Configure{BVerbatimInput}{}{}{}{}{}\ifmmode\else\a:InlineCode\fi%
+  \begingroup%
+  \o:pytx@InlineMargBgroup:{#1}%
+  \ifmmode\else\b:InlineCode\fi%
+  \endgroup%
+}
+
+\HLet\pytx@InlineMargBgroup\:tempa
+
+\NewConfigure{InlineCode}{2}
+
+\Hinput{pythontex}
+\endinput
+>>> \AddFile{9}{pythontex}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Slides}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
