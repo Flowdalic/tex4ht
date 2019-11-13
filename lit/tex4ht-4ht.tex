@@ -23484,7 +23484,7 @@ fancyvrb.sty\EndLink
 
 \<fix fancyvrb\><<<
 \pend:def\FV@FormattingPrep{|<find color for fancyvrb|>}
-\append:def\FV@FormattingPrep{\a:fancyvrb
+\append:def\FV@FormattingPrep{\a:fancyvrb%
    |<frames for fancyvrb|>%
    |<color for fancyvrb|>%
 }
@@ -23494,15 +23494,15 @@ fancyvrb.sty\EndLink
 
 \<fix fancyvrb\><<<
 \def\FV@ListProcessLine#1{%
-    \hbox{\c:fancyvrb \anc:lbl r{FancyVerbLine}\FV@LeftListNumber
-      \FV@LeftListFrame \e:fancyvrb \FancyVerbFormatLine{#1}\f:fancyvrb
-      \FV@RightListFrame \csname FV@RightListNumber\endcsname 
+    \hbox{\c:fancyvrb \anc:lbl r{FancyVerbLine}\FV@LeftListNumber%
+      \FV@LeftListFrame \e:fancyvrb \FancyVerbFormatLine{#1}\f:fancyvrb%
+      \FV@RightListFrame \csname FV@RightListNumber\endcsname %
           \d:fancyvrb}}
-\def\FV@EndList{\FV@ListProcessLastLine  \FV@EndListFrame
-  \IgnorePar\b:fancyvrb\par\@endparenv
+\def\FV@EndList{\FV@ListProcessLastLine  \FV@EndListFrame%
+  \IgnorePar\b:fancyvrb\par\@endparenv%
   \endgroup   \@endpetrue}
 \def\FV@StepLineNo{%
-  \FV@SetLineNo
+  \FV@SetLineNo%
   \def\FV@StepLineNo{\SkipRefstepAnchor\refstepcounter{FancyVerbLine}}%
   \FV@StepLineNo}
 >>>
@@ -23538,8 +23538,8 @@ The command
 >>>
 
 \<fix fancyvrb\><<<
-\def\FV@UseVerb#1{\mbox{\FV@UseKeyValues
-   \let\a:fancyvrb|=\empty \FV@FormattingPrep
+\def\FV@UseVerb#1{\mbox{\FV@UseKeyValues%
+   \let\a:fancyvrb|=\empty \FV@FormattingPrep%
    \a:verb #1\b:verb}}
 >>>
 
@@ -23552,13 +23552,13 @@ The command
 
 \<color for fancyvrb\><<<
 \bgroup
-  \ifx \fv:color\empty \else{
-     \let\HColor\fv:color \a:fancyvrbcolor
+  \ifx \fv:color\empty \else{%
+     \let\HColor\fv:color \a:fancyvrbcolor%
   }\fi
-  \ifx \FancyVerbFillColor\relax \else
+  \ifx \FancyVerbFillColor\relax \else%
      \:fvcolor \b:fancyvrbcolor \FancyVerbFillColor|<par del|>%
   \fi
-  \ifx \FancyVerbRuleColor\relax \else
+  \ifx \FancyVerbRuleColor\relax \else%
      \:fvcolor \c:fancyvrbcolor \FancyVerbRuleColor|<par del|>%
   \fi
 \egroup
@@ -23570,7 +23570,7 @@ The command
 
 \<fix fancyvrb\><<<
 \def\:fvcolor#1{\def\a:color##1##2|<par del|>{%
-   \Configure{SetHColor}#1{##1}}}
+   \Configure{SetHColor}#1{##1}}}%
 >>>
 
 \<fancyvrb.sty shared config\><<<
@@ -23614,15 +23614,15 @@ which ones are present at all.
 
 \<fix fancyvrb\><<<
 \define@key{FV}{framerule}{%
-  \@tempdima=#1\relax
+  \@tempdima=#1\relax%
   \edef\FV@FrameRule{\number\@tempdima sp\relax}%
-  {\Advance:\fancyvrbNo by 1   \tmp:dim=\FV@FrameRule
+  {\Advance:\fancyvrbNo by 1   \tmp:dim=\FV@FrameRule%
    \edef\HSize{\the\tmp:dim}%
    \e:fancyvrbframe}}
 \define@key{FV}{framesep}{%
-  \@tempdima=#1\relax
+  \@tempdima=#1\relax%
   \edef\FV@FrameSep{\number\@tempdima sp\relax}%
-  {\Advance:\fancyvrbNo by 1    \tmp:dim=\FV@FrameSep
+  {\Advance:\fancyvrbNo by 1    \tmp:dim=\FV@FrameSep%
    \edef\HSize{\the\tmp:dim}%
    \f:fancyvrbframe}}
 >>>
@@ -23633,16 +23633,16 @@ Verbatim within \TeX{} box.
 
 \<fix fancyvrb\><<<
 \def\FV@BVerbatimBegin{%
-  \begingroup
-    \let\a:fancyvrb\empty \IgnorePar
-    \FV@UseKeyValues
-    \FV@BeginVBox
-    \let\FV@ProcessLine\FV@BProcessLine
-    \FV@FormattingPrep
-    \FV@ObeyTabsInit \a:BVerbatimInput
+  \ht:special{t4ht@(}\begingroup%
+    \let\a:fancyvrb\empty\IgnorePar%
+    \FV@UseKeyValues%
+    \FV@BeginVBox%
+    \let\FV@ProcessLine\FV@BProcessLine%
+    \FV@FormattingPrep%
+    \FV@ObeyTabsInit\a:BVerbatimInput\ht:special{t4ht@)}
 }%
-\def\FV@BVerbatimEnd{\b:BVerbatimInput \FV@EndVBox\endgroup}
-\def\FV@BProcessLine#1{\hbox{\FancyVerbFormatLine
+\def\FV@BVerbatimEnd{\b:BVerbatimInput\ht:special{t4ht@(}\FV@EndVBox\ht:special{t4ht@)}\endgroup}
+\def\FV@BProcessLine#1{\hbox{\FancyVerbFormatLine%
    {\c:BVerbatimInput#1\d:BVerbatimInput}}}   
 \NewConfigure{BVerbatimInput}{4}
 >>>
@@ -23653,38 +23653,38 @@ Verbatim within \TeX{} box.
 
 \<fix fancyvrb\><<<
 \def\V@@footnotetext{%
-\leavevmode
-   \vbox\bgroup
+\leavevmode%
+   \vbox\bgroup%
       \leftskip0pt {\ht:everypar{}\parindent0pt\leavevmode}%
       |<footnote label|>%
-      \a:footnotetext
-      \b:footnotetext
-      \csname a:footnotebody\endcsname
-      \bgroup
-          \reset@font\footnotesize
-          \bgroup 
-             \aftergroup\V@@@footnotetext 
-             \ignorespaces
+      \a:footnotetext%
+      \b:footnotetext%
+      \csname a:footnotebody\endcsname%
+      \bgroup%
+          \reset@font\footnotesize%
+          \bgroup %
+             \aftergroup\V@@@footnotetext %
+             \ignorespaces%
 }
 \def\V@@@footnotetext{%
-      \egroup
-      \csname b:footnotebody\endcsname
-      \c:footnotetext
+      \egroup%
+      \csname b:footnotebody\endcsname%
+      \c:footnotetext%
    \ht:special{t4ht@[}\egroup\ht:special{t4ht@]}%
 }
 >>>
 
 \<fix fancyvrbNO\><<<
 \pend:def\V@@footnotetext{%
-   \let\FNmark|=\@thefnmark
-   \begingroup
-   \ifnum \FNnum>\fn:txt
-      \gHAssign\fn:txt|=\FNnum
+   \let\FNmark|=\@thefnmark%
+   \begingroup%
+   \ifnum \FNnum>\fn:txt%
+      \gHAssign\fn:txt|=\FNnum%
       \def\@makefnmark{\hbox{\ExitHPage{\a:footnote}}}%
       \b:footnote \def\end:fverb{\c:footnote}%
-   \else
-      \a:footnotetext \b:footnotetext \let\end:fverb|=\c:footnotetext
-   \fi
+   \else%
+      \a:footnotetext \b:footnotetext \let\end:fverb|=\c:footnotetext%
+   \fi%
    \:gobbleII}
 \append:def\V@@@footnotetext{\end:fverb\endgroup}
 >>>
