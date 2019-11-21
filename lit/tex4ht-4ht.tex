@@ -25998,6 +25998,21 @@ We use xcolor's \`|\convertcolorspec| command to convert argument of
 \HAssign\tblcol:N = 0
 >>>
 
+We can reuse the code used in \`|\columncolor| to support also the 
+\`|\cellcolor| command.
+
+\<fix colortbl\><<<
+\def\CT@cellc#1[#2]#3{{\if :#2:\def\current@color{#3}%
+                         \else 
+                           \gHAdvance\tblcol:N by 1
+                           \convertcolorspec{#2}{#3}{HTML}\tmp:tblcolor
+                           \Configure{HColor}{tblcol-\tblcol:N}{\#\tmp:tblcolor}%
+                           \def\current@color{tblcol-\tblcol:N}%
+                         \fi
+                    \csname a:cell-colortbl\endcsname}%
+   \futurelet\:temp\left:colcol}
+>>>
+
 The followning is a redefinition of a macro from array.sty
 
 \<fix colortbl\><<<
