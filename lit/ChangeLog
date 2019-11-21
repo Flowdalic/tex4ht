@@ -1,3 +1,8 @@
+2019-11-21 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html5.tex (html5.4ht): fixed language detection when no main
+	language is specified.
+
 2019-11-13 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (fancyvrb.4ht): fixed spacing issues.
