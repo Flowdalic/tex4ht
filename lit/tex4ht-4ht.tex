@@ -26068,8 +26068,9 @@ need also a treatment similar to \''\CT@column@color'?
   |<fixed first main body HRow value|>%
   \@ifnextchar[\CT@rowa\CT@rowb}
 \def\CT@rowa[#1]#2{%
-  \pic:gobbleII\a:rowcolor{#1 #2}%
-  \gdef\CT@row@color{\CT@color[#1]{#2}}%
+  \save:color#1 #2//%
+  \pic:gobbleII\a:rowcolor{#2}%
+  \gdef\CT@row@color{\CT@color{#2}}%
   \CT@rowc}
 \def\CT@rowb#1{%
   \pic:gobbleII\a:rowcolor{#1}%
@@ -26120,7 +26121,7 @@ This should enable use of \`|\color| command in array declaration
   \convert:colorspec#2 {} {} {} {}
   \convertcolorspec{#1}{\current:color}{HTML}\tmp:col
   \def\current@color{#2}
-  \Configure{HColor}{\current@color}{\tmp:col}
+  \Configure{HColor}{\current@color}{\#\tmp:col}
 }
 
 \def\begin:current@color{\let\sv:curcolor|=\current@color}
