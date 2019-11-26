@@ -3,6 +3,9 @@
 	* tex4ht-mathml.tex (mathml.4ht): changed way how functions are encoded in
 	MathmML.
 	https://puszcza.gnu.org.ua/bugs/?444
+	* tex4ht-mathml.tex (mathml.4ht): use <mstyle> element for math text
+	commands again.
+	http://puszcza.gnu.org.ua/bugs/?226
 
 2019-11-22 Michal Hoftich  <michal.h21@gmail.com>
 
