@@ -3703,6 +3703,7 @@ handling, so we can just disable it.
 polyglossia,>>>
 
 \<add to usepackage\><<<
+\def\:temp{polyglossia}\ifx \@currname\:temp
 \AtEndOfPackage{
   \let\orig@xpg@define@keys\xpg@define@keys
   \def\xpg@define@keys#1{%
@@ -3722,6 +3723,7 @@ polyglossia,>>>
     }%
     {\xpg@warning{#1: Invalid value \val\space for key "direction"}}%
 }}
+\fi
 
 >>>
 
