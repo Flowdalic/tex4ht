@@ -3875,7 +3875,7 @@ class="framed-\ifdim\ruledlinewidth>0em
    {\verb:par}
    {\HCode{\string&}\HChar{-35}\HCode{x00A0;}}
 \Css{div.typing
-       {font-family: monospace; white-space: nowrap; }}
+       {font-family: monospace,monospace; white-space: nowrap; }}
 >>>
 
 
@@ -7249,7 +7249,7 @@ Different labels may be associated to a common object in LaTex.
 \def\endenv:verb{\NoFonts
   \EndP \ht:special{t4ht=</div>}|<try inline par|>}
 \HAssign\Verb:N=0
-\Css{div.verbatim {font-family: monospace;
+\Css{div.verbatim {font-family: monospace,monospace;
                    white-space: nowrap;
                    text-align:left; 
                    clear:both; 
@@ -14933,7 +14933,7 @@ currently supported transitions are:
 \Configure{ShowCode}
    {\HCode{\ifx \:test\:minus  \else </div>\fi
        \html:src<div class="body"><span class="ShowCode"
-        style="font-family:monospace;white-space:nowrap;"
+        style="font-family:monospace,monospace;white-space:nowrap;"
      >\html:invisible}%
      \nobreak
    }
@@ -15170,7 +15170,7 @@ Configuration for the inline code
     \ifvmode \IgnorePar\fi \EndP \HCode{</div>}\par}
    {} {}
 \Css{.lstlisting .label{margin-right:0.5em; }}
-\Css{div.lstlisting{font-family: monospace; white-space: nowrap; 
+\Css{div.lstlisting{font-family: monospace,monospace; white-space: nowrap; 
                     margin-top:0.5em; margin-bottom:0.5em;
                    }}
 >>>
@@ -15192,7 +15192,7 @@ Configuration for the inline code
     \egroup  
     \ifvmode \IgnorePar\fi \EndP  \HCode{</div>}\par} 
 \Css{div.lstinputlisting{
-   font-family: monospace;
+   font-family: monospace,monospace;
    white-space: nowrap;
 }}
 \Css{.lstinputlisting .label{margin-right:0.5em;}}
@@ -15228,7 +15228,7 @@ Configuration for the inline code
    \HCode{<div class="verbatiminput"\a:LRdir>}}
   {\ifvmode \IgnorePar\fi \EndP \HCode{</div>}}
 \Css{div.verbatiminput
-       {font-family: monospace; white-space: nowrap; }}
+       {font-family: monospace,monospace; white-space: nowrap; }}
 >>>
 
 
@@ -18517,7 +18517,7 @@ See issues in:
   \Css{span.textrm { font-family: serif; }}
   \Css{span.textsc { font-variant: small-caps; }}
   \Css{span.textsf { font-family: sans-serif; }}
-  \Css{span.texttt { font-family: monospace; }}
+  \Css{span.texttt { font-family: monospace,monospace; }}
   \Css{span.emph   { font-style: italic;}}
   \Css{span.emph span.emph {font-style: normal;}}
 \else
@@ -19819,7 +19819,7 @@ Should we go for
    {\IgnorePar\HCode{</div>}\par\ShowPar}
    {\HAdvance\Verb:N by 1 \ifnum \Verb:N>1 \HCode{<br />}\fi}
    {\:nbsp}
-\Css{div.Verbatim { font-family: monospace; white-space: nowrap; }}  
+\Css{div.Verbatim { font-family: monospace,monospace; white-space: nowrap; }}  
 \Css{body .Verbatim { margin: 1em; }}
 >>>
 
