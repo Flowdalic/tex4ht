@@ -1,5 +1,9 @@
 2019-12-13 Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): added p-indent and p-space options. First
+	one disables blank spaces between paragraphs, the second keeps blank spaces
+	and disables indents. 
+
 	* tex4ht-html4.tex (html4.4ht): fixed font size problem with monospaced
 	fonts.
 	http://code.iamkate.com/html-and-css/fixing-browsers-broken-monospace-font-handling/
