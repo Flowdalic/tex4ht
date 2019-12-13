@@ -1,3 +1,7 @@
+2019-12-13 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): patched Polyglossia's direction handling.
+
 2019-12-12 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): the test for Polyglossia package was

@@ -3699,32 +3699,28 @@ The direction option for Polyglossia's language selection commands causes
 tex4ht support for XeLaTeX fail. tex4ht use a different mechanism for direction
 handling, so we can just disable it.
 
+User needs to use \`'\Configure{LRdir}'to achieve the correct direction.
+
 \<use package\><<<
 polyglossia,>>>
 
 \<add to usepackage\><<<
 \def\:temp{polyglossia}\ifx \@currname\:temp
+\ExplSyntaxOn
 \AtEndOfPackage{
-  \let\orig@xpg@define@keys\xpg@define@keys
-  \def\xpg@define@keys#1{%
-    \orig@xpg@define@keys{#1}%
-    \define@choicekey+[xpg@setup]{#1}{direction}[\val\nr]{LR,RL}[LR]%
-    {
-      \togglefalse{#1@RL}%
-      \ifcase\nr\relax%
-        \csgappto{init@extras@#1}{%
-          a:PolyglossiaRtl%
-        }
-      \or
-        \csgappto{init@extras@#1}{%
-          \b:PolyglossiaRtl%
-        }
-      \fi
-    }%
-    {\xpg@warning{#1: Invalid value \val\space for key "direction"}}%
-}}
-\fi
 
+\cs_set_eq:NN\orig_polyglossia@keys_define_lang:n\polyglossia@keys_define_lang:n
+\cs_set_protected:Npn \polyglossia@keys_define_lang:n #1 {
+  \orig_polyglossia@keys_define_lang:n{#1}
+  \keys_define:nn {polyglossia}{
+    #1 / direction
+    .  code:n = {}
+  }
+}
+\def\RequireBidi{}%
+}
+\ExplSyntaxOff
+\fi
 >>>
 
 \<polyglossia.4ht\><<<
