@@ -1,3 +1,7 @@
+2019-06-24  Karl Berry  <karl@freefriends.org>
+
+	* index.html: wording, tweak changelog format
+
 2019-01-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* index.html: moved changelog  to the bottom of the page.
@@ -5,8 +9,8 @@
 	* index.html: changes heading levele structure.
 	* changelog.html: full changelog template.
 	* changelog-parse.lua: made number of parser entries configurable.
-	* changelog-parse.lua: use non-breaking space for separating TeX file and
-	generated .4ht files.
+	* changelog-parse.lua: use non-breaking space for separating TeX
+		file and generated .4ht files.
 	* Makefile: generate changelog-include.html.
 
 2019-01-21  Michal Hoftich  <michal.h21@gmail.com>
@@ -14,9 +18,13 @@
 	* index.html: added links to tex.sx, make4ht and tex4ebook. Added more
 	headers.
 	* index.html: added changelog.
-	* index.html: fixes for Google issues: set the <meta viewport> property,
-	added canonical URL, added HTML5 doctype, increased line leading.
+	* index.html: fixes for Google issues: set the <meta viewport>
+	property, added canonical URL, added HTML5 doctype, increased line
+        leading.
 	* Makefile: generate the changelog.html.
 	* changelog-parse.lua: script for ChangeLog conversion to HTML.
-	* google5fe6afe7d7955962.html: added file for Google verification. I hope to
-	be able to investigate the missing web from Google search.
+	* google5fe6afe7d7955962.html: added file for Google
+	verification. I hope to be able to investigate the missing web
+	from Google search.
+
+This file is public domain.  Started 2019, Michal Hoftich.
