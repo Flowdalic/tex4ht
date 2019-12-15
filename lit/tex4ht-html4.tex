@@ -9538,6 +9538,14 @@ MathJax.Hub.Config({
 \section{amsmath}
 %%%%%%%%%%%%%%%%%%%%
 
+AmsMath redefines display math to equation*. We should follow it, but not in the MathJax mode.
+
+\<configure html4-math amsmath\><<<
+\ifOption{mathjax}{}{%
+\Configure{[]}{\begin{equation*}}{\end{equation*}}
+}%
+>>>
+
 \<configure html4-math amsmath\><<<
 \Configure{equation}
   {\ifmmode\else\par \IgnorePar\fi \EndP

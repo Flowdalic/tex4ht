@@ -1,3 +1,10 @@
+2019-12-15 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht),
+	tex4ht-mathml.tex (mathml.4ht): configure Amsmath \[ ... \] to
+	\begin{equation*} ... \end{equation*}
+	https://tex.stackexchange.com/q/520375/2891
+
 2019-12-13 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added p-indent and p-space options. First
