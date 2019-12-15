@@ -19312,22 +19312,23 @@ switches of tex4ht.c)
 \<configure html4 tex4ht\><<<
 \newif\ifHCond
 |<global HtmlPar|>
+\NewConfigure{!P}[1]{\expandafter\concat:config\csname a:!P\endcsname{#1}}
+\expandafter\let\csname a:!P\endcsname|=\relax
+\Configure{!P}{}
+
+
+\ifOption{p-indent}{%
 \Css{p.noindent { text-indent: 0em }}
 \Css{td p.noindent { text-indent: 0em; margin-top:0em; }}
 \Css{p.nopar { text-indent: 0em; }}
 \Css{p.indent{ text-indent: 1.5em }}
-\NewConfigure{!P}[1]{\expandafter\concat:config\csname a:!P\endcsname{#1}}
-\expandafter\let\csname a:!P\endcsname|=\relax
-\Configure{!P}{}
-\ifOption{p-indent}{%
 \Css{p{margin-top:0;margin-bottom:0}}
 \Css{p.noindent  + p.noindent{margin-top:1em;}}
-}{}
-\ifOption{p-space}{%
+}{%
 \Css{p{margin-top:0;margin-bottom:0}}
 \Css{p.indent{text-indent:0;}}
 \Css{p + p{margin-top:1em;}}
-}{}
+}
 >>>
 
 \<global HtmlPar\><<<

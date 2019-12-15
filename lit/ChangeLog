@@ -4,6 +4,8 @@
 	tex4ht-mathml.tex (mathml.4ht): configure Amsmath \[ ... \] to
 	\begin{equation*} ... \end{equation*}
 	https://tex.stackexchange.com/q/520375/2891
+	* tex4ht-html4.tex (html4.4ht): use only spaces as separator between
+	paragraphs. Use the "p-indent" option to use text indents.
 
 2019-12-13 Michal Hoftich  <michal.h21@gmail.com>
 
