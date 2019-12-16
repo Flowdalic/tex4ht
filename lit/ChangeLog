@@ -2,6 +2,7 @@
 
 	* tex4ht-html4.tex (html4.4ht): added margins to <div> and <pre> elements.
 	* tex4ht-mathml.tex (mathml.4ht): add space after \tag* command.
+	* tex4ht-4ht.tex (amsmath.4ht): fixed support for the \tag* command.
 
 2019-12-15 Michal Hoftich  <michal.h21@gmail.com>
 

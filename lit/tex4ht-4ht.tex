@@ -7081,7 +7081,8 @@ the different packages.
           \ifx\df@tag\@empty \expand:after{\o:endequation:\egroup}%
           \else
              \global\let\df:tag=\df@tag
-             \expand:after{\o:endequation: \expandafter\b:equation\df:tag
+             \expand:after{\o:endequation: \expandafter\b:equation\ifdefined\ams:delete:tag\else\df:tag\fi%
+             \global\let\ams:delete:tag\@undefined
              }\fi
         }\fi
         \c:equation\egroup
@@ -19637,7 +19638,7 @@ $$
 
 \<equations of amsmath.sty\><<<
 \def\make@df@tag@@#1{%
-  \gdef\df@tag{\maketag@@@{#1}\def\@currentlabel{#1}%
+  \gdef\df@tag{\maketag@@@{#1}\def\@currentlabel{#1}\gdef\ams:delete:tag{}%
                |<def :currentlabel for make@df@tag|>%
                \anc:lbl r{}%
 }}
