@@ -1,6 +1,7 @@
 2019-12-16 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added margins to <div> and <pre> elements.
+	* tex4ht-mathml.tex (mathml.4ht): add space after \tag* command.
 
 2019-12-15 Michal Hoftich  <michal.h21@gmail.com>
 
