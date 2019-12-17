@@ -21979,8 +21979,8 @@ font commands
 \Configure{cmidrule}
    {|<booktabs rule mag|>%
     \Css{tr\#TBL-\TableNo-\HRow- 
-            td{border-bottom:|<booktabs rule height|> solid}}%
-    \HCode{<!--cmidrule-->}}
+            td\#TBL-\TableNo-\HRow-\HCol{border-bottom:|<booktabs rule height|> solid}}%
+    \HCode{<span class="cmidrule"><!-- enable post-processing of cmidrule--></span>}}
 >>>
 
 
