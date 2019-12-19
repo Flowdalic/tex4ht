@@ -11009,6 +11009,17 @@ Foo
 \endinput
 >>>        \AddFile{9}{caption}
 
+\<use package\><<<
+caption,>>>
+
+\<add to usepackage\><<<
+\def\:temp{caption}\ifx\@currname\:temp
+\AtEndOfPackage{%
+  \long\def\caption@If@Package@Loaded#1[#2]#3#4{}
+}
+\fi
+>>>
+
 \<caption shared config\><<<
 \let\sv:toclof\toclof
 \def\toclof#1#2#3{%

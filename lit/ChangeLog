@@ -1,3 +1,9 @@
+2019-12-19 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): prevent the Caption package from patching
+	other packages. This can clash with TeX4ht configurations.
+	https://tex.stackexchange.com/a/520996/2891
+
 2019-12-17 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fixed CSS code for \cmidrule from Booktabs
