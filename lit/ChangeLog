@@ -3,6 +3,25 @@
 	* tex4ht-4ht.tex (usepackage.4ht): prevent the Caption package from patching
 	other packages. This can clash with TeX4ht configurations.
 	https://tex.stackexchange.com/a/520996/2891
+	* tex4ht-4ht.tex (
+	aa.4ht,
+	acm_proc_article-sp.4ht,
+	amsart.4ht,
+	amsbook.4ht,
+	amsproc.4ht,
+	article.4ht,
+	book.4ht,
+	elsart.4ht,
+	listings.4ht,
+	longtable.4ht,
+	mwart.4ht,
+	mwbk.4ht,
+	mwrep.4ht,
+	report.4ht,
+	revtex4.4ht,
+	scrbook.4ht,
+	scrreprt.4ht): Don't print caption label separator when the labels is empty.
+
 
 2019-12-17 Michal Hoftich  <michal.h21@gmail.com>
 

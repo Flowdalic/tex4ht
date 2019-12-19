@@ -9275,7 +9275,7 @@ Fix for the \Link[https://puszcza.gnu.org.ua/bugs/?437]{}{}starred linebreak iss
 \HLet\LT@caption\:tempc
 \def\:tempc#1#2#3{%
   \LT@mcol\LT@cols c{\hbox{\parbox[t]\LTcapwidth{%
-       \cptA: #1{\cap:ref{#2}}\cptB:\cptC:#3\cptD:
+      \cptA: #1{\cap:ref{#2}}\if :#1:\else\cptB:\fi\cptC:#3\cptD:
     \endgraf\vskip\baselineskip}}}}
 \HLet\LT@makecaption\:tempc
 >>>
@@ -10448,7 +10448,7 @@ the \''\label' commands to avoid duplicating the anchor already set by the
 \NewConfigure{caption}[4]{\c:def\cptA:{#1}\c:def\cptB:{#2}%
    \c:def\cptC:{#3}\c:def\cptD:{#4}}
 \long\def\@makecaption#1#2{%   |%\:makecaption|%
-   {\cptA: |<caption and ref/tag|>\cptB:}{\cptC:{#2}\cptD:}}
+{\cptA: |<caption and ref/tag|>\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
 >>>
 
 \<write caption to toc\><<<
@@ -15089,7 +15089,7 @@ Hfootnote counter, which isn't declared.
      \small\rmfamily 
      \flushing 
      \let\footnote\@footnotemark@gobble 
-     {\cptA: \cap:ref{#1}\cptB:}{\cptC:{#2}\cptD:}
+   {\cptA: \cap:ref{#1}\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}
   \endgroup 
   \par
 }
@@ -15570,7 +15570,7 @@ UnDFexyz>>>
    \c:def\cptC:{#3}\c:def\cptD:{#4}}
 \long\def\@makecaption#1#2{%   
    {\cptA: \cap:ref{#1}%
-\cptB:}{\cptC:{#2}\cptD:}}
+ \if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
 
 \pend:def\caption{\SkipRefstepAnchor}
 
@@ -16641,7 +16641,7 @@ UnDFexyz}%
    \c:def\cptC:{#3}\c:def\cptD:{#4}}
 \long\def\@makecaption#1#2{%   
    {\cptA: \cap:ref{#1}%
-\cptB:}{\cptC:{#2}\cptD:}}
+ \if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
 
 \pend:def\caption{\SkipRefstepAnchor}
 \append:def\quote{\par\@totalleftmargin\z@}
@@ -16714,7 +16714,7 @@ UnDFexyz}%
    \c:def\cptC:{#3}\c:def\cptD:{#4}}
 \long\def\@makecaption#1#2{%   
    {\cptA: \cap:ref{#1}%
-\cptB:}{\cptC:{#2}\cptD:}}
+ \if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
 
 \pend:def\caption{\SkipRefstepAnchor}
 \append:def\quote{\par\@totalleftmargin\z@}
@@ -17047,10 +17047,10 @@ UnDFexyz}%
 |<elsart sup|>
 \def\@makecaption{\@makefigurecaption}
 \long\def\@makefigurecaption#1#2{%  
-   {\cptA: |<caption and ref/tag|>\cptB:}{\cptC:{#2}\cptD:}}
+{\cptA: |<caption and ref/tag|>\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
 \long\def\@maketablecaption#1#2{\@tablecaptionsize
     \global \@minipagefalse
-    \hbox{{\cptA: |<caption and ref/tag|>\cptB:}{\cptC:{#2}\cptD:}}}
+\hbox{{\cptA: |<caption and ref/tag|>\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}}
 >>>
 
 \<elsart sup\><<<
@@ -29505,7 +29505,7 @@ For some reason we need the followng version of \`|\@makecaption| in order to
 get correct cross-references. There were duplicate IDs sometimes.
 
 \<listings sty\><<<
-\def\lst@makecaption#1#2{\cptA: #1\cptB: \cptC: #2\cptD:}
+\def\lst@makecaption#1#2{\cptA: #1\if :#1:\else\cptB:\fi \cptC: #2\cptD:}
 >>>
 
 I don't know why there used to be clearing of math environment, it 
