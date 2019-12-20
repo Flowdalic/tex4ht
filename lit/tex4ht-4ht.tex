@@ -2078,6 +2078,7 @@ and \''\Tg'.
 % and language handling doesn't work. When we execute following code, the language 
 % files are loaded before checking of the success and it seems to work.
  
+\AtBeginDocument{%
 \@ifpackageloaded{babel}
       {% This is required for languages which are never explicitly selected
         % It seems this code was executed also with Polyglossia, where it caused compilation error
@@ -2086,7 +2087,7 @@ and \''\Tg'.
        \ifx\@empty\bbl@loaded\else%
        \expandafter\docsvlist\expandafter{\bbl@loaded}%
       \fi}}{}%
-
+}
 \fi % end of version boolean
 >>>
 

@@ -1,3 +1,8 @@
+2019-12-20 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): updated for the latest BibLaTeX version.
+	http://puszcza.gnu.org.ua/bugs/?447
+
 2019-12-19 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): prevent the Caption package from patching
