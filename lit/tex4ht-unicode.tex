@@ -349,6 +349,10 @@ content. It is provided for getting `realistic' measurements in mathml
 applets. a candidadte for delition.
 
 \<plain,latex unicode\><<<
+
+% This will be redefined in mathml.4ht to produce a better markup
+\def\unicode:mathop#1{\mathop{#1}}
+
 \:CheckOption{new-accents}     \if:Option \else
    |<old unicode accents|>
    \ifx \mathml:on\:UnDef
@@ -364,25 +368,25 @@ applets. a candidadte for delition.
    \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
     \b{|<bar below codes|>{}{}}
       {\a:accents{}{#1}}     {\b:accents{b}{#1}{#2}}
-   \def\:vec:over{\ifmmode\expandafter\mathop\fi{\x:unicode{2192}}}
-   \def\:grave:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0300}}}
-   \def\:acute:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0301}}}
-   \def\:hat:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0302}}}
-   \def\:widehat:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0302}}}
-   \def\:tilde:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0303}}}
-   \def\:widetilde:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0303}}}
-   \def\:bar:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0304}}}
-   \def\:breve:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0306}}}
-   \def\:dot:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0307}}}
-   \def\:ddot:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0308}}}
-   \def\:uml:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0308}}}
-   \def\:ring:over{\ifmmode\expandafter\mathop\fi{\x:unicode{030A}}}
-   \def\:Huml:over{\ifmmode\expandafter\mathop\fi{\x:unicode{030B}}}
-   \def\:check:over{\ifmmode\expandafter\mathop\fi{\x:unicode{030C}}}
-   \def\:d:under{\ifmmode\expandafter\mathop\fi{\x:unicode{0323}}}
-   \def\:cedil:under{\ifmmode\expandafter\mathop\fi{\x:unicode{0327}}}
-   \def\:b:under{\ifmmode\expandafter\mathop\fi{\x:unicode{0331}}}
-   \def\:udot:over{\ifmmode\expandafter\mathop\fi{\x:unicode{0361}}}
+   \def\:vec:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{2192}}}
+   \def\:grave:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0300}}}
+   \def\:acute:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0301}}}
+   \def\:hat:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0302}}}
+   \def\:widehat:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0302}}}
+   \def\:tilde:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0303}}}
+   \def\:widetilde:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0303}}}
+   \def\:bar:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0304}}}
+   \def\:breve:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0306}}}
+   \def\:dot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0307}}}
+   \def\:ddot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0308}}}
+   \def\:uml:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0308}}}
+   \def\:ring:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{030A}}}
+   \def\:Huml:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{030B}}}
+   \def\:check:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{030C}}}
+   \def\:d:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0323}}}
+   \def\:cedil:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0327}}}
+   \def\:b:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0331}}}
+   \def\:udot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0361}}}
 \fi
 >>>
 

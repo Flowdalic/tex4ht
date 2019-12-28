@@ -755,6 +755,10 @@ We reserve code 254 (and 255) for unknown symbols.
 >>>
 
 \<plain,latex mathml\><<<
+
+% redefine macro from unicode.4ht to produce better accents
+\def\unicode:mathop#1{\PauseMathClass\HCode{<\a:mathml mo accent="true">}#1\HCode{</\a:mathml mo>}\EndPauseMathClass}
+
 \:CheckOption{new-accents}     \if:Option \else
   \Configure{accent}\widetilde\widetilde{{}{}} 
   {}
