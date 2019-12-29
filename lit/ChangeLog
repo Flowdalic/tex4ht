@@ -1,3 +1,10 @@
+2019-12-29 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (amsmath.4ht),
+	tex4ht-mathml.tex (mathml.4ht): added support for the \boldsymbol command.
+	https://tex.stackexchange.com/q/522173/2891
+
+
 2019-12-28 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-unicode.tex (unicode.4ht),
