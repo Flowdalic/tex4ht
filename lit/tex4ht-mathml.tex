@@ -3462,11 +3462,11 @@ but not \verb=$\mathop{div} (\mathbf{F})$=
 >>>
 
 \<configure mathml amsmath\><<<
-\def\:tempc{\ifDisplayMath\mathop:prefix{mathsize="big"}\fi\o:n:iint::}
+\def\:tempc{\ifDisplayMath\mathop:prefix{}\fi\o:n:iint::}
 \HLet\n:iint:\:tempc
-\def\:tempc{\ifDisplayMath\mathop:prefix{mathsize="big"}\fi\o:n:iiint::}
+\def\:tempc{\ifDisplayMath\mathop:prefix{}\fi\o:n:iiint::}
 \HLet\n:iiint:\:tempc
-\def\:tempc{\ifDisplayMath\mathop:prefix{mathsize="big"}\fi\o:n:idotsint::}
+\def\:tempc{\ifDisplayMath\mathop:prefix{}\fi\o:n:idotsint::}
 \HLet\n:idotsint:\:tempc
 >>>
 
@@ -3484,7 +3484,7 @@ but not \verb=$\mathop{div} (\mathbf{F})$=
                          \expandafter\noexpand 
                          \csname #1:nolimits\endcsname\noexpand\fi}%
    \expandafter\pend:def\csname n:#1:\endcsname{\ifDisplayMath
-          \mathop:prefix{mathsize="big"}\fi}%
+          \mathop:prefix{}\fi}%
 }
 \:tempd{bigcap}{54} 
 \:tempd{bigcup}{53} 
