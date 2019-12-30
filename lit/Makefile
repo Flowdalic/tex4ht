@@ -560,6 +560,9 @@ install-unicode-4hf:
 	| (cd $(ht_fonts_instdir) && tar xf -)
 	svn diff $(ht_fonts_instdir)
 
+upmake:
+	svn update && make
+
 # 
 # to compare newly-built files with what's installed.
 diff_files = $(derived) # lots of changes to be figured out ...
