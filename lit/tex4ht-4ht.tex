@@ -17902,7 +17902,7 @@ By Igor A. Kotelnikov. Not available in the public domain?
 >>>        \AddFile{9}{extarticle} 
  
 \<extarticle cfg\><<< 
- 
+|<common extcls cfg|>
 >>> 
 
 \<extbook.4ht\><<< 
@@ -17916,7 +17916,7 @@ By Igor A. Kotelnikov. Not available in the public domain?
 >>>        \AddFile{9}{extbook} 
  
 \<extbook cfg\><<< 
- 
+|<common extcls cfg|>
 >>> 
 
 \<extletter.4ht\><<< 
@@ -17930,8 +17930,15 @@ By Igor A. Kotelnikov. Not available in the public domain?
 >>>        \AddFile{9}{extletter} 
  
 \<extletter cfg\><<< 
- 
+|<common extcls cfg|>
 >>> 
+
+\<common extcls cfg\><<<
+\ifnum\@ptsize>12\relax
+\renewcommand\@ptsize{10}
+\input{size\@ptsize.clo}
+\fi
+>>>
 
 \<extproc.4ht\><<< 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
