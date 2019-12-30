@@ -3502,7 +3502,12 @@ but not \verb=$\mathop{div} (\mathbf{F})$=
 \:tempd{sum}{50}
 >>>
 
+Fix the \verb|\int| command -- it should produce the \verb|<mo>| element.
 
+\<configure mathml fontmath\><<<
+\def\:tempc{\ifDisplayMath\mathop:prefix{}\fi\o:n:int::}
+\HLet\n:int:\:tempc
+>>>
 
 
 \<configure mathml amsmath\><<<

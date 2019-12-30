@@ -3,6 +3,9 @@
 	* tex4ht-4ht.tex (extarticle.4ht, extbook.4ht, extletter.4ht): disable huge font size in the document. It
 	led to huge text resulting from HTF fonts.
 	https://tex.stackexchange.com/q/522173/2891
+	* tex4ht-mathml.tex (mathml.4ht): redefined \int command to produce the <mo>
+	element.
+	https://tex.stackexchange.com/q/522173/2891
 
 2019-12-29 Michal Hoftich  <michal.h21@gmail.com>
 
