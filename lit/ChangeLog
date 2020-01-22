@@ -4,7 +4,7 @@
 	by default. Versions that try to emulate their visual appearance in PDF can
 	be requested using the "fancylogo" option.
 
-	* tex4ht-fonts-cjk.tex: (
+	* tex4ht-fonts-cjk.tex (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkkai/gbkkai62.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkkai/gbkkai77.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkkai/gbkkai66.htf
@@ -288,7 +288,7 @@
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkxh/gbkxh17.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkxh/gbkxh45.htf
 	): fixed more monospaced htf fonts.
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/tex4ht-fonts-noncjk.tex (
+	* tex4ht-fonts-noncjk.tex (
 	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DroidSansMono-t1.htf
 	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/PTMono-BoldSlanted-tlf-t1.htf
 	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DejaVuSansMono-tlf-t1.htf
