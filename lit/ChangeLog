@@ -1,5 +1,9 @@
 2020-01-22 Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): use plain text for \TeX and \LaTeX commands
+	by default. Versions that try to emulate their visual appearance in PDF can
+	be requested using the "fancylogo" option.
+
 	* tex4ht-fonts-cjk.tex: (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkkai/gbkkai62.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkkai/gbkkai77.htf

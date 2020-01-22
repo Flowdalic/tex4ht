@@ -7134,11 +7134,15 @@ is reported in Overlib's page).
 
 
 \</TeX for 4.0t\><<<
+\:CheckOption{fancylogo}\if:Option
 \def\TeX{\HCode{<span class="TEX">}T\HCode{<span\Hnewline
      class="E">}E\HCode{</span>}X\HCode{</span>}}
 \Css{span.TEX {letter-spacing: -0.125em; }}
 \Css{span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}} 
 \Css{a span.TEX span.E {text-decoration: none; }}
+\else
+\def\TeX{TeX}
+\fi
 >>>
 
 \verb'\def\TeX{T\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX\@}'
@@ -8013,6 +8017,7 @@ and the same for pic tabular. Why?
 
 \<configure html4 latex\><<<
 |</TeX for 4.0t|>
+\:CheckOption{fancylogo}\if:Option
 \def\:temp{\HCode{<span class="LATEX">}L\HCode{<span
    class="A">}A\HCode{</span>}\TeX\HCode{</span>}}
 \HLet\LaTeX|=\:temp
@@ -8023,6 +8028,10 @@ and the same for pic tabular. Why?
 \Css{span.LATEX span.A{ position:relative; top:-0.5ex;
    left:-0.4em; font-size:85\%;}}
 \Css{span.LATEX span.TEX{ position:relative; left: -0.4em; }}
+\else
+\def\LaTeX{LaTeX}
+\def\LaTeXe{LaTeX2e}
+\fi
 \Configure{@TITLE}{\def\LaTeX{LaTeX}\let\fontencoding|=\:gobble
   \let\fontfamily|=\:gobble \let\fontseries|=\:gobble
   \let\fontshape|=\:gobble  \let\usefont|=\:gobbleIV  }
