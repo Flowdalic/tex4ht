@@ -1,14 +1,17 @@
 2020-01-23 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage-fontspec.4ht): fixed fatal error with updated
-	Fonspec package.
+	* tex4ht-4ht.tex (usepackage-fontspec.4ht): fix fatal error
+	with updated fontspec package.
 
 2020-01-22 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): use plain text for \TeX and \LaTeX commands
-	by default. Versions that try to emulate their visual appearance in PDF can
-	be requested using the "fancylogo" option.
+	* tex4ht-html4.tex (html4.4ht): use plain text for \TeX and
+	\LaTeX commands by default. Versions that try to emulate their
+	visual appearance in PDF can be requested using the "fancylogo"
+	option.
+
 	* tex4ht-html4.tex (html4.4ht): use 1.5 as default line height.
+
 	* tex4ht-fonts-cjk.tex (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkkai/gbkkai62.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkkai/gbkkai77.htf
@@ -293,38 +296,43 @@
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkxh/gbkxh17.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkxh/gbkxh45.htf
 	): fixed more monospaced htf fonts.
+
 	* tex4ht-fonts-noncjk.tex (
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DroidSansMono-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/PTMono-BoldSlanted-tlf-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DejaVuSansMono-tlf-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DejaVuSansMono-Oblique-tlf-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DejaVuSansMono-Bold-tlf-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/PTMono-Slanted-tlf-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DroidSansMono-SmallCaps-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DejaVuSansMono-BoldOblique-tlf-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/PTMono-Regular-tlf-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DroidSansMono-Slanted-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/PTMono-Bold-tlf-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/t1fonts/DroidSansMono-Slanted-SmallCaps-t1.htf
-	/tex4ht.dir/texmf/tex4ht/ht-fonts/alias/alias/alias/bera/fvmr8r.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-BoldSlanted-tlf-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-tlf-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-Oblique-tlf-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-Bold-tlf-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Slanted-tlf-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-SmallCaps-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-BoldOblique-tlf-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Regular-tlf-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-Slanted-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Bold-tlf-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-Slanted-SmallCaps-t1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bera/fvmr8r.htf
 	): even more fixes for monospaced htf fonts.
 
 2019-12-30 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (extarticle.4ht, extbook.4ht, extletter.4ht): disable huge font size in the document. It
-	led to huge text resulting from HTF fonts.
+	* tex4ht-4ht.tex (extarticle.4ht, extbook.4ht, extletter.4ht):
+	disable huge font size in the document. It led to huge text
+	resulting from HTF fonts.
 	https://tex.stackexchange.com/q/522173/2891
-	* tex4ht-mathml.tex (mathml.4ht): redefined \int command to produce the <mo>
-	element.
+
+	* tex4ht-mathml.tex (mathml.4ht): redefined \int command to
+	produce the <mo> element.
 	https://tex.stackexchange.com/q/522173/2891
 
 2019-12-29 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (amsmath.4ht),
-	tex4ht-mathml.tex (mathml.4ht): added support for the \boldsymbol command.
+	tex4ht-mathml.tex (mathml.4ht): added support for the
+	\boldsymbol command.
 	https://tex.stackexchange.com/q/522173/2891
-	* tex4ht-mathml.tex (mathml.4ht): removed mathsize="big" attribute, it is
-	deprecated.
+
+	* tex4ht-mathml.tex (mathml.4ht): removed mathsize="big"
+	attribute, it is deprecated.
 
 2019-12-28 Michal Hoftich  <michal.h21@gmail.com>
 
@@ -334,20 +342,23 @@
 
 2019-12-23 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (footmisc.4ht): fixed support for the symbolic footnote
-	marks.
+	* tex4ht-4ht.tex (footmisc.4ht): fixed support for the symbolic
+	footnote marks.
 	https://tex.stackexchange.com/a/521497/2891
 
 2019-12-20 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (biblatex.4ht): updated for the latest BibLaTeX version.
+	* tex4ht-4ht.tex (biblatex.4ht): updated for the latest BibLaTeX
+	version.
 	http://puszcza.gnu.org.ua/bugs/?447
 
 2019-12-19 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht): prevent the Caption package from patching
-	other packages. This can clash with TeX4ht configurations.
+	* tex4ht-4ht.tex (usepackage.4ht): prevent the Caption package
+	from patching other packages. This can clash with TeX4ht
+	configurations.
 	https://tex.stackexchange.com/a/520996/2891
+
 	* tex4ht-4ht.tex (
 	aa.4ht,
 	acm_proc_article-sp.4ht,
@@ -365,17 +376,18 @@
 	report.4ht,
 	revtex4.4ht,
 	scrbook.4ht,
-	scrreprt.4ht): Don't print caption label separator when the labels is empty.
-
+	scrreprt.4ht
+	): Don't print caption label separator when the labels is empty.
 
 2019-12-17 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): fixed CSS code for \cmidrule from Booktabs
-	package.
+	* tex4ht-html4.tex (html4.4ht): fixed CSS code for \cmidrule
+	from Booktabs package.
 
 2019-12-16 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): added margins to <div> and <pre> elements.
+	* tex4ht-html4.tex (html4.4ht): added margins to <div> and <pre>
+	elements.
 	* tex4ht-mathml.tex (mathml.4ht): add space after \tag* command.
 	* tex4ht-4ht.tex (amsmath.4ht): fixed support for the \tag* command.
 
@@ -512,7 +524,9 @@
 	tex4ht.dir/texmf/tex4ht/ht-fonts/alias/txfonts/t1x.htf
 	tex4ht.dir/texmf/tex4ht/ht-fonts/alias/txfonts/t1xbttsc.htf
 	): fixed monospace handling in htf files.
-	* tex4ht-4ht.tex (usepackage.4ht): patched Polyglossia's direction handling.
+
+	* tex4ht-4ht.tex (usepackage.4ht): patched Polyglossia's
+	direction handling.
 
 2019-12-12 Michal Hoftich  <michal.h21@gmail.com>
 
