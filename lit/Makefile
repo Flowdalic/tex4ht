@@ -554,13 +554,20 @@ clean1:
 
 # painful, so let's write out the commands. --20mar17
 ht_fonts_instdir = $(inst_dir_top)/ht-fonts
-
+#
 install-unicode-4hf:
 	cd $(ht_fonts_devdir) && tar cf - `find . -name unicode.4hf` \
 	| (cd $(ht_fonts_instdir) && tar xf -)
 	svn diff $(ht_fonts_instdir)
+#
+# copy fonts listed in /tmp/t (must be filenames relative to
+# ht_fonts_devdir) to ht_fonts_instdir.
+install-htfonts-tmp:
+	cd $(ht_fonts_devdir) && tar cfT - /tmp/t \
+	| (cd $(ht_fonts_instdir) && tar xf -)
+	svn status $(ht_fonts_instdir)
 
-upmake:
+upmake upm:
 	svn update && make
 
 # 
