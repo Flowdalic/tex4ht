@@ -1,3 +1,8 @@
+2020-02-09 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage-fontspec.4ht): don't block the Fontenc package
+	from loading, it caused another fatal issue with Fonspec.
+
 2020-01-24 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): do not use 1.5 as default line height.
