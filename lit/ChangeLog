@@ -1,3 +1,9 @@
+2020-02-13 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (listings.4ht): added support for the \lstlistoflistings
+	command.
+	https://tex.stackexchange.com/a/528310/2891
+
 2020-02-09 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage-fontspec.4ht): don't block the Fontenc package

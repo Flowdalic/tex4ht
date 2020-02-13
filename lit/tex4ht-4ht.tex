@@ -29582,6 +29582,16 @@ content.
 \HLet\lst@frameExit=\empty
 >>>
 
+Configure list of listings
+
+\<listings sty\><<<
+\ConfigureToc{lol} {}{\empty}{}{\newline}
+\lst@UserCommand\lstlistoflistings{\bgroup%
+    \ifdefined\chapter\chapter*{\lstlistlistingname}\else\section*{\lstlistlistingname}\fi%
+    \TableOfContents[lol]%
+  \egroup}
+>>>
+
 \<listings sty\><<<
 \def\lst@NewLine{%
    \ifx\lst@OutputBox\@gobble\else \the\everypar \fi
