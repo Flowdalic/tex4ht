@@ -1,3 +1,9 @@
+2020-02-14 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): removed ignored letters from
+	\Configure{HAccent}.
+	https://puszcza.gnu.org.ua/bugs/?446
+
 2020-02-13 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (listings.4ht): added support for the \lstlistoflistings
