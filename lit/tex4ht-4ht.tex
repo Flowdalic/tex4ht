@@ -879,15 +879,15 @@ $\mathfrak{A}a^{\mathfrak{A}}$
    \def\:temp{swpframe}\def\:tempa{#1}\ifx \:temp\:tempa
       \ifx \GRAPHICSHP\:UnDef\else
          \let\swp:GRAPHICSHP=\GRAPHICSHP
-         \AtEndOfPackage{\let\GRAPHICSHP\swp:GRAPHICSHP}%
+         \:AtEndOfPackage{\let\GRAPHICSHP\swp:GRAPHICSHP}%
       \fi
       \ifx \graffile\:UnDef\else
          \let\swp:graffile=\graffile
-         \AtEndOfPackage{\let\graffile\swp:graffile}%
+         \:AtEndOfPackage{\let\graffile\swp:graffile}%
       \fi
       \ifx \GRAPHIC\:UnDef\else
          \let\swp:GRAPHIC=\GRAPHIC
-         \AtEndOfPackage{\let\GRAPHIC\swp:GRAPHIC}%
+         \:AtEndOfPackage{\let\GRAPHIC\swp:GRAPHIC}%
       \fi
   \fi
 }
@@ -3437,7 +3437,7 @@ xr,>>>
 >>>
 
 \<wait with xr\><<<
-\AtEndOfPackage{\let\XR:\XR@ 
+\:AtEndOfPackage{\let\XR:\XR@ 
    \def\XR@[#1]#2{%
     \Configure{AtBeginDocument}{\XR:[#1]{#2}}{}}%
 }
@@ -3552,7 +3552,7 @@ xr-hyper add optional argument after mandatory argument of
 it, so we can safely eat that.
 
 \<wait with xr-hyper\><<<
-\AtEndOfPackage{\let\XR:\XR@
+\:AtEndOfPackage{\let\XR:\XR@
     \def\XR@[#1][#2]#3{%
       \AtBeginDocument{\XR:[#1][#2]{#3}}
     }%
@@ -3594,7 +3594,7 @@ expl3,>>>
 \def\:temp{expl3}\ifx \@currname\:temp
 \ifdefined\XeTeXversion%
 \xenunidelblock{Latin-expl3}%
-\AtEndOfPackage{\xeuniuseblock{Latin-expl3}}
+\:AtEndOfPackage{\xeuniuseblock{Latin-expl3}}
 \fi
 \fi
 >>>
@@ -3626,7 +3626,7 @@ biblatex,>>>
 
 \<add to usepackage\><<<
 \def\:temp{biblatex}\ifx \@currname\:temp
-\AtEndOfPackage{%
+\:AtEndOfPackage{%
   \def\blx@mknoautolang{%
     \blx@lbxinput{\blx@languagename}%
     {}{}%
@@ -3674,7 +3674,7 @@ Note that not all commands are provided, more can be added on user request.
 \<add to usepackage\><<<
 \def\:temp{xeCJK}\ifx \@currname\:temp
 \:dontusepackage{xeCJK}
-\AtEndOfPackage{%
+\:AtEndOfPackage{%
   \RequirePackage{fontspec}
 }
 \DeclareDocumentCommand\setCJKmainfont{o m o}{}
@@ -3708,7 +3708,7 @@ polyglossia,>>>
 \<add to usepackage\><<<
 \def\:temp{polyglossia}\ifx \@currname\:temp
 \ExplSyntaxOn
-\AtEndOfPackage{
+\:AtEndOfPackage{
 
 \cs_set_eq:NN\orig_polyglossia@keys_define_lang:n\polyglossia@keys_define_lang:n
 \cs_set_protected:Npn \polyglossia@keys_define_lang:n #1 {
@@ -3777,7 +3777,7 @@ The actual configurations which are used when fontspec is loaded:
 \fi%
 \PassOptionsToPackage{no-math}{fontspec}
 \ExplSyntaxOn
-\AtEndOfPackage{%
+\:AtEndOfPackage{%
   \tl_gset:Nx \l__fontspec_nfss_enc_tl {T1}
   \tl_gset:Nx \g_fontspec_encoding_tl {T1}
   \tl_gset:Nx \l__fontspec_ttfamily_encoding_tl {T1}
@@ -4047,7 +4047,7 @@ converted to SVG by default.
 
 \<add to usepackage\><<<
 \def\:temp{tikz}\ifx \@currname\:temp
-\AtEndOfPackage{%
+\:AtEndOfPackage{%
 \let\use:tikzlibrary\usetikzlibrary
 \def\find:externalize#1external#2\@nil{%
 \if\relax#2\relax\else
@@ -4082,7 +4082,7 @@ The pdfbase package redefines \`|\@outputpage| macro, which causes tex4ht patche
 
 \<add to usepackage\><<<
 \def\:temp{pdfbase}\ifx\@currname\:temp
-\AtEndOfPackage{%
+\:AtEndOfPackage{%
   \let\old:outputpage\@outputpage
   \def\@outputpage{\old:outputpage{}}
 }
@@ -11017,7 +11017,7 @@ caption,>>>
 
 \<add to usepackage\><<<
 \def\:temp{caption}\ifx\@currname\:temp
-\AtEndOfPackage{%
+\:AtEndOfPackage{%
   \long\def\caption@If@Package@Loaded#1[#2]#3#4{}
 }
 \fi
@@ -29681,7 +29681,7 @@ minted,>>>
 
 \<add to usepackage\><<<
 \def\:temp{minted}\ifx\@currname\:temp
-  \AtEndOfPackage{%
+  \:AtEndOfPackage{%
     \define@booleankey{minted@opt@g}{breaklines}{}{}{}%
   }
 \fi
@@ -29700,7 +29700,7 @@ fancyhdr,>>>
 
 \<add to usepackage\><<<
 \def\:temp{fancyhdr}\ifx\@currname\:temp
-  \AtEndOfPackage{%
+  \:AtEndOfPackage{%
   \def\ps@fancy{}%
   }
 \fi

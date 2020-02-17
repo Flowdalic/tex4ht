@@ -591,16 +591,25 @@ default, others must be activated using \`'xeuniuseblock{blockname}'
 \fi\fi
 >>>
 
+Add support for package commands redefining
+
+\<hook at usepackage\><<<
+\def\:AtEndOfPackage{\expandafter\g@addto@macro\csname pkg:end:hook:\@currname.sty\endcsname}
+\def\init:package:hooks#1{\expandafter\def\csname pkg:end:hook:#1\endcsname{}}
+\def\package:hooks#1{\csname pkg:end:hook:#1\endcsname}
+>>>
+
 \<hook at usepackage\><<<
 \let\:onefilewithoptions\@onefilewithoptions
-\def\@onefilewithoptions#1[#2]{%
+\def\@onefilewithoptions#1[#2][#3]#4{%
+\init:package:hooks{#1.#4}%
    \let\:temp\@reset@ptions
    \def\@reset@ptions{%
       \let\@reset@ptions\:temp
       |<cats for usepackage|>\a:usepackage
       |<recall usepackage cats|>}%
       \def\:currentoptions{#2}
- \:onefilewithoptions#1[#2]}
+\:onefilewithoptions#1[#2][#3]{#4}\package:hooks{#1.#4}}
 \def\a:usepackage{\input usepackage.4ht }
 >>>
 \<cats for usepackage\><<<

@@ -1,3 +1,11 @@
+2020-02-17 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty),
+	tex4ht-4ht.tex (usepackage-fontspec.4ht, usepackage.4ht): fixed support for
+	command patching in the document preamble. New command provided:
+	\:AtEndOfPackage.
+	https://puszcza.gnu.org.ua/bugs/?448
+
 2020-02-14 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): removed ignored letters from
