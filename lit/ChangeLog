@@ -1,3 +1,8 @@
+2020-02-24 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-oo-xtpipes.tex (oo-text.4xt): don't process <t4htlink> elements
+	using Xtpipes, it is handled better by make4ht.
+
 2020-02-17 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty),

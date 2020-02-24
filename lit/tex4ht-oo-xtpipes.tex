@@ -109,9 +109,6 @@
 <xtpipes preamble="yes" signature="oo-text.4xt (`version)">
    <sax content-handler="xtpipes.util.ScriptsManager,tex4ht.OoFilter" 
         lexical-handler="xtpipes.util.ScriptsManagerLH" >
-      <script element="t4htlink" >
-         `<cross references`>
-      </script> 
       <script element="text:bibliography-mark" >
          `<bib mark`>
       </script> 
@@ -133,7 +130,8 @@
 \subsubsection{Cross References}
 %%%%%%%%%%%%%
 
-
+This is not used anymore, the make4ht-t4htlinks DOM filter is used instead. The
+following code may produce broken or empty links, so it is not really usable.
 
 \<cross references\><<<
 <set name="t4ht-link" >
