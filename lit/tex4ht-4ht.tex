@@ -34427,6 +34427,7 @@ The relax is to avoid end-of-line for the control character.
 
 \<config latex.ltx shared\><<<
 \let\sp:c|=\  |<latex,plain sp|>
+\let\nobreakspace\:nbsp
 >>>
 
 \<config plain shared\><<<
@@ -34439,6 +34440,7 @@ The relax is to avoid end-of-line for the control character.
 \NewConfigure{ }[1]{\def\:temp{#1}%
    \ifx \:temp\empty \let\a:sp|=\sp:c\else\def\a:sp{#1}\fi}
 \def\:nbsp{\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x} 
+\def\:ensp{\leavevmode\special{t4ht@+\string&{35}x2002{59}}x} 
 \Configure{ }{\:nbsp}
 >>>
 

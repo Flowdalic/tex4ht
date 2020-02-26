@@ -714,7 +714,7 @@ We reserve code 254 (and 255) for unknown symbols.
 \Configure{ }
    {\ifmathml \ifmtext \space \else\Tg<\a:mathml mspace 
     width="0.33em" \mml:class="nbsp" />\fi
-    \else \:nbsp\fi} 
+    \else \:ensp\fi} 
 >>>
 
 
@@ -3971,12 +3971,17 @@ We have the following hooks
 \<plain,latex mathml\><<<
 \def\:nbsp{\ifmtext |<unicode space|>\else\ifmathml
     \Tg<\a:mathml mspace />\else |<unicode space|>\fi\fi}
+\def\:ensp{\ifmtext |<unicode enspace|>\else\ifmathml
+    \Tg<\a:mathml mspace />\else |<unicode enspace|>\fi\fi}
 >>>
 
 \<unicode space\><<<
 \leavevmode\special{t4ht@+\string&{35}x00A0{59}}x%
 >>>
 
+\<unicode enspace\><<<
+\leavevmode\special{t4ht@+\string&{35}x2002{59}}x%
+>>>
 % \HCode{\string&}\HChar{-35}\HCode{x00A0;}%
 
 
