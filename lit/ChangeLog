@@ -7,15 +7,15 @@
 
 2020-02-24 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-oo-xtpipes.tex (oo-text.4xt): don't process <t4htlink> elements
-	using Xtpipes, it is handled better by make4ht.
+	* tex4ht-oo-xtpipes.tex (oo-text.4xt): don't process <t4htlink>
+	elements using Xtpipes; it is handled better by make4ht.
 
 2020-02-17 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty),
-	tex4ht-4ht.tex (usepackage-fontspec.4ht, usepackage.4ht): fixed support for
-	command patching in the document preamble. New command provided:
-	\:AtEndOfPackage.
+	tex4ht-4ht.tex (usepackage-fontspec.4ht, usepackage.4ht): fixed
+	support for command patching in the document preamble. New
+	command provided: \:AtEndOfPackage.
 	https://puszcza.gnu.org.ua/bugs/?448
 
 2020-02-14 Michal Hoftich  <michal.h21@gmail.com>
@@ -26,14 +26,15 @@
 
 2020-02-13 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (listings.4ht): added support for the \lstlistoflistings
-	command.
+	* tex4ht-4ht.tex (listings.4ht): added support for the
+	\lstlistoflistings command.
 	https://tex.stackexchange.com/a/528310/2891
 
 2020-02-09 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage-fontspec.4ht): don't block the Fontenc package
-	from loading, it caused another fatal issue with Fonspec.
+	* tex4ht-4ht.tex (usepackage-fontspec.4ht): don't block the
+	Fontenc package from loading, it caused another fatal issue with
+	Fonspec.
 
 2020-01-24 Michal Hoftich  <michal.h21@gmail.com>
 
@@ -445,9 +446,9 @@
 
 2019-12-13 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): added p-indent and p-space options. First
-	one disables blank spaces between paragraphs, the second keeps blank spaces
-	and disables indents. 
+	* tex4ht-html4.tex (html4.4ht): added p-indent and p-space
+	options. First one disables blank spaces between paragraphs, the
+	second keeps blank spaces and disables indents.
 
 	* tex4ht-html4.tex (html4.4ht): fixed font size problem with monospaced
 	fonts.
