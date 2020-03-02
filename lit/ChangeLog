@@ -1,3 +1,9 @@
+2020-03-02 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): fixed patching of the \usetikzpackage
+	command.
+	https://puszcza.gnu.org.ua/bugs/?451#postcomment
+
 2020-02-28 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht),

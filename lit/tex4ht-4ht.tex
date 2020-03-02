@@ -4063,10 +4063,7 @@ converted to SVG by default.
     \tikzset{tex4ht inc}
   \fi
 }
-\renewcommand\usetikzlibrary[1]{%
-  \use:tikzlibrary{#1}%
-  \find:externalize#1external\@nil%
-}
+\pend:defI\usetikzlibrary{\find:externalize##1external\@nil}%
 }
 \fi
 >>>
