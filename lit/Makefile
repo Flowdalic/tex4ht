@@ -243,6 +243,9 @@ tex4ht_t4ht_derived = t4ht.c
 derived += $(tex4ht_tei_derived)
 tex4ht_tei_derived = tei.4ht tei-mml.4ht tei-math.4ht tei-mmltei.4ht
 
+derived += $(tex4ht_jats_derived)
+tex4ht_jats_derived = jats.4ht
+
 derived += $(tex4ht_unicode_derived)
 tex4ht_unicode_derived = unicode.4ht
 
@@ -420,6 +423,9 @@ $(tex4ht_t4ht_derived): tex4ht-t4ht.tex $(common)
 $(tex4ht_tei_derived): tex4ht-tei.tex $(common)
 	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
+$(tex4ht_jats_derived): tex4ht-jats.tex $(common)
+	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+
 $(tex4ht_unicode_derived): tex4ht-unicode.tex $(common)
 	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
@@ -525,6 +531,8 @@ update: all
 	$(update) $(tex4ht_t4ht_derived) $(dest_src/
 #
 	$(update) $(tex4ht_tei_derived) $(dest_texmf)/
+#
+	$(update) $(tex4ht_jats_derived) $(dest_texmf)/
 #
 	$(update) $(tex4ht_unicode_derived) $(dest_texmf)/
 #
@@ -641,6 +649,7 @@ sources = \
  tex4ht-sty.tex\
  tex4ht-svg.tex\
  tex4ht-tei.tex\
+ tex4ht-jats.tex\
  tex4ht-word.tex\
  tex4ht-docbook-xtpipes.tex\
  tex4ht-html-speech-xtpipes.tex\

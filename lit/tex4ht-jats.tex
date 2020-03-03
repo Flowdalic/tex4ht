@@ -1,0 +1,68 @@
+% $Id: tex4ht-jats.tex 269 2020-03-03 23:06:07Z karl $
+% compile 3 times: latex tex4ht-jats
+%           or   xhlatex tex4ht-jats "html,3,sections+"
+%
+% Copyright 2009-2020 TeX Users Group
+% Copyright 2000-2009 Eitan M. Gurari
+% Released under LPPL 1.3c+.
+% See tex4ht-cpright.tex for license text.
+
+%%%%%%%%%%%%%%%%%% load style files %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \HTML\UnDef
+   \def\HTML{jats}                   
+   \def\CONFIG{\jobname}
+   \def\MAKETITLE{\author{Eitan M. Gurari}}         
+   \def\next{\input mktex4ht.4ht  \endinput}
+   \expandafter\next
+\fi
+
+\input{common.tex}
+\input{tex4ht-cpright.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<jats\><<<
+% jats.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht copywrite|>
+>>>
+
+  
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Start Here}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<configure jats tex4ht\><<<
+\special{t4ht.xml}
+\Configure{VERSION}{\HCode{<?xml version="1.0" encoding="UTF-8"?>\Hnewline}}
+\Configure{DOCTYPE}{\HCode{<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.1d1 20130915//EN" "JATS-journalpublishing1.dtd">\Hnewline}}
+\Configure{HTML}{\HCode{<article  \html:xmlns>\Hnewline}}{\HCode{\Hnewline</article>}}
+\Configure{@HEAD}{}
+\edef\html:xmlns{}
+\NewConfigure{xmlns}[2]{\edef\html:xmlns{\html:xmlns xmlns:#1="#2"\Hnewline}}
+\Configure{HEAD}{\HCode{<front>}}{\HCode{</front>}}
+
+\:CheckOption{mathml}\if:Option
+\Configure{xmlns}{mml}{http://www.w3.org/1998/Math/MathML}
+\fi
+>>>
+
+
+
+
+\<configure jats tex4ht\><<<
+>>>
+
+\<configure jats latex\><<<
+>>>
+
+
+
+\endinput

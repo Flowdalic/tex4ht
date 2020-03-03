@@ -110,6 +110,7 @@ tail>>>
 |<mozilla settings|>
 |<html5 settings|>
 |<tei settings|>
+|<jats settings|>
 |<docbook settings|>
 |<html for word settings|>
 |<open office settings|>
@@ -326,6 +327,14 @@ Allows cleanup using xtpipes.
 }
 >>>
 
+\<jats settings\><<<
+\Configure{jats}{%
+   \Hinclude[*]{html4.4ht}% we will build upon HTML
+   \Hinclude[*]{jats.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+}
+>>>
 
 \<docbook settings\><<<
 \Configure{docbook}{%
