@@ -1,3 +1,8 @@
+2020-03-03 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-jats.tex (jats.4ht),
+	tex4ht-options.tex (tex4ht.4ht): started to work on basic JATS support.
+
 2020-03-02 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): fixed patching of the \usetikzpackage
