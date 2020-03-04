@@ -8546,22 +8546,21 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \:CheckOption{mathjax}\if:Option
 \input{mathjax-latex-4ht.4ht}
 \Configure{@HEAD}{\HCode{
-<script type="text/x-mathjax-config">                                           
-MathJax.Hub.Config({
-    'fast-preview': {disabled: true}, 
-    TeX: {           
-      extensions: ["color.js","AMSmath.js"], 
-      equationNumbers: { autoNumber: "AMS" }
-    },        
-    extensions: ["tex2jax.js"], 
-    tex2jax: {       
-      \unexpanded{
-        inlineMath: [ ["\\\(","\\\)"] ],
+<script>                                           
+window.MathJax = {
+    tex: {
+      tags: "ams",
+      \detokenize{%
+      inlineMath: [ ["\\\(","\\\)"] ],
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],}
       processEscapes: true,
-      processEnvironments: true
-    }                   
-});                  
+      processEnvironments: true,
+      packages: ['base', 'color', 'ams']
+  },
+  loader: {
+    load: ['[tex]/color', '[tex]/ams']
+  }
+};
 </script>\Hnewline
 }}
 \Configure{MathjaxSource}{https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js}
