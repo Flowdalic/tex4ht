@@ -1,3 +1,9 @@
+2020-03-04 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht),
+	tex4ht-mathml.tex (html-mml.4ht): use MathJax 3
+	https://tug.org/pipermail/tex4ht/2020q1/002455.html
+
 2020-03-03 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.tex (jats.4ht),
