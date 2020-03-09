@@ -1,3 +1,8 @@
+2020-03-09 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-jats.tex (jats.4ht),
+	tex4ht-options.tex (tex4ht.4ht): still work in progress on JATS.
+
 2020-03-04 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht),
