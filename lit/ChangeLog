@@ -1,3 +1,8 @@
+2020-03-12 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): block package showframe.
+	https://tug.org/pipermail/tex4ht/2020q1/002464.html
+	
 2020-03-09 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.tex (jats.4ht),

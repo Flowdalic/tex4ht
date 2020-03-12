@@ -3579,6 +3579,20 @@ eso-pic,>>>
 \fi
 >>>
 
+%%%%%%%%%%%%%%%%%%
+\Section{showframe}
+%%%%%%%%%%%%%%%%%%
+
+The Showframe package is not useful in HTML mode. It also breaks TeX4ht, so we should block it.
+
+\<use package\><<<
+showframe,>>>
+
+\<add to usepackage\><<<
+\def\:temp{showframe}\ifx \@currname\:temp
+\:dontusepackage{showframe}
+\fi
+>>>
 %%%%%%%%%%%%%%%%%
 \Section{expl3.sty}
 %%%%%%%%%%%%%%%%%
