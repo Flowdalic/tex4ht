@@ -24,13 +24,13 @@ optionally using MathML.
 <h3>Project repository and discussions</h3>
 <ul>
 <li><a href="#changelog">ChangeLog</a>.</li>
-<li><a href="http://puszcza.gnu.org.ua/projects/tex4ht/">Project page at
+<li><a href="https://puszcza.gnu.org.ua/projects/tex4ht/">Project page at
     Puszcza</a>:
-    <a href="http://svn.gnu.org.ua/viewvc/tex4ht">source repository</a>,
+    <a href="http://svn.gnu.org.ua/viewvc/tex4ht/trunk">source repository</a>,
     <a href="https://puszcza.gnu.org.ua/bugs/?group=tex4ht">bug db</a>.
-<li><a href="http://lists.tug.org/tex4ht">General mailing list</a>
-    (<a href="http://tug.org/pipermail/tex4ht/">archives</a>), and
-    <a href="http://tug.org/pipermail/tex4ht-commits/">archive of
+<li><a href="https://lists.tug.org/tex4ht">General mailing list</a>
+    (<a href="/pipermail/tex4ht/">archives</a>), and
+    <a href="/pipermail/tex4ht-commits/">archive of
     repository commits</a>.
   <li>Chat on <a href="https://matrix.to/#/!TPtwmiUBINdfBLVrmC:matrix.org?via=matrix.org"
      >Matrix</a> and 
@@ -63,18 +63,33 @@ optionally using MathML.
   <li><a href="https://ctan.org/pkg/tex4ebook?lang=en">tex4ebook</a> - ePub and ePub3 export using TeX4ht.</li>
 </ul>
 
-<h2>Bug reports</h2>
+<h3>Basic invocation for modern output</h3>
+
+<p>To convert a LaTeX source file.tex to HTML5 that uses UTF-8:
+
+<pre>
+htlatex file.tex "xhtml,html5,charset=utf-8" " -cunihtf -utf8"
+</pre>
+
+<p>N.B. That command line has three arguments, the second two given
+inside shell quotes; the last argument starts with a space. <a
+href="applications/tex4ht/mn-commands.html">More details on calling
+conventions</a>.
+
+<p>For more comprehensible invocations, see <a
+href="https://ctan.org/pkg/make4ht">make4ht</a> above.
+
+<h3>Bug reports</h3>
 
 <p>Bug reports are welcome by email or by submission to the <a
 href="https://puszcza.gnu.org.ua/bugs/?group=tex4ht">bug database</a>.
 Please include a complete source document and the exact program
-invocation, as well as what goes wrong.  We need to be able to reproduce
-the problem to have a chance of fixing it.  If the problem remains
-unresolved, please submit it to the <a
-href="https://puszcza.gnu.org.ua/bugs/?group=tex4ht">bug db</a>, so it
-won't be forgotten.
+invocation, as well as what goes wrong. To fix the problem we need to be
+able to reproduce it. If the problem remains unresolved, please submit
+it to the <a href="https://puszcza.gnu.org.ua/bugs/?group=tex4ht">bug
+db</a>, so it won't be forgotten.
 
-<h2>Development status</h2>
+<h3>Development status</h3>
 
 <p>We continue to install updates in the tex4ht development source and
 propagate them to TeX, although we have not made a full release in
@@ -96,7 +111,7 @@ new development, is welcome and needed.
 href="/applications/tex4ht/">original web pages</a> refers to Eitan's
 last &ldquo;fix&rdquo; release, labeled <tt>2009_06_11_1038</tt>.
 
-<h2 id="changelog">ChangeLog</h2>
+<h3 id="changelog">ChangeLog</h3>
 
 <p>Latest changes (<a href="changelog.html">full ChangeLog</a>):
 <p><!--#include virtual="changes.html"-->
