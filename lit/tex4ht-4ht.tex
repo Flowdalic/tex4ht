@@ -30999,7 +30999,7 @@ of  \''<a>' elements.
         \:wr:mcol:css
         \expandafter\gdef\csname .\a:multicols-\mcolnum\endcsname{1}%
         \fi\ShowPar\par}
-\append:def\endmulticols{\EndP\HCode{</div>}} 
+\append:def\endmulticols{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}} 
 >>>
 
 \Section{lettrine.sty}
