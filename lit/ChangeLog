@@ -1,3 +1,16 @@
+2020-03-16  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-docbook.tex,
+	* tex4ht-fonts-cjk-utf8.tex,
+	* tex4ht-fonts-cjk.tex,
+	* tex4ht-fonts-noncjk.tex,
+	* tex4ht-html4.tex (html4.4ht),
+	* tex4ht-html5.tex,
+	* tex4ht-javahelp.tex (javahelp.4ht),
+	* tex4ht-mkht.tex (mkht.4ht): use https://tug.org instead of http.
+	Only listed .4ht files updated in TeX Live, others will
+	have to come in time.
+
 2020-03-14 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (multicol.4ht): fixed paragraph handling.
@@ -25,8 +38,8 @@
 
 2020-03-02 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht): fixed patching of the \usetikzpackage
-	command.
+	* tex4ht-4ht.tex (usepackage.4ht): fixed patching of the
+	\usetikzpackage command.
 	https://puszcza.gnu.org.ua/bugs/?451#postcomment
 
 2020-02-28 Michal Hoftich  <michal.h21@gmail.com>
