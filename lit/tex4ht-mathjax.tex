@@ -88,6 +88,11 @@ keep their verbatim appearance in the TOC
 \def\fixmathjaxtoc#1{\Configure{writetoc}{\def#1{\detokenize{#1}}}}
 >>>
 
+Some math commands cause issues when used in sections, so we will deactivate them.
+
+\<defined commands\><<<
+\def\fixmathjaxsec#1{\def#1{\detokenize{#1}}}
+>>>
 
 Require verbatim math environments.
 
@@ -137,8 +142,8 @@ It is necessary to reset env configurations for multline
 Fixes for tables of contents.
 
 \<configurations\><<<
-\fixmathjaxtoc\left
-\fixmathjaxtoc\right
+\fixmathjaxsec\left
+\fixmathjaxsec\right
 \fixmathjaxtoc\int
 \fixmathjaxtoc\,
 \fixmathjaxtoc\sin
