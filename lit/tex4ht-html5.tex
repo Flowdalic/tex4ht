@@ -295,8 +295,7 @@ Configure HTML5 figures. Floats are converted as captions too.
    {}{}
 
 \Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
-\Css{figure.float img {text-align:center;}}
-\Css{figure.figure img {text-align:center;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
 \Css{figure.figure > p {text-align:center;}}
 
 \Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
