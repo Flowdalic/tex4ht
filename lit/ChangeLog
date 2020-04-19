@@ -1,3 +1,9 @@
+2020-04-19 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): added support for \ln in
+	section titles.
+	https://puszcza.gnu.org.ua/bugs/?456
+
 2020-04-15 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): make \append:def and simillar commands
