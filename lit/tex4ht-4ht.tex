@@ -3339,6 +3339,19 @@ Support for links from the \Verb|\cref| command.
 \HLet\@@@setcref=\:tempa
 >>>
 
+
+\<use package\><<<
+cleveref,>>>
+%%%%%%%%%%%%%%%%%%
+
+Cleveref depends on internal Hyperref macro when Hyperref is loaded. It causes crash,
+because Hyperref exits before this macro is defined.
+\Link[https://tex.stackexchange.com/a/540277/2891]{}{}More information\EndLink.
+\<add to usepackage\><<<
+\def\:temp{cleveref}\ifx\@currname\:temp
+\let\HyOrg@addtoreset\@addtoreset
+\fi
+>>>
 %%%%%%%%%%%%%%%%%%
 \Section{authblk}
 
