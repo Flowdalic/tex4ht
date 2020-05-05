@@ -1,7 +1,17 @@
 \documentclass{book}
 \usepackage{url}
 \usepackage{xcolor}
+\usepackage{array}
+\usepackage{graphicx}
+
+% \usepackage[T1]{fontenc}
+\usepackage{upquote}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{csquotes}
 \usepackage{tex4ht-styles}
+
+
 
 \usepackage{glossaries}
 \title{TeX4ht Documentation}
@@ -12,26 +22,158 @@
 
 \maketitle
 
-\tableofcontents
+% Don't introduce table of contents in the HTML mode, as it introduces another page
+\ifdefined\HCode\else\tableofcontents\fi
+
 
 \chapter{Introduction}
 
-\chapter{Basic tutorial}
-\chapter{Basic usage}
-\section{Calling commands}
-\section{Output Formats}
-\section{Command Line Options}
 
+\begin{acknowledgements}
+This work was supported with a financial support from \href{https://cstug.cz/}{CSTUG}.
+\end{acknowledgements}
+
+\chapter{Basic Tutorial}
+\chapter{Calling Commands}
+\input{sections/calling-commands}
+\label{sec:calling-commands}
+\chapter{Output Formats}
+\chapter{\texfourht\ Options}
+
+\input{sections/tex4ht-options}
 
 \chapter{Configurations}
-\section{tex4ht commands}
-\include{sections/tex4ht-commands}
-\section{Configuration files}
+\input{sections/configuration-files}
+\section{tex4ht Commands}
+\input{sections/tex4ht-commands}
 \section{Styling the Document}
 
-\section{Use Webfonts}
+\texfourht\ provides several commands that can be used for changing of the
+document appearance using Cascading Style Sheets (\css). Only basic styling for
+the document is provided by default. Additional styles are added by configurations for the
+fonts, packages and commands used in the document. Full control of the document
+styling can be achieved using following commands and configurations.
+
+
+\texcommand{\Css{content}}
+
+This command sends its content to the CSS file of the document. 
+
+\texcommand{\CssFile[list-of-css-files]content\EndCssFile}
+
+The CSS file \texfourht\ used by default initially consists just
+a single line,  \texcommand{/* css.sty */}. This line is later
+replaced with the code submitted by the \texcommand{\Css{...}} commands.
+
+The \texcommand{\CssFile} command allows to specify an alternative to the initial CSS file.
+The alternative file consists of the code loaded from listed files, and of the
+content explicitly specified in its body.
+
+\begin{texsource}
+\ConfigureList{mylist} 
+{\HCode{<div class="mylist">}} {\HCode{</div>}} {* }{} 
+       
+\begin{document} 
+       
+\CssFile 
+/* css.sty */ 
+.mylist { color : red; } 
+\EndCssFile 
+\end{texsource}
+
+The names in the list of files should be separated by commas, and the rectangular brackets are optional when the list is empty.
+
+The file should include a line having the content of \verb|/* css.sty */|. If
+more than one such line is included, the content of the \texcommand{\Css{...}} commands
+replace the first occurrence of this line. Arbitrary many space characters may
+appear around the substrings ‘/*’ and ‘*/’. 
+
+\DocConfigure{AddCss} {CSS file name}\EndDoc
+
+Require external CSS file.
+
+\section{Webfonts}
+\input{sections/webfonts}
 \section{Use JavaScript}
 \section{Document Navigation}
+
+\subsection{Cross-links}
+
+The following configurations modify behaviour of cross-links between pages in a multi page document.
+
+\DocConfigure{crosslinks} {left-delimiter} {right-delimiter} {next} {prev} {prev-tail} {front} {tail} {up}\EndDoc
+
+This command configures the appearance of the cross-links between hypertext pages obtained for sectioning commands.
+
+\begin{texsource}
+ \Configure{crosslinks}
+   {}{}{$\scriptstyle\Rightarrow$}
+   {$\scriptstyle\Leftarrow$}
+   {}{}{}{$\scriptstyle\Uparrow$}
+\end{texsource}
+
+\DocConfigure{crosslinks*} {1--7 arguments}\EndDoc
+
+  Links to be included and their order. Available
+  options: next, prev, prevtail, tail, front, up.
+  The last argument must be empty.
+
+  Default:
+
+\begin{texsource}
+\Configure{crosslinks*}{next}
+   {prev}{prevtail}
+   {tail}{front}
+   {up}{}
+\end{texsource}
+
+\DocConfigure{crosslinks+} {before-top-links} {after-top-links} {before-bottom-links} {after-bottob-links}\EndDoc
+
+The top cross links are omitted, if both \verb|#1| and \verb|#2| are empty.
+The bottom cross links are omitted, if both \verb|#3| and \verb|#4| are empty.
+
+\DocConfigure{next} {the anchor of the next button of the front page}\EndDoc
+
+Default: The value provided in \texcommand{\Configure{crosslinks}}
+
+\DocConfigure{next+}{before} {after}\EndDoc
+
+\begin{description}
+  \item[\#1]  before the next button of the front page, when the `next'
+       option is active.
+  \item[\#2]  after the button
+\end{description}
+
+    Default: The values provided in \texcommand{\Configure{crosslinks}}
+
+\begin{texsource}
+\Configure{crosslinks:next}..................1
+\Configure{crosslinks:prev}..................1
+\Configure{crosslinks:prevtail}..............1
+\Configure{crosslinks:tail}..................1
+\Configure{crosslinks:front}.................1
+\Configure{crosslinks:up}....................1
+\end{texsource}
+
+  \verb|#1| local configurations for the delimiters and hooks
+
+\DocConfigure{crosslinks-}{before} {after}\EndDoc
+
+Asks to show linkless buttons with the following insertions.
+
+The default values are used, if both \verb|#1| and \verb|#2| are empty
+
+   Examples:
+
+\begin{texsource}
+\Configure{crosslinks-}{}{}
+
+\Configure{crosslinks-}
+    {\HCode{<span class="hidden">}[}
+    {]\HCode{</span>} }
+\Css{span.hidden {visibility:hidden;}}
+\end{texsource}
+
 \section{Tables of Contents}
 
 \section{Sections}
@@ -41,25 +183,205 @@
 \section{Fonts}
 \subsection{Basic font commands}
 
-Information about the \option{fonts} option and \term{MathML} issues. Example configuration:
+Information about the \option{fonts} option and \term{MathML} issues. 
+Example configuration:
 \url{https://tex.stackexchange.com/a/416613/2891}
+
+\section{Multi-lingual support}
+
+RTL support in the ODT output: \url{https://tex.stackexchange.com/a/470434/2891}.
+
+\subsection{Right-to-left text}
+
+There is a difference in the RTL support for HTML and ODT output formats. In HTML, RTL can be requested using:
+
+\DocConfigure{LRdir} { value for the dir attribute}\EndDoc
+
+Example:
+
+\begin{texsource}
+\ConfigureEnv{arab}
+{\Configure{LRdir}{ dir="rtl"}}
+{\Configure{LRdir}{}}{}{}
+\end{texsource}
+
+This configuration sets the direction to \term{rtl} inside the \term{arab} environment and resets it after the environment end.
+
+In the ODT output, different mechanism is used:
+
+\begin{texsource}
+\ConfigureEnv{arab}{\@rltrue}{\@rlfalse}{}{}
+\end{texsource}
+
+\subsection{Unicode}
+
+Generally speaking, \texfourht\ supports \term{Unicode}, but there are some
+issues to be aware of. Most complete support exists for Lua\LaTeX, thanks to
+special Lua script which is automatically loaded during the compilation. No
+additional packages are necessary.
+
+PDF\LaTeX\ doesn't support nativelly, but it is possible to emulate it using the
+\package{inputenc} and \package{fontenc} packages:
+
+\begin{texsource}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document}
+Unicode text
+\end{document}
+\end{texsource}
+
+Xe\LaTeX\ is an Unicode format, similarly to Lua\LaTeX. The supporting
+mechanism for \texfourht\ is different in this case and full Unicode range is
+not supported out of the box. By default, only most Latin based characters are
+supported. For other scripts, such as Greek or Cyrillic, two ways to enable
+support exists. 
+
+First option is to define new font family using \package{fontspec} \texcommand{\newfontfamily} with the \texttt{Script} option.
+
+\begin{texsource}
+\newfontfamily\greekfont{Linux Libertine O}[Script=Greek]
+\end{texsource}
+
+
+The second option is to declare load support for a script in the custom config
+file using the \texcommand{\xeuniuseblock}:
+
+
+\begin{texsource}
+\xeuniuseblock{Greek}
+\end{texsource}
+
+The block names are based on \href{https://en.wikipedia.org/wiki/Unicode_block}{Unicode blocks}.
+
+It is also possible to declare all characters in an Unicode range. The command
+\texcommand{\xeuniregisterblockhex} takes two hexadecimal parameters with
+Unicode range to be declared.
+
+\begin{texsource}
+\xeuniregisterblockhex{0100}{017F}
+\end{texsource}
+
+Individual character can be declared using the \texcommand{\xeuniregisterchar} command:
+
+\begin{texsource}
+\xeuniregisterchar{"1F00}
+\end{texsource}
+
+In contrast to \texcommand{\xeuniregisterblockhex}, it uses decimal numbers by
+default, so it is necessary to use the \texttt{"} character in front of
+a hexadecimal number.
+
+\begin{warning}
+It is possible to run into issues because of the way how Xe\LaTeX\ Unicode
+support works. Common problem is filename support, for example in included
+graphics. In general, it is better to avoid such filenames. If it is not possible, try to use the \texcommand{\detokenize} command.
+\begin{texsource}
+  \includegraphics{\detokenize{háček.jpg}}
+\end{texsource}
+\end{warning}
+
 \section{Colors}
 
-\section{Graphics}
+Information about the \texcommand{\color} command:
+\url{https://tex.stackexchange.com/a/195677/2891}.
+Example of possible configuration for the \texcommand{\color} command: 
+\url{https://tex.stackexchange.com/q/470179/2891}.
+
+Example of extracting color information to the CSS and custom color environment support:
+\url{https://tex.stackexchange.com/a/422281/2891}. Extracting of color information to the HTML attributes:
+\url{https://tex.stackexchange.com/a/390151/2891}.
+
+
+
+\section{Graphics and Pictures}
+
+\input{sections/graphics}
 \section{TikZ }
 
 Animations using Animate package: \url{https://tex.stackexchange.com/a/404600/2891}
+
+Issues with drivers: \url{https://tex.stackexchange.com/a/471460/2891}.
 \section{Pstricks}
 
 \section{Math}
-\section{MathML}
-\section{MathJax}
+\subsection{Default math handling}
+\subsection{MathML}
+
+\mathml\ is a XML markup for the math encoding. It is supported in many
+aplications including OpenOffice Writer or Firefox web browser. 
+The advantage over use of images % Todo: write about advantages of MathML.
+
+The \mathml\ code produced by \texfourht\ may contain some issues. For example,
+one common issue may happen when the math contain unmatched delimiters:
+
+\begin{texsource}
+ Mail address: $\lparen$hello@world.com$\rparen$
+\end{texsource}
+
+In such cases, the \option{matml-} may help. 
+
+It is also advisable to always use \extension{common\_domfilters}
+\term{make4ht} extension (see section \ref{sec:make4ht-extensions} for more
+information about \term{make4ht} extensions), as it fixes some common \mathml\
+errors that cannot be easily fixed on the \TeX\ level.
+
+
+Add information about the \url{https://github.com/pshihn/math-ml} - it adds
+support for MathML in all modern web browsers with HTML 5.
+
+
+\subsection{MathJax}
+
+The \term{MathJax} processing can be required using \option{mathjax} option.
+The address of \term{MathJax} script with its configuration string can be
+specified in \configuration{MathjaxSource}. The default value of this configuration is:
+
+\begin{texsource}
+\Configure{MathjaxSource}
+{https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/%
+latest.js?config=TeX-AMS-MML_HTMLorMML}
+\end{texsource}
+
+By default, inline and display math, as well as math environments, are kept as
+raw LaTeX code in the \HTML\ output. \term{MathJax} then transforms this code
+and displays it. In the \term{MathML} mode, \term{MathJax} is used only for the
+rendering in browsers without \term{MathML} support. 
+
+The additional configuration for \term{MathJax} can be provided in special
+script environment in the \HTML\ page header. The following example provides
+support for some custom \LaTeX\ macros.
+
+\begin{texsource}
+\Configure{@HEAD}{\HCode{\detokenize{%
+<script type="text/x-mathjax-config">                                           
+  MathJax.Hub.Config({
+    TeX: {           
+      Macros: {     
+        sc : "\\small\\rm",
+        sl: "\\it", 
+      }        
+    },        
+    }                   
+  );                  
+</script>   
+}}}
+\end{texsource}
+
+The \texcommand{\detokenize} macro is used to avoid issues with backslash
+characters used in the macro definitions. Backslashes must be doubled in the
+JavaScript strings.
+
 
 \section{Bibliographies}
 \section{Indexing}
 
+\section{OpenDocument Format}
+\input{sections/odt}
+
 \chapter{Make4ht Build Files}
-\section{Calling commands}
+\section{Commands execution}
 \section{Filters}
 
 Some samples:
@@ -69,119 +391,11 @@ Some samples:
 \end{itemize}
 \section{Image conversion}
 
+\chapter{FAQ}
+\input{sections/faq}
 \chapter{For developers}
+\input{sections/tex4ht-development}
 
-\section{Writing basic support for a new package}
-\begin{itemize}
-  \item \url{https://tex.stackexchange.com/a/402283/2891}
-\end{itemize}
-
-\section{Two types of .4ht files}
-
-\subsection{Inserting configurable hooks for packages}
-
-\subsection{Configure the hooks in output format configuration files}
-
-\section{How to add support for a package to the \texfourht\ literate sources}
-
-To add a proper support for a new package, it is necessary to edit the 
-\texfourht\ literate sources. The configurable hooks need to be placed in the \file{tex4ht-4ht.tex},
-the configuration of these hooks must be added to the output format configuration files.
-The most common output format is \HTML, which can be configured in \file{tex4ht-html4.tex}, or 
-\file{tex4ht-html5.tex} if \HTMLV\ features are used. It is also necessary to update the
-\file{mktex4ht-cnf.tex}.
-
-\subsection{Example}
-
-Given following package \file{sample.sty}:
-
-\begin{texsource}
-\ProvidesPackage{sample}
-\newcommand\hello{world}
-\endinput
-\end{texsource}
-
-This simple package defines command \texcommand{\hello}, which simply prints the word \textit{hello} when used in a document.
-
-Let's say that we want to insert some \HTML\ tags before and after the text content printed by the command.
-
-Basic template for \file{tex4ht-4ht.tex}
-
-% examples/basicpackage/sample.4ht
-\begin{texsource}
-\<sample.4ht\><<<
-% sample.4ht (|version), generated from |jobname.tex
-% Copyright 2017 TeX Users Group
-|<TeX4ht license text|>
-\NewConfigure{hello}{2}
-\pend:def\hello{\a:hello}
-\append:def\hello{\b:hello}
-\Hinput{sample}
->>> \AddFile{9}{sample}
-\end{texsource}
-
-Configuration for each package must follow this basic template. The \ProTeX\ system is used as system for literate programming.
-
-The \texcommand{\<name\><<<code>>>} block defines new macro which can be then called using \texcommand{|<name|>}. The license text
-is included in the example this way. In order to generate the \file{sample.4ht} file, we need to use \texttt{sample.4ht} as a name
-in the code block and command \texcommand{\AddFile{9}{sample}} after the block definition\footnote{I have no idea what the number
-in the first parameter means.}.
-
-Each package configuration  must include \texcommand{\Hinput{packagename}}, in order to load the configurations for the package.
-
-The command \texcommand{\NewConfigure{hello}{2}} declares new configuration \texttt{hello}, with two configurable hooks. 
-These hooks are named  \texcommand{\a:hello} and \texcommand{\b:hello}. The hooks must be inserted into the 
-\texcommand{\hello}, which can be easily done using the \texcommand{\pend:def} and \texcommand{\append:def} commands. These
-commands can insert code  at the beginning, respective at the end of the redefined command.
-
-The configuration for \HTML\ must be placed in the \file{tex4ht-html4.tex} file:
-
-
-% examples/basicpackage/config.cfg
-\begin{texsource}
-\<configure html4 sample\><<<
-\Configure{hello}{\HCode{<span class="hello">}}{\HCode{</span>}}
-\Css{.hello{color:red;}}
->>>
-\end{texsource}
-
-The configuration for a package must be placed in \texcommand{\<configure html4 packagename\>} block.
-% ToDo: write more info
-
-
-The package name must be also included in \file{mktex4ht-cnf.tex}:
-
-\begin{texsource}
-\AddFile{9}{sample}
-\end{texsource}
-
-The \file{.4ht} files can be generated simply using 
-
-\begin{shellcommand}
-make
-\end{shellcommand}
-
-command.
-
-The following sample \TeX\ file:
-
-
-% examples/basicpackage/hello.tex
-\begin{texsource}
-\documentclass{article}
-\usepackage{sample}
-\begin{document}
-  \hello\ world.
-\end{document}
-\end{texsource}
-
-Produces a following \HTML\ code:
-
-\begin{htmlsource}
-<!--l. 4--><p class="noindent" >
-<span class="hello">world</span> world. 
-</p> 
-\end{htmlsource}
 \chapter{Glossary}
 \chapter{Bibliography}
 \chapter{Index}
