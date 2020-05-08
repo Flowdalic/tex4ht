@@ -18,8 +18,6 @@
 \chapter{Various Options for \TeX4ht}
 \fi
 
-\catcode`\#=11 \catcode`\^=11 \catcode`\_=11
-
 \begin{description}
 
 \item[-css] to ignore \css code, use command line option \verb=-css=.
@@ -58,9 +56,9 @@
 
 \item[TocLink] option to request links from the tables of contents.
   
-\item[\tt ^13] option for active superscript character.
+\item[\textasciicircum13] option for active superscript character.
 
-\item[\tt _13] option for active subscript character.
+\item[\textunderscore 13] option for active subscript character.
 
 %\item[accent-]
 
@@ -91,10 +89,10 @@
 % \item[draw]
 % \item[dtd]
 
-\item[\tt early^] for default catcode of superscript in the
+\item[early\textasciicircum] for default catcode of superscript in the
   \verb=\Preamble=.
 
-\item[\tt early_] for default catcode of subscript in the
+\item[early\textunderscore] for default catcode of subscript in the
   \verb=\Preamble=.
 
 %\item[edit]
@@ -129,10 +127,10 @@
 \item[frames-] for frames support. \verb=frames= is also valid option
   for frames support.
 
-\item[frames-fn] for content, \chfont{TOC}\xspace and footnotes in
+\item[frames-fn] for content, {\chfont TOC} and footnotes in
   three frames.
 
-\item[frames] for \chfont{TOC}\space and content in two frames.
+\item[frames] for {\chfont TOC} and content in two frames.
 
 %\item[fussy]
 
@@ -205,7 +203,7 @@
 
 \item[mathplayer] for \mathml on Internet Explorer + MathPlayer.
 
-\item[minitoc<] for mini tocs immediately after the header use the
+\item[minitoc\textless] for mini tocs immediately after the header use the
   command line option, \verb=minitoc<=.
 
 \item[mouseover] for pop ups on mouse over.
@@ -217,7 +215,7 @@
 \item[nikud] for Hebrew vowels, use the command line option,
   \verb=nikud=.
 
-\item[no-DOCTYPE] to remove \chfont{DOCTYPE}\space declaration from
+\item[no-DOCTYPE] to remove {\chfont DOCTYPE} declaration from
   the output.
 
 \item[no-VERSION] to remove \verb+<?xml version="..."?>+ processing
@@ -231,13 +229,13 @@
 % \item[no-matrix]
 % \item[no-pmatrix]
 
-\item[\tt no^] for non-active \verb=^= (superscript), use the option
+\item[no\textasciicircum] for non-active \verb=^= (superscript), use the option
   \verb=no^=.
 
-\item[\tt no_] for non-active \verb=_= (subscript command), use the
+\item[no\textunderscore] for non-active \verb=_= (subscript command), use the
   command line option, \verb=no_=.
 
-\item[\tt no_^] for both non-active superscript and subscript, use the
+\item[no\textunderscore\textasciicircum] for both non-active superscript and subscript, use the
   option \verb=no_^=.
 
 \item[nolayers] to remove overlays of slides, use this option.
@@ -343,11 +341,11 @@
 
 % \item[url-]
 
-\item[url-enc] for \chfont{URL}\space encoding within href, use this
+\item[url-enc] for {\chfont URL} encoding within href, use this
   option.  \verb=\Configure{url-encoder}= can be used to fine tune
   encoding.
 
-\item[url-il2-pl] for il2-pl \chfont{URL} encoding.
+\item[url-il2-pl] for il2-pl {\chfont URL} encoding.
 
 \item[ver] for vertically stacked frames. Effective when \verb=frames=
   option is requested.
