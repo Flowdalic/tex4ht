@@ -1,3 +1,8 @@
+2020-05-20 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): added support for MW classess in the
+	ooffice output.
+
 2020-05-18 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (imakeidx.4ht): added support for the intoc option.

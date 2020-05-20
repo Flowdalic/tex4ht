@@ -6778,6 +6778,17 @@ The following two sample codes provide different behavior.
 \Configure{@begin}{theindex}{\section*{\indexname}}
 >>>
 
+\<mwcls sections\><<<
+\ConfigureMark{chapter}
+   {\ifHeadingNumbered \mw@seccntformat\HeadingNumber\fi}
+\ConfigureMark{section}
+{\ifHeadingNumbered\@seccntformat{section}\fi}
+\ConfigureMark{subsection}
+{\ifHeadingNumbered\@seccntformat{subsection}\fi}
+\ConfigureMark{subsubsection}
+{\ifHeadingNumbered\@seccntformat{subsubsection}\fi}
+>>>
+
 
 %%%%%%%%%%%%%%%%%%
 \section{Begin/End Environments}
@@ -8948,6 +8959,56 @@ fn\the\c@footnote x\minipageNum
 >>>
 
 
+\<configure ooffice mwart\><<<
+|<ooffice title page|>
+|<content styles|>
+|<non chap tocs|>
+|<ooffice bib with refname|>
+|<ooffice begin-end env|>
+|<basic ooffice sections|>
+|<basic ooffice section styles|>
+|<ooffice captions|>
+|<ooffice index|>
+|<non-chapter index|>
+|<config lists of figures and tables|>
+|<base font size|>
+|<mwcls index|>
+|<mwcls sections|>
+>>>
+
+\<configure ooffice mwrep\><<<
+|<ooffice title page|>
+|<content styles|>
+|<chap tocs|>
+|<ooffice bib with bibname|>
+|<ooffice begin-end env|>
+|<basic ooffice sections|>
+|<basic ooffice section styles|>
+|<ooffice captions|>
+|<ooffice index|>
+|<chapter index|>
+|<config lists of figures and tables|>
+|<base font size|>
+|<mwcls index|>
+|<mwcls sections|>
+>>>
+
+\<configure ooffice mwbk\><<<
+|<ooffice title page|>
+|<content styles|>
+|<chap tocs|>
+|<ooffice bib with bibname|>
+|<ooffice begin-end env|>
+|<basic ooffice sections|>
+|<basic ooffice section styles|>
+|<ooffice captions|>
+|<ooffice index|>
+|<chapter index|>
+|<config lists of figures and tables|>
+|<base font size|>
+|<mwcls index|>
+|<mwcls sections|>
+>>>
 
 \<configure ooffice slides\><<<
 \Configure{maketitle}
@@ -9590,6 +9651,7 @@ The following configuration does not show.
 \Configure{frenchb-thinspace}{\HCode{\string&\:sharp x202F;}\setbox\tmp:bx=\hbox\bgroup}{\egroup}
 \Configure{frenchb-nbsp}{\:nbsp\setbox\tmp:bx=\hbox\bgroup}{\egroup}
 >>>
+
 
 %%%%%%%%%%%%%%%%%%
 \section{ElsArt}
