@@ -4,6 +4,8 @@
 	https://tex.stackexchange.com/q/545582/2891
 	* tex4ht-html4.tex (html4.4ht): use <pre> element for the verbatim
 	environment.
+	* tex4ht-4ht.tex (amsart.4ht, amsbook.4ht, amsproc.4ht): fixed spurious
+	footnotes for \thanks command.
 
 2020-05-20 Michal Hoftich  <michal.h21@gmail.com>
 
