@@ -1,3 +1,8 @@
+2020-05-22 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, caption.4ht): fixes for the Caption package.
+	https://tex.stackexchange.com/q/545582/2891
+
 2020-05-20 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added support for MW classess in the

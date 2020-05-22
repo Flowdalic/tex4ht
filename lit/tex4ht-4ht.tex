@@ -11032,6 +11032,7 @@ Foo
 % Copyright |CopyYear.2007. Eitan M. Gurari
 |<TeX4ht copyright|>
 |<caption shared config|>
+|<caption redefine makecaption|>
 \Hinput{caption}
 \endinput
 >>>        \AddFile{9}{caption}
@@ -11043,6 +11044,10 @@ caption,>>>
 \def\:temp{caption}\ifx\@currname\:temp
 \:AtEndOfPackage{%
   \long\def\caption@If@Package@Loaded#1[#2]#3#4{}
+  \renewcommand*\caption@redefine{%
+    \let\caption\caption@caption%
+    \let\@caption\caption@@caption%
+  }%
 }
 \fi
 >>>
@@ -11077,6 +11082,17 @@ caption,>>>
    }\fi% 
 } 
 >>>
+
+Handle redefined caption command
+
+\<caption redefine makecaption\><<<
+\long\def\@makecaption#1#2{%   
+  \caption@make@above%
+  \cptA:\caption@@make{\cap:ref{#1}\if :#1:\else\cptB:\fi}{\cptC:#2}\cptD:%
+  \caption@make@below%
+}
+>>>
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Index and Glossary}
