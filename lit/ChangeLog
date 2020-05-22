@@ -2,6 +2,8 @@
 
 	* tex4ht-4ht.tex (usepackage.4ht, caption.4ht): fixes for the Caption package.
 	https://tex.stackexchange.com/q/545582/2891
+	* tex4ht-html4.tex (html4.4ht): use <pre> element for the verbatim
+	environment.
 
 2020-05-20 Michal Hoftich  <michal.h21@gmail.com>
 

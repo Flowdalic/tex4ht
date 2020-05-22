@@ -7249,12 +7249,11 @@ Different labels may be associated to a common object in LaTex.
 \def\env:verb#1{\ifinner\else \vfill\break\fi
   \IgnorePar\EndP  \HAssign\Verb:N=0
   \gHAdvance\verbatimN by 1
-  \HCode{<div class="#1" id="verbatim-\verbatimN"\a:LRdir>}\EndNoFonts}
+  \HCode{<pre class="#1" id="verbatim-\verbatimN"\a:LRdir>}\EndNoFonts}
 \def\endenv:verb{\NoFonts
-  \EndP \ht:special{t4ht=</div>}|<try inline par|>}
+  \EndP \ht:special{t4ht=</pre>}|<try inline par|>}
 \HAssign\Verb:N=0
-\Css{div.verbatim {font-family: monospace,monospace;
-                   white-space: nowrap;
+\Css{pre.verbatim {font-family: monospace,monospace;
                    text-align:left; 
                    clear:both; 
  }}
@@ -7266,7 +7265,7 @@ Different labels may be associated to a common object in LaTex.
 
 \<configure html4 latex\><<<
 \Configure{verbatim}
-   {\HAdvance\Verb:N by 1 \ifnum \Verb:N>1 \:nbsp \HCode{<br />}\fi}
+   {\HAdvance\Verb:N by 1 \ifnum \Verb:N>1\fi}
    {\a:sp}
 \Configure{verb}
    {\HCode{<span class="verb"\a:LRdir>}}
