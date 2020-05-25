@@ -3744,7 +3744,11 @@ polyglossia,>>>
     #1 / direction
     .  code:n = {},
     #1 / script
-    .  code:n = {},
+    .  code:n = {\ifdefined\XeTeXversion
+      \edef\:tempscript{\str_uppercase:f{\tl_head:n {#1}}\tl_tail:n{#1}}
+      \xeuniuseblock{#1}
+      \expandafter\xeuniuseblock\expandafter{\:tempscript}
+    \fi},
   }
 }
 \def\RequireBidi{}%
