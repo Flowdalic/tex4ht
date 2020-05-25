@@ -1,3 +1,7 @@
+2020-05-25 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): disable script selection in Polyglossia.
+
 2020-05-22 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, caption.4ht): fixes for the Caption package.
