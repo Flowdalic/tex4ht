@@ -16,6 +16,9 @@
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/txfonts/rtcxss.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/txfonts/tcxb.htf
 	): fixed wrong XML entites. 
+	* tex4ht-4ht.tex (awesomebox.4ht),
+	* tex4ht-html4.tex (html4.4ht): basic support for the awesomebox package.
+	https://tex.stackexchange.com/a/546570/2891
 
 2020-05-25 Michal Hoftich  <michal.h21@gmail.com>
 

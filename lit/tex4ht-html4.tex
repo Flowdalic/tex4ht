@@ -15439,6 +15439,28 @@ IE doesn't distinguish between upper and lower case characters in css
 \ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
 >>>
 
+%%%%%%%%%%%%%%%%%
+\subsection{awesomebox}
+%%%%%%%%%%%%%%%%%
+\<configure html4 awesomebox\><<<
+\Configure{awesomebox}{%
+  \Css{\#\awesomebox@id\space .icon{border-right:4px solid \#\awesomebox@rule@color;}}
+  \ifvmode\IgnorePar\fi\EndP%
+  \HCode{<div class="awesomebox" id="\awesomebox@id"><div class="icon">}%
+  \Picture+{}%
+}{\EndPicture%
+  \HCode{</div><div class="boxcontent">}%
+  \par%
+}{%
+  \ifvmode\IgnorePar\fi\EndP%
+  \HCode{</div></div>}%
+}
+
+\Css{.awesomebox{display:grid; grid-template-columns: 90px auto;margin-top:1rem;margin-bottom:1rem;}}
+\Css{.awesomebox .icon{padding-right:0.5rem;margin-right:0.5rem;text-align:center;}}
+\Css{.awesomebox .boxcontent{vertical-align:top;}}
+>>>
+
 
 %%%%%%%%%%%%%%%%%%%
 \subsection{boxedminipage}

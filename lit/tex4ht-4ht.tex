@@ -30197,6 +30197,36 @@ The following might be problematic with a caption
 >>> \AddFile{7}{adjustbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%
+\Section{awesomebox.sty}
+%%%%%%%%%%%%%%%%%%%%%%%
+\<awesomebox.4ht\><<<
+% awesomebox.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+|<awesomebox config|>
+\Hinput{awesomebox}
+\endinput
+>>> \AddFile{7}{awesomebox}
+
+
+\<awesomebox config\><<<
+\NewConfigure{awesomebox}{3}
+\newcounter{awesomebox:cnt}
+\RenewDocumentCommand \awesomebox { O{abvrulecolor} O{} o m m m +m }{%
+  \stepcounter{awesomebox:cnt}%
+  \def\awesomebox@id{awesomebox-\arabic{awesomebox:cnt}}%
+  \extractcolorspec{#1}{\awesomebox@rule@color}%
+  \expandafter\convertcolorspec\awesomebox@rule@color{HTML}\awesomebox@rule@color%
+\a:awesomebox%
+  \IfValueTF {#3}%
+      {  #3 \\ #2 \textcolor{#6}{\Huge#5}\b:awesomebox #7  #2}%
+      {         #2 \textcolor{#6}{\Huge#5}\b:awesomebox #7  #2}%
+\c:awesomebox%
+}
+
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%
 \Section{alltt.sty}
 %%%%%%%%%%%%%%%%%%%%%%%
 
