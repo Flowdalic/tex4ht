@@ -3006,6 +3006,10 @@ John Plaice
 
 \HAssign\OddDoc=1
 
+\def\Intro{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="intro">}}
+\def\EndIntro{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}{}{}
+\Css{.intro{border:1px solid black; padding:4px;}}
+
 \NewSection\DocPart{}{}
 \Configure{DocPart}
   {\IgnorePar} {}
@@ -3336,6 +3340,7 @@ John Plaice
 %         END DIRECTORIES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -3345,17 +3350,19 @@ John Plaice
 
 \Part{TeX4ht: LaTeX and TeX for Hypertext}
 
+\Intro
+
 \TeX4ht was created by Eitan Gurari at Ohio State University. Eitan died
 unexpectedly in June 2009; we dedicate future development to his memory.
 
-The new \TeX4ht home page is
+The new \TeX4ht home page is at
 \Link[http://tug.org/tex4ht]{}{}http://tug.org/tex4ht\EndLink.  
 Please see that page for current development information, %
 including a \Link[https://puszcza.gnu.org.ua/bugs/?group=tex4ht]{}{}bug tracker\EndLink\ 
 and \Link[http://tug.org/mailman/listinfo/tex4ht]{}{}mailing lists\EndLink.
 
 \TeX4ht is still actively maintained, and many individual files have been
-updated; new versions are committed to the \TeX4ht and TeX Live
+updated; new versions are committed to the \TeX4ht\ and TeX Live
 repositories.
 
 Unfortunately, no full release of \TeX4ht has been made since Eitan
@@ -3366,6 +3373,8 @@ Gurari, the original author, passed away. When a release is finally made
 Work towards a first
 release is underway, but will take time to complete.  Please forgive broken
 links and other problems with this documentation in the meantime.
+
+\EndIntro
 
 \TeX4ht is a highly configurable \TeX-based authoring system 
 dedicated mainly to 
