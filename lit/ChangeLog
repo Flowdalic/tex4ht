@@ -1,8 +1,8 @@
 2020-05-27 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex,
-	tex4ht-fonts-modern.tex,
-	tex4ht-fonts-4hf.tex (
+	* tex4ht-fonts-modern.tex,
+	* tex4ht-fonts-4hf.tex (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/lm-qx/lm-qx.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/iwona/greek-iwona.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/libertine/fxlr-xl-03.htf
