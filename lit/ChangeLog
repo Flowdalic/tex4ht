@@ -2,7 +2,20 @@
 
 	* tex4ht-fonts-noncjk.tex,
 	tex4ht-fonts-modern.tex,
-	tex4ht-fonts-4hf.tex (lot of .htf files): fixed wrong XML entites. 
+	tex4ht-fonts-4hf.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/lm-qx/lm-qx.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/iwona/greek-iwona.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/libertine/fxlr-xl-03.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/libertine/fxlr-xl-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/lm-qxtt.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/lm-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/pxfonts/rpcxr.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tibetan/ctib.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tipa/xipx.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/txfonts/rtcxr.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/txfonts/rtcxss.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/txfonts/tcxb.htf
+	): fixed wrong XML entites. 
 
 2020-05-25 Michal Hoftich  <michal.h21@gmail.com>
 
