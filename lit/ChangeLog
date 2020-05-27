@@ -1,3 +1,9 @@
+2020-05-27 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex,
+	tex4ht-fonts-modern.tex,
+	tex4ht-fonts-4hf.tex (lot of .htf files): fixed wrong XML entites. 
+
 2020-05-25 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): load Unicode definitions when script
