@@ -3154,8 +3154,10 @@ John Plaice
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Css{h1, h2, h3 { font-family: comic; }} %  sans MS
-\Css{body { background: white; }}
+\Css{h1, h2, h3 { font-family: sans-serif; }} %  sans MS
+\Css{body {max-width: 60rem;margin:1rem;}}
+
+\def\Mark#1{\HCode{<mark>}#1\HCode{</mark>}}
 
 \Configure{Sign}
   {\IgnorePar\EndP\HCode{<div class="SIGN">}\bgroup \it}
@@ -3355,8 +3357,9 @@ John Plaice
 \TeX4ht was created by Eitan Gurari at Ohio State University. Eitan died
 unexpectedly in June 2009; we dedicate future development to his memory.
 
-The new \TeX4ht home page is at
-\Link[http://tug.org/tex4ht]{}{}http://tug.org/tex4ht\EndLink.  
+
+\Mark{The new \TeX4ht home page is at
+\Link[http://tug.org/tex4ht]{}{}http://tug.org/tex4ht\EndLink}.  
 Please see that page for current development information, %
 including a \Link[https://puszcza.gnu.org.ua/bugs/?group=tex4ht]{}{}bug tracker\EndLink\ 
 and \Link[http://tug.org/mailman/listinfo/tex4ht]{}{}mailing lists\EndLink.
@@ -6878,6 +6881,10 @@ the current document.
 \item
 \Link[http://web.archive.org/web/20140909114942/http://www.cse.ohio-state.edu/\string
     ~gurari/publications.html]{}{}Conference presentations\EndLink
+\item
+\Link[https://tug.org/TUGboat/tb25-1/gurari.pdf]{}{}TeX4ht: HTML production\EndLink
+\item
+\Link[https://tug.org/TUGboat/tb40-1/tb124hoftich-make4ht.pdf]{}{}TeX4ht: LaTeX to Web publishing\EndLink
 %
 %\item In the .log files of the compilations.
 \WAIT
