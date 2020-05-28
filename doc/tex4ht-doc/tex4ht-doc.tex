@@ -34,6 +34,41 @@ This work was supported with a financial support from \href{https://cstug.cz/}{C
 \end{acknowledgements}
 
 \chapter{Basic Tutorial}
+\chapter{How to}
+
+\section{Change design}
+\subsection{Basics}
+
+By default, \texfourht\ separates paragraphs by spaces. If you want to use text indenting instead, try the \option{p-indent} option.
+
+\subsection{CSS}
+\subsection{Web fonts}
+
+\section{Math}
+
+\subsection{MathJax}
+
+
+\subsection{MathML}
+\subsection{Subscripts and superscripts}
+\input{howto/subscripts}
+\subsection{MathJax Node}
+
+
+\section{Graphics}
+\subsection{Include graphics (svg,pdf)}
+\subsection{Change image size and resolution}
+
+\section{Blogging}
+
+\section{Work with external commands}
+\subsection{Indexing}
+\subsection{Bibliographies}
+\subsection{R}
+\subsection{Markdown}
+\subsection{PythonTeX}
+
+
 \chapter{Calling Commands}
 \input{sections/calling-commands}
 \label{sec:calling-commands}
@@ -95,6 +130,9 @@ Require external CSS file.
 \section{Webfonts}
 \input{sections/webfonts}
 \section{Use JavaScript}
+\section{Hyperlinks}
+% https://tex.stackexchange.com/a/521497/2891
+% https://tex.stackexchange.com/a/521905/2891
 \section{Document Navigation}
 
 \subsection{Cross-links}
@@ -333,45 +371,76 @@ support for MathML in all modern web browsers with HTML 5.
 
 
 \subsection{MathJax}
+\texfourht\ supports MathJax, library for math rendering in HTML documents. 
+ It supports two modes -- \LaTeX\ math and \mathml.
 
-The \term{MathJax} processing can be required using \option{mathjax} option.
-The address of \term{MathJax} script with its configuration string can be
-specified in \configuration{MathjaxSource}. The default value of this configuration is:
+The \term{MathJax} processing can be required using the \option{mathjax} option.
+
+The address of the \term{MathJax} script and its configuration string can be
+specified in the \configuration{MathjaxSource} configuration. Default value of this configuration is:
 
 \begin{texsource}
 \Configure{MathjaxSource}
-{https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/%
-latest.js?config=TeX-AMS-MML_HTMLorMML}
+{https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js}
 \end{texsource}
 
+\paragraph{\LaTeX\ mode}
+
+In the \LaTeX math mode, \TeX\ macros used in the math mode are preserved in
+the output HTML document. They are parsed and rendered by MathJax when the
+document is displayed by a web browser. The downside of this mode is that
+commands unknown to MathJax must be configured in a special configuration for
+MathJax. Cross-references to equations and other numbered math environments
+don't work out of the box.
+
 By default, inline and display math, as well as math environments, are kept as
-raw LaTeX code in the \HTML\ output. \term{MathJax} then transforms this code
-and displays it. In the \term{MathML} mode, \term{MathJax} is used only for the
-rendering in browsers without \term{MathML} support. 
+raw LaTeX code in the \HTML\ output. 
 
 The additional configuration for \term{MathJax} can be provided in special
 script environment in the \HTML\ page header. The following example provides
 support for some custom \LaTeX\ macros.
 
 \begin{texsource}
-\Configure{@HEAD}{\HCode{\detokenize{%
-<script type="text/x-mathjax-config">                                           
-  MathJax.Hub.Config({
-    TeX: {           
-      Macros: {     
-        sc : "\\small\\rm",
-        sl: "\\it", 
-      }        
-    },        
-    }                   
-  );                  
-</script>   
-}}}
+\Preamble{xhtml}
+\Configure{@HEAD}{\HCode{
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      \unexpanded{
+        sc: "\\small\\rm",
+        sl: "\\it",
+      }
+    }
+  }
+};
+</script>
+}}
+\begin{document}
+\EndPreamble
+
 \end{texsource}
 
 The \texcommand{\detokenize} macro is used to avoid issues with backslash
 characters used in the macro definitions. Backslashes must be doubled in the
 JavaScript strings.
+
+
+\paragraph{\mathml\ mode}
+
+Math is converted to \mathml\ by \texfourht, MathJax then renders it. Custom
+commands and cross-references work in this mode.
+
+The \mathml\ MathJax mode can be required using the \option{mathml,mathjax} option.
+
+\paragraph{Table of contents issues}
+
+Some math commands may cause issues when they are used in section titles in the MathJax mode. 
+This can be fixed using the \texcommand{\fixmathjaxtoc} command:
+
+\begin{texsource}
+\fixmathjaxtoc\int
+\end{texsource}
 
 
 \section{Bibliographies}
