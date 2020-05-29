@@ -2,6 +2,8 @@
 
 	* TeX4ht-doc.tex (mn.html): imported some changes from the web version of
 	the documentation.
+	* TeX4ht-doc.tex (mn.html): replaced some dead links by the Archive.org
+	backup of the linked pages.
 
 2020-05-28  Michal Hoftich  <michal.h21@gmail.com>
 
