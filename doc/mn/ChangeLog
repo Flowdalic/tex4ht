@@ -1,6 +1,11 @@
+2020-05-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* TeX4ht-doc.tex (mn.html): imported some changes from the web version of
+	the documentation.
+
 2020-05-28  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-doc.tex (mn.html, mn.css): set mag-width, changed style of headers,
+	* TeX4ht-doc.tex (mn.html, mn.css): set mag-width, changed style of headers,
 	highlighted info about current TeX4ht home page, added new publications.
 
 2020-05-27  Michal Hoftich  <michal.h21@gmail.com>
