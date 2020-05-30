@@ -595,7 +595,8 @@ diff = diff -u0 --ignore-all-space --ignore-blank-lines \
 # the hunk, so ignore them all explicitly. also ignore commented changes.
 diff-all:
 	-for f in $(diff_files); do $(diff) $(inst_dir_4ht)/$$f .; done \
-	| tee /tmp/u | egrep -v '^ *[-+]%|write-1.version'
+	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
+	             | egrep -v '^.ifx.infoIVht.UnDeF.*//$$'
 
 # diff one file specified as d=
 diff1 d1:

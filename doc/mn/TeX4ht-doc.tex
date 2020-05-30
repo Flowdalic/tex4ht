@@ -1,12 +1,9 @@
-% save TeX4ht ; save bugfixes (in particular executables)
-
-% dotemp  twice
-% or 
-% remove TeX4ht/* ;  dofinal twice ; compile bugfixes
-
-
-
-
+% $Id$
+% Part of TeX4ht, released under the LPPL.
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
 
 %%%%%%%%%%%%%%% comment out for final version %%%%%%%%%%%%%
 % \def\UnderRevision{{\bf
@@ -23,88 +20,6 @@
 \immediate\write16{!!!!!!needs: TWO COMPILATIONS to get correct index!!!!!!!!}
 \immediate\write16{!!!!!!checkmn in-messages out-clean-messages!!!!!!!!}
 \immediate\write16{!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!}
-\immediate\write16{!!!!!!cd /home/httpd/html/applications/tex4ht!!!!!!!!}
-\immediate\write16{!!!!!!lynx http://www.cse.ohio-state.edu/\string ~gurari/tex4ht/tex4ht-all.zip}
-
-
-%+% ftp cam.ctan.org  
-%+% anonymous
-%+% gurari@cse.ohio-state.edu
-%+% ftp> cd incoming
-%+% ftp> send tex4ht-all.zip
-%+% ftp> send README.tex4ht
-%+% ftp> quit
-%+% 
-%+% 
-%+% -- mail the administrators (ctan@dante.de) to report:
-%+% 
-%+%  Subject: Uploaded current version of tex4ht
-%+%
-%+%    + what you've uploaded
-%+% 
-%+% tex4ht-all.zip
-%+% README
-%+% 
-%+%    + which CTAN node you've uploaded to
-%+% 
-%+% cam.ctan.org  
-%+% 
-%+%    + where you want the files to go
-%+% 
-%+% Replace
-%+% 
-%+%   /tex-archive/support/TeX4ht/tex4ht-all.zip
-%+% 
-%+%    + what licensing conditions you apply to your software 
-%+%
-%+% LPPL
-%+% 
-%+%    + a brief summary of what your upload is intended to do.
-%+% 
-%+% Update of the TeX4ht system for translating TeX-based
-%+% files into hypertext.
-%+%
-%+% Thanks, -eitan
-
-
-%+% ftp cam.ctan.org  
-%+% anonymous
-%+% gurari@cse.ohio-state.edu
-%+% ftp> cd incoming
-%+% ftp> send AlProTex.sty
-%+% ftp> send README.protex
-%+% ftp> quit
-%+% 
-%+% 
-%+% -- mail the administrators (ctan@dante.de) to report:
-%+% 
-%+%  Subject: Uploaded current version of AlProTex.sty
-%+%
-%+%    + what you've uploaded
-%+% 
-%+% AlProTex.sty
-%+% README
-%+% 
-%+%    + which CTAN node you've uploaded to
-%+% 
-%+% cam.ctan.org  
-%+% 
-%+%    + where you want the files to go
-%+% 
-%+% Replace
-%+% 
-%+%   /tex-archive/web/protex/AlProTex.sty
-%+%   /tex-archive/web/protex/README
-%+% 
-%+%    + what licensing conditions you apply to your software 
-%+%
-%+% LPPL
-%+% 
-%+%    + a brief summary of what your upload is intended to do.
-%+% 
-%+% Update the ProTex literate programming system.
-%+%
-%+% Thanks, -eitan
 
 
 \long\def\WAIT#1\ENDWAIT{}
@@ -2905,23 +2820,9 @@ John Plaice
      \immediate\write16{=============  t4ht.exe missing===========}
 \fi  \closein15
 
-
-
-\immediate\write16{....  ftp  /tex-archive/support/TeX4ht ... anonymous .. gurari@cse.ohio-state.edu}
-\immediate\write16{....NEEDS        11. wfiles.zip}
-\immediate\write16{....NEEDS        12. bcc32 -BCC32 tex4ht.c}
-\immediate\write16{....NEEDS        13. bcc32 -BCC32 t4ht.c}
-\immediate\write16{...KEEP dosports}
-\immediate\write16{...zip -r foo *.*}
-
-
 \input DraTex.sty
 \input AlDraTex.sty
 \input  tex4ht.sty
-
-
-
-
 
 \def\GOBBLE#1{}
 \ifx  \SysNeeds\GOBBLE
@@ -3359,25 +3260,19 @@ unexpectedly in June 2009; we dedicate future development to his memory.
 
 
 \Mark{The new \TeX4ht home page is at
-\Link[http://tug.org/tex4ht]{}{}http://tug.org/tex4ht\EndLink}.  
+\Link[https://tug.org/tex4ht]{}{}https://tug.org/tex4ht\EndLink}.  
 Please see that page for current development information, %
 including a \Link[https://puszcza.gnu.org.ua/bugs/?group=tex4ht]{}{}bug tracker\EndLink\ 
-and \Link[http://tug.org/mailman/listinfo/tex4ht]{}{}mailing lists\EndLink.
-
+and \Link[https://lists.tug.org/tex4ht]{}{}mailing lists\EndLink.
 
 \TeX4ht is still actively maintained, and many individual files have been
 updated; new versions are committed to the \TeX4ht\ and TeX Live
 repositories.
 
-
 Unfortunately, no full release of \TeX4ht has been made since Eitan
 Gurari, the original author, passed away. When a release is finally made
 (there is no ETA at present), it will be available on 
-\Link[https://www.ctan.org/pkg/tex4ht?lang=en]{}{}CTAN\EndLink.
-
-Work towards a first
-release is underway, but will take time to complete.  Please forgive broken
-links and other problems with this documentation in the meantime.
+\Link[https://ctan.org/pkg/tex4ht]{}{}CTAN\EndLink.
 
 \EndIntro
 
@@ -4314,15 +4209,15 @@ within braces (for instance,
 %{\tt |}  .log files of the compilations
 
 
-\NextFile{bugfixes.html}\HPage{}
+\NextFile{bugfixes.html}\HPage{bug fixes - TeX4ht}
 
-The next release is in preparation.  See 
-\Link[http://tug.org/tex4ht]{}{}http://tug.org/tex4ht\EndLink\ 
+See 
+\Link[https://tug.org/tex4ht]{}{}https://tug.org/tex4ht\EndLink\ 
 for current status and information. You can see updates in the
-\Link[http://tug.org/pipermail/tex4ht-commits/]{}{}commit history\EndLink.
+\Link[https://tug.org/pipermail/tex4ht-commits/]{}{}commit history\EndLink.
 
-The issues can be reported on the \Link[https://puszcza.gnu.org.ua/bugs/?group=tex4ht]{}{}
-issue tracker\EndLink.
+Issues can be reported on the
+\Link[https://puszcza.gnu.org.ua/bugs/?group=tex4ht]{}{}bug tracker\EndLink.
 \EndHPage{}
 
 
@@ -7053,340 +6948,21 @@ an up to date port is to download an installed distribution
 \NextFile{\jobname-upgrade.html}\HPage{upgrade}\ExitHPage{}
 \bgroup                       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\parindent=0pt
-\def\TEST{\item Issue the `{\tt htlatex test}' command.  If the compilation fails, fix the problem
-encountered before proceeding.}
-
 \InstallSection{TeX4ht Upgrading}
 
-
-
-The following instructions describe how TeX4ht can be upgraded
-employing Unix conventions. Apply only
-the steps that pertain for the outdated parts of the TeX4ht environment. 
-
-
-
-{\bf Note.} The target directory paths in the following instructions might differ
-from those in your platform. If that is the case, adjust the paths in the
-instructions to match the ones in your machine.
-
-
-
-\List{1}
-
-
-
-
-
-% 1. Make a new temporary directory, download the following files there 
-%  
-%        http://www.cse.ohio-state.edu/~gurari/TeX4ht/fix/newt4ht.zip 
-%  
-%     and unzip them. 
-%  
-
-
-\item  Create a file {\tt test.tex} in a work directory:
-
-
-\Verbatim
-\documentclass{article}
-\begin{document}
-  Hello \(alpha\)
-\end{document}
-\EndVerbatim
-
-
-
-
-\item
- Create a new temporary directory, download  
-\Link[tex4ht.zip]{}{}tex4ht.zip\EndLink{}
-to that directory, and uncompress the file. 
-
-
-
-\item {\bf[Configuration files]} Move the files from 
-  
-\centerline{\tt
-        texmf/tex/generic/tex4ht/* }
-
-  
-     to 
-  
-\centerline{\tt
-        /usr/share/texmf/tex/generic/tex4ht/.}
-
-
-
-\List{*}
-\item
- A super user access mode might be required  for the updating.
-
-\item   The relative paths here and below are with respect to the 
-   temporary directory where tex4ht.tar.gz got uncompressed.
-
-
-\item
- The messages `htlatex test' issues during a
-compilation  can be consulted to find out whether a path alternative to
-\Verb!/usr/share/texmf/tex/generic/tex4ht/!
-should be used.
-\EndList
-
-
-  
-\item Refresh the latex registry.  Probably one of  the following 
-     commands would do the job. 
-
-
-\centerline{\tt
-          texhash, 
-          mktexlsr, initexmf -u}
-
-\TEST
-
-
-
-\item
- {\bf[Postprocessors tex4ht.c, t4ht.c]}
- Find where the executables {\tt tex4ht} and {\tt t4ht} reside (e.g., with 
-   the commands `{\tt which tex4ht}' and `{\tt which t4ht}')
- 
-Temporarily save the files, say, by renaming them to {\tt tex4ht.old} and {\tt t4ht.old}. 
-
-On Linux platforms,  set the following executable files 
- 
-\Verbatim
-       bin/linux/tex4ht 
-       bin/linux/t4ht 
-\EndVerbatim
-
-\noindent   as replacement to the ones renamed.
- 
-On non-Linux platforms, new executables should be compiled for the replacements.
-
-
-\TEST
- 
-\item 
- {\bf[Fonts]}
-  Remove the subdirectory
- 
-\centerline{\tt
-     /usr/share/texmf/tex4ht/ht-fonts} 
-
- 
-  and introduce there instead the subtree  `{\tt ht-fonts}' obtained from 
-  the zip file.
-
-
- The messages `htlatex test' issues during a
-compilation  can be consulted to find out whether a path alternative to
-\Verb!/usr/share/texmf/tex4ht/ht-fonts!
-should be used.
-
-
- 
- 
- 
-\item Refresh the latex registry.
-
-\centerline{\tt
-          texhash, 
-          mktexlsr, initexmf -u}
-
-
-\TEST
-
-\item
- {\bf[Environment File]}
- Determine the location of \Verb!tex4ht.env! 
-from the messages issued during the compilation invoked  by  `{\tt htlatex test}'
-
- 
-\item Temporarily save the \Verb!tex4ht.env! file (under a different name?) 
-    and set the following file as a replacement 
- 
-\centerline{\tt       texmf/tex4ht/base/unix/tex4ht.env} 
-
-
-\item Replace the substrings
-
-\centerline{\tt   \%\%\string~/texmf-dist}
-
-with the substrings
-
-\centerline{\tt /usr/share/texmf}
-
-within the records of tex4ht.env that invoke Java.
-
-
-\item
- {\bf[Invocation Scripts]}
- Find where {\tt htlatex}
- resides (e.g., `{\tt which htlatex}').  Save the files
-\Verb!htlatex!, \Verb!httex!, \Verb!httexi!, and \Verb!htcontext!
-   elsewhere and get new scripts from
- 
-\centerline{\tt
-        bin/unix/}
- 
-   for a replacement.   (Variants of the above scripts are
-available at {\tt
-        bin/ht/unix/}.)
- 
-\TEST
-
-
-\item
- Find where {\tt mk4ht} resides (e.g., `{\tt which mk4ht}').  Save the file 
-   elsewhere and set the file 
- 
-\centerline{\tt
-        bin/unix/mk4ht} 
-
- 
-   for a replacement.
- 
-
-\item Issue the command 
- `{\tt
-        mk4ht htlatex test}'.
-   Check that the outcome is the same way as from the `{\tt htlatex test}' command. 
-
-
-
-
-
-
-
-\item
- {\bf[Backend Filters]}
- If they exist, delete the subdirectories 
- 
-\Verbatim
-        /usr/share/texmf/tex4ht/bin 
-        /usr/share/texmf/tex4ht/xtpipes 
-\EndVerbatim
-
-
-\item Add the subtrees
- 
-\Verbatim
-        texmf/tex4ht/bin 
-        texmf/tex4ht/xtpipes 
-\EndVerbatim
-
-
-    to 
-    
-\centerline{\tt
-    /usr/share/texmf/tex4ht/} 
-
-
-\item  The platform should have Java installed, with version no earlier than 1.5 
-
-
-\TEST
-
-% 
-%  
-% 8. Issue the command 
-%  
-%        htlatex filename  "xhtml,emspk" " -cemspkhtf -s4es" "-cemspk" 
-%  
-%    and email me the messages it gives.  Don't worry about 
-%    error messages 
-% 
-% 
-% 
-% 
-% 1.  About three lines before the end of 
-%  
-%        /etc/tex4ht/tex4ht.env 
-%  
-%    there is a record 
-%  
-%        java -classpath  ~/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar xtpipes -i 
-%             ~/tex4ht.dir/texmf/tex4ht/xtpipes/ -o filename.html filenam.tmp 
-%  
-%    Replace there the two prefixes 
-%  
-%          ~/tex4ht.dir 
-%  
-%    with 
-%  
-%          /usr/share 
-%  
-% 2. Issue the command 
-%  
-%        htlatex filename  "xhtml,emspk" " -cemspkhtf -s4es" "-cemspk" 
-%  
-%    and email me the messages it gives. 
-%  
-%  
-% The 
-%  
-%      htlatex filename  "xhtml,emspk" " -cemspkhtf -s4es" "-cemspk" 
-%  
-% is too painful to use.  The 
-%  
-%      mk4ht eslatex filename 
-%  
-% can be invoked for the translations. Another alternative is to invoke 
-% the command 
-%  
-%      eslatex filename 
-%  
-% However, for this last command the script 
-%  
-%      bin/ht/unix/eslatex 
-%  
-% needs to be installed in the same directory as htlatex, with modifications 
-% similar to those made in htlatex. 
-%  
-% A few comments. 
-%  
-% 1. The html file(s) are to be fed into emacspeak.  If you encounter 
-%    latex commands that are not translated into emacspeak 
-%    at all or to your liking,  I'll be glad to fix the configurations. 
-%    However, I'll need  miniature latex files demonstrating the problems. 
-%  
-% 2. I have a variant of the system that instead of producing ACSS 
-%    translations for emacspeak provides JSML output for java-based voice 
-%    browsers 
-%     
-% (http://java.sun.com/products/java-media/speech/forDevelopers/JSML/JSML.html). 
-%    I hope to have a simple browser for the job in the coming 
-%    weeks and will announce then the JSML option. 
-
-\EndList
-
-Contributed instructions:
-
-\List{*}
-\item \Link[http://www.exstrom.com/journal/comp/tex4ht.html]{}{}%        
- OpenSuSE 10.2\EndLink
-\EndList
-
-\egroup                       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\EndHPage{} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- it with the
-files provided here.
-
- Establishing ports from scratch for 
-%
-\NextFile{\jobname-unix.html}\HPage[]{Unix}
-%
-\ExitHPage{}
+At present, the only practical way to update \TeX4ht is via a
+distribution. Runtime files continue to be updated in <a
+href="/texlive/">TeX Live</a>, so if you're using TL, you can get those
+with <tt>tlmgr update</tt>. We don't know if MiKTeX picks up
+the same updates.
+
+There has been no new full release since Eitan's death; still a work in
+progress.
+
+For the upstream tex4ht source repository where the work is being
+done, see the \Link[/tex4ht/]{}{}tex4ht home page\EndLink.
 
 \InstallSection{A Setup for Unix Environments}
-
-
-
 
 \List{a}
 \item Establish a  directory, say,  `{\tt \string~/tex4ht.dir}'.
@@ -9347,8 +8923,7 @@ including  \TeX4ht.
 
 \item
 \TeX4ht
-\HPage{integrated into the
-WinShell}
+\HPage{integrated into the WinShell}
 I was successful with integrating TeXh4t win WinShell 2.2.1
 from Texlive 7 distribution. By inserting ``user tools'' you can
 have an editor from which there is a quick access to not only
@@ -9367,7 +8942,7 @@ of Ingo H. de Boer
 (Piotr Grabowski) %<pgrab@IA.AGH.edu.PL>
 
 \item
-\Link[http://www.ctan.org/tex-archive/systems/win32/bakoma/programs/texword.html]{}{}BaKoMa
+\Link[https://ctan.org/tex-archive/systems/win32/bakoma/programs/texword.html]{}{}BaKoMa
 \TeX{} Word\EndLink .  A WYSIWYG \LaTeX{} editor with HTML expot
 through \TeX4ht .
 \EndList
@@ -9572,9 +9147,6 @@ Languages: \&
 \item
  \Link[http://www.esm.psu.edu/mac-tex/
    target="\string_blank"]{}{}MacOSX TeX/LaTeX Web Site\EndLink
-\item
- \Link[http://www.ctan.org/tex-archive/help/Catalogue/
-   target="\string_blank"]{}{}\TeX{} Catalogue\EndLink{} (Graham Williams)
 \item
  \Link[http://www.dante.de/cgi-bin/ctan-index
    target="\string_blank"]{}{}Archive Search\EndLink{} 
@@ -9888,7 +9460,7 @@ Bibtex styles and a Perl script driver for creating XHTML output from
 BibTeX citations.
 %--------------------------------------------------------------------------
 \Item
-\Link[http://tug.ctan.org/tex-archive/biblio/bibtex/utils/bib2ml
+\Link[https://ctan.org/pkg/bib2ml
      target="\string_blank"]{}{}Bib2ML\EndLink{}\author
      (St\'ephane Galland)\ContItem
  A Perl script for generating HTML, XML and SQL files 
@@ -10147,7 +9719,7 @@ A program for translating \LaTeX{} into XML (including XHTML and MathML).
  A perl script for translating \LaTeX{} into HTML.
 %
 %  http://www.latex2html.org    
-%  http://tug.org/mailman/listinfo/latex2html    
+%  https://lists.tug.org/latex2html    
 %
 %     LaTeX2HTML needs Perl, the PBM utilities, dvips, GhostScript, and
 %     other sundries; it assumes it is running on a Unix system. Michel
@@ -10166,7 +9738,7 @@ A program for translating \LaTeX{} into XML (including XHTML and MathML).
     target="\string_blank"]{}{}\LaTeX 2man\EndLink{}\author
     (J\"urgen Vollmer)\ContItem
 A Perl script for translating  UNIX manual pages written with \LaTeX{}
- into  UNIX man(1)-command,  HTML, or TexInfo code.
+ into  UNIX man(1)-command,  HTML, or Texinfo code.
 %%-----------------------------------------------------------------------------------
 % \Item
 % \Link[http://www.soft4science.com/fr\string
@@ -10335,7 +9907,7 @@ HTML.
 % http://www.cs.rice.edu/\string~dorai/tex2html/tex2html.html   
 %-----------------------------------------------------------------------------------
 \Item
-\Link[http://www.ctan.org/tex-archive/support/tex2rtf/
+\Link[https://ctan.org/pkg/tex2rtf
      target="\string_blank"]{}{}\TeX 2RTF\EndLink{}\author
  (Julian Smart)\ContItem
 tmEA A C++ utility for converting from a subset of \LaTeX{} to   HTML and other formats.
@@ -10713,16 +10285,6 @@ A JAVA translator from \TeX ML-conforming XML into \TeX.
 A Perl translator from \TeX ML-conforming XML into \TeX.
 %---------------------------------------------------------------------
 \Item
-   \Link[http://www.ctan.org/tex-archive/macros/latex/contrib/carlisle/
-          target="\string_blank"]{}{}%
-       TypeHTML\EndLink{}\author (David Carlisle)\ContItem     
-HTML to \LaTeX
-% \Item
-%    \Link[http://www.tex.ac.uk/tex-archive/macros/passivetex/
-%           target="\string_blank"]{}{}%
-%        TypeXML\EndLink{}\author (Sebastian Rahtz)\ContItem     
-% TypeHTML modified for XML 
-\Item
    \Link[http://kebrt.webz.cz/programs/word-to-latex/index.html
           target="\string_blank"]{}{}%
        Word-to-LaTeX\EndLink{}\author (Michal Kebrt)\ContItem     
@@ -10841,10 +10403,10 @@ A server side parses for LaTeX math expressions, emitting either mime
 %  La\TeX{} to MicroSoft Word
 %%----------------------------------------------------------------------------
 \Item
-\Link[http://tug.org/applications/pdftex/
+\Link[https://tug.org/applications/pdftex/
      target="\string_blank"]{}{}Pdf\TeX\EndLink{}\author (Han The Thanh)\ContItem
 An extension of the \TeX{} compiler 
-offering an option for Adobe's Portable Document Format (pdf) output.
+offering native output for the Portable Document Format (pdf) output.
 %
 %ftp://ftp.cstug.cz/pub/tex/local/cstug/thanh/
 %
@@ -11046,10 +10608,8 @@ is probably the best setting of \TeX4ht for such translations.
 
 \DocPart{License}
 
-% http://www.ctan.org/tex-archive/macros/latex/base/lppl.txt
-
 \TeX4ht is provided under the
-\Link[ftp://tug.ctan.org/tex-archive/macros/latex/base/lppl.txt]{}{}LaTeX
+\Link[http://mirror.ctan.org/macros/latex/base/lppl.txt]{}{}LaTeX
 Project Public License\EndLink{} (LPPL).  
 
 
@@ -11061,9 +10621,9 @@ offered by many people. In particular, thanks go to Carmen Fierro,
 Piotr Grabowski, Gertjan Klein, Sebastian Rahtz, and Philip Viton for
 extensive feedback and help at early stages of this project.
 
-This work was partially sponsored by NSF grant IIS-0312487.
+Eitan's work was partially sponsored by NSF grant IIS-0312487.
 
-\Sign{http://tug.org/tex4ht}
+\Sign{https://tug.org/tex4ht}
    {\ifcase \month \or
    January \or February \or March \or April \or May \or June \or July
    \or August \or September \or October \or November \or December \fi
@@ -11485,44 +11045,42 @@ cp /home/4/gurari/main.dir/html.dir/OomFilter.java        \DIR lit/src/java/.
 "}
 
 %%%%%%%%%%%%%%%%%%%%
-\Needs{"
-          cd \DIR lit
-;         zip tex4ht-lit *
-;         mv tex4ht-lit.zip \DIR .
-"}
-\Needs{"
-          chmod 644  \DIR tex4ht-lit.zip
-"}
-\Needs{" /usr/bin/rm -r \DIR lit
-"}
-%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Let's not bother to make the zip file we do not use.
+%\Needs{"
+%          cd \DIR lit
+%;         zip tex4ht-lit *
+%;         mv tex4ht-lit.zip \DIR .
+%"}
+%\Needs{"
+%          chmod %44  \DIR tex4ht-lit.zip
+%"}
+%\Needs{" /usr/bin/rm -r \DIR lit
+%"}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \egroup
 
+% do not symlink index.html; we want a plain file for TeX Live runtime.
+% So we maintain it by hand as a simple html redirect.
+%\csname SysNeeds\endcsname{"cd \DIR; ln -s  mn.html index.html"}
+%\csname SysNeeds\endcsname{"chmod 644 \DIR index.html"}
 
-
-
-
-
-\csname SysNeeds\endcsname{"cd \DIR; ln -s  mn.html index.html"}
-\csname SysNeeds\endcsname{"chmod 644 \DIR index.html"}
-
-
-
-\csname SysNeeds\endcsname{"cd \DIR tex4ht
-                          ; zip -r tex4ht.zip *
-                          ; mv \DIR tex4ht/tex4ht.zip \DIR .
-                          ; cd \DIR
-                          ; rm  -r tex4ht
-                          ; chmod 644 *.zip 
-                          ; zip -r tex4ht-all.zip *  
-                          ; chmod 644 *.zip 
-                          ; ln -s tex4ht.zip 
-                                  tex4ht-\the\year 
-                                         \ifnum \month<10 0\fi
-                                         \the\month
-                                         \ifnum \day<10 0\fi
-                                         \the\day.zip
-       "}
+% Let's not bother to make the zip file we do not use.
+%\csname SysNeeds\endcsname{"cd \DIR tex4ht
+%                          ; zip -r tex4ht.zip *
+%                          ; mv \DIR tex4ht/tex4ht.zip \DIR .
+%                          ; cd \DIR
+%                          ; rm  -r tex4ht
+%                          ; chmod 644 *.zip 
+%                          ; zip -r tex4ht-all.zip *  
+%                          ; chmod 644 *.zip 
+%                          ; ln -s tex4ht.zip 
+%                                  tex4ht-\the\year 
+%                                         \ifnum \month<10 0\fi
+%                                         \the\month
+%                                         \ifnum \day<10 0\fi
+%                                         \the\day.zip
+%       "}
 
 \csname SysNeeds\endcsname{"echo '*************** DONE ***************'"}
 
