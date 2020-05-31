@@ -1,3 +1,10 @@
+2020-05-31 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht): added default definition for
+	\:RestoreMathjaxCatcodes.
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fix \sum in TOC.
+	https://puszcza.gnu.org.ua/bugs/index.php?468
+
 2020-05-27 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex,
