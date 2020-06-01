@@ -1,20 +1,25 @@
 # $Id$
 # This file is public domain.  Originally written 2010, Karl Berry.
-# 
+# Assumes GNU make.
+
 # todo: look for xx below
 
 SHELL = /bin/sh
 extra_bin = ./extra-bin
 ht_bin = ../bin/ht/unix
 PATH := $(shell echo $$PATH)
-# setting PATH as TeX Live 2016 (DVD) does not ship with 'xhlatex'
-# and look for xmlint/vcss in ./extra-bin
+# setting PATH as it's nice to find our own (development) scripts,
+# e.g., look for xmlint/vcss in ./extra-bin
 export PATH := $(ht_bin):$(extra_bin):$(PATH)
 
+homedir ?= tex4ht.dir
 wd = work.dir
 htmldir = html.dir
 xtpipesdir = xtpipes.dir
 deriveddir = derived.dir
+texmf_t4ht_bin = texmf/tex4ht/bin
+# List of directories we'll substitute into tex4ht-dir.tex below:
+dirs = homedir wd htmldir xtpipesdir deriveddir texmf_t4ht_bin
 
 tex_opts = --interaction=nonstopmode -recorder #--file-line-error
 tex_1opt = "$(tex_opts)" # must be quoted, passing to shell script
@@ -29,13 +34,19 @@ default: all
 # generates it (cond4ht), so we need two different variables.
 # Similarly for tex4ht.sty, though that is modified far less often.
 # 
-# Michal 10/05/2017: it seems that when mktex4ht.4ht is included as
-# common, it causes constant recompilatiations
 common_no_cond_sty = tex4ht-cpright.tex common.tex common-code.tex \
-  ProTex.sty AlProTex.sty
+  ProTex.sty AlProTex.sty tex4ht-dir.tex
 # common = mktex4ht.4ht tex4ht.sty $(common_no_cond_sty)
 common = tex4ht.sty $(common_no_cond_sty)
+# Michal 10/05/2017: it seems that when mktex4ht.4ht is included as
+# common, it causes constant recompilations.
 common_info = $(common) common-info.tex
+
+# Substitute directories used, especially for Java.
+tex4ht-dir.tex: tex4ht-dir.m4
+	m4 $(foreach dir,$(dirs),-D $(dir)="$($(dir))") $< >$@ || rm -f $@
+
+# Start long list of generated files from the literate sources. Needs more.
 derived = 
 
 derived += $(tex4ht_cond4ht_derived)
@@ -71,12 +82,11 @@ tex4ht_bibtex2_derived = bibtex2.4ht
 derived += $(tex4ht_c_derived)
 tex4ht_c_derived = tex4ht.c
 
-
 derived += $(tex4ht_docbook_derived)
 tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
 
 derived += $(tex4ht_docbook_xtpipes_derived)
-tex4ht_docbook_xtpipes_derived = docbook.4xt DbUtilities.java
+tex4ht_docbook_xtpipes_derived = docbook.4xt $(wd)/src/DbUtilities.java
 
 derived += $(tex4ht_env_derived)
 tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
@@ -89,7 +99,7 @@ tex4ht_fonts_cjk_utf8_derived = tex4ht-fonts-cjk-utf8.html # and lots more
 
 # noncjk.tex \input's modern, but seems more maintainable
 # to have separate lists.
-ht_fonts_devdir = tex4ht.dir/texmf/tex4ht/ht-fonts
+ht_fonts_devdir = $(homedir)/texmf/tex4ht/ht-fonts
 derived += $(tex4ht_fonts_noncjk_derived)
 tex4ht_fonts_noncjk_derived = \
   $(ht_fonts_devdir)/alias/ec/eccc.htf \
@@ -110,7 +120,7 @@ tex4ht_fonts_noncjk_derived = \
 	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Roman-tlf-t1--base.htf \
 	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Italic-tlf-t1--base.htf \
 	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Bold-tlf-t1--base.htf \
-  SearchFonts.java \
+  $(wd)/src/SearchFonts.java \
   lm-htf.tex
 derived += $(tex4ht_fonts_modern_derived)
 tex4ht_fonts_modern_derived = \
@@ -125,7 +135,6 @@ derived += $(tex4ht_fonts_ebgaramond_derived)
 tex4ht_fonts_ebgaramond_derived = \
 	$(ht_fonts_devdir)/unicode/EB_Garamond/EBGaramond-Regular-lf-swash-t1.htf \
 	$(ht_fonts_devdir)/alias/EB_Garamond/EBGaramond-Bold-lf-titling-t1.htf
-
 
 derived += $(tex4ht_fonts_libertine_derived)
 tex4ht_fonts_libertine_derived = \
@@ -149,7 +158,7 @@ derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
 
 derived += $(tex4ht_html_speech_xtpipes_derived)
-tex4ht_html_speech_xtpipes_derived = htspk.4xt HtSpk.java
+tex4ht_html_speech_xtpipes_derived = htspk.4xt $(wd)/src/HtSpk.java
 
 derived += $(tex4ht_html0_derived)
 tex4ht_html0_derived = html0.4ht
@@ -194,7 +203,7 @@ tex4ht_jsmath_derived = jsmath.4ht html-jsmath.4ht
 derived += $(tex4ht_jsml_xtpipes_derived)
 tex4ht_jsml_xtpipes_derived = \
   jsml.4xt \
-  HtJsml.java GroupMn.java JsmlFilter.java JsmlMathBreak.java
+  $(addprefix $(wd)/src/,HtJsml.java GroupMn.java JsmlFilter.java JsmlMathBreak.java)
 
 derived += $(tex4ht_jsml_derived)
 tex4ht_jsml_derived = jsml.4ht jsml-math.4ht
@@ -220,7 +229,7 @@ tex4ht_html5_derived = html5.4ht
 derived += $(tex4ht_oo_xtpipes_derived)
 tex4ht_oo_xtpipes_derived = \
    oo-math.4xt oo-text.4xt \
-   OoUtilities.java OomFilter.java OoFilter.java
+   $(addprefix $(wd)/src/,OoUtilities.java OomFilter.java OoFilter.java)
 
 derived += $(tex4ht_ooffice_derived)
 tex4ht_ooffice_derived = ooffice.4ht ooffice-mml.4ht
@@ -253,28 +262,27 @@ derived += $(tex4ht_word_derived)
 tex4ht_word_derived = htmlw.4ht
 
 derived += $(tex4ht_xhtml_xtpipes_derived)
-tex4ht_xhtml_xtpipes_derived = xhtml.4xt XhtmlEmails.java
+tex4ht_xhtml_xtpipes_derived = xhtml.4xt $(wd)/src/XhtmlEmails.java
 
 derived += $(tex4ht_xhtmml_xtpipes_derived)
-tex4ht_xhtmml_xtpipes_derived = xhtmml.4xt XhtmmlUtilities.java
+tex4ht_xhtmml_xtpipes_derived = xhtmml.4xt $(wd)/src/XhtmmlUtilities.java
 
 derived += $(tex4ht_mathjax_derived)
 tex4ht_mathjax_derived = mathjax-latex-4ht.4ht
 
 # wripro.tex generates nothing (not literate).
-#
-
 
 derived += $(xtpipes_derived)
 xtpipes_derived = \
-  $(wd)/xtpipes.java \
-  $(wd)/xtpipes/FileInfo.java \
-  $(wd)/xtpipes/InputObject.java \
-  $(wd)/xtpipes/Xtpipes.java \
-  $(wd)/xtpipes/XtpipesPrintWriter.java \
-  $(wd)/xtpipes/XtpipesUni.java \
-  $(wd)/xtpipes/util/ScriptsManager.java \
-  $(wd)/xtpipes/util/ScriptsManagerLH.java \
+  $(addprefix $(wd)/src/, \
+	xtpipes.java \
+	xtpipes/FileInfo.java \
+	xtpipes/InputObject.java \
+	xtpipes/Xtpipes.java \
+	xtpipes/XtpipesPrintWriter.java \
+	xtpipes/XtpipesUni.java \
+	xtpipes/util/ScriptsManager.java \
+	xtpipes/util/ScriptsManagerLH.java ) \
   xtpipes-default.4xt \
   xtpipes-map.dtd \
   xtpipes.dtd \
@@ -373,7 +381,7 @@ $(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
 $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
 	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
-$(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common)
+$(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common) #$(wd)/bin/xtpipes.jar
 	htlatex $< "xhtml,next,3" "" "" $(tex_1opt)
 
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
@@ -555,11 +563,39 @@ clean: mostlyclean
 	rm -f *.4ct *.4tc *.aux *.css *.dvi *.idv *.lg *.log *.tmp *.trc *.xref
 	rm -f *.4es *.bat *.unix *.htf *.html *.png tmp
 	rm -f *.fls
+	rm -f tex4ht-dir.tex
 
 clean1:
 	rm -f $(f).[0-s]* $(f).[u-z]* $(f).trc
 
+# 
+# Java.
 
+$(wd)/bin/xtpipes.jar: $(xtpipes_derived)
+	mkdir -p $(xtpipesdir)
+	find $(wd)/src -iname '*.java' -print0 \
+	| xargs -0 javac -d $(xtpipesdir) -sourcepath $(wd)/src
+	mkdir -p $(wd)/bin
+	cd $(xtpipesdir) && jar cf xtpipes.jar *
+	mv $(xtpipesdir)/xtpipes.jar $(wd)/bin
+
+.PHONY: jar
+jar: $(homedir)/$(texmf_t4ht_bin)/tex4ht.jar
+$(homedir)/$(texmf_t4ht_bin)/tex4ht.jar: $(wd)/bin/xtpipes.jar \
+	$(tex4ht_docbook_xtpipes_derived) \
+	$(tex4ht_fonts_noncjk_derived) \
+	$(tex4ht_html_speech_xtpipes_derived) \
+	$(tex4ht_jsml_xtpipes_derived) \
+	$(tex4ht_oo_xtpipes_derived) \
+	$(tex4ht_xhtml_xtpipes_derived) \
+	$(tex4ht_xhtmml_xtpipes_derived) 
+	find $(wd)/src -iname '*.java' -print0 \
+	| xargs -0 javac -d $(xtpipesdir) -sourcepath $(wd)/src
+	mkdir -p $(dir $@)
+	cd $(xtpipesdir) && jar cf $(notdir $@) *
+	mv $(xtpipesdir)/$(notdir $@) $(dir $@)
+
+# 
 # painful, so let's write out the commands. --20mar17
 ht_fonts_instdir = $(inst_dir_top)/ht-fonts
 #
@@ -575,6 +611,7 @@ install-htfonts-tmp:
 	| (cd $(ht_fonts_instdir) && tar xf -)
 	svn status $(ht_fonts_instdir)
 
+# simple abbrev.
 upmake upm:
 	svn update && make
 
