@@ -1,3 +1,7 @@
+2020-06-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-doc.tex (all html files): added footer to all pages.
+
 2020-05-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* TeX4ht-doc.tex (mn.html): imported some changes from the web version of
