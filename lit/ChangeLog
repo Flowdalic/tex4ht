@@ -1,3 +1,8 @@
+2020-06-02 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): fixed bug in tabbing environment.
+	https://tug.org/pipermail/tex4ht/2020q2/002565.html
+		
 2020-05-31  Vincent_Bela\"iche  <vincent.belaiche@gmail.com>
 
 	* tex4ht-dir.m4: new file, used to generate with m4:

@@ -8258,7 +8258,7 @@ for a place holder.
 \<TABLE tabbing\><<<
 \let\:tempc|=\kill
 \pend:def\:tempc{%
-  \@stopfield
+  \bgroup\@stopfield%
   |<width for last field of kill|>%
   \:gobble}
 \HLet\kill|=\:tempc
