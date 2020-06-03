@@ -9550,7 +9550,7 @@ AmsMath redefines display math to equation*. We should follow it, but not in the
 
 \<configure html4-math amsmath\><<<
 \ifOption{mathjax}{}{%
-\Configure{[]}{\begin{equation*}}{\end{equation*}}
+\Configure{[]}{\begin{equation*}\protect\nested:math}{\end{equation*}}
 }%
 >>>
 

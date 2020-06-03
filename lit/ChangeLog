@@ -1,3 +1,9 @@
+2020-06-03 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht): handle nested math in amsmath version
+	of \[\].
+	https://tug.org/pipermail/tex4ht/2020q2/002561.html
+
 2020-06-02 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): fixed bug in tabbing environment.
