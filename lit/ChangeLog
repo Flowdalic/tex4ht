@@ -5,7 +5,6 @@
 	txttsl8v): new HTF files.
 	* tex4ht-fonts-noncjk.tex: renamed pxbsyc.htf to txbsyc.htf.
 
-
 2020-06-04  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-fonts-modern.tex (lm-qxtt-LM-05): remove duplicate \AddFont.
@@ -13,6 +12,7 @@
 	* tex4ht-fonts-noncjk.tex (txtt): \AddFont this instead of txb twice.
 	(zppleb7m): remove duplicate definition.
 	(pcrb): remove \AddFont in phvb section (correct the name, too).
+	(txbsyc): delete second spurious (alias) entry.
 	(ma1r8c, ma1r8t, ma1b8t): remove definitions since they were never
 	installed because their directory,
         tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/monotype,
