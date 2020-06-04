@@ -1,3 +1,10 @@
+2020-06-04 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-modern.tex: removed lot of duplicated .htf entries.
+	* tex4ht-fonts-modern.tex (txbtt8v, txbttsc8v, txbttsl8v, txtt8v, txttsc8v,
+	txttsl8v): new HTF files.
+
+
 2020-06-04  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-fonts-modern.tex (lm-qxtt-LM-05): remove duplicate \AddFont.
