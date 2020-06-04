@@ -86,7 +86,7 @@ derived += $(tex4ht_docbook_derived)
 tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
 
 derived += $(tex4ht_docbook_xtpipes_derived)
-tex4ht_docbook_xtpipes_derived = docbook.4xt $(wd)/src/DbUtilities.java
+tex4ht_docbook_xtpipes_derived = #docbook.4xt $(wd)/src/DbUtilities.java
 
 derived += $(tex4ht_env_derived)
 tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
@@ -120,8 +120,10 @@ tex4ht_fonts_noncjk_derived = \
 	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Roman-tlf-t1--base.htf \
 	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Italic-tlf-t1--base.htf \
 	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Bold-tlf-t1--base.htf \
-  $(wd)/src/SearchFonts.java \
   lm-htf.tex
+
+#  $(wd)/src/SearchFonts.java \
+
 derived += $(tex4ht_fonts_modern_derived)
 tex4ht_fonts_modern_derived = \
   $(ht_fonts_devdir)/unicode/lm/l7x-lmcsc.htf \
@@ -158,7 +160,7 @@ derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
 
 derived += $(tex4ht_html_speech_xtpipes_derived)
-tex4ht_html_speech_xtpipes_derived = htspk.4xt $(wd)/src/HtSpk.java
+tex4ht_html_speech_xtpipes_derived = #jhtspk.4xt $(wd)/src/HtSpk.java
 
 derived += $(tex4ht_html0_derived)
 tex4ht_html0_derived = html0.4ht
@@ -195,15 +197,15 @@ derived += $(tex4ht_javahelp_derived)
 tex4ht_javahelp_derived = javahelp.4ht javahelp-a.4ht
 
 derived += $(tex4ht_javahelp_xtpipes_derived)
-tex4ht_javahelp_xtpipes_derived = javahelp.4xt
+tex4ht_javahelp_xtpipes_derived = #jjavahelp.4xt
 
 derived += $(tex4ht_jsmath_derived)
 tex4ht_jsmath_derived = jsmath.4ht html-jsmath.4ht
 
-derived += $(tex4ht_jsml_xtpipes_derived)
-tex4ht_jsml_xtpipes_derived = \
-  jsml.4xt \
-  $(addprefix $(wd)/src/,HtJsml.java GroupMn.java JsmlFilter.java JsmlMathBreak.java)
+#jderived += $(tex4ht_jsml_xtpipes_derived)
+#jtex4ht_jsml_xtpipes_derived = \
+#j  jsml.4xt \
+#j  $(addprefix $(wd)/src/,HtJsml.java GroupMn.java JsmlFilter.java JsmlMathBreak.java)
 
 derived += $(tex4ht_jsml_derived)
 tex4ht_jsml_derived = jsml.4ht jsml-math.4ht
@@ -227,9 +229,9 @@ derived += $(tex4ht_html5_derived)
 tex4ht_html5_derived = html5.4ht
 
 derived += $(tex4ht_oo_xtpipes_derived)
-tex4ht_oo_xtpipes_derived = \
-   oo-math.4xt oo-text.4xt \
-   $(addprefix $(wd)/src/,OoUtilities.java OomFilter.java OoFilter.java)
+#jtex4ht_oo_xtpipes_derived = \
+#j   oo-math.4xt oo-text.4xt \
+#j   $(addprefix $(wd)/src/,OoUtilities.java OomFilter.java OoFilter.java)
 
 derived += $(tex4ht_ooffice_derived)
 tex4ht_ooffice_derived = ooffice.4ht ooffice-mml.4ht
@@ -262,17 +264,17 @@ derived += $(tex4ht_word_derived)
 tex4ht_word_derived = htmlw.4ht
 
 derived += $(tex4ht_xhtml_xtpipes_derived)
-tex4ht_xhtml_xtpipes_derived = xhtml.4xt $(wd)/src/XhtmlEmails.java
+tex4ht_xhtml_xtpipes_derived = #jxhtml.4xt $(wd)/src/XhtmlEmails.java
 
 derived += $(tex4ht_xhtmml_xtpipes_derived)
-tex4ht_xhtmml_xtpipes_derived = xhtmml.4xt $(wd)/src/XhtmmlUtilities.java
+tex4ht_xhtmml_xtpipes_derived = #jxhtmml.4xt $(wd)/src/XhtmmlUtilities.java
 
 derived += $(tex4ht_mathjax_derived)
 tex4ht_mathjax_derived = mathjax-latex-4ht.4ht
 
 # wripro.tex generates nothing (not literate).
 
-derived += $(xtpipes_derived)
+#jderived += $(xtpipes_derived)
 xtpipes_derived = \
   $(addprefix $(wd)/src/, \
 	xtpipes.java \

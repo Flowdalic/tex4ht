@@ -1,7 +1,19 @@
+2020-06-04  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (SearchFonts.java, etc.): disable dependencies so as
+	not to uselessly remake everything when files are not in the right
+		place.
+
+2020-06-04  Vincent_Bela\"iche  <vincent.belaiche@gmail.com>
+
+	* xtpipes.tex (\AddFileC): Remove appending slash to directory
+	argument, as it ends prematurely the \MakeDir loop by having an
+	unwanted // pattern in the path.
+
 2020-06-03 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4-math.4ht): handle nested math in amsmath version
-	of \[\].
+	* tex4ht-html4.tex (html4-math.4ht): handle nested math in amsmath
+	version of \[\].
 	https://tug.org/pipermail/tex4ht/2020q2/002561.html
 
 2020-06-02 Michal Hoftich  <michal.h21@gmail.com>
