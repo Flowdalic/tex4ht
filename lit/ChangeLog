@@ -1,10 +1,20 @@
 2020-06-04  Karl Berry  <karl@freefriends.org>
 
+	* tex4ht-fonts-modern.tex (lm-qxtt-LM-05): remove duplicate \AddFont.
+	(lm-qxtt-LM-05): move to after definition.
+	* tex4ht-fonts-noncjk.tex (txtt): \AddFont this instead of txb twice.
+	(zppleb7m): remove duplicate definition.
+	(pcrb): remove \AddFont in phvb section (correct the name, too).
+	(ma1r8c, ma1r8t, ma1b8t): remove definitions since they were never
+	installed because their directory,
+        tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/monotype,
+        was not created (and the fonts are not free anyway).
+
 	* Makefile (SearchFonts.java, etc.): disable dependencies so as
 	not to uselessly remake everything when files are not in the right
 		place.
 
-2020-06-04  Vincent_Bela\"iche  <vincent.belaiche@gmail.com>
+2020-06-04  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
 
 	* xtpipes.tex (\AddFileC): Remove appending slash to directory
 	argument, as it ends prematurely the \MakeDir loop by having an

@@ -117,9 +117,9 @@ tex4ht_fonts_noncjk_derived = \
   $(ht_fonts_devdir)/alias/bera/fver8t.htf \
   $(ht_fonts_devdir)/alias/bera/fvero8r.htf \
   $(ht_fonts_devdir)/alias/bera/fvero8t.htf \
-	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Roman-tlf-t1--base.htf \
-	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Italic-tlf-t1--base.htf \
-	$(ht_fonts_devdir)/alias/t1fonts/XCharter-Bold-tlf-t1--base.htf \
+  $(ht_fonts_devdir)/alias/t1fonts/XCharter-Roman-tlf-t1--base.htf \
+  $(ht_fonts_devdir)/alias/t1fonts/XCharter-Italic-tlf-t1--base.htf \
+  $(ht_fonts_devdir)/alias/t1fonts/XCharter-Bold-tlf-t1--base.htf \
   lm-htf.tex
 
 #  $(wd)/src/SearchFonts.java \
