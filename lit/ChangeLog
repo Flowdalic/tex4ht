@@ -1,5 +1,14 @@
 2020-06-05  Karl Berry  <karl@freefriends.org>
 
+	* tex4ht-javahelp-xtpipes.tex: \input{tex4ht-dir}.
+
+2020-06-05  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
+
+	* tex4ht-javahelp-xtpipes.tex,
+	* tex4ht-html-speech-xtpipes.tex: Remove reference to \XTPIPES lib
+
+2020-06-05  Karl Berry  <karl@freefriends.org>
+
 	* Makefile (do_java): conditional to enable Java derivations
 	and compilations.
 	* Makefile.exp: move "experimental section" to here from Makefile.

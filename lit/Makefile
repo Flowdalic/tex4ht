@@ -665,8 +665,15 @@ diff1 d1:
 	$(diff) $(inst_dir_4ht)/$(d) .
 
 diff-ht-fonts:
-	$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) | tee /tmp/htd
+# the raw diff:
+	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
+# just the filenames:
 	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd |sort >/tmp/htf
+# for human consumption, remove generation lines (hopefully there are no
+# real diffs on those lines); also the @@ lines from diff -u and the
+# redundant diff invocations.
+	egrep -v '^(diff |\+\+\+|@@|[-+].*20[0-9][0-9]-[0-9][0-9]-[0-9][0-9])'\
+	/tmp/htd | tee /tmp/hte
 
 mostlyclean:
 	rm -f $(derived)
