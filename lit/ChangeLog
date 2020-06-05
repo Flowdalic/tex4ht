@@ -1,3 +1,25 @@
+2020-06-05  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (do_java): conditional to enable Java derivations
+	and compilations.
+	* Makefile.exp: move "experimental section" to here from Makefile.
+
+2020-06-05  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
+
+	* tex4ht-docbook-xtpipes.tex,
+	* tex4ht-javahelp-xtpipes.tex,
+	* tex4ht-jsml-xtpipes.tex,
+	* tex4ht-oo-xtpipes.tex,
+	* tex4ht-xhtml-xtpipes.tex,
+	* tex4ht-xhtmml-xtpipes.tex: Replace absolute paths by macros
+	from tex4ht-dir.tex.
+
+	* tex4ht-html-speech-xtpipes.tex: Likewise replace absolute paths,
+	and ensure directory \TEXMFTEXivBIN exists.
+
+	* xtpipes.tex: Likewise replace absolute paths, and
+	change system calls so that javac input files are streamed from find.
+
 2020-06-04 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-modern.tex: removed lot of duplicated .htf entries.
@@ -38,7 +60,7 @@
 
 	* tex4ht-4ht.tex (latex.4ht): fixed bug in tabbing environment.
 	https://tug.org/pipermail/tex4ht/2020q2/002565.html
-		
+
 2020-05-31  Vincent_Bela\"iche  <vincent.belaiche@gmail.com>
 
 	* tex4ht-dir.m4: new file, used to generate with m4:

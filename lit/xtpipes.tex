@@ -8,8 +8,8 @@
 % generalize -i attribute to accept multiple directories, like for -classpath
 % gcj support these ``generics''  with a ``-5'' or ``-1.5'' switch
 
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) 1996-2009 Eitan M. Gurari
+% Copyright 2009-2020 TeX Users Group
+% Copyright 1996-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
 
@@ -21,6 +21,7 @@
    \Configure{ProTex}{java,<<<>>>,title,list,`}
 \begin{document}
 \input tex4ht-cpright.tex
+\input tex4ht-dir.tex
 
 \def\CNT{0}
 \bgroup
@@ -87,7 +88,7 @@
    \def\MakeDir{\relax
       \expandafter \ifx  \csname !\StartDir\endcsname\relax
          \expandafter\let\csname !\StartDir\endcsname=\empty
-         \Needs{"if NOT EXIST \StartDir \space mkdir \StartDir"}%
+         \Needs{"if NOT EXIST \StartDir \space mkdir -p \StartDir"}%
       \fi
       \ifx \EndDir\empty \else
           \expandafter\AppendDir \EndDir////*%
@@ -98,7 +99,7 @@
    \def\MakeDir{\relax
       \expandafter \ifx  \csname !\StartDir\endcsname\relax
          \expandafter\let\csname !\StartDir\endcsname=\empty
-         \Needs{"mkdir \StartDir"}%
+         \Needs{"mkdir -p \StartDir"}%
       \fi
       \ifx \EndDir\empty \else
           \expandafter\AppendDir \EndDir////*%
@@ -151,7 +152,7 @@
 % \def\MakeDir{\relax
 %    \expandafter \ifx  \csname !\StartDir\endcsname\relax
 %       \expandafter\let\csname !\StartDir\endcsname=\empty
-%       \Needs{"mkdir \StartDir"}%
+%       \Needs{"mkdir -p \StartDir"}%
 %    \fi
 %    \ifx \EndDir\empty \else
 %        \expandafter\AppendDir \EndDir////*%
@@ -176,8 +177,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\def\MYdir{work.dir}
+% TODO : make \WORK MSDOS / Linux agnostic.
+\def\MYdir{\WORK}
 
 
 \expandafter\let\csname !/\endcsname\empty
@@ -221,24 +222,17 @@
 }
 
 % \Needs{"
-%    mkdir work.dir
+%    mkdir -p work.dir
 %    ;
-%    mkdir work.dir/xtpipes
+%    mkdir -p work.dir/xtpipes
 % "}
 
 
 \ifOption{win} {}{
 \AtEndDocument{\Needs{"
-  cd work.dir
-  ;
-  javac -Xlint:unchecked xtpipes/*.java
-        -d /home/4/gurari/xtpipes.dir/.
-  ;
-  javac -Xlint:unchecked xtpipes/*/*.java
-        -d /home/4/gurari/xtpipes.dir/.
-  ;
-  javac -Xlint:unchecked xtpipes.java
-        -d /home/4/gurari/xtpipes.dir/.
+    find \WORK\space -type f -iname '*.java' -print0
+    | xargs -0 javac -Xlint:deprecation -d \XTPIPES\space -sourcepath \WORK
+    ;
 "}}
 }
 
@@ -246,7 +240,7 @@
 \ifOption{win} {
     \def\BIN{}
 }{
-    \def\BIN{(/home/4/gurari/xtpipes.dir)}
+    \def\BIN{(\XTPIPES)}
 }
 
 % 
@@ -279,7 +273,7 @@ public class Xtpipes {
 `<class XtpipesEntityResolver`>
 >>>
 
-\Needs{"\mv xtpipes.java.java \MYdir\Slash xtpipes.java"}
+\Needs{"\mv xtpipes.java.java \MYdir xtpipes.java"}
 
 NOTE: We can not place Xtpipes.class and xtpipes.class at the same
 directory because MS Windows get confused between the two.
@@ -4411,7 +4405,7 @@ Tutorial, Sun Microsystems,
 }
 { \ifOption{doc}{
   \AtEndDocument{\Needs{"
-     mkdir doc.dir
+     mkdir -p doc.dir
      ;
      cd doc.dir
      ;
@@ -4478,39 +4472,40 @@ rmdir /s /q doc.dir
 
 \ifOption{win} {}{
 \AtEndDocument{\Needs{%
-    "cd /home/4/gurari/xtpipes.dir
+    "pushd \XTPIPES || exit 1
      ;
-     jar cf tex4ht.jar *
+     jar cf xtpipes.jar *
      ;
-     mv tex4ht.jar /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/.
+     popd
      ;
-     cp /home/4/gurari/xtpipes.dir/xtpipes/lib/*
-        /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/.
+     mkdir -p \LIB || exit 1
+     ;
+     mv \XTPIPES xtpipes.jar \LIB
+     ;
+     mkdir -p \HOME texmf/tex4ht/xtpipes/. || exit 1
+     ;
+     cp \XTPIPES xtpipes/lib/*
+        \HOME texmf/tex4ht/xtpipes/.
 "}}
 }
 
 
 
 \ifOption{win} {}{
-\AtEndDocument{\Needs{"
-cd work.dir ;
-mkdir bin;
- javac -Xlint:unchecked  -d bin  xtpipes/*.java  ;
- javac -Xlint:unchecked  -d bin  xtpipes/util/*.java;
- javac -Xlint:unchecked  -d bin  *.java ;
-cd bin;
- jar cf xtpipes.jar *;
-cd ..;
-cd xtpipes;
-mkdir bin;
- mv ../bin/xtpipes.jar bin/.
-;
-cp -r bin /home/4/gurari/xtpipes.dir/xtpipes/.
-;
-cd ..
-;
-cd ..
-;
+  \AtEndDocument{\Needs{"
+      mkdir -p \LIB\space || exit 1
+      ;
+      find \WORK\space -type f -iname '*.java' -print0
+      | xargs -0 javac -Xlint:deprecation -d \XTPIPES\space -sourcepath \WORK
+      ;
+      pushd \XTPIPES || exit 1
+      ;
+      jar cf xtpipes.jar *
+      ;
+      popd
+      ;
+      mv \XTPIPES xtpipes.jar \LIB
+      ;
 "}}}
 
 

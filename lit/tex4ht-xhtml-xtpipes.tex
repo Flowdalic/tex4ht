@@ -1,8 +1,8 @@
 % $Id$
 % htlatex tex4ht-xhtml-xtpipes "xhtml,next,3" "" "-d./"
 %
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) 1996-2009 Eitan M. Gurari
+% Copyright 2009-2020 TeX Users Group
+% Copyright 1996-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
 
@@ -12,6 +12,7 @@
     \input{common.tex}
 \begin{document}
 \input tex4ht-cpright.tex
+\input tex4ht-dir
 
 
 %%%%%%%%%%%%%%%%%%
@@ -90,9 +91,9 @@
    \OutputCodE\<XhtmlEmails.java\> 
 } 
 \Needs{"
-    javac -classpath /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/tex4ht.jar
+    javac -classpath \TEXMFTEXivBIN tex4ht.jar
           XhtmlEmails.java
-          -d /home/4/gurari/xtpipes.dir/. 
+          -d \XTPIPES
 "} 
  
 \<XhtmlEmails.java\><<< 
@@ -633,14 +634,20 @@ OK 2
 
 
 \AtEndDocument{\Needs{%
-    "cd /home/4/gurari/xtpipes.dir
+    "pushd \XTPIPES || exit 1
      ;  
      jar cf tex4ht.jar *
      ;
-     mv tex4ht.jar /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/. 
+     popd
      ;
-     cp /home/4/gurari/xtpipes.dir/xtpipes/lib/* 
-        /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/.
+     if [ ! -d \TEXMFTEXivBIN\space]; then exit 1; fi
+     ;
+     mv \XTPIPES tex4ht.jar \TEXMFTEXivBIN  
+     ;
+     if [ ! -d \TEXMFTEXivXTPIPES\space]; then exit 1; fi
+     ;
+     cp \XTPIPES xtpipes/lib/* 
+        \TEXMFTEXivXTPIPES
 "}}
 
 

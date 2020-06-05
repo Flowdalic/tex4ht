@@ -1,7 +1,7 @@
 % $Id$
 % htlatex tex4ht-docbook-xtpipes "xhtml,next,3" "" "-d./"
 %
-% Copyright 2009-2017 TeX Users Group
+% Copyright 2009-2020 TeX Users Group
 % Copyright 2000-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -12,6 +12,7 @@
 
 \input{common}
 \input{tex4ht-cpright}
+\input{tex4ht-dir}
 
 
 
@@ -49,7 +50,7 @@
 \AtEndDocument{\OutputCodE\<DbUtilities.java\>}
 
 \Needs{"
-    javac DbUtilities.java -d /home/4/gurari/xtpipes.dir/. 
+    javac DbUtilities.java -d \XTPIPES
 "}
 
 \<DbUtilities.java\><<<
@@ -515,14 +516,16 @@ Can they be removed earlier  at the latex pass?
 
 
 \AtEndDocument{\Needs{%
-    "cd /home/4/gurari/xtpipes.dir
+    "pushd \XTPIPES || exit 1
      ;  
      jar cf tex4ht.jar *
      ;
-     mv tex4ht.jar /home/4/gurari/tex4ht.dir/texmf/tex4ht/bin/. 
+     popd
      ;
-     cp /home/4/gurari/xtpipes.dir/xtpipes/lib/* 
-        /home/4/gurari/tex4ht.dir/texmf/tex4ht/xtpipes/.
+     mv \XTPIPES tex4ht.jar \TEXMFTEXivBIN
+     ;
+     cp \XTPIPES xtpipes/lib/* 
+        \TEXMFTEXivXTPIPES
 "}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%

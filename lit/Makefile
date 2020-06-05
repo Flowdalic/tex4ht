@@ -2,9 +2,10 @@
 # This file is public domain.  Originally written 2010, Karl Berry.
 # Assumes GNU make.
 
-# todo: look for xx below
+# todo: look for xx below, among much more.
 
 SHELL = /bin/sh
+
 extra_bin = ./extra-bin
 ht_bin = ../bin/ht/unix
 PATH := $(shell echo $$PATH)
@@ -20,6 +21,9 @@ deriveddir = derived.dir
 texmf_t4ht_bin = texmf/tex4ht/bin
 # List of directories we'll substitute into tex4ht-dir.tex below:
 dirs = homedir wd htmldir xtpipesdir deriveddir texmf_t4ht_bin
+
+# Uncomment to enable Java compilations:
+#do_java = 1
 
 tex_opts = --interaction=nonstopmode -recorder #--file-line-error
 tex_1opt = "$(tex_opts)" # must be quoted, passing to shell script
@@ -85,8 +89,10 @@ tex4ht_c_derived = tex4ht.c
 derived += $(tex4ht_docbook_derived)
 tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
 
+ifdef do_java
 derived += $(tex4ht_docbook_xtpipes_derived)
-tex4ht_docbook_xtpipes_derived = #docbook.4xt $(wd)/src/DbUtilities.java
+tex4ht_docbook_xtpipes_derived = docbook.4xt $(wd)/src/DbUtilities.java
+endif
 
 derived += $(tex4ht_env_derived)
 tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
@@ -159,8 +165,10 @@ tex4ht_fonts_4hf = \
 derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
 
+ifdef do_java
 derived += $(tex4ht_html_speech_xtpipes_derived)
-tex4ht_html_speech_xtpipes_derived = #jhtspk.4xt $(wd)/src/HtSpk.java
+tex4ht_html_speech_xtpipes_derived = htspk.4xt $(wd)/src/HtSpk.java
+endif
 
 derived += $(tex4ht_html0_derived)
 tex4ht_html0_derived = html0.4ht
@@ -196,16 +204,20 @@ tex4ht_info_svg_derived = infosvg.4ht
 derived += $(tex4ht_javahelp_derived)
 tex4ht_javahelp_derived = javahelp.4ht javahelp-a.4ht
 
+ifdef do_java
 derived += $(tex4ht_javahelp_xtpipes_derived)
-tex4ht_javahelp_xtpipes_derived = #jjavahelp.4xt
+tex4ht_javahelp_xtpipes_derived = javahelp.4xt
+endif
 
 derived += $(tex4ht_jsmath_derived)
 tex4ht_jsmath_derived = jsmath.4ht html-jsmath.4ht
 
-#jderived += $(tex4ht_jsml_xtpipes_derived)
-#jtex4ht_jsml_xtpipes_derived = \
-#j  jsml.4xt \
-#j  $(addprefix $(wd)/src/,HtJsml.java GroupMn.java JsmlFilter.java JsmlMathBreak.java)
+ifdef do_java
+derived += $(tex4ht_jsml_xtpipes_derived)
+tex4ht_jsml_xtpipes_derived = \
+  jsml.4xt \
+  $(addprefix $(wd)/src/,HtJsml.java GroupMn.java JsmlFilter.java JsmlMathBreak.java)
+endif
 
 derived += $(tex4ht_jsml_derived)
 tex4ht_jsml_derived = jsml.4ht jsml-math.4ht
@@ -228,10 +240,12 @@ tex4ht_moz_derived = mozilla.4ht
 derived += $(tex4ht_html5_derived)
 tex4ht_html5_derived = html5.4ht
 
+ifdef do_java
 derived += $(tex4ht_oo_xtpipes_derived)
-#jtex4ht_oo_xtpipes_derived = \
-#j   oo-math.4xt oo-text.4xt \
-#j   $(addprefix $(wd)/src/,OoUtilities.java OomFilter.java OoFilter.java)
+tex4ht_oo_xtpipes_derived = \
+   oo-math.4xt oo-text.4xt \
+   $(addprefix $(wd)/src/,OoUtilities.java OomFilter.java OoFilter.java)
+endif
 
 derived += $(tex4ht_ooffice_derived)
 tex4ht_ooffice_derived = ooffice.4ht ooffice-mml.4ht
@@ -263,18 +277,23 @@ tex4ht_unicode_derived = unicode.4ht
 derived += $(tex4ht_word_derived)
 tex4ht_word_derived = htmlw.4ht
 
+ifdef do_java
 derived += $(tex4ht_xhtml_xtpipes_derived)
-tex4ht_xhtml_xtpipes_derived = #jxhtml.4xt $(wd)/src/XhtmlEmails.java
+tex4ht_xhtml_xtpipes_derived = xhtml.4xt $(wd)/src/XhtmlEmails.java
+endif
 
+ifdef do_java
 derived += $(tex4ht_xhtmml_xtpipes_derived)
-tex4ht_xhtmml_xtpipes_derived = #jxhtmml.4xt $(wd)/src/XhtmmlUtilities.java
+tex4ht_xhtmml_xtpipes_derived = xhtmml.4xt $(wd)/src/XhtmmlUtilities.java
+endif
 
 derived += $(tex4ht_mathjax_derived)
 tex4ht_mathjax_derived = mathjax-latex-4ht.4ht
 
 # wripro.tex generates nothing (not literate).
 
-#jderived += $(xtpipes_derived)
+ifdef do_java
+derived += $(xtpipes_derived)
 xtpipes_derived = \
   $(addprefix $(wd)/src/, \
 	xtpipes.java \
@@ -288,6 +307,8 @@ xtpipes_derived = \
   xtpipes-default.4xt \
   xtpipes-map.dtd \
   xtpipes.dtd \
+  #
+endif
 
 # 
 all: $(derived)
@@ -573,6 +594,7 @@ clean1:
 # 
 # Java.
 
+ifdef do_java
 $(wd)/bin/xtpipes.jar: $(xtpipes_derived)
 	mkdir -p $(xtpipesdir)
 	find $(wd)/src -iname '*.java' -print0 \
@@ -596,6 +618,7 @@ $(homedir)/$(texmf_t4ht_bin)/tex4ht.jar: $(wd)/bin/xtpipes.jar \
 	mkdir -p $(dir $@)
 	cd $(xtpipesdir) && jar cf $(notdir $@) *
 	mv $(xtpipesdir)/$(notdir $@) $(dir $@)
+endif
 
 # 
 # painful, so let's write out the commands. --20mar17
@@ -647,108 +670,3 @@ diff-ht-fonts:
 
 mostlyclean:
 	rm -f $(derived)
-
-# 
-# ** experimental section **
-# post 'make all' actions
-sources = \
- tex4ht-cond4ht.tex\
- tex4ht-4ht.tex\
- tex4ht-info-html4.tex\
- tex4ht-info-javahelp.tex\
- tex4ht-info-mml.tex\
- tex4ht-info-ooffice.tex\
- tex4ht-info-svg.tex\
- tex4ht-c.tex\
- tex4ht-t4ht.tex\
- tex4ht-docbook.tex\
- tex4ht-bibtex2.tex\
- tex4ht-env.tex\
- tex4ht-fonts-cjk.tex\
- tex4ht-fonts-cjk-utf8.tex\
- tex4ht-fonts-noncjk.tex\
- tex4ht-fonts-4hf.tex \
- tex4ht-fonts-ebgaramond.tex \
- tex4ht-fonts-libertine.tex \
- tex4ht-unicode.tex\
- tex4ht-html-speech.tex\
- tex4ht-html0.tex\
- tex4ht-html32.tex\
- tex4ht-html4.tex\
- tex4ht-javahelp.tex\
- tex4ht-jsmath.tex\
- tex4ht-jsml.tex\
- tex4ht-mathltx.tex\
- tex4ht-mathml.tex\
- tex4ht-mathplayer.tex\
- tex4ht-mkht.tex\
- tex4ht-moz.tex\
- tex4ht-ooffice.tex\
- tex4ht-ooimpress.tex\
- tex4ht-options.tex\
- tex4ht-sty.tex\
- tex4ht-svg.tex\
- tex4ht-tei.tex\
- tex4ht-jats.tex\
- tex4ht-word.tex\
- tex4ht-docbook-xtpipes.tex\
- tex4ht-html-speech-xtpipes.tex\
- tex4ht-javahelp-xtpipes.tex\
- tex4ht-jsml-xtpipes.tex\
- tex4ht-oo-xtpipes.tex\
- tex4ht-xhtml-xtpipes.tex\
- tex4ht-xhtmml-xtpipes.tex\
- xtpipes.tex
-
-# whats wrong with tex4ht-info.tex?
-extra_sources := \
- tex4ht-info.tex
-
-# 
-# Generate *.d (dependency) file. 
-sources_d := $(sources:%.tex=%.d)
-
-# Automake: Dependency computation is done at build time, as a
-# side-effect of compilation. If I understand it right, gcc -MD option
-# generates *.d file(s) (small Makefile) which are included in main
-# Makefile with 'include' directive.
-# 
-# So, here is an attempt to mimic that automake dependency computation.
-# Generate (small) Makefiles with vars for dependencies and derived
-# files from *.fls.
-# 
-%.d: %.fls
-	$(extra_bin)/fls2d $< >$@
-
-# Fonts need to parse *.fls and *.lg files
-tex4ht-fonts-cjk.d: tex4ht-fonts-cjk.lg tex4ht-fonts-cjk.fls
-	$(extra_bin)/flslg2d $^ >$@
-
-tex4ht-fonts-cjk-utf8.d: tex4ht-fonts-cjk-utf8.lg tex4ht-fonts-cjk-utf8.fls
-	$(extra_bin)/flslg2d $^ >$@
-
-tex4ht-fonts-noncjk.d: tex4ht-fonts-noncjk.lg tex4ht-fonts-noncjk.fls
-	$(extra_bin)/flslg2d $^ >$@
-
-d: $(sources_d)
-
-derived:
-	for f in *.fls ; do \
-	grep -v  $${f%.*} $$f | awk '/OUTPUT/ { print $$2 }' > $${f%.*}.derived ;  \
-done
-
-# move *.html files to ./htmldir subfolder
-# process lg file
-tohtmldir:
-	for f in *.lg ; do \
-	echo Processing $$f && mkdir -p $(htmldir)/$${f%.*} \
-	&& grep "File: $${f%.*}" $$f | awk -v outdir=$(htmldir)/$${f%.*} '{system("[ -f "$$2" ] &&  mv -f " $$2" "outdir)}'  ; \
-done
-
-# move derived files to ./derived.dir
-# process derived files
-toderiveddir: derived
-	for f in *.derived ; do \
-	echo $$f && mkdir -p $(deriveddir)/$${f%.*} \
-	&& awk -v outdir=$(deriveddir)/$${f%.*} '{system("[ -f "$$0" ] &&  mv -f " $$0" "outdir)}' $$f ; \
-done
