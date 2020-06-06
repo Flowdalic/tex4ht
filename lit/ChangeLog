@@ -1,3 +1,12 @@
+2020-06-06  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
+
+	* xtpipes.tex (End document system call): Remove
+	-Xlint:deprecation from javac call.
+	(<xtpipes imports>): Add xtpipes.XtpipesPrintWriter import.
+	(<process script map>, <<set start element>, <save status of xmlns
+	above element>): Replace deprecated Integer/Boolean allocation with
+	new by call to static member function valueOf.
+
 2020-06-06  Karl Berry  <karl@freefriends.org>
 
 	* Makefile: use htlatex instead of xhlatex throughout.

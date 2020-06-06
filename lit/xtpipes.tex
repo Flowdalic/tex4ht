@@ -231,7 +231,7 @@
 \ifOption{win} {}{
 \AtEndDocument{\Needs{"
     find \WORK\space -type f -iname '*.java' -print0
-    | xargs -0 javac -Xlint:deprecation -d \XTPIPES\space -sourcepath \WORK
+    | xargs -0 javac -d \XTPIPES\space -sourcepath \WORK
     ;
 "}}
 }
@@ -333,6 +333,7 @@ needScript = true;
 \<xtpipes imports\><<<
 // import xtpipes.util.InputObject;
 // import xtpipes.util.FileInfo;
+import xtpipes.XtpipesPrintWriter;
 import java.net.URLConnection;
 import java.io.*;
 import java.lang.reflect.*;
@@ -1043,7 +1044,7 @@ private Stack <Boolean> condition = new Stack <Boolean> ();
 
 \<process script map\><<<
 public void startDocument () {
-   condition.push( new Boolean(true) );
+   condition.push( Boolean.valueOf(true) );
 }
 >>>
 
@@ -1081,7 +1082,7 @@ public void startElement(String ns, String sName,
         condition = null;
         return;
    }  }
-   condition.push( new Boolean(cond) );
+   condition.push( Boolean.valueOf(cond) );
 }
 >>>
 
@@ -4093,11 +4094,11 @@ if( !flag ){
 
 \<set start element\><<<
 if( flag ){
-   Object [] state = { new Boolean(savemode), code, match };
+   Object [] state = { Boolean.valueOf(savemode), code, match };
    stack.push( state );
    savemode=true; code=""; match= key;
 } else {
-   Object [] state = { new Boolean(savemode), null, null };
+   Object [] state = { Boolean.valueOf(savemode), null, null };
    stack.push( state );
 }
 add( s );
@@ -4287,7 +4288,7 @@ if( attrs[i] == delimiter ){
 
 \<save status of xmlns above element\><<<
 int top = nsName.size();
-nsStack.push( new Integer(top) );
+nsStack.push( Integer.valueOf(top) );
 >>>
 
 \<recall status of xmlns above element\><<<
@@ -4496,7 +4497,7 @@ rmdir /s /q doc.dir
       mkdir -p \LIB\space || exit 1
       ;
       find \WORK\space -type f -iname '*.java' -print0
-      | xargs -0 javac -Xlint:deprecation -d \XTPIPES\space -sourcepath \WORK
+      | xargs -0 javac -d \XTPIPES\space -sourcepath \WORK
       ;
       pushd \XTPIPES || exit 1
       ;
