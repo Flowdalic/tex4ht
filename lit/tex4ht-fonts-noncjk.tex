@@ -580,9 +580,18 @@ A.12\EndLink{} at the CSS specifications.
 
 \<SearchFonts.java\><<<
 /* SearchFonts.java (`version), generated from `jobname.tex
-   Copyright 2009-2014 TeX Users Group
+   Copyright 2009-2020 TeX Users Group
    Copyright `CopyYear.2002. Eitan M. Gurari
 `<TeX4ht copyright`> */
+
+/* It seems that this tool prints the character table for an HTF font
+   from tex4ht-fonts-modern.tex, invoked something like this:
+     java SearchFonts -xrpxb tex4ht-fonts-modern.tex
+   Although presumably Eitan found it useful, those of us left behind
+   haven't found a need for it, and it is not used anywhere.  We'll
+   leave it in the sources as usual but we don't try to compile it or do
+   anything with it.  */
+
 import java.io.*;
 import java.util.*;
 class SearchFonts{

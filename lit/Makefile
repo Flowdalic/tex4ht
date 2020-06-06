@@ -31,6 +31,13 @@ dev_null = </dev/null    # when we don't call tex directly.
 
 HTTEX = ht "tex $(tex_opts)"  # set tex options for plain tex
 
+# Although many of the source files say to use xhlatex, we always use
+# htlatex instead. xhlatex generates XHTML from the literate source and
+# then validates each (sub)file with xmllint (as defined in tex4ht.env),
+# which is hundreds of calls, none of which we care about. It's fine for
+# us to just generate regular HTML, in the unlikely event of wanting to
+# look at those generated files anyway.
+
 default: all
 
 # most files (not all, but it's not worth worrying about) read
@@ -128,7 +135,10 @@ tex4ht_fonts_noncjk_derived = \
   $(ht_fonts_devdir)/alias/t1fonts/XCharter-Bold-tlf-t1--base.htf \
   lm-htf.tex
 
-#  $(wd)/src/SearchFonts.java \
+# Although SearchFonts.java is created by fonts-noncjk, it's a
+# development tool that we don't use and have no need for, so don't list
+# it or try to compile it. (See source for a little more info.)
+#   $(wd)/src/SearchFonts.java
 
 derived += $(tex4ht_fonts_modern_derived)
 tex4ht_fonts_modern_derived = \
@@ -328,10 +338,10 @@ $(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex mktex4ht-cnf.tex \
 	tex $(tex_opts) cond4ht.4ht
 
 $(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
-	xhlatex $< "html,3" "" "" $(tex_1opt)
+	htlatex $< "html,3" "" "" $(tex_1opt)
 
 $(tex4ht_docbook_xtpipes_derived): tex4ht-docbook-xtpipes.tex $(common)
-	xhlatex $< "html,3" "" "" $(tex_1opt)
+	htlatex $< "html,3" "" "" $(tex_1opt)
 
 $(tex4ht_env_derived): tex4ht-env.tex $(common)
 	htlatex $< "xhtml,3" "" "" $(tex_1opt)
@@ -362,23 +372,23 @@ $(tex4ht_htcmd_derived): tex4ht-htcmd.tex $(common)
 	$(HTTEX) $< ""
 
 $(tex4ht_html_speech_derived): tex4ht-html-speech.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_html_speech_xtpipes_derived): tex4ht-html-speech-xtpipes.tex $(common)
 	htlatex $< "html,next,3" "" "" $(tex_1opt)
 
 $(tex4ht_html0_derived): tex4ht-html0.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_html32_derived): tex4ht-html32.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
 	latex $(tex_opts) $<
 	latex $(tex_opts) $<
 
 $(tex4ht_info_html4_derived): tex4ht-info-html4.tex $(common_info)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_info_javahelp_derived): tex4ht-info-javahelp.tex $(common_info)
 	htlatex $< "html,sections+" "" "" $(tex_1opt)
@@ -393,31 +403,31 @@ $(tex4ht_info_svg_derived): tex4ht-info-svg.tex $(common_info)
 	latex $(tex_opts) $<
 
 $(tex4ht_info_derived): tex4ht-info.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_javahelp_derived): tex4ht-javahelp.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
 	htlatex $< "xhtml,next,3" "" "" $(tex_1opt)
 
 $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common) #$(wd)/bin/xtpipes.jar
 	htlatex $< "xhtml,next,3" "" "" $(tex_1opt)
 
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_mathml_derived): tex4ht-mathml.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
 	latex $(tex_opts) $<
@@ -425,10 +435,10 @@ $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
 	latex $(tex_opts) mkht-scripts.4ht
 
 $(tex4ht_moz_derived): tex4ht-moz.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_html5_derived): tex4ht-html5.tex $(common)
-	xhlatex $< "xhtml,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "xhtml,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_oo_xtpipes_derived): tex4ht-oo-xtpipes.tex $(common)
 	htlatex $< "xhtml,next,3" "" "" $(tex_1opt)
@@ -440,28 +450,28 @@ $(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
 	htlatex $< "xhtml,4,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_options_derived): tex4ht-options.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_sty_derived): tex4ht-sty.tex $(common_no_cond_sty)
 	$(HTTEX) $< ""
 
 $(tex4ht_svg_derived): tex4ht-svg.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_t4ht_derived): tex4ht-t4ht.tex $(common)
 	$(HTTEX) $< ""
 
 $(tex4ht_tei_derived): tex4ht-tei.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_jats_derived): tex4ht-jats.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_unicode_derived): tex4ht-unicode.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_word_derived): tex4ht-word.tex $(common)
-	xhlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_xhtml_xtpipes_derived): tex4ht-xhtml-xtpipes.tex $(common)
 	htlatex $< "xhtml,3,next" "" "" $(tex_1opt)
@@ -633,12 +643,19 @@ install-unicode-4hf:
 # ht_fonts_devdir) to ht_fonts_instdir.
 install-htfonts-tmp:
 	cd $(ht_fonts_devdir) && tar cfT - /tmp/t \
-	| (cd $(ht_fonts_instdir) && tar xf -)
+	| (cd $(ht_fonts_instdir) && tar xvf -)
 	svn status $(ht_fonts_instdir)
 
-# simple abbrev.
-upmake upm:
-	svn update && make
+diff-ht-fonts:
+# the raw diff:
+#	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
+# just the filenames:
+	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd |sort >/tmp/htf
+# for human consumption, remove generation lines (hopefully there are no
+# real diffs on those lines); also the @@ lines from diff -u and the
+# redundant diff invocations.
+	egrep -v '^(diff |@@ |[-+][^-+].*20[0-9][0-9]-[0-9][0-9]-[0-9][0-9])' \
+	/tmp/htd | tee /tmp/hte
 
 # 
 # to compare newly-built files with what's installed.
@@ -664,16 +681,9 @@ diff-all:
 diff1 d1:
 	$(diff) $(inst_dir_4ht)/$(d) .
 
-diff-ht-fonts:
-# the raw diff:
-	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
-# just the filenames:
-	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd |sort >/tmp/htf
-# for human consumption, remove generation lines (hopefully there are no
-# real diffs on those lines); also the @@ lines from diff -u and the
-# redundant diff invocations.
-	egrep -v '^(diff |\+\+\+|@@|[-+].*20[0-9][0-9]-[0-9][0-9]-[0-9][0-9])'\
-	/tmp/htd | tee /tmp/hte
+# simple abbrev.
+upmake upm:
+	svn update && make
 
 mostlyclean:
 	rm -f $(derived)

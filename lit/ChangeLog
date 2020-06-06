@@ -1,3 +1,15 @@
+2020-06-06  Karl Berry  <karl@freefriends.org>
+
+	* Makefile: use htlatex instead of xhlatex throughout.
+	https://tug.org/pipermail/tex4ht/2020q2/002579.html
+
+	(diff-ht-fonts): more tweaks on the road to making the output more
+	easily usable.
+
+	(SearchFonts.java): disable dependency.
+	* tex4ht-fonts-noncjk.tex: document Michal's idea about about it.
+	https://tug.org/pipermail/tex4ht/2020q2/002578.html
+
 2020-06-05  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-javahelp-xtpipes.tex: \input{tex4ht-dir}.
