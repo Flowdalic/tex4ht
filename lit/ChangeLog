@@ -1,6 +1,9 @@
 2020-06-07 Michal Hoftich  <michal.h21@gmail.com>
 
 	* checklog.lua: script for detection of errors in the log files.
+	* tex4ht-4ht.tex (amsart.4ht, amsproc.4ht): fixed horizontal mode error when
+	\dedication is used.
+	https://puszcza.gnu.org.ua/bugs/?469
 
 2020-06-06  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
 
