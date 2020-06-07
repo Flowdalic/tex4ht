@@ -1,3 +1,7 @@
+2020-06-07 Michal Hoftich  <michal.h21@gmail.com>
+
+	* checklog.lua: script for detection of errors in the log files.
+
 2020-06-06  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
 
 	* xtpipes.tex (End document system call): Remove
