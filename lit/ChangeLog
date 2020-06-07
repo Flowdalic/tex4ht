@@ -1,8 +1,20 @@
+2020-06-07  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex4ht_fonts_modern_derived): evidently lm-htf.tex
+	is created from tex4ht-fonts-modern.tex, not noncjk. It looks to
+	be a test file with no particul use, but ok, whatever. svn:ignore it.
+	(diff-ht-fonts): failed to uncomment the full diff rerun.
+	(diff_files): $(filter-out) various files in $(derived) that are
+	not installed under $(inst_dir_4ht).
+	(tex4ht_fonts_cjk_derived, tex4ht_fonts_cjk_utf8_derived): define
+	as the first .htf file created, instead of the .html, since the
+	.html is not installed.
+		
 2020-06-07 Michal Hoftich  <michal.h21@gmail.com>
 
 	* checklog.lua: script for detection of errors in the log files.
-	* tex4ht-4ht.tex (amsart.4ht, amsproc.4ht): fixed horizontal mode error when
-	\dedication is used.
+	* tex4ht-4ht.tex (amsart.4ht, amsproc.4ht): fixed horizontal mode
+	error when \dedication is used.
 	https://puszcza.gnu.org.ua/bugs/?469
 
 2020-06-06  Vincent Bela\"iche  <vincent.belaiche@gmail.com>

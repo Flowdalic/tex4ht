@@ -106,10 +106,13 @@ derived += $(tex4ht_env_derived)
 tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
 
 derived += $(tex4ht_fonts_cjk_derived)
-tex4ht_fonts_cjk_derived = tex4ht-fonts-cjk.html # and lots more
+tex4ht_fonts_cjk_derived = \
+  $(ht_fonts_devdir)/unicode/cjk/gbksong/gbksong01.htf
+# and a whole lot more  
 
 derived += $(tex4ht_fonts_cjk_utf8_derived)
-tex4ht_fonts_cjk_utf8_derived = tex4ht-fonts-cjk-utf8.html # and lots more
+tex4ht_fonts_cjk_utf8_derived = \
+  $(ht_fonts_devdir)/unicode/cjk/utf8/utf8songa0.htf
 
 # noncjk.tex \input's modern, but seems more maintainable
 # to have separate lists.
@@ -133,8 +136,7 @@ tex4ht_fonts_noncjk_derived = \
   $(ht_fonts_devdir)/alias/bera/fvero8t.htf \
   $(ht_fonts_devdir)/alias/t1fonts/XCharter-Roman-tlf-t1--base.htf \
   $(ht_fonts_devdir)/alias/t1fonts/XCharter-Italic-tlf-t1--base.htf \
-  $(ht_fonts_devdir)/alias/t1fonts/XCharter-Bold-tlf-t1--base.htf \
-  lm-htf.tex
+  $(ht_fonts_devdir)/alias/t1fonts/XCharter-Bold-tlf-t1--base.htf
 
 # Although SearchFonts.java is created by fonts-noncjk, it's a
 # development tool that we don't use and have no need for, so don't list
@@ -149,6 +151,7 @@ tex4ht_fonts_modern_derived = \
   $(ht_fonts_devdir)/unicode/lm/rm-lm.htf \
   $(ht_fonts_devdir)/alias/lm/rm-lmt.htf \
   $(ht_fonts_devdir)/alias/lm/rm-lmvt.htf \
+  lm-htf.tex
 
 derived += $(tex4ht_fonts_ebgaramond_derived)
 tex4ht_fonts_ebgaramond_derived = \
@@ -653,7 +656,7 @@ install-htfonts-tmp:
 
 diff-ht-fonts:
 # the raw diff:
-#	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
+	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
 # just the filenames:
 	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd |sort >/tmp/htf
 # for human consumption, remove generation lines (hopefully there are no
@@ -664,9 +667,10 @@ diff-ht-fonts:
 
 # 
 # to compare newly-built files with what's installed.
-diff_files = $(derived) # lots of changes to be figured out ...
-#diff_files = $(tex4ht_mathml_derived) $(tex4ht_html_speech_derived) \
-#             $(tex4ht_jsml_derived) $(tex4ht_mathltx_derived)
+# htf files, etc., are in a different place, so don't include them here,
+diff_files = $(filter-out %.htf %.4hf tex4ht.env% %.c lm-htf.tex mk4ht.perl,\
+                          $(derived))
+
 #texmf = /usr/local/texlive/dev/texmf-dist
 texmf = /r/tug/home/texlive/karl/Master/texmf-dist
 inst_dir_4ht = $(texmf)/tex/generic/tex4ht
@@ -677,10 +681,10 @@ diff = diff -u0 --ignore-all-space --ignore-blank-lines \
 #
 # the --ignore-matching-lines only works when that's the only change in
 # the hunk, so ignore them all explicitly. also ignore commented changes.
-diff-all:
+diff-all: #diff-ht-fonts
 	-for f in $(diff_files); do $(diff) $(inst_dir_4ht)/$$f .; done \
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
-	             | egrep -v '^.ifx.infoIVht.UnDeF.*//$$'
+	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$'
 
 # diff one file specified as d=
 diff1 d1:
