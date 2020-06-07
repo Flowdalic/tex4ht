@@ -10,16 +10,22 @@ kpse.set_program_name "luatex"
 local error_logparser = require("make4ht-errorlogparser")
 
 local input_file = arg[1]
-local ext = input_file:match("%.([^%.]+)$")
-if not ext then
-  input_file = input_file .. ".log"
-elseif ext ~="log" then
-  input_file = input_file:gsub("[^%.]+$", "log")
-end
+local content 
+-- the log file can be passed as filename argument, or piped from shell
+if input_file then
+  local ext = input_file:match("%.([^%.]+)$")
+  if not ext then
+    input_file = input_file .. ".log"
+  elseif ext ~="log" then
+    input_file = input_file:gsub("[^%.]+$", "log")
+  end
 
-print(input_file)
-local f = io.open(input_file, "r")
-local content = f:read("*all")
+  local f = io.open(input_file, "r")
+  content = f:read("*all")
+else
+  -- read from STDIN
+  content = io.read("*all")
+end
 -- log parsing can be expensive on time, don't do it if we don't have
 -- any error message in the log file
 if content:match("\n!") then
