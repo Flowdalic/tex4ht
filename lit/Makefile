@@ -30,6 +30,7 @@ tex_1opt = "$(tex_opts)" # must be quoted, passing to shell script
 dev_null = </dev/null    # when we don't call tex directly.
 
 HTTEX = ht "tex $(tex_opts)"  # set tex options for plain tex
+CHECKLOG = texlua checklog.lua 
 
 # Although many of the source files say to use xhlatex, we always use
 # htlatex instead. xhlatex generates XHTML from the literate source and
@@ -325,6 +326,7 @@ all: $(derived)
 
 $(tex4ht_4ht_derived): tex4ht-4ht.tex cond4ht.4ht $(common)
 	tex $(tex_opts) $<
+	$(CHECKLOG) $<
 
 $(tex4ht_bibtex2_derived): tex4ht-bibtex2.tex $(common)
 	latex $(tex_opts) $<
@@ -386,6 +388,7 @@ $(tex4ht_html32_derived): tex4ht-html32.tex $(common)
 $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
 	latex $(tex_opts) $<
 	latex $(tex_opts) $<
+	$(CHECKLOG) $<
 
 $(tex4ht_info_html4_derived): tex4ht-info-html4.tex $(common_info)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
@@ -425,6 +428,7 @@ $(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
 
 $(tex4ht_mathml_derived): tex4ht-mathml.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
+	
 
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
@@ -454,6 +458,7 @@ $(tex4ht_options_derived): tex4ht-options.tex $(common)
 
 $(tex4ht_sty_derived): tex4ht-sty.tex $(common_no_cond_sty)
 	$(HTTEX) $< ""
+	$(CHECKLOG) $<
 
 $(tex4ht_svg_derived): tex4ht-svg.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
