@@ -1,3 +1,7 @@
+2020-06-10 Michal Hoftich  <michal.h21@gmail.com>
+
+	* checklog.lua: pass checked log file name to the log parser function.
+
 2020-06-07  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (tex4ht_fonts_modern_derived): evidently lm-htf.tex

@@ -9,7 +9,7 @@ kpse.set_program_name "luatex"
 -- the following library is part of make4ht
 local error_logparser = require("make4ht-errorlogparser")
 
-local function parse_log(content)
+local function parse_log(input_file, content)
   -- log parsing can be expensive on time, don't do it if we don't have
   -- any error message in the log file
   if content:match("\n!") then
@@ -39,7 +39,7 @@ if #arg > 0 then
     local f = io.open(input_file, "r")
     content = f:read("*all")
     f:close()
-    parse_log(content)
+    parse_log(input_file, content)
   end
 else
   -- read from STDIN
