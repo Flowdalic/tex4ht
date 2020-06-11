@@ -1,3 +1,9 @@
+2020-06-11  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (all): run checklog.lua here, instead of in
+	individual rules.
+	* texlog.lua: fiddle with formatting.
+
 2020-06-10 Michal Hoftich  <michal.h21@gmail.com>
 
 	* checklog.lua: pass checked log file name to the log parser function.

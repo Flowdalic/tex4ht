@@ -25,7 +25,7 @@ dif:
 	diff -u0 $(inst_dir) .
 
 # have to add new files by hand.
-inst:
+install:
 	cp -p `(cd $(inst_dir) && \ls)` $(inst_dir)
 
 clean:
