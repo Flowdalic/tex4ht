@@ -8,3 +8,5 @@
 \def\TEXMFTEXivHT{\HOME texmf/tex/generic/tex4ht/}
 \def\TEXMFTEXivBIN{\HOME texmf_t4ht_bin()/}
 \def\TEXMFTEXivXTPIPES{\HOME texmf/tex4ht/xtpipes/}
+\newif\ifdojava
+\dojava`'java_in_tex()

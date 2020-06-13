@@ -87,14 +87,16 @@
 >>>
 
 
-\AtEndDocument{ 
+\AtEndDocument{%
    \OutputCodE\<XhtmlEmails.java\> 
-} 
-\Needs{"
+ }
+\ifdojava
+  \Needs{"
     javac -classpath \TEXMFTEXivBIN tex4ht.jar
           XhtmlEmails.java
           -d \XTPIPES
-"} 
+"}
+\fi
  
 \<XhtmlEmails.java\><<< 
 package tex4ht;
@@ -632,7 +634,7 @@ OK 2
 
 
 
-
+\ifdojava
 \AtEndDocument{\Needs{%
     "pushd \XTPIPES || exit 1
      ;  
@@ -649,6 +651,7 @@ OK 2
      cp \XTPIPES xtpipes/lib/* 
         \TEXMFTEXivXTPIPES
 "}}
+\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%

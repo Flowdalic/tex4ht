@@ -49,9 +49,11 @@
 
 \AtEndDocument{\OutputCodE\<DbUtilities.java\>}
 
-\Needs{"
+\ifdojava
+  \Needs{"
     javac DbUtilities.java -d \XTPIPES
 "}
+\fi
 
 \<DbUtilities.java\><<<
 package tex4ht;
@@ -514,7 +516,7 @@ Can they be removed earlier  at the latex pass?
 /* is the TeX4ht Project <http://tug.org/tex4ht>.         */
 >>>
 
-
+\ifdojava
 \AtEndDocument{\Needs{%
     "pushd \XTPIPES || exit 1
      ;  
@@ -527,6 +529,7 @@ Can they be removed earlier  at the latex pass?
      cp \XTPIPES xtpipes/lib/* 
         \TEXMFTEXivXTPIPES
 "}}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

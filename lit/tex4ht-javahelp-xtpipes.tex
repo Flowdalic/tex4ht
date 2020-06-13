@@ -624,7 +624,7 @@ OK 2
 
 
 
-
+\ifdojava
 \AtEndDocument{\Needs{%
     "pushd \XTPIPES || exit 1
      ;  
@@ -636,5 +636,6 @@ OK 2
      ;
      if [ ! -d \TEXMFTEXivXTPIPES\space]; then exit 1; fi
 "}}
+\fi
 
 \end{document}

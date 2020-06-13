@@ -1,3 +1,18 @@
+2020-06-13  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
+
+	* xtpipes.tex,
+	* tex4ht-xhtmml-xtpipes.tex,
+	* tex4ht-xhtml-xtpipes.tex,
+	* tex4ht-oo-xtpipes.tex,
+	* tex4ht-jsml-xtpipes.tex,
+	* tex4ht-javahelp-xtpipes.tex,
+	* tex4ht-html-speech-xtpipes.tex,
+	* tex4ht-docbook-xtpipes.tex: Make all java system calls
+	conditional on "\ifdojava" switch.
+	* tex4ht-dir.m4: Add a "\ifdojava" switch.
+	* Makefile: Refactor the "do_java" option so that, and propagate
+	the option to "tex4ht-dir.tex" via "tex4ht-dir.m4".
+
 2020-06-11  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (all): run checklog.lua here, instead of in
@@ -19,7 +34,7 @@
 	(tex4ht_fonts_cjk_derived, tex4ht_fonts_cjk_utf8_derived): define
 	as the first .htf file created, instead of the .html, since the
 	.html is not installed.
-		
+
 2020-06-07 Michal Hoftich  <michal.h21@gmail.com>
 
 	* checklog.lua: script for detection of errors in the log files.

@@ -147,9 +147,11 @@
 
 \AtEndDocument{\OutputCodE\<HtJsml.java\>}
 
-\Needs{"
+\ifdojava
+  \Needs{"
     javac HtJsml.java -d \XTPIPES
 "}
+\fi
 
 \<HtJsml.java\><<<
 package tex4ht;
@@ -180,12 +182,14 @@ public class HtJsml {
 %%%%%%%%%%%%%
 
 
-\AtEndDocument{ 
+\AtEndDocument{%
    \OutputCodE\<GroupMn.java\> 
-} 
-\Needs{"
+ }
+\ifdojava 
+  \Needs{"
     javac GroupMn.java -d \XTPIPES
 "} 
+\fi
  
 \<GroupMn.java\><<< 
 package tex4ht;
@@ -789,14 +793,17 @@ on nodes with large numbers of children.
 >>>
 
 
-\AtEndDocument{ 
+\AtEndDocument{%
    \OutputCodE\<JsmlMathBreak.java\> 
-} 
-\Needs{"
+ }
+
+\ifdojava
+  \Needs{"
     javac -classpath \LIB xtpipes.jar
           JsmlMathBreak.java
           -d \XTPIPES . 
-"} 
+"}
+\fi
  
 \<JsmlMathBreak.java\><<< 
 package tex4ht;
@@ -989,12 +996,14 @@ The following adds PARA on `p' paragraphs, ul.
 
 
 
-\AtEndDocument{ 
+\AtEndDocument{ %
    \OutputCodE\<JsmlFilter.java\> 
-} 
-\Needs{"
+ }
+\ifdojava
+  \Needs{"
     javac JsmlFilter.java -d \XTPIPES
-"} 
+"}
+\fi 
  
 \<JsmlFilter.java\><<< 
 package tex4ht;
@@ -3806,7 +3815,7 @@ concat(
 
 
 
-
+\ifdojava
 \AtEndDocument{\Needs{%
     "pushd \XTPIPES
      ;  
@@ -3821,7 +3830,7 @@ concat(
      cp \XTPIPES xtpipes/lib/* 
         \TEXMFTEXivXTPIPES
 "}}
-
+\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

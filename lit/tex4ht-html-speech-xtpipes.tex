@@ -146,10 +146,11 @@
 
 
 \AtEndDocument{\OutputCodE\<HtSpk.java\>}
-
-\Needs{"
+\ifdojava
+  \Needs{"
     javac HtSpk.java      -d \XTPIPES . 
 "}
+\fi
 
 \<HtSpk.java\><<<
 package tex4ht;
@@ -2415,6 +2416,7 @@ Left subscripts and tensors.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\ifdojava
 \AtEndDocument{\Needs{%
     "pushd \XTPIPES || exit 1
      ;  
@@ -2426,7 +2428,7 @@ Left subscripts and tensors.
      ;
      mv \XTPIPES tex4ht.jar \TEXMFTEXivBIN . 
 "}}
-
+\fi
 
 
 

@@ -22,8 +22,23 @@ texmf_t4ht_bin = texmf/tex4ht/bin
 # List of directories we'll substitute into tex4ht-dir.tex below:
 dirs = homedir wd htmldir xtpipesdir deriveddir texmf_t4ht_bin
 
-# Uncomment to enable Java compilations:
-#do_java = 1
+# 0 = in Makefile only
+# 1 = in .tex only
+# 2 = no java compilation
+do_java ?= 2
+java_in_make := false
+java_in_tex := false
+ifeq ($(do_java),0)
+java_in_make := true
+else ifeq ($(do_java),1)
+java_in_tex := true
+endif
+
+ifeq ($(java_in_make),true)
+java_or_not=$1
+else
+java_or_not=#
+endif
 
 tex_opts = --interaction=nonstopmode -recorder #--file-line-error
 tex_1opt = "$(tex_opts)" # must be quoted, passing to shell script
@@ -55,7 +70,7 @@ common_info = $(common) common-info.tex
 
 # Substitute directories used, especially for Java.
 tex4ht-dir.tex: tex4ht-dir.m4
-	m4 $(foreach dir,$(dirs),-D $(dir)="$($(dir))") $< >$@ || rm -f $@
+	m4 $(foreach def,$(dirs) java_in_tex,-D $(def)="$($(def))") $< >$@ || rm -f $@
 
 # Start long list of generated files from the literate sources. Needs more.
 derived = 
@@ -96,7 +111,7 @@ tex4ht_c_derived = tex4ht.c
 derived += $(tex4ht_docbook_derived)
 tex4ht_docbook_derived = docbook.4ht docbook-math.4ht docbook-mml.4ht
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 derived += $(tex4ht_docbook_xtpipes_derived)
 tex4ht_docbook_xtpipes_derived = docbook.4xt $(wd)/src/DbUtilities.java
 endif
@@ -178,7 +193,7 @@ tex4ht_fonts_4hf = \
 derived += $(tex4ht_html_speech_derived)
 tex4ht_html_speech_derived = html-speech.4ht html-speech-math.4ht emacspeak.4ht
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 derived += $(tex4ht_html_speech_xtpipes_derived)
 tex4ht_html_speech_xtpipes_derived = htspk.4xt $(wd)/src/HtSpk.java
 endif
@@ -217,7 +232,7 @@ tex4ht_info_svg_derived = infosvg.4ht
 derived += $(tex4ht_javahelp_derived)
 tex4ht_javahelp_derived = javahelp.4ht javahelp-a.4ht
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 derived += $(tex4ht_javahelp_xtpipes_derived)
 tex4ht_javahelp_xtpipes_derived = javahelp.4xt
 endif
@@ -225,7 +240,7 @@ endif
 derived += $(tex4ht_jsmath_derived)
 tex4ht_jsmath_derived = jsmath.4ht html-jsmath.4ht
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 derived += $(tex4ht_jsml_xtpipes_derived)
 tex4ht_jsml_xtpipes_derived = \
   jsml.4xt \
@@ -253,7 +268,7 @@ tex4ht_moz_derived = mozilla.4ht
 derived += $(tex4ht_html5_derived)
 tex4ht_html5_derived = html5.4ht
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 derived += $(tex4ht_oo_xtpipes_derived)
 tex4ht_oo_xtpipes_derived = \
    oo-math.4xt oo-text.4xt \
@@ -290,12 +305,12 @@ tex4ht_unicode_derived = unicode.4ht
 derived += $(tex4ht_word_derived)
 tex4ht_word_derived = htmlw.4ht
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 derived += $(tex4ht_xhtml_xtpipes_derived)
 tex4ht_xhtml_xtpipes_derived = xhtml.4xt $(wd)/src/XhtmlEmails.java
 endif
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 derived += $(tex4ht_xhtmml_xtpipes_derived)
 tex4ht_xhtmml_xtpipes_derived = xhtmml.4xt $(wd)/src/XhtmmlUtilities.java
 endif
@@ -305,7 +320,7 @@ tex4ht_mathjax_derived = mathjax-latex-4ht.4ht
 
 # wripro.tex generates nothing (not literate).
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 derived += $(xtpipes_derived)
 xtpipes_derived = \
   $(addprefix $(wd)/src/, \
@@ -418,7 +433,7 @@ $(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
 $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
-$(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common) #$(wd)/bin/xtpipes.jar
+$(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common) $(call java_or_not,$(wd)/bin/xtpipes.jar)
 	htlatex $< "xhtml,next,3" "" "" $(tex_1opt)
 
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
@@ -609,7 +624,7 @@ clean1:
 # 
 # Java.
 
-ifdef do_java
+ifeq ($(java_in_make),true)
 $(wd)/bin/xtpipes.jar: $(xtpipes_derived)
 	mkdir -p $(xtpipesdir)
 	find $(wd)/src -iname '*.java' -print0 \

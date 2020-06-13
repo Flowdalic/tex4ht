@@ -227,7 +227,7 @@
 %    mkdir -p work.dir/xtpipes
 % "}
 
-
+\ifdojava
 \ifOption{win} {}{
 \AtEndDocument{\Needs{"
     find \WORK\space -type f -iname '*.java' -print0
@@ -235,6 +235,7 @@
     ;
 "}}
 }
+\fi
 
 
 \ifOption{win} {
@@ -4471,6 +4472,7 @@ rmdir /s /q doc.dir
 
 ../../..;..;../../jldoc;../../xtpipes/cgjsapi.jar;../../xtpipes/xtpipes.jar;../../jldoc/jldoc.jar;../../ml2xml.dir/ml2xml.dir/bin/ml2xml.jar
 
+\ifdojava
 \ifOption{win} {}{
 \AtEndDocument{\Needs{%
     "pushd \XTPIPES || exit 1
@@ -4489,9 +4491,11 @@ rmdir /s /q doc.dir
         \HOME texmf/tex4ht/xtpipes/.
 "}}
 }
+\fi
 
 
 
+\ifdojava
 \ifOption{win} {}{
   \AtEndDocument{\Needs{"
       mkdir -p \LIB\space || exit 1
@@ -4507,7 +4511,8 @@ rmdir /s /q doc.dir
       ;
       mv \XTPIPES xtpipes.jar \LIB
       ;
-"}}}
+      "}}}
+\fi
 
 
 \end{document}

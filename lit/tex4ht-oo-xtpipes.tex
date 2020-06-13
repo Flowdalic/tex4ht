@@ -281,9 +281,11 @@ above
 
 \AtEndDocument{\OutputCodE\<OoUtilities.java\>}
 
-\Needs{"
+\ifdojava
+  \Needs{"
     javac OoUtilities.java -d \XTPIPES
 "}
+\fi
 
 \<OoUtilities.java\><<<
 package tex4ht;
@@ -1541,9 +1543,11 @@ mtext.
 
 \AtEndDocument{\OutputCodE\<OomFilter.java\>}
 
-\Needs{"
+\ifdojava
+  \Needs{"
     javac OomFilter.java     -d \XTPIPES
 "}
+\fi
 
 \<OomFilter.java\><<<
 package tex4ht;
@@ -1606,9 +1610,11 @@ public class OomFilter extends XMLFilterImpl {
 
 \AtEndDocument{\OutputCodE\<OoFilter.java\>}
 
-\Needs{"
+\ifdojava
+  \Needs{"
     javac OoFilter.java      -d \XTPIPES
 "}
+\fi
 
 \<OoFilter.java\><<<
 package tex4ht;
@@ -1955,7 +1961,7 @@ import java.io.FileReader;
 >>>
 
 
-
+\ifdojava
 \AtEndDocument{\Needs{%
     "pushd \XTPIPES || exit 1
      ;  
@@ -1970,5 +1976,6 @@ import java.io.FileReader;
      cp \XTPIPES xtpipes/lib/* 
         \TEXMFTEXivXTPIPES
 "}}
+\fi
 
 \end{document}
