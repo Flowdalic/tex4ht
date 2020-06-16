@@ -1,3 +1,9 @@
+2020-06-16 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (longtable.4ht): fixed LOT for longtable + fixed missing
+	colon in caption.
+	https://puszcza.gnu.org.ua/bugs/?313
+
 2020-06-15  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
 
 	* Makefile (do_java): Add comment about do_java=0|1 needing

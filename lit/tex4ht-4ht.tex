@@ -9308,10 +9308,36 @@ Fix for the \Link[https://puszcza.gnu.org.ua/bugs/?437]{}{}starred linebreak iss
 \HLet\LT@caption\:tempc
 \def\:tempc#1#2#3{%
   \LT@mcol\LT@cols c{\hbox{\parbox[t]\LTcapwidth{%
-      \cptA: #1{\cap:ref{#2}}\if :#1:\else\cptB:\fi\cptC:#3\cptD:
+    \cptA: #1{\cap:ref{#2}}\if\relax\detokenize{#1}\relax\else\cptB:\fi\cptC:#3\cptD:
     \endgraf\vskip\baselineskip}}}}
 \HLet\LT@makecaption\:tempc
 >>>
+
+\Link[https://puszcza.gnu.org.ua/bugs/?313] 
+Write table info to the LOT
+\EndLink
+\<longtable captions\><<<
+\def\:tempc#1[#2]#3{%
+  \LT@makecaption#1\fnum@table{#3}%
+  \cur:lbl{}%
+  \def\@tempa{#2}%
+  \ifx\@tempa\@empty\else%
+  {\let\\\space%
+  \protect:wrtoc%
+  \edef\:temp{#2}%
+  \edef\:temp{\the\:tokwrite{\string\doTocEntry%
+  \string\toclot%
+  {\thetable}{\string\csname\space a:TocLink\string\endcsname%
+    {\FileNumber}{\cur:th \:currentlabel}{}{\ifx\:temp\empty\else \ignorespaces #2\fi}}%
+      {}\relax}}\:temp%
+  }%
+  \fi%
+}
+
+\HLet\LT@c@ption\:tempc
+>>>
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{table.sty of pctex}
