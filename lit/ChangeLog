@@ -1,3 +1,21 @@
+2020-06-15  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
+
+	* Makefile (do_java): Add comment about do_java=0|1 needing
+	tex4ht-dir.tex refresh.
+	(xtpipe_jar): Replace java_or_not by xtpipes_jar, as the only
+	purpose is to control making of xtpipes.jar, and transpose the
+	dependency between in-tex and in-make, i.e., xtpipes.jar is needed
+	only when java is compiled in tex.
+	Replace all the "ifeq ($(java_in_make),true)" by "ifneq
+	($(do_java),2)".
+	(xtpipes_derived): Add $(xtpipes_jar).
+	($(tex4ht_jsml_xtpipes_derived)): Replace $(call
+	java_or_not,$(wd)/bin/xtpipes.jar) by $(xtpipes_jar) in the
+	dependency list, so there is a dependency only when compiling java
+	in tex.
+	(jar): Suppress producing xtpipes.jar, this is needed only for
+	compiling in tex.
+
 2020-06-13  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
 
 	* xtpipes.tex,

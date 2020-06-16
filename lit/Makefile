@@ -22,6 +22,12 @@ texmf_t4ht_bin = texmf/tex4ht/bin
 # List of directories we'll substitute into tex4ht-dir.tex below:
 dirs = homedir wd htmldir xtpipesdir deriveddir texmf_t4ht_bin
 
+# do_java variable to control how tex4ht.jar is built.
+# do_java=1 works only if tex4ht-dir.tex is not already built with
+# do_java=0 option.
+# Similarly do_java=0 will keep java compilation in tex in addition to
+# building in Makefile if tex4ht-dir.tex was already built with
+# do_java=1
 # 0 = in Makefile only
 # 1 = in .tex only
 # 2 = no java compilation
@@ -32,12 +38,17 @@ ifeq ($(do_java),0)
 java_in_make := true
 else ifeq ($(do_java),1)
 java_in_tex := true
+else ifneq ($(do_java),2)
+$(error Invalid do_java, supported values are 0, 1, and 2)
 endif
 
-ifeq ($(java_in_make),true)
-java_or_not=$1
+# The xtpipes.jar is an intermediate product that is needed only when
+# java compilation is made through t4ht system call (do_java=1), not
+# when the java compilation is made in Makefile (do_java=0)
+ifeq ($(java_in_tex),true)
+xtpipe_jar = $(wd)/bin/xtpipes.jar
 else
-java_or_not=#
+xtpipe_jar = #
 endif
 
 tex_opts = --interaction=nonstopmode -recorder #--file-line-error
@@ -232,7 +243,7 @@ tex4ht_info_svg_derived = infosvg.4ht
 derived += $(tex4ht_javahelp_derived)
 tex4ht_javahelp_derived = javahelp.4ht javahelp-a.4ht
 
-ifeq ($(java_in_make),true)
+ifneq ($(do_java),2)
 derived += $(tex4ht_javahelp_xtpipes_derived)
 tex4ht_javahelp_xtpipes_derived = javahelp.4xt
 endif
@@ -240,7 +251,7 @@ endif
 derived += $(tex4ht_jsmath_derived)
 tex4ht_jsmath_derived = jsmath.4ht html-jsmath.4ht
 
-ifeq ($(java_in_make),true)
+ifneq ($(do_java),2)
 derived += $(tex4ht_jsml_xtpipes_derived)
 tex4ht_jsml_xtpipes_derived = \
   jsml.4xt \
@@ -268,7 +279,7 @@ tex4ht_moz_derived = mozilla.4ht
 derived += $(tex4ht_html5_derived)
 tex4ht_html5_derived = html5.4ht
 
-ifeq ($(java_in_make),true)
+ifneq ($(do_java),2)
 derived += $(tex4ht_oo_xtpipes_derived)
 tex4ht_oo_xtpipes_derived = \
    oo-math.4xt oo-text.4xt \
@@ -305,12 +316,12 @@ tex4ht_unicode_derived = unicode.4ht
 derived += $(tex4ht_word_derived)
 tex4ht_word_derived = htmlw.4ht
 
-ifeq ($(java_in_make),true)
+ifneq ($(do_java),2)
 derived += $(tex4ht_xhtml_xtpipes_derived)
 tex4ht_xhtml_xtpipes_derived = xhtml.4xt $(wd)/src/XhtmlEmails.java
 endif
 
-ifeq ($(java_in_make),true)
+ifneq ($(do_java),2)
 derived += $(tex4ht_xhtmml_xtpipes_derived)
 tex4ht_xhtmml_xtpipes_derived = xhtmml.4xt $(wd)/src/XhtmmlUtilities.java
 endif
@@ -320,7 +331,7 @@ tex4ht_mathjax_derived = mathjax-latex-4ht.4ht
 
 # wripro.tex generates nothing (not literate).
 
-ifeq ($(java_in_make),true)
+ifneq ($(do_java),2)
 derived += $(xtpipes_derived)
 xtpipes_derived = \
   $(addprefix $(wd)/src/, \
@@ -335,6 +346,7 @@ xtpipes_derived = \
   xtpipes-default.4xt \
   xtpipes-map.dtd \
   xtpipes.dtd \
+  $(xtpipes_jar)
   #
 endif
 
@@ -433,7 +445,7 @@ $(tex4ht_javahelp_xtpipes_derived): tex4ht-javahelp-xtpipes.tex $(common)
 $(tex4ht_jsmath_derived): tex4ht-jsmath.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
-$(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common) $(call java_or_not,$(wd)/bin/xtpipes.jar)
+$(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common) $(xtpipes_jar)
 	htlatex $< "xhtml,next,3" "" "" $(tex_1opt)
 
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
@@ -444,7 +456,6 @@ $(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
 
 $(tex4ht_mathml_derived): tex4ht-mathml.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
-	
 
 $(tex4ht_mathplayer_derived): tex4ht-mathplayer.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
@@ -623,19 +634,10 @@ clean1:
 
 # 
 # Java.
-
 ifeq ($(java_in_make),true)
-$(wd)/bin/xtpipes.jar: $(xtpipes_derived)
-	mkdir -p $(xtpipesdir)
-	find $(wd)/src -iname '*.java' -print0 \
-	| xargs -0 javac -d $(xtpipesdir) -sourcepath $(wd)/src
-	mkdir -p $(wd)/bin
-	cd $(xtpipesdir) && jar cf xtpipes.jar *
-	mv $(xtpipesdir)/xtpipes.jar $(wd)/bin
-
 .PHONY: jar
 jar: $(homedir)/$(texmf_t4ht_bin)/tex4ht.jar
-$(homedir)/$(texmf_t4ht_bin)/tex4ht.jar: $(wd)/bin/xtpipes.jar \
+$(homedir)/$(texmf_t4ht_bin)/tex4ht.jar:
 	$(tex4ht_docbook_xtpipes_derived) \
 	$(tex4ht_fonts_noncjk_derived) \
 	$(tex4ht_html_speech_xtpipes_derived) \
