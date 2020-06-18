@@ -321,11 +321,14 @@ The front and back elements are optional.
 \Configure{BODY}{}{}
 \Configure{TITLE+} {}
 \ifx \a:TITLE\:UnDef
-   \Configure{TITLE}{\Protect\IgnorePar
-      \HCode{<title>}}{\HCode{</title>\Hnewline}}
+\Configure{TITLE}{}{}
 \fi
 >>>
 
+There used to be this configuration, but the resulting title element was empty.
+Publication title should be inside info element anyway. This element is inserted by maketitle.
+% \Configure{TITLE}{\Protect\IgnorePar
+%    \HCode{<title>}}{\HCode{</title>\Hnewline}}
 
 
 
@@ -608,40 +611,40 @@ PUBLIC "-//OASIS//DTD DocBook V5.0//|<dtd lang|>"\Hnewline
 
 \<article maketitle\><<<
 \Configure{maketitle}
-   {\HCode{<para role="maketitle">}}
-   {\HCode{</para>}}
-   {\HCode{<note role="title"><para>}}{\HCode{</para></note>}}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}}
+   {\HCode{<title>}}{\HCode{</title>}}
 \Configure{thanks author date and} {}{}
-   {\HCode{<note role="author"><para><personname><othername>}}
-   {\HCode{</othername></personname></para></note>}}
-   {\HCode{<note role="date"><para>}}
-   {\HCode{</para></note>}}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
    {}{}
 >>>
 
 \<report maketitle\><<<
 \Configure{maketitle}
-   {\HCode{<para role="maketitle">}}
-   {\HCode{</para>}}
-   {\HCode{<note role="title"><para>}}{\HCode{</para></note>}}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}}
+   {\HCode{<title>}}{\HCode{</title>}}
 \Configure{thanks author date and} {}{}
-   {\HCode{<note role="author"><para><personname><othername>}}
-   {\HCode{</othername></personname></para></note>}}
-   {\HCode{<note role="date"><para>}}
-   {\HCode{</para></note>}}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
    {}{}
 >>>
 
 \<book maketitle\><<<
 \Configure{maketitle}
-   {\HCode{<para role="maketitle">}}
-   {\HCode{</para>}}
-   {\HCode{<note role="title"><para>}}{\HCode{</para></note>}}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}}
+   {\HCode{<title>}}{\HCode{</title>}}
 \Configure{thanks author date and} {}{}
-   {\HCode{<note role="author"><para><personname><othername>}}
-   {\HCode{</othername></personname></para></note>}}
-   {\HCode{<note role="date"><para>}}
-   {\HCode{</para></note>}}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
    {}{}
 >>>
 

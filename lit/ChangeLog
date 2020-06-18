@@ -1,3 +1,9 @@
+2020-06-18 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-docbook.tex (docbook.4ht): fixed output from \maketitle command in
+	accordance with the current Docbook documentation.
+	https://github.com/michal-h21/make4ht/issues/27
+
 2020-06-16 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (longtable.4ht): fixed LOT for longtable + fixed missing
