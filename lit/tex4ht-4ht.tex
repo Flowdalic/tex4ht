@@ -14497,6 +14497,10 @@ DIV.right
 \let\bf\empty
 \let\it\empty
 
+\renewcommand*{\@memoldfonterr}[3]{}
+\renewcommand*{\@memoldfontwarn}[3]{}
+
+
 \def\@chapter[#1]#2{%
    |<adjust minipageNum for setcounter footnote 0|>%
    {\SkipRefstepAnchor \let\addcontentsline\:gobbleIII\no@chapter[#1]{}%
