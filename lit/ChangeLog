@@ -1,3 +1,8 @@
+2020-06-21 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-docbook.tex (docbook.4ht): support for BibLaTeX bibliography.
+	https://github.com/michal-h21/make4ht/issues/28
+
 2020-06-19 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (memoir.4ht): disable warning and error messages about

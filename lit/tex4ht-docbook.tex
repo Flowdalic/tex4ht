@@ -1077,6 +1077,43 @@ The protection is required for cases like the following one.
 \Configure{jbanchor}{\Link}{\EndLink}
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{Biblatex}
+%%%%%%%%%%%%%%%%%%%%%
+
+
+\<configure docbook biblatex\><<<
+    \def\bibConfigure{%
+  \ConfigureList{thebibliography}
+  {\ifvmode \IgnorePar \fi \EndP \EndP
+    \HCode {<bibliolist>}%
+%
+% This is for linking citations with biblist items which
+% are in a different file when output is split into different
+% chunks. [CVR 2012-09-27]
+%
+%
+% <biblatex-2.2>
+%
+  \immediate\write\@auxout{%
+      \string\BibFileName[\therefsection]{\FileName}}%
+%
+% </biblatex-2.2>
+%
+    \PushMacro \end:itm \global \let \end:itm =\empty}%
+  {\ifvmode \IgnorePar \fi \EndP
+    \PopMacro \end:itm \global \let \end:itm \end:itm \EndP
+    \HCode {</bibliomisc></bibliomixed></bibliolist>}\ShowPar}%
+  {\ifvmode \IgnorePar \fi \EndP \gHAdvance \bibN by 1
+    \end:itm \global \def \end:itm {\EndP \HCode{</bibliomisc></bibliomixed>}}%
+    \HCode {<bibliomixed xml:id="X\therefsection-\abx@field@entrykey"><bibliomisc>}\bgroup \bf}%
+  {\ifvmode \IgnorePar \fi \EndP
+    \egroup
+    \HCode {</bibliomisc><bibliomisc\Hnewline xml:id="bib-\bibN">}%
+    \par \ShowPar}%
+ }
+
+>>>
 
 
 
