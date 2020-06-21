@@ -22,7 +22,7 @@ bld: clean
 inst_dir = /r/tug/home/texlive/karl/Master/texmf-dist/doc/generic/tex4ht
 # look for "Only in /..." for files in TL now that should be removed.
 dif:
-	diff -u0 $(inst_dir) .
+	diff -u0 $(inst_dir) . | grep -v '<small>Generated '
 
 # have to add new files by hand.
 install:

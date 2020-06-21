@@ -1,6 +1,17 @@
+2020-06-21  Karl Berry  <karl@freefriends.org>
+
+	* TeX4ht-doc.tex (mn11.html, Configurable Hooks): show Michal's
+	incantation for the per-page footer we insert.
+	* Makefile (dif): ignore "Generated" lines.
+
+2020-06-20  Karl Berry  <karl@freefriends.org>
+
+	* TeX4ht-doc.tex (mn.html): no need to repeat signature info now.
+	Reduce intro text. Typos.
+
 2020-06-01  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-doc.tex (all html files): added footer to all pages.
+	* TeX4ht-doc.tex (all html files): added footer to all pages.
 
 2020-05-29  Michal Hoftich  <michal.h21@gmail.com>
 

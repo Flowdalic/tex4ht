@@ -3259,11 +3259,7 @@ John Plaice
 
 \Intro
 
-\TeX4ht was created by Eitan Gurari at Ohio State University. Eitan died
-unexpectedly in June 2009; we dedicate future development to his memory.
-
-
-\Mark{The new \TeX4ht home page is at
+\Mark{The \TeX4ht home page is at
 \Link[https://tug.org/tex4ht]{}{}https://tug.org/tex4ht\EndLink}.  
 Please see that page for current development information, %
 including a \Link[https://puszcza.gnu.org.ua/bugs/?group=tex4ht]{}{}bug tracker\EndLink\ 
@@ -3274,9 +3270,9 @@ updated; new versions are committed to the \TeX4ht\ and TeX Live
 repositories.
 
 Unfortunately, no full release of \TeX4ht has been made since Eitan
-Gurari, the original author, passed away. When a release is finally made
-(there is no ETA at present), it will be available on 
-\Link[https://ctan.org/pkg/tex4ht]{}{}CTAN\EndLink.
+Gurari, the original author, passed away unexpectedly in June 2009. When
+a release is finally made (there is no ETA at present), it will be
+available on \Link[https://ctan.org/pkg/tex4ht]{}{}CTAN\EndLink.
 
 \EndIntro
 
@@ -3345,13 +3341,13 @@ font-weight: bold;
 
 
 
- \HPage{trouble shooting}\ExitHPage{}
+ \HPage{troubleshooting}\ExitHPage{}
 
 \Link{}{trbl-sht}\EndLink
 
 
 
-\InstallSection{Trouble Shooting}
+\InstallSection{Troubleshooting}
 
 \TableOfContents [TroubleSec]
 
@@ -6632,8 +6628,8 @@ Hooks are just macro names seeded within the bodies of other macros.
 
 \EndList
 
- Block \Verb+{\begin}+\dots\Verb+\end+ environments may also be
- configured through the \Verb+\ConfigureEnv+ command, and lists may
+ Block environments \Verb+\begin+\dots\Verb+\end+ may also be
+ configured through the \Verb+\ConfigureEnv+ command. Lists may
  also employ the \Verb+\ConfigureList+ command.
 
 
@@ -6644,6 +6640,16 @@ Much of the information in the log files may also be obtained by
 running \`'xhlatex mktex4ht.4ht' and reviewing the entries in the outcome
 page \`'mktex4ht.html => index => mktex4ht'.
 
+As an example, the footer is placed on these HTML pages using the
+\Verb+@/BODY+ hook, like this (inside
+\Verb+\Preamble+\dots\Verb+\EndPreamble+):
+\Verbatim
+\Configure{@/BODY}{\ifvmode\IgnorePar\fi\EndP\HCode{<hr />}\par
+    \HCode{<small>Generated \ifcase \month \or
+      January \or February \or March \or April \or May \or June \or July
+      \or August \or September \or October \or November \or December \fi
+  \the\day, \the\year\space - <a href="/tex4ht/">tex4ht home page</a></small>}}
+\EndVerbatim
 
 
 
@@ -8969,7 +8975,7 @@ through \TeX4ht .
  The \Link[http://svn.gnu.org.ua/viewvc/tex4ht/trunk/lit/]{}{}literate sources\EndLink{} of \TeX4ht
  are also available, but they are not needed for installing the
  system.  The literate views are very far from being in a desirable
- state for a review by a public eye--they reflect their true nature as
+ state for a review by a public eye---they reflect their true nature as
  being privately used for developing and maintaining the available
  code.  The views follow a basement mentality: throw in without much
  scrutiny any item of possible value at some point of time, and clean
@@ -8978,7 +8984,7 @@ through \TeX4ht .
 
 
 
-\noindent \Link{trbl-sht}{}trouble shooting\EndLink
+\noindent \Link{trbl-sht}{}troubleshooting\EndLink
 {\tt |}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \HCode{<span class="bugfixes">}\Link[bugfixes.html]{}{}bug fixes\EndLink
@@ -9042,21 +9048,18 @@ definitions of the constructs involved in the translation.
 
 
 
-\item A mentioning of the command used to invoke the translation. This
-information is required since the command determines which configurations
-participate in the translation.
+\item Specifying the command used to invoke the translation. This
+information is required since the command determines which
+configurations participate in the translation.
 
-\item
-Occasionally it might also be
-useful to have
- an URL to a public domain where the files and messages produced
-during the compilation can be viewed.  Unless explicitly requested to to do so,
-please don't email such information.
+\item Occasionally it might also be useful to have a url where the files
+and messages produced during the compilation can be viewed. Unless
+explicitly requested, please don't email such information.
 
 \EndList
 
 
-Translations of source files are centered around logical structures.
+Translations of source files are centered on logical structures.
 Formatting instructions receive only limited attention.
 
 
@@ -10618,7 +10621,7 @@ Project Public License\EndLink{} (LPPL).
 
 
 
-\DocPart{Acknowledgment}
+\DocPart{Acknowledgments}
 
 Eitan gratefully acknowledges the suggestions, contributions, and bug reports
 offered by many people. In particular, thanks go to Carmen Fierro,
@@ -10627,13 +10630,9 @@ extensive feedback and help at early stages of this project.
 
 Eitan's work was partially sponsored by NSF grant IIS-0312487.
 
-\Sign{https://tug.org/tex4ht}
-   {\ifcase \month \or
-   January \or February \or March \or April \or May \or June \or July
-   \or August \or September \or October \or November \or December \fi
-   \the\day, \the\year}
-
-
+Subsequent work has been a community effort involving many people.
+Contributors, bug reporters, and all, are listed in the ChangeLog file
+in the sources.
 
 % \IgnorePar\EndP \Tg<hr />
 
