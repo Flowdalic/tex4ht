@@ -1,3 +1,9 @@
+2020-06-23 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-docbook.tex (docbook.4ht): don't print filename in BibLaTeX
+	bibliography.
+	https://github.com/michal-h21/make4ht/issues/28
+
 2020-06-21 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-docbook.tex (docbook.4ht): support for BibLaTeX bibliography.
