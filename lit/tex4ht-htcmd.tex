@@ -9,8 +9,8 @@
 % forward slash into a single or double backslash for OPTFLAG set to
 % -slash or -dslash respectively.
 %
-% Copyright (C) 2009-2010 TeX Users Group
-% Copyright (C) 1996-2009 Eitan M. Gurari
+% Copyright 2009-2020 TeX Users Group
+% Copyright 1996-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
 
@@ -66,8 +66,8 @@
 
 \<htcmd.c\><<<
 /* htcmd.c (`version), generated from `jobname.tex
-   Copyright (C) 2009-2010 TeX Users Group
-   Copyright (C) `CopyYear.1996. Eitan M. Gurari
+   Copyright 2009-2020 TeX Users Group
+   Copyright `CopyYear.1996. Eitan M. Gurari
    `<TeX4ht copyright`> */
 `<htcmd.h`>
 `<defines`>
@@ -677,7 +677,7 @@ static void err_i( ARG_I(int) );
 static void err_i(n)      int  n
 
 ;{  (IGNORED) fprintf(stderr,"--- error --- ");
-   (IGNORED) fprintf(stderr, warn_err_mssg[n]);
+    (IGNORED) fprintf(stderr, "%s", warn_err_mssg[n]);
    exit(EXIT_FAILURE);  
 }
 >>>
@@ -693,7 +693,7 @@ static void err_arg( ARG_I(int) );
 static void err_arg(n)      int  n
 
 ;{  (IGNORED) fprintf(stderr,"--- error --- ");
-   (IGNORED) fprintf(stderr, warn_err_mssg[n]);
+    (IGNORED) fprintf(stderr, "%s", warn_err_mssg[n]);
    exit(EXIT_FAILURE);  
 }
 >>>
