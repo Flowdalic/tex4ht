@@ -15044,9 +15044,9 @@ imported from aux or another file.
    {\EndP\HCode{</div>}}
    {\gHAdvance\fancyvrb:cnt by 1
     \ifnum \fancyvrb:cnt>1 
-    \HCode{<br class="fancyvrb" />}\fi} {}
+    \HCode{<br class="fancyvrb" />\Hnewline}\fi} {}
    {}{}
-\Css{P.fancyvrb {white-space: nowrap; margin:0em;}}
+\Css{div.fancyvrb {white-space: nowrap; margin:0em;font-family:monospace,monospace;}}
 >>>
 
 
@@ -18429,7 +18429,7 @@ Only one of the following is needed for a given document!!!
    {\IgnorePar\EndP\HCode{<div class="alltt">}}
    {\IgnorePar\EndP\HCode{</div>}} {}{}
 \Css{.alltt P { margin-bottom : 0em; margin-top : 0em; }}
-\Css{.alltt { margin-bottom : 1em; margin-top : 1em; }}
+\Css{.alltt { margin-bottom : 1em; margin-top : 1em; font-family:monospace,monospace; }}
 >>>
 
 %%%%%%%%%%%%%%%%%%%

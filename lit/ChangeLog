@@ -3,6 +3,9 @@
 	* tex4ht-html4.tex (html4.4ht): don't override HTML charset when it is
 	already set.
 	https://puszcza.gnu.org.ua/bugs/index.php?432
+	* tex4ht-html4.tex (html4.4ht): use monospaced font for fancyvrb and alltt
+	environments.
+	https://puszcza.gnu.org.ua/bugs/?211
 
 2020-06-29  Ulrich M\"uller  <karl@freefriends.org>
 
