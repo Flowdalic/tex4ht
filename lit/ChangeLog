@@ -1,3 +1,9 @@
+2020-06-30 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): don't override HTML charset when it is
+	already set.
+	https://puszcza.gnu.org.ua/bugs/index.php?432
+
 2020-06-29  Ulrich M\"uller  <karl@freefriends.org>
 
 	* tex4ht-htcmd.c (err_i, err_arg): use ("%s", warn_err_mssg[n])

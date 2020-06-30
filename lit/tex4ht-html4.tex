@@ -17622,9 +17622,10 @@ command
 \def\a:temp#1#2#3{%
    \ifOption{charset=#2}{\def\a:charset{charset=#2}}{}%
    \def\:tempa{#1}\ifx \languagename\:tempa
-      \def\A:charset{#2}\ifx \A:charset\empty\else
-         \def\A:charset{charset=#2}%
-      \fi
+      \ifx\A:charset\empty%
+      \def\A:charset{#2}\ifx \A:charset\empty\else%
+         \def\A:charset{charset=#2}%%
+      \fi\fi%
       \if !#3!\else 
          \Configure{@HTML}{% 
             \iflanguage{#1}{xml:lang="#3" }{}%
@@ -17700,14 +17701,20 @@ command
 
 
 \<configure html4 austrian\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 \<configure html4 catalan\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 
 \<configure html4 croatian\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-2}
+\fi
 \:CheckOption{new-accents}     \if:Option \else
    |<old iso-8859-2 accents|>
 \fi
@@ -17715,41 +17722,61 @@ command
 
 
 \<configure html4 latin2\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-2}
+\fi
 >>>
 
 
 
 
 \<configure html4 czech\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-2}
+\fi
 >>>
 \<configure html4 danish\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 \<configure html4 dutch\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 \<configure html4 english\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 \<configure html4 esperant\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-3}
+\fi
 >>>
 \<configure html4 estonian\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-5}
+\fi
 >>>
 \<configure html4 finnish\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 
 \<configure html4 francais\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 
 
 \<configure html4 frenchb\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 \Configure{@TITLE}{\Configure{frenchb-thinspace}{}{}}
 >>>
 
@@ -17804,14 +17831,20 @@ font-size:70\%;
 
 
 \<configure html4 galician\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 \<configure html4 germanb\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 
 \<configure html4 greek\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-7}
+\fi
 \ifOption{charset=iso-8859-7}
    {|<greek ldf iso-8859-7|>}
    {\Log:Note{for iso-8859-7 accents 
@@ -17833,7 +17866,9 @@ font-size:70\%;
 
 
 \<greek ldf sgreek\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 \Configure{htf}{254}{+}{<font \Hnewline
    face="}{}{}{}{}{Sgreek">}{</font>}
 \Configure{htf}{252}{+}{<font \Hnewline
@@ -17870,7 +17905,9 @@ The accented \''\i' arrives in the form of \''\@use@text@encoding
 
 
 \<greek ldf Greek Old Face\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 \Configure{htf}{254}{+}{<font \Hnewline
    face="}{}{}{}{}{Greek Old Face">}{</font>}
 \Configure{htf}{252}{+}{<font \Hnewline
@@ -17931,33 +17968,49 @@ The accented \''\i' arrives in the form of \''\@use@text@encoding
 
 
 \<configure html4 hebrew\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-8}
+\fi
 >>>
 
 \<configure html4 ngermanb\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 \<configure html4 norsk\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 \<configure html4 polish\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-2}
+\fi
 >>>
 \<configure html4 polski\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-2}
+\fi
 >>>
 \<configure html4 portuges\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 
 
 
 \<configure html4 scottish\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 
 \<configure html4 slovak\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-2}
+\fi
 \:CheckOption{new-accents}     \if:Option \else
    |<old iso-8859-2 accents|>
 \fi
@@ -17965,14 +18018,18 @@ The accented \''\i' arrives in the form of \''\@use@text@encoding
 
 
 \<configure html4 slovene\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-2}
+\fi
 \:CheckOption{new-accents}     \if:Option \else
    |<old iso-8859-2 accents|>
 \fi
 >>>
 
 \<configure html4 spanish\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 \Configure{es@accents}{\es:accents}{}
 \def\es:accents#1\b:es@accents{\HCode{&\#x#1;}}
 |<spanish configs|>
@@ -18019,19 +18076,29 @@ The accented \''\i' arrives in the form of \''\@use@text@encoding
 
 
 \<configure html4 swedish\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 \<configure html4 turkish\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-9}
+\fi
 >>>
 \<configure html4 ukraineb\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-5}
+\fi
 >>>
 \<configure html4 usorbian\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-2}
+\fi
 >>>
 \<configure html4 welsh\><<<
+\ifx\A:charset\empty
 \def\A:charset{charset=iso-8859-1}
+\fi
 >>>
 
 
