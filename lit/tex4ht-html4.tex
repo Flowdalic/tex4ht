@@ -7138,7 +7138,7 @@ is reported in Overlib's page).
 \:CheckOption{fancylogo}\if:Option
 \def\TeX{\HCode{<span class="TEX">}T\HCode{<span\Hnewline
      class="E">}E\HCode{</span>}X\HCode{</span>}}
-\Css{span.TEX {letter-spacing: -0.125em; }}
+\Css{span.TEX {letter-spacing: -0.125em; margin-right:0.125em;}}
 \Css{span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}} 
 \Css{a span.TEX span.E {text-decoration: none; }}
 \else
@@ -8027,7 +8027,7 @@ and the same for pic tabular. Why?
 \expandafter\HLet\csname LaTeXe\endcsname|=\:temp
 \Css{span.LATEX span.A{ position:relative; top:-0.5ex;
    left:-0.4em; font-size:85\%;}}
-\Css{span.LATEX span.TEX{ position:relative; left: -0.4em; }}
+\Css{span.LATEX span.TEX{ position:relative; margin-left: -0.4em; margin-right:0.125em; }}
 \else
 \def\LaTeX{LaTeX}
 \def\LaTeXe{LaTeX2e}

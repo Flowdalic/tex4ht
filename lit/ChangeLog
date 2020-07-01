@@ -1,3 +1,8 @@
+2020-07-01 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): fixed spacing after \LaTeX and \TeX.
+	https://puszcza.gnu.org.ua/bugs/?162
+
 2020-06-30 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): don't override HTML charset when it is
