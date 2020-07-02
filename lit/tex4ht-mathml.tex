@@ -1856,12 +1856,12 @@ subformulas. Hence, the `'.' below is needed.
 \def\:temp#1{\a:right{#1}\o:right:.\b:right{#1}}\HLet\right|=\:temp
 \Configure{left}
    {}
-   {\HCode{<\a:mathml mfenced \a:mathml separators=""\Hnewline 
-       \a:mathml open="|<lr del 1|>"\space }\bgroup 
-                              \HCode{><\a:mathml mrow>}\bgroup}
+   {\HCode{<\a:mathml mo \a:mathml fence="true" \a:mathml form="prefix">
+       |<lr del 1|></\a:mathml mo>}\bgroup 
+                              \HCode{<\a:mathml mrow>}\bgroup}
 \Configure{right}
-   {\egroup\Send{GROUP}{0}{ \a:mathml close="|<lr del 1|>"\space}\egroup}
-   {\HCode{</\a:mathml mrow></\a:mathml mfenced>}}
+{\egroup\egroup}%{\egroup\Send{GROUP}{0}{ \a:mathml close=""\space}\egroup}
+   {\HCode{</\a:mathml mrow><\a:mathml mo \a:mathml fence="true" \a:mathml form="postfix">|<lr del 1|></\a:mathml mo>}}
 \def\def:DEL#1{\def\:DEL{#1}}
 \def\check:DEL#1#2{\def\:tempa{#1}\ifx \:tempa\:DEL \def\:DEL{#2}\fi}
 \NewConfigure{mfenced}[2]{\append:defI\def:DEL{\check:DEL{#1}{#2}}}

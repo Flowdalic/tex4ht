@@ -1,3 +1,8 @@
+2020-07-02 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): don't use deprecated <mfence> element for
+	\left and \right.
+
 2020-07-01 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fixed spacing after \LaTeX and \TeX.
