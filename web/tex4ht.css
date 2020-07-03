@@ -1,6 +1,19 @@
 table.changelog td{vertical-align:top; padding-right:0.5rem; }
 table.changelog p{margin-top:0; margin-bottom:0.5rem;}
 
+header h1{
+  font-size: 3vw;
+  margin: 1rem 0 1vw 0;
+  color:black;
+}
+
+/* don't resize logo below some minimal value */
+@media (max-width: calc(2rem * 33)){
+  header h1{
+  font-size:2rem;
+  margin-bottom
+}
+}
 @media (max-width:35em){
   body{line-height:1.5;}
 }
@@ -8,7 +21,6 @@ table.changelog p{margin-top:0; margin-bottom:0.5rem;}
 samp,code, kbd{font-family:monospace,monospace;}
 
 nav {
-  padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
   color: navy;
   font-size:120%;
@@ -23,5 +35,6 @@ nav a, nav a:visited{
 nav a:hover{
   text-decoration:underline;
 }
+
 
 
