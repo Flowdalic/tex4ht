@@ -1,9 +1,11 @@
 table.changelog td{vertical-align:top; padding-right:0.5rem; }
 table.changelog p{margin-top:0; margin-bottom:0.5rem;}
+
 @media (max-width:35em){
   body{line-height:1.5;}
 }
-samp,code{font-family:monospace,monospace;}
+
+samp,code, kbd{font-family:monospace,monospace;}
 
 nav {
   padding-bottom: 0.5rem;
@@ -21,3 +23,5 @@ nav a, nav a:visited{
 nav a:hover{
   text-decoration:underline;
 }
+
+
