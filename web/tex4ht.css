@@ -1,0 +1,23 @@
+table.changelog td{vertical-align:top; padding-right:0.5rem; }
+table.changelog p{margin-top:0; margin-bottom:0.5rem;}
+@media (max-width:35em){
+  body{line-height:1.5;}
+}
+samp,code{font-family:monospace,monospace;}
+
+nav {
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: navy;
+  font-size:120%;
+}
+
+nav a, nav a:visited{
+  color: navy;
+  font-weight: bold;
+  text-decoration:none;
+}
+
+nav a:hover{
+  text-decoration:underline;
+}
