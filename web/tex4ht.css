@@ -4,7 +4,6 @@ table.changelog p{margin-top:0; margin-bottom:0.5rem;}
 header h1{
   font-size: 3vw;
   margin: 1rem 0 1vw 0;
-  color:black;
 }
 
 /* don't resize logo below some minimal value */
