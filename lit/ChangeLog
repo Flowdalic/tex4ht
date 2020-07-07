@@ -1,3 +1,11 @@
+2020-07-07 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bitstrea/charter/bchr8r 
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bitstrea/charter/bchb8t
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bitstrea/charter/bchri8t
+	): fixed htfcss declarations (thanks to Linas Stonys)
+
 2020-07-02 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): don't use deprecated <mfence> element for
