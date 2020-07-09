@@ -1,6 +1,7 @@
 2020-07-09 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-tei.tex (tei.4ht): defined \ifHCond conditional.
+	* tex4ht-tei.tex (tei.4ht): defined basic HTF font support.
 
 2020-07-07 Michal Hoftich  <michal.h21@gmail.com>
 
