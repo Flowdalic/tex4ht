@@ -619,7 +619,7 @@ update: all
 # this has to be done last. Does anything else use $(wd)? We'll see.
 	rmdir $(wd)/bin
 	$(update) $(wd)/* $(dest_java)/
-	$(update) xtpipes.dtd xtpipes-map.dtd xtpipes-default.4xt 
+	$(update) xtpipes.dtd xtpipes-map.dtd xtpipes-default.4xt \
 	  $(dest_xtpipes)/
 
 clean: mostlyclean
