@@ -1,3 +1,7 @@
+2020-07-10 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-tei.tex (tei.4ht): declare encoding in <?xml ...>
+
 2020-07-09 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-tei.tex (tei.4ht): defined \ifHCond conditional.
