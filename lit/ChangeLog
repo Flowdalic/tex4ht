@@ -1,6 +1,9 @@
 2020-07-10 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-tei.tex (tei.4ht): declare encoding in <?xml ...>
+	* tex4ht-fonts-modern.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/lm/rm-lm.htf
+	): added declaration for rm-lmcsc.
 
 2020-07-09 Michal Hoftich  <michal.h21@gmail.com>
 
