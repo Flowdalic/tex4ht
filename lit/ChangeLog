@@ -1,3 +1,9 @@
+2020-07-13 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, ctex.4ht): added support for the
+	ctex package.
+	https://github.com/michal-h21/make4ht/issues/29
+
 2020-07-10 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-tei.tex (tei.4ht): declare encoding in <?xml ...>

@@ -3720,6 +3720,53 @@ Note that not all commands are provided, more can be added on user request.
 >>>
 
 %%%%%%%%%%%%%%%%%
+\Section{ctex}
+%%%%%%%%%%%%%%%%%
+
+We need to pass some options to Ctex to prevent it from font loading.
+It is also necessary to take special care with LuaTeX, as it loads
+configuration file that caused TeX4ht to fail. We block this file 
+from loading.
+
+\<use package\><<<
+ctex,>>>
+
+
+\<add to usepackage\><<<
+\def\:temp{ctex}\ifx \@currname\:temp
+\PassOptionsToPackage{fontset=none,autoindent=false}{ctex}
+\ExplSyntaxOn
+\let\o:file_input\file_input:n% patch \file_input:n to block
+                              % ctex-engine-luatex.def from loading
+\xdef\ctex:luaname{\detokenize{ctex-engine-luatex.def}}
+\def\:tempa#1{%
+  \edef\:tempb{#1}%
+  \ifx\:tempb\ctex:luaname%
+  % this macro is defined in the blocked file, just add dummy definition
+  \cs_new_protected:Npn \ctex_add_to_selectfont:n ##1{}%
+  \else%
+  \o:file_input{#1}%
+  \fi%
+}
+\let\file_input:n\:tempa
+\:AtEndOfPackage{%
+\let\file_input:n\o:file_input
+}
+\ExplSyntaxOff
+\fi
+>>>
+
+Add dummy .4ht file. We may use it in the future.
+
+\<ctex.4ht\><<<
+% ctex.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+\Hinput{ctex}
+\endinput
+>>> \AddFile{9}{ctex}
+
+%%%%%%%%%%%%%%%%%
 \Section{polyglossia}
 %%%%%%%%%%%%%%%%%
 
