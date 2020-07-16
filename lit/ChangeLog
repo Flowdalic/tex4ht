@@ -1,3 +1,8 @@
+2020-07-16 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): fixed eso-pic support.
+	https://puszcza.gnu.org.ua/bugs/?231
+
 2020-07-13 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, ctex.4ht): added support for the
