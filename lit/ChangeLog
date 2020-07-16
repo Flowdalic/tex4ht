@@ -2,6 +2,9 @@
 
 	* tex4ht-4ht.tex (usepackage.4ht): fixed eso-pic support.
 	https://puszcza.gnu.org.ua/bugs/?231
+	* tex4ht-4ht.tex (article.4ht,book.4ht,report.4ht,
+	scrbook.4ht,scrreprt.4ht): fixed tocdepth handling.
+	https://puszcza.gnu.org.ua/bugs/?228
 
 2020-07-13 Michal Hoftich  <michal.h21@gmail.com>
 

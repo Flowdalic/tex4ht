@@ -13154,13 +13154,13 @@ Do we need \`' \Configure{cite}{}{}{}{}%' in the following?
    \ifnum \c@tocdepth >\z@  section,\fi
 \else
    \ifnum \c@tocdepth >\m@ne chapter,appendix,\fi
-   \ifnum \z@>\c@tocdepth\else section,\fi
-   \ifnum 1>\c@tocdepth \else subsection,\fi
+   \ifnum \c@tocdepth>0 section,\fi
+   \ifnum \c@tocdepth>1 subsection,\fi
 \fi
-\ifnum 2>\c@tocdepth \else subsection,\fi
-\ifnum 3>\c@tocdepth \else subsubsection,\fi
-\ifnum 4>\c@tocdepth \else paragraph,\fi
-\ifnum 5>\c@tocdepth \else subparagraph,\fi
+\ifnum \c@tocdepth>2 subsection,\fi
+\ifnum \c@tocdepth>3 subsubsection,\fi
+\ifnum \c@tocdepth>4 paragraph,\fi
+\ifnum \c@tocdepth>5 subparagraph,\fi
 UnDFexyz>>>
 
 \Verbatim
@@ -16585,13 +16585,13 @@ See report at screnggu.tex
    \ifnum \c@tocdepth >\z@  section,\fi
 \else
    \ifnum \c@tocdepth >\m@ne chapter,appendix,addchap,\fi
-   \ifnum \z@>\c@tocdepth\else section,\fi
-   \ifnum 1>\c@tocdepth \else subsection,\fi
+    \ifnum \c@tocdepth>0 section,\fi
+   \ifnum \c@tocdepth>1 subsection,\fi
 \fi
-\ifnum 2>\c@tocdepth \else subsection,\fi
-\ifnum 3>\c@tocdepth \else subsubsection,\fi
-\ifnum 4>\c@tocdepth \else paragraph,\fi
-\ifnum 5>\c@tocdepth \else subparagraph,\fi
+\ifnum \c@tocdepth>2 subsection,\fi
+\ifnum \c@tocdepth>3 subsubsection,\fi
+\ifnum \c@tocdepth>4 paragraph,\fi
+\ifnum \c@tocdepth>5 subparagraph,\fi
 UnDFexyz}%
    \noexpand\fi}
 \def\:tableofcontents{\futurelet\:temp\:TOC}
@@ -16974,12 +16974,12 @@ UnDFexyz}%
    \noexpand\else
       \noexpand\Auto:ent{\ifnum \c@tocdepth >-2 part,\fi
    \ifnum \c@tocdepth >\m@ne chapter,appendix,addchap,\fi
-   \ifnum \z@>\c@tocdepth\else section,\fi
-   \ifnum 1>\c@tocdepth \else subsection,\fi
-\ifnum 2>\c@tocdepth \else subsection,\fi
-\ifnum 3>\c@tocdepth \else subsubsection,\fi
-\ifnum 4>\c@tocdepth \else paragraph,\fi
-\ifnum 5>\c@tocdepth \else subparagraph,\fi
+   \ifnum \c@tocdepth>0 section,\fi
+   \ifnum \c@tocdepth>1 subsection,\fi
+\ifnum \c@tocdepth>2 subsection,\fi
+\ifnum \c@tocdepth>3 subsubsection,\fi
+\ifnum \c@tocdepth>4 paragraph,\fi
+\ifnum \c@tocdepth>5 subparagraph,\fi
 UnDFexyz}%
    \noexpand\fi}
 \def\:tableofcontents{\futurelet\:temp\:TOC}
