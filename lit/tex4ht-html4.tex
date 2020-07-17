@@ -19430,6 +19430,17 @@ switches of tex4ht.c)
 }
 >>>
 
+Enable linebreaking in long URLs
+
+\<configure html4 tex4ht\><<<
+\Css{a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}}
+>>>
+
 \<global HtmlPar\><<<
 \Configure{HtmlPar}
   {\EndP\HCode{|<show input line no|><p \csname a:!P\endcsname
