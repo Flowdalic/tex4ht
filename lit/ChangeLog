@@ -3,6 +3,8 @@
 	* tex4ht-html4.tex (html4.4ht): \rowcolor should have precedence over
 	\columncolor in colortbl support.
 	https://puszcza.gnu.org.ua/bugs/?163
+	* tex4ht-html4.tex (html4.4ht): fixed Koma Script \paragraph.
+	https://puszcza.gnu.org.ua/bugs/?176
 
 2020-07-16 Michal Hoftich  <michal.h21@gmail.com>
 
