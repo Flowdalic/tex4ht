@@ -1,3 +1,9 @@
+2020-07-17 Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): \rowcolor should have precedence over
+	\columncolor in colortbl support.
+	https://puszcza.gnu.org.ua/bugs/?163
+
 2020-07-16 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): fixed eso-pic support.
