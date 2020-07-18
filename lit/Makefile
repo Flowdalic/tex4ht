@@ -519,7 +519,8 @@ $(tex4ht_mathjax_derived): tex4ht-mathjax.tex
 # (corresponds to src/java for xtpipes.tex)
 
 # 
-destdir = ..
+# Test installation. Does not work.
+destdir = update.dir
 dest_texmf = $(destdir)/texmf/tex/generic/tex4ht
 dest_4ht = $(destdir)/texmf/tex4ht
 dest_base = $(dest_4ht)/base
@@ -600,7 +601,7 @@ update: all
 #
 	$(update) $(tex4ht_svg_derived) $(dest_texmf)/
 #
-	$(update) $(tex4ht_t4ht_derived) $(dest_src/
+	$(update) $(tex4ht_t4ht_derived) $(dest_src)/
 #
 	$(update) $(tex4ht_tei_derived) $(dest_texmf)/
 #

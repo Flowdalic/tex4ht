@@ -1,3 +1,10 @@
+2020-07-18  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (update):  missing ) on "$(dest_src/", causing 
+	"unterminated variable reference".
+	(destdir): change to update.dir from .., to make it clearer
+	this is a test target not in regular use.
+
 2020-07-17 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): \rowcolor should have precedence over
@@ -64,8 +71,8 @@
 	* tex4ht-html4.tex (html4.4ht): don't override HTML charset when it is
 	already set.
 	https://puszcza.gnu.org.ua/bugs/index.php?432
-	* tex4ht-html4.tex (html4.4ht): use monospaced font for fancyvrb and alltt
-	environments.
+	* tex4ht-html4.tex (html4.4ht): use monospaced font for fancyvrb
+	and alltt environments.
 	https://puszcza.gnu.org.ua/bugs/?211
 
 2020-06-29  Ulrich M\"uller  <karl@freefriends.org>
@@ -93,14 +100,14 @@
 
 2020-06-18 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-docbook.tex (docbook.4ht): fixed output from \maketitle command in
-	accordance with the current Docbook documentation.
+	* tex4ht-docbook.tex (docbook.4ht): fixed output from \maketitle
+	command in accordance with the current Docbook documentation.
 	https://github.com/michal-h21/make4ht/issues/27
 
 2020-06-16 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (longtable.4ht): fixed LOT for longtable + fixed missing
-	colon in caption.
+	* tex4ht-4ht.tex (longtable.4ht): fixed LOT for longtable + fixed
+	missing colon in caption.
 	https://puszcza.gnu.org.ua/bugs/?313
 
 2020-06-15  Vincent Bela\"iche  <vincent.belaiche@gmail.com>
@@ -220,8 +227,8 @@
 2020-06-04 Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-modern.tex: removed lot of duplicated .htf entries.
-	* tex4ht-fonts-modern.tex (txbtt8v, txbttsc8v, txbttsl8v, txtt8v, txttsc8v,
-	txttsl8v): new HTF files.
+	* tex4ht-fonts-modern.tex (txbtt8v, txbttsc8v, txbttsl8v, txtt8v,
+	txttsc8v, txttsl8v): new HTF files.
 	* tex4ht-fonts-noncjk.tex: renamed pxbsyc.htf to txbsyc.htf.
 
 2020-06-04  Karl Berry  <karl@freefriends.org>
@@ -295,7 +302,8 @@
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/txfonts/tcxb.htf
 	): fixed wrong XML entites. 
 	* tex4ht-4ht.tex (awesomebox.4ht),
-	* tex4ht-html4.tex (html4.4ht): basic support for the awesomebox package.
+	* tex4ht-html4.tex (html4.4ht): basic support for the awesomebox
+	package.
 	https://tex.stackexchange.com/a/546570/2891
 
 2020-05-25 Michal Hoftich  <michal.h21@gmail.com>
@@ -306,7 +314,8 @@
 
 2020-05-22 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht, caption.4ht): fixes for the Caption package.
+	* tex4ht-4ht.tex (usepackage.4ht, caption.4ht): fixes for the
+	Caption package.
 	https://tex.stackexchange.com/q/545582/2891
 	* tex4ht-html4.tex (html4.4ht): use <pre> element for the verbatim
 	environment.
@@ -315,8 +324,8 @@
 
 2020-05-20 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): added support for MW classess in the
-	ooffice output.
+	* tex4ht-ooffice.tex (ooffice.4ht): added support for MW classess
+	in the ooffice output.
 
 2020-05-18 Michal Hoftich  <michal.h21@gmail.com>
 
@@ -330,8 +339,8 @@
 
 2020-04-23 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht): fix for interaction between Cleveref and
-	Hyperref.
+	* tex4ht-4ht.tex (usepackage.4ht): fix for interaction between
+	Cleveref and Hyperref.
 	https://tex.stackexchange.com/a/540277/2891
 
 2020-04-19 Michal Hoftich  <michal.h21@gmail.com>
@@ -354,16 +363,16 @@
 
 2020-04-13 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex(html4.4ht): removed CSS code that set left margin for
-	images in margins to 10%
+	* tex4ht-html4.tex(html4.4ht): removed CSS code that set left
+	margin for images in margins to 10%
 	* tex4ht-html5.tex (html5.4ht): fixed centering of images in floats and
 	figures.
 	https://tex.stackexchange.com/a/538431/2891
 
 2020-04-04 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): added \fixtmathjaxsec command,
-	prevented \left and \right from expansion.
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): added
+	\fixtmathjaxsec command, prevented \left and \right from expansion.
 	https://puszcza.gnu.org.ua/bugs/?453
 
 2020-03-16  Karl Berry  <karl@freefriends.org>
@@ -761,19 +770,19 @@
 	): fixed more monospaced htf fonts.
 
 	* tex4ht-fonts-noncjk.tex (
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-BoldSlanted-tlf-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-tlf-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-Oblique-tlf-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-Bold-tlf-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Slanted-tlf-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-SmallCaps-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-BoldOblique-tlf-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Regular-tlf-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-Slanted-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Bold-tlf-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-Slanted-SmallCaps-t1.htf
-	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bera/fvmr8r.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-BoldSlanted-tlf-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-tlf-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-Oblique-tlf-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-Bold-tlf-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Slanted-tlf-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-SmallCaps-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DejaVuSansMono-BoldOblique-tlf-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Regular-tlf-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-Slanted-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/PTMono-Bold-tlf-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/t1fonts/DroidSansMono-Slanted-SmallCaps-t1.htf
+./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bera/fvmr8r.htf
 	): even more fixes for monospaced htf fonts.
 
 2019-12-30 Michal Hoftich  <michal.h21@gmail.com>
@@ -1897,7 +1906,7 @@
 
 	* Makefile (update-env): no -platform suffix.
 	* Makefile (update-env): separate out target.
-	(update: call it.
+	(update): call it.
 
 	* tex4ht-docbook.tex: copyright.
 
