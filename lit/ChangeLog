@@ -1,3 +1,9 @@
+2020-07-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-newtx.tex,
+	* Makefile: generate files for Newtx fonts
+	https://puszcza.gnu.org.ua/bugs/index.php?236#postcomment
+
 2020-07-18  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (update):  missing ) on "$(dest_src/", causing 
