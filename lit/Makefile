@@ -669,23 +669,27 @@ install-unicode-4hf:
 	| (cd $(ht_fonts_instdir) && tar xf -)
 	svn diff $(ht_fonts_instdir)
 #
-# copy fonts listed in /tmp/t (must be filenames relative to
-# ht_fonts_devdir) to ht_fonts_instdir.
+# copy fonts listed in /tmp/htf (must be filenames relative to
+# ht_fonts_devdir, like those created by diff-htfonts below)
+# to ht_fonts_instdir.
 install-htfonts-tmp:
-	cd $(ht_fonts_devdir) && tar cfT - /tmp/t \
+	cd $(ht_fonts_devdir) && tar cfT - /tmp/htf \
 	| (cd $(ht_fonts_instdir) && tar xvf -)
 	svn status $(ht_fonts_instdir)
 
-diff-ht-fonts:
-# the raw diff:
+diff-htfonts:
+# put the raw diff in /tmp/htd:
 	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
-# just the filenames:
+# just the filenames in htf:
 	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd |sort >/tmp/htf
+# new files in htnew:
+	sed -n -e 's,^Only in.*ht-fonts/,,' \
+	       -e 's,: ,/,p' /tmp/htd >/tmp/htnew
 # for human consumption, remove generation lines (hopefully there are no
 # real diffs on those lines); also the @@ lines from diff -u and the
 # redundant diff invocations.
 	egrep -v '^(diff |@@ |[-+][^-+].*20[0-9][0-9]-[0-9][0-9]-[0-9][0-9])' \
-	/tmp/htd | tee /tmp/hte
+	/tmp/htd | tee /tmp/htchanges
 
 # 
 # to compare newly-built files with what's installed.
@@ -703,7 +707,7 @@ diff = diff -u0 --ignore-all-space --ignore-blank-lines \
 #
 # the --ignore-matching-lines only works when that's the only change in
 # the hunk, so ignore them all explicitly. also ignore commented changes.
-diff-all: #diff-ht-fonts
+diff-all: #diff-htfonts
 	-for f in $(diff_files); do $(diff) $(inst_dir_4ht)/$$f .; done \
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
 	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$'

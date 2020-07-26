@@ -1,3 +1,8 @@
+2020-07-26  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (diff-htfonts): rename from diff-ht-fonts, and also
+	generate /tmp/htnew for new files. Other small name changes.
+
 2020-07-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-newtx.tex,
@@ -64,8 +69,8 @@
 
 2020-07-02 Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathml.tex (mathml.4ht): don't use deprecated <mfence> element for
-	\left and \right.
+	* tex4ht-mathml.tex (mathml.4ht): don't use deprecated <mfence>
+	element for \left and \right.
 
 2020-07-01 Michal Hoftich  <michal.h21@gmail.com>
 
