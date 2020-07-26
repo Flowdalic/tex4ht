@@ -1,3 +1,9 @@
+2020-07-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht),
+	* tex4ht-html4.tex (html4-math.4ht): added MathJaxConfig configuration.
+	https://github.com/michal-h21/make4ht/issues/33
+
 2020-07-26  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (diff-htfonts): rename from diff-ht-fonts, and also

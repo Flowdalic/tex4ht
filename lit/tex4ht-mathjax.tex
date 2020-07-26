@@ -58,10 +58,17 @@ It works only with LaTeX.
 
 >>>
 
+Provide configuratio for MathJax
+
+\<defined commands\><<<
+\NewConfigure{MathJaxConfig}{1}
+>>>
+
 The following commands are used for patching of the standard math commands and
 environments. They will then keep the LaTeX code unchanged.
 
 \<defined commands\><<<
+
 \long\def\AltlMath#1\){\expandafter\alteqtoks{\(#1\)}\)}
 \long\def\AltlDisplay#1\]{\alteqtoks{\[#1\]}\]}
 \long\def\AltMathOne#1${\alteqtoks{\(#1\)}$}

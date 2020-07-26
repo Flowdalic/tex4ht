@@ -8545,9 +8545,8 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \<mathjax\><<<
 \:CheckOption{mathjax}\if:Option
 \input{mathjax-latex-4ht.4ht}
-\Configure{@HEAD}{\HCode{
-<script>                                           
-window.MathJax = {
+\ifx\a:MathJaxConfig\relax
+\Configure{MathJaxConfig}{{
     tex: {
       tags: "ams",
       \detokenize{%
@@ -8561,8 +8560,9 @@ window.MathJax = {
     load: ['[tex]/color', '[tex]/ams']
   }
 };
-</script>\Hnewline
-}}
+}
+\fi
+\Configure{@HEAD}{\HCode{<script>window.MathJax = \a:MathJaxConfig</script>\Hnewline}}
 \Configure{MathjaxSource}{https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js}
 \Configure{@HEAD}{\HCode{ <script type="text/javascript" async="async" id="MathJax-script" src="\a:MathjaxSource"></script> \Hnewline}}
 \edef\:RestoreMathjaxCatcodes{\catcode`\noexpand \&=\the\catcode`\&}
