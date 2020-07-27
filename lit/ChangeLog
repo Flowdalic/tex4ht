@@ -1,3 +1,8 @@
+2020-07-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): don't patch \shipout command.
+	https://listserv.uni-heidelberg.de/cgi-bin/wa?A2=LATEX-L;d8558dd0.2007&S=
+
 2020-07-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht),

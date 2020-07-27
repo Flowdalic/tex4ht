@@ -2938,12 +2938,16 @@ adjusted yet for haeders and footers.
 
 
 
-The following is to ensure that no shipout of content is done before
-the header is out.
+> The following is to ensure that no shipout of content is done before
+> the header is out.
+
+Update 2020: patching of shipout is discouraged in LaTeX. I don't know what
+use case the following code has, but it seems that TeX4ht can safelly work 
+without it. We can introduce it back in the case of problems. -- Michal
 
 \<start html doc\><<<
-\let\:shipout|=\shipout
-\def\shipout{\vfil\break\let\shipout|=\:shipout \shipout}
+%\let\:shipout|=\shipout
+%\def\shipout{\vfil\break\let\shipout|=\:shipout \shipout}
 >>>
 
 
