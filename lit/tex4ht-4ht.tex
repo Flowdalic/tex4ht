@@ -5366,11 +5366,25 @@ Hype: \hyperref[sec:foobar]{Link to Section \ref*{sec:foobar}}
 \let\end|=\o:end
 \let\o:end|=\:UnDef
 \let\o:enddocumenthook|=\@enddocumenthook
-\def\@enddocumenthook{\HtmlEnv
+\def\:enddocumenthook{\HtmlEnv
    \Configure{newpage}{}%
    \o:enddocumenthook
    \at:docend  \csname export:hook\endcsname  }
 >>>
+
+LaTeX in 2020 introduced new hoooks in the development version, so we need to
+adapt for it. The following code uses either the old code, or the new hooks. We
+should remove the legacy code once the hooks are introduced in the stable LaTeX
+core
+
+\<html latex hook on end\><<<
+\ifdefined\AddToHook%
+ \AddToHook{enddocument} {\HtmlEnv\Configure{newpage}{}\at:docend  \csname export:hook\endcsname}
+\else%
+  \let\@enddocumenthook\:enddocumenthook
+\fi
+>>>
+
 
 \<html latex start\><<<
 \def\:startdoc{%

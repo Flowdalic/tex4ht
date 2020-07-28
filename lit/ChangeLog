@@ -1,3 +1,11 @@
+2020-07-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty),
+	* tex4ht-4ht.tex (latex.4ht),
+	* Makefile: use new LaTeX hook system for patching \begin{document}
+	when possible.
+	https://puszcza.gnu.org.ua/bugs/?477#postcomment
+	
 2020-07-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): don't patch \shipout command.

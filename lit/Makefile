@@ -55,7 +55,7 @@ tex_opts = --interaction=nonstopmode -recorder #--file-line-error
 tex_1opt = "$(tex_opts)" # must be quoted, passing to shell script
 dev_null = </dev/null    # when we don't call tex directly.
 
-HTTEX = ht "tex $(tex_opts)"  # set tex options for plain tex
+HTTEX = ht "etex $(tex_opts)"  # set tex options for plain tex
 
 # Although many of the source files say to use xhlatex, we always use
 # htlatex instead. xhlatex generates XHTML from the literate source and
@@ -359,18 +359,18 @@ all: $(derived)
 	texlua checklog.lua *.log
 
 $(tex4ht_4ht_derived): tex4ht-4ht.tex cond4ht.4ht $(common)
-	tex $(tex_opts) $<
+	etex $(tex_opts) $<
 
 $(tex4ht_bibtex2_derived): tex4ht-bibtex2.tex $(common)
 	latex $(tex_opts) $<
 
 $(tex4ht_c_derived): tex4ht-c.tex $(common)
-	tex $(tex_opts) $<
+	etex $(tex_opts) $<
 
 $(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex mktex4ht-cnf.tex \
                            $(common_no_cond_sty)
-	tex $(tex_opts) $<
-	tex $(tex_opts) cond4ht.4ht
+	etex $(tex_opts) $<
+	etex $(tex_opts) cond4ht.4ht
 
 $(tex4ht_docbook_derived): tex4ht-docbook.tex $(common)
 	htlatex $< "html,3" "" "" $(tex_1opt)

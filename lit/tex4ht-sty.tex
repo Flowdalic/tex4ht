@@ -853,10 +853,15 @@ the command is defined as outer.
 \let\o:document|=\document
 \def\document{%
    |<check irregularities|>%
-   \expandafter\let\csname enddocument\endcsname|=\empty
-   \end{document}%
+   %\expandafter\let\csname enddocument\endcsname|=\empty
+   %\end{document}%
    |<protect AtBeginDocument|>%
-   \let\document|=\o:document
+   %\let\document|=\o:document
+   \ifdefined\AddToHook%
+      \def\document{\endgroup\o:document}%
+   \else%
+      \let\document\o:document%
+   \fi%
    \let\:latex@error|=\@latex@error
    \def\@latex@error##1{\:latex@error{##1 in `\config:file'}}%
    |<load latex /Preample|>%
@@ -3035,6 +3040,7 @@ of accumulative kind.
    \csname export:hook\endcsname  \csname o:end\endcsname}
 >>>
 
+This is not used, enddocument hook for LaTeX is defined in latex.4ht.
 
 \<latex hook on end\><<<
 \let\o:enddocumenthook|=\@enddocumenthook
