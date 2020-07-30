@@ -1,3 +1,9 @@
+2020-07-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): remove spurious colon.
+	https://tex.stackexchange.com/a/555755/2891
+	https://puszcza.gnu.org.ua/bugs/?479
+
 2020-07-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty),
