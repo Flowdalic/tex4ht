@@ -1856,12 +1856,12 @@ subformulas. Hence, the `'.' below is needed.
 \def\:temp#1{\a:right{#1}\o:right:.\b:right{#1}}\HLet\right|=\:temp
 \Configure{left}
    {}
-   {\HCode{<\a:mathml mo \a:mathml fence="true" \a:mathml form="prefix">
+   {\HCode{<\a:mathml mrow><\a:mathml mo \a:mathml fence="true" \a:mathml form="prefix">
        |<lr del 1|></\a:mathml mo>}\bgroup 
                               \HCode{<\a:mathml mrow>}\bgroup}
 \Configure{right}
 {\egroup\egroup}%{\egroup\Send{GROUP}{0}{ \a:mathml close=""\space}\egroup}
-   {\HCode{</\a:mathml mrow><\a:mathml mo \a:mathml fence="true" \a:mathml form="postfix">|<lr del 1|></\a:mathml mo>}}
+   {\HCode{</\a:mathml mrow><\a:mathml mo \a:mathml fence="true" \a:mathml form="postfix">|<lr del 1|></\a:mathml mo></\a:mathml mrow>}}
 \def\def:DEL#1{\def\:DEL{#1}}
 \def\check:DEL#1#2{\def\:tempa{#1}\ifx \:tempa\:DEL \def\:DEL{#2}\fi}
 \NewConfigure{mfenced}[2]{\append:defI\def:DEL{\check:DEL{#1}{#2}}}
@@ -2843,7 +2843,7 @@ dimensions.
    {\bgroup
        \Configure{Bigg}{}{}{}{}%
        \Configure{mathopen}{*}
-          {<mo \mml:class="MathClass-open" 
+          {<mrow><mo \mml:class="MathClass-open" 
                      fence="true" mathsize="2.45em" >}
           {</mo>}
           {\Configure{mathopen}{}{}{}{}}%
@@ -2855,7 +2855,7 @@ dimensions.
        \Configure{mathclose}{*}
           {<mo \mml:class="MathClass-close"
                      fence="true" mathsize="2.45em" >}
-          {</mo>}
+          {</mo></mrow>}
           {\Configure{mathclose}{}{}{}{}}%
    }
    {\egroup}
@@ -2863,7 +2863,7 @@ dimensions.
    {\bgroup
        \Configure{Big}{}{}{}{}%
        \Configure{mathopen}{*}
-          {<mo \mml:class="MathClass-open"
+          {<mrow><mo \mml:class="MathClass-open"
                      fence="true" mathsize="1.61em" >}
           {</mo>}
           {\Configure{mathopen}{}{}{}{}}%
@@ -2875,7 +2875,7 @@ dimensions.
        \Configure{mathclose}{*}
           {<mo \mml:class="MathClass-close"
                      fence="true" mathsize="1.61em" >}
-          {</mo>}
+          {</mo></mrow>}
           {\Configure{mathclose}{}{}{}{}}%
    }
    {\egroup}
@@ -2883,7 +2883,7 @@ dimensions.
    {\bgroup
        \Configure{bigg}{}{}{}{}%
        \Configure{mathopen}{*}
-          {<mo \mml:class="MathClass-open"
+          {<mrow><mo \mml:class="MathClass-open"
                      fence="true" mathsize="2.03em" >}
           {</mo>}
           {\Configure{mathopen}{}{}{}{}}%
@@ -2895,7 +2895,7 @@ dimensions.
        \Configure{mathclose}{*}
           {<mo \mml:class="MathClass-close"
                      fence="true" mathsize="2.03em" >}
-          {</mo>}
+          {</mo></mrow>}
           {\Configure{mathclose}{}{}{}{}}%
    }
    {\egroup}
@@ -2903,7 +2903,7 @@ dimensions.
    {\bgroup
        \Configure{big}{}{}{}{}%
        \Configure{mathopen}{*}
-          {<mo \mml:class="MathClass-open"
+          {<mrow><mo \mml:class="MathClass-open"
                      fence="true" mathsize="1.19em" >}
           {</mo>}
           {\Configure{mathopen}{}{}{}{}}%
@@ -2915,7 +2915,7 @@ dimensions.
        \Configure{mathclose}{*}
           {<mo \mml:class="MathClass-close"
                      fence="true" mathsize="1.19em" >}
-          {</mo>}
+          {</mo></mrow>}
           {\Configure{mathclose}{}{}{}{}}%
    }
    {\egroup}

@@ -1,3 +1,8 @@
+2020-08-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed fence rendering in MathML.
+	https://puszcza.gnu.org.ua/bugs/?481
+
 2020-07-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): remove spurious colon.
