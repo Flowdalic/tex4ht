@@ -1,3 +1,8 @@
+2020-08-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* TeX4ht-doc.tex (all html files): added <meta viewport> element to fix
+	Google's complaints.
+
 2020-06-21  Karl Berry  <karl@freefriends.org>
 
 	* TeX4ht-doc.tex (mn11.html, Configurable Hooks): show Michal's
