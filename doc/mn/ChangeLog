@@ -1,3 +1,8 @@
+2020-08-24  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex): must run etex, or Extra \fi, no \ifdefined, etc.
+	* TeX4ht-doc.tex: comment out more Eitan notes.
+
 2020-08-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* TeX4ht-doc.tex (all html files): added <meta viewport> element to fix

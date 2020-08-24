@@ -9,7 +9,7 @@ else
   dev =
 endif
 
-tex = $(dev) tex -interaction=nonstopmode -file-line-error
+tex = $(dev) etex -interaction=nonstopmode -file-line-error
 bld: clean
 #	chmod -R a+rwX .  # as received from OSU
 	$(tex) mn && $(tex) mn && $(tex) mn
@@ -27,6 +27,7 @@ dif:
 # have to add new files by hand.
 install:
 	cp -p `(cd $(inst_dir) && \ls)` $(inst_dir)
+	svn status $(inst_dir)
 
 clean:
 	rm -f *.4ct *.4tc *.aux *.css *.dvi *.idv *.lg *.log *.tmp *.trc *.xref
