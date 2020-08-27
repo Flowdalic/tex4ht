@@ -3157,24 +3157,12 @@ Accent versus underscript: \verb=\underbrace{x+y+z}=
              \mml:class="MathClass-bin">}{</\a:mathml mo>}{}
 \Configure{MathClass}{3}{*}{<\a:mathml mo\Hnewline
              \mml:class="MathClass-rel">}{</\a:mathml mo>}{}
-\:CheckOption{mathml-}     \if:Option 
-   \Configure{MathClass}{4}{*}{<\a:mathml mo\Hnewline
-             \mml:class="MathClass-open">}
-                           {</\a:mathml mo>}{}
-   \Configure{MathClass}{5}{*}{<\a:mathml mo\Hnewline
-             \mml:class="MathClass-close">}
-                           {</\a:mathml mo>}{}
-\else
-   \Log:Note{for sources failing to produce
-       clean mathml code, try the command line option `mathml-'}%
-   \Configure{MathClass}{4}{*}{<\a:mathml mrow
-                                     ><\a:mathml mo\Hnewline
-             \mml:class="MathClass-open">}
-                           {</\a:mathml mo><\a:mathml mrow>}{}
-   \Configure{MathClass}{5}{*}{</\a:mathml mrow><\a:mathml mo\Hnewline
-             \mml:class="MathClass-close">}
-                           {</\a:mathml mo></\a:mathml mrow>}{}
-\fi
+\Configure{MathClass}{4}{*}{<\a:mathml mo\Hnewline
+          \mml:class="MathClass-open">}
+                        {</\a:mathml mo>}{}
+\Configure{MathClass}{5}{*}{<\a:mathml mo\Hnewline
+          \mml:class="MathClass-close">}
+                        {</\a:mathml mo>}{}
 \Configure{MathClass}{6}{*}{<\a:mathml mo\Hnewline
              \mml:class="MathClass-punc">}{</\a:mathml mo>}{}
 \Configure{MathClass}{7}{*}{<\a:mathml mn>}{</\a:mathml mn>}

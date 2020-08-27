@@ -1,3 +1,10 @@
+2020-08-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): use some code from mathml- option by
+	default.
+	https://github.com/michal-h21/make4ht/issues/34
+	https://puszcza.gnu.org.ua/bugs/?278
+
 2020-08-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): fixed fence rendering in MathML.
