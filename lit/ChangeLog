@@ -2,7 +2,11 @@
 
 	* tex4ht-fonts-noncjk.tex (bchb8t): remove spurious Unicode in
 	htfcss line.
-	* tex4ht-fonts-fourier.tex: license, copyright year.
+
+	* tex4ht-fonts-ebgaramond.tex,
+	* tex4ht-fonts-fourier.tex,
+	* tex4ht-fonts-libertine.tex,
+	* tex4ht-fonts-newtx.tex: license, copyright year.
 
 2020-08-31  Michal Hoftich  <michal.h21@gmail.com>
 
