@@ -678,9 +678,10 @@ install-unicode-4hf:
 #
 # copy fonts listed in /tmp/htf (must be filenames relative to
 # ht_fonts_devdir, like those created by diff-htfonts below)
-# to ht_fonts_instdir.
+# to ht_fonts_instdir.  Or to use /tmp/htnew instead of /tmp/htf, override:
+tmp_htf = /tmp/htf
 install-htfonts-tmp:
-	cd $(ht_fonts_devdir) && tar cfT - /tmp/htf \
+	cd $(ht_fonts_devdir) && tar cfT - $(tmp_htf) \
 	| (cd $(ht_fonts_instdir) && tar xvf -)
 	svn status $(ht_fonts_instdir)
 
