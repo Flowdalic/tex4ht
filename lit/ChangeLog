@@ -1,3 +1,9 @@
+2020-08-31  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-fourier.tex,
+	* Makefile: generate files for Fourier fonts.
+	https://github.com/michal-h21/make4ht/issues/35
+
 2020-08-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): use some code from mathml- option by
