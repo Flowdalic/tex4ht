@@ -1,3 +1,10 @@
+2020-09-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-ebgaramond.tex,
+	* tex4ht-fonts-fourier.tex,
+	* tex4ht-fonts-libertine.tex,
+	* tex4ht-fonts-newtx.tex: updated compilation instructions.
+	
 2020-08-31  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-fonts-noncjk.tex (bchb8t): remove spurious Unicode in
