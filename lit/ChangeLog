@@ -3,6 +3,8 @@
 	* tex4ht-4ht.tex(usepackage.4ht, usepackage-fontspec.4ht):
 	fix for the development version of LaTeX.
 	https://puszcza.gnu.org.ua/bugs/?477
+	* tex4ht-html4.tex (html4.4ht): fixed line breaks in verbatim.
+	https://tex.stackexchange.com/a/561167/2891
 
 2020-09-01  Michal Hoftich  <michal.h21@gmail.com>
 
