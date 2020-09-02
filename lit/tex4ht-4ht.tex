@@ -3838,7 +3838,7 @@ We also  want to load fontspec only once, it fails with Polyglossia otherwise.
 
 \<add to usepackage\><<<
 \def\:temp{fontspec}\ifx \@currname\:temp
-  \ifdefined\fontspec
+  \ifdefined\texfourhtfontspecloaded%
     \:dontusepackage{fontspec}
   \else 
     \input usepackage-fontspec.4ht
@@ -3852,9 +3852,10 @@ The actual configurations which are used when fontspec is loaded:
 % usepackage-fontspec.4ht (|version), generated from |jobname.tex
 % Copyright 2017-2020 TeX Users Group
 |<TeX4ht license text|>
-\RequirePackage{expl3}% we need to disable them before loading
+% \RequirePackage{expl3}% we need to disable them before loading
 \ExplSyntaxOn
 \seq_new:N \fontspec_ht_scripts
+\gdef\texfourhtfontspecloaded{yes}% used to prevent subsequent loading of this file
 \ExplSyntaxOff
 \ifdefined\XeTeXversion%
 \xenunidelblock{Latin-expl3}% expl3 package makes some characters active
