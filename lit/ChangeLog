@@ -1,3 +1,8 @@
+2020-09-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): removed some weird code from configuration
+	for \text.. commands. It produced invalid MathML.
+
 2020-09-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex(usepackage.4ht, usepackage-fontspec.4ht):

@@ -1625,11 +1625,14 @@ Use variant of original LaTeX macro used in \textunderscore
 
 % \Configure{math}{}
 
+
+% this used to be in \providemtextclass. Why? It produces totally invalid
+% MathML. Where is </mtext> opened?
+% \HCode{</mtext>}\ht:special{t4ht@,}\HCode{<mtext \a:@mtext>}\ht:special{t4ht@,&\#x00A0;}%
 \<mathml fonts\><<<
 
 \def\providemtextclass#1{%
   \Configure{@mtext}{#1}%
-  \HCode{</mtext>}\ht:special{t4ht@,}\HCode{<mtext \a:@mtext>}\ht:special{t4ht@,&\#x00A0;}%
 }
 
 \Configure{texttt}
