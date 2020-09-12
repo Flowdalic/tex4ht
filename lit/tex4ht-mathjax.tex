@@ -33,23 +33,30 @@
 \RequirePackage{etoolbox,expl3,environ}
 >>>
 
-The \verb|\alteqtoks| command saves the used command in HTML. It uses regular expressions
-to fix spacing issues introduced by use of the \verb|\detokenize| command.
+The \verb|\alteqtoks| command saves the used command in HTML. It uses detokenize command
+to insert arguments verbatim. The side effect of this is that detokeize inserts space
+after each control sequence. This is completely valid TeX code, but earlier versions of
+MathJax didn't like that, rendering resulted in error.
 
-It works only with LaTeX.
+Fortunatelly, MathJax 3 supports these spaces, so we can remove regular expressions for space handling.
+The original code was this:
+
+% % convert \ { to \:{ 
+% \regex_replace_all:nnN { \x{5C} \x{20} \x{7B} } { \x{5C} \x{3A} \x{7B} } \l_tmpa_tl
+% % delete spaces before left brackets
+% \regex_replace_all:nnN { \x{20} \x{7B} } { \x{7B} } \l_tmpa_tl
+% % replace \\:{ back to \\ { -- this can be introduced by the previous regex
+% \regex_replace_all:nnN { \x{5C} \x{5C}  \x{3A} \x{7B} } { \x{5C} \x{5C} \x{20} \x{7B} } \l_tmpa_tl
+
+
+We still use regula expressions to escape invalid XML characters to entities, so it works only with LaTeX.
 
 \<defined commands\><<<
 \ExplSyntaxOn
 \cs_new_protected:Npn \alteqtoks #1
 {
   \tl_set:Nx \l_tmpa_tl {\detokenize{#1}}
-  % convert \ { to \:{ 
-  \regex_replace_all:nnN { \x{5C} \x{20} \x{7B} } { \x{5C} \x{3A} \x{7B} } \l_tmpa_tl
-  % delete spaces before left brackets
-  \regex_replace_all:nnN { \x{20} \x{7B} } { \x{7B} } \l_tmpa_tl
-  % replace \\:{ back to \\ { -- this can be introduced by the previous regex
-  \regex_replace_all:nnN { \x{5C} \x{5C}  \x{3A} \x{7B} } { \x{5C} \x{5C} \x{20} \x{7B} } \l_tmpa_tl
-  % replace < > and & with xml entities
+  % % replace < > and & with xml entities
   \regex_replace_all:nnN { \x{26} } { &amp; } \l_tmpa_tl
   \regex_replace_all:nnN { \x{3C} } { &lt; } \l_tmpa_tl 
   \regex_replace_all:nnN { \x{3E} } { &gt; } \l_tmpa_tl

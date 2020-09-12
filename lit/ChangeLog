@@ -1,3 +1,8 @@
+2020-09-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): removed space handling regular
+	expressions, they seem to be unnecessary with current MathJax.
+
 2020-09-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): removed some weird code from configuration
