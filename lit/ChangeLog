@@ -1,3 +1,9 @@
+2020-09-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): use \providecommand instead of
+	\newcommand in order to prevent errors when eso-pic package is required
+	multiple times.
+
 2020-09-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-unicode.tex (unicode.4ht): don't use combining characters for

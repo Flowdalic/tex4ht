@@ -3586,14 +3586,14 @@ eso-pic,>>>
 \<add to usepackage\><<<
 \def\:temp{eso-pic}\ifx \@currname\:temp
 \:dontusepackage{eso-pic}
-\newcommand\AddToShipoutPicture{\@ifstar\@gobble\@gobble}
+\providecommand\AddToShipoutPicture{\@ifstar\@gobble\@gobble}
 \let\AddToShipoutPictureBG\AddToShipoutPicture
 \let\AddToShipoutPictureFG\AddToShipoutPicture
 \let\ClearShipoutPictureBG\relax
 \let\ClearShipoutPictureFG\relax
 \let\ClearShipoutPicture\relax
 \providecommand*\LenToUnit[1]{}
-\newcommand\gridSetup[6][]{}
+\providecommand\gridSetup[6][]{}
 \fi
 >>>
 
