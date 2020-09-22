@@ -1,3 +1,9 @@
+2020-09-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht (latex.4ht, subscript.4ht): patch \@textsuperscript and
+	\@textsubscript unconditionally.
+	https://puszcza.gnu.org.ua/bugs/index.php?477
+
 2020-09-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht): use \providecommand instead of

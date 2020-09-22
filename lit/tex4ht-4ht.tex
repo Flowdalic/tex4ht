@@ -10936,7 +10936,6 @@ active character.
 \<latex ltfloat\><<<
 \def\:temp#1{%
   {\m@th\ensuremath{^{\mbox{\fontsize\sf@size\z@#1}}}}}
-\ifx \@textsuperscript\:temp
   \def\:tempc#1{{\m@th
      \ifmmode {\HCode{}}\sp {\mbox{\fontsize\sf@size\z@#1}}%
      \else 
@@ -10944,7 +10943,6 @@ active character.
            {\mbox{#1}}\b:textsuperscript
      \fi }}
   \HLet\@textsuperscript\:tempc
-\fi
 \NewConfigure{textsuperscript}{2}
 \Configure{textsuperscript}
    {$\relax{\HCode{}}\sp}
@@ -10972,7 +10970,6 @@ This is a variant of textsuperscript.
 \<subscript def\><<<
 \def\:temp#1{%
    {\m@th\ensuremath{_{\mbox{\fontsize\sf@size\z@#1}}}}}
-\ifx \@textsubscript\:temp
   \def\:tempc#1{{\m@th%
      \ifmmode {\HCode{}}\sb {\mbox{\fontsize\sf@size\z@#1}}%
      \else%
@@ -10980,7 +10977,6 @@ This is a variant of textsuperscript.
            {\mbox{#1}}\b:textsubscript%
      \fi }}
   \HLet\@textsubscript\:tempc
-\fi
 \NewConfigure{textsubscript}{2}
 \Configure{textsubscript}
    {$\relax{\HCode{}}\sb}
