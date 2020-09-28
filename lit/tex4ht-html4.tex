@@ -15040,13 +15040,13 @@ imported from aux or another file.
 \Configure{fancyvrb}
    {\IgnorePar \EndP \gHAdvance\fancyvrbNo by 1
     \gHAssign\fancyvrb:cnt0
-    \HCode{<div class="fancyvrb" id="fancyvrb\fancyvrbNo">}}
-   {\EndP\HCode{</div>}}
+    \HCode{<pre class="fancyvrb" id="fancyvrb\fancyvrbNo">}}
+   {\EndP\HCode{</pre>}}
    {\gHAdvance\fancyvrb:cnt by 1
     \ifnum \fancyvrb:cnt>1 
-    \HCode{<br class="fancyvrb" />\Hnewline}\fi} {}
+    \HCode{\Hnewline}\fi} {}
    {}{}
-\Css{div.fancyvrb {white-space: nowrap; margin:0em;font-family:monospace,monospace;}}
+\Css{pre.fancyvrb {white-space: pre-wrap; margin:0em;font-family:monospace,monospace;}}
 >>>
 
 
@@ -15065,19 +15065,19 @@ listings.dtx.
 
 \<configure html4 fancyvrb\><<<
 \Configure{fancyvrbcolor}
-  {\Css{div\#fancyvrb\fancyvrbNo { color: \HColor; }}}
-  {\Css{div\#fancyvrb\fancyvrbNo { background-color: \HColor;}}}
-  {\Css{div\#fancyvrb\fancyvrbNo { border-color: \HColor;}}}
+  {\Css{pre\#fancyvrb\fancyvrbNo { color: \HColor; }}}
+  {\Css{pre\#fancyvrb\fancyvrbNo { background-color: \HColor;}}}
+  {\Css{pre\#fancyvrb\fancyvrbNo { border-color: \HColor;}}}
 >>>
 
 \<configure html4 fancyvrb\><<<
 \Configure{fancyvrbframe}
-   {\Css{div\#fancyvrb\fancyvrbNo { border-top: solid \HSize; }}}
-   {\Css{div\#fancyvrb\fancyvrbNo { border-left: solid \HSize; }}}
-   {\Css{div\#fancyvrb\fancyvrbNo { border-bottom: solid \HSize; }}}
-   {\Css{div\#fancyvrb\fancyvrbNo { border-right: solid \HSize; }}}
-   {\Css{div\#fancyvrb\fancyvrbNo {border-width:\HSize;}}}
-   {\Css{div\#fancyvrb\fancyvrbNo {padding:\HSize;}}}
+   {\Css{pre\#fancyvrb\fancyvrbNo { border-top: solid \HSize; }}}
+   {\Css{pre\#fancyvrb\fancyvrbNo { border-left: solid \HSize; }}}
+   {\Css{pre\#fancyvrb\fancyvrbNo { border-bottom: solid \HSize; }}}
+   {\Css{pre\#fancyvrb\fancyvrbNo { border-right: solid \HSize; }}}
+   {\Css{pre\#fancyvrb\fancyvrbNo {border-width:\HSize;}}}
+   {\Css{pre\#fancyvrb\fancyvrbNo {padding:\HSize;}}}
 >>>
 
 \<configure html4 fancyvrb\><<<

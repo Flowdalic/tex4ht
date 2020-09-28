@@ -1,3 +1,8 @@
+2020-09-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): use <pre> element for fancy verbatim.
+	https://tex.stackexchange.com/q/564532/2891
+
 2020-09-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht (latex.4ht, subscript.4ht): patch \@textsuperscript and
