@@ -2,6 +2,9 @@
 
 	* tex4ht-html4.tex (html4.4ht): use <pre> element for fancy verbatim.
 	https://tex.stackexchange.com/q/564532/2891
+	* tex4ht-4ht.tex (minted.4ht),
+	tex4ht-html4.tex (html4.4ht): added support for colored Minted listings.
+	https://tex.stackexchange.com/a/564579/2891
 
 2020-09-22  Michal Hoftich  <michal.h21@gmail.com>
 

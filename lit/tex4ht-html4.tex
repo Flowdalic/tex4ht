@@ -15098,6 +15098,14 @@ Configuration for the inline code
 \Configure{InlineCode}{\HCode{<code>}}{\HCode{</code>}}
 >>>
 
+Configuration for listings with colored backgrounds
+\<configure html4 minted\><<<
+\Configure{MintedColorbg}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{<div class="minted-color-box" style="background-color:\#\minted:bgcolor">}}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+>>>
+
+
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{pythontex}

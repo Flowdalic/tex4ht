@@ -23867,7 +23867,7 @@ of LaTeX.  The \''\:gobbleII' is for getting rid of the
 
 \<minted.4ht\><<<
 % minted.4ht (|version), generated from |jobname.tex
-% Copyright 2019 TeX Users Group
+% Copyright 2020 TeX Users Group
 |<TeX4ht license text|>
 \NewConfigure{InlineCode}{2}
 
@@ -23882,6 +23882,17 @@ of LaTeX.  The \''\:gobbleII' is for getting rid of the
 }
 
 \HLet\minted@inline@iii\:tempa
+
+% support for background color in Minted listings
+\NewConfigure{MintedColorbg}{2}
+\renewenvironment{minted@colorbg}[1]{%
+  \colorlet{shadecolor}{#1}%
+  \extractcolorspec{shadecolor}{\:tempa}%
+  \expandafter\convertcolorspec\:tempa{HTML}\minted:bgcolor%
+  \a:MintedColorbg%
+  }
+  {\b:MintedColorbg\medskip\noindent}
+
 
 \Hinput{minted}
 \endinput
