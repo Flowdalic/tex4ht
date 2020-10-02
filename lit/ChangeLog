@@ -1,3 +1,8 @@
+2020-10-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (fancyvrb.4ht): fixed spurious blank lines that were
+	sometimes produced.
+
 2020-09-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use <pre> element for fancy verbatim.

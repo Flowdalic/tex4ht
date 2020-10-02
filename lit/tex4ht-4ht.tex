@@ -23664,6 +23664,34 @@ fancyvrb.sty\EndLink
       \FV@LeftListFrame \e:fancyvrb \FancyVerbFormatLine{#1}\f:fancyvrb%
       \FV@RightListFrame \csname FV@RightListNumber\endcsname %
           \d:fancyvrb}}
+>>>
+
+These macros are original fancyvrb versions, we removed some penalty commands,
+as they resulted in unwanted blank lines.
+
+\<fix fancyvrb\><<<
+\def\FV@ListProcessLine@iii#1{%
+  \box\@tempboxa
+  \setbox\@tempboxa=\FV@ListProcessLine{#1}%
+  \let\FV@ProcessLine\FV@ListProcessLine@iv}
+\def\FV@ListProcessLine@iv#1{%
+  \box\@tempboxa
+  \setbox\@tempboxa=\FV@ListProcessLine{#1}}%
+\def\FV@ListProcessLastLine{%
+  \ifx\FV@ProcessLine\FV@ListProcessLine@iv
+    \box\@tempboxa
+  \else
+    \ifx\FV@ProcessLine\FV@ListProcessLine@iii
+      \box\@tempboxa
+    \else
+      \ifx\FV@ProcessLine\FV@ListProcessLine@i
+        \FV@Error{Empty verbatim environment}{}%
+        \FV@ProcessLine{}%
+      \fi
+    \fi
+  \fi}
+
+
 \def\FV@EndList{\FV@ListProcessLastLine  \FV@EndListFrame%
   \IgnorePar\b:fancyvrb\par\@endparenv%
   \endgroup   \@endpetrue}
