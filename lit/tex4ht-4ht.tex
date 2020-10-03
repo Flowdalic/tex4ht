@@ -6699,29 +6699,32 @@ parameterless definitions.
 %    \relax\ifmmode\mskip\thinmuskip\else\thinspace\fi
 % }
 
-We should try to support more math space commands. These definitions should
-keep the original meaning by default.
+LaTeX release from October 2020 made spacing commands originally available only in the math
+mode available also in the text mode. The following configurations are based on the LaTeX kernel
+of this release. The configurable hooks are used only in the math mode, as they were used in 
+this way originally. These configurations are used in the MathML mode.
 
 \<latex math\><<<
-\def\:tempc{\csname a:>\endcsname} \HLet\>|=\:tempc
-\def\:tempc{\csname a:;\endcsname} \HLet\;|=\:tempc
-\def\:tempc{\csname a:!\endcsname} \HLet\!|=\:tempc
-\def\:tempc{\csname a::\endcsname} \HLet\:|=\:tempc
-\NewConfigure{>}{1} \Configure{>}{\csname o:>\endcsname}
-\NewConfigure{;}{1} \Configure{;}{\csname o:;\endcsname}
-\NewConfigure{!}{1} \Configure{!}{\csname o:!\endcsname}
-\NewConfigure{:}{1} \Configure{:}{\csname o::\endcsname}
->>>
-
-\<latex math\><<<
-\def\:tempc{\relax\ifmmode\csname a:,\endcsname\else\thinspace\fi}
-\expandafter\HLet\csname , \endcsname=\:tempc
-\def\:tempc{\relax
-  \ifmmode\csname a:,\endcsname\expandafter\:gobble\fi 
-  \o:thinspace: }
-\HLet\thinspace=\:tempc
-\NewConfigure{,}{1} 
+\NewConfigure{;}{1}
+\NewConfigure{!}{1}
+\NewConfigure{:}{1}
+\NewConfigure{,}{1}
+\NewConfigure{>}{1}
+\DeclareRobustCommand\:tmspace[2]{\ifmmode\expandafter\csname a:#1\endcsname\else\kern#2\fi}
+\DeclareRobustCommand\,{\:tmspace{,}{.16667em}}
+\DeclareRobustCommand\;{\:tmspace;{.2777em}}
+\DeclareRobustCommand\!{\:tmspace!{-.16667em}}
+\DeclareRobustCommand\:{\:tmspace{:}{.2222em}}
+\DeclareRobustCommand\>{\:tmspace;{.2222em}}
+\let\thinspace\,
+\let\medspace\:
+\let\negthinspace\!
+\let\thickspace\;
 \Configure{,}{\mskip\thinmuskip}
+\Configure{;}{\mskip\thickmuskip}
+\Configure{!}{\mskip-\thinmuskip}
+\Configure{:}{\mskip\medmuskip}
+\Configure{>}{\mskip\medmuskip}
 >>>
 
 \<plain math\><<<

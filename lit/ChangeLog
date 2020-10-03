@@ -2,6 +2,10 @@
 
 	* tex4ht-4ht.tex (fancyvrb.4ht): fixed spurious blank lines that were
 	sometimes produced.
+	* tex4ht-4ht.tex (latex.4ht): fixed \,, \;, \: and other similar commands.
+	Their definition had been added to LaTeX kernel and their behaviour changed, 
+	resulting in possible fatal error.
+	https://tug.org/pipermail/tex4ht/2020q4/002735.html
 
 2020-09-28  Michal Hoftich  <michal.h21@gmail.com>
 
