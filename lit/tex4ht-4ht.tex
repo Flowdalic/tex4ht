@@ -3801,17 +3801,24 @@ polyglossia,>>>
 \def\:temp{polyglossia}\ifx \@currname\:temp
 \ExplSyntaxOn
 \:AtEndOfPackage{
-\keys_define:nn {polyglossia}{
-  #1 / direction
-  .  code:n = {},
-  #1 / script
-  .  code:n = {\ifdefined\XeTeXversion
-    \edef\:tempscript{\str_uppercase:f{\tl_head:n {#1}}\tl_tail:n{#1}}
-    \xeuniuseblock{#1}
-    \expandafter\xeuniuseblock\expandafter{\:tempscript}
-  \fi},
+\ifdefined\orig_polyglossia@keys_define_lang:n\else
+\cs_set_eq:NN\orig_polyglossia@keys_define_lang:n\polyglossia@keys_define_lang:n
+%\let\orig_polyglossia@keys_define_lang:n\polyglossia@keys_define_lang:n
+\cs_set_protected:Npn \polyglossia@keys_define_lang:n #1 {
+   \orig_polyglossia@keys_define_lang:n{#1}
+   \keys_define:nn {polyglossia}{
+     #1 / direction
+     .  code:n = {},
+     #1 / script
+     .  code:n = {\ifdefined\XeTeXversion
+       \edef\:tempscript{\str_uppercase:f{\tl_head:n {#1}}\tl_tail:n{#1}}
+       \xeuniuseblock{#1}
+       \expandafter\xeuniuseblock\expandafter{\:tempscript}
+     \fi},
+   }
 }
 \def\RequireBidi{}%
+\fi
 }
 \ExplSyntaxOff
 \fi
