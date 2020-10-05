@@ -1,3 +1,7 @@
+2020-10-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): fix for ithenelse patching error.
+
 2020-10-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (fancyvrb.4ht): fixed spurious blank lines that were

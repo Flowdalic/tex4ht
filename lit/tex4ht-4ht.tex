@@ -1903,6 +1903,19 @@ and \''\Tg'.
 \gHAssign\bibN=0
 >>>
 
+Biblatex recently started to complain about ifthenelse
+patching. It is quite strange, as this patching code is quite 
+old and there were no such errors previously. Anyway, 
+this code should try to patch ifthenelse using TeX4ht built-in
+mechanism for ifthenelse.
+
+\<config biblatex\><<<
+\def\TE@hook{}
+\AtBeginDocument{%
+  \Configure{ifthenelse}{\TE@hook}
+}
+>>>
+
 \<biblatex-with-ooffice\><<<
 \def\bibConfigure{\ConfigureList{thebibliography}%
       {\IgnorePar\EndP \gHAdvance\bib:N by 1
