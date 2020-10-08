@@ -1,3 +1,13 @@
+2020-10-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): new mechanism for early package
+	redefinitions.
+	* tex4ht-4ht.tex (usepackage.4ht, 
+	minted-sty-hooks.4ht, 
+	catchfile-sty-hooks.4ht): added early package redefinitions for Minted
+	and Catchfile packages.
+	https://puszcza.gnu.org.ua/bugs/?486
+
 2020-10-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): fix for ithenelse patching error.
