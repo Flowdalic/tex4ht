@@ -23957,10 +23957,8 @@ As it can be declared in the preamble, we must patch the usepackage code.
 % minted-sty-hook.4ht, generated from |jobname.tex
 % Copyright 2020 TeX Users Group
 |<TeX4ht license text|>
-\AtBeginDocument{%
-\@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}
-}
 \AddToHook{package/after/minted}{%
+\@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}
 \define@booleankey{minted@opt@g}{breaklines}{}{}{}%
 }
 >>> 
