@@ -606,7 +606,8 @@ Add support for package commands redefining
    \let\:temp\@reset@ptions
    \def\@reset@ptions{%
       \let\@reset@ptions\:temp
-      |<cats for usepackage|>\a:usepackage
+      |<cats for usepackage|>\a:usepackage%
+      \a:usepackage:lthooks{#1}{#4}
       |<recall usepackage cats|>}%
       \def\:currentoptions{#2}
 \:onefilewithoptions#1[#2][#3]{#4}\package:hooks{#1.#4}}
@@ -622,6 +623,22 @@ Add support for package commands redefining
 \<recall usepackage cats\><<<
 \TivhTcats
 >>>
+
+In October 2020, LaTeX kernel added new hook support. It can be used
+for lot of stuff, including execution of code when a package is loaded.
+It is more efficient and clean than the current TeX4ht system of package
+handling. We can use it to execute code before and after package loading.
+
+Files that contain code that should be executed before the package is loaded
+should be named as packagename-ext-hooks.4ht. 
+For example, catchfile-sty-hooks.4ht.
+
+\<hook at usepackage\><<<
+\def\a:usepackage:lthooks#1#2{%
+  \IfFileExists{#1-#2-hooks.4ht}{\input #1-#2-hooks.4ht}{}%
+} 
+>>>
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Second Pass}
