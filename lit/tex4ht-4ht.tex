@@ -23964,33 +23964,6 @@ As it can be declared in the preamble, we must patch the usepackage code.
 >>> 
 \AddFile{9}{minted-sty-hooks}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{catchfile}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Catchfile package adds quoted file to @addtofilelist.
-This causes compilation error. I don't know what it is
-even useful for, but this fix should work.
-
-\<catchfile-sty-hooks.4ht\><<<
-% catchfile-sty-hook.4ht, generated from |jobname.tex
-% Copyright 2020 TeX Users Group
-|<TeX4ht license text|>
-\AddToHook{package/after/catchfile}{
-  \def\CatchFile@CheckFileExists#1{%
-    \IfFileExists{#1}{%
-      \expandafter\CatchFile@DefFile\@filef@und\@nil
-      \begingroup\expandafter\expandafter\expandafter\endgroup
-      \expandafter\ifx\csname @addtofilelist\endcsname\relax
-      \else
-      \@addtofilelist{#1}
-      \fi
-    }{%
-      \let\CatchFile@File\relax
-    }%
-  }%
-}
->>> \AddFile{9}{catchfile-sty-hooks}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{pythontex}
