@@ -630,13 +630,33 @@ It is more efficient and clean than the current TeX4ht system of package
 handling. We can use it to execute code before and after package loading.
 
 Files that contain code that should be executed before the package is loaded
-should be named as packagename-ext-hooks.4ht. 
-For example, catchfile-sty-hooks.4ht.
+can be requested using PackageHooks configuration. It needs to be included
+in the "add to usepackage" placeholder that is available in tex4ht-4ht.tex.
+
+Example:
+
+\Verbatim
+\<add to usepackage\><<<
+\Configure{PackageHooks}{packagename.sty}{packagename-hooks.4ht}
+>>>
+
+\<packagename-hooks.4ht\><<<
+% Some stuff executed before the package is loaded
+\:AtEndOfPackage{
+  % stuff executed after package is loaded
+  % macro redefinitions and so on
+}
+>>> \AddFile{9}{packagename-hooks}
+
+\EndVerbatim
 
 \<hook at usepackage\><<<
+\NewConfigure{PackageHooks}[2]{\expandafter\def\csname package:hooks:#1\endcsname{\input #2}}
 \def\a:usepackage:lthooks#1#2{%
-  \IfFileExists{#1-#2-hooks.4ht}{\input #1-#2-hooks.4ht}{}%
-} 
+  \expandafter\ifcsname package:hooks:#1.#2\endcsname
+  \csname package:hooks:#1.#2\endcsname
+  \fi
+}
 >>>
 
 

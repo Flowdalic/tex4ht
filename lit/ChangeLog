@@ -4,7 +4,10 @@
 	html4.4ht, mktex4ht.4ht, ooffice.4ht, ooimpress.4ht, tei.4ht): strip leading
 	quotes from files that we try to find .4ht files for.
 	https://puszcza.gnu.org.ua/bugs/?486#postcomment
-	* tex4ht-4ht.tex (catchfile-sty-hooks.4ht): removed unnecessary file
+	* tex4ht-4ht.tex (catchfile-sty-hooks.4ht): removed unnecessary file.
+	* tex4ht-sty.tex (tex4ht.sty): changed the early package hook mechanism to
+	speed up things.
+	https://puszcza.gnu.org.ua/bugs/?486#postcomment
 
 2020-10-08  Michal Hoftich  <michal.h21@gmail.com>
 
