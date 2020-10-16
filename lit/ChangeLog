@@ -8,6 +8,8 @@
 	* tex4ht-sty.tex (tex4ht.sty): changed the early package hook mechanism to
 	speed up things.
 	https://puszcza.gnu.org.ua/bugs/?486#postcomment
+	* tex4ht-4ht.tex (usepackage.4ht): adapded Minted for the new package hook
+	mechanism.
 
 2020-10-08  Michal Hoftich  <michal.h21@gmail.com>
 
