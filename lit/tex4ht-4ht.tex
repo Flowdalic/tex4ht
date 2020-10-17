@@ -3564,14 +3564,17 @@ Hyperref pasess five arguments to \`|\newlabel|, we must adapt \`|\XR:rEfLiNK| t
 \def\Get:HFile#1-#2-{\:LikeRef{)F\:gobble #1F-}}
 >>>
 
-\<use package\><<<
-xr-hyper,>>>
 
 \<add to usepackage\><<<
-\def\:temp{xr-hyper}\ifx \@currname\:temp
-   |<wait with xr-hyper|>
-\fi
+\Configure{PackageHooks}{xr-hyper.sty}{xrhyper-hooks.4ht}
 >>>
+
+\<xrhyper-hooks.4ht\><<<
+% xrhyper-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+|<wait with xr-hyper|>
+>>> \AddFile{9}{xrhyper-hooks}
 
 xr-hyper add optional argument after mandatory argument of
 \`|\externaldocument|. It is a full path to the PDF file. We don't really need
