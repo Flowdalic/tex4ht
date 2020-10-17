@@ -25503,9 +25503,6 @@ For xml
 Fix for XeTeX graphics - PDF inclusion doesn't work with the default driver, 
 dvips needs to be used instead
 
-\<use package\><<<
-graphics,>>>
-
 \<add to usepackage\><<<
 \Configure{PackageHooks}{graphics.sty}{graphics-hooks.4ht}
 >>>
@@ -26064,16 +26061,18 @@ second parameter.
 
 We need to use dvips driver with XeLaTeX
 
-\<use package\><<<
-xcolor,>>>
-
 \<add to usepackage\><<<
-\def\:temp{xcolor}\ifx\@currname\:temp
-  \ifdefined\XeTeXversion
-    \PassOptionsToPackage{dvips}{xcolor}
-  \fi
-\fi
+\Configure{PackageHooks}{xcolor.sty}{xcolor-hooks.4ht}
 >>>
+
+\<xcolor-hooks.4ht\><<<
+% xcolor-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+\ifdefined\XeTeXversion
+  \PassOptionsToPackage{dvips}{xcolor}
+\fi
+>>> \AddFile{9}{xcolor-hooks}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \Section{framed}
