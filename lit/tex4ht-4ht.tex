@@ -11153,11 +11153,15 @@ Foo
 \endinput
 >>>        \AddFile{9}{caption}
 
-\<use package\><<<
-caption,>>>
 
 \<add to usepackage\><<<
-\def\:temp{caption}\ifx\@currname\:temp
+\Configure{PackageHooks}{caption.sty}{caption-hooks.4ht}
+>>>
+
+\<caption-hooks.4ht\><<<
+% caption-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht copyright|>
 \:AtEndOfPackage{%
   \long\def\caption@If@Package@Loaded#1[#2]#3#4{}
   \renewcommand*\caption@redefine{%
@@ -11165,8 +11169,7 @@ caption,>>>
     \let\@caption\caption@@caption%
   }%
 }
-\fi
->>>
+>>> \AddFile{9}{caption-hooks}
 
 \<caption shared config\><<<
 \let\sv:toclof\toclof
