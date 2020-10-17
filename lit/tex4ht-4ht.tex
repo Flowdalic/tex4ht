@@ -3746,12 +3746,15 @@ It is also necessary to take special care with LuaTeX, as it loads
 configuration file that caused TeX4ht to fail. We block this file 
 from loading.
 
-\<use package\><<<
-ctex,>>>
-
 
 \<add to usepackage\><<<
-\def\:temp{ctex}\ifx \@currname\:temp
+\Configure{PackageHooks}{ctex.sty}{ctex-hooks.4ht}
+>>>
+
+\<ctex-hooks.4ht\><<<
+% ctex-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
 \PassOptionsToPackage{fontset=none,autoindent=false}{ctex}
 \ExplSyntaxOn
 \let\o:file_input\file_input:n% patch \file_input:n to block
@@ -3771,8 +3774,7 @@ ctex,>>>
 \let\file_input:n\o:file_input
 }
 \ExplSyntaxOff
-\fi
->>>
+>>> \AddFile{9}{ctex-hooks}
 
 Add dummy .4ht file. We may use it in the future.
 
