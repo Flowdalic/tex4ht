@@ -3648,14 +3648,19 @@ expl3,>>>
 \Section{savetrees.sty}
 %%%%%%%%%%%%%%%%%%
 
-\<use package\><<<
-savetrees,>>>
+This fix is really simple. Savetrees package doesn't make sense in HTML and it
+breaks TeX4ht, so we just disable it.
 
 \<add to usepackage\><<<
-\def\:temp{savetrees}\ifx \@currname\:temp
-\:dontusepackage{savetrees}
-\fi
+\Configure{PackageHooks}{savetrees.sty}{savetrees-hooks.4ht}
 >>>
+
+\<savetrees-hooks.4ht\><<<
+% savetrees-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+\:dontusepackage{savetrees}
+>>> \AddFile{9}{savetrees-hooks}
 
 %%%%%%%%%%%%%%%%%
 \Section{biblatex}
@@ -3666,11 +3671,14 @@ reported that English language strings
 can't be loaded, even if they were loaded
 correctly. This just removes the error message.
 
-\<use package\><<<
-biblatex,>>>
-
 \<add to usepackage\><<<
-\def\:temp{biblatex}\ifx \@currname\:temp
+\Configure{PackageHooks}{biblatex.sty}{biblatex-hooks.4ht}
+>>>
+
+\<biblatex-hooks.4ht\><<<
+% biblatex-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
 \:AtEndOfPackage{%
   \def\blx@mknoautolang{%
     \blx@lbxinput{\blx@languagename}%
@@ -3678,8 +3686,7 @@ biblatex,>>>
   }%
   |<fix biblatex lang handling|>
 }
-\fi
->>>
+>>> \AddFile{9}{biblatex-hooks}
 
 Some biblatex styles reported error missing English language. 
 \Link[https://tex.stackexchange.com/q/469718/2891]{}{}For example here\EndLink.
