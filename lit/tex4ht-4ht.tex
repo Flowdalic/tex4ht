@@ -3616,14 +3616,18 @@ eso-pic,>>>
 
 The Showframe package is not useful in HTML mode. It also breaks TeX4ht, so we should block it.
 
-\<use package\><<<
-showframe,>>>
 
 \<add to usepackage\><<<
-\def\:temp{showframe}\ifx \@currname\:temp
-\:dontusepackage{showframe}
-\fi
+\Configure{PackageHooks}{showframe.sty}{showframe-hooks.4ht}
 >>>
+
+\<showframe-hooks.4ht\><<<
+% showframe-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+\:dontusepackage{showframe}
+>>> \AddFile{9}{showframe-hooks}
+
 %%%%%%%%%%%%%%%%%
 \Section{expl3.sty}
 %%%%%%%%%%%%%%%%%
@@ -3637,6 +3641,9 @@ temporarily.
 >>>
 
 \<expl3-hooks.4ht\><<<
+% expl3-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
 \ifdefined\XeTeXversion%
 \xenunidelblock{Latin-expl3}%
 \:AtEndOfPackage{\xeuniuseblock{Latin-expl3}}
