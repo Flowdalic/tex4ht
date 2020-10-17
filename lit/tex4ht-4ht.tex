@@ -29942,16 +29942,18 @@ The Fancyhdr package breaks the sectioning support, it is necessary to suppress
 the fancy page style.
 \Link[https://tex.stackexchange.com/q/511350/2891]{}{}More info\EndLink.
 
-\<use package\><<<
-fancyhdr,>>>
-
 \<add to usepackage\><<<
-\def\:temp{fancyhdr}\ifx\@currname\:temp
-  \:AtEndOfPackage{%
-  \def\ps@fancy{}%
-  }
-\fi
+\Configure{PackageHooks}{fancyhdr.sty}{fancyhdr-hooks.4ht}
 >>>
+
+\<fancyhdr-hooks.4ht\><<<
+% fancyhdr-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht copywrite|>
+\:AtEndOfPackage{%
+\def\ps@fancy{}%
+}
+>>> \AddFile{9}{fancyhdr-hooks}
 
 %%%%%%%%%%%%%%%%%%%
 \Section{alphanum}
