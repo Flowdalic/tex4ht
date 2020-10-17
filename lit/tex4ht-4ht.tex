@@ -29368,17 +29368,19 @@ Support for the intoc option of Imakeidx:
 \Configure{@begin}{theindex}{\ind:defs\imki@maybeaddtotoc}
 >>>
 
-\<use package\><<<
-imakeidx,>>>
-
 Prevent the automatic index compilation, the index produced by tex4ht
 needs a special treatment.
 
 \<add to usepackage\><<<
-\def\:temp{imakeidx}\ifx\@currname\:temp
-  \PassOptionsToPackage{noautomatic}{imakeidx}
-\fi
+\Configure{PackageHooks}{imakeidx.sty}{imakeidx-hooks.4ht}
 >>>
+
+\<imakeidx-hooks.4ht\><<<
+% imakeidx-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+\PassOptionsToPackage{noautomatic}{imakeidx}
+>>> \AddFile{9}{imakeidx-hooks}
 
 \<index haddr\><<<
 d|<haddr prefix|>\last:haddr
