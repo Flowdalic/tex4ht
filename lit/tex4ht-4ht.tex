@@ -3708,16 +3708,19 @@ a wrong code. The saved version of that command must be used instead.
 The xeCJK package makes CJK characters active and the macros they call fall.
 Best what we can do is to block it.
 
-\<use package\><<<
-xeCJK,>>>
-
 We need to load fontspec explicitly, block the package, define some basic commands
 this package provides and load definitions for CJK Unicode block.
 
 Note that not all commands are provided, more can be added on user request.
 
 \<add to usepackage\><<<
-\def\:temp{xeCJK}\ifx \@currname\:temp
+\Configure{PackageHooks}{xeCJK.sty}{xecjk-hooks.4ht}
+>>>
+
+\<xecjk-hooks.4ht\><<<
+% xecjk-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
 \:dontusepackage{xeCJK}
 \:AtEndOfPackage{%
   \RequirePackage{fontspec}
@@ -3734,8 +3737,7 @@ Note that not all commands are provided, more can be added on user request.
 \AtBeginDocument{%
   \xeuniuseblock{CJK}
 }
-\fi
->>>
+>>> \AddFile{9}{xecjk-hooks}
 
 %%%%%%%%%%%%%%%%%
 \Section{ctex}
