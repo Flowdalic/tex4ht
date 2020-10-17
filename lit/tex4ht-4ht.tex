@@ -3593,11 +3593,14 @@ Eso-pic can add some code at every page, using picture commands. This results in
 images in the HTML file. It seems best to just disable this functionality.
 
 
-\<use package\><<<
-eso-pic,>>>
-
 \<add to usepackage\><<<
-\def\:temp{eso-pic}\ifx \@currname\:temp
+\Configure{PackageHooks}{eso-pic.sty}{esopic-hooks.4ht}
+>>>
+
+\<esopic-hooks.4ht\><<<
+% esopic-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
 \:dontusepackage{eso-pic}
 \providecommand\AddToShipoutPicture{\@ifstar\@gobble\@gobble}
 \let\AddToShipoutPictureBG\AddToShipoutPicture
@@ -3607,8 +3610,7 @@ eso-pic,>>>
 \let\ClearShipoutPicture\relax
 \providecommand*\LenToUnit[1]{}
 \providecommand\gridSetup[6][]{}
-\fi
->>>
+>>> \AddFile{9}{esopic-hooks}
 
 %%%%%%%%%%%%%%%%%%
 \Section{showframe}
