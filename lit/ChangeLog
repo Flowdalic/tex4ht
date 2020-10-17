@@ -20,6 +20,8 @@
 	the new package hook mechanism.
 	* tex4ht-4ht.tex (usepackage.4ht, savetrees-hooks.4ht): adapted savetrees for
 	the new package hook mechanism.
+	* tex4ht-4ht.tex (usepackage.4ht, expl3-hooks.4ht): adapted expl3 for
+	the new package hook mechanism.
 
 2020-10-16  Michal Hoftich  <michal.h21@gmail.com>
 

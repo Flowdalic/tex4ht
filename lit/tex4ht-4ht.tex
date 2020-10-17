@@ -3632,17 +3632,16 @@ Expl3 package makes some unicode characters active. This clashes
 with out active characters for XeTeX, so we must deactivate them 
 temporarily.
 
-\<use package\><<<
-expl3,>>>
-
 \<add to usepackage\><<<
-\def\:temp{expl3}\ifx \@currname\:temp
+\Configure{PackageHooks}{expl3.sty}{expl3-hooks.4ht}
+>>>
+
+\<expl3-hooks.4ht\><<<
 \ifdefined\XeTeXversion%
 \xenunidelblock{Latin-expl3}%
 \:AtEndOfPackage{\xeuniuseblock{Latin-expl3}}
 \fi
-\fi
->>>
+>>> \AddFile{9}{expl3-hooks}
 
 %%%%%%%%%%%%%%%%%%
 \Section{savetrees.sty}
