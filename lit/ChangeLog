@@ -8,6 +8,8 @@
 	the new package hook mechanism.
 	* tex4ht-4ht.tex (usepackage.4ht, pdfbase-hooks.4ht): adapted Pdfbase for
 	the new package hook mechanism.
+	* tex4ht-4ht.tex (usepackage.4ht, tikz-hooks.4ht): adapted Tikz for
+	the new package hook mechanism.
 
 2020-10-16  Michal Hoftich  <michal.h21@gmail.com>
 

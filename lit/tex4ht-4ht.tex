@@ -4135,8 +4135,6 @@ given Script using \`|\xeuniuseblock{Script name}|.
 \Section{TikZ}
 %%%%%%%%%%%%%%%%%
 
-\<use package\><<<
-tikz,>>>
 
 There is a support for TikZ externalization. TikZ has been instucted to don't
 externalize pictures when tex4ht is used. It is necessary to  create the PDF
@@ -4147,7 +4145,13 @@ The tex4ht configuration for PDF graphics is used for PDF inclusion, it will be
 converted to SVG by default.
 
 \<add to usepackage\><<<
-\def\:temp{tikz}\ifx \@currname\:temp
+\Configure{PackageHooks}{tikz.sty}{tikz-hooks.4ht}
+>>>
+
+\<tikz-hooks.4ht\><<<
+% tikz-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
 \:AtEndOfPackage{%
 \let\use:tikzlibrary\usetikzlibrary
 \def\find:externalize#1external#2\@nil{%
@@ -4166,8 +4170,7 @@ converted to SVG by default.
 }
 \append:defI\use@@tikzlibrary{\find:externalize##1external\@nil}%
 }
-\fi
->>>
+>>> \AddFile{9}{tikz-hooks}
 
 %%%%%%%%%%%%%%%%%%
 \Section{pdfbase.sty}
@@ -4180,6 +4183,9 @@ The pdfbase package redefines \`|\@outputpage| macro, which causes tex4ht patche
 >>>
 
 \<pdfbase-hooks.4ht\><<<
+% pdfbase-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
 \:AtEndOfPackage{%
   \let\old:outputpage\@outputpage
   \def\@outputpage{\old:outputpage{}}
