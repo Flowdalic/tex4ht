@@ -3453,14 +3453,16 @@ before \''\begin{document}'.
 \endinput
 >>>        \AddFile{7}{xr}
 
-\<use package\><<<
-xr,>>>
-
 \<add to usepackage\><<<
-\def\:temp{xr}\ifx \@currname\:temp
-   |<wait with xr|>
-\fi
+\Configure{PackageHooks}{xr.sty}{xr-hooks.4ht}
 >>>
+
+\<xr-hooks.4ht\><<<
+% xr-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht copywrite|>
+|<wait with xr|>
+>>>\AddFile{7}{xr-hooks}
 
 \<wait with xr\><<<
 \:AtEndOfPackage{\let\XR:\XR@ 
