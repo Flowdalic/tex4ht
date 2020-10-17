@@ -4172,20 +4172,19 @@ converted to SVG by default.
 %%%%%%%%%%%%%%%%%%
 \Section{pdfbase.sty}
 %%%%%%%%%%%%%%%%%%
-\<use package\><<<
-pdfbase,>>>
-%%%%%%%%%%%%%%%%%%
 
 The pdfbase package redefines \`|\@outputpage| macro, which causes tex4ht patches to fail.
 
 \<add to usepackage\><<<
-\def\:temp{pdfbase}\ifx\@currname\:temp
+\Configure{PackageHooks}{pdfbase.sty}{pdfbase-hooks.4ht}
+>>>
+
+\<pdfbase-hooks.4ht\><<<
 \:AtEndOfPackage{%
   \let\old:outputpage\@outputpage
   \def\@outputpage{\old:outputpage{}}
 }
-\fi
->>>
+>>> \AddFile{9}{pdfbase-hooks}
 
 %%%%%%%%%%%%%%%%%
 \Section{animate.sty}
