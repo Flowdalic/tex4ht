@@ -25507,12 +25507,17 @@ dvips needs to be used instead
 graphics,>>>
 
 \<add to usepackage\><<<
-\def\:temp{graphics}\ifx\@currname\:temp
-  \ifdefined\XeTeXversion
-    \PassOptionsToPackage{dvips}{graphics}
-  \fi
-\fi
+\Configure{PackageHooks}{graphics.sty}{graphics-hooks.4ht}
 >>>
+
+\<graphics-hooks.4ht\><<<
+% graphics-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+\ifdefined\XeTeXversion
+  \PassOptionsToPackage{dvips}{graphics}
+\fi
+>>> \AddFile{9}{graphics-hooks}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \SubSection{graphicx}

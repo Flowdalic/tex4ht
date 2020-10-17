@@ -1,3 +1,8 @@
+2020-10-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, graphics-hooks.4ht): adapted Graphics for
+	the new package hook mechanism.
+
 2020-10-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-cond4ht.tex (cond4ht.4ht, docbook.4ht, html0.4ht, html32.4ht,
