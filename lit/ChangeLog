@@ -32,6 +32,10 @@
 	the new package hook mechanism.
 	* tex4ht-4ht.tex (usepackage.4ht, fancyhdr-hooks.4ht): adapted fancyhdr for
 	the new package hook mechanism.
+	* tex4ht-4ht.tex (usepackage.4ht, cleveref-hooks.4ht): adapted cleveref for
+	the new package hook mechanism. 
+	* tex4ht-4ht.tex: added tutorial on how to write early package patching
+	hooks.
 
 2020-10-16  Michal Hoftich  <michal.h21@gmail.com>
 

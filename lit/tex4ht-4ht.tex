@@ -439,6 +439,74 @@ to include the above (new) ``TeX4ht license text''.  I don't understand.
 \ConfigureToc{subsubsection} {\empty}{\ }{}{\newline}
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Package patching handling}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% tutorial begin
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+By default, .4ht files are loaded at begin document. When we need to patch 
+a package at the moment when it is loaded, we can use the mechanism provided
+by usepackage.4ht.
+
+The obsolete way is to use the following construct:
+
+\Verbatim
+\<use package\><<<
+packagename,>>>
+
+\<add to usepackage\><<<
+\def\:temp{packagename}\ifx\@currname\:temp
+% package redefinitions
+\fi
+>>>
+\EndVerbatim
+
+The downside of this that it loads usepackage.4ht again for each package
+it detects. This can slow down the compilation.
+
+The recommended way is the following: 
+
+\Verbatim
+\<add to usepackage\><<<
+% use package name as the second argument and name of the file
+% that contains redefinitions as the third 
+\Configure{PackageHooks}{packagename.sty}{packagename-hooks.4ht}
+>>>
+
+\<packagename-hooks.4ht\><<<
+% packagename-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht copywrite|>
+% package redefinitions
+>>>\AddFile{9}{packagename-hooks}
+\EndVerbatim
+
+The contents of the hooks file can be following:
+
+\Verbatim
+% code before package is loaded
+% ...
+\:AtEndOfPackage{
+  % redefine package commands that are used in the preamble
+  % ...
+}
+\EndVerbatim
+
+You can use the following special commands in the hooks file:
+
+\Verbatim
+\:dontusepackage{packagename} % prevent the package from loading
+\:AtEndOfPackage{code} % redefine macros that can be used in the document preamble
+\EndVerbatim
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% tutorial end
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \<usepackage.4ht\><<<
 % usepackage.4ht (|version), generated from |jobname.tex
 % Copyright |CopyYear.2003. Eitan M. Gurari
@@ -3353,18 +3421,21 @@ Support for links from the \Verb|\cref| command.
 >>>
 
 
-\<use package\><<<
-cleveref,>>>
-%%%%%%%%%%%%%%%%%%
-
 Cleveref depends on internal Hyperref macro when Hyperref is loaded. It causes crash,
 because Hyperref exits before this macro is defined.
 \Link[https://tex.stackexchange.com/a/540277/2891]{}{}More information\EndLink.
+
 \<add to usepackage\><<<
-\def\:temp{cleveref}\ifx\@currname\:temp
-\let\HyOrg@addtoreset\@addtoreset
-\fi
+\Configure{PackageHooks}{cleveref.sty}{cleveref-hooks.4ht}
 >>>
+
+\<cleveref-hooks.4ht\><<<
+% cleveref-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+\let\HyOrg@addtoreset\@addtoreset
+>>> \AddFile{9}{cleveref-hooks}
+
 %%%%%%%%%%%%%%%%%%
 \Section{authblk}
 
