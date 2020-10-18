@@ -24071,10 +24071,36 @@ As it can be declared in the preamble, we must patch the usepackage code.
 |<TeX4ht license text|>
 \AddToHook{package/after/minted}{%
 \@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}
-\define@booleankey{minted@opt@g}{breaklines}{}{}{}%
+|<minted breaklines|>
 }
 >>> 
 \AddFile{9}{minted-sty-hooks}
+
+
+We use modified version of the keyval option declaration command used by
+Minted, it turns the breaklines option to false when it is used.
+
+\<minted breaklines\><<<
+\newcommand{\:minted@def@opt@switch}[2][false]{%
+  \define@booleankey{minted@opt@g}{#2}%
+    {\@namedef{minted@opt@g:#2}{false}}%
+    {\@namedef{minted@opt@g:#2}{false}}
+  \define@booleankey{minted@opt@g@i}{#2}%
+    {\@namedef{minted@opt@g@i:#2}{false}}%
+    {\@namedef{minted@opt@g@i:#2}{false}}
+  \define@booleankey{minted@opt@lang}{#2}%
+    {\@namedef{minted@opt@lang\minted@lang :#2}{false}}%
+    {\@namedef{minted@opt@lang\minted@lang :#2}{false}}
+  \define@booleankey{minted@opt@lang@i}{#2}%
+    {\@namedef{minted@opt@lang\minted@lang @i:#2}{false}}%
+    {\@namedef{minted@opt@lang\minted@lang @i:#2}{false}}
+  \define@booleankey{minted@opt@cmd}{#2}%
+    {\@namedef{minted@opt@cmd:#2}{false}}%
+    {\@namedef{minted@opt@cmd:#2}{false}}%
+  \@namedef{minted@opt@g:#2}{#1}%
+}
+\:minted@def@opt@switch{breaklines}
+>>>
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
