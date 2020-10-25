@@ -1,3 +1,8 @@
+2020-10-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mkht.tex (all .unix and .bat files that use plain TeX): use etex
+	in shell scripts for plain TeX.
+
 2020-10-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (minted-sty-hooks.4ht): fixed the breaklines option
