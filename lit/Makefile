@@ -668,7 +668,42 @@ $(homedir)/$(texmf_t4ht_bin)/tex4ht.jar:
 endif
 
 # 
-# painful, so let's write out the commands. --20mar17
+# The directories where tex4ht is installed in TeX Live,
+# i.e., where we will copy and commit updates.
+
+texmf = /r/tug/home/texlive/karl/Master/texmf-dist
+inst_dir_4ht = $(texmf)/tex/generic/tex4ht
+inst_dir_top = $(texmf)/tex4ht
+inst_dir_scripts = $(texmf)/scripts/tex4ht
+
+# Simple command to "install" from dev to TL.
+# (Other methods are also used.)
+install_data = cp -p
+
+# Diff and install the *.unix and *.bat scripts.
+# The suffix changes from .unix in development to .sh in TL,
+# and many of the scripts are not installed at all;
+# don't worry about that. We also won't worry about the 
+# Perl scripts (mk4ht) at present.
+# 
+diff-scripts:
+	for f in *.unix; do \
+	  inst_f=$(inst_dir_scripts)/`basename $$f .unix`.sh; \
+	  test -r $$inst_f || continue; \
+	  $(diff) $$inst_f $$f; done
+
+install-scripts:
+	for f in *.unix; do \
+	  inst_f=$(inst_dir_scripts)/`basename $$f .unix`.sh; \
+	  test -r $$inst_f || continue; \
+	  echo $(install_data) $$inst_f $$f; \
+	  $(install_data) $$inst_f $$f; done
+
+# not ready
+#for f in *.bat; do \
+	  
+# 
+# Let's write out the commands for updating fonts.
 ht_fonts_instdir = $(inst_dir_top)/ht-fonts
 #
 install-unicode-4hf:
@@ -705,15 +740,7 @@ diff-htfonts:
 diff_files = $(filter-out %.htf %.4hf tex4ht.env% %.c lm-htf.tex mk4ht.perl,\
                           $(derived))
 
-#texmf = /usr/local/texlive/dev/texmf-dist
-texmf = /r/tug/home/texlive/karl/Master/texmf-dist
-inst_dir_4ht = $(texmf)/tex/generic/tex4ht
-inst_dir_top = $(texmf)/tex4ht
-#
-diff = diff -u0 --ignore-all-space --ignore-blank-lines \
-  --ignore-matching-lines='write-1.version\|, generated from\|Copyright'
-#
-# the --ignore-matching-lines only works when that's the only change in
+# the --ignore-matching-lines below only works when that's the only change in
 # the hunk, so ignore them all explicitly. also ignore commented changes.
 diff-all: #diff-htfonts
 	-for f in $(diff_files); do $(diff) $(inst_dir_4ht)/$$f .; done \
@@ -723,6 +750,10 @@ diff-all: #diff-htfonts
 # diff one file specified as d=
 diff1 d1:
 	$(diff) $(inst_dir_4ht)/$(d) .
+
+# the diff command used pervasively.
+diff = diff -u0 --ignore-all-space --ignore-blank-lines \
+  --ignore-matching-lines='write-1.version\|, generated from\|Copyright'
 
 # simple abbrev.
 upmake upm:

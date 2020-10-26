@@ -1,9 +1,15 @@
+2020-10-25  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-mkht.tex: more copyright 2020, https for tug.org.
+	* Makefile (diff-scripts, install-scripts): new targets.
+	(install_data, inst_dir_scripts): new variables.
+
 2020-10-25  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mkht.tex (all .unix and .bat files that use plain TeX): use etex
-	in shell scripts for plain TeX.
-	* tex4ht-4ht.tex (plain.4ht): declare configurations for spacing commands in
-	plain TeX.
+	* tex4ht-mkht.tex (all .unix and .bat files that use plain TeX):
+	use etex in shell scripts for plain TeX.
+	* tex4ht-4ht.tex (plain.4ht): declare configurations for spacing
+	commands in plain TeX.
 
 2020-10-18  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -12,54 +18,54 @@
 
 2020-10-17  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht, graphics-hooks.4ht): adapted Graphics for
+	* tex4ht-4ht.tex (usepackage.4ht,graphics-hooks.4ht): adapted Graphics for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, xcolor-hooks.4ht): adapted Xcolor for
+	* tex4ht-4ht.tex (usepackage.4ht,xcolor-hooks.4ht): adapted Xcolor for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, caption-hooks.4ht): adapted Caption for
+	* tex4ht-4ht.tex (usepackage.4ht,caption-hooks.4ht): adapted Caption for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, pdfbase-hooks.4ht): adapted Pdfbase for
+	* tex4ht-4ht.tex (usepackage.4ht,pdfbase-hooks.4ht): adapted Pdfbase for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, tikz-hooks.4ht): adapted Tikz for
+	* tex4ht-4ht.tex (usepackage.4ht,tikz-hooks.4ht): adapted Tikz for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, fontspec-hooks.4ht, polyglossia-hooks.4ht): 
+	* tex4ht-4ht.tex (usepackage.4ht,fontspec-hooks.4ht, polyglossia-hooks.4ht): 
 	adapted Fontspec and Polyglossia for the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, ctex-hooks.4ht): adapted Ctex for
+	* tex4ht-4ht.tex (usepackage.4ht,ctex-hooks.4ht): adapted Ctex for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, xecjk-hooks.4ht): adapted xeCJK for
+	* tex4ht-4ht.tex (usepackage.4ht,xecjk-hooks.4ht): adapted xeCJK for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, xecjk-hooks.4ht): adapted xeCJK for
+	* tex4ht-4ht.tex (usepackage.4ht,xecjk-hooks.4ht): adapted xeCJK for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, savetrees-hooks.4ht): adapted savetrees for
+	* tex4ht-4ht.tex (usepackage.4ht,savetrees-hooks.4ht): adapted savetrees for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, expl3-hooks.4ht): adapted expl3 for
+	* tex4ht-4ht.tex (usepackage.4ht,expl3-hooks.4ht): adapted expl3 for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, showframe-hooks.4ht): adapted showframe for
+	* tex4ht-4ht.tex (usepackage.4ht,showframe-hooks.4ht): adapted showframe for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, esopic-hooks.4ht): adapted eso-pic for
+	* tex4ht-4ht.tex (usepackage.4ht,esopic-hooks.4ht): adapted eso-pic for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, xrhyper-hooks.4ht): adapted xr-hyper for
+	* tex4ht-4ht.tex (usepackage.4ht,xrhyper-hooks.4ht): adapted xr-hyper for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, xr-hooks.4ht): adapted xr for
+	* tex4ht-4ht.tex (usepackage.4ht,xr-hooks.4ht): adapted xr for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, fancyhdr-hooks.4ht): adapted fancyhdr for
+	* tex4ht-4ht.tex (usepackage.4ht,fancyhdr-hooks.4ht): adapted fancyhdr for
 	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht, cleveref-hooks.4ht): adapted cleveref for
+	* tex4ht-4ht.tex (usepackage.4ht,cleveref-hooks.4ht): adapted cleveref for
 	the new package hook mechanism. 
-	* tex4ht-4ht.tex: added tutorial on how to write early package patching
+	* tex4ht-4ht.tex (usepackage.4ht,imakeidx-hooks.4ht): adapted imakeidx for
 	hooks.
-	* tex4ht-4ht.tex (usepackage.4ht, imakeidx-hooks.4ht): adapted imakeidx for
+	* tex4ht-4ht.tex: added tutorial on how to write early package patching
 	the new package hook mechanism. 
 
 2020-10-16  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-cond4ht.tex (cond4ht.4ht, docbook.4ht, html0.4ht, html32.4ht,
-	html4.4ht, mktex4ht.4ht, ooffice.4ht, ooimpress.4ht, tei.4ht): strip leading
-	quotes from files that we try to find .4ht files for.
-	https://puszcza.gnu.org.ua/bugs/?486#postcomment
+	* tex4ht-cond4ht.tex (cond4ht.4ht, docbook.4ht, html0.4ht,
+	html32.4ht, html4.4ht, mktex4ht.4ht, ooffice.4ht, ooimpress.4ht,
+	tei.4ht): strip leading quotes from files that we try to find
+	.4ht files for. https://puszcza.gnu.org.ua/bugs/?486#postcomment
 	* tex4ht-4ht.tex (catchfile-sty-hooks.4ht): removed unnecessary file.
-	* tex4ht-sty.tex (tex4ht.sty): changed the early package hook mechanism to
-	speed up things.
+	* tex4ht-sty.tex (tex4ht.sty): changed the early package hook
+	mechanism to speed up things.
 	https://puszcza.gnu.org.ua/bugs/?486#postcomment
 	* tex4ht-4ht.tex (usepackage.4ht): adapded Minted for the new package hook
 	mechanism.
@@ -83,9 +89,9 @@
 
 	* tex4ht-4ht.tex (fancyvrb.4ht): fixed spurious blank lines that were
 	sometimes produced.
-	* tex4ht-4ht.tex (latex.4ht): fixed \,, \;, \: and other similar commands.
-	Their definition had been added to LaTeX kernel and their behaviour changed, 
-	resulting in possible fatal error.
+	* tex4ht-4ht.tex (latex.4ht): fixed \,, \;, \: and other similar
+	commands. Their definition had been added to LaTeX kernel and
+	their behaviour changed, resulting in possible fatal error.
 	https://tug.org/pipermail/tex4ht/2020q4/002735.html
 
 2020-09-28  Michal Hoftich  <michal.h21@gmail.com>
@@ -93,8 +99,8 @@
 	* tex4ht-html4.tex (html4.4ht): use <pre> element for fancy verbatim.
 	https://tex.stackexchange.com/q/564532/2891
 	* tex4ht-4ht.tex (minted.4ht),
-	tex4ht-html4.tex (html4.4ht): added support for colored Minted listings.
-	https://tex.stackexchange.com/a/564579/2891
+	* tex4ht-html4.tex (html4.4ht): added support for colored Minted
+	listings. https://tex.stackexchange.com/a/564579/2891
 
 2020-09-22  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -116,13 +122,14 @@
 
 2020-09-13  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): removed space handling regular
-	expressions, they seem to be unnecessary with current MathJax.
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): removed space
+	handling regular expressions, they seem to be unnecessary with
+	current MathJax.
 
 2020-09-08  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathml.tex (mathml.4ht): removed some weird code from configuration
-	for \text.. commands. It produced invalid MathML.
+	* tex4ht-mathml.tex (mathml.4ht): removed some weird code from
+	configuration for \text.. commands. It produced invalid MathML.
 
 2020-09-02  Michal Hoftich  <michal.h21@gmail.com>
 
