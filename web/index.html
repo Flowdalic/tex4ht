@@ -84,25 +84,25 @@ optionally using MathML.
 
 <h3>Basic invocation for modern output</h3>
 
-<p>TeX4ht can be invoked in several ways. Original way is to use the <code>htlatex</code> command.
-To convert a LaTeX source file.tex to HTML5 that uses UTF-8:</p>
+<p>TeX4ht can be invoked in several ways. The original way is to use the
+<code>htlatex</code> command. To convert a LaTeX source file.tex to
+HTML5 that uses UTF-8, with MathML:</p>
 
 <pre>
-<samp>$ <kbd>htlatex file.tex "xhtml,html5,charset=utf-8" " -cunihtf -utf8"</kbd></samp>
+<samp>$ <kbd>htlatex file.tex "xhtml,html5,mathml,charset=utf-8" " -cunihtf -utf8"</kbd></samp>
 </pre>
 
 <p>N.B. That command line has three arguments, the second two given
 inside shell quotes; the last argument starts with a space. <a
-  href="doc/mn-commands.html">More details on calling
-  conventions</a>.
+href="doc/mn-commands.html">More details on calling conventions</a>.
 
 <p>An easier way is to use <a
 href="https://ctan.org/pkg/make4ht">make4ht</a> (see its documentation
 for more). The following command produces the same output as the
-previous one, HTML5 in UTF-8 encoding:</p>
+previous one, HTML5 in UTF-8 encoding with MathML:</p>
 
 <pre>
-<samp>$ <kbd>make4ht file.tex</kbd></samp>
+<samp>$ <kbd>make4ht file.tex "mathml"</kbd></samp>
 </pre>
 
 <h3>Bug reports</h3>
