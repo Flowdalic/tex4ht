@@ -1,7 +1,10 @@
 2020-10-30  Karl Berry  <karl@freefriends.org>
 
+	* tex4ht-mkht.tex (unix line): use set -e and exec</dev/null
+	for all scripts to stop at first error and avoid interaction, resp.
+
 	* tex4ht-mkht.tex (windows line): start with @echo off, per Akira.
-	
+
 	* Makefile (tex4ht_mkht_derived): add ht.unix ht.bat.
 
 2020-10-25  Karl Berry  <karl@freefriends.org>

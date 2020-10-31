@@ -1098,6 +1098,14 @@ against that file.
 
 \<unix line\><<<
 |firstln#!/bin/sh
+# stop at first error
+set -e
+
+# no interaction on the TeX runs is desirable.
+# Simpler to do it here than on the individual commands;
+# let's hope exec redirections are portable enough.
+exec </dev/null
+
 endfirstln
 >>>
 
