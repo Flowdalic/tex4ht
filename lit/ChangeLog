@@ -1,8 +1,15 @@
+2020-10-30  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-mkht.tex (windows line): start with @echo off, per Akira.
+	
+	* Makefile (tex4ht_mkht_derived): add ht.unix ht.bat.
+
 2020-10-25  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mkht.tex: more copyright 2020, https for tug.org.
 	* Makefile (diff-scripts, install-scripts): new targets.
 	(install_data, inst_dir_scripts): new variables.
+	(tex4ht_mkht_derived): add ht.unix and ht.bat (lots more).
 
 2020-10-25  Michal Hoftich  <michal.h21@gmail.com>
 

@@ -279,7 +279,7 @@ derived += $(tex4ht_mathplayer_derived)
 tex4ht_mathplayer_derived = mathplayer.4ht
 
 derived += $(tex4ht_mkht_derived)
-tex4ht_mkht_derived = mkht.4ht mk4ht.perl mkht-scripts.4ht
+tex4ht_mkht_derived = mkht.4ht mk4ht.perl mkht-scripts.4ht ht.unix ht.bat
 
 derived += $(tex4ht_moz_derived)
 tex4ht_moz_derived = mozilla.4ht
@@ -692,12 +692,13 @@ diff-scripts:
 	  test -r $$inst_f || continue; \
 	  $(diff) $$inst_f $$f; done
 
+# Diff from installed to dev, but install from dev to installed.
 install-scripts:
 	for f in *.unix; do \
 	  inst_f=$(inst_dir_scripts)/`basename $$f .unix`.sh; \
 	  test -r $$inst_f || continue; \
 	  echo $(install_data) $$inst_f $$f; \
-	  $(install_data) $$inst_f $$f; done
+	  $(install_data) $$f $$inst_f; done
 
 # not ready
 #for f in *.bat; do \
