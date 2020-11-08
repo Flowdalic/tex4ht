@@ -738,7 +738,8 @@ diff-htfonts:
 # 
 # to compare newly-built files with what's installed.
 # htf files, etc., are in a different place, so don't include them here,
-diff_files = $(filter-out %.htf %.4hf tex4ht.env% %.c lm-htf.tex mk4ht.perl,\
+diff_files = $(filter-out %.htf %.4hf tex4ht.env% %.c lm-htf.tex \
+                          mk4ht.perl ht.unix ht.bat,\
                           $(derived))
 
 # the --ignore-matching-lines below only works when that's the only change in
