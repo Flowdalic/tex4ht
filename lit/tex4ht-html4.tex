@@ -6504,7 +6504,7 @@ The above should be sensitive to cases like the following one.
      \HCode{<div class="newtheorem">}\par\noindent\HCode{<span
            class="head">}}
    {\HCode{</span>}}
-   {\:xhtml{\EndP}\IgnorePar\HCode{</div>}\par\ShowPar}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par\indent\ShowPar}
 \Css{div.newtheorem { margin-bottom: 2em; margin-top: 2em;}}
 >>>
 
