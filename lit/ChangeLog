@@ -1,3 +1,10 @@
+2020-11-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4 (html4.4ht): fixed paragraph opening after Theorem
+	environment.
+	* tex4ht-html4 (html4.4ht): emulate \subsection handling in Amsart class.
+	https://tex.stackexchange.com/q/569955/2891
+
 2020-10-30  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mkht.tex (unix line): use set -e and exec</dev/null
