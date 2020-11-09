@@ -21356,8 +21356,9 @@ For instance, see p 262 in texbook.
 \let\MathPar|=\empty 
 \Configure{PicDisplay}
   {\edef\MathPar{\ifvmode par-\fi}\IgnorePar\endgraf\EndP
-   \HCode{<center class="\MathPar math-display" \a:LRdir >}}
-  {\HCode{</center>}}  {}  {class="\MathPar math-display" } 
+   \HCode{<div class="\MathPar math-display" \a:LRdir >}}
+  {\HCode{</div>}\par\ShowPar}  {}  {class="\MathPar math-display" } 
+\Css{div.par-math-display, div.math-display{text-align:center;}}
 >>>
 
 % \Css{img.mathdisplay, div.displaymath, img.par-mathdisplay,
