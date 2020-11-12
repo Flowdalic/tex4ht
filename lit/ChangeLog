@@ -1,3 +1,9 @@
+2020-11-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex(
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/bera/fvmr8t.htf
+	): added support for frmr8t font.
+
 2020-11-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4 (html4-math.4ht): fixed paragraph opening after \PicDisplay.
