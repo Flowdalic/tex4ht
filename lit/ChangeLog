@@ -1,3 +1,8 @@
+2020-11-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (titlesec.4ht): fixed paragraph handling in sectioning
+	commands.
+
 2020-11-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex(

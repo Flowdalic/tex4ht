@@ -878,10 +878,14 @@ $\mathfrak{A}a^{\mathfrak{A}}$
        }{#8}%
 }
 \def\:tempc#1#2#3#4{%
+  \begingroup
+  \let\everypar\@gobble% don't let titlesec to break our paragraph handling
   \edef\sc:tp{\ifttl@label\else like\fi #1}%
    \let\ttl@savewrite\empty
    \o:ttl@select:{#1}{#2}{#3}{#4}
+   \endgroup
 }
+
 \HLet\ttl@select\:tempc
 >>>
 
