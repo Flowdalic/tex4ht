@@ -11315,12 +11315,15 @@ Foo
 } 
 >>>
 
-Handle redefined caption command
+Handle redefined caption command. We ignore the second parameter of
+\''\Configure{caption}'. It contains the separator between caption number
+and label. It is colon by default, but user can configure to use something 
+different. We should keep the separator selected by the user.
 
 \<caption redefine makecaption\><<<
 \long\def\@makecaption#1#2{%   
   \caption@make@above%
-  \cptA:\caption@@make{\cap:ref{#1}\if :#1:\else\cptB:\fi}{\cptC:#2}\cptD:%
+  \cptA:\caption@@make{\cap:ref{#1}}{\cptC:#2}\cptD:%
   \caption@make@below%
 }
 >>>

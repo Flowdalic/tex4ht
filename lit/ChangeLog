@@ -1,3 +1,9 @@
+2020-11-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (caption.4ht): fixed spurious separator between caption
+	number and text.
+	https://tex.stackexchange.com/q/571684/2891
+
 2020-11-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (titlesec.4ht): fixed paragraph handling in sectioning
