@@ -1,11 +1,7 @@
 % $Id$
-% (1)  latex tex4ht-mkht      
-% (2)  perl -c mk4ht.perl                (checking correctness)
-% (3)  latex mkht-scripts.4ht
-%    or
-% (1) xhlatex tex4ht-mkht "html,3" 
-% (2) perl -c mk4ht.perl
-% (3) xhlatex mkht-scripts.4ht "html,3"
+% (1) latex tex4ht-mkht      
+% (2) perl -c mk4ht.perl                (checking correctness)
+% (3) latex mkht-scripts.4ht
 %
 % Copyright 2009-2020 TeX Users Group
 % Copyright 1997-2009 Eitan M. Gurari
@@ -251,7 +247,7 @@ texinfo.tex file.
 >>>
 
 \<texinfo\><<<
-tex  |<@|>5 |<'|>|<texinfo definitions|>|<get parameters|>|empty>>>
+etex |<@|>5 |<'|>|<texinfo definitions|>|<get parameters|>|empty>>>
 
 
 \<texinfo definitions\><<<
@@ -1049,6 +1045,7 @@ against that file.
 \def\Argchar{\bgroup \setcats \Acont}\def\Acont#1{\egroup\def\argchar{#1}}
 \def\Dirchar{\bgroup \setcats \Dicont}\def\Dicont#1{\egroup\def\dirchar{#1}}
 \def\Rubycall{\bgroup \setcats \Dcont}\def\Dcont#1{\egroup\def\rubyCall{#1}}
+\def\Echooff{\bgroup \setcats \Dcont}\def\Dcont#1{\egroup\def\echoOff{#1}}
 \def\Ext{\bgroup \setcats \Econt}    \def\Econt#1{\egroup\def\ext{#1}%
   ?<unix shebang line?>}
 \def\Base{\bgroup \setcats \Bcont}   \def\Bcont#1{\egroup\def\base{#1}}
@@ -1064,6 +1061,7 @@ against that file.
 \let\argchar=\relax
 \let\dirchar=\relax
 \let\rubyCall=\relax
+\let\echoOff=\relax
 \let\ext=\relax
 \ifx \script\UnDef \let\script=\relax \fi
 \let\base=\relax
@@ -1096,21 +1094,28 @@ against that file.
 \<ruby call\><<<
 |rubyCall>>>
 
+\<echo off\><<<
+|echoOff>>>
+
 \<unix line\><<<
 |firstln#!/bin/sh
 # stop at first error
 set -e
 
-# no interaction on the TeX runs is desirable.
-# Simpler to do it here than on the individual commands;
+# No interaction on the TeX runs is desirable.
+# Simpler to do that here than on the individual commands;
 # let's hope exec redirections are portable enough.
 exec </dev/null
-
 endfirstln
 >>>
 
+Despite the name, this macro is not for Windows. It is unconditionally
+included in all the scripts. It should only be the copyright notice,
+which somehow gets transformed for Unix. Thus we go to lots of trouble
+to insert the at-echo off only for Windows.
+
 \<windows line\><<<
-@echo off
+|<echo off|>
 ?<MYcopyrightnotice?>
 >>>
 
@@ -1132,6 +1137,7 @@ endfirstln
    \temp\argchar
    \temp\dirchar
    \temp\rubyCall
+   \temp\echoOff
    \temp\ext
    \temp\script
    \temp\base
@@ -1304,6 +1310,7 @@ shebang line, the defaul shell (which can be anything) is used.
 \Argchar{$}
 \Dirchar{-f/}
 \Rubycall{}
+\Echooff{}
 \Remark{#}
 ->>>
 
@@ -1319,6 +1326,7 @@ shebang line, the defaul shell (which can be anything) is used.
 \Argchar{%}
 \Dirchar{}
 \Rubycall{call }
+\Echooff{@echo off}
 \Remark{Rem }
 ->>>
 

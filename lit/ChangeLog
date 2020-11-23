@@ -1,7 +1,16 @@
+2020-11-23  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-mkht.tex (texinfo): use etex rather than tex.
+	(\Echooff, \echoOff, <echo off>): new @echo off string.
+	(<windows line>): use it.
+	(\make): setup.
+	(<unix setup>, <ms setup>): define \Echooff as empty or "@echo off".
+	* Makefile (user_bin): new variable to allow per-user addition to PATH.
+
 2020-11-21  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (caption.4ht): fixed spurious separator between caption
-	number and text.
+	* tex4ht-4ht.tex (caption.4ht): fixed spurious separator between
+	caption number and text.
 	https://tex.stackexchange.com/q/571684/2891
 
 2020-11-20  Michal Hoftich  <michal.h21@gmail.com>
@@ -17,8 +26,8 @@
 
 2020-11-09  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4 (html4-math.4ht): fixed paragraph opening after \PicDisplay.
-	Also don't use the obsolete <center> element.
+	* tex4ht-html4 (html4-math.4ht): fixed paragraph opening after
+	\PicDisplay. Also don't use the obsolete <center> element.
 	https://tex.stackexchange.com/a/570077/2891
 
 2020-11-08  Karl Berry  <karl@freefriends.org>

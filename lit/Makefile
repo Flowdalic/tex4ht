@@ -6,12 +6,21 @@
 
 SHELL = /bin/sh
 
+# setting PATH as it's nice to find our own (development) scripts,
+# e.g., look for xmlint and vcss in ./extra-bin.
 extra_bin = ./extra-bin
 ht_bin = ../bin/ht/unix
 PATH := $(shell echo $$PATH)
-# setting PATH as it's nice to find our own (development) scripts,
-# e.g., look for xmlint/vcss in ./extra-bin
-export PATH := $(ht_bin):$(extra_bin):$(PATH)
+#
+# per-user addition to PATH. We need to use LaTeX out of current TeX Live,
+# since changes that affect tex4ht are often made. Include trailing :.
+ifeq ($(USER),karl)
+user_bin := /usr/local/texlive/dev/bin/x86_64-linux:
+else
+user_bin :=
+endif
+#
+export PATH := $(ht_bin):$(extra_bin):$(user_bin)$(PATH)
 
 homedir ?= tex4ht.dir
 wd = work.dir
