@@ -1,3 +1,11 @@
+2020-11-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (csquotes.4ht),
+	tex4ht-html4.tex (html4.4ht),
+	tex4ht-ooffice.tex (ooffice.4ht): support for Csquotes quotation
+	environments.
+	https://puszcza.gnu.org.ua/bugs/?490
+
 2020-11-23  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mkht.tex (texinfo): use etex rather than tex.

@@ -22662,9 +22662,10 @@ This modification is needed since Stefan
 % Copyright 2019 TeX Users Group 
 |<TeX4ht license text|> 
 |<csquotes footnote fix|>
+|<csquotes display|>
 \Hinput{csquotes}
 \endinput
->>>
+>>>   \AddFile{7}{csquotes}
 
 Fix for footnotes inside a blockquote environment.
 
@@ -22674,7 +22675,24 @@ for details
 \<csquotes footnote fix\><<<
 \long\def\csq@bquote@i#1#2#3#4#5#6{%
 \csq@bquote@ii{#1}{#2}{#3}{#4}{#5}{#6}}
->>>        \AddFile{7}{csquotes}
+>>>     
+
+Display quotes environment support. We redefine the commands used by multiple
+environments to insert XML tags.
+
+\<csquotes display\><<<
+\NewConfigure{displayquote}{4}
+\let\csq:bdquote\csq@bdquote
+\def\csq@bdquote#1#2#3#4#5{%
+\a:displayquote%
+\csq:bdquote{#1}{#2}{#3}{#4}{#5}%
+}
+
+\let\csq:edquote\csq@edquote%
+\def\csq@edquote{\csq:edquote\d:displayquote}
+
+\renewcommand{\mkenddispquote}[2]{#1\b:displayquote#2\c:displayquote}
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%
 \Section{CJK}

@@ -18195,6 +18195,19 @@ dir="\if@rl rtl\else ltr\fi"
 \def\A:charset{charset=utf-8} 
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{csquotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Csquotes provides quoting environment with a citation support
+
+\<configure html4 csquotes\><<<
+\Configure{displayquote}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<blockquote>}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<footer>}}
+{\EndP\HCode{</footer>}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</blockquote>}}
+>>>
 
 
 
