@@ -4095,6 +4095,45 @@ a more desirable for translations into MS Word.
 
 
 
+\<basic scr ooffice sections\><<<
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else \@seccntformat{subsubsection}\fi }
+\Configure{subsubsection}
+   {\IgnorePar\EndP \HCode{<!--start of subsubsection-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subsubsection-->}}
+   {\HCode{<text:h 
+           text:style-name="\csname a:Heading-4|<cond rtl class|>\endcsname"
+                   \text:outlinelevel="4"   ><text:span
+                   text:style-name="subsubsection"  >}\TitleMark\space
+    \HCode{</text:span>}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
+
+\Configure{paragraph}
+   {\par\ShowPar \noindent\HCode{<!--start of paragraph-->}}   
+   {\HCode{<!--end of paragraph-->}\par\ShowPar}
+   {\HCode{<text:span text:style-name="paragraph-h" >}}
+   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\IgnorePar}
+\Configure{subparagraph}
+   {\par\ShowPar \noindent\HCode{<!--start of subparagraph-->}}   
+   {\HCode{<!--end of subparagraph-->}\par\ShowPar}
+   {\HCode{<text:span text:style-name="subparagraph-h" >}}
+   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\IgnorePar}
+\NewConfigureOO{paragraph-h}
+\ConfigureOO{paragraph-h}{
+   <style:style style:name="paragraph-h" style:family="text">\Hnewline
+      <style:text-properties fo:font-style="normal" 
+                        fo:font-weight="bold"/>\Hnewline
+   </style:style>\Hnewline
+}
+\NewConfigureOO{subparagraph-h}
+\ConfigureOO{subparagraph-h}{
+   <style:style style:name="subparagraph-h" style:family="text">\Hnewline
+      <style:text-properties fo:font-style="normal" 
+                        fo:font-weight="bold"/>\Hnewline
+   </style:style>\Hnewline
+}
+>>>  
 
 
 

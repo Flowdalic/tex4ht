@@ -5,6 +5,9 @@
 	tex4ht-ooffice.tex (ooffice.4ht): support for Csquotes quotation
 	environments.
 	https://puszcza.gnu.org.ua/bugs/?490
+	* tex4ht-ooffice.tex (ooffice.4ht): support for \subsubsection and
+	\paragraphs in the scrbook class.
+	https://puszcza.gnu.org.ua/bugs/?491
 
 2020-11-23  Karl Berry  <karl@freefriends.org>
 
