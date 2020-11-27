@@ -3071,8 +3071,13 @@ See html4 comment regarding \verb+\Configure{jbanchor}{\Link}{\EndLink}+
 %%%%%%%%%%%%%
 
 \<configure ooffice footnote-dw\><<<
-\protected\long\def\mkfootnotecite#1{#1}
 >>>
+
+% There used to be the following redefinition:
+% \protected\long\def\mkfootnotecite#1{#1}
+% I don't know what was the reasoning, but
+% footnote citing works well with the current 
+% Biblatex and TeX4ht, so I think we can remove it.
 
 
 

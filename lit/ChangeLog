@@ -1,3 +1,9 @@
+2020-11-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): don't remove footcite support for
+	Biblatex-dw.
+	https://puszcza.gnu.org.ua/bugs/index.php?492
+
 2020-11-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (csquotes.4ht),
