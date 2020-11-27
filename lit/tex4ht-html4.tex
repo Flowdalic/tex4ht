@@ -17547,13 +17547,14 @@ command
 \ConfigureEnv{quote}
    {}{}
    {\IgnorePar\EndP
-    \HCode{<div class="\getClass{quote}">}\afterGetClass{quote}}
-   {\IgnorePar\EndP\HCode{</div>}\ShowPar\ShowIndent}
-\Css{.quote  {margin-bottom:0.25em; margin-top:0.25em;
-              margin-left:1em; margin-right:1em; text-align:justify;}}
+    \HCode{<blockquote class="\getClass{quote}">}\afterGetClass{quote}}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\ShowIndent}
 \NewConfigure{quoteClass}{2}
 \Configure{quoteClass}{quote}{}
 >>>
+% let browser handle quotation formatting
+% \Css{.quote  {margin-bottom:0.25em; margin-top:0.25em;
+%               margin-left:1em; margin-right:1em; text-align:justify;}}
 
 \<configure html4 tex4ht\><<<
 \def\getClass#1{\expandafter
@@ -17567,12 +17568,12 @@ command
 \<quote noindent config\><<<
 \ConfigureEnv{quote}
    {}{}
-   {\IgnorePar\EndP\HCode{<div class="quote">}\IgnoreIndent}
-   {\IgnorePar\EndP\HCode{</div>}\ShowPar\ShowIndent}
-\Css{.quote  {margin-bottom:0.25em; margin-top:0.25em;
-              margin-left:1em; margin-right:1em; text-align:justify;}}
+   {\IgnorePar\EndP\HCode{<blockquote class="quote">}\IgnoreIndent}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\ShowIndent}
 >>>
-
+% maybe we should let browsers to use the default formatting for quotes
+% \Css{.quote  {margin-bottom:0.25em; margin-top:0.25em;
+%              margin-left:1em; margin-right:1em; text-align:justify;}}
 
 
 \<config book-report-article\><<<
@@ -21175,11 +21176,12 @@ users redefine the latter macro.
 \<quotations\><<<
 \ConfigureEnv{quotation}
    {}{}
-   {\IgnorePar\EndP\HCode{<div class="quotation">}}
-   {\IgnorePar\EndP\HCode{</div>}\ShowPar}
-\Css{.quotation  {margin-bottom:0.25em;
-           margin-top:0.25em; margin-left:1em; }}
+   {\IgnorePar\EndP\HCode{<blockquote class="quotation">}}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar}
 >>>
+% Browsers can handle quotation better
+% \Css{.quotation  {margin-bottom:0.25em;
+%            margin-top:0.25em; margin-left:1em; }}
 
 
 

@@ -6,6 +6,8 @@
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed paragraph handling for Csquotes
 	quotation environments.
 	https://puszcza.gnu.org.ua/bugs/index.php?490
+	* tex4ht-html4.tex (html4.4ht): use <blockquote> element for quotation
+	environments.
 
 2020-11-26  Michal Hoftich  <michal.h21@gmail.com>
 
