@@ -1,3 +1,10 @@
+2020-11-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): simplified configuration of \paragraph
+	like commands. Provided configuration for \paragraph, \paragraph*,
+	\subparagraph and \subparagraph*.
+	https://puszcza.gnu.org.ua/bugs/?491
+
 2020-11-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): don't remove footcite support for

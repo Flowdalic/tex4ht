@@ -434,6 +434,75 @@ hook is sent to the file upon reaching the end of the source.
 \fi
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{helper commands for easier style setting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Styles for \verb|\paragraph| like configurations
+
+Define paragraph style
+
+\<utilities\><<<
+\def\:ParagraphStyle#1{%
+\NewConfigureOO{#1}%
+\ConfigureOO{#1}{%
+<style:style style:name="#1"
+                  style:family="paragraph"
+                  style:parent-style-name="Text-body"
+                  style:class="text">\Hnewline
+<style:paragraph-properties  fo:margin-top="0.5cm" />
+</style:style>
+}
+}
+>>>
+
+Configure paragraph command (first argument). The paragraph title will be set
+in the character style passed as the second argument.
+
+
+\<utilities\><<<
+\def\:DefineParagraph#1#2{%
+\Configure{#1}
+   {\IgnorePar\EndP \HCode{<!--start of #1 -->}}
+   {\IgnorePar\EndP \HCode{<!--start of #1 -->}}
+   {\bgroup\HTML:PAR{#1-p}{#1-p}\par\HCode{<text:span text:style-name="#2" >}}
+   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\egroup}
+\:ParagraphStyle{#1-p}
+}
+>>>
+
+Usage: 
+
+\begin{verbatim}
+\:DefineParagraph{paragraph}{paragraph-h}
+\:BoldStyle{paragraph-h}
+\end{verbatim}
+
+Commands for basic character styles:
+
+\<utilities\><<<
+\def\:BoldStyle#1{%
+\NewConfigureOO{#1}
+\ConfigureOO{#1}{
+   <style:style style:name="#1" style:family="text">\Hnewline
+      <style:text-properties fo:font-style="normal"
+                        fo:font-weight="bold"/>\Hnewline
+   </style:style>\Hnewline
+}}
+
+\def\:ItalicStyle#1{%
+\NewConfigureOO{#1}
+\ConfigureOO{#1}{
+   <style:style style:name="#1" style:family="text">\Hnewline
+      <style:text-properties fo:font-style="italic"
+                        fo:font-weight="normal"/>\Hnewline
+   </style:style>\Hnewline
+}}
+
+>>>
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3719,44 +3788,28 @@ within titles.
            text:style-name="\csname a:Heading-3|<cond rtl class|>\endcsname" 
                    \text:outlinelevel="3"  >}\IgnoreIndent}
    {\HCode{</text:h>\Hnewline}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\IgnorePar\EndP \HCode{<!--start of subsection*-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subsection*-->}}
+   {\HCode{<text:h 
+           text:style-name="\csname a:Heading-4|<cond rtl class|>\endcsname" 
+                   \text:outlinelevel="4"  >}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
 >>>
 
 
+Paragraph configurations
 
 \<basic ooffice sections\><<<
-\Configure{paragraph}
-   {\par\ShowPar \noindent\HCode{<!--start of paragraph-->}}   
-   {\HCode{<!--end of paragraph-->}\par\ShowPar}
-   {\HCode{<text:span text:style-name="paragraph-h" >}}
-   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\IgnorePar}
-\Configure{subparagraph}
-   {\par\ShowPar \noindent\HCode{<!--start of subparagraph-->}}   
-   {\HCode{<!--end of subparagraph-->}\par\ShowPar}
-   {\HCode{<text:span text:style-name="subparagraph-h" >}}
-   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\IgnorePar}
+\:DefineParagraph{paragraph}{paragraph-h}
+\:DefineParagraph{likeparagraph}{paragraph-h}
+\:DefineParagraph{subparagraph}{subparagraph-h}
+\:DefineParagraph{likesubparagraph}{subparagraph-h}
+
+
+\:BoldStyle{paragraph-h}
+\:BoldStyle{subparagraph-h}
 >>>  
-
-\<basic ooffice sections\><<<
-\NewConfigureOO{paragraph-h}
-\ConfigureOO{paragraph-h}{
-   <style:style style:name="paragraph-h" style:family="text">\Hnewline
-      <style:text-properties fo:font-style="normal" 
-                        fo:font-weight="bold"/>\Hnewline
-   </style:style>\Hnewline
-}
->>>
-
-
-
-\<basic ooffice sections\><<<
-\NewConfigureOO{subparagraph-h}
-\ConfigureOO{subparagraph-h}{
-   <style:style style:name="subparagraph-h" style:family="text">\Hnewline
-      <style:text-properties fo:font-style="normal" 
-                        fo:font-weight="bold"/>\Hnewline
-   </style:style>\Hnewline
-}
->>>
 
 
 \<basic ooffice sectionsNO\><<<
@@ -4096,6 +4149,12 @@ a more desirable for translations into MS Word.
    {\HCode{<text:h text:style-name="\csname a:Heading-3\endcsname" 
                    \text:outlinelevel="3"  >}\IgnoreIndent}
    {\HCode{</text:h>\Hnewline}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\IgnorePar\EndP \HCode{<!--start of subsubsection*-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subsubsection*-->}}
+   {\HCode{<text:h text:style-name="\csname a:Heading-4\endcsname" 
+                   \text:outlinelevel="4"  >}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
 >>>
 
 
@@ -4114,30 +4173,17 @@ a more desirable for translations into MS Word.
     \HCode{</text:span>}\IgnoreIndent}
    {\HCode{</text:h>\Hnewline}\par\ShowPar}
 
-\Configure{paragraph}
-   {\par\ShowPar \noindent\HCode{<!--start of paragraph-->}}   
-   {\HCode{<!--end of paragraph-->}\par\ShowPar}
-   {\HCode{<text:span text:style-name="paragraph-h" >}}
-   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\IgnorePar}
-\Configure{subparagraph}
-   {\par\ShowPar \noindent\HCode{<!--start of subparagraph-->}}   
-   {\HCode{<!--end of subparagraph-->}\par\ShowPar}
-   {\HCode{<text:span text:style-name="subparagraph-h" >}}
-   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\IgnorePar}
-\NewConfigureOO{paragraph-h}
-\ConfigureOO{paragraph-h}{
-   <style:style style:name="paragraph-h" style:family="text">\Hnewline
-      <style:text-properties fo:font-style="normal" 
-                        fo:font-weight="bold"/>\Hnewline
-   </style:style>\Hnewline
-}
-\NewConfigureOO{subparagraph-h}
-\ConfigureOO{subparagraph-h}{
-   <style:style style:name="subparagraph-h" style:family="text">\Hnewline
-      <style:text-properties fo:font-style="normal" 
-                        fo:font-weight="bold"/>\Hnewline
-   </style:style>\Hnewline
-}
+
+% use the new mechanism for paragraph handling
+\:DefineParagraph{paragraph}{paragraph-h}
+\:DefineParagraph{likeparagraph}{paragraph-h}
+\:DefineParagraph{subparagraph}{subparagraph-h}
+\:DefineParagraph{likesubparagraph}{subparagraph-h}
+
+
+\:BoldStyle{paragraph-h}
+\:BoldStyle{subparagraph-h}
+
 >>>  
 
 
