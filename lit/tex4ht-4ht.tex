@@ -26283,6 +26283,75 @@ We need to use dvips driver with XeLaTeX
 \endinput
 >>> \AddFile{9}{mdframed}
 
+%%%%%%%%%%%%%%%%%%%%%%%
+\Section{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\<tcolorbox.4ht\><<<
+% tcolorbox.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht license text|>
+
+% use custom counter that increments for every \tcolorbox
+\newcounter{:tcbcolcount}
+
+\def\tcb@drawcolorbox{%
+  \stepcounter{:tcbcolcount}%
+  % save text and background colors for use in CSS
+  \get:xcolorcss{tcbcolbacktitle}\:tcbcolbacktitle%
+  \get:xcolorcss{tcbcoltitle}\:tcbcoltitle%
+  \get:xcolorcss{tcbcolback}\:tcbcolback%
+  \get:xcolorcss{tcbcolframe}\:tcbcolframe%
+  \get:xcolorcss{tcbcolupper}\:tcbcolupper%
+  % make unique ID for this box
+  \def\:tcbcolid{tcolobox-\arabic{:tcbcolcount}}
+  % Open box
+  \a:tcolorbox%
+  % save label, if it is set
+  \ifdefined\tcolorbox:label:key%
+    \label{\tcolorbox:label:key}%
+  \fi%
+  % open title
+  \b:tcolorbox%
+  \kvtcb@before@title\kvtcb@title\kvtcb@after@title%
+  % close title and open main box
+  \c:tcolorbox%
+  \box\tcb@upperbox%
+  % deal with lower box, if it is set
+  \iftcb@hasLower%
+    \a:tcolorlowerbox%
+    \box\tcb@lowerbox%
+    \b:tcolorlowerbox%
+  \fi%
+  % close box
+  \d:tcolorbox%
+}
+
+% overwrite other versions of box drawing macros
+\let\tcb@drawcolorbox@standalone\tcb@drawcolorbox
+
+\NewConfigure{tcolorbox}{4}
+\NewConfigure{tcolorlowerbox}{2}
+
+% we need to save label for a later use
+\def\:tempa#1{%
+  \xdef\tcolorbox:label:key{#1}%
+  \o:tcb@set@label:{#1}%
+}
+\HLet\tcb@set@label\:tempa
+
+
+% this is a trick to fix issues with paragraphs
+% spurious end </p> tags were inserted
+\def\tcb@minipage#1{\SaveEndP\vbox\bgroup\par}
+\def\endtcb@savebox{\EndP\egroup\RecallEndP}
+
+\Hinput{tcolorbox}
+\endinput
+
+
+
+>>> \AddFile{9}{tcolorbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \Section{dvipsnam}

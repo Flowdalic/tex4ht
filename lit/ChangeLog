@@ -1,3 +1,9 @@
+2020-12-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tcolorbox.4ht),
+	tex4ht-html4.tex (html4.4ht): added support for the tcolorbox package.
+	https://tex.stackexchange.com/a/573314/2891
+
 2020-11-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): simplified configuration of \paragraph

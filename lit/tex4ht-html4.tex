@@ -16100,6 +16100,34 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 }
 >>>
 
+%%%%%%%%%%%%%%%%%
+\section{tcolorbox}
+%%%%%%%%%%%%%%%%%
+
+
+
+\<configure html4 tcolorbox\><<<
+\Configure{tcolorbox}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="tcolorbox \@currenvir" id="\:tcbcolid">} 
+  % \tcbcolid and colors are defined in tcolorbox.4ht
+  \Css{\#\:tcbcolid\space .tcolorbox-title{color: \:tcbcoltitle; background-color: \:tcbcolframe;}}
+  \Css{\#\:tcbcolid\space .tcolorbox-content{color: \:tcbcolupper; background-color: \:tcbcolback; border: 1px solid \:tcbcolframe;}}
+}
+{\HCode{\Hnewline<div class="tcolorbox-title">}\par}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</div>\Hnewline<div class="tcolorbox-content">}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{\Hnewline</div>\Hnewline</div>}\par}
+
+\Css{.tcolorbox{margin-top:0.5em;margin-bottom: 0.5em;}}
+
+\Configure{tcolorlowerbox}{\ifvmode\IgnorePar\fi\EndP\HCode{\Hnewline<div class="lowerbox">}
+  \Css{\#\:tcbcolid\space .lowerbox{border-top: 1px dashed \:tcbcolframe;}}
+}
+{\ifvmode\IgnorePar\fi\EndP\HCode{\Hnewline</div>}}
+
+% there is rule p + div elsewhere in TeX4ht. we want to nullify it.
+\Css{.tcolorbox .lowerbox{margin-top:0pt;}}
+>>>
+
 %%%%%%%%%%%%%%%%
 \section{verse}
 %%%%%%%%%%%%%%%%%
