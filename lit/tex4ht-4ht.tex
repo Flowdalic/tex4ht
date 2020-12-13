@@ -26286,7 +26286,6 @@ We need to use dvips driver with XeLaTeX
 %%%%%%%%%%%%%%%%%%%%%%%
 \Section{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%
-
 \<tcolorbox.4ht\><<<
 % tcolorbox.4ht (|version), generated from |jobname.tex
 % Copyright 2020 TeX Users Group
@@ -29515,9 +29514,8 @@ d|<haddr prefix|>\last:haddr
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 \<tugboat.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% tugboat.4ht                           |version %
-% Copyright (C) |CopyYear.2004.       Eitan M. Gurari         %
+% tugboat.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.2004. Eitan M. Gurari
 |<TeX4ht copyright|>
 |<tugboat cfg|>
 |<tugboat cmn|>
@@ -29670,25 +29668,24 @@ d|<haddr prefix|>\last:haddr
 \NewConfigure{volno}{2}
 >>>
 
-%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{ltugXXX.sty}
-%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{ltugboat, ltugproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \<ltugboat.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% ltugboat.4ht                          |version %
-% Copyright (C) |CopyYear.1999.       Eitan M. Gurari         %
+% ltugboat.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.1999. Eitan M. Gurari
 |<TeX4ht copyright|>
 \@ifclassloaded{ltugproc}{}{%
    \@ifpackageloaded{ltugproc}{}{\Hinclude{\input ltugboat-a.4ht}{article}}
+   \InputIfFileExists{tugboat.dates}%
 }
 \endinput
 >>>        \AddFile{9}{ltugboat}
 
 \<ltugboat-a.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% ltugboat-a.4ht                        |version %
-% Copyright (C) |CopyYear.1999.       Eitan M. Gurari         %
+% ltugboat-a.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.1999. Eitan M. Gurari
 |<TeX4ht copyright|>
 |<ltugboat cfg|>
 \Hinput{ltugboat}
@@ -29740,9 +29737,8 @@ d|<haddr prefix|>\last:haddr
 >>>
 
 \<ltugproc.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% ltugproc.4ht                          |version %
-% Copyright (C) |CopyYear.1999.       Eitan M. Gurari         %
+% ltugproc.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.1999. Eitan M. Gurari
 |<TeX4ht copyright|>
 \Hinclude{\input ltugboat-a.4ht
           \input ltugproc-a.4ht}{article}    
@@ -29750,9 +29746,8 @@ d|<haddr prefix|>\last:haddr
 >>>        \AddFile{9}{ltugproc}
 
 \<ltugproc-a.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% ltugproc-a.4ht                        |version %
-% Copyright (C) |CopyYear.1999.       Eitan M. Gurari         %
+% ltugproc-a.4ht (|version), generated from |jobname.tex
+% Copyright |CopyYear.1999. Eitan M. Gurari
 |<TeX4ht copyright|>
 |<ltug proc|>
 \Hinput{ltugproc}

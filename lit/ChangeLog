@@ -1,3 +1,14 @@
+2020-12-13  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-html4.tex <configure html4 ltugboat\>: remove spurious <br/>
+	from \Configure{signature}, causing blank lines after each
+	\makesignature element.
+	(.makesignature): reduce left margin to 4em.
+	(.signaturemark): hang diamond to left with magic number.
+	* tex4ht-4ht.tex (ltugboat.4ht): \InputIfFileExists{tugboat.dates}
+	for production TUGboat runs.
+	(tugboat.4ht, ltugboat-a.4ht, ltugproc{,-a}.4ht): minimize header.
+
 2020-12-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tcolorbox.4ht),
@@ -6,18 +17,18 @@
 
 2020-11-29  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): simplified configuration of \paragraph
-	like commands. Provided configuration for \paragraph, \paragraph*,
-	\subparagraph and \subparagraph*.
+	* tex4ht-ooffice.tex (ooffice.4ht): simplified configuration of
+	\paragraph-like commands. Provided configuration for \paragraph,
+	\paragraph*, \subparagraph and \subparagraph*.
 	https://puszcza.gnu.org.ua/bugs/?491
 
 2020-11-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): don't remove footcite support for
-	Biblatex-dw.
+	biblatex-dw.
 	https://puszcza.gnu.org.ua/bugs/index.php?492
-	* tex4ht-ooffice.tex (ooffice.4ht): fixed paragraph handling for Csquotes
-	quotation environments.
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed paragraph handling for
+	csquotes quotation environments.
 	https://puszcza.gnu.org.ua/bugs/index.php?490
 	* tex4ht-html4.tex (html4.4ht): use <blockquote> element for quotation
 	environments.
@@ -26,7 +37,7 @@
 
 	* tex4ht-4ht.tex (csquotes.4ht),
 	tex4ht-html4.tex (html4.4ht),
-	tex4ht-ooffice.tex (ooffice.4ht): support for Csquotes quotation
+	tex4ht-ooffice.tex (ooffice.4ht): support for csquotes quotation
 	environments.
 	https://puszcza.gnu.org.ua/bugs/?490
 	* tex4ht-ooffice.tex (ooffice.4ht): support for \subsubsection and
