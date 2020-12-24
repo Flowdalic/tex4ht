@@ -20261,7 +20261,7 @@ $\m@th\displaystyle{{}#}$%
 
 % Fix for https://puszcza.gnu.org.ua/bugs/?495
 \<mathtools sty\><<<
-\RequirePackage{graphicx}
+\@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}}
 >>>
 
 \<mathtools sty\><<<
