@@ -1,3 +1,8 @@
+2020-12-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (mathtools.4ht): load graphicx package.
+	https://puszcza.gnu.org.ua/bugs/?495
+
 2020-12-13  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-html4.tex <configure html4 ltugboat\>: remove spurious <br/>
