@@ -896,6 +896,9 @@ the command is defined as outer.
    %\let\document|=\o:document
    \ifdefined\AddToHook%
       \def\document{\endgroup\o:document}%
+      % use new LaTeX hook system to execute \Configure{AtBeginDocument}
+      \AddToHook{begindocument/before}[tex4ht]{\csname a:AtBeginDocument\endcsname}
+      \AddToHook{begindocument/end}[tex4ht]{\csname b:AtBeginDocument\endcsname}
    \else%
       \let\document\o:document%
    \fi%

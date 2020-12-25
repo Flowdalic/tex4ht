@@ -1,3 +1,12 @@
+2020-12-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): use the new LaTeX hook system to execute
+	\Configure{AtBeginDocument}
+	* tex4ht-4ht.tex (mathtools.4ht): the code added yesterday is now
+	unnecessary.
+	https://puszcza.gnu.org.ua/bugs/?495
+	https://tex.stackexchange.com/a/576267/2891
+
 2020-12-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (mathtools.4ht): load graphicx package.
