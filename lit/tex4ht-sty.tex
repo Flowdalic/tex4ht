@@ -172,9 +172,12 @@
 |<copyright|>
 \ifx  \Preamble\UnDef  \else
    % fix for LaTeX hook system, \AtBeginDocument is not available at this moment
+   \let\origatbegindocument\AtBeginDocument
    \def\AtBeginDocument#1{\AddToHook{begindocument/end}{#1}}
    \csname expand:after\endcsname{\csname 
        BeforeTeXIVht\endcsname\let\BeforeTeXIVht|=\UnDef}
+   \let\AtBeginDocument\origatbegindocument
+
 \fi
 \def\writesixteen#1{\immediate\write99999{#1}}
 |<save cat codes|>
