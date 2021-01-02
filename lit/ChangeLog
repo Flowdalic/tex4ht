@@ -1,3 +1,7 @@
+2021-01-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): fixed \AtBeginDocument issues.
+
 2021-01-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): emulate \AtBeginDocument in .4ht files. 

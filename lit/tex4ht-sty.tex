@@ -895,16 +895,16 @@ the command is defined as outer.
 \let\o:document|=\document
 \def\document{%
    |<check irregularities|>%
-   %\expandafter\let\csname enddocument\endcsname|=\empty
-   %\end{document}%
-   |<protect AtBeginDocument|>%
-   %\let\document|=\o:document
    \ifdefined\AddToHook%
       \def\document{\endgroup\o:document}%
       % use new LaTeX hook system to execute \Configure{AtBeginDocument}
       \AddToHook{begindocument/before}[tex4ht]{\csname a:AtBeginDocument\endcsname}
       \AddToHook{begindocument/end}[tex4ht]{\csname b:AtBeginDocument\endcsname}
    \else%
+      %\expandafter\let\csname enddocument\endcsname|=\empty
+      %\end{document}%
+      %\let\document|=\o:document
+      |<protect AtBeginDocument|>%
       \let\document\o:document%
    \fi%
    \let\:latex@error|=\@latex@error
