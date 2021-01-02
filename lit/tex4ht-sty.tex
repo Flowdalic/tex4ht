@@ -171,6 +171,8 @@
   \catcode`\%}\catcode`\%|=14\fi
 |<copyright|>
 \ifx  \Preamble\UnDef  \else
+   % fix for LaTeX hook system, \AtBeginDocument is not available at this moment
+   \def\AtBeginDocument#1{\AddToHook{begindocument/end}{#1}}
    \csname expand:after\endcsname{\csname 
        BeforeTeXIVht\endcsname\let\BeforeTeXIVht|=\UnDef}
 \fi
