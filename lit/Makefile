@@ -204,6 +204,9 @@ derived += $(tex4ht_fonts_fourier_derived)
 tex4ht_fonts_fourier_derived = \
 	$(ht_fonts_devdir)/unicode/Fourier-Math-Letters/futmi.htf
 
+derived += $(tex4ht_fonts_spectral_derived)
+tex4ht_fonts_spectral_derived = \
+	$(ht_fonts_devdir)/unicode/Spectral/Spectral-Regular-lf-sc-ly1.htf
 # xx and many more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
 
@@ -414,6 +417,9 @@ $(tex4ht_fonts_newtx_derived): tex4ht-fonts-newtx.tex
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_fourier_derived): tex4ht-fonts-fourier.tex
+	$(HTTEX) $< ""
+
+$(tex4ht_fonts_spectral_derived): tex4ht-fonts-spectral.tex
 	$(HTTEX) $< ""
 
 # requires more memory than configured in other tex programs.

@@ -1,3 +1,8 @@
+2021-01-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-spectral.tex: added support for the Spectral font.
+	https://puszcza.gnu.org.ua/bugs/?497
+
 2021-01-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): fixed \AtBeginDocument issues.
