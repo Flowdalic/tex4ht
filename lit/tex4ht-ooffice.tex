@@ -50,6 +50,7 @@
 \<configure ooffice plain\><<<
 |<Hinclude plain lib|>
 |<Hinclude plain + latex lib|>
+|<plain accents|>
 >>>
 
 \<configure ooffice latex\><<<
@@ -9747,6 +9748,72 @@ The following configuration does not show.
    {\HChar{#1}}      {\b:accents{check}{#1}{#2}} 
 \Configure{accent}\=\bar{{}{}} 
    {\HChar{#1}}      {\b:accents{bar}{#1}{#2}}
+>>>
+
+Accents for Plain TeX
+
+\<plain accents\><<<
+\Configure{accent}\`\grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}i{00EC}n{01F9}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+   {\a:accents{grave}{#1}}   {\b:accents{grave}{#1}{#2}}
+\Configure{accent}\'\acute{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+{}{}}
+   {\a:accents{acute}{#1}}   {\b:accents{acute}{#1}{#2}}
+\Configure{accent}\^\hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}Z{1E90}z{1E91}\i{00EE}\j{0135}%
+{}{}}
+   {\a:accents{circ}{#1}}   {\b:accents{hat}{#1}{#2}}
+\Configure{accent}\~\tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+   {\a:accents{tilde}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\"\ddot{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{uml}{#1}}     {\b:accents{uml}{#1}{#2}}
+\Configure{accent}\c\c{C{C}c{c}{}{}}
+   {\a:accents{cedil}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\Configure{accent}\t\t{{}{}}
+   {\a:accents{udot}{#1}}     {\b:accents{udot}{#1}{#2}}
+\Configure{accent}\H\H{O{0150}o{0151}U{0170}u{0171}Y{04F2}y{04F3}{}{}}
+    {\a:accents{Huml}{#1}} {\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\b\b{{}{}}
+    {\a:accents{b}{#1}} {\b:accents{b}{#1}{#2}}
+\Configure{accent}\d\d{{}{}}
+    {\a:accents{d}{#1}} {\b:accents{d}{#1}{#2}}
+\Configure{accent}\.\.{{}{}}
+   {\a:accents{dot}{#1}} {\b:accents{dot}{#1}{#2}}
+\Configure{accent}\dot\dot{{}{}}
+   {\a:accents{dot}{#1}} {\b:accents{dot}{#1}{#2}}
+\Configure{accent}\u\breve{{}{}}{\a:accents{breve}{#1}}
+   {\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}{\a:accents{vec}{#1}}
+   {\b:accents{vec}{#1}{#2}}
+\Configure{accent}\v\v{{}{}}{\a:accents{check}{#1}}
+   {\b:accents{check}{#1}{#2}}
+\Configure{accent}\check\check{{}{}}{\a:accents{check}{#1}}
+   {\b:accents{check}{#1}{#2}}
+\Configure{accent}\=\bar{{}{}}
+   {\a:accents{bar}{#1}} {\b:accents{bar}{#1}{#2}}
+\Configure{accent}\widetilde\widetilde{{}{}}
+   {\a:accents{widetilde}{#1}} {\b:accents{widetilde}{#1}{#2}}
+\Configure{accent}\widehat\widehat{{}{}}
+   {\a:accents{widehat}{#1}} {\b:accents{widehat}{#1}{#2}}
+
+   \Configure{accents}
+      {\ht:special{t4ht@+\string&{35}x#2{59}}x}
+      {\Picture+{ \:Picture:{#1}}#2{#3}\EndPicture}
+
 >>>
 
 \<configure ooffice frenchb\><<<
