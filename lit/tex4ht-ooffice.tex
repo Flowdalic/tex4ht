@@ -1146,8 +1146,8 @@ Enable supported image extensions out of the box.
 
 \<configure ooffice tex4ht\><<<
 \def\svg:width{0.0pt}\def\svg:height{0.0pt}
-\def\def:image:mime:type#1#2{\@namedef{image:mime#1}{#2}}
-\def\get:image:mime:type#1{\@nameuse{image:mime#1}}
+\def\def:image:mime:type#1#2{\expandafter\def\csname image:mime#1\endcsname{#2}}
+\def\get:image:mime:type#1{\csname image:mime#1\endcsname}
 \def:image:mime:type{.png}{image/png}
 \def:image:mime:type{.jpg}{image/jpeg}
 \def:image:mime:type{.jpeg}{image/jpeg}

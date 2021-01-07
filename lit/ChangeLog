@@ -1,3 +1,8 @@
+2021-01-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.4ht (ooffice.4ht): don't use \@namedef, in order to support
+	plain.
+
 2021-01-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-spectral.tex: added support for the Spectral font.
