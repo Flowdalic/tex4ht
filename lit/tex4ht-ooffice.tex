@@ -52,6 +52,7 @@
 |<Hinclude plain + latex lib|>
 |<plain accents|>
 |<plain page dimensions|>
+|<plain aligned lines|>
 >>>
 
 \<configure ooffice latex\><<<
@@ -3564,9 +3565,28 @@ is required for cases like the following one.
 
 
 \<ooffice begin-end env\><<<
+|<aligned lines|>
+>>>
+
+\<plain aligned lines\><<<
+|<aligned lines|>
+>>>
+
+
+\<aligned lines\><<<
 \Configure{centerline}
    {\EndP \ifvmode \IgnorePar \fi
     \HCode{<text:p text:style-name="FirstCenterPar"  >}}
+   {\HCode{</text:p>}|<try inline par|>}
+
+\Configure{leftline}
+   {\EndP \ifvmode \IgnorePar \fi
+    \HCode{<text:p text:style-name="FirstLeftPar"  >}}
+   {\HCode{</text:p>}|<try inline par|>}
+
+\Configure{rightline}
+   {\EndP \ifvmode \IgnorePar \fi
+    \HCode{<text:p text:style-name="FirstRightPar"  >}}
    {\HCode{</text:p>}|<try inline par|>}
 >>>
 

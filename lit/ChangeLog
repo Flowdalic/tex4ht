@@ -6,6 +6,8 @@
 	\H.
 	* tex4ht-ooffice.tex (ooffice.4ht): configure accents for Plain TeX.
 	* tex4ht-ooffice.tex (ooffice.4ht): define page dimensions for Plain TeX.
+	* tex4ht-ooffice.tex (ooffice.4ht): added configuration for leftline and
+	rightline. Even for Plain TeX.
 
 2021-01-03  Michal Hoftich  <michal.h21@gmail.com>
 
