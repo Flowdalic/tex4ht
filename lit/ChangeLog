@@ -1,7 +1,9 @@
 2021-01-07  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.4ht (ooffice.4ht): don't use \@namedef, in order to support
+	* tex4ht-ooffice.tex (ooffice.4ht): don't use \@namedef, in order to support
 	plain.
+	* tex4ht-html4.tex (html4.4ht): configure Plain accents for long umlaut
+	\H.
 
 2021-01-03  Michal Hoftich  <michal.h21@gmail.com>
 
