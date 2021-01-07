@@ -51,6 +51,7 @@
 |<Hinclude plain lib|>
 |<Hinclude plain + latex lib|>
 |<plain accents|>
+|<plain page dimensions|>
 >>>
 
 \<configure ooffice latex\><<<
@@ -8536,6 +8537,15 @@ style:auto-text-indent="false"
 %%%%%%%%%%%%%
 \subsection{Page Layout}
 %%%%%%%%%%%%%
+
+We need to define the following dimensions for Plain TeX
+
+\<plain page dimensions\><<<
+\newdimen\paperwidth
+\newdimen\paperheight
+\paperwidth=11truein
+\paperheight=8.5truein
+>>>
 
 The following doesn't catch because the style name is not in use.  Is
 there a way to get styles to be specifies as a default without

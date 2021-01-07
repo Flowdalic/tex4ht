@@ -5,6 +5,7 @@
 	* tex4ht-html4.tex (html4.4ht): configure Plain accents for long umlaut
 	\H.
 	* tex4ht-ooffice.tex (ooffice.4ht): configure accents for Plain TeX.
+	* tex4ht-ooffice.tex (ooffice.4ht): define page dimensions for Plain TeX.
 
 2021-01-03  Michal Hoftich  <michal.h21@gmail.com>
 
