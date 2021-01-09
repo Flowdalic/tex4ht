@@ -1,3 +1,9 @@
+2021-01-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht): fixed display math configuration for
+	Amsmath. It supports the split environment now.
+	https://tug.org/pipermail/tex4ht/2021q1/002856.html
+
 2021-01-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): don't use \@namedef, in order to support

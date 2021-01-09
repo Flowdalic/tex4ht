@@ -9551,7 +9551,22 @@ AmsMath redefines display math to equation*. We should follow it, but not in the
 
 \<configure html4-math amsmath\><<<
 \ifOption{mathjax}{}{%
-\Configure{[]}{\begin{equation*}\protect\nested:math}{\end{equation*}}
+\DeclareRobustCommand\[{%
+\bgroup%
+  \mathdisplay@push%
+  \st@rredtrue \global\@eqnswfalse%
+  \mathdisplay{equation*}%
+\csname st:Math\endcsname
+}
+
+\DeclareRobustCommand\]{%
+\csname ed:Math\endcsname
+  \endmathdisplay{equation*}%
+  \mathdisplay@pop%
+  \ignorespacesafterend%
+\egroup
+}
+\Configure{[]}{\protect\nested:math}{}
 }%
 >>>
 
