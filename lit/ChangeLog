@@ -3,6 +3,9 @@
 	* tex4ht-html4.tex (html4-math.4ht): fixed display math configuration for
 	Amsmath. It supports the split environment now.
 	https://tug.org/pipermail/tex4ht/2021q1/002856.html
+	* tex4ht-html4.tex (html4.4ht): removed cellspacing and cellpading
+	attributes from most tables. They are deprecated.
+	https://tex.stackexchange.com/a/578224/2891
 
 2021-01-07  Michal Hoftich  <michal.h21@gmail.com>
 

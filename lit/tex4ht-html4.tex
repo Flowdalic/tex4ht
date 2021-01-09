@@ -2192,7 +2192,7 @@ should be used whe addcontentline instructions are present.
 
 \<configure html4 tabulary\><<<
 \Configure{halignTB<>}{tabulary}{\HCode{id="TBL-\TableNo" class="tabulary"\Hnewline 
-   cellspacing="0" cellpadding="0" \GROUPS\Hnewline 
+   \GROUPS\Hnewline 
    }<>\HAlign} 
 \Css{table[rules] {border-left:solid black 0.4pt; 
                    border-right:solid black 0.4pt; }}
@@ -2215,8 +2215,7 @@ should be used whe addcontentline instructions are present.
 \Configure{halignTB<>}
    {smarray}
    {\HCode{id="TBL-\TableNo" class="smarray"\Hnewline
-           cellpadding="0"
-           cellspacing="0" \GROUPS\Hnewline
+           \GROUPS\Hnewline
           }<>\HAlign
    }
 >>>
@@ -4145,7 +4144,7 @@ Q. Where placefigure is declared?
 
 \Configure{halignTB}{\HCode{<table }}{\HCode{>}}
 \Configure{halignTB<>}{table}{\HCode{id="TBL-\TableNo" class="table"\Hnewline
-   cellspacing="0" cellpadding="0" \GROUPS\Hnewline
+   \GROUPS\Hnewline
    }<>\HAlign}
 \Css{table[rules] {border-left:solid black 0.4pt; 
                    border-right:solid black 0.4pt; }}
@@ -7503,7 +7502,7 @@ zeros before the 1's that represent the current and following 1's.
 \<html latex array/tabular Config 4.0t\><<<
 \Configure{halignTB<>}{tabular}{\HCode{id="TBL-\TableNo" 
                                              class="tabular"\Hnewline 
-   cellspacing="0" cellpadding="0" \GROUPS\Hnewline
+   \GROUPS\Hnewline
    }<>\HAlign}
 \Css{table[rules] {border-left:solid black 0.4pt; 
                    border-right:solid black 0.4pt; }}
@@ -7550,7 +7549,7 @@ On the other hand, the above doesn't work, for instance on
 
 \<html latex array/tabular Config 4.0t\><<<
 \Configure{halignTB<>}{array}{\HCode{id="TBL-\TableNo" class="array"\Hnewline
-   cellpadding="0" cellspacing="0" \GROUPS\Hnewline
+   \GROUPS\Hnewline
    }<>\HAlign}
 \Css{table[rules] {border-left:solid black 0.4pt; 
                    border-right:solid black 0.4pt; }}
@@ -8085,7 +8084,7 @@ and the same for pic tabular. Why?
 
 \<config new longtable\><<<   
 \Configure{halignTB<>}{longtable}{\HCode{id="TBL-\TableNo" class="longtable"\Hnewline 
-   cellspacing="0" cellpadding="0" \GROUPS\Hnewline
+   \GROUPS\Hnewline
    }<>\HAlign}
 \Css{table[rules] {border-left:solid black 0.4pt; 
                    border-right:solid black 0.4pt; }}
@@ -8382,7 +8381,7 @@ The \verb'<TABLE>' is needed as a grouping mechanism for \verb'<CENTER>'.
 >>>
 
 \<config plain,latex\><<<
-\def\:zbsp#1{cellpadding="0" border="0" cellspacing="0"\Hnewline
+\def\:zbsp#1{cellpadding="0" border="0" \Hnewline
    class="#1"}
 >>>
 
