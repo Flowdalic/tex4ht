@@ -3752,6 +3752,29 @@ breaks TeX4ht, so we just disable it.
 >>> \AddFile{9}{savetrees-hooks}
 
 %%%%%%%%%%%%%%%%%
+\Section{newcomputermodern.sty}
+%%%%%%%%%%%%%%%%%
+
+This is a really nice variant of Computer Modern in OpenType format. The
+rendered text is a bit darker and more readable than Latin Modern. It also
+supports Cyrillics, Hebrew and Greek.
+
+We need to disable it with TeX4ht though, because it forces loading of OpenType
+fonts which results in compilation failure.
+
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{newcomputermodern.sty}{newcomputermodern-hooks.4ht}
+>>>
+
+\<newcomputermodern-hooks.4ht\><<<
+% newcomputermodern-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+\:dontusepackage{newcomputermodern}
+>>> \AddFile{9}{newcomputermodern-hooks}
+
+%%%%%%%%%%%%%%%%%
 \Section{biblatex}
 %%%%%%%%%%%%%%%%%
 
