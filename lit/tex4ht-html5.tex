@@ -213,6 +213,7 @@ Support for xml name spaces. It must be configured after
 \section{Article, book and report classes}
 \<configure html5 article\><<<
 |<article,report,book|>
+|<article,report|>
 >>>
 
 \<configure html5 book\><<<
@@ -221,6 +222,7 @@ Support for xml name spaces. It must be configured after
 
 \<configure html5 report\><<<
 |<article,report,book|>
+|<article,report|>
 >>>
 
 Shared configurations for base LaTeX classes.
@@ -228,6 +230,13 @@ Shared configurations for base LaTeX classes.
 \<article,report,book\><<<
 |<figcaption|>
 >>>
+
+Configurations that are shared only for article and report
+
+\<article,report\><<<
+|<abstract|>
+>>>
+
 
 \section{Configurations for Koma Script}
 
@@ -263,6 +272,12 @@ Shared configurations for base LaTeX classes.
 
 
 \<ams art,proc,book\><<<
+|<figcaption|>
+>>>
+
+\section{Configurations for Memoir}
+
+\<configure html5 memoir\><<<
 |<figcaption|>
 >>>
 
@@ -306,6 +321,17 @@ Configure HTML5 figures. Floats are converted as captions too.
 \Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
                   text-align:center;}}
 \Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+>>>
+
+\section{Abstracts}
+
+
+\<abstract\><<<
+\ConfigureEnv{abstract}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<section role="doc-abstract" class="abstract">\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</section>}}{}{}
+
+\Css{.abstract{margin:1em;}}
 >>>
 
 \section{Utilities}

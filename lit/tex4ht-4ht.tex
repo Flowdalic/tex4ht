@@ -8198,6 +8198,18 @@ at start and end of lines.
    \fi}
 >>>
 
+\Section{Abstract}
+
+Standard LaTeX classes use centering environment to place abstract title. 
+We want to place some configurable tags instead of that centering. For example
+header element. To do that, we can use the new LaTeX environment hook mechanism
+to redefine configuration of centering at the beginning of abstract.
+
+\<config report / article shared\><<<
+\NewConfigure{abstracttitle}{2}
+\AtBeginEnvironment[tex4ht]{abstract}{\ConfigureEnv{center}{\a:abstracttitle}{\b:abstracttitle}{\@empty}{\@empty}}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Boxes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

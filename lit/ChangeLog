@@ -2,6 +2,10 @@
 
 	* tex4ht-4ht.tex (latex.4ht): added support for environment hooks.
 	https://puszcza.gnu.org.ua/bugs/?477
+	* tex4ht-4ht.tex (article.4ht, report.4ht): added support for abstract
+	titles.
+	tex4ht-html4.tex (html4.4ht),
+	tex4ht-html5.tex (html5.4ht): fixes support for abstracts.
 
 2021-01-21  Michal Hoftich  <michal.h21@gmail.com>
 
