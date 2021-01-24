@@ -14790,6 +14790,35 @@ Support for the \Verb=\book= command
 \Def:Section\book{\thebook}{#1}
 >>>
 
+Memoir reimplements abstract.sty 
+
+\<memoir cfg\><<<
+|<abstract.sty conf|>
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<abstract.4ht\><<<
+% abstract.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+|<abstract.sty conf|>
+\Hinput{abstract}
+\endinput
+>>> \AddFile{8}{abstract}
+
+\<abstract.sty conf\><<<
+\NewConfigure{abstracttitle}{2}
+\newenvironment{abstracttitle4ht}{\a:abstracttitle}{\b:abstracttitle\par\noindent}
+% get rid of all extra <span> elements introduced by smaller font size
+% \renewcommand{\abstracttextfont}{\normalfont}
+% \renewcommand{\abstractnamefont}{\normalfont}
+% use our dummy environment to insert tags around the abstract title
+\renewcommand{\absnamepos}{abstracttitle4ht}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{verse}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
