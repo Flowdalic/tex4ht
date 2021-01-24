@@ -6128,12 +6128,14 @@ and the command \`'\end{xxx}' referes to the meaning of \`'\endxxx'.
    \PushStack\envn:list\n:list  \SaveEverypar
 \fi
 |<before begin(...)|>%
+\UseHook{env/#1/before}%
 \@ifundefined{#1}%
   {\def\reserved@a{\@latex@error{Environment #1 undefined}\@eha}}%
   {\def\reserved@a{%
           \def\@currenvir{#1}%
           \edef\@currenvline{\on@line}%
           |<LoopOf before begin(...)|>%
+          \@execute@begin@hook{#1}%
           \csname #1\endcsname 
           |<after begin(...)|>%
   }}%
@@ -6190,10 +6192,12 @@ are initiated within  \''\begin{...}'. For instance, in eqnarray there
 \<revised end\><<<
 %\IgnoreIndent
   \ifvmode |<ignore par before hline in end|>\fi
-\csname end#1\endcsname
+\UseHook{env/#1/end}%
+\csname end#1\endcsname%
 \@checkend{#1}%
   \aftergroup\recall:afterend
 \expandafter\endgroup\if@endpe\@doendpe\fi
+\UseHook{env/#1/after}%
   \ifx \chk:pic\:UnDef  
      |<after end of /end|>%
      |<check Everypar at end|>%

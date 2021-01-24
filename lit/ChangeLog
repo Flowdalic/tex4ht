@@ -1,3 +1,8 @@
+2021-01-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): added support for environment hooks.
+	https://puszcza.gnu.org.ua/bugs/?477
+
 2021-01-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, newcomputermodern-hooks.4ht): fix for the 
