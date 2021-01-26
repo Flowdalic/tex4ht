@@ -1,3 +1,9 @@
+2021-01-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (gloss-french.4ht): fix for \nobreakspace error with
+	characters made active in French Polyglossia.
+	https://tex.stackexchange.com/a/580505/2891
+
 2021-01-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): added support for environment hooks.

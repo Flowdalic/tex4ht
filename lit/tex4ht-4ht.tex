@@ -3960,6 +3960,20 @@ User needs to use \`'\Configure{LRdir}'to achieve the correct direction.
 \endinput
 >>> \AddFile{9}{polyglossia}
 
+Fix for French Polyglossia. It makes lot of characters active. This can clash 
+with TeX4ht. For example : character in title results in fatal error.
+
+\<gloss-french.4ht\><<<
+% gloss-french.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+\pend:def\french@punctuation{\bgroup\let\nobreakspace\space}
+\append:def\french@punctuation{\egroup}
+\Hinput{gloss-french}
+\endinput
+>>> \AddFile{9}{gloss-french}
+
+
 
 %%%%%%%%%%%%%%%%%
 \Section{fontspec}
