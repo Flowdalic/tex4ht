@@ -1,3 +1,8 @@
+2021-01-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht),
+	* tex4ht-html5.tex (html5.4ht): start new paragraph after abstracts.
+
 2021-01-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (gloss-french.4ht): fix for \nobreakspace error with

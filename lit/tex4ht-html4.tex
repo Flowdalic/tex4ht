@@ -8671,7 +8671,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \ConfigureEnv{abstract}
    {\IgnorePar\EndP
     \HCode{<div\Hnewline class="abstract"\Hnewline>}\par\ShowPar} 
-   {\ifvmode \IgnorePar\fi \EndP\HCode{</div>}}{}{}
+   {\ifvmode \IgnorePar\fi \EndP\HCode{</div>}\par}{}{}
 
 
 \Configure{abstracttitle}{\ifvmode\IgnorePar\fi\EndP\HCode{<h3 class="abstracttitle">}\HtmlParOff}
