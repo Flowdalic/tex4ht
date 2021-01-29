@@ -1982,6 +1982,10 @@ this code should try to patch ifthenelse using TeX4ht built-in
 mechanism for ifthenelse.
 
 \<config biblatex\><<<
+\@ifpackageloaded{hyperref}{}{%
+\def\TE@hook{}%
+}
+
 \AtBeginDocument{%
   \Configure{ifthenelse}{\TE@hook}
 }

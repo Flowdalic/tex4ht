@@ -1,3 +1,8 @@
+2021-01-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): the previous fix caused other issues. We
+	must define \TE@hook depending on the presence of Hyperref.
+
 2021-01-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): removed definition of \TE@hook. It caused
