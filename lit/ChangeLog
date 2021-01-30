@@ -1,3 +1,9 @@
+2021-01-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht): removed most of the configuration for
+	MathJax, it was not needed and could cause problems in some cases.
+	https://github.com/michal-h21/make4ht/issues/42
+
 2021-01-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): the previous fix caused other issues. We

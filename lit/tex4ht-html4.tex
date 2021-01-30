@@ -8548,16 +8548,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \Configure{MathJaxConfig}{{
     tex: {
       tags: "ams",
-      \detokenize{%
-      inlineMath: [ ["\\\(","\\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],}
-      processEscapes: true,
-      processEnvironments: true,
-      packages: ['base', 'color', 'ams']
   },
-  loader: {
-    load: ['[tex]/color', '[tex]/ams']
-  }
 };
 }
 \fi
