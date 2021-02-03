@@ -1,3 +1,8 @@
+2021-02-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (nameref.4ht): fix for \autoref and the Caption package.
+	https://tex.stackexchange.com/a/581856/2891
+
 2021-01-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht): removed most of the configuration for

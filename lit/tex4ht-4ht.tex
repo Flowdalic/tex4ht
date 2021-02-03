@@ -3320,6 +3320,16 @@ definitions.
     \gdef\NR:Type{equation}%
     \gdef\@currentlabelname{equation}%
 }
+
+% https://tex.stackexchange.com/a/581856/2891
+\@ifpackageloaded{caption}{
+  \pend:defIII\caption@beginex{%
+    \gdef\NR:Type{\@currenvir}%
+    \gdef\NR:Title{\a:newlabel{##2}}%
+  }
+}{}
+
+
 \@ifpackageloaded{amsmath}{%
      \Configure{@begin}{align}{\:tempams}
      \Configure{@begin}{multline}{\:tempams}
