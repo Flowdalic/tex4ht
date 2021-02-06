@@ -1,3 +1,10 @@
+2021-02-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht),
+	tex4ht-unicode.tex (unicode.4ht),
+	tex4ht-mathml.tex (mathml.4ht): use \protect in \:nbsp and similar commands
+	that use \leavevmode internally.
+
 2021-02-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (nameref.4ht): fix for \autoref and the Caption package.

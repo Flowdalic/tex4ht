@@ -902,8 +902,16 @@ inserted.
 \`'\def\x:unicode#1{\HCode{&}\HChar{-35}\HCode{x#1;}}' is not a slution
 because the mathml marking on it get confused.
 
+We use \`'\protect' with LaTeX, because compilation can fail in temporary files,
+especially in TOC like environments.
+
+
 \<configure unicode tex4ht\><<<
+\ifdefined\protect%
+\def\x:unicode#1{\protect\leavevmode\ht:special{t4ht@+\string&{35}x#1{59}}x}
+\else
 \def\x:unicode#1{\leavevmode\ht:special{t4ht@+\string&{35}x#1{59}}x}
+\fi
 
 \Configure{htf}{12}{+}
    {<!--span\Hnewline class="htf-calligraphy"-->}{}{}{}{}{}{<!--/span-->}

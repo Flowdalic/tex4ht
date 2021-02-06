@@ -35020,11 +35020,15 @@ The relax is to avoid end-of-line for the control character.
 
 \<config latex.ltx shared\><<<
 \let\sp:c|=\  |<latex,plain sp|>
+\def\:nbsp{\protect\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x} 
+\def\:ensp{\protect\leavevmode\special{t4ht@+\string&{35}x2002{59}}x} 
 \let\nobreakspace\:nbsp
 >>>
 
 \<config plain shared\><<<
 \let\sp:c|=\space |<latex,plain sp|>%
+\def\:nbsp{\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x} 
+\def\:ensp{\leavevmode\special{t4ht@+\string&{35}x2002{59}}x} 
 >>>
 
 \<latex,plain sp\><<<
@@ -35032,8 +35036,6 @@ The relax is to avoid end-of-line for the control character.
              \else \sp:c\fi}
 \NewConfigure{ }[1]{\def\:temp{#1}%
    \ifx \:temp\empty \let\a:sp|=\sp:c\else\def\a:sp{#1}\fi}
-\def\:nbsp{\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x} 
-\def\:ensp{\leavevmode\special{t4ht@+\string&{35}x2002{59}}x} 
 \Configure{ }{\:nbsp}
 >>>
 
