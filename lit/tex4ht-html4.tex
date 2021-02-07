@@ -20510,9 +20510,16 @@ The \verb'size="1"' makes the select a popout memnu
 |<4 exerquiz|>
 >>>
 
+% Edit 2021: The JavaScript stuff defined in exerqz.4ht
+% respective it's HTML configuration below doesn't work
+% at all. It even results in fatal compilatio error. 
+% I've removed the following line that introduces
+% this JavaScript code.
+
+%\Configure{@HEAD}{\input exerqz.4ht }
+
 \<32,4 exerquiz\><<<
 \Configure{Form}{}{}
-\Configure{@HEAD}{\input exerqz.4ht }
 \Css{.onClick {color:green;}}
 \Configure{TextField::}{}{%
    \IgnorePar \EndP
