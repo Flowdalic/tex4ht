@@ -2,6 +2,8 @@
 
 	* tex4ht-docbook.tex (docbook.4ht): start new paragraph after \maketitle.
 	https://github.com/michal-h21/make4ht/issues/44
+	* tex4ht-docbook.tex (docbook.4ht): fixed footnote handling.
+	https://github.com/michal-h21/make4ht/issues/45
 
 2021-02-07  Michal Hoftich  <michal.h21@gmail.com>
 

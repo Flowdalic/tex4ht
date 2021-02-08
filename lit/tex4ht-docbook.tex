@@ -2568,7 +2568,7 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 
 \<configure docbook latex\><<<
 \Configure{footnotetext}
-    {\HCode{<footnote><para>}\bgroup\let\@makefnmark\empty}
+    {\HCode{<footnote><para>}\setbox\tmp:bx=\hbox\bgroup\let\@makefnmark\relax}
     {\egroup}%
     {\HCode{</para></footnote>}}
 \Configure{footnotemark}
