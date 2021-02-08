@@ -1,3 +1,8 @@
+2021-02-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-docbook.tex (docbook.4ht): start new paragraph after \maketitle.
+	https://github.com/michal-h21/make4ht/issues/44
+
 2021-02-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (exerquiz.4ht, exerquiz-hooks.4ht, usepackage.4ht),
