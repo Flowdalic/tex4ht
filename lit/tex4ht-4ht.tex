@@ -25865,10 +25865,28 @@ use  instructions like \`'\setlength\tmp:dim\Gin@ewidth'  instead of
 
 \<svg config\><<<
 \renewcommand\includesvg[2][]{%
-% detect if an extension has been used
-\filename@parse{#2}
-\@ifundefined{filename@ext}{\edef\svg:filename{#2.svg}}{\edef\svg:filename{#2}}
-\includegraphics{\svg:filename}
+  % get file name with \svgpath support
+  \svg@get@path{#2}{}%
+  % set keys
+  \svg@local@param@set{#1}%
+  \if@svg@file@found%
+    % convert supported parameters from \includesvg for use with \includegraphics
+    \edef\svg@tempb{}
+    \ifdim\svg@param@height>\z@\relax%
+      \edef\svg@tempb{\svg@tempb,height=\svg@param@height}%
+    \fi%
+    \ifdim\svg@param@width>\z@\relax%
+      \edef\svg@tempb{\svg@tempb,width=\svg@param@width}%
+    \fi%
+    \ifdim\dimexpr\svg@param@angle\p@\relax=\z@\relax\else%
+      \edef\svg@tempb{%
+        \svg@tempb,origin=\svg@param@origin,angle=\svg@param@angle%
+      }%
+    \fi%
+    \expandafter\includegraphics\expandafter[\svg@tempb]{\svg@file@base.\svg@file@ext}
+  \else
+    \typeout{SVG file #1 cannot be found}
+  \fi
 }
 >>>
 

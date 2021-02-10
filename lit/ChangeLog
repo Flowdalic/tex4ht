@@ -1,3 +1,8 @@
+2021-02-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (svg.4ht): added support for image dimension specification.
+	https://tex.stackexchange.com/a/582861/2891
+
 2021-02-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-docbook.tex (docbook.4ht): start new paragraph after \maketitle.
