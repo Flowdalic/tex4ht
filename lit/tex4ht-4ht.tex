@@ -11418,7 +11418,28 @@ different. We should keep the separator selected by the user.
   \cptA:\caption@@make{\cap:ref{#1}}{\cptC:#2}\cptD:%
   \caption@make@below%
 }
+\long\def\caption@makecaption#1#2{%   
+  \caption@make@above%
+  \cptA:\caption@@make{\cap:ref{#1}}{\cptC:#2}\cptD:%
+  \caption@make@below%
+}
 >>>
+
+
+%%%%%%%%%%%%%
+\Section{subcaption.sty}
+%%%%%%%%%%%%%
+
+\<subcaption.4ht\><<<
+% subcaption.4ht (|version), generated from |jobname.tex
+% Copyright 2020 TeX Users Group
+|<TeX4ht copyright|>
+\NewConfigure{subfigure}{2}
+\ConfigureEnv{subfigure}{\a:subfigure}{\b:subfigure}{}{}
+\ConfigureEnv{subtable}{\a:subfigure}{\b:subfigure}{}{}
+\Hinput{subcaption}
+\endinput
+>>>        \AddFile{9}{subcaption}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

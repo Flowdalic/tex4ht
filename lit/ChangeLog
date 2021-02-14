@@ -1,3 +1,11 @@
+2021-02-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (subcaption.4ht, caption.4ht),
+	* tex4ht-html4.tex (html4.4ht),
+	* tex4ht-html5.tex (html5.4ht): added support for the subcaption package,
+	fixed support subfloat captions.
+	https://tex.stackexchange.com/q/582846/2891
+
 2021-02-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (svg.4ht): added support for image dimension specification.
