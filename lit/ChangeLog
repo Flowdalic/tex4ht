@@ -4,6 +4,9 @@
 	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/cyrillic/cmcyr/cmcbx.htf
 	): fixed wrong character.
 	https://tug.org/pipermail/tex4ht/2021q1/002904.html
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fix \( and \) in sectioning
+	commands.
+	https://tex.stackexchange.com/a/583946/2891
 
 2021-02-14  Michal Hoftich  <michal.h21@gmail.com>
 
