@@ -1983,7 +1983,9 @@ mechanism for ifthenelse.
 
 \<config biblatex\><<<
 \@ifpackageloaded{hyperref}{}{%
+\ifdefined\TE@hook\else%
 \def\TE@hook{}%
+\fi%
 }
 
 \AtBeginDocument{%
