@@ -2,6 +2,8 @@
 
 	* tex4ht-4ht.tex (titlesec.4ht): prevent duplicate entries in TOC.
 	https://tex.stackexchange.com/a/585479/2891
+	* tex4ht-4ht.tex (biblatex.4ht): don't redefine \nolinkurl.
+	https://tex.stackexchange.com/a/585521/2891
 
 2021-02-25  Michal Hoftich  <michal.h21@gmail.com>
 

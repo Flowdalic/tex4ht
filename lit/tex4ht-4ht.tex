@@ -2090,7 +2090,7 @@ mechanism for ifthenelse.
 \NewConfigure{printshorthands}{4}
 \NewConfigure{@shorthands}[1]{\concat:config\a:@shorthands{#1}} 
 \let\a:@shorthands\empty 
-\def\nolinkurl{\o:url:}
+% \def\nolinkurl{\o:url:}
 % \def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
 %   \blx@warning@noline {Page references have changed.\MessageBreak
 %     Rerun to get references right}\@tempswatrue \blx@reruntrue \fi
@@ -2679,7 +2679,7 @@ they caused compilation error when the AUX file is loaded.
 \def\writeCiteLink#1{\immediate\write\@mainaux{%
     \string\@namedef{#1.\thepage}{\FileName}}}
 \let\blx@addpagesum\@gobbletwo
-\let\nolinkurl\relax
+% \let\nolinkurl\relax
 
 \ifx\blx:ver:no < 3
 %
