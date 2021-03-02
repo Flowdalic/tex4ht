@@ -1,3 +1,8 @@
+2021-03-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (titlesec.4ht): prevent duplicate entries in TOC.
+	https://tex.stackexchange.com/a/585479/2891
+
 2021-02-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): check for existence of \TE@hook before 

@@ -919,6 +919,13 @@ $\mathfrak{A}a^{\mathfrak{A}}$
 % \def\ttlh@display#1#2#3#4#5#6#7#8{{[111]#1\ifttl@label #2\fi #4{#8}[/111]}}
 % \def\ttlh@runin#1#2#3#4#5#6#7#8{{[333]#1\ifttl@label #2\fi #4{#8}[/333]}}  
 
+TeX4ht handles stuff written to TOC itself, Titlesec caused duplicated entries in TOC,
+so we just disable it's TOC handling.
+
+\<titlesec 2005\><<<
+\def\ttl@addcontentsline#1#2{\nobreak}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Scientific Word}
 
