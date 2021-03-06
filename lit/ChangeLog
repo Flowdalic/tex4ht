@@ -6,6 +6,9 @@
 	* tex4ht-4ht.tex (caption.4ht): prevent expansion of macros written to TOC
 	by the \caption command.
 	https://tug.org/pipermail/tex4ht/2021q1/002912.html
+	* tex4ht-html4.tex (html4.4ht): use graphics- option value in PDF end EPS
+	conversion.
+	https://tex.stackexchange.com/a/586096/2891
 
 2021-03-04  Michal Hoftich  <michal.h21@gmail.com>
 
