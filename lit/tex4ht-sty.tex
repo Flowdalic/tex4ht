@@ -1925,6 +1925,10 @@ equation. A possible prolem for math into figures.
 \ifx \:temp\:tempa   
    \let\ht:everypar|=\everypar
 \else
+   % LaTeX kernel will patch \everypar in future releases,
+   % so this test will always fail. We should define \ht:everypar
+   % anyway, paragraph handling would fail otherwise
+   \let\ht:everypar|=\everypar
    \:warning{nonprimitive \string\everypar}
 \fi
 \edef\NoHtmlEnv{%

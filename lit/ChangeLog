@@ -1,3 +1,9 @@
+2021-03-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): preparing for a new LaTeX release, where
+	\everypar will be patched by LaTeX kernel.
+	https://puszcza.gnu.org.ua/bugs/?477
+
 2021-03-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): close paragraph before tabularx environment.
