@@ -3,6 +3,9 @@
 	* tex4ht-sty.tex (tex4ht.sty): preparing for a new LaTeX release, where
 	\everypar will be patched by LaTeX kernel.
 	https://puszcza.gnu.org.ua/bugs/?477
+	* tex4ht-4ht.tex (caption.4ht): prevent expansion of macros written to TOC
+	by the \caption command.
+	https://tug.org/pipermail/tex4ht/2021q1/002912.html
 
 2021-03-04  Michal Hoftich  <michal.h21@gmail.com>
 

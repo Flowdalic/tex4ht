@@ -11363,6 +11363,7 @@ Foo
 |<TeX4ht copyright|>
 |<caption shared config|>
 |<caption redefine makecaption|>
+|<caption addtocontents|>
 \Hinput{caption}
 \endinput
 >>>        \AddFile{9}{caption}
@@ -11434,6 +11435,16 @@ different. We should keep the separator selected by the user.
 }
 >>>
 
+Caption's version of addcontentsline doesn't prevent expansion of macros, which 
+may lead to errors when for example \''\%' is used. The use of detokenize should
+prevent this issue.
+
+\<caption addtocontents\><<<
+ \renewcommand*\caption@@@addcontentsline[4]{%
+   \addcontentsline{#1}{#2}{\protect\numberline{#3}{\detokenize{#4}}}%
+ }
+
+>>>
 
 %%%%%%%%%%%%%
 \Section{subcaption.sty}
