@@ -1,3 +1,8 @@
+2021-03-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (parallel.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the parallel package.
+
 2021-03-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): preparing for a new LaTeX release, where

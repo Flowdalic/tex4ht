@@ -19181,6 +19181,24 @@ latex.ltx, fontmath.ltx, plain.tex
 >>>
 
 %%%%%%%%%%%%%%%%%
+\section{parallel}
+
+\<configure html4 parallel\><<<
+\Configure{ParallelLText}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="ltext">}\par}{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par}
+\Configure{ParallelRText}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="rtext">}\par}{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par}
+\ConfigureEnv{Parallel}{\ifvmode\IgnorePar\fi\EndP\HCode{<section class="parallel">}}{\ifvmode\IgnorePar\fi\EndP\HCode{</section>}\par}{}{}
+
+\Css{.parallel .ltext{
+  width: 48\%;
+  float:left;
+}}
+\Css{.parallel .rtext{
+  width: 48\%;
+  margin-left: 52\%;
+}}
+>>>
+
+%%%%%%%%%%%%%%%%%
 \section{skak}
 
 \<configure html4 skak\><<<
