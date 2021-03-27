@@ -8716,7 +8716,7 @@ referring to names.
 
 \<footnote text\><<<
 \Configure{footnotetext}
-   {\special{t4ht@)}\Tag{|<footnote id|>-tx}{}%
+   {\Tag{|<footnote id|>-tx}{}%
     |<check duplicate footnote text|>%
     \SaveEndP \NoFonts \bgroup\let\@textsuperscript\hbox%
     \HCode{<\text:footnote\Hnewline\text:note:class
@@ -8799,9 +8799,9 @@ style:display-name="Footnote anchor" style:family="text">
  \ifx \tmp:bx\:UnDef \csname newbox\endcsname \tmp:bx \fi  
 \Configure{footnotemark}
    {\Tag{|<footnote id|>}{}%
-    |<footnote mark without text|>}
+    |<footnote mark without text|>}%
    {|<end footnote mark without text|>%
-   \special{t4ht@(}}
+ }
 >>>
 
 \<check duplicate footnote text\><<<
