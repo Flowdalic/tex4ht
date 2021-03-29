@@ -31269,10 +31269,10 @@ of  \''<a>' elements.
 \HLet\@endnotetext=\:tempc
 \def\@makeenmark{%
    \gHAdvance\endnote:N by 1
-   \hbox{$\sp{\a:makeenmark\@theenmark\b:makeenmark}$}}
+   \hbox{\textsuperscript{\a:makeenmark\@theenmark\b:makeenmark}}}
 \NewConfigure{makeenmark}{2}
 \def\enoteformat{\rightskip\z@ \leftskip\z@ \parindent=1.8em
-     \leavevmode\llap{\hbox{$\sp{\@theenmark}$}}}
+     \leavevmode\llap{\hbox{\textsuperscript{\@theenmark}}}}
 \def\:tempc{\bgroup
    \pend:def\enoteformat{\a:enoteformat}%
    \append:def\enoteformat{\b:enoteformat}%
