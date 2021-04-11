@@ -150,8 +150,13 @@ Require verbatim math environments.
 \VerbMath{eqnarray*}
 >>>
 
-It is necessary to reset env configurations for multline 
+It is necessary to reset env configurations for multiline 
+environments, because default TeX4ht configurations turn
+them into pictures.
+
 \<configurations\><<<
+\ConfigureEnv{gather}{}{}{}{}
+\ConfigureEnv{gather*}{}{}{}{}
 \ConfigureEnv{multline}{}{}{}{}
 \ConfigureEnv{multline*}{}{}{}{}
 >>>
