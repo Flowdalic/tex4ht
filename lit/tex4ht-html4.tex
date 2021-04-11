@@ -7381,11 +7381,12 @@ consecutive \verb+<br />+ tags.
 
 \<TABLE eqnarray Config 4.0t\><<<
 \ConfigureEnv{eqnarray}
-    {\:xhtml{\IgnorePar\EndP}\HCode{<div class="eqnarray">}}
-    {\:xhtml{\EndP}\HCode{</div>}}{}{}
+    {\ifvmode\IgnorePar\fi\EndP\HCode{<div class="eqnarray">}}
+    {\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par}{}{}
 \ConfigureEnv{eqnarray*}
-    {\:xhtml{\IgnorePar\EndP}\HCode{<div class="eqnarray">}}
-    {\:xhtml{\EndP}\HCode{</div>}}{}{}
+    {\ifvmode\IgnorePar\fi\EndP\HCode{<div class="eqnarray">}}
+    {\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par}{}{}
+
 \Css{div.eqnarray{text-align:center;}} 
 >>>
                                               %%%%%%%%%%%%%%%%%%%%%%%
