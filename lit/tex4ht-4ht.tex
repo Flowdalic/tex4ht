@@ -11440,7 +11440,10 @@ may lead to errors when for example \''\%' is used. The use of detokenize should
 prevent this issue.
 
 \<caption addtocontents\><<<
- \renewcommand*\caption@@@addcontentsline[4]{%
+ \renewcommand*\caption@@@addcontentsline[5]{%
+   \def\temp{#1}\def\tempa{toc}\ifx \temp\tempa\else%
+   \gHAdvance\TitleCount  1%
+   \fi%
    \addcontentsline{#1}{#2}{\protect\numberline{#3}{\detokenize{#4}}}%
  }
 

@@ -1,3 +1,8 @@
+2021-04-15  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (caption.4ht): fix for TOC handling.
+	https://tex.stackexchange.com/a/593069/2891
+
 2021-04-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.4ht (html4-math.4ht): fixed paragraph handling for eqnarray.
