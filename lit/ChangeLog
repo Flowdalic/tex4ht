@@ -1,7 +1,16 @@
+2021-04-16  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-docbook.tex (docbook.4ht),
+	* tex4ht-ooffice.tex (ooffice.4ht),
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht),
+	* tex4ht-html4.tex (html4-math.4ht, html4.4ht),
+	* tex4ht-4ht.tex (tikz-hooks.4ht): copyright 2021.
+
 2021-04-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tikz-hooks.4ht): load dvisvgm4ht driver by default.
-	* tex4ht-4ht.tex (chessboard.4ht): added support for the chessboard package.
+	* tex4ht-4ht.tex (chessboard.4ht): added support for the
+	chessboard package.
 
 2021-04-15  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -10,7 +19,8 @@
 
 2021-04-11  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.4ht (html4-math.4ht): fixed paragraph handling for eqnarray.
+	* tex4ht-html4.tex (html4-math.4ht): fixed paragraph handling for
+	eqnarray.
 	https://tug.org/pipermail/tex4ht/2021q2/002949.html
 
 2021-04-07  Michal Hoftich  <michal.h21@gmail.com>
@@ -21,14 +31,14 @@
 
 2021-03-30  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (endnotes.4ht): don't use math mode to print superscripts.
-	https://tex.stackexchange.com/q/590565/2891
+	* tex4ht-4ht.tex (endnotes.4ht): don't use math mode to print
+	superscripts. https://tex.stackexchange.com/q/590565/2891
 
 2021-03-27  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): removed space ignoring specials from
-	\footnotemark and \foontotetext, they caused removal of all spaces from the
-	document when only \footnotetex is used.
+	* tex4ht-ooffice.tex (ooffice.4ht): removed space ignoring
+	specials from \footnotemark and \foontotetext, they caused removal
+	of all spaces from the document when only \footnotetext is used.
 	https://tug.org/pipermail/tex4ht/2021q1/002927.html
 
 2021-03-25  Michal Hoftich  <michal.h21@gmail.com>
@@ -41,8 +51,8 @@
 	* tex4ht-sty.tex (tex4ht.sty): preparing for a new LaTeX release, where
 	\everypar will be patched by LaTeX kernel.
 	https://puszcza.gnu.org.ua/bugs/?477
-	* tex4ht-4ht.tex (caption.4ht): prevent expansion of macros written to TOC
-	by the \caption command.
+	* tex4ht-4ht.tex (caption.4ht): prevent expansion of macros
+	written to TOC by the \caption command.
 	https://tug.org/pipermail/tex4ht/2021q1/002912.html
 	* tex4ht-html4.tex (html4.4ht): use graphics- option value in PDF end EPS
 	conversion.
@@ -50,8 +60,8 @@
 
 2021-03-04  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): close paragraph before tabularx environment.
-	https://tex.stackexchange.com/a/585797/2891
+	* tex4ht-html4.tex (html4.4ht): close paragraph before tabularx
+	environment. https://tex.stackexchange.com/a/585797/2891
 
 2021-03-02  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -62,9 +72,8 @@
 
 2021-02-25  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (biblatex.4ht): check for existence of \TE@hook before 
-	redefine.
-	https://tex.stackexchange.com/a/584949/2891
+	* tex4ht-4ht.tex (biblatex.4ht): check for existence of \TE@hook
+	before redefine. https://tex.stackexchange.com/a/584949/2891
 
 2021-02-18  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -72,27 +81,26 @@
 	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/cyrillic/cmcyr/cmcbx.htf
 	): fixed wrong character.
 	https://tug.org/pipermail/tex4ht/2021q1/002904.html
-	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fix \( and \) in sectioning
-	commands.
-	https://tex.stackexchange.com/a/583946/2891
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fix \( and \) in
+	sectioning commands. https://tex.stackexchange.com/a/583946/2891
 
 2021-02-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (subcaption.4ht, caption.4ht),
 	* tex4ht-html4.tex (html4.4ht),
-	* tex4ht-html5.tex (html5.4ht): added support for the subcaption package,
-	fixed support subfloat captions.
+	* tex4ht-html5.tex (html5.4ht): added support for the subcaption
+	package, fixed support subfloat captions.
 	https://tex.stackexchange.com/q/582846/2891
 
 2021-02-10  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (svg.4ht): added support for image dimension specification.
-	https://tex.stackexchange.com/a/582861/2891
+	* tex4ht-4ht.tex (svg.4ht): added support for image dimension
+	specification. https://tex.stackexchange.com/a/582861/2891
 
 2021-02-08  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-docbook.tex (docbook.4ht): start new paragraph after \maketitle.
-	https://github.com/michal-h21/make4ht/issues/44
+	* tex4ht-docbook.tex (docbook.4ht): start new paragraph after
+	\maketitle. https://github.com/michal-h21/make4ht/issues/44
 	* tex4ht-docbook.tex (docbook.4ht): fixed footnote handling.
 	https://github.com/michal-h21/make4ht/issues/45
 	* tex4ht-docbook.tex (docbook.4ht): added \textsubscript and
@@ -107,30 +115,30 @@
 
 	* tex4ht-4ht.tex (latex.4ht),
 	* tex4ht-unicode.tex (unicode.4ht),
-	* tex4ht-mathml.tex (mathml.4ht): use \protect in \:nbsp and similar commands
-	that use \leavevmode internally.
+	* tex4ht-mathml.tex (mathml.4ht): use \protect in \:nbsp and
+	similar commands that use \leavevmode internally.
 
 2021-02-03  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (nameref.4ht): fix for \autoref and the Caption package.
-	https://tex.stackexchange.com/a/581856/2891
+	* tex4ht-4ht.tex (nameref.4ht): fix for \autoref and the Caption
+	package. https://tex.stackexchange.com/a/581856/2891
 
 2021-01-30  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4-math.4ht): removed most of the configuration for
-	MathJax, it was not needed and could cause problems in some cases.
-	https://github.com/michal-h21/make4ht/issues/42
+	* tex4ht-html4.tex (html4-math.4ht): removed most of the
+	configuration for MathJax, it was not needed and could cause
+	problems in some cases. https://github.com/michal-h21/make4ht/issues/42
 
 2021-01-29  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (biblatex.4ht): the previous fix caused other issues. We
-	must define \TE@hook depending on the presence of Hyperref.
+	* tex4ht-4ht.tex (biblatex.4ht): the previous fix caused other
+	issues. We must define \TE@hook depending on the presence of Hyperref.
 
 2021-01-28  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (biblatex.4ht): removed definition of \TE@hook. It caused
-	that some BibLaTeX code wasn't executed and compilation failed in some
-	cases.
+	* tex4ht-4ht.tex (biblatex.4ht): removed definition of \TE@hook.
+	It caused some BibLaTeX code not to be executed and compilation
+	failed in some cases.
 
 2021-01-27  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -155,23 +163,23 @@
 	* tex4ht-html4.tex (html4.4ht),
 	* tex4ht-html5.tex (html5.4ht): added support for abstracts in Memoir.
 	https://tex.stackexchange.com/a/579953/2891
-	* tex-html5.tex (html5.4ht): added more sections and chapters to make the
-	source more readable.
+	* tex-html5.tex (html5.4ht): added more sections and chapters to
+	make the source more readable.
 
 2021-01-21  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht, newcomputermodern-hooks.4ht): fix for the 
-	newcomputermodern package.
+	* tex4ht-4ht.tex (usepackage.4ht, newcomputermodern-hooks.4ht):
+	fix for the newcomputermodern package.
 
 2021-01-12  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): add anchor for \label commands in \endnote.
-	https://tex.stackexchange.com/a/578349/2891
+	* tex4ht-html4.tex (html4.4ht): add anchor for \label commands in
+	\endnote. https://tex.stackexchange.com/a/578349/2891
 
 2021-01-09  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4-math.4ht): fixed display math configuration for
-	Amsmath. It supports the split environment now.
+	* tex4ht-html4.tex (html4-math.4ht): fixed display math
+	configuration for Amsmath. It supports the split environment now.
 	https://tug.org/pipermail/tex4ht/2021q1/002856.html
 	* tex4ht-html4.tex (html4.4ht): removed cellspacing and cellpading
 	attributes from most tables. They are deprecated.
@@ -179,14 +187,15 @@
 
 2021-01-07  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): don't use \@namedef, in order to support
-	plain.
+	* tex4ht-ooffice.tex (ooffice.4ht): don't use \@namedef, in order
+	to support plain.
 	* tex4ht-html4.tex (html4.4ht): configure Plain accents for long umlaut
 	\H.
 	* tex4ht-ooffice.tex (ooffice.4ht): configure accents for Plain TeX.
-	* tex4ht-ooffice.tex (ooffice.4ht): define page dimensions for Plain TeX.
-	* tex4ht-ooffice.tex (ooffice.4ht): added configuration for leftline and
-	rightline. Even for Plain TeX.
+	* tex4ht-ooffice.tex (ooffice.4ht): define page dimensions for
+	Plain TeX.
+	* tex4ht-ooffice.tex (ooffice.4ht): added configuration for
+	leftline and rightline. Even for Plain TeX.
 
 2021-01-03  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -200,8 +209,8 @@
 2021-01-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): emulate \AtBeginDocument in .4ht files. 
-	* tex4ht-4ht.tex (hyperref-hooks.4ht, hyperref.4ht, nameref.4ht): fix for
-	issues with \AtBeginDocument.
+	* tex4ht-4ht.tex (hyperref-hooks.4ht, hyperref.4ht, nameref.4ht):
+	fix for issues with \AtBeginDocument.
 	https://puszcza.gnu.org.ua/bugs/index.php?496
 
 2020-12-25  Michal Hoftich  <michal.h21@gmail.com>
@@ -338,42 +347,27 @@
 
 2020-10-17  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht,graphics-hooks.4ht): adapted Graphics for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,xcolor-hooks.4ht): adapted Xcolor for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,caption-hooks.4ht): adapted Caption for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,pdfbase-hooks.4ht): adapted Pdfbase for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,tikz-hooks.4ht): adapted Tikz for
-	the new package hook mechanism.
+	* tex4ht-4ht.tex (usepackage.4ht,graphics-hooks.4ht): adapted Graphics,
+	* tex4ht-4ht.tex (usepackage.4ht,xcolor-hooks.4ht): adapted Xcolor,
+	* tex4ht-4ht.tex (usepackage.4ht,caption-hooks.4ht): adapted Caption,
+	* tex4ht-4ht.tex (usepackage.4ht,pdfbase-hooks.4ht): adapted Pdfbase,
+	* tex4ht-4ht.tex (usepackage.4ht,tikz-hooks.4ht): adapted Tikz,
 	* tex4ht-4ht.tex (usepackage.4ht,fontspec-hooks.4ht, polyglossia-hooks.4ht): 
-	adapted Fontspec and Polyglossia for the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,ctex-hooks.4ht): adapted Ctex for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,xecjk-hooks.4ht): adapted xeCJK for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,xecjk-hooks.4ht): adapted xeCJK for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,savetrees-hooks.4ht): adapted savetrees for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,expl3-hooks.4ht): adapted expl3 for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,showframe-hooks.4ht): adapted showframe for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,esopic-hooks.4ht): adapted eso-pic for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,xrhyper-hooks.4ht): adapted xr-hyper for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,xr-hooks.4ht): adapted xr for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,fancyhdr-hooks.4ht): adapted fancyhdr for
-	the new package hook mechanism.
-	* tex4ht-4ht.tex (usepackage.4ht,cleveref-hooks.4ht): adapted cleveref for
-	the new package hook mechanism. 
-	* tex4ht-4ht.tex (usepackage.4ht,imakeidx-hooks.4ht): adapted imakeidx for
-	hooks.
+	adapted Fontspec and Polyglossia,
+	* tex4ht-4ht.tex (usepackage.4ht,ctex-hooks.4ht): adapted Ctex,
+	* tex4ht-4ht.tex (usepackage.4ht,xecjk-hooks.4ht): adapted xeCJK,
+	* tex4ht-4ht.tex (usepackage.4ht,savetrees-hooks.4ht): adapted
+	savetrees,
+	* tex4ht-4ht.tex (usepackage.4ht,expl3-hooks.4ht): adapted expl3,
+	* tex4ht-4ht.tex (usepackage.4ht,showframe-hooks.4ht): adapted
+	showframe,
+	* tex4ht-4ht.tex (usepackage.4ht,esopic-hooks.4ht): adapted eso-pic,
+	* tex4ht-4ht.tex (usepackage.4ht,xrhyper-hooks.4ht): adapted xr-hyper,
+	* tex4ht-4ht.tex (usepackage.4ht,xr-hooks.4ht): adapted xr,
+	* tex4ht-4ht.tex (usepackage.4ht,fancyhdr-hooks.4ht): adapted fancyhdr,
+	* tex4ht-4ht.tex (usepackage.4ht,cleveref-hooks.4ht): adapted cleveref,
+	* tex4ht-4ht.tex (usepackage.4ht,imakeidx-hooks.4ht): adapted imakeidx,
+	for the new hook mechanism.
 	* tex4ht-4ht.tex: added tutorial on how to write early package patching
 	the new package hook mechanism. 
 
@@ -387,8 +381,8 @@
 	* tex4ht-sty.tex (tex4ht.sty): changed the early package hook
 	mechanism to speed up things.
 	https://puszcza.gnu.org.ua/bugs/?486#postcomment
-	* tex4ht-4ht.tex (usepackage.4ht): adapded Minted for the new package hook
-	mechanism.
+	* tex4ht-4ht.tex (usepackage.4ht): adapded Minted for the new
+	package hook mechanism.
 
 2020-10-08  Michal Hoftich  <michal.h21@gmail.com>
 

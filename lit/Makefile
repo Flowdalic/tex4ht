@@ -107,17 +107,20 @@ tex4ht_4ht_derived = \
     footmisc.4ht framed.4ht frenchb.4ht floatpag.4ht \
   geometry.4ht graphics.4ht graphicx.4ht \
   hyperref.4ht \
-	imakeidx.4ht \
-	jurabib.4ht \
+  imakeidx.4ht \
+  jurabib.4ht \
   latex.4ht lettrine.4ht listings.4ht longtable.4ht \
+     ltugboat.4ht ltugboat-a.4ht ltugproc.4ht ltugproc-a.4ht \
   magyar.4ht mdframed.4ht memoir.4ht minted.4ht multicol.4ht multirow.4ht \
   nameref.4ht natbib.4ht \
   parallel.4ht proof.4ht pstricks.4ht pythontex.4ht \
   quoting.4ht \
   reading.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht scrjura.4ht sectionbreak.4ht \
-	skak.4ht spanish.4ht subscript.4ht svg.4ht \
-  tabu.4ht tcolorbox.4ht titlesec.4ht tocloft.4ht tuenc-luatex.4ht tuenc-xetex.4ht \
+    skak.4ht spanish.4ht subscript.4ht svg.4ht \
+  tabu.4ht tcolorbox.4ht titlesec.4ht tocloft.4ht \
+    tuenc-luatex.4ht tuenc-xetex.4ht \
+    tugboat.4ht \
   usepackage.4ht usepackage-fontspec.4ht \
   wrapfig.4ht \
   xcolor.4ht xr.4ht xr-hyper.4ht 
@@ -716,9 +719,6 @@ install-scripts:
 	  echo $(install_data) $$inst_f $$f; \
 	  $(install_data) $$f $$inst_f; done
 
-# not ready
-#for f in *.bat; do \
-	  
 # 
 # Let's write out the commands for updating fonts.
 ht_fonts_instdir = $(inst_dir_top)/ht-fonts
@@ -752,20 +752,32 @@ diff-htfonts:
 	/tmp/htd | tee /tmp/htchanges
 
 # 
-# to compare newly-built files with what's installed.
-# htf files, etc., are in a different place, so don't include them here,
+# diff all files in the main TeX Live installation directory against
+# cwd (development). the --ignore-matching-lines below only works when
+# that's the only change in the hunk, so ignore them all explicitly.
+# also ignore commented changes.
+#
+# htf files, scripts, etc. are in different places, so don't include them here,
+# 
+# The diff-scripts output is usually empty, so we can run that;
+# but diff-htfonts is too verbose to run every time.
+diff-all: diff-scripts #diff-htfonts
+	-for f in $(inst_dir_4ht)/*; do $(diff) $$f .; done \
+	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
+	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$'
+
+# For checking the derived files that are explicitly listed above
+# against installed (in TL) files. This is a small subset of all the
+# generated files.
 diff_files = $(filter-out %.htf %.4hf tex4ht.env% %.c lm-htf.tex \
                           mk4ht.perl ht.unix ht.bat,\
                           $(derived))
-
-# the --ignore-matching-lines below only works when that's the only change in
-# the hunk, so ignore them all explicitly. also ignore commented changes.
-diff-all: #diff-htfonts
+diff-derived:
 	-for f in $(diff_files); do $(diff) $(inst_dir_4ht)/$$f .; done \
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
 	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$'
 
-# diff one file specified as d=
+# diff one specified file, as in "make d1 d=filename.4ht".
 diff1 d1:
 	$(diff) $(inst_dir_4ht)/$(d) .
 
