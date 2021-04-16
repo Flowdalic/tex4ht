@@ -1,3 +1,7 @@
+2021-04-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tikz-hooks.4ht): load dvisvgm4ht driver by default.
+
 2021-04-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (caption.4ht): fix for TOC handling.

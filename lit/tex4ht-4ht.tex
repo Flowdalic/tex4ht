@@ -4316,6 +4316,12 @@ converted to SVG by default.
 % tikz-hooks.4ht (|version), generated from |jobname.tex
 % Copyright 2020 TeX Users Group
 |<TeX4ht license text|>
+\ifdefined\pgfsysdriver\else%
+  {\typeout{*****************************}
+  \typeout{TeX4ht info: Using dvisvgm4ht TikZ driver. Put \detokenize{\def\pgfsysdriver{driver-name}} to your 
+  document before use of TikZ if you want to another driver. Use tikz+ option if your TikZ pictures use patterns.}%
+   \def\pgfsysdriver{pgfsys-dvisvgm4ht.def}%
+\fi%
 \:AtEndOfPackage{%
 \let\use:tikzlibrary\usetikzlibrary
 \def\find:externalize#1external#2\@nil{%
