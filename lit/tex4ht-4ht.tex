@@ -31820,6 +31820,32 @@ of \''\:temp' below.
 
 >>> \AddFile{9}{skak}
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{chessboard.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<chessboard.4ht\><<<
+% chessboard.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+
+|<chessboard.sty|>
+\Hinput{chessboard}
+\endinput
+>>>
+
+\<chessboard.sty\><<<
+\NewConfigure{chessboard}{2}
+% this should put configurable hooks around \newchessgame
+% contents printed by this command should be printed to image
+\newcommand\Save:TikzPict{\let\old:a:tikzpicture\a:tikzpicture\let\old:b:tikzpicture\b:tikzpicture\let\a:tikzpicture\relax\let\b:tikzpicture\relax}
+\newcommand\Restore:TikzPict{\let\a:tikzpicture\old:a:tikzpicture\let\b:tikzpicture\old:b:tikzpicture}
+\newcommand\:tempaboard[1][]{\a:chessboard\o:chessboard:[#1]\b:chessboard}
+% 
+\HLet\chessboard\:tempaboard
+\Configure{chessboard}{\Picture*{}\Save:TikzPict}{\Restore:TikzPict\EndPicture}
+>>> \AddFile{9}{chessboard}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \Section{vanilla.sty}

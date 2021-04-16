@@ -1,6 +1,7 @@
 2021-04-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tikz-hooks.4ht): load dvisvgm4ht driver by default.
+	* tex4ht-4ht.tex (chessboard.4ht): added support for the chessboard package.
 
 2021-04-15  Michal Hoftich  <michal.h21@gmail.com>
 
