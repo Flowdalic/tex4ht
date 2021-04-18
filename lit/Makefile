@@ -777,6 +777,13 @@ diff-derived:
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
 	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$'
 
+diff-copyright:
+	-cd $(inst_dir_4ht) && for f in *; do 
+
+inst-check-version:
+	-cd $(inst_dir_4ht) && for f in *; do \
+	  grep 'write-1.*version' $$f >/dev/null || echo $$f; done
+
 # diff one specified file, as in "make d1 d=filename.4ht".
 diff1 d1:
 	$(diff) $(inst_dir_4ht)/$(d) .
