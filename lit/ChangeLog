@@ -1,9 +1,13 @@
 2021-04-17  Karl Berry  <karl@freefriends.org>
 
+	* Makefile (diff-copyright, inst-check-version): new targets
+	for consistency checking.
+
+	* tex4ht-4ht.tex (endnotes, svg.4ht),
 	* tex4ht-cond4ht.tex (mktex4ht.4ht),
 	* tex4ht-html5.tex (html5.4ht),
 	* tex4ht-info.tex (info4ht.4ht),
-	* tex4ht-mathml.tex (html-mml.4ht),
+	* tex4ht-mathml.tex (html-mml.4ht, mathml.4ht),
 	* tex4ht-unicode.tex (unicode.4ht): copyright 2021.
 
 2021-04-16  Karl Berry  <karl@freefriends.org>

@@ -777,9 +777,14 @@ diff-derived:
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
 	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$'
 
+# Check that anything with a \version of this year
+# also has a copyright of this year.
 diff-copyright:
-	-cd $(inst_dir_4ht) && for f in *; do 
+	-cd $(inst_dir_4ht) && for f in *; do \
+	  if grep "version.*`date +%Y`" $$f >/dev/null; then \
+	    grep "Copyright.*`date +%Y`" $$f >/dev/null || echo $$f; fi; done
 
+# missing version identifications.
 inst-check-version:
 	-cd $(inst_dir_4ht) && for f in *; do \
 	  grep 'write-1.*version' $$f >/dev/null || echo $$f; done
