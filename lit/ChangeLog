@@ -1,3 +1,10 @@
+2021-04-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (listings.4ht): insert closing b:lstlinline configuration
+	really after group. (Thanks to Linas Stonys).
+	* tex4ht-html4.tex (html4.4ht): add newlines after <br /> tags in listings
+	environment.
+
 2021-04-17  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (diff-copyright, inst-check-version): new targets
