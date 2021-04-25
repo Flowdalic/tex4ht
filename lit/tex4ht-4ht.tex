@@ -35152,15 +35152,15 @@ The relax is to avoid end-of-line for the control character.
 
 \<config latex.ltx shared\><<<
 \let\sp:c|=\  |<latex,plain sp|>
-\def\:nbsp{\protect\leavevmode\ht:special{t4ht@+\string&{35}x00A0{59}}\a:HChar} 
+\def\:nbsp{\ifx\EndPicture\:UnDef\protect\leavevmode\ht:special{t4ht@+\string&{35}x00A0{59}}\a:HChar\else\leavevmode\nobreak\ \fi} 
 \def\:ensp{\protect\leavevmode\ht:special{t4ht@+\string&{35}x2002{59}}\a:HChar} 
 \let\nobreakspace\:nbsp
 >>>
 
 \<config plain shared\><<<
 \let\sp:c|=\space |<latex,plain sp|>%
-\def\:nbsp{\leavevmode\ht:special{t4ht@+\string&{35}x00A0{59}}\a:HChar} 
-\def\:ensp{\leavevmode\ht:special{t4ht@+\string&{35}x2002{59}}\a:HChar} 
+\def\:nbsp{\ifx\EndPicture\:UnDef\leavevmode\ht:special{t4ht@+\string&{35}x00A0{59}}\a:HChar} 
+\def\:ensp{\leavevmode\ht:special{t4ht@+\string&{35}x2002{59}}\a:HChar\else\leavevmode\nobreak\ \fi} 
 >>>
 
 \<latex,plain sp\><<<
