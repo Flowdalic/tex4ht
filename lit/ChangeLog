@@ -6,6 +6,8 @@
 	* tex4ht-4ht.tex (latex.4ht, plain.4ht): \:nbsp should output non breaking
 	space inside picture.
 	* tex4ht-html4.tex (html4.4ht): test for \Picture inside \a:HChar.
+	* tex4ht-unicode.tex (unicode.4ht): use correct definition of \:nbsp.
+	* tex4ht-html4.tex (html4.4ht): use \:nbsp in listings configurations.
 
 2021-04-22  Michal Hoftich  <michal.h21@gmail.com>
 

@@ -15011,8 +15011,16 @@ currently supported transitions are:
 >>>
 
 \<nbsp\><<<
-\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x%
+\:nbsp%
 >>>
+
+There used to be this code:
+
+\verb|\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x|
+
+The \verb|\:nbsp| is universal non breaking spacing macro for TeX4ht. It
+handles cases when it is used inside pictures, so it should be used instead of
+explicit specials.
 
 The `59' stands for semicolon. Explicit character might be problematic
 for languages (e.g., French) where the cahacter is active and may be
@@ -15253,7 +15261,7 @@ Configuration for the inline code
        \Configure{listings}  
          {{\everypar{}\leavevmode}}  
          {{\everypar{}\leavevmode}}  
-         {\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x%  
+         {|<nbsp|>%
              \HCode{<br /><span class="label">}}  
          {\HCode{</span>}}%  
    }  
