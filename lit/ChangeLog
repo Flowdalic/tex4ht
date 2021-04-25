@@ -1,3 +1,9 @@
+2021-04-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (babel.4ht, latex.4ht, lfeenc.4ht, plain.4ht,
+	polyglossia.4ht, tuenc-xetex-input.4ht): use \ht:special instead of
+	\special.
+
 2021-04-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (listings.4ht): insert closing b:lstlinline configuration

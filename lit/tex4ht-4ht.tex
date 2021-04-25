@@ -5695,7 +5695,7 @@ used for Fontspec support.
   %  load tuenc definitions for commands like \quotedblbase 
   \ifdefined\old:DeclareTextSymbol\else
     \input binhex
-    \def\DeclareTextSymbol#1#2#3{\gdef#1{\special{t4ht@+&{35}x\hex{#3}{59}}x}}
+    \def\DeclareTextSymbol#1#2#3{\gdef#1{\ht:special{t4ht@+&{35}x\hex{#3}{59}}\a:HChar}}
     \input tuenc.def
     \let\DeclareTextSymbol\old:DeclareTextSymbol
   \fi
@@ -5733,7 +5733,7 @@ used for Fontspec support.
   \catcode#1=\active% make the character active
   \begingroup\lccode`\~=#1 % trick to define the character as a command
   % the code inside \special will be converted back to utf8 by tex4ht
-  \lowercase{\endgroup\protected\def~}{\special{t4ht@+&{35}x\hex{#1}{59}}x}
+  \lowercase{\endgroup\protected\def~}{\ht:special{t4ht@+&{35}x\hex{#1}{59}}\a:HChar}
 }
 
 % remove character definition
@@ -22760,7 +22760,7 @@ This modification is needed since Stefan
 % by tex4ht
 \<arabic digits\><<<
 \def\arabic:loopoverdigits#1{\ifx\relax#1\else%
-\special{t4ht@+&{35}x066#1{59}}x%
+\ht:special{t4ht@+&{35}x066#1{59}}\a:HChar%
 \expandafter\arabic:loopoverdigits\fi}
 \def\arabicdigits#1{\arabic:loopoverdigits#1\relax}
 >>>
@@ -22822,8 +22822,8 @@ This modification is needed since Stefan
 \HLet\DDJ@=\:tempc
 \NewConfigure{ddj}{1}
 \NewConfigure{DDJ}{1}
-\Configure{DDJ}{\leavevmode\ht:special{t4ht@+{38}{35}x0110;}x}
-\Configure{ddj}{\leavevmode\ht:special{t4ht@+{38}{35}x0111;}x}
+\Configure{DDJ}{\leavevmode\ht:special{t4ht@+{38}{35}x0110;}\a:HChar}
+\Configure{ddj}{\leavevmode\ht:special{t4ht@+{38}{35}x0111;}\a:HChar}
 >>>
 
 
@@ -22955,7 +22955,7 @@ environments to insert XML tags.
 % Copyright (C) |CopyYear.2007.       Youssef Jabri               %
 %                            Modified by Eitan M. Gurari %
 |<TeX4ht copyright|>
-  \long\def\ZWNJ{\noindent\ht:special{t4ht@+\string&{35}x200C;}x} 
+  \long\def\ZWNJ{\noindent\ht:special{t4ht@+\string&{35}x200C;}\a:HChar} 
 \Hinput{lfeenc}
 \endinput
 >>>        \AddFile{8}{lfeenc}
@@ -35152,15 +35152,15 @@ The relax is to avoid end-of-line for the control character.
 
 \<config latex.ltx shared\><<<
 \let\sp:c|=\  |<latex,plain sp|>
-\def\:nbsp{\protect\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x} 
-\def\:ensp{\protect\leavevmode\special{t4ht@+\string&{35}x2002{59}}x} 
+\def\:nbsp{\protect\leavevmode\ht:special{t4ht@+\string&{35}x00A0{59}}\a:HChar} 
+\def\:ensp{\protect\leavevmode\ht:special{t4ht@+\string&{35}x2002{59}}\a:HChar} 
 \let\nobreakspace\:nbsp
 >>>
 
 \<config plain shared\><<<
 \let\sp:c|=\space |<latex,plain sp|>%
-\def\:nbsp{\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x} 
-\def\:ensp{\leavevmode\special{t4ht@+\string&{35}x2002{59}}x} 
+\def\:nbsp{\leavevmode\ht:special{t4ht@+\string&{35}x00A0{59}}\a:HChar} 
+\def\:ensp{\leavevmode\ht:special{t4ht@+\string&{35}x2002{59}}\a:HChar} 
 >>>
 
 \<latex,plain sp\><<<
