@@ -3,6 +3,9 @@
 	* tex4ht-4ht.tex (babel.4ht, latex.4ht, lfeenc.4ht, plain.4ht,
 	polyglossia.4ht, tuenc-xetex-input.4ht): use \ht:special instead of
 	\special.
+	* tex4ht-4ht.tex (latex.4ht, plain.4ht): \:nbsp should output non breaking
+	space inside picture.
+	* tex4ht-html4.tex (html4.4ht): test for \Picture inside \a:HChar.
 
 2021-04-22  Michal Hoftich  <michal.h21@gmail.com>
 
