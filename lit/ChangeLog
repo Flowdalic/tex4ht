@@ -8,6 +8,8 @@
 	* tex4ht-html4.tex (html4.4ht): test for \Picture inside \a:HChar.
 	* tex4ht-unicode.tex (unicode.4ht): use correct definition of \:nbsp.
 	* tex4ht-html4.tex (html4.4ht): use \:nbsp in listings configurations.
+	* tex4ht-4ht.tex (listings.4ht): fixed configurations in order to support
+	\Picture*. (Thanks to Linas Stonys).
 
 2021-04-22  Michal Hoftich  <michal.h21@gmail.com>
 

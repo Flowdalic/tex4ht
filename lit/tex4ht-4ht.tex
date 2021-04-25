@@ -30243,11 +30243,12 @@ Configure list of listings
 >>>
 
 \<listings sty\><<<
-\def\lst@NewLine{%
+\def\:tempa{%
    \ifx\lst@OutputBox\@gobble\else \the\everypar \fi
    \global\advance\lst@newlines\m@ne
    \lst@newlinetrue
 }%
+\HLet\lst@NewLine\:tempa
 \def\lst@InputListing#1{% 
     \begingroup 
       \lsthk@PreSet \gdef\lst@intname{#1}% 
@@ -30265,7 +30266,7 @@ Configure list of listings
 >>>
 
 \<listings sty\><<<
-\def\lst@Kern#1{% 
+\def\:tempa#1{% 
    \setbox\z@\hbox{{\lst@currstyle{\kern#1}}}% 
    \global\advance\lst@currlwidth \wd\z@ 
    \tmp:dim=#1 \let\:tempc=\empty
@@ -30276,6 +30277,7 @@ Configure list of listings
    \repeat
    \setbox\z@\hbox{{\lst@currstyle{\:tempc}}}%
    \lst@OutputBox\z@} 
+\HLet\lst@Kern\:tempa
 \NewConfigure{lst@Kern}{2}
 \Configure{lst@Kern}{0.499em}{0.1em}
 >>>
