@@ -1,7 +1,11 @@
+2021-04-27  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (inst-check-files): new target.
+
 2021-04-27  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (hyperref.4ht): fixed issues with nameref when hyperref was
-	loaded from class files.
+	* tex4ht-4ht.tex (hyperref.4ht): fixed issues with nameref when
+	hyperref was loaded from class files.
 	https://puszcza.gnu.org.ua/bugs/index.php?508
 
 2021-04-25  Michal Hoftich  <michal.h21@gmail.com>
@@ -9,20 +13,20 @@
 	* tex4ht-4ht.tex (babel.4ht, latex.4ht, lfeenc.4ht, plain.4ht,
 	polyglossia.4ht, tuenc-xetex-input.4ht): use \ht:special instead of
 	\special.
-	* tex4ht-4ht.tex (latex.4ht, plain.4ht): \:nbsp should output non breaking
-	space inside picture.
+	* tex4ht-4ht.tex (latex.4ht, plain.4ht): \:nbsp should output
+	nonbreaking space inside picture.
 	* tex4ht-html4.tex (html4.4ht): test for \Picture inside \a:HChar.
 	* tex4ht-unicode.tex (unicode.4ht): use correct definition of \:nbsp.
 	* tex4ht-html4.tex (html4.4ht): use \:nbsp in listings configurations.
-	* tex4ht-4ht.tex (listings.4ht): fixed configurations in order to support
-	\Picture*. (Thanks to Linas Stonys).
+	* tex4ht-4ht.tex (listings.4ht): fixed configurations in order to
+	support \Picture*. (Thanks to Linas Stonys).
 
 2021-04-22  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (listings.4ht): insert closing b:lstlinline configuration
-	really after group. (Thanks to Linas Stonys).
-	* tex4ht-html4.tex (html4.4ht): add newlines after <br /> tags in listings
-	environment.
+	* tex4ht-4ht.tex (listings.4ht): insert closing b:lstlinline
+	configuration really after group. (Thanks to Linas Stonys).
+	* tex4ht-html4.tex (html4.4ht): add newlines after <br /> tags in
+	listings environment.
 
 2021-04-17  Karl Berry  <karl@freefriends.org>
 
@@ -92,8 +96,8 @@
 	* tex4ht-4ht.tex (caption.4ht): prevent expansion of macros
 	written to TOC by the \caption command.
 	https://tug.org/pipermail/tex4ht/2021q1/002912.html
-	* tex4ht-html4.tex (html4.4ht): use graphics- option value in PDF end EPS
-	conversion.
+	* tex4ht-html4.tex (html4.4ht): use graphics- option value in PDF
+	end EPS conversion.
 	https://tex.stackexchange.com/a/586096/2891
 
 2021-03-04  Michal Hoftich  <michal.h21@gmail.com>
@@ -390,8 +394,8 @@
 	* tex4ht-4ht.tex (usepackage.4ht,caption-hooks.4ht): adapted Caption,
 	* tex4ht-4ht.tex (usepackage.4ht,pdfbase-hooks.4ht): adapted Pdfbase,
 	* tex4ht-4ht.tex (usepackage.4ht,tikz-hooks.4ht): adapted Tikz,
-	* tex4ht-4ht.tex (usepackage.4ht,fontspec-hooks.4ht, polyglossia-hooks.4ht): 
-	adapted Fontspec and Polyglossia,
+	* tex4ht-4ht.tex (usepackage.4ht,fontspec-hooks.4ht,
+	polyglossia-hooks.4ht): adapted Fontspec and Polyglossia,
 	* tex4ht-4ht.tex (usepackage.4ht,ctex-hooks.4ht): adapted Ctex,
 	* tex4ht-4ht.tex (usepackage.4ht,xecjk-hooks.4ht): adapted xeCJK,
 	* tex4ht-4ht.tex (usepackage.4ht,savetrees-hooks.4ht): adapted

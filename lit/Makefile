@@ -779,11 +779,18 @@ diff-derived:
 
 # Check that anything with a \version of this year
 # also has a copyright of this year.
-diff-copyright:
+inst-check-copyright:
 	-cd $(inst_dir_4ht) && for f in *; do \
 	  if grep "version.*`date +%Y`" $$f >/dev/null; then \
 	    grep "Copyright.*`date +%Y`" $$f >/dev/null || echo $$f; fi; done
 
+# Check that all *.4ht in dev are installed. Other file types are
+# difficult, but all 4ht's should be present.
+inst-check-files:
+	cd $(inst_dir_4ht) && ls -1 *.4ht >/tmp/instlist
+	ls -1 *.4ht >/tmp/devlist
+	comm -3 /tmp/devlist /tmp/instlist
+	
 # missing version identifications.
 inst-check-version:
 	-cd $(inst_dir_4ht) && for f in *; do \
