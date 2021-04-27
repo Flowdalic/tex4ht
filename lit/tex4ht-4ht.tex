@@ -4596,6 +4596,19 @@ documents.
 }
 >>>
 
+This code comes from hyperref-hooks.4ht. As hyperref-hooks.4ht is not used in .cls files
+it needs to be executed also here. I've left this code in hyperef-hooks, but it probably can 
+be removed safely.
+
+\<config hyperref\><<<
+\@ifpackageloaded{nameref}{}
+{%
+   \let\sv:label\label
+   \RequirePackage{nameref}%
+   \let\label\sv:label
+}
+>>>
+
 \<config hyperref\><<<
 \def\hyper@makecurrent#1{% 
   \begingroup 

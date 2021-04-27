@@ -1,3 +1,9 @@
+2021-04-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (hyperref.4ht): fixed issues with nameref when hyperref was
+	loaded from class files.
+	https://puszcza.gnu.org.ua/bugs/index.php?508
+
 2021-04-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (babel.4ht, latex.4ht, lfeenc.4ht, plain.4ht,
