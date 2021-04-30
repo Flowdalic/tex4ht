@@ -657,7 +657,7 @@ We reserve code 254 (and 255) for unknown symbols.
 
 
 \<configure mathml amsmath\><<<
-\Configure{boldsymbol}{\HCode{<mstyle mathvariant="bold-italic">}}{\HCode{</mstyle>}}
+\Configure{boldsymbol}{\bgroup\HCode{<mstyle mathvariant="bold-italic">}}{\HCode{</mstyle>}\egroup}
 >>>
 
 \<configure mathml amsmath\><<<
@@ -1733,25 +1733,25 @@ The \verb+\bgroup...\egroup+ is to handle cases like
 \<configure mathml fontmath\><<<
 \def\bold:version{bold}
 \Configure{mathbf}%
-  {\Tg<\a:mathml mstyle 
+  {\bgroup\Tg<\a:mathml mstyle 
              mathvariant="bold">}%
-  {\Tg</\a:mathml mstyle>}%
+  {\Tg</\a:mathml mstyle>\egroup}%
 \Configure{mathit}%
-  {\Tg<\a:mathml mstyle  mathvariant="\ifx 
+  {\bgroup\Tg<\a:mathml mstyle  mathvariant="\ifx 
                  \bold:version\math@version bold-\fi italic">}%
-  {\Tg</\a:mathml mstyle>}%
+  {\Tg</\a:mathml mstyle>\egroup}%
 \Configure{mathrm}%
-  {\Tg<\a:mathml mstyle 
+  {\bgroup\Tg<\a:mathml mstyle 
              mathvariant="\ifx 
                  \bold:version\math@version bold\else normal\fi">}%
-  {\Tg</\a:mathml mstyle>}%
+  {\Tg</\a:mathml mstyle>\egroup}%
 \Configure{mathsf}%
-  {\Tg<\a:mathml mstyle  mathvariant="\ifx
+  {\bgroup\Tg<\a:mathml mstyle  mathvariant="\ifx
             \bold:version\math@version bold-\fi sans-serif">}%
-  {\Tg</\a:mathml mstyle>}%
+  {\Tg</\a:mathml mstyle>\egroup}%
 \Configure{mathtt}%
-  {\Tg<\a:mathml mstyle mathvariant="monospace">}%
-  {\Tg</\a:mathml mstyle>}%
+  {\bgroup\Tg<\a:mathml mstyle mathvariant="monospace">}%
+  {\Tg</\a:mathml mstyle>\egroup}%
 >>>
 
 \<configure mathml fontmath\><<<

@@ -3,6 +3,9 @@
 	* tex4ht-mathml.tex (mathml.4ht): added special group in order to support
 	subscripts in upright Greek characters.
 	https://tex.stackexchange.com/a/595005/2891
+	* tex4ht-mathml.tex (mathml.4ht): added special group to \math<xx> commands,
+	in order to support their use in subscripts and superscripts without extra
+	groups in TeX documents.
 
 2021-04-29  Michal Hoftich  <michal.h21@gmail.com>
 
