@@ -6,6 +6,8 @@
 	* tex4ht-mathml.tex (mathml.4ht): added special group to \math<xx> commands,
 	in order to support their use in subscripts and superscripts without extra
 	groups in TeX documents.
+	* tex4ht-4ht.tex (beamer.4ht),
+	tex4ht-html4.tex (html4.4ht): modernized Beamer support.
 
 2021-04-29  Michal Hoftich  <michal.h21@gmail.com>
 

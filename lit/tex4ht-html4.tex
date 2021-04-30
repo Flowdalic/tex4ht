@@ -14270,6 +14270,17 @@ supported formats by tex4ht.
 \fi
 >>>
 
+This is code for the moder Beamer 
+
+\<beamer slides\><<<
+
+\Configure{frame}{\ifvmode\IgnorePar\fi\EndP
+    \HCode{<div class="slide">}
+}{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+\Configure{frametitle}{\ifvmode\IgnorePar\fi\EndP\HCode{<h2>}\NoFonts}{\EndNoFonts\ifvmode\IgnorePar\fi\EndP\HCode{</h2>}\par\ShowPar}
+\Css{div.slide {border:solid black 0.4pt;margin-bottom:1em;}}
+
+>>>
 
 
 

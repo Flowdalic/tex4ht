@@ -24669,6 +24669,7 @@ A \''\relax' is prepended to the start of the definitions
 \else
    |<conf beamer 3.01|>
 \fi
+|<conf beamer current|>
 \Hinput{beamer}
 \endinput
 >>>        \AddFile{9}{beamer}
@@ -24774,10 +24775,6 @@ A \''\relax' is prepended to the start of the definitions
 \pend:def\sectiontemplate{\a:sectionintoc}
 \append:def\sectiontemplate{\b:sectionintoc}
 
-\NewConfigure{sectionshadedintoc}{2}
-\NewConfigure{sectionintoc}{2}
-\NewConfigure{subsectionshadedintoc}{2}
-\NewConfigure{subsectionintoc}{2}
 >>>
 
 \<conf beamer 0.3\><<<
@@ -24867,6 +24864,37 @@ transported into the slide blocks.
 \pend:defI\structure{\a:structure}
 \append:defI\structure{\b:structure}
 \NewConfigure{structure}{2}
+\NewConfigure{sectionshadedintoc}{2}
+\NewConfigure{sectionintoc}{2}
+\NewConfigure{subsectionshadedintoc}{2}
+\NewConfigure{subsectionintoc}{2}
+>>>
+
+\<conf beamer current\><<<
+\let\Hy@EveryPageAnchor\relax
+\def\pgf@trimright@final{0pt}
+\def\pgf@trimleft@final{0pt}
+\let\origEndP\EndP
+\AtBeginDocument{\def\EndP{\let\EndP\origEndP}\SaveEndP}
+
+
+\NewConfigure{frame}{2}
+\NewConfigure{frametitle}{2}
+\AddToHook{env/beamer@frameslide/before}{\RecallEndP\a:frame}
+\AddToHook{env/beamer@frameslide/after}{\b:frame}
+
+\long\def\:temp[#1]#2{%
+\a:frametitle%
+\o:beamer@@frametitle:[#1]{#2}%
+\b:frametitle%
+}
+
+\HLet\beamer@@frametitle\:temp
+% Beamer redefines \emph, it is necessary to insert hooks again
+
+\pend:defI\emph{\a:emph}%
+\append:defI\emph{\b:emph}%
+
 >>>
 
 %%%%%%%%%%%%%
