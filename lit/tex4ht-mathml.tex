@@ -3449,8 +3449,10 @@ The following commands should produce upright characters. So we redefine them
 to produce mi elements with mathvariant attribute, that hold their Unicode
 charactes.
 
+Extra brackets are used in order to support subscripts and superscripts.
+
 \<configure mathml latex\><<<
-\def\:temp#1#2{\def#1{\PauseMathClass\HCode{<mi mathvariant="normal">}\ht:special{t4ht@+\string&{35}x#2{59}}\a:HChar\HCode{</mi>}\EndPauseMathClass}}
+\def\:temp#1#2{\def#1{\PauseMathClass{\HCode{<mi mathvariant="normal">}\ht:special{t4ht@+\string&{35}x#2{59}}\a:HChar\HCode{</mi>}}\EndPauseMathClass}}
 \:temp\Psi{03A8}
 \:temp\Delta{0394}
 \:temp\Xi{039E}

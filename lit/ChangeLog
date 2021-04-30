@@ -1,3 +1,9 @@
+2021-04-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): added special group in order to support
+	subscripts in upright Greek characters.
+	https://tex.stackexchange.com/a/595005/2891
+
 2021-04-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): keep some Greek characters upright.
