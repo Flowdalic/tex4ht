@@ -451,7 +451,13 @@ $(tex4ht_html4_derived): tex4ht-html4.tex $(common)
 	latex $(tex_opts) $<
 	latex $(tex_opts) $<
 
+$(tex4ht_html5_derived): tex4ht-html5.tex $(common)
+	htlatex $< "xhtml,3,sections+" "" "" $(tex_1opt)
+
 $(tex4ht_info_html4_derived): tex4ht-info-html4.tex $(common_info)
+	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
+
+$(tex4ht_jats_derived): tex4ht-jats.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_info_javahelp_derived): tex4ht-info-javahelp.tex $(common_info)
@@ -484,6 +490,9 @@ $(tex4ht_jsml_xtpipes_derived): tex4ht-jsml-xtpipes.tex $(common) $(xtpipes_jar)
 $(tex4ht_jsml_derived): tex4ht-jsml.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
+$(tex4ht_mathjax_derived): tex4ht-mathjax.tex
+	htlatex $<  "xhtml,3,next" "" "" $(tex_1opt)
+
 $(tex4ht_mathltx_derived): tex4ht-mathltx.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
@@ -500,9 +509,6 @@ $(tex4ht_mkht_derived): tex4ht-mkht.tex $(common)
 
 $(tex4ht_moz_derived): tex4ht-moz.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
-
-$(tex4ht_html5_derived): tex4ht-html5.tex $(common)
-	htlatex $< "xhtml,3,sections+" "" "" $(tex_1opt)
 
 $(tex4ht_oo_xtpipes_derived): tex4ht-oo-xtpipes.tex $(common)
 	htlatex $< "xhtml,next,3" "" "" $(tex_1opt)
@@ -528,9 +534,6 @@ $(tex4ht_t4ht_derived): tex4ht-t4ht.tex $(common)
 $(tex4ht_tei_derived): tex4ht-tei.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
-$(tex4ht_jats_derived): tex4ht-jats.tex $(common)
-	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
-
 $(tex4ht_unicode_derived): tex4ht-unicode.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
@@ -545,9 +548,6 @@ $(tex4ht_xhtmml_xtpipes_derived): tex4ht-xhtmml-xtpipes.tex $(common)
 
 $(xtpipes_derived): xtpipes.tex $(common)
 	htlatex $< "xhtml,3,next" "" "" $(tex_1opt)
-
-$(tex4ht_mathjax_derived): tex4ht-mathjax.tex
-	htlatex $<  "xhtml,3,next" "" "" $(tex_1opt)
 # Derived files are generated in . and $(wd).
 # (corresponds to src/java for xtpipes.tex)
 
