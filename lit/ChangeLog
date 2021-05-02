@@ -1,11 +1,16 @@
+2021-05-02  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (polyglossia.4ht, tuenc-xetex-input.4ht): 2021.
+	(aa.4ht): \write version.
+
 2021-04-30  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathml.tex (mathml.4ht): added special group in order to support
-	subscripts in upright Greek characters.
+	* tex4ht-mathml.tex (mathml.4ht): added special group in order
+	to support subscripts in upright Greek characters.
 	https://tex.stackexchange.com/a/595005/2891
-	* tex4ht-mathml.tex (mathml.4ht): added special group to \math<xx> commands,
-	in order to support their use in subscripts and superscripts without extra
-	groups in TeX documents.
+	* tex4ht-mathml.tex (mathml.4ht): added special group to
+	\math<xx> commands, in order to support their use in subscripts
+	and superscripts without extra groups in TeX documents.
 	* tex4ht-4ht.tex (beamer.4ht),
 	tex4ht-html4.tex (html4.4ht): modernized Beamer support.
 
