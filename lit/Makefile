@@ -663,6 +663,9 @@ clean: mostlyclean
 	rm -f *.fls
 	rm -f tex4ht-dir.tex
 
+mostlyclean:
+	rm -f $(derived)
+
 clean1:
 	rm -f $(f).[0-s]* $(f).[u-z]* $(f).trc
 
@@ -694,6 +697,7 @@ texmf = /r/tug/home/texlive/karl/Master/texmf-dist
 inst_dir_4ht = $(texmf)/tex/generic/tex4ht
 inst_dir_top = $(texmf)/tex4ht
 inst_dir_scripts = $(texmf)/scripts/tex4ht
+inst_dir_source = $(texmf)/source/tex4ht
 
 # Simple command to "install" from dev to TL.
 # (Other methods are also used.)
@@ -720,7 +724,27 @@ install-scripts:
 	  $(install_data) $$f $$inst_f; done
 
 # 
-# Let's write out the commands for updating fonts.
+# Checking and updating source files from development vs. TeX Live,
+# from whence they get to CTAN.
+
+srcfiles = $(shell svn status -v | awk '{print $$NF}' \
+             | egrep -v '^\.|^archive|ProTex.sty$$')
+
+# Diff source files from installed to dev.
+diff-src:
+	for f in $(srcfiles); do $(diff) $$f $(inst_dir_source)/$$f; done
+#
+# Install from dev to installed.
+install-src:
+	for f in $(srcfiles); do $(install_data) $$f $(inst_dir_source); done
+#
+# Just list the files.
+list-src:
+	@echo $(srcfiles) | tr ' ' '\n'
+
+# 
+# Checking and updating font support files.
+# 
 ht_fonts_instdir = $(inst_dir_top)/ht-fonts
 #
 install-unicode-4hf:
@@ -796,6 +820,7 @@ inst-check-version:
 	-cd $(inst_dir_4ht) && for f in *; do \
 	  grep 'write-1.*version' $$f >/dev/null || echo $$f; done
 
+# 
 # diff one specified file, as in "make d1 d=filename.4ht".
 diff1 d1:
 	$(diff) $(inst_dir_4ht)/$(d) .
@@ -804,9 +829,6 @@ diff1 d1:
 diff = diff -u0 --ignore-all-space --ignore-blank-lines \
   --ignore-matching-lines='write-1.version\|, generated from\|Copyright'
 
-# simple abbrev.
+# final simple abbrev for convenience.
 upmake upm:
 	svn update && make
-
-mostlyclean:
-	rm -f $(derived)

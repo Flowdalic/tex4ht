@@ -1,0 +1,15 @@
+$Id$
+This file is public domain.  Originally written 2021, Karl Berry.
+
+Documentation for TeX4ht, https://tug.org/tex4ht.
+
+The documentation here was written by Eitan Gurari, the original author
+of TeX4ht. It has been only slightly updated since his passing.
+
+Published articles are listed on the TeX4ht web page. Additional
+documentation is in the source repository (doc/ subdir), but is not yet
+ready for release.  (This documentation is the doc/mn subdir in the
+source repository.)
+
+Bug reports and patches are most welcome. See https://tug.org/tex4ht
+for contact and other information.

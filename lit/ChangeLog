@@ -1,5 +1,12 @@
 2021-05-02  Karl Berry  <karl@freefriends.org>
 
+	* Makefile (diff-src, install-src, list-src): new targets
+	to handle source files, found via svn status -v.
+	* README: update.
+	* archive/: move Makefile.exp and extra-bin/fls* here,
+	so we don't install them as current source files.
+	Still hope to use them one day.
+
 	* tex4ht-4ht.tex (polyglossia.4ht, tuenc-xetex-input.4ht): 2021.
 	(aa.4ht): \write version.
 

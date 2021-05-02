@@ -5,10 +5,10 @@ This is tex4ht, a package to convert LaTeX, ConTeXt, and other
 TeX-related documents to HTML, XML, and other related formats.
 It is released under the LaTeX Project Public License, v1.3 or later.
 
-Home page:            http://tug.org/tex4ht
-General mailing list: http://lists.tug.org/tex4ht
-Commits mailing list: http://lists.tug.org/tex4ht-commits
-Development project:  http://puszcza.gnu.org.ua/projects/tex4ht/
+Home page:            https://tug.org/tex4ht
+General mailing list: https://lists.tug.org/tex4ht
+Commits mailing list: https://lists.tug.org/tex4ht-commits
+Development project:  https://puszcza.gnu.org.ua/projects/tex4ht/
 
 Bug reports: please include enough information for the maintainers to
  reproduce the problem.  Generally speaking, that means:
@@ -25,13 +25,13 @@ include ChangeLog entries.
 Installation:
   Unfortunately, we cannot write a simple description of how to install
   tex4ht.  We hope to improve this in the future.  For terse information
-  on how it is installed in TeX Live, see the file
+  on how it was installed in TeX Live, see the file
   http://tug.org/svn/texlive/trunk/Master/tlpkg/bin/tl-update-4ht.
 -------------------------------------------------------------------------------
 TeX4ht was created by Eitan Gurari at Ohio State University,
 who died unexpectedly in June 2009.  We miss you, Eitan.
 
 With the permission and encouragement of Eitan's family,
-CV Radhakrishnan, Karl Berry, and others have taken over maintenance of the
+Michal Hoftich, Karl Berry, and others have taken over maintenance of the
 package, and welcome other volunteers.  Any involvement, from bug reports
 to major new development, is appreciated.

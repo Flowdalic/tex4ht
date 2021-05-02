@@ -10,7 +10,7 @@ else
 endif
 
 tex = $(dev) etex -interaction=nonstopmode -file-line-error
-bld: clean
+all: clean
 #	chmod -R a+rwX .  # as received from OSU
 	$(tex) mn && $(tex) mn && $(tex) mn
 	$(dev) tex4ht mn </dev/null
@@ -21,11 +21,11 @@ bld: clean
 
 inst_dir = /r/tug/home/texlive/karl/Master/texmf-dist/doc/generic/tex4ht
 # look for "Only in /..." for files in TL now that should be removed.
-dif:
+diff-doc:
 	diff -u0 $(inst_dir) . | grep -v '<small>Generated '
 
 # have to add new files by hand.
-install:
+install install-doc:
 	cp -p `(cd $(inst_dir) && \ls)` $(inst_dir)
 	svn status $(inst_dir)
 
