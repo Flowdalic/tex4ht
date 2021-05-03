@@ -16063,6 +16063,11 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
    {\add:color{background-color}{\current@color}{\HRow-\HCol}}
 \def\add:color#1#2#3{%
   \Configure{SetHColor}{\Css{ \#TBL-\TableNo-#3{ #1:\HColor }}}{#2}}
+
+% redefine default table configuration and put the color rule
+\def\a:HBorder{<tr class="hline" style="border-top:1px solid \#\hline:color">}
+% don't display <hr> elements in colored \hline
+\Css{tr.hline td hr{display:none}}
 >>>
 
 [\HPage{test file}

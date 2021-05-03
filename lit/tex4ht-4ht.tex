@@ -26808,6 +26808,17 @@ need also a treatment similar to \''\CT@column@color'?
 \NewConfigure{rowcolor}{1}
 >>>
 
+Fixes for colored hlines
+
+\<fix colortbl\><<<
+% default hline color is black
+\def\hline:color{000}
+% save rule color in format usable in CSS
+\renewcommand\arrayrulecolor[2][named]{%
+\noalign{\convertcolorspec{#1}{#2}{HTML}\:tmp\global\let\hline:color\:tmp}%
+}
+>>>
+
 \SubSection{Utilities}
 
 This should enable use of \`|\color| command in array declaration
