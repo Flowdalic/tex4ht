@@ -38409,10 +38409,9 @@ The following is needed to compensate for the extra \''\relax\space' in
 >>>
 
 \<spanish defs\><<< 
-\let\:tempc\es@accent
-\pend:defIII\:tempc{%
+\def\:tempc#1#2#3{%
     \expandafter\:text@composite@x
-    \csname OT1\string##1\endcsname##3\@empty}
+    \csname OT1\string#1\endcsname#3\@empty}
 \HLet\es@accent\:tempc
 \def\:text@composite@x#1#2{%
    \expandafter\ifx \csname \string#1-\string#2\endcsname\relax

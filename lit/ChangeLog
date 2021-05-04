@@ -9,6 +9,8 @@
 	* tex4ht-html4.4ht (html4.4ht): replace ~ by "\ " in TOC rendering macros.
 	It should fix issues with Spanish Babel. 
 	https://tex.stackexchange.com/a/595688/2891
+	* tex4ht-4ht.tex (spanish.4ht): fixed issues with \' accent.
+	https://tex.stackexchange.com/a/595688/2891
 
 2021-05-02  Karl Berry  <karl@freefriends.org>
 
