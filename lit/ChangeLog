@@ -4,6 +4,8 @@
 	tex4ht-html4.tex (html4.4ht): added support for \arrayrulecolor 
 	command.
 	https://tex.stackexchange.com/a/595571/2891
+	* tex4ht-4ht.tex (menukeys.4ht): added support for the menukeys package.
+	https://puszcza.gnu.org.ua/bugs/?509
 
 2021-05-02  Karl Berry  <karl@freefriends.org>
 
