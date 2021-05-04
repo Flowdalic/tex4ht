@@ -26814,9 +26814,10 @@ Fixes for colored hlines
 % default hline color is black
 \def\hline:color{000}
 % save rule color in format usable in CSS
-\renewcommand\arrayrulecolor[2][named]{%
+\newcommand\tmp:arrayrulecolor[2][named]{%
 \noalign{\convertcolorspec{#1}{#2}{HTML}\:tmp\global\let\hline:color\:tmp}%
 }
+\HLet\arrayrulecolor\tmp:arrayrulecolor
 >>>
 
 \SubSection{Utilities}
