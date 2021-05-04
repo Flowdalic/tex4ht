@@ -748,7 +748,7 @@ tex4ht-body>>>
 \Configure{subsection}{}{}
    {\ifvmode \IgnorePar\fi
     \EndP\bgroup \IgnorePar\HCode{<h4 class="subsectionHead"\a:LRdir>}%
-    \TitleMark~~\HtmlParOff}
+    \TitleMark\ \ \HtmlParOff}
    {\HCode{</h4>}\HtmlParOn \IgnoreIndent\egroup\par\ShowPar}
 \Configure{likesubsection}{}{}{\EndP\bgroup
    \ifvmode \IgnorePar\fi
@@ -1812,7 +1812,7 @@ should be used whe addcontentline instructions are present.
 
 \<html latex tocs\><<<
 \def\tocpart#1#2#3{\par
-   \HCode{<span class="partToc" \a:LRdir>}\if !#1!\else  #1~~\fi #2\HCode{</span>}\par}%
+   \HCode{<span class="partToc" \a:LRdir>}\if !#1!\else  #1\ \ \fi #2\HCode{</span>}\par}%
 \def\toclikepart#1#2#3{\par
    \HCode{<span class="likepartToc" \a:LRdir>}#2\HCode{</span>}\par}%
 |<part toc css|>%
@@ -1872,7 +1872,7 @@ should be used whe addcontentline instructions are present.
 \<scr report,book\><<<
 \def\tocpart#1#2#3{\par
    \HCode{<span class="partToc" \a:LRdir>}\if !#1!\else  
-                                   #1~~\fi #2\HCode{</span>}\par}%
+                                   #1\ \ \fi #2\HCode{</span>}\par}%
 \def\toclikepart#1#2#3{\par
    \HCode{<span class="likepartToc" \a:LRdir>}#2\HCode{</span>}\par}%
 \Css{.partToc a, .partToc, .likepartToc a, .likepartToc
@@ -1881,13 +1881,13 @@ should be used whe addcontentline instructions are present.
         .appendixToc a, .appendixToc, .addchapToc a
         {line-height: 200\%; font-weight:bold;}}
    \def\tocchapter#1#2#3{\par
-      \HCode{<span class="chapterToc" \a:LRdir>}#1~~#2\HCode{</span>}\par}
+      \HCode{<span class="chapterToc" \a:LRdir>}#1\ \ #2\HCode{</span>}\par}
    \def\toclikechapter#1#2#3{\par
       \HCode{<span class="likechapterToc" \a:LRdir>}#2\HCode{</span>}\par}%
    \def\tocaddchap#1#2#3{\par
       \HCode{<span class="addchapToc" \a:LRdir>}#2\HCode{</span>}\par}%
    \def\tocappendix#1#2#3{\par
-      \HCode{<span class="appendixToc" \a:LRdir>}#1~~#2\HCode{</span>}\par}
+      \HCode{<span class="appendixToc" \a:LRdir>}#1\ \ #2\HCode{</span>}\par}
    \def\tocsection#1#2#3{\par\ \toc:num{section}{#1}{#2}\par}
    \def\toclikesection#1#2#3{\par\ 
       \HCode{<span class="likesectionToc" \a:LRdir>}#2\HCode{</span>}\par}
@@ -1907,13 +1907,13 @@ should be used whe addcontentline instructions are present.
       \ \ \ \ \ \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
 \def\toc:num#1#2#3{\def\:temp{#1#2}%
    \HCode{<span class="#1Toc" \a:LRdir>}\ifx \:temp\empty 
-   \else \def\:temp{#2}\ifx\:temp\empty\else #2~~\fi\fi #3\HCode{</span>}}
+   \else \def\:temp{#2}\ifx\:temp\empty\else #2\ \ \fi\fi #3\HCode{</span>}}
 >>>
 
 
 \<revtex sections\><<<
 \def\tocpart#1#2#3{\par
-   \HCode{<span class="partToc" \a:LRdir>}\if !#1!\else  #1~~\fi #2\HCode{</span>}\par}%
+   \HCode{<span class="partToc" \a:LRdir>}\if !#1!\else  #1\ \ \fi #2\HCode{</span>}\par}%
 \def\toclikepart#1#2#3{\\HCode{<span class="parlikepartToc" \a:LRdir>}#2\HCode{</span>}\par}%
 \Css{.partToc a, .partToc, .likepartToc a, .likepartToc
         {line-height: 200\%; font-weight:bold; font-size:110\%;}}
@@ -1991,19 +1991,19 @@ should be used whe addcontentline instructions are present.
   {}
   {\HCode{</span><br />}}
 \ConfigureToc{subsection}
-  {\HCode{<span class="subsectionToc" \a:LRdir>}~~\toc:Mark{subsection}}
+  {\HCode{<span class="subsectionToc" \a:LRdir>}\ \ \toc:Mark{subsection}}
   {\End:Mark}
   {}
   {\HCode{</span><br />}}
 \ConfigureToc{subsubsection}
   {\HCode{<span
-       class="subsubsectionToc" \a:LRdir>}~~~~\toc:Mark{subsubsection}}
+       class="subsubsectionToc" \a:LRdir>}\ \ \ \ \toc:Mark{subsubsection}}
   {\End:Mark}
   {}
   {\HCode{</span><br />}}
 \def\toc:Mark#1#2\End:Mark{\if !#2!\else
    \expandafter\ifx \csname #1name\endcsname\relax\else 
-   \csname #1name\endcsname~\fi #2.~~\fi}
+   \csname #1name\endcsname\ \fi #2.\ \ \fi}
 >>>
 
 
@@ -2015,19 +2015,19 @@ should be used whe addcontentline instructions are present.
   {\HCode{</span><br />}}
 \ConfigureToc{chapter}
   {\HCode{<span class="chapterToc" \a:LRdir>}%
-   \ifx \chaptername\:UnDef\else \chaptername~\fi}
-  {.~~}
+   \ifx \chaptername\:UnDef\else \chaptername\ \fi}
+  {.\ \ }
   {}
   {\HCode{</span><br />}}
 \ConfigureToc{likechapter}
   {\HCode{<span class="likechapterToc" \a:LRdir>}}
-  {~~}
+  {\ \ }
   {}
   {\HCode{</span><br />}}
 \ConfigureToc{appendix}
   {\HCode{<span class="appendixToc" \a:LRdir>}%
-   \ifx \appendixname\:UnDef\else \appendixname~\fi}
-  {.~~}
+   \ifx \appendixname\:UnDef\else \appendixname\ \fi}
+  {.\ \ }
   {}
   {\HCode{</span><br />}}
 >>>
@@ -2346,7 +2346,7 @@ should be used whe addcontentline instructions are present.
        |<config bib-p HtmlPar|>%
       }
       {\EndP}
-      {\HCode{<span class="bibsp">}~~~\HCode{</span></span>}}
+      {\HCode{<span class="bibsp">}\ \ \ \HCode{</span></span>}}
 >>>
 
 
@@ -3673,7 +3673,7 @@ class="framed-\ifdim\ruledlinewidth>0em
 \ConfigureToc{part}
   {\toc:br
    \HCode{<span class="partToc" \a:LRdir><span class="toc-mark">}}
-  {\HCode{</span>}~}
+  {\HCode{</span>}\ }
   {}
   {\HCode{</span>}}
 >>>
@@ -3685,7 +3685,7 @@ class="framed-\ifdim\ruledlinewidth>0em
 \ConfigureToc{chapter}
   {\toc:br
    \HCode{<span class="chapterToc" \a:LRdir><span class="toc-mark">}}
-  {\HCode{</span>}~}
+  {\HCode{</span>}\ }
   {}
   {\HCode{</span>}}
 >>>
@@ -3695,7 +3695,7 @@ class="framed-\ifdim\ruledlinewidth>0em
 \ConfigureToc{section}
   {\toc:br
    \HCode{<span class="sectionToc" \a:LRdir><span class="toc-mark">}}
-  {\HCode{</span>}~}
+  {\HCode{</span>}\ }
   {}
   {\HCode{</span>}}
 >>>
@@ -3705,7 +3705,7 @@ class="framed-\ifdim\ruledlinewidth>0em
 \ConfigureToc{subsection}
   {\toc:br
    \HCode{<span class="subsectionToc" \a:LRdir><span class="toc-mark">}}
-  {\HCode{</span>}~}
+  {\HCode{</span>}\ }
   {}
   {\HCode{</span>}}
 >>>
@@ -3715,7 +3715,7 @@ class="framed-\ifdim\ruledlinewidth>0em
 \ConfigureToc{subsubsection}
   {\toc:br
    \HCode{<span class="subsubsectionToc" \a:LRdir><span class="toc-mark">}}
-  {\HCode{</span>}~}
+  {\HCode{</span>}\ }
   {}
   {\HCode{</span>}}
 >>>
@@ -3725,7 +3725,7 @@ class="framed-\ifdim\ruledlinewidth>0em
 \ConfigureToc{subsubsubsection}
   {\toc:br
    \HCode{<span class="subsubsubsectionToc" \a:LRdir><span class="toc-mark">}}
-  {\HCode{</span>}~}
+  {\HCode{</span>}\ }
   {}
   {\HCode{</span>}}
 >>>
@@ -3735,7 +3735,7 @@ class="framed-\ifdim\ruledlinewidth>0em
 \ConfigureToc{subsubsubsubsection}
   {\toc:br
    \HCode{<span class="subsubsubsubsectionToc" \a:LRdir><span class="toc-mark">}}
-  {\HCode{</span>}~}
+  {\HCode{</span>}\ }
   {}
   {\HCode{</span>}}
 >>>
@@ -10343,7 +10343,7 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
 |<section TITLE+|>
 \Configure{section}{}{}
    {\ifvmode \IgnorePar\fi \EndP\IgnorePar
-    \HCode{<h3 class="sectionHead"\a:LRdir>}\TitleMark~~\HtmlParOff}
+    \HCode{<h3 class="sectionHead"\a:LRdir>}\TitleMark\ \ \HtmlParOff}
    {\HCode{</h3>}\HtmlParOn \IgnoreIndent \ShowPar \par}
 \Configure{likesection}{}{}
    {\ifvmode \IgnorePar\fi
@@ -10360,7 +10360,7 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
 \ConfigureMark{appendix}{\HCode{<span class="titlemark">}%
    \thechapter\HCode{</span>}}
 \Configure{appendix}{}{}
-   {\IgnorePar\EndP\HCode{<h2 class="appendixHead"\a:LRdir>}\TitleMark{}.~~}
+   {\IgnorePar\EndP\HCode{<h2 class="appendixHead"\a:LRdir>}\TitleMark{}.\ \ }
    {\HCode{</h2>}\IgnoreIndent\par}
 \Configure{appendixTITLE+}{\thechapter\space#1}
 \Configure{likechapter}{}{}
@@ -10375,7 +10375,7 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
 \<configure html4 scrbook\><<<
 \ConfigureMark{chapter}
    {\if@mainmatter
-       \HCode{<span class="titlemark">}\thechapter\HCode{</span>}~~\fi}
+       \HCode{<span class="titlemark">}\thechapter\HCode{</span>}\ \ \fi}
 \Configure{chapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="chapterHead"\a:LRdir>}\TitleMark{}}
    {\HCode{</h2>}\IgnoreIndent\par}
@@ -10385,7 +10385,7 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
 
 \<configure html4 scrreprt\><<<
 \ConfigureMark{chapter}
-   {\HCode{<span class="titlemark">}\thechapter\HCode{</span>}~~}
+   {\HCode{<span class="titlemark">}\thechapter\HCode{</span>}\ \ }
 \Configure{chapter}{}{}
    {\IgnorePar\EndP\HCode{<h2 class="chapterHead"\a:LRdir>}\TitleMark{}}
    {\HCode{</h2>}\IgnoreIndent\par}
