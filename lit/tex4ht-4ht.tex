@@ -31912,7 +31912,7 @@ of \''\:temp' below.
   \expandafter\pend:def\csname tw@style@#1@pre\endcsname{\csname a:menukey#1\endcsname}%
   \expandafter\append:def\csname tw@style@#1@post\endcsname{\csname b:menukey#1\endcsname}%
   % use pictures by default for the style configuration
-  \Configure{menukey#1}{\Picture+{}}{\EndPicture}
+  \Configure{menukey#1}{\Picture*{}}{\EndPicture}
 }
 
 \Configure{defmenukey}{menus}
