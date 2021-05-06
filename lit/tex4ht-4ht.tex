@@ -3796,6 +3796,68 @@ fonts which results in compilation failure.
 \:dontusepackage{newcomputermodern}
 >>> \AddFile{9}{newcomputermodern-hooks}
 
+\<add to usepackage\><<<
+\Configure{PackageHooks}{newcomputermodern.sty}{newcomputermodern-hooks.4ht}
+>>>
+
+%%%%%%%%%%%%%%%%%
+\Section{fontawesome}
+%%%%%%%%%%%%%%%%%
+
+We need to prevent use of OpenType fonts with Fontawesome5 package.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{fontawesome5-utex-helper.sty}%
+{fontawesome5-utex-helper-hooks.4ht}
+\Configure{PackageHooks}{fontawesome5.sty}{fontawesome5-hooks.4ht}
+>>>
+
+This file prevents loading of OpenType fonts that are loaded automatically
+when LuaLaTeX or XeLaTeX are used. It loads Type 1 fonts instead.
+
+\<fontawesome5-utex-helper-hooks.4ht\><<<
+% fontawesome5-utex-helper-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+\:dontusepackage{fontawesome5-utex-helper}
+\RequirePackage{fontawesome5-generic-helper}
+\endinput
+>>> \AddFile{9}{fontawesome5-utex-helper-hooks}
+
+It seems that catcode of : character is wrongly set after end of this package
+when we use package hooks. It is probably because of some Expl3 catcode
+checks. We need to reset the catcode manually. 
+
+\<fontawesome5-hooks.4ht\><<<
+% fontawesome5-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+\:AtEndOfPackage{\catcode`\:=12}
+\endinput
+>>> \AddFile{9}{fontawesome5-hooks}
+
+Finally, we can provide some configuration for Fontawesome itself. It turns all
+icons to pictures by TeX4ht conversion.
+
+\<fontawesome5.4ht\><<<
+% fontawesome5.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+\NewConfigure{fontawesome}{2}
+\ExplSyntaxOn
+\cs_new_protected:Nn\temp:nn{%
+\a:fontawesome%
+\o:fontawesome_use_icon:nn:{#1}{#2}
+\b:fontawesome}
+
+\HLet\fontawesome_use_icon:nn\temp:nn
+\ExplSyntaxOff
+\Configure{fontawesome}{\Picture+{}}{\EndPicture}
+\Hinput{fontawesome5}
+\endinput
+>>> \AddFile{9}{fontawesome5}
+
+
+
 %%%%%%%%%%%%%%%%%
 \Section{biblatex}
 %%%%%%%%%%%%%%%%%
