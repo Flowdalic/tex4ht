@@ -4,6 +4,11 @@
 	* tex4ht-4ht.tex (fontawesome5.4ht, fontawesome5-hooks.4ht,
 	fontawesome5-utex-helper-hooks.4ht): added support for Fontawesome5
 	package.
+	https://puszcza.gnu.org.ua/bugs/index.php?511
+	* tex4ht-fonts-noncjk.tex (
+	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/fontawesome/fa5.htf
+	): added Htf file for Fontawesome5 fonts.
+	https://puszcza.gnu.org.ua/bugs/index.php?511
 
 2021-05-04  Michal Hoftich  <michal.h21@gmail.com>
 
