@@ -16,10 +16,10 @@
 	tex4ht-html4.tex (html4.4ht): added support for \arrayrulecolor 
 	command.
 	https://tex.stackexchange.com/a/595571/2891
-	* tex4ht-4ht.tex (menukeys.4ht): added support for the menukeys package.
-	https://puszcza.gnu.org.ua/bugs/?509
-	* tex4ht-html4.4ht (html4.4ht): replace ~ by "\ " in TOC rendering macros.
-	It should fix issues with Spanish Babel. 
+	* tex4ht-4ht.tex (menukeys.4ht): added support for the menukeys
+	package. https://puszcza.gnu.org.ua/bugs/?509
+	* tex4ht-html4.4ht (html4.4ht): replace ~ by "\ " in TOC
+	rendering macros. It should fix issues with Spanish Babel. 
 	https://tex.stackexchange.com/a/595688/2891
 	* tex4ht-4ht.tex (spanish.4ht): fixed issues with \' accent.
 	https://tex.stackexchange.com/a/595688/2891
