@@ -1,3 +1,9 @@
+2021-05-09  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (amsart.4ht, amsbook.4ht, amsproc.4ht,
+	amsldoc.4ht, amsdtx.4ht, acm_proc_article-sp.4ht, spanish.4ht):
+	\write-1 version.
+
 2021-05-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (menukeys.4ht): use \Picture* for menukey images.
