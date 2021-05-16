@@ -1,3 +1,9 @@
+2021-05-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (hyperref.4ht): added support for \label for
+	\phantomsection.
+	https://tex.stackexchange.com/a/597326/2891
+
 2021-05-16  Karl Berry  <karl@freefriends.org>
 
 	* bibtex2.tex (bibtex2.4ht),
