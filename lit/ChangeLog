@@ -1,3 +1,9 @@
+2021-05-16  Karl Berry  <karl@freefriends.org>
+
+	* bibtex2.tex (bibtex2.4ht),
+	* tex4ht-4ht.tex (article4.ht, babel.4ht, beamer.4ht,
+	book.4ht, caption-hooks.4ht, caption.4ht): \write-1 version.
+
 2021-05-09  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (amsart.4ht, amsbook.4ht, amsproc.4ht,

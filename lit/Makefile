@@ -804,19 +804,22 @@ diff-derived:
 # Check that anything with a \version of this year
 # also has a copyright of this year.
 inst-check-copyright:
+	@echo '>>> $@'
 	-cd $(inst_dir_4ht) && for f in *; do \
 	  if grep "version.*`date +%Y`" $$f >/dev/null; then \
 	    grep "Copyright.*`date +%Y`" $$f >/dev/null || echo $$f; fi; done
 
 # Check that all *.4ht in dev are installed. Other file types are
-# difficult, but all 4ht's should be present.
+# difficult, but all 4ht's should be present, except mktex4ht.4ht.
 inst-check-files:
+	@echo '>>> $@'
 	cd $(inst_dir_4ht) && ls -1 *.4ht >/tmp/instlist
-	ls -1 *.4ht >/tmp/devlist
+	ls -1 *.4ht | fgrep -v mktex4ht.4ht >/tmp/devlist
 	comm -3 /tmp/devlist /tmp/instlist
 	
-# missing version identifications.
+# Check for missing version identifications.
 inst-check-version:
+	@echo '>>> $@'
 	-cd $(inst_dir_4ht) && for f in *; do \
 	  grep 'write-1.*version' $$f >/dev/null || echo $$f; done
 
