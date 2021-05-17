@@ -1,3 +1,7 @@
+2021-05-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): start new paragraph after abstract title.
+
 2021-05-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (hyperref.4ht): added support for \label for
