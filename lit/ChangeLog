@@ -1,6 +1,12 @@
+2021-05-23  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (color.4ht, elsart.4ht, endnotes.4ht, eplain.4ht):
+	\write-1 version.
+
 2021-05-17  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): start new paragraph after abstract title.
+	* tex4ht-html4.tex (html4.4ht): start new paragraph after abstract
+	title.
 
 2021-05-16  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -11,7 +17,7 @@
 2021-05-16  Karl Berry  <karl@freefriends.org>
 
 	* bibtex2.tex (bibtex2.4ht),
-	* tex4ht-4ht.tex (article4.ht, babel.4ht, beamer.4ht,
+	* tex4ht-4ht.tex (article.ht, babel.4ht, beamer.4ht,
 	book.4ht, caption-hooks.4ht, caption.4ht): \write-1 version.
 
 2021-05-09  Karl Berry  <karl@freefriends.org>
