@@ -1,3 +1,8 @@
+2021-05-30  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (exerquiz.4ht, extarticle.4ht, extbook.4ht,
+	extletter.4ht, extproc.4ht, extreport.4ht): \write-1 version.
+
 2021-05-23  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (color.4ht, elsart.4ht, endnotes.4ht, eplain.4ht):
