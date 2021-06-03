@@ -2810,6 +2810,10 @@ such a case, we don't have proper nestings of environments.
      li p\string ~ol:last-child{ margin-bottom:0.5em; }}
 >>>
 
+\<list par\><<<
+\par\ShowPar
+>>>
+
 \<configure html4 latex\><<<
 \ConfigureEnv{trivlist}
    {}{|<try env inline par|>}{}{}
@@ -2819,7 +2823,7 @@ such a case, we don't have proper nestings of environments.
    {|<recall end:itm|>\EndP\HCode{</dd></dl>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
         class="trivlist">}\bgroup \bf}
-   {\egroup\HCode{</dt><dd\Hnewline class="trivlist">}}
+   {\egroup\HCode{</dt><dd\Hnewline class="trivlist">}|<list par|>}
 \ConfigureEnv{list}
    {}{|<try env inline par|>}{}{}
 \ConfigureList{list}%
@@ -2842,7 +2846,7 @@ such a case, we don't have proper nestings of environments.
    {|<recall end:itm|>\ifvmode \IgnorePar\fi 
     \EndP\HCode{</li></ul>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\Tg</li>}\DeleteMark}
-   {\HCode{<li class="\getClass{li}itemize">}\afterGetClass{li}}
+   {\HCode{<li class="\getClass{li}itemize">}\afterGetClass{li}|<list par|>}
 \NewConfigure{itemizeClass}{2}
 \Configure{itemizeClass}{}{}
 \NewConfigure{liClass}{2}
@@ -2895,7 +2899,7 @@ such a case, we don't have proper nestings of environments.
       \EndP\HCode{</dd></dl>}\ShowPar}  
    {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt  
         class="enumerate">}\bgroup \bf}  
-   {\egroup\EndP\HCode{</dt><dd\Hnewline class="enumerate">}} 
+   {\egroup\EndP\HCode{</dt><dd\Hnewline class="enumerate">}|<list par|>} 
 \Css{dd.enumerate {margin-left: 2em;}} 
 \Css{dt.enumerate {float:left;   
               clear:left;   
@@ -2950,7 +2954,7 @@ such a case, we don't have proper nestings of environments.
 
 \<enumerate IV\><<<
 \HCode{<li class="enumerate" value="\expandafter\the\csname 
-   c@enum\romannumeral\the\@enumdepth\endcsname"\Hnewline>}\AnchorLabel
+   c@enum\romannumeral\the\@enumdepth\endcsname"\Hnewline>}|<list par|>\AnchorLabel
 >>>
 
 
@@ -2959,7 +2963,7 @@ such a case, we don't have proper nestings of environments.
 
 \<enumerate IV-\><<<
 {\Configure{Link}{li}{}{ class="enumerate" id=}{}%
- \let\EndLink=\empty \AnchorLabel }%
+ \let\EndLink=\empty|<list par|>\AnchorLabel }%
 >>>
 
 
@@ -3029,7 +3033,7 @@ to the following text.
        |<save end:itm|>\global\let\end:itm=\empty}
    {|<recall end:itm|>\EndP\HCode{</li></ul>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\Tg</li>}\DeleteMark}
-   {\HCode{<li class="itemize">}}
+   {\HCode{<li class="itemize">}|<list par|>}
 >>>
 
 \<prosper lists\><<<
@@ -3047,7 +3051,7 @@ to the following text.
    {}
    {\end:itm \global\def\end:itm{\EndP\Tg</li>}\DeleteMark}
    {\HCode{<li class="itemize\ifnum
-                 \c@item@step>\c@overlaysCount -hide\fi">}}
+                 \c@item@step>\c@overlaysCount -hide\fi">}|<list par|>}
 \Css{li.itemize-hide {visibility:hidden;}}
 >>>
 
@@ -3088,8 +3092,8 @@ to the following text.
       |<save end:itm|>\global\let\end:itm=\empty}
    {|<recall end:itm|>\EndP\HCode{</dd></dl>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
-        class="description">}\bgroup \bf}
-   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}}
+        class="description">}\bgroup |<list par|>\bf}
+   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}|<list par|>}
 >>>
 
 \<32,4 report,book\><<<
@@ -3149,7 +3153,7 @@ Latex allows groups like the following, so we need  global \verb+\end:itm+
        |<save end:itm|>\global\let\end:itm=\empty}
    {|<recall end:itm|>\EndP\HCode{</li></ul>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\Tg</li>}\DeleteMark}
-   {\HCode{<li class="itemize">}}
+   {\HCode{<li class="itemize">}|<list par|>}
 \ConfigureEnv{enumerate*}
    {}{|<try env inline par|>}{}{}
 \ConfigureList{enumerate*}%
@@ -3163,7 +3167,7 @@ Latex allows groups like the following, so we need  global \verb+\end:itm+
    {|<recall end:itm|>\EndP\HCode{</dd></dl>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
         class="description">}\bgroup \bf}
-   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}}
+   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}|<list par|>}
 \ConfigureList{basedescript}
    {\EndP\HCode{<dl \a:LRdir class="basedescript">}%
       \PushMacro\end:itm \global\let\end:itm=\empty}
@@ -10052,7 +10056,7 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
     \EndP\HCode{</li></ul>}\ShowPar
    }
    {\end:itm \gdef\end:itm{\EndP\Tg</li>}\DeleteMark}
-   {\HCode{<li class="itemize">}\AnchorLabel }
+   {\HCode{<li class="itemize">}|<list par|>\AnchorLabel }
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -11058,7 +11062,7 @@ a \par b
 \EndP\HCode{</dd></dl>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
         class="description">}\bgroup \bf}
-   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}}
+   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}|<list par|>}
 
 |<quote config|>
 \ConfigureEnv{verse}
@@ -11469,19 +11473,19 @@ a \par b
    {\IgnorePar\EndP\HCode{<ol\space class="enumerate"\Hnewline>}}
    {\IgnorePar\EndP\HCode{</li></ol>}\ShowPar}
    {\IgnorePar\EndP\ifnum \itemno>1 \Tg</li>\fi\DeleteMark}
-   {\HCode{<li class="enumerate">}}
+   {\HCode{<li class="enumerate">}|<list par|>}
 \Configure{itemize}
    {\IgnorePar\EndP\HCode{<ul\space\a:LRdir class="itemize"\Hnewline>}}
    {\IgnorePar\EndP\HCode{</li></ul>}\ShowPar}
    {\IgnorePar\EndP\ifnum \itemno>1 \Tg</li>\fi\DeleteMark}
-   {\HCode{<li class="itemize">}}
+   {\HCode{<li class="itemize">}|<list par|>}
 \Configure{table}%
    {\IgnorePar\EndP\HCode{<dl \a:LRdir class="description">}%
     |<save end:itm|>\global\let\end:itm|=\empty}
    {|<recall end:itm|>\IgnorePar\EndP\HCode{</dd></dl>}}
    {\IgnorePar\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
         class="description">}\bgroup \bf}
-   {\egroup\IgnorePar\EndP\HCode{</dt><dd\Hnewline class="description">}}
+   {\egroup\IgnorePar\EndP\HCode{</dt><dd\Hnewline class="description">}|<list par|>}
 >>>
 
 \<configure html4 texinfo\><<<
@@ -14078,7 +14082,7 @@ supported formats by tex4ht.
     \EndP\HCode{</li></ul>}\ShowPar
    |<end pause region|>} 
   {\end:itm \global\def\end:itm{\EndP\Tg</li>}\DeleteMark} 
-  {\HCode{<li class="itemize">}} 
+  {\HCode{<li class="itemize">}|<list par|>} 
 >>>
 
 \<configure html4 powerdot\><<<
@@ -14107,7 +14111,7 @@ supported formats by tex4ht.
     |<end pause region|>}
    {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
         class="description">}\bgroup \bf}
-   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}}
+   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}|<list par|>}
 >>>
 
 

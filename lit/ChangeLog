@@ -1,3 +1,9 @@
+2021-06-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): start paragraph in list like environments
+	items.
+	https://puszcza.gnu.org.ua/bugs/?513
+
 2021-05-31  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-fonts-noncjk.tex (bbold.htf): copyright 2021.
