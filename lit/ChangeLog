@@ -1,8 +1,12 @@
+2021-06-06  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (moreverb.4ht, verbatim.4ht, fancyvrb.4ht,
+	glossary.4ht, frenchb.4ht, greek.4ht): \write-1 version.
+
 2021-06-03  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): start paragraph in list like environments
-	items.
-	https://puszcza.gnu.org.ua/bugs/?513
+	* tex4ht-html4.tex (html4.4ht): start paragraph in list like
+	environments items. https://puszcza.gnu.org.ua/bugs/?513
 
 2021-05-31  Karl Berry  <karl@freefriends.org>
 
