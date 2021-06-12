@@ -3,6 +3,8 @@
 	* tex4ht-html4.tex (html4.4ht): remove vertical space in \item items that
 	contain just one paragraph.
 	https://tug.org/pipermail/tex4ht/2021q2/002997.html
+	* tex4ht-4ht.tex (scrlayer.4ht): fix for runtime error when scrlayer checks
+	whether it can access current page style.
 
 2021-06-06  Karl Berry  <karl@freefriends.org>
 
