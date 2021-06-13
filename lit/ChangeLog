@@ -3,6 +3,8 @@
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): protect more commands from
 	expansion in movable arguments.
 	https://tex.stackexchange.com/a/601062/2891
+	* tex4ht-html5.tex (html5.4ht): add vertical space between image and
+	caption.
 
 2021-06-12  Michal Hoftich  <michal.h21@gmail.com>
 
