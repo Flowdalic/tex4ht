@@ -1,18 +1,23 @@
+2021-06-13  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (fontspec.4ht, graphics.4ht, lfeenc.4ht,
+	longtable.4ht, ltugboat.4ht, latex209.4ht): \write-1 version.
+
 2021-06-13  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): protect more commands from
-	expansion in movable arguments.
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): protect more
+	commands from expansion in movable arguments.
 	https://tex.stackexchange.com/a/601062/2891
 	* tex4ht-html5.tex (html5.4ht): add vertical space between image and
 	caption.
 
 2021-06-12  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): remove vertical space in \item items that
-	contain just one paragraph.
+	* tex4ht-html4.tex (html4.4ht): remove vertical space in \item
+	items that contain just one paragraph.
 	https://tug.org/pipermail/tex4ht/2021q2/002997.html
-	* tex4ht-4ht.tex (scrlayer.4ht): fix for runtime error when scrlayer checks
-	whether it can access current page style.
+	* tex4ht-4ht.tex (scrlayer.4ht): fix for runtime error when
+	scrlayer checks whether it can access current page style.
 
 2021-06-06  Karl Berry  <karl@freefriends.org>
 
