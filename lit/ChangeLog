@@ -1,3 +1,8 @@
+2021-06-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (texmate.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the texmate package.
+
 2021-06-13  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (fontspec.4ht, graphics.4ht, lfeenc.4ht,

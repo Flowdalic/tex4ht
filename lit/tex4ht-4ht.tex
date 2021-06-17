@@ -31956,6 +31956,33 @@ of \''\:temp' below.
 \Configure{chessboard}{\Picture*{}\Save:TikzPict}{\Restore:TikzPict\EndPicture}
 >>> \AddFile{9}{chessboard}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{texmate.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<texmate.4ht\><<<
+% texmate.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+
+|<texmate.sty|>
+\Hinput{texmate}
+\endinput
+>>> \AddFile{9}{texmate}
+
+
+\<texmate.sty\><<<
+% fix incorrect handling of pictures
+\NewConfigure{makediagramsfix}{2}
+\renewcommand*\:tempa[1]{\a:makediagramsfix\o:@toD:{#1}\b:makediagramsfix}
+\HLet\@toD\:tempa
+% add some markup for diagrams
+\NewConfigure{makediagrams}{2}
+\renewcommand*\:tempa[1][\@diagramsbuilt]{\a:makediagrams\o:makediagrams:[#1]\b:makediagrams}
+\HLet\makediagrams\:tempa
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 \Section{menukeys.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%

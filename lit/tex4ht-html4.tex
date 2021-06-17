@@ -19238,6 +19238,15 @@ latex.ltx, fontmath.ltx, plain.tex
 >>>
 
 %%%%%%%%%%%%%%%%%
+\section{texmate}
+
+\<configure html4 texmate\><<<
+\Configure{makediagramsfix}{\PictureOff}{\PictureOn}
+\Configure{makediagrams}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="makediagrams">}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par\leavevmode}
+>>>
+
+%%%%%%%%%%%%%%%%%
 \section{vanilla}
 
 \<configure html4 vanilla\><<<
