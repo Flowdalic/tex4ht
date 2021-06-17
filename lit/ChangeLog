@@ -1,3 +1,11 @@
+2021-06-17  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex,
+	* tex4ht-c.tex,
+	* tex4ht-html-speech.tex,
+	* tex4ht-mathml.tex,
+	* tex4ht-sty.tex: "the the" fixes.
+
 2021-06-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (texmate.4ht),
