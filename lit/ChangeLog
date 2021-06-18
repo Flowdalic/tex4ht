@@ -1,3 +1,7 @@
+2021-06-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mkht.tex: fixed mysterious error that appeared after LaTeX update.
+
 2021-06-17  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex,

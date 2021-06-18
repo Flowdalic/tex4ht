@@ -16,6 +16,7 @@
    \Preamble{xhtml}
    \input ProTex.sty     
    \AlProTex{4ht,<<<>>>,?,title,list}
+   \AtBeginDocument{\EndPreamble}
 \else
    \Configure{ProTex}{4ht,<<<>>>,?,title,list,[[]]}
 \fi
@@ -29,8 +30,9 @@
 \def\mkhtNote{
 
 }
-\newtoks\toks
-\expandafter\toks\expandafter{\mkhtNote}
+\newtoks\ourtoks
+
+\expandafter\ourtoks\expandafter{\mkhtNote}
 
 %%%%%%%%%%%%%%%%%%%%% end definitions %%%%%%%%%%%%%%%%%%%%%%%%%
 
