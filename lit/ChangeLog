@@ -1,3 +1,9 @@
+2021-06-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht),
+	* tex4ht-unicode.tex (unicode.4ht): fixed support for \nobreakspace and
+	\textellipsis in the picture mode.
+
 2021-06-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mkht.tex: fixed mysterious error that appeared after LaTeX update.
