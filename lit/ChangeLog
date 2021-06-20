@@ -3,7 +3,8 @@
 	* tex4ht-fonts-noncjk.tex (
 	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/misc/SkakNew.htf
 	): fixed wrong characters, some characters need to be converted to pictures.
-	* tex4ht-html4.tex (html4-uni.4ht): removed unused html4-uni.4ht file.
+	* tex4ht-html4.tex (html4-uni.4ht),
+	* tex4ht-options.tex (tex4ht.4ht): removed unused html4-uni.4ht file.
 
 2021-06-20  Karl Berry  <karl@freefriends.org>
 
