@@ -241,7 +241,7 @@ tex4ht_html32_derived = html32.4ht html32-math.4ht
 
 derived += $(tex4ht_html4_derived)
 tex4ht_html4_derived = \
-  html4.4ht html4-math.4ht html4-uni.4ht \
+  html4.4ht html4-math.4ht \
   html4-l2-url.4ht html4-russian-accents.4ht \
   onmouseover.4ht exerqz.4ht  
 
