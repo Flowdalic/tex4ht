@@ -1,3 +1,9 @@
+2021-06-20  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (mathtools.4ht, multicol.4ht, multirow.4ht,
+	mwart.4ht, mwbk.4ht, mwrep.4ht): \write-1 version.
+	* tex4ht-mkht.tex: copyright 2021.
+
 2021-06-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht),
@@ -6,7 +12,11 @@
 
 2021-06-18  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mkht.tex: fixed mysterious error that appeared after LaTeX update.
+	* tex4ht-mkht.tex (\ourtoks): rename from \toks (should not have
+	used a TeX primitive originally), to fix mysterious
+	error that appeared after LaTeX update:
+! TeX capacity exceeded, sorry [input stack size=5000].! TeX capacity exceeded, sorry [input stack size=5000].
+<argument> \mode_if_inner:F 
 
 2021-06-17  Karl Berry  <karl@freefriends.org>
 
