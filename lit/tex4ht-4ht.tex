@@ -5775,7 +5775,7 @@ used for Fontspec support.
     \def\DeclareTextSymbol#1#2#3{\gdef#1{\ht:special{t4ht@+&{35}x\hex{#3}{59}}\a:HChar}}
     \input tuenc.def
     % this command is defined by tuenc, but doesn't work out of the box with TeX4ht
-    \def\textquotedbl{\HCode{"}}
+    \DeclareTextSymbol{\textquotedbl}\UnicodeEncodingName{"0022}
     \let\DeclareTextSymbol\old:DeclareTextSymbol
   \fi
 
