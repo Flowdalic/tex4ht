@@ -1,7 +1,6 @@
 2021-06-24  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht (latex.4ht): added support for \textquotedbl in LuaLaTeX and
-	XeLaTeX.
+	* tex4ht-4ht (latex.4ht): use T1 encoding with LuaLaTeX or XeLaTeX.
 	https://tex.stackexchange.com/a/602531/2891
 
 2021-06-20  Karl Berry  <karl@freefriends.org>

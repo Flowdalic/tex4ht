@@ -5768,14 +5768,13 @@ used for Fontspec support.
 \edef\test:f:encoding{\f@encoding}
 \edef\test:tu:encoding{TU}
 \ifx\test:f:encoding\test:tu:encoding
-  \RequirePackage[OT1]{fontenc}
+  \RequirePackage[T1]{fontenc}
   %  load tuenc definitions for commands like \quotedblbase 
   \ifdefined\old:DeclareTextSymbol\else
     \input binhex
     \def\DeclareTextSymbol#1#2#3{\gdef#1{\ht:special{t4ht@+&{35}x\hex{#3}{59}}\a:HChar}}
     \input tuenc.def
     % this command is defined by tuenc, but doesn't work out of the box with TeX4ht
-    \DeclareTextSymbol{\textquotedbl}\UnicodeEncodingName{"0022}
     \let\DeclareTextSymbol\old:DeclareTextSymbol
   \fi
 
