@@ -3394,13 +3394,36 @@ definitions.
 %%%%%%%%%%%%%%%%%%
 \Section{cleveref}
 
-This is basic support for the cleveref package. 
-\Link[https://tex.stackexchange.com/a/220345/2891]{}{}Source.\EndLink
 
 \<cleveref.4ht\><<<
 % cleveref.4ht (|version), generated from |jobname.tex
-% Copyright 2018-2019 TeX Users Group
+% Copyright 2018-2021 TeX Users Group
 |<TeX4ht license text|>
+
+|<cleveref refstepcounter|>
+|<cleveref links|>
+|<cleveref amsthm|>
+
+\Hinput{cleveref}
+
+\endinput
+>>> \AddFile{8}{cleveref}
+
+This is basic support for the cleveref package. 
+\Link[https://tex.stackexchange.com/a/220345/2891]{}{}Source.\EndLink
+
+\<cleveref refstepcounter\><<<
+
+% orig:refstepcounter is saved in cleveref-hooks.4ht
+\let\cref@old@refstepcounter\orig:refstepcounter%
+\def\refstepcounter{%
+  \@ifnextchar[{\refstepcounter@optarg}{\refstepcounter@noarg}%]
+}%
+
+% fix for TeX4ht label mechanism
+\def\cref:currentlabel#1{|<def :currentlabel for refstepcounter|>%
+  \anc:lbl r{#1}%
+}
 
 \def\refstepcounter@noarg#1{%
   \cref@old@refstepcounter{#1}%
@@ -3411,6 +3434,7 @@ This is basic support for the cleveref package.
   \protected@xdef\cref@currentlabel{%
     [\@tempa][\arabic{#1}][\cref@result]%
     \csname p@#1\endcsname\csname the#1\endcsname}
+    \cref:currentlabel{#1}%
     }%
 \def\refstepcounter@optarg[#1]#2{%
   \cref@old@refstepcounter{#2}%
@@ -3418,15 +3442,12 @@ This is basic support for the cleveref package.
   \@ifundefined{cref@#1@alias}%
     {\def\@tempa{#1}}%
     {\def\@tempa{\csname cref@#1@alias\endcsname}}%
-  \protected@edef\cref@currentlabel{%
+  \protected@xdef\cref@currentlabel{%
     [\@tempa][\arabic{#2}][\cref@result]%
-    \csname p@#2\endcsname\csname the#2\endcsname}}%
-\Hinput{cleveref}
-
-|<cleveref links|>
-\endinput
->>> \AddFile{8}{cleveref}
-
+    \csname p@#2\endcsname\csname the#2\endcsname}
+    \cref:currentlabel{#2}%
+  }%
+>>>
 
 Support for links from the \Verb|\cref| command. 
 \Link[https://tex.stackexchange.com/a/475664/2891]{}{}More information.\EndLink
@@ -3445,6 +3466,24 @@ Support for links from the \Verb|\cref| command.
 \HLet\@@@setcref=\:tempa
 >>>
 
+Fixes for the amsthm cleveref redefinitions.
+\Link[https://tex.stackexchange.com/q/491933/2891]{}{}More information.\EndLink
+
+\<cleveref amsthm\><<<
+\@ifpackageloaded{amsthm}{
+  \let\cref@thmnoarg\@thm%
+  \def\@thm{\@ifnextchar[{\cref@thmoptarg}{\cref@thmnoarg}}%]
+  \def\:tempb[#1]#2#3#4{%
+   % call original amsthm theorem definition, but
+   % disable \:thm in order to prevent infinite loop
+   \let\:thm\:gobble
+   \cref@thmnoarg{#2}%
+   \o:cref@thmoptarg:[#1]{#2}{#3}{#4}
+  }%
+  \HLet\cref@thmoptarg\:tempb
+}{}%
+>>>
+
 
 Cleveref depends on internal Hyperref macro when Hyperref is loaded. It causes crash,
 because Hyperref exits before this macro is defined.
@@ -3456,9 +3495,14 @@ because Hyperref exits before this macro is defined.
 
 \<cleveref-hooks.4ht\><<<
 % cleveref-hooks.4ht (|version), generated from |jobname.tex
-% Copyright 2020 TeX Users Group
+% Copyright 2020-2021 TeX Users Group
 |<TeX4ht license text|>
 \let\HyOrg@addtoreset\@addtoreset
+% fixes for \refstepcounter
+\let\orig:refstepcounter\refstepcounter
+\:AtEndOfPackage{%
+\let\refstepcounter\orig:refstepcounter
+}
 >>> \AddFile{9}{cleveref-hooks}
 
 %%%%%%%%%%%%%%%%%%
