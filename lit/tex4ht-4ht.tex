@@ -2152,18 +2152,24 @@ mechanism for ifthenelse.
 % MakeUppercase is redefined by tex4ht, biblatex tries to redefine it as well, but it relies on original 
 % LaTeX version:
 \DeclareRobustCommand{\MakeUppercase}[1]{{%
-    \def\i{I}\def\j{J}%
-    \def\reserved@a##1##2{\let##1##2\reserved@a}%
-    \expandafter\reserved@a\@uclclist\reserved@b{\reserved@b\@gobble}%
-    \protected@edef\reserved@a{\uppercase{#1}}%
-    \reserved@a
+  \def\i{I}\def\j{J}%
+  \def\reserved@a##1##2{\let##1##2\reserved@a}%
+  \expandafter\reserved@a\@uclclist\reserved@b{\reserved@b\@gobble}%
+  \let\UTF@two@octets@noexpand\@empty
+  \let\UTF@three@octets@noexpand\@empty
+  \let\UTF@four@octets@noexpand\@empty
+  \blx@hook@uc\protected@edef\reserved@a{\uppercase{#1}}%
+  \reserved@a
 }}
 % Same applies also for \MakeLowercase
 \DeclareRobustCommand{\MakeLowercase}[1]{{%
-    \def\reserved@a##1##2{\let##2##1\reserved@a}%
-    \expandafter\reserved@a\@uclclist\reserved@b{\reserved@b\@gobble}%
-    \protected@edef\reserved@a{\lowercase{#1}}%
-    \reserved@a
+  \def\reserved@a##1##2{\let##2##1\reserved@a}%
+  \expandafter\reserved@a\@uclclist\reserved@b{\reserved@b\@gobble}%
+  \let\UTF@two@octets@noexpand\@empty
+  \let\UTF@three@octets@noexpand\@empty
+  \let\UTF@four@octets@noexpand\@empty
+  \blx@hook@lc\protected@edef\reserved@a{\lowercase{#1}}%
+  \reserved@a
 }}
 
 % I don't really understand this, but language processing is broken by default

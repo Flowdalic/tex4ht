@@ -1,3 +1,9 @@
+2021-07-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): updated redefinitions of \MakeUppercase and
+	\MakeLowercase to use the current code from LaTeX kernel. Also inserted
+	BibLaTeX hooks for these commands.
+
 2021-07-04  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (showfonts.4ht, subcaption.4ht, subscript.4ht,
