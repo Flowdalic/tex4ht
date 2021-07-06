@@ -1,3 +1,9 @@
+2021-07-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (mwart.4ht, mwbk.4ht, mwrep.4ht): fixed caption support for
+	MW classes.
+	https://github.com/jsbien/repertuarXVI/issues/1
+
 2021-07-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): updated redefinitions of \MakeUppercase and

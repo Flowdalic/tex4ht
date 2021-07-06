@@ -16042,6 +16042,14 @@ UnDFexyz}%
 \Configure{UndefinedSec}{likesubsection}
 >>>
 
+
+MW classes redefine caption when hyperref is active. This doesn't really provide 
+useful value for the HTML export, it even provides unfortunate side effect that
+it introduces an error in the .xref file for each caption used in the document.
+\<mwcls divs\><<<
+\let\mw@caption@hyperref\@caption
+>>>
+
 \<mwart tocs\><<<
 \let\mw@markandtoc=\empty
 \def\tableofcontents{%
