@@ -26614,7 +26614,7 @@ We need to use dvips driver with XeLaTeX
 \newcount\mdf:env:cnt
 \def\mdf:id{mdframed-\the\mdf:env:cnt}
 \def\mdf@trivlist#1{\global\advance\mdf:env:cnt by1\relax\a:mdframed\a:mdframedstyle%
-    \ifdefempty{\mdf@frametitle}{}{\mdfframedtitleenv{\mdf@frametitle}\a:mdframetitle\mdf@@frametitle@use\b:mdframetitle}\let\mdf@frametitle\relax%
+    \ifdefempty{\mdf@frametitle}{}{\mdfframedtitleenv{\mdf@frametitle}\a:mdframetitle\mdf@@frametitle@use\b:mdframetitle}\let\mdf@frametitle\@empty%
 }
 
 \def\endmdf@trivlist{\b:mdframed}

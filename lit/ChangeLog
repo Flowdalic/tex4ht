@@ -1,3 +1,8 @@
+2021-08-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (mdframed.4ht): correctly empty the frame title.
+	https://puszcza.gnu.org.ua/bugs/?516#postcomment
+
 2021-07-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (mwart.4ht, mwbk.4ht, mwrep.4ht): fixed caption support for
