@@ -25920,6 +25920,18 @@ Show dimensions only for pictures that have dimensions specified explicitly or u
 \def\if:boundingbox#1#2{\ifdim\Gin@req@width=\Gin@nat@width\ifx\noBoundingBox\UnDefined#1\else#2\fi\else#1\fi}
 >>>
 
+We need to find bounding boxes of images. Graphics support the .xbb file that contain this information.
+It is necessary to provide the DeclareGraphicsRule commands for supported image formats so 
+the .xbb file works.
+
+\<fix graphics\><<<
+\DeclareGraphicsRule{.png}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.jpg}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.gif}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.pdf}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.svg}{bmp}{.xbb}{}
+>>>
+
 %\expandafter\def\csname c:graphics-file:\endcsname#1{\Gin@drafttrue
 %   \def\Gin@setfile##1##2##3{%
 %     \def\:temp####1####2{#1}\:temp{##3}{\Gin@base}}}
@@ -26037,11 +26049,6 @@ dvips needs to be used instead
    \fi
    \Gin:esetsize
 }
-\DeclareGraphicsRule{.png}{bmp}{.xbb}{}
-\DeclareGraphicsRule{.jpg}{bmp}{.xbb}{}
-\DeclareGraphicsRule{.gif}{bmp}{.xbb}{}
-\DeclareGraphicsRule{.pdf}{bmp}{.xbb}{}
-\DeclareGraphicsRule{.svg}{bmp}{.xbb}{}
 
 \NewConfigure{rotatebox}{2}
 \pend:def\Grot@box{\a:rotatebox}

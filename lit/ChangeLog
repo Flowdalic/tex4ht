@@ -3,6 +3,8 @@
 	* tex4ht-ooffice.tex (ooffice.4ht): added support for SVG image inclusion.
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed support for images created by
 	\Picture+{} and \Picture+{} commands.
+	* tex4ht-4ht.tex (graphics.4ht, graphicx.4ht): moved mapping to .xbb files
+	from graphicx.4ht to graphics.4ht, so they work with both packages.
 
 2021-08-03  Michal Hoftich  <michal.h21@gmail.com>
 
