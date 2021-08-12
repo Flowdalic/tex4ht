@@ -628,7 +628,7 @@ Commands for basic character styles:
 
 \<graphics obj manifest\><<<
 <manifest:file-entry
-    manifest:full-path="Pictures/\PictureFile" manifest:media-type="\get:image:mime:type\Gin@ext"/>\Hnewline
+   manifest:full-path="Pictures/\PictureFile" manifest:media-type="\get:image:mime:type\filename@ext"/>\Hnewline
 >>>
 
 \<shared manifest\><<<
@@ -1165,12 +1165,13 @@ Enable supported image extensions out of the box.
    \ht:special{t4ht=<draw:frame  
       draw:name="\PictureFile"  
       text:anchor-type="as-char"  % "paragraph"  
-%      svg:width="...pt"  
-%      svg:height="...pt"  
-				% \ifx\noBoundingBox\UnDefined
-				 \string svg:width="\the\Gin@req@width"
-				  svg:height="\the\Gin@req@height"
-				% \fi
+        % insert image dimension only if they really exist
+        \ifx\noBoundingBox\UnDefined
+         \ifx\Gin@req@width\undefined\else
+         \ifdim\Gin@req@width>0pt
+         \string svg:width="\the\Gin@req@width"
+          svg:height="\the\Gin@req@height"
+        \fi\fi\fi
       draw:z-index="0"
     >%
       <draw:image\Hnewline
@@ -1231,13 +1232,22 @@ Enable supported image extensions out of the box.
 >>>
 
 
+% we need to support both images inserted by \includegraphics,
+% and pictures created using \Picture*{}. 
 
 \<insert shadowing fig file\><<<
+% parse the image extension, will be used later
+\expandafter\filename@parse\expandafter{\PictureFile}%
+\ifx\Gin@base\@undefined
+\let\graphics:filename\PictureFile
+\else
+\def\graphics:filename{\Gin@base\Gin@ext}
+\fi
 % \ht:special{t4ht>\PictureFile.4og}%
-\ht:special{t4ht>\Gin@base\Gin@ext.4og}%
+\ht:special{t4ht>\graphics:filename.4og}%
 \ht:special{t4ht*>}%
 % \ht:special{t4ht<\PictureFile.4og}%
-\ht:special{t4ht<\Gin@base\Gin@ext.4og}%
+\ht:special{t4ht<\graphics:filename.4og}%
 \OOmanifest{|<graphics obj manifest|>}%
 >>>
 
