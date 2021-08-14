@@ -1985,12 +1985,29 @@ old and there were no such errors previously. Anyway,
 this code should try to patch ifthenelse using TeX4ht built-in
 mechanism for ifthenelse.
 
-\<config biblatex\><<<
+We defined the hook macro depending on presence of Hyperref. 
+I don't remember why, but it seems to works with Hyperref now,
+so the package condition seems unnecessary. It even produces
+an error when Hyperref is used before BibLaTeX, so I think
+we should remove it.
+
+This sections is kept here just for the future reference, the 
+next section is actually used:
+\<\><<<
 \@ifpackageloaded{hyperref}{}{%
 \ifdefined\TE@hook\else%
 \def\TE@hook{}%
 \fi%
 }
+>>>
+
+Define TE@hook so BibLaTeX don't try to patch ifthenelse.
+We put the hook ourselves thanks to Configure{ifthenelse}.
+
+\<config biblatex\><<<
+\ifdefined\TE@hook\else%
+\def\TE@hook{}%
+\fi%
 
 \AtBeginDocument{%
   \Configure{ifthenelse}{\TE@hook}

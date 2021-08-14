@@ -1,3 +1,8 @@
+2021-08-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): don't check for Hyperref when we define
+	\TE@hook macro.
+
 2021-08-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added support for SVG image inclusion.
