@@ -21401,7 +21401,29 @@ users redefine the latter macro.
 >>>
 
 
+%%%%%%%%%%%%%%%%%%%%
+\section{siunitx}
+%%%%%%%%%%%%%%%%%%%%
 
+\<configure html4 siunitx\><<<
+\ExplSyntaxOn
+\ifdefined\fixmathjaxtoc
+\AtBeginDocument{%
+\cs_gset_protected:Npn \__siunitx_print_math_auxii:n #1
+  {
+    \tl_set:Nn \l__siunitx_print_tmp_tl {#1}
+    \exp_args:NNnx \tl_replace_all:Nnn \l__siunitx_print_tmp_tl
+      { ^ } { \token_to_str:N ^ }
+    % escape special HTML characters
+    \regex_replace_all:nnN { \x{26} } { &amp; } \l__siunitx_print_tmp_tl
+    \regex_replace_all:nnN { \x{3C} } { &lt; } \l__siunitx_print_tmp_tl
+    \regex_replace_all:nnN { \x{3E} } { &gt; } \l__siunitx_print_tmp_tl
+    \HCode{\detokenize{\(} \tl_to_str:N \l__siunitx_print_tmp_tl \detokenize{\)}}
+}
+}
+\fi
+\ExplSyntaxOff
+>>>
 
 
 
