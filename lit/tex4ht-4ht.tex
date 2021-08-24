@@ -31710,6 +31710,45 @@ We must fix some exerquiz issues before we load the package itself.
 % \AtEndOfPackage{\AtBeginDocument{\let\a:form\origa:Form}}
 >>>\AddFile{9}{exerquiz-hooks}
 
+\Section{hyperxmp.sty}
+
+
+We want to prevent execution of PDF related commands from 
+Hyperxmp.
+
+\<hyperxmp.4ht\><<<
+% hyperxmp.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht copywrite|>
+\renewcommand*{\hyxmp@use@first@valid}[3]{}
+\let\hyxmp@embed@packet\relax
+\Hinput{hyperxmp}
+\endinput
+>>>\AddFile{9}{hyperxmp}
+
+
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{hyperxmp.sty}{hyperxmp-hooks.4ht}
+>>>
+
+It seems that pdfffedback primitive is defined in the DVI mode
+in LuaTeX. This results in package loading error with the
+Hyperxmp package. We make it temporarily undefined, in order
+to prevent execution of the failing code.
+
+\<hyperxmp-hooks.4ht\><<<
+% hyperxmp-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht copywrite|>
+% package redefinitions
+\let\orig:pdffeedback\pdffeedback
+\let\pdffeedback\@undefined
+\:AtEndOfPackage{
+\let\pdffeedback\orig:pdffeedback
+}
+
+>>>\AddFile{9}{hyperxmp-hooks}
  
 
 \Section{nicefrac.sty}
