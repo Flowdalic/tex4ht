@@ -2,6 +2,9 @@
 
 	* tex4ht-4ht.tex (usepackage.4ht, hyperxmp.4ht,
 	hyperxmp-hooks.4ht): fixes for the Hyperxmp package.
+	* tex4ht-4ht.tex (usepackage.4ht, 
+	datetime2-hooks.4ht): undefine \pdffeedback command to prevent
+	compilation error.
 
 2021-08-22  Michal Hoftich  <michal.h21@gmail.com>
 

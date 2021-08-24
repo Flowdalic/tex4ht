@@ -31749,7 +31749,29 @@ to prevent execution of the failing code.
 }
 
 >>>\AddFile{9}{hyperxmp-hooks}
+
+\Section{datetime2.sty}
  
+\<add to usepackage\><<<
+\Configure{PackageHooks}{datetime2.sty}{datetime2-hooks.4ht}
+>>>
+
+It seems that pdfffedback primitive is defined in the DVI mode
+in LuaTeX. This results in package loading error with the
+Datetime2 package. We make it temporarily undefined, in order
+to prevent execution of the failing code.
+
+\<datetime2-hooks.4ht\><<<
+% datetime2-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht copywrite|>
+% package redefinitions
+\let\orig:pdffeedback\pdffeedback
+\let\pdffeedback\@undefined
+\:AtEndOfPackage{
+\let\pdffeedback\orig:pdffeedback
+}
+>>>\AddFile{9}{datetime2-hooks}
 
 \Section{nicefrac.sty}
 
