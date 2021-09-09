@@ -1057,18 +1057,26 @@ All images should be saved in one directory (`Pictures' by default),
 regardless of the original path structure. We must save image names and
 original paths to be able to copy pictures to correct location.
 
+Sometimes, we may get double slashes, so we need extra tests to handle 
+this case.
+
 \<configure ooffice graphics\><<<
 \def\getImgFileParser#1/{%
-  \ifx\relax#1\relax
-    \let\next\relax
-  \else
-    \do{#1}\let\next\getImgFileParser
-  \fi\next
+  \edef\:tmpa{#1}%
+  \ifx\:tmpa\:null%
+  \let\next\relax%
+  \else%
+  \ifx\relax#1\relax\else%
+    \do{#1}%
+  \fi%
+  \let\next\getImgFileParser%
+  \fi\next%
 }
 \newcommand\getImgFile[2]{%
-  \def\do##1{\def\imgBaseName{##1#2}\def\imgBase{##1}}
-  \def\imgFullName{#1#2}
-  \getImgFileParser#1//
+  \def\do##1{\def\imgBaseName{##1#2}\def\imgBase{##1}}%
+  \def\imgFullName{#1#2}%
+  \def\:null{xxx}%
+  \getImgFileParser#1/\:null/%
 }
 
 \Configure{graphics*}

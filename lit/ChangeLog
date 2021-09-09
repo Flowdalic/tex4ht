@@ -1,3 +1,8 @@
+2021-09-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed issues with double slashes in
+	image file names.
+
 2021-08-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, hyperxmp.4ht,
