@@ -7465,10 +7465,10 @@ consecutive \verb+<br />+ tags.
 
 \<html latex array/tabular Config 4.0t\><<<
 \Configure{multicolumn}
-   {\let\col:Css\empty
+   {\global\let\col:Css\empty
     \Configure{VBorder} 
        {}
-       {\edef\col:Css{\col:Css
+       {\xdef\col:Css{\col:Css
                      border-\ifnum \ar:cnt=0 left\else right\fi
                      :solid black 0.4pt;}%
        }{}{}%
