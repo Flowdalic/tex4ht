@@ -3,7 +3,8 @@
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fixed TOC support for \exp
 	command.
 	https://puszcza.gnu.org.ua/bugs/?525
-
+	* tex4ht-sty.tex (tex4ht.sty): fix issues with \PauseCutAt and \ContCutAt.
+	https://puszcza.gnu.org.ua/bugs/?518
 
 2021-09-12  Michal Hoftich  <michal.h21@gmail.com>
 
