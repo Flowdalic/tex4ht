@@ -1,3 +1,10 @@
+2021-09-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fixed TOC support for \exp
+	command.
+	https://puszcza.gnu.org.ua/bugs/?525
+
+
 2021-09-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use global definitions for passing
