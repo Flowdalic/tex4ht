@@ -10446,15 +10446,21 @@ Y{0178}\i{00EF}%
 \ConfigureEnv{lstlisting}
    {\ifvmode \IgnorePar\fi \EndP  
     \HCode{<!--l. \the\inputlineno lstlisting-->}%
-    \HCode{<text:p\Hnewline text:style-name="Preformatted-Text">}%
-    \bgroup \special{t4ht@(}%
+    % \HCode{}%
+    \bgroup %
+    \gdef\start:LstLn{%
+       \ifvmode\IgnorePar\fi\EndP\HCode{<text:p\Hnewline text:style-name="Preformatted-Text">}%
+       \ht:special{t4ht@(}\ttfamily%
+       \gdef\start:LstLn{\HCode{<text:s/><text:line-break/>}}}
+    \pend:def\lst@DeInit{\ifvmode\IgnorePar\fi\EndP\HCode{</text:p>}}%
        \Configure{listings}
          {{\everypar{}\leavevmode}}
          {{\everypar{}\leavevmode}}
-         {\HCode{<text:s/><text:line-break/>}}{}%
+         {\start:LstLn}{}%
    }
-   {\special{t4ht@)}\egroup
-    \ifvmode \IgnorePar\fi \EndP   \HCode{</text:p>}\par}
+   {\ht:special{t4ht@)}\egroup
+    % \ifvmode \IgnorePar\fi \EndP   \HCode{</text:p>}\par}
+    \par}
    {} {}
 >>>
 
@@ -10462,16 +10468,20 @@ Y{0178}\i{00EF}%
 \Configure{lstinputlisting}
    {\ifvmode \IgnorePar\fi \EndP
     \HCode{<!--l. \the\inputlineno lstinputlisting-->}%
-    \HCode{<text:p\Hnewline text:style-name="Preformatted-Text">}%
-    \bgroup \tt \special{t4ht@(}%
+    % \HCode{<text:p\Hnewline text:style-name="Preformatted-Text">}%
+    \bgroup%
+    \gdef\start:LstLn{%
+       \ifvmode\IgnorePar\fi\EndP\HCode{<text:p\Hnewline text:style-name="Preformatted-Text">}%
+       \ht:special{t4ht@(}\ttfamily%
+       \gdef\start:LstLn{\HCode{<text:s/><text:line-break/>}}}
+    \pend:def\lst@DeInit{\ifvmode\IgnorePar\fi\EndP\HCode{</text:p>}}%
        \Configure{listings}
          {{\everypar{}\leavevmode}}
          {{\everypar{}\leavevmode}}
-         {\HCode{<text:s/><text:line-break/>}} 
+         {\start:LstLn} 
          {\HCode{<text:line-break/>}}%
    }
-   {\special{t4ht@)}\egroup
-    \ifvmode \IgnorePar\fi \EndP   \HCode{</text:p>}\par}
+   {\special{t4ht@)}\egroup\par}
 >>>
 
 

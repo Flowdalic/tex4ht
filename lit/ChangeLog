@@ -2,6 +2,8 @@
 
 	* tex4ht-html4.tex (html4.4ht): fixed support for floating listings.
 	https://tex.stackexchange.com/a/615703/2891
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed listings support in the ODT
+	format.
 
 2021-09-14  Michal Hoftich  <michal.h21@gmail.com>
 
