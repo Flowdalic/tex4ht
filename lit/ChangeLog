@@ -1,3 +1,8 @@
+2021-09-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (spanish.4ht): fix for clash between Spanish Babel and
+	MathML configurations.
+
 2021-09-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fixed support for floating listings.

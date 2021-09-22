@@ -23760,6 +23760,8 @@ The following is for code such as
  input `a:' and `a :', but for `a~:' TeX4ht introduces _2_ unbreakable
  spaces instead of one.=
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{german.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38562,14 +38564,18 @@ Declarationf for Cyrillics characters are loaded with XeLaTeX
 \endinput
 >>>                        \AddFile{9}{slovene}
 
-\<spanish.4ht\><<<
-% spanish.4ht (|version), generated from |jobname.tex
-% Copyright |CopyYear.2000. Eitan M. Gurari
-|<TeX4ht copywrite|>
-  |<spanish defs|>
-\Hinput{spanish}
-\endinput
->>>                        \AddFile{9}{spanish}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{spanish.ldf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<spanish.4ht\><<< 
+% spanish.4ht (|version), generated from |jobname.tex 
+% Copyright 2021 TeX Users Group 
+|<TeX4ht license text|> 
+|<spanish defs|>
+\Hinput{spanish} 
+\endinput 
+>>> \AddFile{9}{spanish}
 
 The following is needed to compensate for the extra \''\relax\space' in
 \''\def\protect##1{\string\protect\string##1\relax\space}'.
@@ -38692,6 +38698,15 @@ The following is needed to compensate for the extra \''\relax\space' in
    \def\bbl@umlauta{\ifx \EndPicture \:UnDef \expandafter \n:bbl@umlauta: 
                     \else \expandafter \o:bbl@umlauta: \fi }%
 }
+>>>
+
+This is necessary to fix clash between mathml option and some definitions
+in Spanish babel.
+
+\<spanish defs\><<<
+\let\orig:nolimits\nolimits
+\let\nolimits\o:nolimits:
+\AtBeginDocument{\let\nolimits\orig:nolimits}
 >>>
 
 % \def\@text@composite#1#2#3\@text@composite{%
