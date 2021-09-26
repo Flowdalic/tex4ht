@@ -2,6 +2,9 @@
 
 	* tex4ht-html4.tex (html4.4ht): draw table lines in \hline using CSS.
 	https://puszcza.gnu.org.ua/bugs/?528
+	* tex4ht-4ht.tex (longtable.4ht): redefine \LT@start to ommit box dimension
+	checking, as it can lead to compilation errors when table is too tall.
+	https://puszcza.gnu.org.ua/bugs/?527
 
 2021-09-23  Michal Hoftich  <michal.h21@gmail.com>
 

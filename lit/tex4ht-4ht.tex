@@ -9667,15 +9667,17 @@ longtable.sty\EndLink{ \tt|}
 \<longtable code\><<<
 \csname newbox\endcsname\LT:box
 \csname newbox\endcsname\LT:ebox
-\let\:tempc\LT@start
-\pend:def\:tempc{%
+\def\:tempc{%
   \ifvoid\LT@head\else
      \ifvoid\LT@firsthead
         \global\setbox\LT@firsthead=\hbox{\box\LT@head}%
      \else
         \global\setbox\tmp:bx=\hbox{\box\LT@head}%
-  \fi\fi
-  \box\LT:box}   
+  \fi\fi%
+  \box\LT:box%
+  \ifvoid\LT@firsthead\copy\LT@head\else\box\LT@firsthead\fi\nobreak
+  \output{\LT@output}
+}   
 \HLet\LT@start\:tempc
 \let\:tempc\endlongtable
 \append:def\:tempc{\box\LT:ebox}
