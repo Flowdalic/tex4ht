@@ -1,3 +1,8 @@
+2021-09-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): support for change of booktabs rule colors.
+	https://tex.stackexchange.com/q/615729/2891
+
 2021-09-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): draw table lines in \hline using CSS.

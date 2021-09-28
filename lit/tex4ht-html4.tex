@@ -22256,26 +22256,36 @@ font commands
 
 
 \<configure html4 booktabs\><<<
+
+|<booktabs default hline color|>
+
 \Configure{toprule}
    {|<booktabs rule mag|>%
     \Css{tr\#TBL-\TableNo-\ifnum \HRow=0 
-          1- td{border-top:|<booktabs rule height|> solid}
+          1- {border-top:|<booktabs rule height|> solid \#\hline:color;}
      \else
-          \HRow- td{border-bottom:|<booktabs rule height|> solid}
+          \HRow- {border-bottom:|<booktabs rule height|> solid \#\hline:color;}
      \fi
    }}
 \Configure{bottomrule}
    {|<booktabs rule mag|>%
     \Css{tr\#TBL-\TableNo-\HRow-
-            td{border-bottom:|<booktabs rule height|> solid}}}
+            {border-bottom:|<booktabs rule height|> solid  \#\hline:color}}}
 \Configure{midrule}
    {|<booktabs rule mag|>%
     \Css{tr\#TBL-\TableNo-\HRow- 
-            td{border-bottom:|<booktabs rule height|> solid}}}
+            {border-bottom:|<booktabs rule height|> solid \#\hline:color}}}
 \Configure{cmidrule}
    {|<booktabs rule mag|>%
-    \Css{td\#TBL-\TableNo-\HRow-\HCol{border-bottom:|<booktabs rule height|> solid}}%
+    \Css{td\#TBL-\TableNo-\HRow-\HCol{border-bottom:|<booktabs rule height|> solid \#\hline:color}}%
     \HCode{<span class="cmidrule"><!-- enable post-processing of cmidrule--></span>}}
+>>>
+
+The \verb|\hline:color| macro is defined by TeX4ht configuration for colortbl.sty. 
+We reuse it to support change of rule colors. It is initialized as black.
+
+\<booktabs default hline color\><<<
+\def\hline:color{000}
 >>>
 
 
