@@ -26024,6 +26024,7 @@ For xml
 
 \EndVerbatim
 
+
 Fix for XeTeX graphics - PDF inclusion doesn't work with the default driver, 
 dvips needs to be used instead
 
@@ -26075,6 +26076,12 @@ dvips needs to be used instead
 \pend:def\Grot@box{\a:rotatebox}
 \append:def\Grot@box{\b:rotatebox}
 
+>>>
+
+Support for the alt key of \Verb!\includegraphics! command.
+
+\<fix graphicx\><<<
+\define@key{Gin}{alt}{\Configure{GraphicsAlt}{#1}}
 >>>
 
 The calc package redefined \`'\setlength' to allow expressions of the

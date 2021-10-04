@@ -1,3 +1,9 @@
+2021-10-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (graphicx.4ht): added support for the \includegraphics alt
+	key.
+	https://github.com/latex3/latex2e/issues/651
+
 2021-09-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): support for change of booktabs rule colors.
