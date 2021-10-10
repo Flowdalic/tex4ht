@@ -16984,7 +16984,7 @@ See report at screnggu.tex
 >>>
 
 %%%%%%%%%%%%%%%%%%
-\Section{srcbook}
+\Section{srcartcl}
 
 \<scrartcl.4ht\><<<
 % scrartcl.4ht (|version), generated from |jobname.tex
@@ -17128,6 +17128,12 @@ UnDFexyz}%
 
 \<scr artcl, reprt, book\><<<
 \pend:defI\@makefntext{\IgnorePar}
+>>>
+
+It seems that we got the error message about old font commands again. Probably because
+TeX4ht now loads before class files. We reuse the code used in Koma classes
+\<scr artcl, reprt, book\><<<
+\let\scr@defineobsoletefonts\thr@@
 >>>
 
 \<general scrbook\><<<
