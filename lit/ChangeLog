@@ -3,6 +3,9 @@
 	* tex4ht-html4.tex (html4.4ht): clean up for \paragraph and \subparagraph
 	commands.
 	https://puszcza.gnu.org.ua/bugs/?530#discussion
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed handling of paragraphs in
+	\paragraph and \subpagraph.
+	https://puszcza.gnu.org.ua/bugs/?530#discussion
 
 2021-10-10  Michal Hoftich  <michal.h21@gmail.com>
 

@@ -467,10 +467,10 @@ in the character style passed as the second argument.
 \<utilities\><<<
 \def\:DefineParagraph#1#2{%
 \Configure{#1}
-   {\IgnorePar\EndP \HCode{<!--start of #1 -->}}
-   {\IgnorePar\EndP \HCode{<!--start of #1 -->}}
-   {\bgroup\HTML:PAR{#1-p}{#1-p}\par\HCode{<text:span text:style-name="#2" >}}
-   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\egroup}
+   {\ifvmode\IgnorePar\fi\EndP \HCode{<!--start of #1 -->}}
+   {\ifvmode\IgnorePar\fi\EndP \HCode{<!--start of #1 -->}}
+   {\bgroup\HTML:PAR{#1-p}{#1-p}\ifvmode\IgnorePar\fi\EndP\par\HCode{<text:span text:style-name="#2" >}}
+   {\HCode{</text:span><text:s/><text:s/>\Hnewline}\egroup\IgnorePar}
 \:ParagraphStyle{#1-p}
 }
 >>>
