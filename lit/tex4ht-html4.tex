@@ -9178,7 +9178,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 
 \<ams proc,book\><<<
 \Configure{paragraph}{}{}
-  {\ShowPar\IgnoreIndent\HCode{<span class="paragraphHead"\a:LRdir>}\begingroup\bf}
+  {\ShowPar\IgnoreIndent\HCode{<span class="paragraphHead"\a:LRdir>}\begingroup}
   {\endgroup\HCode{</span>}\IgnorePar}
 \ConfigureMark{subparagraph}{\thesubparagraph}
 \Css{.paragraphHead  { margin-top:2em; font-weight: bold;}}
@@ -9197,7 +9197,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 
 \<ams proc,book\><<<
 \Configure{subparagraph}{}{}
-  {\ShowPar\HCode{<span class="subparagraphHead"\a:LRdir>}\begingroup\bf
+  {\ShowPar\HCode{<span class="subparagraphHead"\a:LRdir>}\begingroup
    \TitleMark\space}
   {\endgroup\HCode{</span>}\IgnorePar}
 \Css{.subparagraphHead { font-weight: bold;}}
@@ -10264,21 +10264,21 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
 |<config lists of figures and tables|> 
 
 \Configure{paragraph}{}{}
-  {\ShowPar\IgnoreIndent\HCode{<span class="paragraphHead"\a:LRdir>}\begingroup\bf}
-  {\endgroup\HCode{</span>}}
+  {\ShowPar\IgnoreIndent\HCode{<span class="paragraphHead"\a:LRdir>}\begingroup}
+  {\endgroup\HCode{</span>}\IgnorePar}
 \Configure{likeparagraph}{}{}
   {\ShowPar\IgnoreIndent\HCode{<span class="likeparagraphHead"\a:LRdir>}}
-  {\HCode{</span>}}
+  {\HCode{</span>}\IgnorePar}
 \Css{.paragraphHead, .likeparagraphHead
    { margin-top:2em; font-weight: bold;}}
 
-\ConfigureMark{subparagraph}{\thesubparagraph}
+\ConfigureMark{subparagraph}{}
 \Configure{subparagraph}{}{}
-  {\ShowPar\HCode{<span class="subparagraphHead"\a:LRdir>}\begingroup\bf
+  {\ShowPar\HCode{<span class="subparagraphHead"\a:LRdir>}\begingroup
    \TitleMark\space}
   {\endgroup\HCode{</span>}\IgnorePar}
 \Configure{likesubparagraph}{}{}
-  {\ShowPar\HCode{<span class="likesubparagraphHead"\a:LRdir>}\begingroup\bf}
+  {\ShowPar\HCode{<span class="likesubparagraphHead"\a:LRdir>}\begingroup}
   {\endgroup\HCode{</span>}\IgnorePar}
 \Css{.subparagraphHead, .likesubparagraphHead
    { font-weight: bold;}}
