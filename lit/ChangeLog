@@ -3,6 +3,8 @@
 	* tex4ht-html5.tex (html5.4ht): removed CSS declaration that prevented
 	horizontal scacking of images in figure environment.
 	https://tex.stackexchange.com/a/619302/2891
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed abstract support for Koma classes.
+	https://puszcza.gnu.org.ua/bugs/?507
 
 2021-10-12  Michal Hoftich  <michal.h21@gmail.com>
 

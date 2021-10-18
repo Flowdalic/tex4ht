@@ -1564,6 +1564,36 @@ when the files are ready for zipping.
 \section{Abstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Scr}
+
+The paragraph styles are already defined in ooffice title page
+section, which is included by scrartcle and scrreprt before this 
+code.
+
+Koma classess don't contain mandatory abstract title, so we must 
+change the configuration slightly. We modify directly the 
+\verb|\abstractname| command to print XML tags.
+
+\<scr abstract\><<<
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP \bgroup
+      \Configure{HtmlPar}
+         {\EndP \HCode{<text:p
+                    text:style-name="abstract|<cond rtl class|>">}}
+         {\EndP \HCode{<text:p  
+                    text:style-name="abstract|<cond rtl class|>">}}
+         {\HCode{</text:p>}}
+         {\HCode{</text:p>}}%
+      \par \ShowPar
+   }
+   {\ifvmode \IgnorePar\fi \EndP \egroup \ShowPar\par \IgnoreIndent }
+   {
+     \pend:def\abstractname{\ifvmode \IgnorePar\fi\EndP\HCode{<text:p text:style-name="abstract-title">}}
+     \append:def\abstractname{\HCode{</text:p>}}
+   }
+   {}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{LaTeX}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9063,6 +9093,7 @@ fn\the\c@footnote x\minipageNum
 
 \<configure ooffice scrreprt\><<<
 |<ooffice title page|>
+|<scr abstract|>
 |<content styles|>
 |<chap tocs|>
 |<scr chap tocs|>
@@ -9080,6 +9111,7 @@ fn\the\c@footnote x\minipageNum
 
 \<configure ooffice scrartcl\><<<
 |<ooffice title page|>
+|<scr abstract|>
 |<content styles|>
 |<ooffice bib with bibname|>
 |<ooffice begin-end env|>
