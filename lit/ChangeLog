@@ -1,3 +1,11 @@
+2021-10-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): added subtitle support.
+
+	* tex4ht-4ht.tex (scrartcl.4ht, scrbook.4ht, scrreprt.4ht): added support
+	for \subtitle command.
+	https://puszcza.gnu.org.ua/bugs/?507
+
 2021-10-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html5.tex (html5.4ht): removed CSS declaration that prevented

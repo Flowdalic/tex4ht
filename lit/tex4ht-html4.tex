@@ -6197,6 +6197,7 @@ thanks author date and>>>
    {\ifvmode \IgnorePar\fi\EndP \HCode{<div class="dedication" >}}
    {\ifvmode \IgnorePar\fi\EndP \HCode{</div>}}
 \Css{div.dedication {text-align:center;}}  
+\Css{div.titlepage{ margin-bottom: 2em; text-align:center; }}
 >>>
 
 
@@ -10406,6 +10407,11 @@ need to change early the catcodes of `\verb'_' and `\verb'^'.
     \bgroup \IgnorePar\HCode{<h5 class="minisecHead"\a:LRdir>}%
     \TitleMark\space \HtmlParOff}
    {\HCode{</h5>}\HtmlParOn \IgnoreIndent\egroup\par\ShowPar}
+>>>
+
+Support for subtitle
+\<scr article,report,book\><<<
+\Configure{subtitle}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="subtitle">}}{\HCode{</div>}}
 >>>
 
 \<scrbook end units\><<<

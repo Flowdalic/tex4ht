@@ -16993,6 +16993,7 @@ See report at screnggu.tex
 |<scr old fonts|>
 \input article.4ht
 |<scr artcl, reprt, book|>
+|<scr artcl subtitle|>
 \Hinput{scrartcl}
 \endinput
 >>>        \AddFile{9}{scrartcl}
@@ -17035,6 +17036,7 @@ See report at screnggu.tex
       \pend:def\@dedication{\a:dedication}%
       \append:def\@dedication{\b:dedication}%
    \fi
+   |<scr def subtitle|>
 }
 \NewConfigure{dedication}{2}
 >>>
@@ -17053,8 +17055,26 @@ See report at screnggu.tex
    \pend:def\@author{\a:author}\append:def\@author{\b:author}%
    \pend:def\@date{\a:date}\append:def\@date{\b:date}%
    \def\and{\a:and}
+   |<scr def subtitle|>
 }
 \NewConfigure{dedication}{2}
+>>>
+
+Support for subtitles:
+
+\<scr artcl, reprt, book\><<<
+\NewConfigure{subtitle}{2}
+>>>
+
+\<scr artcl subtitle\><<<
+\pend:def\maketitle{%
+  |<scr def subtitle|>
+}
+>>>
+
+\<scr def subtitle\><<<
+  \pend:def\@subtitle{\a:subtitle}
+  \append:def\@subtitle{\b:subtitle}
 >>>
 
 %%%%%%%%%%%%%%%%%%
@@ -17122,7 +17142,7 @@ UnDFexyz}%
 }
 >>>
 
-%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
 \Section{other}
 %%%%%%%%%%%%%%%%%%%
 
