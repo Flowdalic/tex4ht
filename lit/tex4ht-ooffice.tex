@@ -1560,6 +1560,48 @@ when the files are ready for zipping.
    {\ifvmode \IgnorePar\fi\EndP \HCode{</text:p>}}
 >>>
 
+Koma classes have subtitle command and option.
+
+\<scr subtitle\><<<
+\Configure{subtitle}{\ifvmode\IgnorePar\fi\EndP\HCode{<text:p text:style-name="subtitle|<cond rtl class|>">}}{\HCode{</text:p>}}
+
+\NewConfigureOO{subtitle}
+\ConfigureOO{subtitle}{%
+<style:style style:name="subtitle"
+             style:family="paragraph"
+             style:parent-style-name="Heading"
+             style:next-style-name="author"
+             style:class="chapter">\Hnewline
+<style:paragraph-properties  fo:margin-top="0.42cm"
+                  fo:margin-bottom="0.51cm"
+                  fo:font-size="20pt"
+                  fo:font-weight="normal"
+                  style:font-size-asian="18pt"
+                  style:font-weight-asian="bold"
+                  style:font-size-complex="18pt"
+                  style:font-weight-complex="bold"
+                  fo:text-align="center"
+                  style:justify-single-word="false"/>
+</style:style> \Hnewline <style:style style:name="subtitle-rtl"
+             style:family="paragraph"
+             style:parent-style-name="Heading-rtl"
+             style:next-style-name="author-rtl"
+             style:class="chapter">\Hnewline
+<style:paragraph-properties  fo:margin-top="0.42cm"
+                  fo:margin-bottom="0.51cm"
+                  fo:font-size="20pt"
+                  fo:font-weight="normal"
+                  style:font-size-asian="18pt"
+                  style:font-weight-asian="bold"
+                  style:font-size-complex="18pt"
+                  style:font-weight-complex="bold"
+                  fo:text-align="center"
+                  style:justify-single-word="false"
+                  style:writing-mode="rl-tb" />
+</style:style> \Hnewline
+ }
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Abstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9075,6 +9117,7 @@ fn\the\c@footnote x\minipageNum
 
 \<configure ooffice scrbook\><<<
 |<ooffice title page|>
+|<scr subtitle|>
 |<content styles|>
 |<chap tocs|>
 |<scr chap tocs|>
@@ -9093,6 +9136,7 @@ fn\the\c@footnote x\minipageNum
 
 \<configure ooffice scrreprt\><<<
 |<ooffice title page|>
+|<scr subtitle|>
 |<scr abstract|>
 |<content styles|>
 |<chap tocs|>
@@ -9111,6 +9155,7 @@ fn\the\c@footnote x\minipageNum
 
 \<configure ooffice scrartcl\><<<
 |<ooffice title page|>
+|<scr subtitle|>
 |<scr abstract|>
 |<content styles|>
 |<ooffice bib with bibname|>
