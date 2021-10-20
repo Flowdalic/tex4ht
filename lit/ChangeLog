@@ -1,3 +1,8 @@
+2021-10-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): use Subtitle style for subtitles.
+	https://puszcza.gnu.org.ua/bugs/?507
+
 2021-10-19  Michal Hoftich  <michal.h21@gmail.com>
 	
 	* tex4ht-4ht.tex (caption.4ht): fixed number of parameters for
