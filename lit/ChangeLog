@@ -1,5 +1,8 @@
 2021-10-20  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-fonts-kpfonts.tex: added support for Kpfonts.
+	https://puszcza.gnu.org.ua/bugs/index.php?261
+
 	* tex4ht-html4.tex (html4.4ht): use bold font for newtheorem theorem
 	headers.
 
