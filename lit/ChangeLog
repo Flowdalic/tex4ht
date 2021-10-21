@@ -1,3 +1,8 @@
+2021-10-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tikz-hooks.4ht): fixed the externalization support.
+	https://tex.stackexchange.com/a/619748/2891
+
 2021-10-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-kpfonts.tex: added support for Kpfonts.
