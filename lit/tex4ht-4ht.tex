@@ -3950,6 +3950,7 @@ correctly. This just removes the error message.
   }%
   |<fix biblatex lang handling|>
 }
+|<early biblatex nameref|>
 >>> \AddFile{9}{biblatex-hooks}
 
 Some biblatex styles reported error missing English language. 
@@ -3970,6 +3971,16 @@ a wrong code. The saved version of that command must be used instead.
           Ignoring mapping '#2' -> '#1'}%
        \global\cslet{blx@suffmaptried@#2}\@empty}%
      \blx@lbxinput@iv{#2}{#2}{language '#2'}}}
+>>>
+
+BibLaTeX and TeX4ht both redefine the \Verb|\ifthenelse| command. We take care 
+of it in biblatex.4ht by defining the \Verb|\TE@hook| command. But some BibLaTeX
+styles still have issues (namely "anbt"). I've found that loading of "nameref"
+package helps in this case. 
+\Link[https://tex.stackexchange.com/a/619816/2891]{}{}More info\EndLink.
+
+\<early biblatex nameref\><<<
+\RequirePackage{nameref}
 >>>
 
 %%%%%%%%%%%%%%%%%

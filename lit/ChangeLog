@@ -1,3 +1,8 @@
+2021-10-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex-hooks.4ht): load Nameref package with BibLaTeX.
+	https://tex.stackexchange.com/a/619816/2891
+
 2021-10-21  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (croncheck): add diff-htfonts.
