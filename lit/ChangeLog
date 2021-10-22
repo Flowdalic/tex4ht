@@ -1,7 +1,13 @@
+2021-10-22  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-fonts-kpfonts.tex: use SmallCaps consistently,
+	to avoid SmallCaps vs. Smallcaps clash on case-insensitive
+	(file)systems.
+
 2021-10-22  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (biblatex-hooks.4ht): load Nameref package with BibLaTeX.
-	https://tex.stackexchange.com/a/619816/2891
+	* tex4ht-4ht.tex (biblatex-hooks.4ht): load Nameref package with
+	BibLaTeX. https://tex.stackexchange.com/a/619816/2891
 
 2021-10-21  Karl Berry  <karl@freefriends.org>
 
