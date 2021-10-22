@@ -1,3 +1,10 @@
+2021-10-21  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (croncheck): add diff-htfonts.
+	(diff-*, inst-*): tinker with output.
+	
+	* tex4ht-4ht.tex (mdframed.4ht): copyright 2021.
+
 2021-10-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tikz-hooks.4ht): fixed the externalization support.
@@ -25,8 +32,8 @@
 
 	* tex4ht-html4.tex (html4.4ht): added subtitle support.
 
-	* tex4ht-4ht.tex (scrartcl.4ht, scrbook.4ht, scrreprt.4ht): added support
-	for \subtitle command.
+	* tex4ht-4ht.tex (scrartcl.4ht, scrbook.4ht, scrreprt.4ht): added
+	support for \subtitle command.
 	https://puszcza.gnu.org.ua/bugs/?507
 
 2021-10-18  Michal Hoftich  <michal.h21@gmail.com>
@@ -34,13 +41,14 @@
 	* tex4ht-html5.tex (html5.4ht): removed CSS declaration that prevented
 	horizontal scacking of images in figure environment.
 	https://tex.stackexchange.com/a/619302/2891
-	* tex4ht-ooffice.tex (ooffice.4ht): fixed abstract support for Koma classes.
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed abstract support for
+	Koma classes.
 	https://puszcza.gnu.org.ua/bugs/?507
 
 2021-10-12  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): clean up for \paragraph and \subparagraph
-	commands.
+	* tex4ht-html4.tex (html4.4ht): clean up for \paragraph and
+	\subparagraph commands.
 	https://puszcza.gnu.org.ua/bugs/?530#discussion
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed handling of paragraphs in
 	\paragraph and \subpagraph.
@@ -58,21 +66,23 @@
 
 2021-10-04  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (graphicx.4ht): added support for the \includegraphics alt
-	key.
+	* tex4ht-4ht.tex (graphicx.4ht): added support for the
+	\includegraphics alt key.
 	https://github.com/latex3/latex2e/issues/651
 
 2021-09-28  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): support for change of booktabs rule colors.
+	* tex4ht-html4.tex (html4.4ht): support for change of booktabs
+	rule colors.
 	https://tex.stackexchange.com/q/615729/2891
 
 2021-09-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): draw table lines in \hline using CSS.
 	https://puszcza.gnu.org.ua/bugs/?528
-	* tex4ht-4ht.tex (longtable.4ht): redefine \LT@start to ommit box dimension
-	checking, as it can lead to compilation errors when table is too tall.
+	* tex4ht-4ht.tex (longtable.4ht): redefine \LT@start to ommit box
+	dimension checking, as it can lead to compilation errors when
+	table is too tall.
 	https://puszcza.gnu.org.ua/bugs/?527
 
 2021-09-23  Michal Hoftich  <michal.h21@gmail.com>
@@ -93,10 +103,11 @@
 
 2021-09-14  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fixed TOC support for \exp
-	command.
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fixed TOC support
+	for \exp command.
 	https://puszcza.gnu.org.ua/bugs/?525
-	* tex4ht-sty.tex (tex4ht.sty): fix issues with \PauseCutAt and \ContCutAt.
+	* tex4ht-sty.tex (tex4ht.sty): fix issues with \PauseCutAt and
+	\ContCutAt.
 	https://puszcza.gnu.org.ua/bugs/?518
 
 2021-09-12  Michal Hoftich  <michal.h21@gmail.com>
@@ -126,16 +137,18 @@
 
 2021-08-14  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (biblatex.4ht): don't check for Hyperref when we define
-	\TE@hook macro.
+	* tex4ht-4ht.tex (biblatex.4ht): don't check for Hyperref when we
+	define \TE@hook macro.
 
 2021-08-12  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): added support for SVG image inclusion.
+	* tex4ht-ooffice.tex (ooffice.4ht): added support for SVG image
+	inclusion.
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed support for images created by
 	\Picture+{} and \Picture+{} commands.
-	* tex4ht-4ht.tex (graphics.4ht, graphicx.4ht): moved mapping to .xbb files
-	from graphicx.4ht to graphics.4ht, so they work with both packages.
+	* tex4ht-4ht.tex (graphics.4ht, graphicx.4ht): moved mapping to
+	.xbb files from graphicx.4ht to graphics.4ht, so they work with
+	both packages.
 
 2021-08-03  Michal Hoftich  <michal.h21@gmail.com>
 
@@ -144,15 +157,15 @@
 
 2021-07-06  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (mwart.4ht, mwbk.4ht, mwrep.4ht): fixed caption support for
-	MW classes.
+	* tex4ht-4ht.tex (mwart.4ht, mwbk.4ht, mwrep.4ht): fixed caption
+	support for MW classes.
 	https://github.com/jsbien/repertuarXVI/issues/1
 
 2021-07-05  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (biblatex.4ht): updated redefinitions of \MakeUppercase and
-	\MakeLowercase to use the current code from LaTeX kernel. Also inserted
-	BibLaTeX hooks for these commands.
+	* tex4ht-4ht.tex (biblatex.4ht): updated redefinitions of
+	\MakeUppercase and \MakeLowercase to use the current code from
+	LaTeX kernel. Also inserted BibLaTeX hooks for these commands.
 
 2021-07-04  Karl Berry  <karl@freefriends.org>
 

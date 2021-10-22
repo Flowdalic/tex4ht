@@ -215,6 +215,7 @@ tex4ht_fonts_spectral_derived = \
 derived += $(tex4ht_fonts_kpfonts_derived)
 tex4ht_fonts_kpfonts_derived = \
 	$(ht_fonts_devdir)/unicode/Kp-Light-M-Syd/jkplsyd.htf
+
 # xx and many more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
 
@@ -717,6 +718,7 @@ install_data = cp -p
 # Perl scripts (mk4ht) at present.
 # 
 diff-scripts:
+	@echo; echo '>>> $@'
 	for f in *.unix; do \
 	  inst_f=$(inst_dir_scripts)/`basename $$f .unix`.sh; \
 	  test -r $$inst_f || continue; \
@@ -724,6 +726,7 @@ diff-scripts:
 
 # Diff from installed to dev, but install from dev to installed.
 install-scripts:
+	@echo; echo '>>> $@'
 	for f in *.unix; do \
 	  inst_f=$(inst_dir_scripts)/`basename $$f .unix`.sh; \
 	  test -r $$inst_f || continue; \
@@ -771,9 +774,10 @@ install-htfonts-tmp:
 diff-htfonts:
 # put the raw diff in /tmp/htd:
 	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
-# just the filenames in htf:
+# just the changed filenames in /tmp/htf; but this includes date changes,
+# so will have lots of false matches. must fixx ...
 	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd |sort >/tmp/htf
-# new files in htnew:
+# and new filenames in /tmp/htnew:
 	sed -n -e 's,^Only in.*ht-fonts/,,' \
 	       -e 's,: ,/,p' /tmp/htd >/tmp/htnew
 # for human consumption, remove generation lines (hopefully there are no
@@ -793,9 +797,11 @@ diff-htfonts:
 # The diff-scripts output is usually empty, so we can run that;
 # but diff-htfonts is too verbose to run every time.
 diff-all: diff-scripts #diff-htfonts
+	@echo; echo '>>> $@'
 	-for f in $(inst_dir_4ht)/*; do $(diff) $$f .; done \
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
-	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$'
+	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$' \
+		     | egrep -v '^--- '
 
 # For checking the derived files that are explicitly listed above
 # against installed (in TL) files. This is a small subset of all the
@@ -804,6 +810,7 @@ diff_files = $(filter-out %.htf %.4hf tex4ht.env% %.c lm-htf.tex \
                           mk4ht.perl ht.unix ht.bat,\
                           $(derived))
 diff-derived:
+	@echo; echo '>>> $@'
 	-for f in $(diff_files); do $(diff) $(inst_dir_4ht)/$$f .; done \
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
 	             | egrep -v '^..ifx.infoIVht.UnDeF.*//$$'
@@ -811,7 +818,7 @@ diff-derived:
 # Check that anything with a \version of this year
 # also has a copyright of this year.
 inst-check-copyright:
-	@echo '>>> $@'
+	@echo; echo '>>> $@'
 	-cd $(inst_dir_4ht) && for f in *; do \
 	  if grep "version.*`date +%Y`" $$f >/dev/null; then \
 	    grep "Copyright.*`date +%Y`" $$f >/dev/null || echo $$f; fi; done
@@ -819,14 +826,14 @@ inst-check-copyright:
 # Check that all *.4ht in dev are installed. Other file types are
 # difficult, but all 4ht's should be present, except mktex4ht.4ht.
 inst-check-files:
-	@echo '>>> $@'
+	@echo; echo '>>> $@'
 	cd $(inst_dir_4ht) && ls -1 *.4ht >/tmp/instlist
 	ls -1 *.4ht | fgrep -v mktex4ht.4ht >/tmp/devlist
 	comm -3 /tmp/devlist /tmp/instlist
 	
 # Check for missing version identifications.
 inst-check-version:
-	@echo '>>> $@'
+	@echo; echo '>>> $@'
 	-cd $(inst_dir_4ht) && for f in *; do \
 	  grep 'write-1.*version' $$f >/dev/null || echo $$f; done
 
@@ -839,6 +846,11 @@ diff1 d1:
 diff = diff -u0 --ignore-all-space --ignore-blank-lines \
   --ignore-matching-lines='write-1.version\|, generated from\|Copyright'
 
+# run weekly by karl.
+croncheck: diff-all \
+	   inst-check-copyright inst-check-files inst-check-version \
+	   diff-htfonts
+	
 # final simple abbrev for convenience.
 upmake upm:
 	svn update && make
