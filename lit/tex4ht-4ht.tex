@@ -3979,8 +3979,14 @@ styles still have issues (namely "anbt"). I've found that loading of "nameref"
 package helps in this case. 
 \Link[https://tex.stackexchange.com/a/619816/2891]{}{}More info\EndLink.
 
+We also need to post-pone the Nameref loading outside of the hooks file, as
+it seems to cause other issues if we used \Verb|\RequirePackage| directly.
+We can utilize the LaTeX hook system for that.
+\Link[https://tex.stackexchange.com/a/620503/2891]{}{}See this issue\EndLink.
+
+
 \<early biblatex nameref\><<<
-\RequirePackage{nameref}
+\AddToHook{package/before/biblatex}{\RequirePackage{nameref}}
 >>>
 
 %%%%%%%%%%%%%%%%%

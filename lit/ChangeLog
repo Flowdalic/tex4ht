@@ -1,3 +1,9 @@
+2021-10-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex-hooks.4ht): use LaTeX package hooks to load
+	Nameref.
+	https://tex.stackexchange.com/a/620503/2891
+
 2021-10-22  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-fonts-kpfonts.tex: use SmallCaps consistently,
