@@ -9043,11 +9043,13 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 
 \<shared ams thm/cls\><<<
 \Configure{proof}
-   {\ifvmode \IgnorePar \fi \EndP
-       \HCode{<div class="proof">}\par\ShowPar
-       \HCode{<span class="head">}\IgnorePar}
-   {\HCode{</span>}\ShowPar}
-   {\ifvmode \IgnorePar \fi \EndP \HCode{</div>}\par}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{<div class="proof">}\par\ShowPar
+       \HCode{<span class="head">}\HtmlParOff}
+   {\HCode{</span>}\HtmlParOn}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par}
+% it seems that paragraphs are not started after the proof environment
+% this configuration helps
+\ConfigureEnv{proof}{}{\par\ShowPar}{}{}
 >>>
 
 
