@@ -1,3 +1,10 @@
+2021-11-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (hyperref-hooks.4ht, biblatex-hooks.4ht):
+	removed loading of the Nameref package from package hooks. It caused various
+	issues and I don't even remember what was the point.
+	https://puszcza.gnu.org.ua/bugs/?534
+
 2021-11-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fix for paragraphs after AMS classes proof

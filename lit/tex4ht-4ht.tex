@@ -3950,7 +3950,7 @@ correctly. This just removes the error message.
   }%
   |<fix biblatex lang handling|>
 }
-|<early biblatex nameref|>
+%|<early biblatex nameref|>
 >>> \AddFile{9}{biblatex-hooks}
 
 Some biblatex styles reported error missing English language. 
@@ -3973,6 +3973,11 @@ a wrong code. The saved version of that command must be used instead.
      \blx@lbxinput@iv{#2}{#2}{language '#2'}}}
 >>>
 
+Update 2021/11/04: the following information is here for the historical reasons.
+We don't load Nameref from BibLaTeX anymore. I've found that we need to 
+remove Nameref from hyperref-hooks.4ht and then everything works.
+
+Historical info: 
 BibLaTeX and TeX4ht both redefine the \Verb|\ifthenelse| command. We take care 
 of it in biblatex.4ht by defining the \Verb|\TE@hook| command. But some BibLaTeX
 styles still have issues (namely "anbt"). I've found that loading of "nameref"
@@ -3984,7 +3989,7 @@ it seems to cause other issues if we used \Verb|\RequirePackage| directly.
 We can utilize the LaTeX hook system for that.
 \Link[https://tex.stackexchange.com/a/620503/2891]{}{}See this issue\EndLink.
 
-
+This code is not used anymore:
 \<early biblatex nameref\><<<
 \AddToHook{package/before/biblatex}{\RequirePackage{nameref}}
 >>>
@@ -4991,6 +4996,18 @@ We can load nameref from the early hook file
 % hyperref-hooks.4ht (|version), generated from |jobname.tex
 % Copyright 2021 TeX Users Group
 |<TeX4ht license text|>
+% we don't have any code here for now
+>>> \AddFile{9}{hyperref-hooks}
+
+This code used to be loaded from hyperref-hooks.4ht, but I 
+found that it causes serious clashes with BibLaTeX. It is
+legacy code that I don't understand what is supposed to do.
+
+Maybe we will find that it's omission cause other issues,
+but I tried three recent bug reports regarding Hyperref 
+and BibLaTeX and they all work better when we remove it.
+
+\<load nameref in hyperref hooks\><<<
 \:AtEndOfPackage{%
 \@ifpackageloaded{nameref}{}
 {%
@@ -4999,8 +5016,7 @@ We can load nameref from the early hook file
    \let\label\sv:label
    %\input nameref.4ht
 }}
-
->>> \AddFile{9}{hyperref-hooks}
+>>>
 
 
 
