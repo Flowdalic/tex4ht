@@ -1,3 +1,11 @@
+2021-11-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): added CSS declaration that enables table row
+	rules.
+	* tex4ht-html5.tex (html5.4ht): removed CSS rules declaration that was moved
+	to html4.4ht.
+	https://tex.stackexchange.com/a/621871/2891
+
 2021-11-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): use stretchy="false" for math operators
