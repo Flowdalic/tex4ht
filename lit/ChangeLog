@@ -1,3 +1,8 @@
+2021-11-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): use LaTeX 3 commands in
+	\VerbMath, this enables us to remove dependency on external packages.
+
 2021-11-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added CSS declaration that enables table row

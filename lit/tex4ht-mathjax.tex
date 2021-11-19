@@ -29,8 +29,10 @@
 \endinput
 >>>
 
+We don't require additional packages anymore, as everything necessary is included
+in LaTeX kernel now.
+% \RequirePackage{etoolbox,expl3,environ}
 \<required packages\><<<
-\RequirePackage{etoolbox,expl3,environ}
 >>>
 
 The \verb|\alteqtoks| command saves the used command in HTML. It uses detokenize command
@@ -60,6 +62,8 @@ We still use regula expressions to escape invalid XML characters to entities, so
   \regex_replace_all:nnN { \x{26} } { &amp; } \l_tmpa_tl
   \regex_replace_all:nnN { \x{3C} } { &lt; } \l_tmpa_tl 
   \regex_replace_all:nnN { \x{3E} } { &gt; } \l_tmpa_tl
+  % replace \par command with blank lines
+  \regex_replace_all:nnN { \x{5C}par } {\x{A}\x{A}} \l_tmpa_tl
   \tl_set:Nx \l_tmpb_tl{ \l_tmpa_tl }
   \HCode{\l_tmpb_tl}
 }
@@ -90,13 +94,21 @@ environments. They will then keep the LaTeX code unchanged.
     #1
   \end{#2}}%
 }
+>>>
+
+The \verb|\VerbMath| command redefines environments to pass their content
+verbatim to the HTML output.
+
+\<defined commands\><<<
+\ExplSyntaxOn
 \newcommand\VerbMath[1]{%
-\ifcsdef{#1}{%
-  \RenewEnviron{#1}{%
-  \NoFonts\expandafter\VerbMathToks\expandafter{\BODY}{#1}\EndNoFonts%
-  }
-}{}%
+  \cs_if_exist:cTF{#1}{
+    \RenewDocumentEnvironment{#1}{+!b}{%
+      \NoFonts\expandafter\VerbMathToks\expandafter{##1}{#1}\EndNoFonts%
+    }{}
+  }{}%
 }
+\ExplSyntaxOff
 >>>
 
 The \verb|\fixmathjaxtoc| command is used for patching commands which should
