@@ -7487,8 +7487,8 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
 \<latex,sty math del\><<<
-  \def\({\leavevmode\st:math}
-  \def\){\ed:math}
+  \protected\def\({\leavevmode\st:math}
+  \protected\def\){\ed:math}
 \NewConfigure{()}[2]{\def\st:math{#1}\def\ed:math{#2}}
   \def\[{\st:Math}
   \def\]{\ed:Math}
@@ -7524,9 +7524,13 @@ $$
 >>>
 
 \<protect (...) math\><<<
-\pend:def\({\bgroup\let\a:mth|=\empty
-   \let\b:mth|=\empty  \let\c:mth|=\empty }%
-\append:def\){\egroup}%
+\let\orig:smath\(
+\let\orig:emath\)
+\protected\def\:tempa{\bgroup\let\a:mth\empty
+   \let\b:mth\empty  \let\c:mth\empty\orig:smath}
+\let\(\:tempa
+\protected\def\:tempa{\orig:emath\egroup}
+\let\)\:tempa
 >>>
 
 \<protect [...] math\><<<

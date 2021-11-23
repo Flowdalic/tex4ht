@@ -3,6 +3,9 @@
 	* tex4ht-4ht.tex (tcolorbox.4ht): add destinations for \label to Tcolorbox
 	environments.
 	https://tex.stackexchange.com/a/623697/2891
+	* tex4ht-4ht.tex (latex.4ht): protect redefinitions of \( and \), so they
+	work correctly in sectioning commands with MathML.
+	https://github.com/michal-h21/make4ht/issues/52#issuecomment-976835368
 
 2021-11-19  Michal Hoftich  <michal.h21@gmail.com>
 
