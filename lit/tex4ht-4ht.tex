@@ -26748,6 +26748,7 @@ We need to use dvips driver with XeLaTeX
   \a:tcolorbox%
   % save label, if it is set
   \ifdefined\tcolorbox:label:key%
+    \AnchorLabel% save cross-ref destination
     \label{\tcolorbox:label:key}%
   \fi%
   % open title
