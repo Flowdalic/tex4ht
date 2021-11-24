@@ -1,10 +1,14 @@
+2021-11-23  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (tcolorbox.4ht): copyright 2021.
+
 2021-11-23  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (tcolorbox.4ht): add destinations for \label to Tcolorbox
-	environments.
+	* tex4ht-4ht.tex (tcolorbox.4ht): add destinations for \label to
+	Tcolorbox environments.
 	https://tex.stackexchange.com/a/623697/2891
-	* tex4ht-4ht.tex (latex.4ht): protect redefinitions of \( and \), so they
-	work correctly in sectioning commands with MathML.
+	* tex4ht-4ht.tex (latex.4ht): protect redefinitions of \( and \),
+	so they work correctly in sectioning commands with MathML.
 	https://github.com/michal-h21/make4ht/issues/52#issuecomment-976835368
 
 2021-11-19  Michal Hoftich  <michal.h21@gmail.com>
@@ -14,30 +18,34 @@
 
 2021-11-09  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): added CSS declaration that enables table row
-	rules.
-	* tex4ht-html5.tex (html5.4ht): removed CSS rules declaration that was moved
-	to html4.4ht.
+	* tex4ht-html4.tex (html4.4ht): added CSS declaration that enables
+	table row rules.
+	* tex4ht-html5.tex (html5.4ht): removed CSS rules declaration that
+	was moved to html4.4ht.
 	https://tex.stackexchange.com/a/621871/2891
 
 2021-11-08  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathml.tex (mathml.4ht): use stretchy="false" for math operators
-	that shouldn't be stretchy.
+	* tex4ht-mathml.tex (mathml.4ht): use stretchy="false" for math
+	operators that shouldn't be stretchy.
 	https://tex.stackexchange.com/a/621839/2891
 
 2021-11-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (hyperref-hooks.4ht, biblatex-hooks.4ht):
-	removed loading of the Nameref package from package hooks. It caused various
-	issues and I don't even remember what was the point.
+	removed loading of the Nameref package from package hooks. It
+	caused various issues and I don't even remember what was the point.
 	https://puszcza.gnu.org.ua/bugs/?534
 
 2021-11-04  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-html4.tex (html4.4ht): fix for paragraphs after AMS classes proof
-	environment.
+	* tex4ht-html4.tex (html4.4ht): fix for paragraphs after AMS
+	classes proof environment.
 	https://tex.stackexchange.com/a/621370/2891
+
+2021-10-31  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (biblatex-hooks.4ht): copyright 2021.
 
 2021-10-28  Michal Hoftich  <michal.h21@gmail.com>
 
