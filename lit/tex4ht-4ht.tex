@@ -26754,6 +26754,7 @@ We need to use dvips driver with XeLaTeX
   \ifdefined\tcolorbox:label:key%
     \AnchorLabel% save cross-ref destination
     \label{\tcolorbox:label:key}%
+    \global\let\tcolorbox:label:key\undefined% 
   \fi%
   % open title
   \b:tcolorbox%
