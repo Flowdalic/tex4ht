@@ -1,11 +1,15 @@
+2021-11-26  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (adjustbox.4ht): copyright.
+
 2021-11-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (adjustbox.4ht): fixed Adjusbox support.
 
 2021-11-24  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (tcolorbox.4ht): delete label name after use, to prevent
-	it's use in subsequent Tcolorbox environments.
+	* tex4ht-4ht.tex (tcolorbox.4ht): delete label name after use, to
+	prevent its use in subsequent Tcolorbox environments.
 
 2021-11-23  Karl Berry  <karl@freefriends.org>
 
