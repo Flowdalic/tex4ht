@@ -1,4 +1,4 @@
-2021-11-24  Michal Hoftich  <michal.h21@gmail.com>
+2021-11-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (adjustbox.4ht): fixed Adjusbox support.
 
