@@ -1,5 +1,9 @@
 2021-11-24  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (adjustbox.4ht): fixed Adjusbox support.
+
+2021-11-24  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-4ht.tex (tcolorbox.4ht): delete label name after use, to prevent
 	it's use in subsequent Tcolorbox environments.
 
