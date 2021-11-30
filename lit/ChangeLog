@@ -1,3 +1,10 @@
+2021-11-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): use numerical entity instead of named
+	entity for &ApplyFunction. LibreOffice couldn't render the document
+	properly.
+	https://github.com/michal-h21/make4ht/issues/54
+
 2021-11-26  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (adjustbox.4ht): copyright.
