@@ -63,7 +63,7 @@ We still use regula expressions to escape invalid XML characters to entities, so
   \regex_replace_all:nnN { \x{3C} } { &lt; } \l_tmpa_tl 
   \regex_replace_all:nnN { \x{3E} } { &gt; } \l_tmpa_tl
   % replace \par command with blank lines
-  \regex_replace_all:nnN { \x{5C}par } {\x{A}\x{A}} \l_tmpa_tl
+  \regex_replace_all:nnN { \x{5C}par\s } {\x{A}\x{A}} \l_tmpa_tl
   \tl_set:Nx \l_tmpb_tl{ \l_tmpa_tl }
   \HCode{\l_tmpb_tl}
 }
