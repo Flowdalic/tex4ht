@@ -2,6 +2,7 @@
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): search for \par<space> in
 	regex that replaces \par commands.
+	https://puszcza.gnu.org.ua/bugs/?537
 
 2021-11-30  Michal Hoftich  <michal.h21@gmail.com>
 
