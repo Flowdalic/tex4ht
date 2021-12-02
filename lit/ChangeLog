@@ -1,3 +1,9 @@
+2021-12-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): search for \par<word boundary> in
+	regex that replaces \par commands, as suggested by David Carlisle.
+	https://tex.stackexchange.com/q/624671/2891
+	
 2021-12-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): search for \par<space> in
