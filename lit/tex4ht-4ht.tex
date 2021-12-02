@@ -26155,6 +26155,27 @@ use  instructions like \`'\setlength\tmp:dim\Gin@ewidth'  instead of
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
+\SubSection{graphbox}
+
+Graphbox redefines \`'\Gin@setfile'  to make some manipulations with the
+graphics box. We want to revert it, because it fatally breaks TeX4ht, and 
+it isn't useful in XML anyway.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{graphbox.sty}{graphbox-hooks.4ht}
+>>>
+
+\<graphbox-hooks.4ht\><<<
+% graphbox-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+\:AtEndOfPackage{%
+  \let\Gin@setfile\old@box@Gin@setfile
+}
+>>> \AddFile{9}{graphbox-hooks}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%
 \Section{svg}
 %%%%%%%%%%%%%%%%%%%%%%%
 
