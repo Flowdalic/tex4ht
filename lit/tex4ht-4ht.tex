@@ -3973,6 +3973,10 @@ a wrong code. The saved version of that command must be used instead.
      \blx@lbxinput@iv{#2}{#2}{language '#2'}}}
 >>>
 
+Updata 2021/12/08: There is still error. I had to reintroduce Nameref to
+hyperref-hooks.4ht, because it's removal broke lot of documents that don't 
+use BibLaTeX. BibLaTeX + Hyperref remain broken.
+
 Update 2021/11/04: the following information is here for the historical reasons.
 We don't load Nameref from BibLaTeX anymore. I've found that we need to 
 remove Nameref from hyperref-hooks.4ht and then everything works.
@@ -4997,15 +5001,13 @@ We can load nameref from the early hook file
 % Copyright 2021 TeX Users Group
 |<TeX4ht license text|>
 % we don't have any code here for now
+|<load nameref in hyperref hooks|>
 >>> \AddFile{9}{hyperref-hooks}
 
-This code used to be loaded from hyperref-hooks.4ht, but I 
-found that it causes serious clashes with BibLaTeX. It is
-legacy code that I don't understand what is supposed to do.
-
-Maybe we will find that it's omission cause other issues,
-but I tried three recent bug reports regarding Hyperref 
-and BibLaTeX and they all work better when we remove it.
+This code introduces various issues with BibLaTeX. I've tried
+to remove it, which fixed BibLaTeX issues, but broke Nameref.
+So I reintroduce it, and will try to resolve BibLaTeX issues
+in a different way.
 
 \<load nameref in hyperref hooks\><<<
 \:AtEndOfPackage{%
