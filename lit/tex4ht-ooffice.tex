@@ -927,10 +927,13 @@ TeX4ht from \jobname.tex,
 
 
 \<config mathml object file\><<<
+\ht:special{t4ht@(}% For some strange reason, spurious space is produced
+%                    for inline math. We use TeX4ht specials to remove it.
 \Configure{DOCTYPE}{\HCode{<!DOCTYPE math PUBLIC "-//W3C//DTD MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd">}}%
 |<oo math xtpipes|>%
 \Configure{HTML}{}{\noindent}%
 \Configure{BODY}{}{}%
+\ht:special{t4ht@)}%
 >>>
 
 

@@ -1,3 +1,9 @@
+2021-12-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice-mml.4ht): remove spurious space after inline
+	math.
+	https://github.com/michal-h21/make4ht/issues/55
+
 2021-12-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (hyperref-hooks.4ht): reintroduced loading of Nameref due
