@@ -5004,15 +5004,19 @@ We can load nameref from the early hook file
 |<load nameref in hyperref hooks|>
 >>> \AddFile{9}{hyperref-hooks}
 
-This code introduces various issues with BibLaTeX. I've tried
-to remove it, which fixed BibLaTeX issues, but broke Nameref.
-So I reintroduce it, and will try to resolve BibLaTeX issues
-in a different way.
+We need to load Nameref here, otherwise lot of documents
+that use Hyperref fails. This caused issues with BibLaTeX,
+as both Nameref, BibLaTeX and TeX4ht redefine ifthenelse command.
+
+So we load explicitly the Ifthen package, let Nameref redefine it,
+and then revert to it's original definition before applying of
+TeX4ht hooks.
 
 \<load nameref in hyperref hooks\><<<
 \:AtEndOfPackage{%
 \@ifpackageloaded{nameref}{}
 {%
+   \RequirePackage{ifthen}% 
    \let\sv:label\label
    \RequirePackage{nameref}%
    \let\label\sv:label
@@ -13136,11 +13140,21 @@ The need to initialize   \''\@svsechd' arises in
 % Copyright (C) |CopyYear.1997.      Eitan M. Gurari         %
 |<TeX4ht copyright|>
 
+   |<fix nameref ifthen|>
    |<fix ifthen|>
    |<ifthen.sty shared config|>
 \Hinput{ifthen}
 \endinput
 >>>        \AddFile{7}{ifthen}
+
+Nameref redefines ifthenelse command, but it clashes with BibLaTeX,
+so we revert back to the original version.
+
+\<fix nameref ifthen\><<<
+\@ifpackageloaded{nameref}{%
+\let\ifthenelse\NROrg@ifthenelse%
+}{}
+>>>
 
 \<fix ifthen\><<<
 \long\def\:tempc{% 

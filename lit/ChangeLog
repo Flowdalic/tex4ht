@@ -1,3 +1,9 @@
+2021-12-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (ifthen.4ht, hyperref-hooks.4ht): disable Nameref from
+	patching of the \ifthenelse command.
+	https://puszcza.gnu.org.ua/bugs/?534
+	
 2021-12-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice-mml.4ht): remove spurious space after inline
