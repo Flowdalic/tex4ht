@@ -1,3 +1,9 @@
+2021-12-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (url.4ht): use \protected for redefinition of the \url
+	command.
+	https://puszcza.gnu.org.ua/bugs/?480#discussion
+
 2021-12-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): enclose image file names in brackets, in

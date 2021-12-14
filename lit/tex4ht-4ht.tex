@@ -4577,7 +4577,7 @@ The pdfbase package redefines \`|\@outputpage| macro, which causes tex4ht patche
 >>>
 
 \<fix url\><<<
-\def\:temp{\leavevmode \begingroup
+\protected\def\:temp{\leavevmode \begingroup
   \def\UrlLeft##1\UrlRight{\ifmmode \else \UrlFont\fi \Url:use{##1}}%
   \def\Url@use##1 ##2{\ifmmode \else \UrlFont\fi
                       \Url:use{##1}}\let\,\empty \Configure{$}{}{}{}\Url}
