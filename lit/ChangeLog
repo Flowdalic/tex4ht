@@ -1,5 +1,8 @@
 2021-12-14  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (usepackage.4ht, biblatex-chicago-hooks.4ht): load Ifthen
+	package before BibLaTeX-Chicago.
+	https://puszcza.gnu.org.ua/bugs/?480#discussion
 	* tex4ht-4ht.tex (url.4ht): use \protected for redefinition of the \url
 	command.
 	https://puszcza.gnu.org.ua/bugs/?480#discussion

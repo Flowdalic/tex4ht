@@ -2973,6 +2973,20 @@ US rules.
 \endinput
 >>> \AddFile{6}{biblatex-chicago}
 
+BibLaTeX Chicago fails with errors related to Ifthen package. It seems
+that we need to load it before BibLaTeX.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{biblatex-chicago.sty}{biblatex-chicago-hooks.4ht}
+>>>
+
+\<biblatex-chicago-hooks.4ht\><<<
+% biblatex-chicago-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+\RequirePackage{ifthen}
+\endinput
+>>> \AddFile{9}{biblatex-chicago-hooks}
 
 %%%%%%%%%%%%%
 \SubSection{debug.bbx}
