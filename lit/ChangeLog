@@ -1,5 +1,10 @@
 2021-12-16  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-fonts-ebgaramond.tex: updated EB Garamond fonts.
+	The HTF files are now in various directories depending on the font weight
+	and shape!
+	https://github.com/michal-h21/make4ht/issues/57
+
 	* tex4ht-4ht.tex (biblatex-chicago-hooks.4ht): reset catcodes before loading
 	of Ifthen, colon remains letter otherwise, which causes various issues.
 	https://puszcza.gnu.org.ua/bugs/?480#discussion

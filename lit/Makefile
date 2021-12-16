@@ -193,8 +193,8 @@ tex4ht_fonts_modern_derived = \
 
 derived += $(tex4ht_fonts_ebgaramond_derived)
 tex4ht_fonts_ebgaramond_derived = \
-	$(ht_fonts_devdir)/unicode/EB_Garamond/EBGaramond-Regular-lf-swash-t1.htf \
-	$(ht_fonts_devdir)/alias/EB_Garamond/EBGaramond-Bold-lf-titling-t1.htf
+	$(ht_fonts_devdir)/unicode/EB_Garamond_Regular/EBGaramond-Regular-lf-t1.htf \
+	$(ht_fonts_devdir)/alias/EB_Garamond_Bold/EBGaramond-Bold-osf-t1.htf
 
 derived += $(tex4ht_fonts_libertine_derived)
 tex4ht_fonts_libertine_derived = \
