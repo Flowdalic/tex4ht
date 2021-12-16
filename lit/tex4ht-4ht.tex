@@ -2984,7 +2984,9 @@ that we need to load it before BibLaTeX.
 % biblatex-chicago-hooks.4ht (|version), generated from |jobname.tex
 % Copyright 2021 TeX Users Group
 |<TeX4ht license text|>
+\TivhTcats% we need to reset catcodes for : and @ before \RequirePackage
 \RequirePackage{ifthen}
+\catcode`\:=11\makeatletter
 \endinput
 >>> \AddFile{9}{biblatex-chicago-hooks}
 

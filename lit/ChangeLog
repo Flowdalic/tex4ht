@@ -1,3 +1,9 @@
+2021-12-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex-chicago-hooks.4ht): reset catcodes before loading
+	of Ifthen, colon remains letter otherwise, which causes various issues.
+	https://puszcza.gnu.org.ua/bugs/?480#discussion
+
 2021-12-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, biblatex-chicago-hooks.4ht): load Ifthen
