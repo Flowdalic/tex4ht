@@ -24540,10 +24540,29 @@ of LaTeX.  The \''\:gobbleII' is for getting rid of the
   }
   {\b:MintedColorbg\medskip\noindent}
 
+|<minted input fixes|>
 
 \Hinput{minted}
 \endinput
 >>> \AddFile{9}{minted}
+
+
+Minted sometimes produces unexpected results. For example, << characters 
+get translated to guilelemets. To prevent that, we define new configuration,
+mintedfixes, where we can redefine macrod used by Minted to produce correct
+results.
+
+\<minted input fixes\><<<
+\NewConfigure{mintedfixes}[1]{\concat:config\a:mintedfixes{#1}}
+\let\a:mintedfixes\empty
+
+\def\:tempa#1{\a:mintedfixes\o:minted@input:{#1}}
+
+\Configure{mintedfixes}{\def\PYGZlt{\textless}\def\PYGZgt{\textgreater}}
+
+\HLet\minted@input\:tempa
+
+>>>
 
 The breaklines option for Minted environments and commands causes source code
 lines to collapse into one line. We try to prevent that by basically disabling
