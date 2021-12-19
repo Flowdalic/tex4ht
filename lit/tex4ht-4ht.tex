@@ -2754,6 +2754,50 @@ they caused compilation error when the AUX file is loaded.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\SubSection{backref.4ht}
+
+\<backref.4ht\><<< 
+% backref.4ht (|version), generated from |jobname.tex 
+% Copyright 2021 TeX Users Group 
+|<TeX4ht license text|> 
+|<backref definitions|>
+\Hinput{backref} 
+\endinput 
+>>> \AddFile{9}{backref}
+
+\<backref definitions\><<<
+% patch command that inserts backlink destinations
+\pend:defI\Hy@backout{%
+  % prevent duplicate backlink on the same page
+  \ifcsname bk##1\thepage\endcsname\else%
+    % insert link to the page
+    \html:addr\Link-{}{|<haddr prefix|>\last:haddr}\EndLink%
+    % save link to the .xref file
+    \Tag{)Q##1\thepage}{|<haddr prefix|>\last:haddr}%
+    % we need to save the link destination in .xref file
+    % too, otherwise \Link command would issue warning
+    \Tag{)Q|<haddr prefix|>\last:haddr}{\FileNumber}%
+  \fi
+  % declare this backlink destination as used, so we don't 
+  % declare another one with the same name
+  \expandafter\def\csname bk##1\thepage\endcsname{}%
+}
+
+% redefine macro that puts out backlinks
+\def\:tempa#1#2#3{%
+  % test if we saved link to the current bibitem and page
+  \ifTag{)Q\current:back:desc#1}{%
+      \Link{\LikeRef{)Q\current:back:desc#1}}{}#1\EndLink%
+  }% 
+  {#1}% print just page number if there is no saved link
+}%
+\HLet\backrefxxx\:tempa
+
+% save current bibkey for use in \backrefxxx
+\pend:defI\BR@backref{\def\current:back:desc{##1}}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 \SubSection{reading.4ht}
 
 \<reading.4ht\><<<

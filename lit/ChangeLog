@@ -1,3 +1,8 @@
+2021-12-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (backref.4ht): added support for the Backref package.
+	https://github.com/michal-h21/tex4ebook/issues/64
+
 2021-12-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): use \ShowPar in \:DefineParagraph,
