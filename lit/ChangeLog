@@ -1,3 +1,7 @@
+2021-12-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (backref.4ht): removed spurious space.
+
 2021-12-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (minted.4ht): redefine Minted  commands that cause issues
