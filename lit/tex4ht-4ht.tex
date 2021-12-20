@@ -1909,6 +1909,7 @@ and \''\Tg'.
    |<shared config biblatex|>
    |<biblatex-crosslinking|>
    |<biblatex AtEndPreamble|>
+   |<biblatex backlinks|>
 \Hinput{biblatex}
 \endinput
 >>>        \AddFile{6}{biblatex}
@@ -2751,6 +2752,60 @@ they caused compilation error when the AUX file is loaded.
    {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
         class="description">}\bgroup \bf}%
    {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}}
+>>>
+
+Fix backlink support in BibLaTeX
+
+\<biblatex backlinks\><<<
+\pend:defI\blx@backref{%
+  % prevent duplicate backlink on the same page
+  \ifcsdef{bk##1\thepage}{}{%
+    % insert link to the page
+    \html:addr\Link-{}{|<haddr prefix|>\last:haddr}\EndLink%
+    % save link to the .xref file
+    \Tag{)Q##1\thepage}{|<haddr prefix|>\last:haddr}%
+    % we need to save the link destination in .xref file
+    % too, otherwise \Link command would issue warning
+    \Tag{)Q|<haddr prefix|>\last:haddr}{\FileNumber}%
+  }%
+  % declare this backlink destination as used, so we don't
+  % declare another one with the same name
+  \expandafter\gdef\csname bk##1\thepage\endcsname{}%
+}
+
+% version of \hyperlink that links back to saved link in citation
+% on the given DVI page
+\def\bbx:hyperlink#1#2{
+  % first argument is destination used by Hyperref, second is page number
+  % test if we saved link to the current bibitem and page
+  \ifTag{)Q\abx@field@entrykey#2}{%
+      \Link{\LikeRef{)Q\abx@field@entrykey#2}}{}#2\EndLink%
+  }%
+  {#2}% print just page number if there is no saved link
+  }
+
+% we need to redefine pageref format, which is used for printing of
+% back link page numbers. custom \hyperlink command is used
+\DeclareListFormat{pageref}{%
+  % we redefine \hyperlink command to link page numbers in backreferences
+  % back to the citations on the given pages
+  \let\orig:hyperlink\hyperlink%
+  \let\hyperlink\bbx:hyperlink%
+  \ifnumless{\abx@pagerefstyle}{0}
+    {\usebibmacro{list:plain}%
+     \ifhyperref
+       {\hyperlink{page.#1}{#1}}
+       {#1}}
+    {\ifnumequal{\value{listcount}}{1}
+       {\usebibmacro{pageref:init}}
+       {}%
+     \usebibmacro{pageref:comp}{#1}%
+     \ifnumequal{\value{listcount}}{\value{liststop}}
+       {\usebibmacro{pageref:dump}}
+       {}}
+  \let\hyperlink\orig:hyperlink%
+}
+
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
