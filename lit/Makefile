@@ -775,8 +775,10 @@ diff-htfonts:
 # put the raw diff in /tmp/htd:
 	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
 # just the changed filenames in /tmp/htf; but this includes date changes,
-# so will have lots of false matches. must fixx ...
-	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd |sort >/tmp/htf
+#   so will have lots of false matches. must fixx ...
+# also we don't ever remove $(ht_fonts_instdir), so old stuff stays
+#   around; must fixx again.
+	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd | sort >/tmp/htf
 # and new filenames in /tmp/htnew:
 	sed -n -e 's,^Only in.*ht-fonts/,,' \
 	       -e 's,: ,/,p' /tmp/htd >/tmp/htnew
