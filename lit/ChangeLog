@@ -1,3 +1,8 @@
+2021-12-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (xifthen.4ht): fixed support for the Xifthen package.
+	https://tex.stackexchange.com/a/628068/2891
+
 2021-12-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): added support for back links.

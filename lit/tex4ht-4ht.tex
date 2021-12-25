@@ -13299,6 +13299,46 @@ ifthen.sty\EndLink
 
 Fixed for caseses like \`'\ifthenelse{\isodd{\pageref{abc}}}'.
 
+\<xifthen.4ht\><<<
+% xifthen.4ht (|version), generated from |jobname.tex 
+% Copyright 2021 TeX Users Group 
+|<TeX4ht license text|> 
+|<fix xifthen|>
+\Hinput{xifthen}
+\endinput
+>>> \AddFile{7}{xifthen}
+
+The \`'\TE@repl' command is executed by \`'\ifthenelse', 
+where \`'\begingroup' is redefined to insert TeX4ht hooks. 
+We need to prevent execution of this code here, so we use 
+\`'\sv:begingroup', saved version of \`'\begingroup' from
+ifthen.4ht.
+\Link[https://tex.stackexchange.com/a/628068/2891]{}{}%
+More details\EndLink.
+
+\<fix xifthen\><<<
+\def \TE@repl #1#2{%
+  \long \def \@tempc ##1#1##2{%
+    \def \@tempb{\@tempc}%
+    \sv:begingroup % Thanks MPG
+      \toks@ {##2}%
+      \edef \@tempa {\the \toks@}% <- UF v1.3
+    \expandafter \endgroup
+    \ifx \@tempa \@tempb
+      \toks@ \expandafter {\the \toks@ ##1}%
+      \expandafter \@gobble
+    \else
+      \toks@ \expandafter {\the \toks@ ##1#2}%
+      \expandafter \@tempc
+    \fi
+    ##2%
+  }%
+  \toks@ \expandafter {\expandafter}%
+  \expandafter \@tempc \the \toks@ #1\@tempc
+}
+>>>
+
+
 \<non classified latex\><<<
 |<early latex util|> 
 |<more latex math|>
