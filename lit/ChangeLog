@@ -1,3 +1,7 @@
+2021-12-26  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (minted.4ht): copyright 2021.
+
 2021-12-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (xifthen.4ht): fixed support for the Xifthen package.
@@ -12,8 +16,8 @@
 
 2021-12-19  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (minted.4ht): redefine Minted  commands that cause issues
-	with TeX4ht documentation.
+	* tex4ht-4ht.tex (minted.4ht): redefine Minted commands that
+	cause issues with TeX4ht documentation.
 
 	* tex4ht-4ht.tex (backref.4ht): added support for the Backref package.
 	https://github.com/michal-h21/tex4ebook/issues/64
@@ -27,18 +31,19 @@
 2021-12-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-ebgaramond.tex: updated EB Garamond fonts.
-	The HTF files are now in various directories depending on the font weight
-	and shape!
+	The HTF files are now in various directories depending on the font
+	weight and shape!
 	https://github.com/michal-h21/make4ht/issues/57
 
-	* tex4ht-4ht.tex (biblatex-chicago-hooks.4ht): reset catcodes before loading
-	of Ifthen, colon remains letter otherwise, which causes various issues.
+	* tex4ht-4ht.tex (biblatex-chicago-hooks.4ht): reset catcodes
+	before loading of Ifthen, colon remains letter otherwise, which
+	causes various issues.
 	https://puszcza.gnu.org.ua/bugs/?480#discussion
 
 2021-12-14  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (usepackage.4ht, biblatex-chicago-hooks.4ht): load Ifthen
-	package before BibLaTeX-Chicago.
+	* tex4ht-4ht.tex (usepackage.4ht, biblatex-chicago-hooks.4ht):
+	load Ifthen package before BibLaTeX-Chicago.
 	https://puszcza.gnu.org.ua/bugs/?480#discussion
 	* tex4ht-4ht.tex (url.4ht): use \protected for redefinition of the \url
 	command.
@@ -46,8 +51,8 @@
 
 2021-12-11  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice.4ht): enclose image file names in braces, in
-	order to support spaces in filenames.
+	* tex4ht-ooffice.tex (ooffice.4ht): enclose image file names in
+	braces, in order to support spaces in filenames.
 
 	* tex4ht-4ht.tex (ifthen.4ht, hyperref-hooks.4ht): disable Nameref from
 	patching of the \ifthenelse command.
@@ -55,22 +60,22 @@
 	
 2021-12-09  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-ooffice.tex (ooffice-mml.4ht): remove spurious space after inline
-	math.
+	* tex4ht-ooffice.tex (ooffice-mml.4ht): remove spurious space
+	after inline math.
 	https://github.com/michal-h21/make4ht/issues/55
 
 2021-12-08  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (hyperref-hooks.4ht): reintroduced loading of Nameref due
-	to various issues that it's removal caused.
+	* tex4ht-4ht.tex (hyperref-hooks.4ht): reintroduced loading of
+	Nameref due to various issues that it's removal caused.
 
 2021-12-02  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): search for \par<word boundary> in
-	regex that replaces \par commands, as suggested by David Carlisle.
-	https://tex.stackexchange.com/q/624671/2891
-	* tex4ht-4ht.tex (usepackage.4ht, graphbox-hooks.4ht): revert changes made
-	by the Graphbox package to \Gin@setfile.
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): search for \par<word
+	boundary> in regex that replaces \par commands, as suggested by
+	David Carlisle. https://tex.stackexchange.com/q/624671/2891
+	* tex4ht-4ht.tex (usepackage.4ht, graphbox-hooks.4ht): revert
+	changes made by the Graphbox package to \Gin@setfile.
 	https://github.com/michal-h21/tex4ebook/issues/84
 	
 2021-12-01  Michal Hoftich  <michal.h21@gmail.com>
