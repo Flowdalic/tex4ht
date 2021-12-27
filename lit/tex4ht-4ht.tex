@@ -2576,34 +2576,24 @@ X\the\c@refsection --%:
        {}}%
     {}%
   \blx@postpunct
-  \blx@resetpuncthook
+  \blx@imc@resetpunctfont
   \iftoggle{blx@tempa}%
     {}%
     {\global\togglefalse{blx@insert}}%
   \csname a:blx@unit\endcsname
   \blx@leavevmode
-  \blx@csq@ifkernmark
-    {}%
-    {\penalty\@M
-    \hskip-\blx@unitmark\relax
-    \hskip\blx@unitmark\relax
-    }%
   \begingroup
     \Configure{blx@unit}{}{}%
 }
 \def\blx@endunit{%
   \endgroup
-  \csname b:blx@unit\endcsname
+  \csname b:blx@unit\endcsname%
   \Configure{blx@unit}{}{}%
-  \ifdim\lastskip=\blx@unitmark
-    \unskip\unskip\unpenalty
-    \global\togglefalse{blx@lastins}%
-  \else
-   \global\toggletrue{blx@insert}%
-   \global\toggletrue{blx@lastins}%
- \fi
+  \global\toggletrue{blx@insert}%
+  \global\toggletrue{blx@lastins}%
 }
 \NewConfigure{blx@unit}{2}
+
 %
    \else
 \fi
@@ -2618,6 +2608,17 @@ they caused compilation error when the AUX file is loaded.
     \global\boolfalse{refcontextdefaults}%
   \csxdef{blx@assignedrefcontextbib@#1@\detokenize{#2}}{\detokenize{#3}}}
 \fi
+>>>
+
+BibLaTeX don't use \`'\nobreakspace' command for non-breaking spaces, 
+so TeX4ht outputs regular spaces in their place. This redefinition should
+fix it.
+
+\<config biblatex\><<<
+\renewrobustcmd*{\addnbspace}{%
+  \unspace\blx@postpunct%
+  % insert real non-breaking space character
+  \nobreakspace\blx@imc@resetpunctfont}
 >>>
 
 \<shared config biblatex\><<<

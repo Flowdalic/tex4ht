@@ -1,3 +1,10 @@
+2021-12-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): removed code that interfered with
+	spacing. Redefined \addnbspace to produce non-breaking space
+	character.
+	https://tex.stackexchange.com/a/628208/2891
+
 2021-12-26  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (minted.4ht): copyright 2021.
