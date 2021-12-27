@@ -1,5 +1,8 @@
 2021-12-27  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (cleveref.4ht): remove nested links from Cleveref.
+	https://tex.stackexchange.com/a/625385/2891
+
 	* tex4ht-4ht.tex (biblatex.4ht): removed code that interfered with
 	spacing. Redefined \addnbspace to produce non-breaking space
 	character.
