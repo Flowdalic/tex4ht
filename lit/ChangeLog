@@ -1,3 +1,9 @@
+2021-12-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): don't indent paragraph after
+	the quote environment.
+	https://tex.stackexchange.com/a/628356/2891
+
 2021-12-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (cleveref.4ht): remove nested links from Cleveref.
