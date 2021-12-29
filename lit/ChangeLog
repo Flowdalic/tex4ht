@@ -1,3 +1,9 @@
+2021-12-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): don't require \noindent in all
+	cases after the quote environment.
+	https://tex.stackexchange.com/a/628356/2891
+
 2021-12-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): don't indent paragraph after
