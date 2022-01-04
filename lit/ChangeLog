@@ -1,3 +1,8 @@
+2022-01-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tcolorbox.4ht): fixed conflict with updated
+	Tcolorbox package.
+
 2022-01-02  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (ifthen.4ht, url.4ht): use |<TeX4ht copywrite>

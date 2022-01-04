@@ -26949,7 +26949,7 @@ We need to use dvips driver with XeLaTeX
 % use custom counter that increments for every \tcolorbox
 \newcounter{:tcbcolcount}
 
-\def\tcb@drawcolorbox{%
+\def\:tempa{%
   \stepcounter{:tcbcolcount}%
   % save text and background colors for use in CSS
   \get:xcolorcss{tcbcolbacktitle}\:tcbcolbacktitle%
@@ -26979,12 +26979,20 @@ We need to use dvips driver with XeLaTeX
     \box\tcb@lowerbox%
     \b:tcolorlowerbox%
   \fi%
-  % close box
-  \d:tcolorbox%
+  % We need to close box in \tcb@endboxanddraw
 }
 
+\HLet\tcb@drawcolorbox\:tempa
 % overwrite other versions of box drawing macros
-\let\tcb@drawcolorbox@standalone\tcb@drawcolorbox
+\HLet\tcb@drawcolorbox@standalone\:tempa
+
+% we need to close tcolorbox environment here,
+% in the box. otherwise, last paragraph end 
+% would be ignored and we would get invalid XML
+\def\:tempb{\d:tcolorbox\o:tcb@endboxanddraw:}
+\HLet\tcb@endboxanddraw\:tempb
+
+
 
 \NewConfigure{tcolorbox}{4}
 \NewConfigure{tcolorlowerbox}{2}
@@ -26996,11 +27004,7 @@ We need to use dvips driver with XeLaTeX
 }
 \HLet\tcb@set@label\:tempa
 
-
-% this is a trick to fix issues with paragraphs
-% spurious end </p> tags were inserted
-\def\tcb@minipage#1{\SaveEndP\vbox\bgroup\par}
-\def\endtcb@savebox{\EndP\egroup\RecallEndP}
+|<tcolorbox minipage|>
 
 \Hinput{tcolorbox}
 \endinput
@@ -27008,6 +27012,17 @@ We need to use dvips driver with XeLaTeX
 
 
 >>> \AddFile{9}{tcolorbox}
+
+
+this is a trick to fix issues with paragraphs
+where spurious end \`'</p>' tags were inserted
+\<tcolorbox minipage\><<<
+\pend:def\tcb@minipage{\SaveEndP}
+\pend:def\tcb@minipage@top{\SaveEndP}
+\pend:def\tcb@minipage@bottom{\SaveEndP}
+\pend:def\tcb@minipage@center{\SaveEndP}
+
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \Section{dvipsnam}
