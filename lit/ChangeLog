@@ -1,5 +1,8 @@
 2022-01-07  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (ooffice.4ht): use \par after some environemnts to
+	prevent ommision of the following text.
+
 	* tex4ht-ooffice.tex (ooffice.4ht): correctly handle text alignment
 	environments inside enumerate items.
 
