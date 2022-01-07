@@ -3320,31 +3320,69 @@ See html4 comment regarding \verb+\Configure{jbanchor}{\Link}{\EndLink}+
 
 
 
-
 \<configure ooffice latex\><<<
 \HAssign\BegEnd:N=0
 \HAssign\BegEnd:D=0
 >>>
 
+We use ODT sections for various environements, 
+especially for changed text alignment.
+
+These sections are not rendered in some contexts,
+for example in enumerate items. So we need
+to have a mechanism to disable them.
+
+I don't even think that these sections are usefull 
+at all, as the text alignment in these environments
+seems to work regardless of the section use.
+
+We will print section tags only when BedEnd:X is
+zero. The following commands increase and decrease
+this counter. This should handle nesting.
+
+\<configure ooffice latex\><<<
+\HAssign\BegEnd:X=0
+\def\:DisableSections{\gHAdvance\BegEnd:X by 1}
+\def\:EnableSections{\gHAdvance\BegEnd:X by -1}
+>>>
+
+We also provide an option to dispable sections
+completelly.
+
+
+\<configure ooffice latex\><<<
+\:CheckOption{NoSections}\if:Option
+\HAssign\BegEnd:X=9999% use some really high number
+\else
+\Log:Note{To disable use of sections for text
+  alignment environemnts, use the "NoSections"
+  option}
+\fi
+>>>
 
 
 \<begin env section\><<<
 \ifvmode \IgnorePar\fi \EndP
+\ifnum\BegEnd:X=0%
 \ifnum \BegEnd:D=0   
    |<sectioned env|>%
 \else
    |<boxed env|>%
 \fi
 \gHAdvance\BegEnd:D by 1
+\fi
 >>>
 
 \<end env section\><<<
 \gHAdvance\BegEnd:D by -1
 \ifvmode \IgnorePar\fi\EndP 
+\ifnum\BegEnd:X=0%
 \ifnum \BegEnd:D=0
    |<end sectioned env|>%
 \else
    |<end boxed env|>%
+\fi
+\else\par%
 \fi
 >>>
 

@@ -1,3 +1,8 @@
+2022-01-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): added NoSection option to
+	disable frames around text alignment environments.
+
 2022-01-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (adjustbox.4ht): prevent undefined control
