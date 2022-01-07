@@ -1,5 +1,8 @@
 2022-01-07  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-ooffice.tex (ooffice.4ht): correctly handle text alignment
+	environments inside enumerate items.
+
 	* tex4ht-ooffice.tex (ooffice.4ht): added NoSection option to
 	disable frames around text alignment environments.
 

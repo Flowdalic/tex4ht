@@ -1856,8 +1856,10 @@ change the configuration slightly. We modify directly the
       {\EndP\HCode{<text:p
            text:style-name="Inside-enumerate|<cond rtl class|>"
              >}}
-      {\HCode{</text:p>\Hnewline}}     {\HCode{</text:p>\Hnewline}}}
-   {\EndP\IgnorePar \egroup \HCode{</text:list-item>\Hnewline
+      {\HCode{</text:p>\Hnewline}}     {\HCode{</text:p>\Hnewline}}
+      \gHAdvance\BegEnd:D by 1%
+    }
+   {\gHAdvance\BegEnd:D by -1\EndP\IgnorePar \egroup \HCode{</text:list-item>\Hnewline
      </\text:orderedlist>\Hnewline}\ShowPar}
    {\EndP\end@Item\DeleteMark}
    {\HCode{<text:list-item>}\par\ShowPar
