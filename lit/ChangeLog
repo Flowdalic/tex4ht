@@ -1,3 +1,8 @@
+2022-01-09  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-ooffice.tex,
+	* tex4ht-4ht.tex: copyright 2022.
+
 2022-01-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (ooffice.4ht): use \par after some environemnts to
