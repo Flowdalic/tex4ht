@@ -4154,6 +4154,28 @@ Note that not all commands are provided, more can be added on user request.
 >>> \AddFile{9}{xecjk-hooks}
 
 %%%%%%%%%%%%%%%%%
+\Section{unicode-math}
+%%%%%%%%%%%%%%%%%
+
+This is a basic support for Unicode-math. It blocks it's loading,
+and defines the \`'\setmathfont' command, which can be used in the
+document.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{unicode-math.sty}{unicode-math-hooks.4ht}
+>>>
+
+\<unicode-math-hooks.4ht\><<<
+% unicode-math-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2021 TeX Users Group
+|<TeX4ht license text|>
+\:dontusepackage{unicode-math}
+\RequirePackage{fontspec} % it is loaded by unicode-math
+\NewDocumentCommand \setmathfont { O{} m O{} }{}
+\endinput
+>>> \AddFile{9}{unicode-math-hooks}
+
+%%%%%%%%%%%%%%%%%
 \Section{ctex}
 %%%%%%%%%%%%%%%%%
 

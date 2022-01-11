@@ -1,3 +1,9 @@
+2022-01-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, unicode-math-hooks.4ht): added
+	support for the Unicode-math package.
+	https://tex.stackexchange.com/a/629731/2891
+
 2022-01-09  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-ooffice.tex,
@@ -5,7 +11,7 @@
 
 2022-01-07  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex (ooffice.4ht): use \par after some environemnts to
+	* tex4ht-4ht.tex (ooffice.4ht): use \par after some environments to
 	prevent ommision of the following text.
 
 	* tex4ht-ooffice.tex (ooffice.4ht): correctly handle text alignment
