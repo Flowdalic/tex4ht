@@ -1,5 +1,9 @@
 2022-01-12  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-ooffice.tex (ooffice.4ht): added alternative
+	text support for images.
+	https://tex.stackexchange.com/a/630017/2891
+
 	* tex4ht-4ht.tex (graphicx.4ht): declare GraphicsAlt configuration,
 	in order to support the \includegraphics's alt attribute in other
 	output formats than HTML.

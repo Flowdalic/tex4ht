@@ -1171,6 +1171,9 @@ Enable supported image extensions out of the box.
 \def:image:mime:type{.gif}{image/gif}
 \def:image:mime:type{.svg}{image/svg+xml}
 \def\svg:width{0.0pt}\def\svg:height{0.0pt}
+% this is defined in graphicx.4ht, but we should it define here too, for cases
+% when graphicx is not used
+\NewConfigure{GraphicsAlt}{1}
 \Configure{IMG}
   {|<insert shadowing fig file|>%
    \ht:special{t4ht=<draw:frame  
@@ -1194,7 +1197,12 @@ Enable supported image extensions out of the box.
         /><!--draw:name="}}
   {" }
   {\ht:special{t4ht=" }}
-  {\ht:special{t4ht=--></draw:frame>}}
+  {%
+    \ifx\a:GraphicsAlt\relax%
+      \Configure{GraphicsAlt}{ALT}%
+    \fi%
+    \ht:special{t4ht=--><svg:title>\a:GraphicsAlt</svg:title></draw:frame>}%
+  }
 >>>
 
 \<configure ooffice pst-jtree\><<<
