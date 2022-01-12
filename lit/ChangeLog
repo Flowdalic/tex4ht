@@ -1,3 +1,9 @@
+2022-01-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (graphicx.4ht): declare GraphicsAlt configuration,
+	in order to support the \includegraphics's alt attribute in other
+	output formats than HTML.
+
 2022-01-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, unicode-math-hooks.4ht): added
