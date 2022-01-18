@@ -1,3 +1,85 @@
+2022-01-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-ebgaramond.tex,
+	* tex4ht-fonts-fourier.tex,
+	* tex4ht-fonts-kpfonts.tex,
+	* tex4ht-fonts-libertine.tex,
+	* tex4ht-fonts-newtx.tex,
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/avantgar/pagdo8c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/avantgar/pagdo8c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/avantgar/pagdo8r.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/pcrbo7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/pcrbc7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/pcrbo8c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/pcrbo8c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Century_Schoolbook_L/pncr8c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Century_Schoolbook_L/pncr8c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumT-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumT-lf-sc-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumT-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumT-sup-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumTB-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumTB-lf-sc-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumTB-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumTB-sup-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumTI-lf-sc-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Biolinum_T/LinBiolinumTI-sup-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_Display_T/LinLibertineDisplayT-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_Display_T/LinLibertineDisplayT-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_Display_T/LinLibertineDisplayT-sup-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_Mono_T/LinLibertineMTB-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_Mono_T/LinLibertineMTB-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_Mono_T/LinLibertineMTB-sup-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineT-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineT-lf-sc-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineT-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTB-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTB-lf-sc-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTB-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTBI-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTBI-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTI-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTI-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTZ-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTZ-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTZI-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTZI-lf-sc-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTZI-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Linux_Libertine_T/LinLibertineTZI-sup-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/MinLib/MinLibBol-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/MinLib/MinLibBolIta-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/MinLib/MinLibIta-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/MinLib/MinLibReg-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Nimbus_Roman_No9_L/tcxsl.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/TeXGyreTermes/ts1-qtmb.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/TeXGyreTermesX/ntx-Bold-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Utopia/futr8c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Utopia/futr8c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Utopia/futr9c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Utopia/futr9c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/ntxtm/ntx-Italic-tlf-th-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/t1xtt/tyxtt.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/tcxtt/tcxtt.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/txtt/txtt.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Kp-SC-Expert/jkpmsc7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Kp-SC-Expert/jkposnmsc7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Kp-SC-Expert/jkpkosmsc7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Tt-Kp-Exp/jkpttmn7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Tt-Kp-Exp/jkpttosmn7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Tt-Kp-Exp/jkpttosnmn7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Tt-Kp-Exp/jkpttvosmn7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/Kp-Companion/jkpmn7c.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/EB_Garamond_Regular/EBGaramond-Regular-inf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/EB_Garamond_Regular/EBGaramond-Regular-lf-sc-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/EB_Garamond_Regular/EBGaramond-Regular-lf-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/EB_Garamond_Regular/EBGaramond-Regular-lf-swash-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/EB_Garamond_Regular/EBGaramond-Regular-sup-ly1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/EB_Garamond_Regular/EBGaramond-Regular-lf-ts1.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/EB_Garamond_Italic/EBGaramond-Italic-lf-swash-ly1.htf
+	): use XML entity instead of ' for
+	single quote character.
+
 2022-01-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added alternative
