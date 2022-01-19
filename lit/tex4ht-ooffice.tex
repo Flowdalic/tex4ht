@@ -7589,6 +7589,45 @@ The section style  can't be in style.xml?
    {\HCode{</text:span>}}%
 >>>
 
+%%%%%%%%%%%%%%%%%%
+\section{frames}
+%%%%%%%%%%%%%%%%%
+
+Basic support for framed boxes. 
+
+\subsection{framed.sty}
+
+\<configure ooffice framed\><<<
+|<framedbox|>
+|<framedbox style|>
+
+>>>
+
+I've found that the framed box must be placed inside paragraph. It doesn't matter that it can contain
+nested paragraphs, it still works, unlike in HTML, where nested paragraphs are invalid.
+
+I've found this solution by investigating of the code that LO creates for frame boxes.
+It seems that it is a best method how to come with solutions that work in the ODT format.
+
+\<framedbox\><<<
+\Configure{makeframed}
+{\ifvmode\IgnorePar\fi\EndP%
+  \HCode{<text:p><draw:frame draw:style-name="framebox" text:anchor-type="as-char" svg:width="100\%">\Hnewline
+  <draw:text-box>}\par\ShowPar%
+}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</draw:text-box></draw:frame></text:p>}\par\ShowPar}
+>>>
+
+\<framedbox style\><<<
+\NewConfigureOO{framebox} 
+\ConfigureOO{framebox}
+{<style:style style:name="framebox" style:family="graphic" style:class="text">\Hnewline
+  <style:graphic-properties style:vertical-pos="from-top" style:vertical-rel="paragraph" 
+  style:horizontal-pos="from-left" style:horizontal-rel="paragraph" fo:padding="0.25cm" 
+  fo:border="0.06pt solid \#000000"/>
+  </style:style>
+}
+>>>
 
 %%%%%%%%%%%%%%%%%%
 \section{Pictures}

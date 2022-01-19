@@ -1,3 +1,8 @@
+2022-01-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): added support for the Framed
+	package's boxes.
+
 2022-01-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (
