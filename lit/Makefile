@@ -13,12 +13,8 @@ ht_bin = ../bin/ht/unix
 PATH := $(shell echo $$PATH)
 #
 # per-user addition to PATH. We need to use LaTeX out of current TeX Live,
-# since changes that affect tex4ht are often made. Include trailing :.
-ifeq ($(USER),karl)
-user_bin := /usr/local/texlive/dev/bin/x86_64-linux:
-else
+# since changes that affect tex4ht are often made. If set, include trailing :.
 user_bin :=
-endif
 #
 export PATH := $(ht_bin):$(extra_bin):$(user_bin)$(PATH)
 
@@ -32,14 +28,15 @@ texmf_t4ht_bin = texmf/tex4ht/bin
 dirs = homedir wd htmldir xtpipesdir deriveddir texmf_t4ht_bin
 
 # do_java variable to control how tex4ht.jar is built.
-# do_java=1 works only if tex4ht-dir.tex is not already built with
-# do_java=0 option.
-# Similarly do_java=0 will keep java compilation in tex in addition to
-# building in Makefile if tex4ht-dir.tex was already built with
-# do_java=1
 # 0 = in Makefile only
 # 1 = in .tex only
 # 2 = no java compilation
+#
+# do_java=1 works only if tex4ht-dir.tex is not already built with
+#           the do_java=0 option.
+# do_java=0 will keep java compilation in tex in addition to
+#           building in Makefile if tex4ht-dir.tex was already built
+#	    with do_java=1
 do_java ?= 2
 java_in_make := false
 java_in_tex := false
@@ -560,6 +557,20 @@ $(xtpipes_derived): xtpipes.tex $(common)
 # (corresponds to src/java for xtpipes.tex)
 
 # 
+# Remake all *-fonts-*.tex files, i.e., update all htf. Since we list
+# few dependencies for these, have to have some other way. Assume GNU make.
+# Takes ~20 min and generates ~50MB of output.
+update-all-fonts:
+	date; for f in *-fonts-*.tex; do \
+	  printf "\n\f making $$f"; \
+	  $(MAKE) -W $$f || exit $?; done
+	@echo "update-all-fonts done."
+
+# Simple make abbrev for convenience.
+upmake upm:
+	svn update && make
+
+# 
 # Test installation. Does not work.
 destdir = update.dir
 dest_texmf = $(destdir)/texmf/tex/generic/tex4ht
@@ -705,7 +716,7 @@ texmf = /r/tug/home/texlive/karl/Master/texmf-dist
 inst_dir_4ht = $(texmf)/tex/generic/tex4ht
 inst_dir_top = $(texmf)/tex4ht
 inst_dir_scripts = $(texmf)/scripts/tex4ht
-inst_dir_source = $(texmf)/source/tex4ht
+inst_dir_source = $(texmf)/source/generic/tex4ht
 
 # Simple command to "install" from dev to TL.
 # (Other methods are also used.)
@@ -754,39 +765,18 @@ list-src:
 
 # 
 # Checking and updating font support files.
-# 
-ht_fonts_instdir = $(inst_dir_top)/ht-fonts
-#
-install-unicode-4hf:
-	cd $(ht_fonts_devdir) && tar cf - `find . -name unicode.4hf` \
-	| (cd $(ht_fonts_instdir) && tar xf -)
-	svn diff $(ht_fonts_instdir)
-#
-# copy fonts listed in /tmp/htf (must be filenames relative to
-# ht_fonts_devdir, like those created by diff-htfonts below)
-# to ht_fonts_instdir.  Or to use /tmp/htnew instead of /tmp/htf, override:
-tmp_htf = /tmp/htf
-install-htfonts-tmp:
-	cd $(ht_fonts_devdir) && tar cfT - $(tmp_htf) \
-	| (cd $(ht_fonts_instdir) && tar xvf -)
-	svn status $(ht_fonts_instdir)
 
+# Where they are in the installed tree.
+ht_fonts_instdir = $(inst_dir_top)/ht-fonts
+
+# Compare only.
 diff-htfonts:
-# put the raw diff in /tmp/htd:
-	-$(diff) -r $(ht_fonts_instdir) $(ht_fonts_devdir) >/tmp/htd
-# just the changed filenames in /tmp/htf; but this includes date changes,
-#   so will have lots of false matches. must fixx ...
-# also we don't ever remove $(ht_fonts_instdir), so old stuff stays
-#   around; must fixx again.
-	sed -n 's,^diff.*ht-fonts/,,p' /tmp/htd | sort >/tmp/htf
-# and new filenames in /tmp/htnew:
-	sed -n -e 's,^Only in.*ht-fonts/,,' \
-	       -e 's,: ,/,p' /tmp/htd >/tmp/htnew
-# for human consumption, remove generation lines (hopefully there are no
-# real diffs on those lines); also the @@ lines from diff -u and the
-# redundant diff invocations.
-	egrep -v '^(diff |@@ |[-+][^-+].*20[0-9][0-9]-[0-9][0-9]-[0-9][0-9])' \
-	/tmp/htd | tee /tmp/htchanges
+	./update-htfonts diff $(ht_fonts_devdir) $(ht_fonts_instdir) | tee /tmp/htdif
+
+# Compare and update.
+update-htfonts:
+	./update-htfonts update $(ht_fonts_devdir) $(ht_fonts_instdir) | tee /tmp/htdif
+.PHONY: update-htfonts
 
 # 
 # diff all files in the main TeX Live installation directory against
@@ -798,7 +788,7 @@ diff-htfonts:
 # 
 # The diff-scripts output is usually empty, so we can run that;
 # but diff-htfonts is too verbose to run every time.
-diff-all: diff-scripts #diff-htfonts
+diff-all: diff-src diff-scripts diff-htfonts
 	@echo; echo '>>> $@'
 	-for f in $(inst_dir_4ht)/*; do $(diff) $$f .; done \
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
@@ -852,7 +842,3 @@ diff = diff -u0 --ignore-all-space --ignore-blank-lines \
 croncheck: diff-all \
 	   inst-check-copyright inst-check-files inst-check-version \
 	   diff-htfonts
-	
-# final simple abbrev for convenience.
-upmake upm:
-	svn update && make

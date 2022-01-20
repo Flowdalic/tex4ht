@@ -1,3 +1,12 @@
+2022-01-20  Karl Berry  <karl@freefriends.org>
+
+	* update-htfonts: new script to compare/update htfonts from
+	dev to the installed (TL) tree.
+	* Makefile (diff-htfonts): just run the new script.
+	(update-htfonts): new target to run the script.
+	(diff-all): also depend on diff-src and diff-htfonts.
+	(update-all-fonts): new target to rerun all the *-fonts-*.tex files.
+
 2022-01-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html5.tex (html5.4ht): add space after caption label.
