@@ -753,11 +753,13 @@ srcfiles = $(shell svn status -v | awk '{print $$NF}' \
 
 # Diff source files from installed to dev.
 diff-src:
-	for f in $(srcfiles); do $(diff) $$f $(inst_dir_source)/$$f; done
+	@echo; echo '>>> $@'
+	for f in $(srcfiles); do $(diff) $(inst_dir_source)/$$f $$f; done
 #
 # Install from dev to installed.
-install-src:
+update-src:
 	for f in $(srcfiles); do $(install_data) $$f $(inst_dir_source); done
+	svn status $(inst_dir_source)
 #
 # Just list the files.
 list-src:
@@ -771,6 +773,7 @@ ht_fonts_instdir = $(inst_dir_top)/ht-fonts
 
 # Compare only.
 diff-htfonts:
+	@echo; echo '>>> $@'
 	./update-htfonts diff $(ht_fonts_devdir) $(ht_fonts_instdir) | tee /tmp/htdif
 
 # Compare and update.
