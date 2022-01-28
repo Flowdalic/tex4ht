@@ -1,3 +1,9 @@
+2022-01-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-tex4ht.tex (tcolorbox.4ht): fixed support for boxes with
+	titles.
+	https://github.com/michal-h21/make4ht/issues/62
+
 2022-01-23  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex,

@@ -27014,6 +27014,14 @@ We need to use dvips driver with XeLaTeX
 \def\:tempb{\d:tcolorbox\o:tcb@endboxanddraw:}
 \HLet\tcb@endboxanddraw\:tempb
 
+% this code prevents emptying of the box title when
+% some Tcolorbox options are used
+\def\:tempb{}
+\HLet\tcb@detach@title@code\:tempb
+
+% require end of paragraph before Tcolorbox
+\long\def\:tempb[#1]{\EndP\o:tcb@@icolorbox:[#1]}
+\HLet\tcb@@icolorbox\:tempb
 
 
 \NewConfigure{tcolorbox}{4}
