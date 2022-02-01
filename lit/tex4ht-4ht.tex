@@ -26661,12 +26661,8 @@ Was \`'\def\color@setgroup{\begingroup \ht:special {color push
 >>>
 
 \<fix color\><<<
-\def\@undeclaredcolor[#1]#2{\a:color{#1 #2}%
-  \@ifundefined{color@#1}%
-    {\@latex@error{Undefined color model `#1'}\@ehd}%
-    {\csname color@#1\endcsname\current@color{#2}%
-     \set@color}%
-  \ignorespaces}
+\def\:tempa[#1]#2{\a:color{#1 #2}\o:@undeclaredcolor:[#1]{#2}}
+\HLet\@undeclaredcolor\:tempa
 \pend:defI\@declaredcolor{\a:color{##1}}
 >>>
 
