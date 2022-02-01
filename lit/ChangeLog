@@ -17,6 +17,12 @@
 	* tex4ht-html5.tex: 2022.
 	* Makefile (diff-*): report targets.
 
+2022-01-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): use global definition for current
+	label, in order to support labels inside groups.
+	https://github.com/michal-h21/tex4ebook/issues/91
+
 2022-01-20  Karl Berry  <karl@freefriends.org>
 
 	* update-htfonts: new script to compare/update htfonts from

@@ -1583,7 +1583,7 @@ How about within pictures?
   |<def :currentlabel for refstepcounter|>%
   \anc:lbl r{#1}}
 \def\anc:lbl#1#2{%
-   \html:addr   \edef\cur:th{|<haddr prefix|>\last:haddr #1}%
+   \html:addr   \xdef\cur:th{|<haddr prefix|>\last:haddr #1}%
    \ifx \EndPicture\:UnDef
       {\let\leavevmode|=\empty \cur:lbl{#2}%
       \Make:Label{\cur:th\:currentlabel}{}}%
