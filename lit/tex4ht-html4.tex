@@ -15291,7 +15291,7 @@ Configuration for the inline code
          {{\everypar{}\leavevmode}}  
          {{\everypar{}\leavevmode}}  
          {|<nbsp|>%
-             \HCode{<br /><span class="label">}}  
+             \HCode{<br />\Hnewline<span class="label">}}  
          {\HCode{</span>}}%  
    }  
    {%\special{t4ht@)}
@@ -15319,6 +15319,18 @@ Configuration for the inline code
 %    {\special{t4ht@)}\egroup
 %     \ifvmode \IgnorePar\fi \EndP  \HCode{</div>}\par}
 
+
+Support for colors in listings
+
+\<configure html4 listings\><<<
+\lst@AddToHook{PostOutput}{\HCode{</span>}}%
+
+\lst@AddToHook{OutputBox}{%
+  % get current color in the CSS form
+  \extractcolorspec{.}\html@color%
+  \expandafter\convertcolorspec\html@color{HTML}\html@color%
+  \HCode{<span style="color:\#\html@color">}}% init
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%
 \subsection{Verbatim}

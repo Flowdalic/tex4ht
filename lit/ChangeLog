@@ -1,8 +1,12 @@
 2022-02-01  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): added support for colors in
+	listings.
+	https://tex.stackexchange.com/a/632286/2891
+
 	* tex4ht-4ht.tex (color.4ht): don't redefine \@undeclaredcolor, in
 	order to preserve setting of the current color by the Color package.
-	https://tex.stackexchange.com/q/631906/2891
+	https://tex.stackexchange.com/a/632286/2891
 
 2022-01-30  Michal Hoftich  <michal.h21@gmail.com>
 
