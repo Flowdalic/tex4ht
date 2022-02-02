@@ -1,3 +1,10 @@
+2022-02-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tasks.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the Tasks
+	package.
+	https://tex.stackexchange.com/a/632391/2891
+
 2022-02-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added support for colors in

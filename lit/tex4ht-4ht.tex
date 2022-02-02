@@ -30871,6 +30871,29 @@ the fancy page style.
 >>> \AddFile{9}{fancyhdr-hooks}
 
 %%%%%%%%%%%%%%%%%%%
+\Section{fancyhdr}
+%%%%%%%%%%%%%%%%%%%
+
+
+\<tasks.4ht\><<<
+% tasks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht copywrite|>
+\ExplSyntaxOn
+% generate normal \item for tasks instead of coffins
+\cs_set_protected:Npn \__tasks_task_fourht:nnn #1#2#3
+{\item[#1]{\__tasks_setup: #2 {#3}}}
+\cs_generate_variant:Nn \__tasks_task_fourht:nnn {VVV}
+
+\HLet\__tasks_task:nnn\__tasks_task_fourht:nnn
+\HLet\__tasks_task:VVV\__tasks_task_fourht:VVV
+
+\ExplSyntaxOff
+\Hinput{tasks}
+\endinput
+>>> \AddFile{9}{tasks}
+
+%%%%%%%%%%%%%%%%%%%
 \Section{alphanum}
 %%%%%%%%%%%%%%%%%%%
 

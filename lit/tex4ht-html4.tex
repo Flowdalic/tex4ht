@@ -15349,6 +15349,18 @@ Support for colors in listings
        {font-family: monospace,monospace; white-space: nowrap; }}
 >>>
 
+%%%%%%%%%%%%%%%%%%%%
+\subsection{tasks}
+%%%%%%%%%%%%%%%%%%%%
+
+\<configure html4 tasks\><<<
+\ConfigureList{tasks}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="tasks">}\def\end:task{}}
+{\ifvmode\IgnorePar\fi\EndP\end:task\HCode{</div>}}
+{\end:task\HCode{<div class="task"><span class="label">}\def\end:task{\HCode{</div>}}}
+{\HCode{</span>}\noindent}
+>>>
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
