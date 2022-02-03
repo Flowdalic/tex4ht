@@ -7625,8 +7625,15 @@ Currently, we either have empty \verb'\VBorder', or one defined to
     \gHAdvance\Next:TableNo by 1 \global\let\TableNo=\Next:TableNo }
    {\xdef\VBorder{\VBorder\ifnum \NewGroup> 0 </colgroup>\fi}
     \HAssign\NewGroup = 0 % \gdef\GROUPS{rules="groups"}}
-    \Css{\#TBL-\TableNo\space colgroup{border-left: 1px solid black;border-right:1px solid black;}}
-  \Css{\#TBL-\TableNo{border-collapse:collapse;}}}
+    % put vertical border for a column
+    \ifnum\ar:cnt > 0%
+      % in all other cases, we should put right border
+      \Css{\#TBL-\TableNo-\ar:cnt {border-right:1px solid black;}}%
+    \else%
+      % columns are numbered from 1. if \ar:cnt == 0 then it is the left border
+      \Css{\#TBL-\TableNo-1{border-left: 1px solid black;}}%
+    \fi%
+   }
    {\Advance:\NewGroup by 1 
     \ifnum \NewGroup=1 \xdef\VBorder{\VBorder<colgroup 
         id="TBL-\TableNo-\ar:cnt g">}\fi      
