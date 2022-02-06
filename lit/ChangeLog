@@ -1,5 +1,9 @@
 2022-02-06  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed links for the \cite
+	command.
+	https://puszcza.gnu.org.ua/bugs/?547
+
 	* tex4ht-html4.tex (html4.4ht): declare table properties necessary
 	for correct rule support in Longtable.
 	https://tug.org/pipermail/tex4ht/2022q1/003137.html

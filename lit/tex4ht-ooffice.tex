@@ -2864,7 +2864,24 @@ change the configuration slightly. We modify directly the
 \subsection{cite}
 %%%%%%%%%%%%%%%%%%%
 
+This version of Cite produces links, but not speciall bibliography
+field in the ODT file. I don't know if it is important, I think
+functional link is better.
+
 \<configure ooffice latex\><<<
+\Configure{cite} 
+   {}  
+   {} 
+   {\Link}         {\EndLink} 
+\let\lat:cite\@cite
+\def\@cite#1#2{{#1\if@tempswa , #2\fi}} 
+>>>
+
+This version of cite is post-processed by Xtpipes, which
+removes links from citation to the bibliography, and 
+introduce extra square brackets. I don't understand why.
+
+\<\><<<
 \Configure{cite} 
    {\HCode{<text:bibliography-mark 
                  text:bibliography-type="custom1">}}  
