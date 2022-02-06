@@ -1,5 +1,11 @@
 2022-02-06  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-fonts-noncjk.tex (
+	.tex4ht.dir/texmf/tex4ht/ht-fonts/win/1251/cm/sauter/wnti.htf
+	.tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/5/cm/sauter/wnti.htf
+	): Fixed font tables for the italics Cyrillic Wn font
+	https://puszcza.gnu.org.ua/bugs/?549
+
 	* tex4ht-ooffice.tex (ooffice.4ht): fixed links for the \cite
 	command.
 	https://puszcza.gnu.org.ua/bugs/?547
