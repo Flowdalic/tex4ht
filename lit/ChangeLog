@@ -1,3 +1,9 @@
+2022-02-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, breakurl-hooks.4ht): fixed
+	compilation error with the Breakurl package.
+	https://puszcza.gnu.org.ua/bugs/?552
+
 2022-02-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (

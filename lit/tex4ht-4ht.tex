@@ -4785,6 +4785,30 @@ the command: \psppath.
 \EndVerbatim\EndHPage{}]
 
 %%%%%%%%%%%%%%%%%%
+\Section{breakurl.sty}
+%%%%%%%%%%%%%%%%%%
+
+The Breakurl package adds some PostScript code to the
+DVI output and TeX4ht doesn't like it. We disable the 
+AtBeginDvi command temporarily as a work around.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{breakurl.sty}{breakurl-hooks.4ht}
+>>>
+
+\<breakurl-hooks.4ht\><<<
+% breakurl-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\let\orig:AtBeginDvi\AtBeginDvi
+\def\AtBeginDvi#1{}
+\:AtEndOfPackage{%
+    \let\AtBeginDvi\orig:AtBeginDvi
+}
+\endinput
+>>>        \AddFile{7}{breakurl-hooks}
+
+%%%%%%%%%%%%%%%%%%
 \Section{path.sty}
 %%%%%%%%%%%%%%%%%%
 
