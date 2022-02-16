@@ -1,5 +1,7 @@
 2022-02-16  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): write CSS for table column width
+	only once.
 	* tex4ht-4ht.tex (listings.4ht): use normal space instead of \:nbsp,
 	in order to enable line breaking.
 	https://tex.stackexchange.com/a/634033/2891

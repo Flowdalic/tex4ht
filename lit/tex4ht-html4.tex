@@ -19752,10 +19752,12 @@ changes.
 \:CheckOption{p-width} \if:Option 
   |<10 em constant|>
   \Configure{HColWidth}
-     {\tmp:dim=\HColWidth \divide\tmp:dim by \ten:Em\relax
+     {\ifnum\HRow=1% output CSS only on the first row, to prevent duplication
+      \tmp:dim=\HColWidth \divide\tmp:dim by \ten:Em\relax
       \tmp:dim=10\tmp:dim
-      \Css{\#TBL-\TableNo-\HRow-\HCol
-                   {width:\expandafter\x:Em \the\tmp:dim em;}}}
+      \Css{\#TBL-\TableNo-\HCol% CSS selects ID of the current table column
+          {width:\expandafter\x:Em \the\tmp:dim em;}}
+     \fi}
 \else
    \Log:Note{for width specifications of tabular p entries, use
        the `p-width' command line option or a configuration similar
