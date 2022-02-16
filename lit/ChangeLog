@@ -1,5 +1,8 @@
 2022-02-16  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (listings.4ht): use normal space instead of \:nbsp,
+	in order to enable line breaking.
+	https://tex.stackexchange.com/a/634033/2891
 	* tex4ht-4ht.tex (listings.4ht): load Xcolor with Listings to
 	prevent compilation errors with the syntax color detection.
 	* tex4ht-html4.tex (html4.4ht): use <pre> for Listings.

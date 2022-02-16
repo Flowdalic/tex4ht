@@ -30841,14 +30841,14 @@ Configure list of listings
    \setbox\z@\hbox{{\lst@currstyle{\:tempc}}}%
    \lst@OutputBox\z@} 
 \HLet\lst@Kern\:tempa
-\NewConfigure{lst@Kern}{2}
-\Configure{lst@Kern}{0.499em}{0.1em}
 >>>
 
 Configure lst@Kern: character width, inter character space size
 
 \<listings sty\><<<
-\def\lst@outputspace{\:nbsp}
+\NewConfigure{lst@Kern}{2}
+\Configure{lst@Kern}{0.499em}{0.1em}
+\def\lst@outputspace{\HCode{ }}
 >>>
 
 Test cases:
