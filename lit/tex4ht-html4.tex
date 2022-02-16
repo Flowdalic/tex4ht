@@ -15269,12 +15269,12 @@ Configuration for the inline code
     \gHAdvance\listingN by 1
     \HCode{<!--l. \the\inputlineno-->}%
     \gdef\start:LstLn{%
-       \HCode{<div class="lstlisting" id="listing-\listingN">}%
+       \HCode{<pre class="lstlisting" id="listing-\listingN">}%
        \gdef\start:LstLn{|<nbsp|>\HCode{<br />\Hnewline}}}
     \bgroup%
     % we put the closing </div> here in order to support floating listings
     % https://tex.stackexchange.com/a/615703/2891
-    \pend:def\lst@DeInit{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}%
+    \pend:def\lst@DeInit{\ifvmode\IgnorePar\fi\EndP\HCode{</pre>}}%
        \Configure{listings}
          {{\everypar{}\leavevmode}}
          {{\everypar{}\leavevmode}}
@@ -15284,7 +15284,7 @@ Configuration for the inline code
    {\egroup\par}
    {} {}
 \Css{.lstlisting .label{margin-right:0.5em; }}
-\Css{div.lstlisting{font-family: monospace,monospace; white-space: nowrap; 
+\Css{pre.lstlisting{font-family: monospace,monospace; white-space: nowrap; 
                     margin-top:0.5em; margin-bottom:0.5em;
                    }}
 >>>
@@ -15293,7 +15293,7 @@ Configuration for the inline code
 \Configure{lstinputlisting}  
    {\ifvmode \IgnorePar\fi \EndP  
     \HCode{<!--l. \the\inputlineno-->}%  
-    \HCode{<div class="lstinputlisting">}%  
+    \HCode{<pre class="lstinputlisting">}%  
     \bgroup \tt %\special{t4ht@(}%  
        \Configure{listings}  
          {{\everypar{}\leavevmode}}  
@@ -15304,8 +15304,8 @@ Configuration for the inline code
    }  
    {%\special{t4ht@)}
     \egroup  
-    \ifvmode \IgnorePar\fi \EndP  \HCode{</div>}\par} 
-\Css{div.lstinputlisting{
+    \ifvmode \IgnorePar\fi \EndP  \HCode{</pre>}\par} 
+\Css{pre.lstinputlisting{
    font-family: monospace,monospace;
    white-space: nowrap;
 }}

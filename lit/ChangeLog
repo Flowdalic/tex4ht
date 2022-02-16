@@ -2,6 +2,7 @@
 
 	* tex4ht-4ht.tex (listings.4ht): load Xcolor with Listings to
 	prevent compilation errors with the syntax color detection.
+	* tex4ht-html4.tex (html4.4ht): use <pre> for Listings.
 
 2022-02-10  Michal Hoftich  <michal.h21@gmail.com>
 
