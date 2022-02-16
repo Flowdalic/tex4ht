@@ -1,3 +1,8 @@
+2022-02-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (listings.4ht): load Xcolor with Listings to
+	prevent compilation errors with the syntax color detection.
+
 2022-02-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, breakurl-hooks.4ht): fixed

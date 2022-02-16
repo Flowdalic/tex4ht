@@ -30722,6 +30722,14 @@ d|<haddr prefix|>\last:haddr
 \endinput
 >>>        \AddFile{9}{listings}
 
+We use Xcolor's features to extract color information for syntax highlighting.
+We need to load it if it isn't used  yet
+\<listings sty\><<<
+\@ifpackageloaded{xcolor}{}{%
+\RequirePackage{xcolor}
+}
+>>>
+
 For some reason we need the followng version of \`|\@makecaption| in order to
 get correct cross-references. There were duplicate IDs sometimes.
 
