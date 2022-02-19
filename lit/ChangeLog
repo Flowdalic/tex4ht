@@ -1,5 +1,9 @@
 2022-02-19  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (hyperref-hooks.4ht): define autoref captions, so
+	they are available in the preamble.
+	https://tex.stackexchange.com/q/634043/2891
+
 	* tex4ht-4ht.tex (usepackage.4ht, pdfx-hooks.4ht): disable loading
 	of the Pdfx package.
 	https://tex.stackexchange.com/q/634043/2891

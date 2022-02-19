@@ -5181,8 +5181,10 @@ We can load nameref from the early hook file
 % hyperref-hooks.4ht (|version), generated from |jobname.tex
 % Copyright 2021 TeX Users Group
 |<TeX4ht license text|>
-% we don't have any code here for now
+\:AtEndOfPackage{%
 |<load nameref in hyperref hooks|>
+|<define autoref captions|>
+}
 >>> \AddFile{9}{hyperref-hooks}
 
 We need to load Nameref here, otherwise lot of documents
@@ -5194,7 +5196,6 @@ and then revert to it's original definition before applying of
 TeX4ht hooks.
 
 \<load nameref in hyperref hooks\><<<
-\:AtEndOfPackage{%
 \@ifpackageloaded{nameref}{}
 {%
    \RequirePackage{ifthen}% 
@@ -5202,9 +5203,38 @@ TeX4ht hooks.
    \RequirePackage{nameref}%
    \let\label\sv:label
    %\input nameref.4ht
-}}
+}
 >>>
 
+Hyperref defines following captions at the end of the package. 
+The problem is that Hyperref detects TeX4ht, and stops its
+loading too early, before the captions are declared. 
+They are available in the document, but not in the preamble.
+This can result in compilation errors if user tries to redefine 
+one of these captions in the preamble.
+
+\<define autoref captions\><<<
+\providecommand*\AMSautorefname{\equationautorefname}
+\providecommand*\Hfootnoteautorefname{\footnoteautorefname}
+\providecommand*\Itemautorefname{\itemautorefname}
+\providecommand*\itemautorefname{item}
+\providecommand*\equationautorefname{Equation}
+\providecommand*\footnoteautorefname{footnote}
+\providecommand*\itemautorefname{item}
+\providecommand*\figureautorefname{Figure}
+\providecommand*\tableautorefname{Table}
+\providecommand*\partautorefname{Part}
+\providecommand*\appendixautorefname{Appendix}
+\providecommand*\chapterautorefname{chapter}
+\providecommand*\sectionautorefname{section}
+\providecommand*\subsectionautorefname{subsection}
+\providecommand*\subsubsectionautorefname{subsubsection}
+\providecommand*\paragraphautorefname{paragraph}
+\providecommand*\subparagraphautorefname{subparagraph}
+\providecommand*\FancyVerbLineautorefname{line}
+\providecommand*\theoremautorefname{Theorem}
+\providecommand*\pageautorefname{page}
+>>>
 
 
 \<nameref moved from old hyperref\><<<
