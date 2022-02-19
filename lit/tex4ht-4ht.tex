@@ -4658,6 +4658,25 @@ The pdfbase package redefines \`|\@outputpage| macro, which causes tex4ht patche
 >>> \AddFile{9}{pdfbase-hooks}
 
 %%%%%%%%%%%%%%%%%
+\Section{pdfx.sty}
+%%%%%%%%%%%%%%%%%
+
+The pdfx package causes fatal error for TeX4ht. As it's features make sense only in the
+PDF mode, it is safest thing to do to just disable the package.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{pdfx.sty}{pdfx-hooks.4ht}
+>>>
+
+\<pdfx-hooks.4ht\><<<
+% pdfx-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\:dontusepackage{pdfx}
+\endinput
+>>> \AddFile{9}{pdfx-hooks}
+
+%%%%%%%%%%%%%%%%%
 \Section{animate.sty}
 %%%%%%%%%%%%%%%%%
 
