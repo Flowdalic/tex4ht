@@ -13900,12 +13900,11 @@ Do we need \`' \Configure{cite}{}{}{}{}%' in the following?
 \else
    \ifnum \c@tocdepth >\m@ne chapter,appendix,\fi
    \ifnum \c@tocdepth>0 section,\fi
-   \ifnum \c@tocdepth>1 subsection,\fi
 \fi
-\ifnum \c@tocdepth>2 subsection,\fi
-\ifnum \c@tocdepth>3 subsubsection,\fi
-\ifnum \c@tocdepth>4 paragraph,\fi
-\ifnum \c@tocdepth>5 subparagraph,\fi
+\ifnum \c@tocdepth>1 subsection,\fi
+\ifnum \c@tocdepth>2 subsubsection,\fi
+\ifnum \c@tocdepth>3 paragraph,\fi
+\ifnum \c@tocdepth>4 subparagraph,\fi
 UnDFexyz>>>
 
 \Verbatim
@@ -16185,12 +16184,11 @@ Hfootnote counter, which isn't declared.
 \else
    \ifnum \c@tocdepth >\m@ne chapter,appendix,\fi
    \ifnum \z@>\c@tocdepth\else section,\fi
-   \ifnum 1>\c@tocdepth \else subsection,\fi
 \fi
-\ifnum 2>\c@tocdepth \else subsection,\fi
-\ifnum 3>\c@tocdepth \else subsubsection,\fi
-\ifnum 4>\c@tocdepth \else paragraph,\fi
-\ifnum 5>\c@tocdepth \else subparagraph,\fi
+\ifnum 1>\c@tocdepth \else subsection,\fi
+\ifnum 2>\c@tocdepth \else subsubsection,\fi
+\ifnum 3>\c@tocdepth \else paragraph,\fi
+\ifnum 4>\c@tocdepth \else subparagraph,\fi
 UnDFexyz}%
    \noexpand\fi}
 \def\:tableofcontents{\futurelet\:temp\:TOC}
@@ -16387,10 +16385,10 @@ it introduces an error in the .xref file for each caption used in the document.
 \<entries for mwart tocs\><<<
 \ifnum \c@tocdepth >-2 part,likepart,\fi
 \ifnum \c@tocdepth >\z@  section,likesection,\fi
-\ifnum 2>\c@tocdepth \else subsection,likesubsection,\fi
-\ifnum 3>\c@tocdepth \else subsubsection,likesubsubsection,\fi
-\ifnum 4>\c@tocdepth \else paragraph,likeparagraph,\fi
-\ifnum 5>\c@tocdepth \else subparagraph,likesubparagraph,\fi
+\ifnum 1>\c@tocdepth \else subsection,likesubsection,\fi
+\ifnum 2>\c@tocdepth \else subsubsection,likesubsubsection,\fi
+\ifnum 3>\c@tocdepth \else paragraph,likeparagraph,\fi
+\ifnum 4>\c@tocdepth \else subparagraph,likesubparagraph,\fi
 UnDFexyz>>>
 
 \<mwart tocs\><<<
@@ -16582,10 +16580,10 @@ UnDFexyz>>>
 \ifnum \c@tocdepth >-2 part,likepart,\fi
 \ifnum \c@tocdepth >\m@ne chapter,likechapter,appendix,\fi
 \ifnum \z@>\c@tocdepth\else section,likesection,\fi
-\ifnum 2>\c@tocdepth \else subsection,likesubsection,\fi
-\ifnum 3>\c@tocdepth \else subsubsection,likesubsubsection,\fi
-\ifnum 4>\c@tocdepth \else paragraph,likeparagraph,\fi
-\ifnum 5>\c@tocdepth \else subparagraph,likesubparagraph,\fi
+\ifnum 1>\c@tocdepth \else subsection,likesubsection,\fi
+\ifnum 2>\c@tocdepth \else subsubsection,likesubsubsection,\fi
+\ifnum 3>\c@tocdepth \else paragraph,likeparagraph,\fi
+\ifnum 4>\c@tocdepth \else subparagraph,likesubparagraph,\fi
 UnDFexyz>>>
 
 \<mwrep,mwbk tocs\><<<
@@ -17396,12 +17394,11 @@ Support for subtitles:
 \else
    \ifnum \c@tocdepth >\m@ne chapter,appendix,addchap,\fi
     \ifnum \c@tocdepth>0 section,\fi
-   \ifnum \c@tocdepth>1 subsection,\fi
 \fi
-\ifnum \c@tocdepth>2 subsection,\fi
-\ifnum \c@tocdepth>3 subsubsection,\fi
-\ifnum \c@tocdepth>4 paragraph,\fi
-\ifnum \c@tocdepth>5 subparagraph,\fi
+\ifnum \c@tocdepth>1 subsection,\fi
+\ifnum \c@tocdepth>2 subsubsection,\fi
+\ifnum \c@tocdepth>3 paragraph,\fi
+\ifnum \c@tocdepth>4 subparagraph,\fi
 UnDFexyz}%
    \noexpand\fi}
 \def\:tableofcontents{\futurelet\:temp\:TOC}
@@ -17792,10 +17789,9 @@ TeX4ht now loads before class files. We reuse the code used in Koma classes
    \ifnum \c@tocdepth >\m@ne chapter,appendix,addchap,\fi
    \ifnum \c@tocdepth>0 section,\fi
    \ifnum \c@tocdepth>1 subsection,\fi
-\ifnum \c@tocdepth>2 subsection,\fi
-\ifnum \c@tocdepth>3 subsubsection,\fi
-\ifnum \c@tocdepth>4 paragraph,\fi
-\ifnum \c@tocdepth>5 subparagraph,\fi
+\ifnum \c@tocdepth>2 subsubsection,\fi
+\ifnum \c@tocdepth>3 paragraph,\fi
+\ifnum \c@tocdepth>4 subparagraph,\fi
 UnDFexyz}%
    \noexpand\fi}
 \def\:tableofcontents{\futurelet\:temp\:TOC}
