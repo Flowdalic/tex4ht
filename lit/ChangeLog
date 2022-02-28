@@ -1,5 +1,8 @@
 2022-02-28  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4-math.4ht): removed math configuration for
+	the quotation environment, it was probably mistake that it existed.
+	https://github.com/Witiko/markdown/issues/90
 	* tex4ht-html4.tex (html4.4ht, html4-math.4ht): correctly close
 	<div>.
 	https://github.com/Witiko/markdown/issues/90
