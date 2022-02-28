@@ -9451,7 +9451,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \def\m:env#1{\:xhtml{\IgnorePar\EndP}\HCode{<div class="center"><table class="#1"
    border="0" cellpadding="0" cellspacing="15"><tr><td>}}
 \def\endm:env{\HCode
-  {</td></tr></table></center>}\IgnorePar}
+  {</td></tr></table></div>}\IgnorePar}
   \Css{div.center{text-align:center;}}
 >>>
 
@@ -9462,7 +9462,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
    \Css{div.center-#1{text-align: center;}}
  }
 \def\endm:env{\:xhtml{\IgnorePar\EndP}%
-   \HCode{</td></tr></table></center>}\IgnorePar
+   \HCode{</td></tr></table></div>}\IgnorePar
    \ifmmode\else\par\fi}
 >>>
 
