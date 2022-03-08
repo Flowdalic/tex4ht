@@ -2205,6 +2205,21 @@ should be used whe addcontentline instructions are present.
                    border-right:solid black 0.4pt; }}
 >>>
 
+%%%%%%%%%%%%%
+\subsection{threeparttable}
+
+We mainly need to handle paragraphs.
+
+\<configure html4 threeparttable\><<<
+\ConfigureList{tablenotes}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="tablenotes">}\par\ShowPar}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}{\par\ShowPar}{}
+
+\ConfigureEnv{threeparttable}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="threeparttable">}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par\ShowPar}{}{}
+>>>
+%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%
 \subsection{Mdwtab}

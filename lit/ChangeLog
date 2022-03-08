@@ -1,3 +1,10 @@
+2022-03-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (threeparttable.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the Threeparttable
+	package.
+	https://puszcza.gnu.org.ua/bugs/?556
+
 2022-02-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht): removed math configuration for
