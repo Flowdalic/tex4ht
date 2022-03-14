@@ -2605,7 +2605,6 @@ they caused compilation error when the AUX file is loaded.
 \<config biblatex\><<<
 \ifdefined\XeTeXversion
   \def\abx@aux@defaultrefcontext#1#2#3{%
-    \global\boolfalse{refcontextdefaults}%
   \csxdef{blx@assignedrefcontextbib@#1@\detokenize{#2}}{\detokenize{#3}}}
 \fi
 >>>
