@@ -1,3 +1,9 @@
+2022-03-15  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (unicode-math-hooks.4ht): don't load Fontspec if it
+	is already loaded.
+	https://github.com/michal-h21/make4ht/issues/67
+
 2022-03-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): removed unused boolean variable.
