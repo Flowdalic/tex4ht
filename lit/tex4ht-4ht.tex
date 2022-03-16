@@ -924,6 +924,38 @@ so we just disable it's TOC handling.
 \def\ttl@addcontentsline#1#2{\nobreak}
 >>>
 
+I've found that it is probably best to save definitions of sectioning commands before Titlesec
+is loaded, and then load the saved versions back to the original commands. 
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{titlesec.sty}{titlesec-hooks.4ht}
+>>>
+
+\<titlesec-hooks.4ht\><<<
+% titlesec-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<titlesec-packagehooks|>
+\endinput
+>>> \AddFile{9}{titlesec-hooks}
+
+\<titlesec-packagehooks\><<<
+\let\ttl:chapter\chapter
+\let\ttl:section\section
+\let\ttl:subsection\subsection
+\let\ttl:subsubsection\subsubsection
+\let\ttl:paragraph\paragraph
+\let\ttl:subparagraph\subparagraph
+\:AtEndOfPackage{
+  \let\chapter\ttl:chapter
+  \let\section\ttl:section
+  \let\subsection\ttl:subsection
+  \let\subsubsection\ttl:subsubsection
+  \let\paragraph\ttl:paragraph
+  \let\subparagraph\ttl:subparagraph
+}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Scientific Word}
 
@@ -4169,9 +4201,11 @@ document.
 % Copyright 2021-2022 TeX Users Group
 |<TeX4ht license text|>
 \:dontusepackage{unicode-math}
+\TivhTcats% we need to reset catcodes for : and @ before \RequirePackage
 \@ifpackageloaded{fontspec}{}
 {\RequirePackage{fontspec}} % it is loaded by unicode-math
 \NewDocumentCommand \setmathfont { O{} m O{} }{}
+\catcode`\:=11\makeatletter
 \endinput
 >>> \AddFile{9}{unicode-math-hooks}
 

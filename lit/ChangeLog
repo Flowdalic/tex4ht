@@ -1,3 +1,12 @@
+2022-03-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (unicode-math-hooks.4ht): reset catcodes after
+	\RequirePackage.
+
+	* tex4ht-4ht.tex (titlesec-hooks.4ht, usepackage.4ht): revert
+	patching of sectioning commands by Titlesec.
+	https://tex.stackexchange.com/q/637314/2891
+
 2022-03-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (unicode-math-hooks.4ht): don't load Fontspec if it
