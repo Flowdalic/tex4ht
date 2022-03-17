@@ -213,6 +213,9 @@ derived += $(tex4ht_fonts_kpfonts_derived)
 tex4ht_fonts_kpfonts_derived = \
 	$(ht_fonts_devdir)/unicode/Kp-Light-M-Syd/jkplsyd.htf
 
+derived += $(tex4ht_fonts_opensans_derived)
+tex4ht_fonts_opensans_derived = \
+	$(ht_fonts_devdir)/unicode/Open_Sans_Light/OpenSans-LightItalic-OT1-LF.htf
 # xx and many more
 # whither tmp?  how change target dir?  what happened to cmtex.htf?  etc.
 
@@ -429,6 +432,9 @@ $(tex4ht_fonts_spectral_derived): tex4ht-fonts-spectral.tex
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_kpfonts_derived): tex4ht-fonts-kpfonts.tex
+	$(HTTEX) $< ""
+
+$(tex4ht_fonts_opensans_derived): tex4ht-fonts-opensans.tex
 	$(HTTEX) $< ""
 
 # requires more memory than configured in other tex programs.

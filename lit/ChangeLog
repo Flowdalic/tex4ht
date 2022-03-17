@@ -1,3 +1,8 @@
+2021-03-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-opensans.tex: added support for OpenSans fonts.
+	https://tex.stackexchange.com/q/637314/2891
+
 2022-03-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (unicode-math-hooks.4ht): reset catcodes after
