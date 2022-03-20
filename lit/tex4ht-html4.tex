@@ -15222,10 +15222,13 @@ Configuration for the inline code
 \subsection{Listings}
 %%%%%%%%%%%%%%%%%%%%%
 
+Inline listings snippets
+
 \<configure html4 listings\><<<
 \Configure{lstinline}
-   {\HCode{<span class="lstinline">}}
-   {\HCode{</span>}}
+   {\HCode{<code class="lstinline">}\NoFonts}
+   {\EndNoFonts\HCode{</code>}}
+\Css{code.lstinline{font-family:monospace,monospace;}}
 >>>
 
 \<configure html4 listings\><<<
@@ -15307,18 +15310,19 @@ Configuration for the inline code
 \Configure{lstinputlisting}  
    {\ifvmode \IgnorePar\fi \EndP  
     \HCode{<!--l. \the\inputlineno-->}%  
-    \HCode{<pre class="lstinputlisting">}%  
-    \bgroup \tt %\special{t4ht@(}%  
-       \Configure{listings}  
-         {{\everypar{}\leavevmode}}  
-         {{\everypar{}\leavevmode}}  
+    \gHAdvance\listingN by 1%
+    \HCode{<pre class="lstinputlisting" id="listing-\listingN">}%  
+    \bgroup\ttfamily%\special{t4ht@(}%  
+       \Configure{listings}%
+         {{\everypar{}\leavevmode}}%  
+         {{\everypar{}\leavevmode}}%  
          {|<nbsp|>%
-             \HCode{<br />\Hnewline<span class="label">}}  
+             \HCode{<br />\Hnewline<span class="label">}}%  
          {\HCode{</span>}}%  
    }  
    {%\special{t4ht@)}
-    \egroup  
-    \ifvmode \IgnorePar\fi \EndP  \HCode{</pre>}\par} 
+    \egroup%  
+    \ifvmode \IgnorePar\fi \EndP  \HCode{</pre>}\par}% 
 \Css{pre.lstinputlisting{
    font-family: monospace,monospace;
    white-space: nowrap;
@@ -15352,6 +15356,28 @@ Support for colors in listings
   \extractcolorspec{.}\html@color%
   \expandafter\convertcolorspec\html@color{HTML}\html@color%
   \HCode{<span style="color:\#\html@color">}}% init
+>>>
+
+Support for background and border color
+
+\<configure html4 listings\><<<
+\lst@AddToHook{Init}{%
+\bgroup%
+  % handle backround color and border in listings
+  \ifx\lst@fillcolor\@empty\else%
+    \lst@fillcolor%
+    \extractcolorspec{.}\html@fillcolor%
+    \expandafter\convertcolorspec\html@fillcolor{HTML}\html@fillcolor%
+    \Css{\#listing-\listingN{background-color:\#\html@fillcolor;}}%
+  \fi%
+  \ifx\lst@rulecolor\@empty\else%
+    \lst@rulecolor%
+    \extractcolorspec{.}\html@rulecolor%
+    \expandafter\convertcolorspec\html@rulecolor{HTML}\html@rulecolor%
+    \Css{\#listing-\listingN{border: 1px solid \#\html@rulecolor;}}%
+  \fi%
+\egroup%
+}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%
