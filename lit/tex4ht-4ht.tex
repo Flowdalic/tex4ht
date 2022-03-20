@@ -26334,14 +26334,19 @@ Show dimensions only for pictures that have dimensions specified explicitly or u
 
 We need to find bounding boxes of images. Graphics support the .xbb file that contain this information.
 It is necessary to provide the DeclareGraphicsRule commands for supported image formats so 
-the .xbb file works.
+the .xbb file works. We execute these rules only with the default dvips driver. If user selects explicitly
+other drivers, it would result in a compilation error. 
+
 
 \<fix graphics\><<<
+\def\Gin:defaultdriver{dvips.def}
+\ifx\Gin@driver\Gin:defaultdriver%
 \DeclareGraphicsRule{.png}{bmp}{.xbb}{}
 \DeclareGraphicsRule{.jpg}{bmp}{.xbb}{}
 \DeclareGraphicsRule{.gif}{bmp}{.xbb}{}
 \DeclareGraphicsRule{.pdf}{bmp}{.xbb}{}
 \DeclareGraphicsRule{.svg}{bmp}{.xbb}{}
+\fi
 >>>
 
 %\expandafter\def\csname c:graphics-file:\endcsname#1{\Gin@drafttrue

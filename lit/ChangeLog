@@ -1,3 +1,8 @@
+2021-03-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (graphics.4ht): don't execute graphics rules when
+	user selected other driver than dvips.
+
 2022-03-20  Karl Berry  <karl@freefriends.org>
 
 	* update-htfonts: add installed files, not dev.
