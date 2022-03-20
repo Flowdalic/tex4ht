@@ -10,6 +10,8 @@ END_USAGE
   exit 1
 fi
 
+verbose=true
+prg=`basename $0`
 cp="cp -pv"
 mkdir="mkdir -v"
 svn=svn
@@ -49,9 +51,6 @@ fi
 copy_file () {
   src=$1; dest=$2
   #
-  # show diff from (older) DEST to newer (SRC).
-  diff -u0 "$dest" "$src" >>$tmp.0
-  #
   if $cp "$src" "$dest"; then :; else
     echo "$0: copy ($cp) failed: $src -> $dest" >&2
     exit 1
@@ -78,18 +77,24 @@ htf_same () {
 }
 
 #  Iterate through all files in the dev directory.
-echo "$0: comparing $devdir"
-echo "$0:        to $instdir"
+echo "$prg: comparing $devdir"
+echo "$prg:        to $instdir"
 >$tmp.0 # accumulate diffs here
 #
 find "$devdir" -type f -print | sort | while read devf; do
   instf=`echo "$devf" | sed "s,^$devdir/,$instdir/,"`
+  echo "$devf" | grep OpenSans >/dev/null &&
+  #$verbose && echo "considering $devf -> $instf"
+  
   if test -r "$instf"; then
     # we have a file in both directories; see if they are the same (enough).
     if htf_same "$devf" "$instf"; then
       : # $verbose && echo "`basename \"$devf\"`: same ($devf == $instf)"
     else
       $verbose && echo "`basename \"$devf\"`: diff ($devf != $instf)"
+      # save diff from (older) DEST to newer (SRC).
+      diff -u0 "$dest" "$src" >>$tmp.0
+      #
       copy_file "$devf" "$instf"
     fi
 
@@ -100,7 +105,7 @@ find "$devdir" -type f -print | sort | while read devf; do
       # have directory, so add file.
       $verbose && echo "newfile ($devf -> $instf)"
       copy_file "$devf" "$instf"
-      $svn add "$devf"
+      $svn add "$instf" || exit 1
     else
       # don't even have directory. create it, then copy file.
       $mkdir "$destdirf"
@@ -109,9 +114,9 @@ find "$devdir" -type f -print | sort | while read devf; do
         echo "$0: could not make dest dir: $destdirf (for $devf->$instf)" >&2
         exit 1
       fi
-      $svn add "$destdirf"
+      $svn add "$destdirf" || exit 1
       copy_file "$devf" "$instf"
-      $svn add $devf
+      $svn add "$instf" || exit 1
     fi
   fi
 done
@@ -120,11 +125,11 @@ done
 (cd "$devdir" && find . -type f -print | sort) >$tmp.devdir || exit 1
 (cd "$instdir" && find . -type f -print | sort) >$tmp.instdir || exit 1
 
-echo "Files in devdir and not in instdir (should be empty):"
+echo "$prg: files in devdir and not in instdir (should be empty):"
 comm -23 $tmp.devdir $tmp.instdir
 
-echo "Files in instdir and not in devdir, you should remove:"
+echo "$prg: files in instdir and not in devdir (you should remove):"
 comm -13 $tmp.devdir $tmp.instdir
 # maybe better to leave it for manual removal?
 
-echo "Done."
+echo "$prg: done."
