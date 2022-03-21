@@ -1,3 +1,9 @@
+2021-03-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (arydshln.4ht): added basic support for the
+	Arydshln package.
+	https://tex.stackexchange.com/a/637897/2891
+
 2021-03-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (graphics.4ht): don't execute graphics rules when
