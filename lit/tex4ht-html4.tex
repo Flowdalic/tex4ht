@@ -15287,7 +15287,7 @@ Inline listings snippets
     \HCode{<!--l. \the\inputlineno-->}%
     \gdef\start:LstLn{%
        \HCode{<pre class="lstlisting" id="listing-\listingN">}%
-       \gdef\start:LstLn{|<nbsp|>\HCode{<br />\Hnewline}}}
+       \gdef\start:LstLn{\HCode{\Hnewline}}}
     \bgroup%
     % we put the closing </div> here in order to support floating listings
     % https://tex.stackexchange.com/a/615703/2891
@@ -15301,7 +15301,7 @@ Inline listings snippets
    {\egroup\par}
    {} {}
 \Css{.lstlisting .label{margin-right:0.5em; }}
-\Css{pre.lstlisting{font-family: monospace,monospace; white-space: nowrap; 
+\Css{pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; 
                     margin-top:0.5em; margin-bottom:0.5em;
                    }}
 >>>
@@ -15311,13 +15311,13 @@ Inline listings snippets
    {\ifvmode \IgnorePar\fi \EndP  
     \HCode{<!--l. \the\inputlineno-->}%  
     \gHAdvance\listingN by 1%
+    \gdef\start:LstLn{\gdef\start:LstLn{\HCode{\Hnewline}}}% ignore first newline, to prevent spurious line
     \HCode{<pre class="lstinputlisting" id="listing-\listingN">}%  
     \bgroup\ttfamily%\special{t4ht@(}%  
        \Configure{listings}%
          {{\everypar{}\leavevmode}}%  
          {{\everypar{}\leavevmode}}%  
-         {|<nbsp|>%
-             \HCode{<br />\Hnewline<span class="label">}}%  
+         {\start:LstLn \HCode{<span class="label">}}%  
          {\HCode{</span>}}%  
    }  
    {%\special{t4ht@)}
@@ -15325,7 +15325,7 @@ Inline listings snippets
     \ifvmode \IgnorePar\fi \EndP  \HCode{</pre>}\par}% 
 \Css{pre.lstinputlisting{
    font-family: monospace,monospace;
-   white-space: nowrap;
+   white-space: pre-wrap; 
 }}
 \Css{.lstinputlisting .label{margin-right:0.5em;}}
 >>>

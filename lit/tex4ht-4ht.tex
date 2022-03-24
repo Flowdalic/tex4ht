@@ -30938,19 +30938,21 @@ Configure list of listings
    \lst@newlinetrue
 }%
 \HLet\lst@NewLine\:tempa
-\def\lst@InputListing#1{% 
-    \begingroup 
-      \lsthk@PreSet \gdef\lst@intname{#1}% 
+\def\:tempa#1{
+    \begingroup%
+      \lsthk@PreSet\gdef\lst@intname{#1}% 
       \expandafter\lstset\expandafter{\lst@set}% 
-      \lsthk@DisplayStyle 
-      \catcode\active=\active 
-      \a:lstinputlisting \lst@Init\relax \let\lst@gobble\z@ 
-      \lst@SkipToFirst 
+      \lsthk@DisplayStyle%
+      \catcode\active=\active%
+      \a:lstinputlisting\special{t4ht@[}\lst@Init\relax \let\lst@gobble\z@%
+      \lst@SkipToFirst%
       \lst@ifprint \def\lst@next{\input{#1}}% 
-             \else \let\lst@next\@empty \fi 
-      \lst@next \lst@DeInit 
-      \b:lstinputlisting
+             \else \let\lst@next\@empty \fi%
+      \special{t4ht@]}\lst@next \lst@DeInit%
+      \b:lstinputlisting%
     \endgroup} 
+
+\HLet\lst@InputListing\:tempa 
 \NewConfigure{lstinputlisting}{2}
 >>>
 

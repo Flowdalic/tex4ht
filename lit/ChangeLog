@@ -1,5 +1,9 @@
 2021-03-24  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (listings.4ht): ignore spurious spaces at beginning
+	of listings.
+	* tex4ht-html4.tex (html4.4ht): removed extra <br> tags, fixed
+	issues with extra newlines.
 	* tex4ht-4ht.tex (biblatex.4ht): removed spurious whitespace after
 	backrefences.
 
