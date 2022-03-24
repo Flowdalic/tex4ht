@@ -2823,18 +2823,18 @@ Fix backlink support in BibLaTeX
   % back to the citations on the given pages
   \let\orig:hyperlink\hyperlink%
   \let\hyperlink\bbx:hyperlink%
-  \ifnumless{\abx@pagerefstyle}{0}
+  \ifnumless{\abx@pagerefstyle}{0}%
     {\usebibmacro{list:plain}%
-     \ifhyperref
-       {\hyperlink{page.#1}{#1}}
-       {#1}}
-    {\ifnumequal{\value{listcount}}{1}
-       {\usebibmacro{pageref:init}}
+     \ifhyperref%
+       {\hyperlink{page.#1}{#1}}%
+       {#1}}%
+    {\ifnumequal{\value{listcount}}{1}%
+       {\usebibmacro{pageref:init}}%
        {}%
      \usebibmacro{pageref:comp}{#1}%
-     \ifnumequal{\value{listcount}}{\value{liststop}}
-       {\usebibmacro{pageref:dump}}
-       {}}
+     \ifnumequal{\value{listcount}}{\value{liststop}}%
+       {\usebibmacro{pageref:dump}}%
+       {}}%
   \let\hyperlink\orig:hyperlink%
 }
 

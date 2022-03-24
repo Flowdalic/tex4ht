@@ -1,3 +1,8 @@
+2021-03-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): removed spurious whitespace after
+	backrefences.
+
 2021-03-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (arydshln.4ht): added basic support for the
