@@ -2795,7 +2795,8 @@ Fix backlink support in BibLaTeX
     % insert link to the page
     \html:addr\Link-{}{|<haddr prefix|>\last:haddr}\EndLink%
     % save link to the .xref file
-    \Tag{)Q##1\thepage}{|<haddr prefix|>\last:haddr}%
+    % we need to use \protected@write to get correct page numbers in backrefs
+    \protected@write\:refout{}{\string\:CrossWord{)Q##1\thepage}{|<haddr prefix|>\last:haddr}{\folio}}
     % we need to save the link destination in .xref file
     % too, otherwise \Link command would issue warning
     \Tag{)Q|<haddr prefix|>\last:haddr}{\FileNumber}%
