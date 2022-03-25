@@ -1,10 +1,10 @@
-2021-03-25  Michal Hoftich  <michal.h21@gmail.com>
+2022-03-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): fixed issues with backref page
 	numbers.
 	https://github.com/michal-h21/make4ht/issues/58
 
-2021-03-24  Michal Hoftich  <michal.h21@gmail.com>
+2022-03-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): use \detokenize to
 	prevent math environments from expansion.
@@ -16,13 +16,13 @@
 	* tex4ht-4ht.tex (biblatex.4ht): removed spurious whitespace after
 	backrefences.
 
-2021-03-21  Michal Hoftich  <michal.h21@gmail.com>
+2022-03-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (arydshln.4ht): added basic support for the
 	Arydshln package.
 	https://tex.stackexchange.com/a/637897/2891
 
-2021-03-20  Michal Hoftich  <michal.h21@gmail.com>
+2022-03-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (graphics.4ht): don't execute graphics rules when
 	user selected other driver than dvips.
@@ -31,13 +31,13 @@
 
 	* update-htfonts: add installed files, not dev.
 
-2021-03-20  Michal Hoftich  <michal.h21@gmail.com>
+2022-03-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added support for background and
 	border colors in Listings.
 	https://tex.stackexchange.com/a/637789/2891
 
-2021-03-17  Michal Hoftich  <michal.h21@gmail.com>
+2022-03-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-opensans.tex: added support for OpenSans fonts.
 	https://tex.stackexchange.com/q/637314/2891
