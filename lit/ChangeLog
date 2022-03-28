@@ -1,3 +1,8 @@
+2022-03-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): don't use bold font for \textsf
+	command.
+
 2022-03-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): fixed issues with backref page
