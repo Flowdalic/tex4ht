@@ -1,5 +1,9 @@
 2022-03-29  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (subfiles.4ht): fixed support for multiple included
+	files in the Subfiles package.
+	https://tex.stackexchange.com/a/353117/2891
+
 	* tex4ht-html4.tex (html4.4ht): handle \# character in \title.
 	https://tex.stackexchange.com/a/638821/2891
 

@@ -4746,6 +4746,43 @@ PDF mode, it is safest thing to do to just disable the package.
 \Hinput{sectionbreak}
 >>> \AddFile{9}{sectionbreak}
 
+
+\<subfiles.4ht\><<< 
+% subfiles.4ht (|version), generated from |jobname.tex 
+% Copyright 2022 TeX Users Group 
+|<TeX4ht license text|> 
+|<subfiles enddocument|>
+\Hinput{subfiles}
+\endinput
+>>> \AddFile{9}{subfiles}
+
+We use the original version of \Verb|\subfiles@renewEndDocument|, the only 
+change is that we added the \Verb|\choose:begin| redefinition. It is necessary
+to prevent processing of the document after \Verb|\end{document}| in the 
+included subfile.
+
+\<subfiles enddocument\><<<
+\def\:tempa#1{%
+  \ifcsname subfiles@end\endcsname
+  \else
+    \subfiles@saveEndTo\subfiles@end
+  \fi
+  \let\choose:begin\@secondoftwo
+  \expandafter\def\csname end \endcsname##1{%
+    \romannumeral
+    \subfiles@StrIfEqTF{##1}{document}{%
+      \z@
+      \subfiles@restoreEndFrom\subfiles@end
+      #1%
+    }{%
+      \expandafter\expandafter\expandafter\z@\subfiles@end{##1}%
+    }%
+  }%
+}
+
+\HLet\subfiles@renewEndDocument\:tempa
+>>>
+
 \Section{url.sty}
 %%%%%%%%%%%%%%%%%%
 
