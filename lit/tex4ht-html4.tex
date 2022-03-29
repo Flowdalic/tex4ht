@@ -6328,6 +6328,8 @@ thanks author date and>>>
 \def\mbox{\hbox}%
 \def\gobble:font##1##2{##2}\:TITLE: \no:fonts
 \def\footnotemark[##1]{}%
+\def\:hashintitle{\protect\symbol{35}}
+\let\#\:hashintitle
 \Tag{TITLE+}{\@title}}
 >>>
 
@@ -6352,6 +6354,8 @@ Old latex files need \verb'\no:fonts', but not new ones.---wrong, as far as writ
 \def\mbox{\hbox}%
 \def\gobble:font##1##2{##2}\:TITLE: \no:fonts
 \def\footnotemark[##1]{}%
+\def\:hashintitle{\protect\symbol{35}}
+\let\#\:hashintitle
 \Tag{TITLE+}{\shorttitle}}
 >>>
 
@@ -6378,6 +6382,8 @@ Old latex files need \verb'\no:fonts', but not new ones.---wrong, as far as writ
 \let \bf=\empty
 \let \centering=\empty
 \def \ignorespaces##1\vskip##2//{##1}%
+\def\:hashintitle{\protect\symbol{35}}
+\let\#\:hashintitle
 \Tag{TITLE+}{\@title//}%
 }%
 >>>
@@ -6391,6 +6397,8 @@ Old latex files need \verb'\no:fonts', but not new ones.---wrong, as far as writ
 \def\mbox{\hbox}%
 \let\\\space \def\TeX{TeX}%
 \def\gobble:font##1##2{##2}\:TITLE: \no:fonts
+\def\:hashintitle{\protect\symbol{35}}
+\let\#\:hashintitle
 \Tag{TITLE+}{\@title}}%
 >>>
 
@@ -12566,6 +12574,7 @@ y{\ht:special{t4ht@+\string&{35}x00FD{59}}y}%
 \<env for titles\><<<
 \let\"=\:same \let\~=\:same \let\^=\:same
 \let\v=\:same \let\'=\:same \let\r=\:same
+\let\#=\:same 
 \PictureOff
 >>>
 
