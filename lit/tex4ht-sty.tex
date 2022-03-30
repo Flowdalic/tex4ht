@@ -9082,18 +9082,25 @@ and \`'\Configure{SUP}{ before }{ after }' get into effect.
 \<defs for early latex subs/sups\><<<
 \append:def\:RestoreCatcodes{\early:sub\early:sup}
 \let\:IfFileExists\IfFileExists
-\long\def\IfFileExists#1#2#3{%
-   \csname recall:sub\endcsname   
-   \csname recall:sup\endcsname
-   \expandafter\let\csname #1:sub\endcsname=\early:sub
-   \expandafter\let\csname #1:sup\endcsname=\early:sup
-   \let\early:sub=\relax     \let\recall:sub\relax   
-   \let\early:sup=\relax     \let\recall:sup\relax
-   \:IfFileExists{#1}{#2}{#3}%
-   \expandafter\let\expandafter\early:sub\csname #1:sub\endcsname
-   \expandafter\let\expandafter\early:sup\csname #1:sup\endcsname
-   \early:sub \early:sup
-}
+
+% I am not sure why we used this declaration. It is from the original 
+% TeX4ht sources, so it probably had some reason. The problem is that it 
+% inserts extra tokens after \:IfFileExists, and if some package uses
+% something like \IfFileExists{foo.sty}{\@firstoftwo}{\@secondoftwo}{aa}{bb}, 
+% then it fails. I've found this issue with the Standalone class.
+% See https://tex.stackexchange.com/a/638965/2891 for example where it fails.
+% \long\def\IfFileExists#1#2#3{%
+%    \csname recall:sub\endcsname   
+%    \csname recall:sup\endcsname
+%    \expandafter\let\csname #1:sub\endcsname=\early:sub
+%    \expandafter\let\csname #1:sup\endcsname=\early:sup
+%    \let\early:sub=\relax     \let\recall:sub\relax   
+%    \let\early:sup=\relax     \let\recall:sup\relax
+%    \:IfFileExists{#1}{#2}{#3}%
+%    \expandafter\let\expandafter\early:sub\csname #1:sub\endcsname
+%    \expandafter\let\expandafter\early:sup\csname #1:sup\endcsname
+%    \early:sub \early:sup
+% }
 \ifx \o:document\:UnDef
    \pend:def\Preamble{%
      \csname recall:sub\endcsname   

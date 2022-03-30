@@ -1,3 +1,9 @@
+2022-03-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): don't redefine \IfFileExists. It can
+	break packages that don't expect extra tokens at it's end.
+	https://tex.stackexchange.com/a/638965/2891
+
 2022-03-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (subfiles.4ht): fixed support for multiple included
