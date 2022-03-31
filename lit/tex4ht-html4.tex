@@ -15245,21 +15245,29 @@ Inline listings snippets
    fixed size fonts (see listings.dtx)}
 >>>
 
+This configuration is used mainly when user defines new environment using \verb|lstnewenvironment|.
+
 \<configure html4 listings\><<<
+\HAssign\listingN=0
 \HAssign\listings:Depth = 0
 \Configure{listings}
-   {\ifvmode \IgnorePar\fi \EndP
+   {\ifvmode \IgnorePar\fi \EndP%
     {\everypar{}\leavevmode}\HCode{<!--l. \the\inputlineno-->}%
-     \ifnum \listings:Depth=0 \HCode{<pre class="listings">}\else
-                              \HCode{<span class="listings-nested">}\fi
-     \gHAdvance\listings:Depth by 1
+     \ifnum \listings:Depth=0 \HCode{<pre class="listings" id="listing-\listingN">}\else%
+                              \HCode{<span class="listings-nested" id="listing-\listingN">}\fi%
+     \gHAdvance\listings:Depth by 1%
+     \gdef\start:LstLn{}%
    }
    {\gHAdvance\listings:Depth by -1
     \ifnum \listings:Depth=0 \HCode{</pre>}\else
                              \HCode{</span>}\fi
    }
-   {|<nbsp|>\HCode{<br /><span class="label">}}
+   {\start:LstLn\HCode{<span class="label">}%
+   \gdef\start:LstLn{\HCode{\Hnewline}}}%
    {\HCode{</span>}}%
+\Css{pre.listings{font-family: monospace,monospace; white-space: pre-wrap; 
+                    margin-top:0.5em; margin-bottom:0.5em;
+                   }}
 >>>
 
 \<configure html4 listings\><<<
@@ -15289,10 +15297,8 @@ Inline listings snippets
 
 
 \<configure html4 listings\><<<
-\HAssign\listingN=0
 \ConfigureEnv{lstlisting}
    {\ifvmode \IgnorePar\fi \EndP  
-    \gHAdvance\listingN by 1
     \HCode{<!--l. \the\inputlineno-->}%
     \gdef\start:LstLn{%
        \HCode{<pre class="lstlisting" id="listing-\listingN">}%
@@ -15319,14 +15325,12 @@ Inline listings snippets
 \Configure{lstinputlisting}  
    {\ifvmode \IgnorePar\fi \EndP  
     \HCode{<!--l. \the\inputlineno-->}%  
-    \gHAdvance\listingN by 1%
-    \gdef\start:LstLn{\gdef\start:LstLn{\HCode{\Hnewline}}}% ignore first newline, to prevent spurious line
-    \HCode{<pre class="lstinputlisting" id="listing-\listingN">}%  
+    \gdef\start:LstLn{\HCode{<pre class="lstinputlisting" id="listing-\listingN">}\gdef\start:LstLn{\HCode{\Hnewline}}}% ignore first newline, to prevent spurious line
     \bgroup\ttfamily%\special{t4ht@(}%  
        \Configure{listings}%
          {{\everypar{}\leavevmode}}%  
          {{\everypar{}\leavevmode}}%  
-         {\start:LstLn \HCode{<span class="label">}}%  
+         {\start:LstLn\HCode{<span class="label">}}%  
          {\HCode{</span>}}%  
    }  
    {%\special{t4ht@)}
@@ -15371,7 +15375,8 @@ Support for background and border color
 
 \<configure html4 listings\><<<
 \lst@AddToHook{Init}{%
-\bgroup%
+  \gHAdvance\listingN by 1% increase the ID before we save colors. 
+  \bgroup%
   % handle backround color and border in listings
   \ifx\lst@fillcolor\@empty\else%
     \lst@fillcolor%

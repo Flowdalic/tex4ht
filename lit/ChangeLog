@@ -1,3 +1,9 @@
+2022-03-31  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): support frames and background colors
+	in custom Listings environments.
+	https://tex.stackexchange.com/a/639135/2891
+
 2022-03-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): don't redefine \IfFileExists. It can
