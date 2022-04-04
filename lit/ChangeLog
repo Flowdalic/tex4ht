@@ -1,3 +1,8 @@
+2022-04-04  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (minted.4ht),
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): copyright 2022.
+
 2022-04-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (minted.4ht): fixed spurious whitespace produced by
