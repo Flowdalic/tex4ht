@@ -15206,7 +15206,8 @@ listings.dtx.
 
 Configuration for the inline code
 \<configure html4 minted\><<<
-\Configure{InlineCode}{\HCode{<code>}}{\HCode{</code>}}
+\Configure{InlineCode}{\HCode{<code class="minted-inline">}\NoFonts}{\EndNoFonts\HCode{</code>}}
+\Css{code.minted-inline{font-family:monospace,monospace;}}
 >>>
 
 Configuration for listings with colored backgrounds

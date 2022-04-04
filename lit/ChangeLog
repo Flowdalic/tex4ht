@@ -1,3 +1,9 @@
+2022-04-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (minted.4ht): fixed spurious whitespace produced by
+	\mintinline.
+	* tex4ht-html4.tex (html4.4ht): disable ht-fonts for inline Minted.
+
 2022-03-31  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): support frames and background colors

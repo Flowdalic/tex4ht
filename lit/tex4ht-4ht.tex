@@ -24816,20 +24816,42 @@ of LaTeX.  The \''\:gobbleII' is for getting rid of the
 % minted.4ht (|version), generated from |jobname.tex
 % Copyright 2020-2021 TeX Users Group
 |<TeX4ht license text|>
+
+|<minted inline fixes|>
+|<minted background color|>
+|<minted background color|>
+|<minted input fixes|>
+
+\Hinput{minted}
+\endinput
+>>> \AddFile{9}{minted}
+
+Support for inline Minted listings. We need to take care of
+newline and space characters, as they produce unwanted white space
+in the generated HTML.
+
+\<minted inline fixes\><<<
 \NewConfigure{InlineCode}{2}
+% this is a hack to hide a newline that is produced, and which causes spurious space in the output
+\NewConfigure{MintedHideNewline}{2} 
+\Configure{MintedHideNewline}{\HCode{<!--}}{\HCode{-->}}
 
 \def\:tempa#1{%
   \endgroup%
   \begingroup%
-  \Configure{BVerbatimInput}{\HCode{}}{}{}{}{}\a:InlineCode% The \HCode is necessary for correct paragraph handling
+  \Configure{BVerbatimInput}{\HCode{}\ht:special{t4ht@(}}% \HCode is necessary for correct paragraph handlingling
+  {\a:MintedHideNewline}{\ht:special{t4ht@)}}{}{}% also hide newline and spurious spaces
+  \a:InlineCode%
   \begingroup%
-  \o:minted@inline@iii:{#1}%
+  \o:minted@inline@iii:{#1}\b:MintedHideNewline%
   \b:InlineCode%
   \endgroup%
 }
 
 \HLet\minted@inline@iii\:tempa
+>>>
 
+\<minted background color\><<<
 % support for background color in Minted listings
 \NewConfigure{MintedColorbg}{2}
 \renewenvironment{minted@colorbg}[1]{%
@@ -24839,13 +24861,7 @@ of LaTeX.  The \''\:gobbleII' is for getting rid of the
   \a:MintedColorbg%
   }
   {\b:MintedColorbg\medskip\noindent}
-
-|<minted input fixes|>
-
-\Hinput{minted}
-\endinput
->>> \AddFile{9}{minted}
-
+>>>
 
 Minted sometimes produces unexpected results. For example, << characters 
 get translated to guilelemets. To prevent that, we define new configuration,
