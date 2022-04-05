@@ -1979,8 +1979,19 @@ change the configuration slightly. We modify directly the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
 \<configure ooffice latex\><<<     
+\:CheckOption{description-inline}\if:Option
+|<oo-description-inline|>
+\else
+\Log:Note{for description lists where header is in the same paragraph as
+  description, use the `description-inline' command option}
+|<oo-default-description|>
+\fi
+>>>
+
+
+
+\<oo-default-description\><<<
 \let\end:itm=\empty
 \ConfigureList{description}%
    {\EndP
@@ -2018,6 +2029,37 @@ change the configuration slightly. We modify directly the
 >>>
 
 
+
+\<oo-description-inline\><<<
+\let\end:itm=\empty
+\ConfigureList{description}%
+   {\EndP
+    \bgroup
+    \HCode{<text:list
+         text:style-name="description\if@rl-rtl\fi"
+         text:name="description"\Hnewline>}%
+      \PushMacro\end:itm
+      \global\let\end:itm=\empty      
+      \HTML:PAR{description-inline|<cond rtl class|>}{description-inline|<cond rtl class|>}%
+      \gHAdvance\BegEnd:D by 1
+   }
+   {\gHAdvance\BegEnd:D by -1
+      \PopMacro\end:itm \global\let\end:itm \end:itm
+      \EndP
+      \HCode{<!--/dd-->}%
+      \HCode{</text:list-item>}
+      \HCode{</text:list>}%
+      \egroup
+      \ShowPar}
+   {\end:itm 
+    \global\def\end:itm{\EndP
+                        \HCode{<!--/dd-->}%
+                        \HCode{</text:list-item>}%
+   }%
+    \HCode{<text:list-item>}\par\ShowPar%
+   }
+   {}
+>>>
 
 
 
@@ -2057,7 +2099,6 @@ change the configuration slightly. We modify directly the
 \def\DeleteMark:#1\@labels{\hfill\break 
    \setbox\tmp:bx\vbox{\box\@labels}}
 >>>
-
 
 
 
@@ -2211,6 +2252,16 @@ change the configuration slightly. We modify directly the
   <style:text-properties
        fo:font-weight="bold"
   />
+</style:style>
+<style:style
+       style:name="description-inline"
+       style:family="paragraph"
+       style:parent-style-name="">
+  <style:paragraph-properties
+       fo:margin-left="0.35in"
+       fo:margin-right="0in"
+       fo:text-indent="-0.35in"
+       style:auto-text-indent="false"/>
 </style:style>
 >>>
 
