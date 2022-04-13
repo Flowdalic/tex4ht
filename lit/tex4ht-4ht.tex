@@ -1496,6 +1496,22 @@ A better def is given to \''\l:bel' in AmsLaTeX .
 \let\ref|=\:ref
 >>>
 
+
+Support for the \''\Ref' command. It is variant of \''\ref' that uppercases
+first letter of the referenced label.
+
+\<sub/sup in labels/refs\><<<
+\def\::Ref#1{%
+  \let\olda:rEfLiNK\rEfLiNK%%
+  \def\rEfLiNK##1##2{\Link{##1}{}\edef\:ref:currentlabel{##2}\expandafter\MakeUppercase\:ref:currentlabel\EndLink}%
+  \::ref{#1}%
+  \let\rEfLiNK\olda:rEfLiNK%
+}
+\def\:Ref{\@ifstar{\Protect\::Ref}{\Protect\::Ref}}
+\let\Ref\:Ref
+>>>
+
+
 Without the \'''\expandafter' we may get \''\RefArg' passed
  as the first argument to \''\T@arg',
 resulting in \''\def\RefArg{\RefArg}'.

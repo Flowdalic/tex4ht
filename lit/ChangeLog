@@ -1,5 +1,6 @@
 2022-04-13  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (latex.4ht): added support for the \Ref command.
 	* tex4ht-4ht.tex (latex.4ht,nameref.4ht): added support for the
 	\ref* command.
 
