@@ -1492,7 +1492,7 @@ A better def is given to \''\l:bel' in AmsLaTeX .
 \let\o:ref|=\:ref
 \def\::ref#1{{\:SUBOff\:SUPOff\xdef\RefArg{#1}}\expandafter\o:ref
                                                \expandafter{\RefArg}}
-\def\:ref{\Protect\::ref}
+\def\:ref{\@ifstar{\Protect\::ref}{\Protect\::ref}}
 \let\ref|=\:ref
 >>>
 
@@ -3533,12 +3533,12 @@ definitions.
 }
 
 \let\T:ref=\::ref
-\def\::ref{\protect\T@ref}
+\def\::ref{\@ifstar{\protect\T@ref}{\protect\T@ref}}
 \def\T@ref#1{%
   \@safe@activestrue
   \let\::ref \T:ref
   \expandafter\@setref\csname r@#1\endcsname\@firstoffive{#1}%
-  \def\::ref{\protect\T@ref}%
+  \def\::ref{\@ifstar{\protect\T@ref}{\protect\T@ref}}
   \@safe@activesfalse
 }
 
