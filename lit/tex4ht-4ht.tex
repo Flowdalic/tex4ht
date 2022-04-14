@@ -5506,6 +5506,35 @@ The following fix is to hold hypertex from modifying the links in
 \catcode`\:=11
 >>>
 
+The following code was originally placed directly in hyperref.sty.
+We moved it here, so Hyperref don't need to contain specific
+TeX4ht code.
+
+\<config hyperref\><<<
+\def\T@pageref#1{%
+  \Hy@safe@activestrue%
+  \expandafter\@setref\csname r@#1\endcsname\@secondoffive{#1}%
+  \Hy@safe@activesfalse%
+}%
+\def\T@Ref#1{%
+  \Hy@safe@activestrue%
+  \let\olda:rEfLiNK\rEfLiNK%%
+  \def\rEfLiNK##1##2{\Link{##1}{}\edef\:ref:currentlabel{##2}\expandafter\MakeUppercase\:ref:currentlabel\EndLink}%
+  \expandafter\@setref\csname r@#1\endcsname\@firstoffive{#1}%
+  \let\rEfLiNK\olda:rEfLiNK%
+  \Hy@safe@activesfalse%
+}%
+\def\@Refstar#1{%
+  \Hy@safe@activestrue
+  \let\olda:rEfLiNK\rEfLiNK%%
+  \def\rEfLiNK##1##2{\Link{##1}{}\edef\:ref:currentlabel{##2}\expandafter\MakeUppercase\:ref:currentlabel\EndLink}%
+  \expandafter\@setref\csname r@#1\endcsname\@firstoffive{#1}%
+  \let\rEfLiNK\olda:rEfLiNK%
+  \Hy@safe@activesfalse
+}%
+
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \SubSection{Forms}
 %%%%%%%%%%%%%%%%%%%%%%

@@ -1,8 +1,16 @@
+2022-04-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (hyperref.4ht): added supporting code for TeX4ht
+	from hyperref.sty.
+	https://puszcza.gnu.org.ua/bugs/?559
+
 2022-04-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): added support for the \Ref command.
+	https://puszcza.gnu.org.ua/bugs/?559
 	* tex4ht-4ht.tex (latex.4ht,nameref.4ht): added support for the
 	\ref* command.
+	https://puszcza.gnu.org.ua/bugs/?559
 
 2022-04-05  Michal Hoftich  <michal.h21@gmail.com>
 
