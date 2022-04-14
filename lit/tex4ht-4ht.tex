@@ -1543,7 +1543,7 @@ name which is provided in the parameter of \''\cur:lbl'.
 \<cross ref\><<<
 \NewConfigure{@:currentlabel}[1]{\concat:config\a:@:currentlabel{#1}}
 \let\a:@:currentlabel|=\relax
-\def\cur:lbl#1{{\a:@:currentlabel 
+\def\cur:lbl#1{{\let\saved:currentlabel\:currentlabel\a:@:currentlabel 
   |<body of cur:lbl|>\expandafter}\:currentlabel}
 >>>
 
@@ -1554,7 +1554,8 @@ name which is provided in the parameter of \''\cur:lbl'.
 \else \def\:currentlabel{#1}%
    \edef\:currentlabel{\def\noexpand
                  \:currentlabel{\ifx\:currentlabel\empty
-         \ifx \:@currentlabel\:UnDef \@currentlabel
+         \ifx \:@currentlabel\:UnDef 
+         \ifx\saved:currentlabel \@currentlabel\@currentlabel\else\saved:currentlabel\fi
          \else \:@currentlabel \fi
       \else 
           \expandafter\ifx\csname #1:Count\endcsname\relax
@@ -1738,6 +1739,7 @@ Example \ref{E}
    |</edef /@currentlabel|>%
    \xdef\cur:th{|<haddr prefix|>\last:haddr}%
    |<get :currentlabel|>%
+   \xdef\:currentlabel{#2}%
    \edef\:SecAnchor{\cur:th\:currentlabel}%
  }
 >>>
@@ -1753,7 +1755,7 @@ of entries as \''\Alph'.
      XXI\or XXII\or XXIII\or XXIV\or XV\or XVI\else
      \expandafter\uppercase\expandafter{\romannumeral ##1}\fi}%
    \a:currentlabel
-   \edef\:temp{#2}\ifx \:temp\empty
+   \edef\:temp{\csname p@#1\expandafter\endcsname\csname the#1\endcsname}\ifx \:temp\empty
    \else \global\let\@currentlabel|=\:temp\fi
 \egroup
 >>>

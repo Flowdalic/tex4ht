@@ -1,5 +1,8 @@
 2022-04-14  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (latex.4ht): fixed support for \labelformat in
+	sections.
+	https://puszcza.gnu.org.ua/bugs/?559
 	* tex4ht-4ht.tex (hyperref.4ht): added supporting code for TeX4ht
 	from hyperref.sty.
 	https://puszcza.gnu.org.ua/bugs/?559
