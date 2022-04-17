@@ -1,3 +1,10 @@
+2022-04-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (xcolor.4ht),
+	* tex4ht-html4.tex (html4.4ht): fixed support for blended color
+	declarations in the form of `green!80!black`.
+	https://tex.stackexchange.com/a/641075/2891
+
 2022-04-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): fixed support for \labelformat in

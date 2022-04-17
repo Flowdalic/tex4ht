@@ -16042,7 +16042,7 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
    {\gHAdvance\textcolorN by 1
     \Configure{color}%
       {\Configure{SetHColor}
-           {\Css{span\#textcolor\textcolorN{color:\HColor}}}}%
+        {\ifx\HColor\@empty\else\Css{span\#textcolor\textcolorN{color:\HColor}}\fi}}%
     \HCode{<span id="textcolor\textcolorN">}}%
    {\HCode{</span>}}
 >>>

@@ -27105,8 +27105,10 @@ fragments.
   %\expandafter\ifx \csname HColor!#1\endcsname\relax
      \let\HColor=\relax
      |<xcolor from def|>%
-  \else
-     \csname HColor!#1\endcsname #2//%
+  \else%
+     \ifcsname HColor!#1\endcsname%
+       \csname HColor!#1\endcsname #2//%
+     \fi%
   \fi
 }
 \expandafter\def\csname c:HColor!gray:\endcsname{%
