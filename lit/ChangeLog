@@ -1,3 +1,9 @@
+2022-04-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): output name of the .4tc file to the
+	console and log file, to enable latexmk to track it.
+	https://tug.org/pipermail/tex4ht/2022q2/003213.html
+
 2022-04-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (xcolor.4ht),
