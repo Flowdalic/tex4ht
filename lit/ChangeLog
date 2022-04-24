@@ -1,3 +1,8 @@
+2022-04-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): fixed spurious space inserted after
+	environemnents used inside paragraphs.
+
 2022-04-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): output name of the .4tc file to the

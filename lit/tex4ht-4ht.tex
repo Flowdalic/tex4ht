@@ -6812,7 +6812,7 @@ The \''\@doendpe' deals with piles of \''\end's.     The
 pile.
 
 \<recall after /end\><<<
-\ifhmode \hfill\break\fi
+% \ifhmode \hfill\break\fi <- this added spurious space after inline environments
 \RecallEverypar
 >>>
 
@@ -6824,7 +6824,9 @@ pile.
 \HLet\@doendpe\:tempc
 >>>
 
-The \''\hfill\break' is to help prevent losses of space separators.
+The \''\hfill\break' is to help prevent losses of space separators. But it seems to
+insert spurious space when an environment is used inside paragraph, so I've removed
+it. I hope that it will not break anything.
 
 We might get here leading empty paragrphs after an \`'\end'. Is there
 a way to remove them without a post processor.
