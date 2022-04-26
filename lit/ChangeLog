@@ -1,5 +1,11 @@
 2022-04-26  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (ulem.4ht),
+	* tex4ht-html4.tex (html4.4ht),
+	* tex4ht-mathml.tex (mathml.4ht): fixed support for the Ulem
+	package.
+	https://github.com/michal-h21/make4ht/issues/72
+
 	* tex4ht-4ht.tex (xr.4ht, xr-hooks.4ht): added support for external
 	documents in subdirectories.
 	https://puszcza.gnu.org.ua/bugs/?560

@@ -30878,21 +30878,49 @@ d|<haddr prefix|>\last:haddr
 \endinput
 >>>        \AddFile{9}{ulem}
 
+We use different configurations, depending on the fact if we are inside math mode or not.
+Configurations in math mode are named after the command with the "-math" suffix.
+
 \<ulem sty\><<<
-\expandafter\def\csname uline \endcsname{\relax
-   \ifmmode\expandafter\underline
-   \else \a:uline \bgroup \aftergroup\b:uline \expandafter\ULset\fi}
+\def\:ulemchoose#1#2{\relax\ifmmode\csname a:#1-math\endcsname#2\csname b:#1-math\endcsname\else\csname a:#1\endcsname#2\csname b:#1\endcsname\fi}
+
 \NewConfigure{uline}{2}
-\def\uuline#1{\relax \a:uuline {#1}\b:uuline}
+\NewConfigure{uline-math}{2}
+\def\:tempa#1{\:ulemchoose{uline}{#1}}
+\HLet\uline\:tempa
+
 \NewConfigure{uuline}{2}
-\def\sout#1{\relax \a:sout {#1}\b:sout}
+\NewConfigure{uuline-math}{2}
+\def\:tempa#1{\:ulemchoose{uuline}{#1}}
+\HLet\uuline\:tempa
+
 \NewConfigure{sout}{2}
-\def\xout#1{\relax \a:xout {#1}\b:xout}
+\NewConfigure{sout-math}{2}
+\def\:tempa#1{\:ulemchoose{sout}{#1}}
+\HLet\sout\:tempa
+
 \NewConfigure{xout}{2}
-\def\uwave#1{\relax \a:uwave {#1}\b:uwave}
+\NewConfigure{xout-math}{2}
+\def\:tempa#1{\:ulemchoose{xout}{#1}}
+\HLet\xout\:tempa
+
 \NewConfigure{uwave}{2}
+\NewConfigure{uwave-math}{2}
+\def\:tempa#1{\:ulemchoose{uwave}{#1}}
+\HLet\uwave\:tempa
+
+\NewConfigure{dashuline}{2}
+\NewConfigure{dashuline-math}{2}
+\def\:tempa#1{\:ulemchoose{dashuline}{#1}}
+\HLet\dashuline\:tempa
+
+\NewConfigure{dotuline}{2}
+\NewConfigure{dotuline-math}{2}
+\def\:tempa#1{\:ulemchoose{dotuline}{#1}}
+\HLet\dotuline\:tempa
+
 \def\:temp{\z@}
-\HLet\ULthickness|=\:temp
+\HLet\ULthickness\:temp
 >>>
 
 %%%%%%%%%%%%%%%%%%%

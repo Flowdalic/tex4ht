@@ -3828,6 +3828,34 @@ accent="true">&\#x0332;</\a:mathml mo></\a:mathml munder>}%
    {\HCode{</mrow></munder>}} 
 >>>
 
+Support for the Ulem package in MathML
+\<configure mathml ulem\><<<
+\Configure{uline-math}
+   {\HCode{<mstyle class="uline-math">}\NoFonts} {\EndNoFonts\HCode{</mstyle>}}
+\Css{.uline-math{ text-decoration:underline; }}
+\Configure{uuline-math}
+   {\HCode{<mstyle class="uuline-math">}\NoFonts} {\EndNoFonts\HCode{</mstyle>}}
+\Css{.uuline-math{ text-decoration:underline double; }}
+\Configure{sout-math}
+   {\HCode{<mstyle class="sout-math">}\NoFonts} {\EndNoFonts\HCode{</mstyle>}}
+\Css{.sout-math {text-decoration: line-through }}
+\Configure{xout-math}
+   {\HCode{<mstyle class="xout-math">}\NoFonts} 
+   {\EndNoFonts\HCode{</mstyle>}}
+\Css{.xout-math {text-decoration: line-through underline }}
+\Configure{uwave-math}
+   {\HCode{<mstyle class="uwave-math">}\NoFonts} 
+   {\EndNoFonts\HCode{</mstyle>}}
+\Css{.uwave-math {text-decoration:underline wavy; }}
+\Configure{dashuline-math}
+   {\HCode{<mstyle class="dashuline-math">}\NoFonts} 
+   {\EndNoFonts\HCode{</mstyle>}}
+\Css{.dashuline-math {text-decoration:underline dashed;}}
+\Configure{dotuline-math}
+   {\HCode{<mstyle class="dotuline-math">}\NoFonts} 
+   {\EndNoFonts\HCode{</mstyle>}}
+\Css{.dotuline-math {text-decoration:underline dotted;}}
+>>>
 
 
 
