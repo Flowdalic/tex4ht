@@ -1,3 +1,9 @@
+2022-04-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (xr.4ht, xr-hooks.4ht): added support for external
+	documents in subdirectories.
+	https://puszcza.gnu.org.ua/bugs/?560
+
 2022-04-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (xr-hyper.4ht,

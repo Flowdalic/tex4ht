@@ -3799,6 +3799,10 @@ before \''\begin{document}'.
 \<wait with xr\><<<
 \:AtEndOfPackage{\let\XR:\XR@ 
    \def\XR@[#1]#2{%
+    % save directory for the linked file
+    \filename@parse{#2}%
+    % \filename@base is filename, \filename@area directory
+    \expandafter\xdef\csname xr:dir:\filename@base\endcsname{\filename@area}%
     \Configure{AtBeginDocument}{\XR:[#1]{#2}}{}}%
 }
 >>>
@@ -3836,7 +3840,10 @@ before \''\begin{document}'.
 >>>
 
 \<fix xr-nonhyper\><<<
-\def\XRrEfLiNK[#1]#2#3{\a:xr[#1]{#2}{}%
+\def\XRrEfLiNK[#1]#2#3{%
+  \filename@parse{#1}% Get basename of the linked html file, 
+  % xr:dir\filename@base contains file's directory
+  \a:xr[\csname xr:dir:\filename@base\endcsname#1]{#2}{}%
    \ifx\hyperrefLabel\:UnDef #3\else \hyperrefLabel\fi \b:xr}
 \NewConfigure{xr}{2}
 \Configure{xr}{\Link}{\EndLink}
@@ -3921,9 +3928,9 @@ it, so we can safely eat that.
 \:AtEndOfPackage{\let\XR:\XR@
     \def\XR@[#1][#2]#3{%
        % save directory for the linked file
-      \filename@parse{#3}
+      \filename@parse{#3}%
       % \filename@base is filename, \filename@area directory
-      \expandafter\xdef\csname xr:dir:\filename@base\endcsname{\filename@area}
+      \expandafter\xdef\csname xr:dir:\filename@base\endcsname{\filename@area}%
       \AtBeginDocument{\XR:[#1][#2]{#3}}
     }%
 }
