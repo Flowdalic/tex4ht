@@ -1,3 +1,10 @@
+2022-04-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): corrected class names for Ulem
+	commands in the math mode.
+	* tex4ht-mathml.tex (mathml.4ht): work arounds for displaying
+	lines for Ulem commands.
+
 2022-04-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (ulem.4ht),

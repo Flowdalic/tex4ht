@@ -3828,33 +3828,32 @@ accent="true">&\#x0332;</\a:mathml mo></\a:mathml munder>}%
    {\HCode{</mrow></munder>}} 
 >>>
 
-Support for the Ulem package in MathML
+Support for the Ulem package in MathML. It seems that text-decoration CSS
+property doesn't work in browsers for Mathml, so we need to use various tricks
+to emulate effects, especially double, dotted and dashed lines. 
+
 \<configure mathml ulem\><<<
 \Configure{uline-math}
-   {\HCode{<mstyle class="uline-math">}\NoFonts} {\EndNoFonts\HCode{</mstyle>}}
-\Css{.uline-math{ text-decoration:underline; }}
+   {\HCode{<menclose class="uline-math" notation="bottom">}\NoFonts} {\EndNoFonts\HCode{</menclose>}}
 \Configure{uuline-math}
-   {\HCode{<mstyle class="uuline-math">}\NoFonts} {\EndNoFonts\HCode{</mstyle>}}
-\Css{.uuline-math{ text-decoration:underline double; }}
+   {\HCode{<menclose class="uuline-math" notation="bottom">}\NoFonts} {\EndNoFonts\HCode{</menclose>}}
+\Css{.uuline-math{ border-bottom:3px double black; }}
 \Configure{sout-math}
-   {\HCode{<mstyle class="sout-math">}\NoFonts} {\EndNoFonts\HCode{</mstyle>}}
-\Css{.sout-math {text-decoration: line-through }}
+   {\HCode{<menclose class="sout-math" notation="horizontalstrike">}\NoFonts} {\EndNoFonts\HCode{</menclose>}}
 \Configure{xout-math}
-   {\HCode{<mstyle class="xout-math">}\NoFonts} 
-   {\EndNoFonts\HCode{</mstyle>}}
-\Css{.xout-math {text-decoration: line-through underline }}
+   {\HCode{<menclose class="xout-math" notation="horizontalstrike bottom">}\NoFonts} 
+   {\EndNoFonts\HCode{</menclose>}}
 \Configure{uwave-math}
-   {\HCode{<mstyle class="uwave-math">}\NoFonts} 
-   {\EndNoFonts\HCode{</mstyle>}}
-\Css{.uwave-math {text-decoration:underline wavy; }}
+   {\HCode{<menclose class="uwave-math" notation="bottom">}\NoFonts} 
+   {\EndNoFonts\HCode{</menclose>}}
 \Configure{dashuline-math}
-   {\HCode{<mstyle class="dashuline-math">}\NoFonts} 
+   {\HCode{<mstyle class="dashuline-math" notation="bottom">}\NoFonts} 
    {\EndNoFonts\HCode{</mstyle>}}
-\Css{.dashuline-math {text-decoration:underline dashed;}}
+\Css{.dashuline-math {border-bottom: 1px dashed black;}}
 \Configure{dotuline-math}
-   {\HCode{<mstyle class="dotuline-math">}\NoFonts} 
+   {\HCode{<mstyle class="dotuline-math" notation="bottom">}\NoFonts} 
    {\EndNoFonts\HCode{</mstyle>}}
-\Css{.dotuline-math {text-decoration:underline dotted;}}
+\Css{.dotuline-math {border-bottom: 1px dotted black;}}
 >>>
 
 
