@@ -10150,10 +10150,30 @@ Fix for the \Link[https://puszcza.gnu.org.ua/bugs/?437]{}{}starred linebreak iss
   \o:noalign:\bgroup  \gHAdvance\TitleCount  1 
     \@ifnextchar[{\egroup\LT@c@ption\@firstofone}\LT@capti@n}
 \HLet\LT@caption\:tempc
+>>>
+
+
+\<old longtable makecaption\><<<
+% this code is not used anymore, it produces spurious table cells, 
+% resulting in wrong structure
 \def\:tempc#1#2#3{%
   \LT@mcol\LT@cols c{\hbox{\parbox[t]\LTcapwidth{%
     \cptA: #1{\cap:ref{#2}}\if\relax\detokenize{#1}\relax\else\cptB:\fi\cptC:#3\cptD:
     \endgraf\vskip\baselineskip}}}}
+\HLet\LT@makecaption\:tempc
+>>>
+
+Captions in Longtable are placed inside of the table structure.
+We need to use special configuration to produce correct rendering, 
+normal code for caption will not work.
+
+\Link[https://tex.stackexchange.com/a/642350/2891] More details\EndLink
+
+\<longtable captions\><<<
+\NewConfigure{longtablecaption}{4}
+\def\:tempc#1#2#3{%
+    \a:longtablecaption #1{\cap:ref{#2}}\if\relax\detokenize{#1}\relax\else\b:longtablecaption\fi\c:longtablecaption#3\d:longtablecaption
+    \endgraf\vskip\baselineskip}
 \HLet\LT@makecaption\:tempc
 >>>
 

@@ -1,3 +1,10 @@
+2022-04-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (longtable.4ht),
+	* tex4ht-html4.tex (html4.4ht): fixed support for longtable
+	captions.
+	https://tex.stackexchange.com/a/642350/2891
+
 2022-04-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): corrected class names for Ulem

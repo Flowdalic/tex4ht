@@ -8169,6 +8169,9 @@ and the same for pic tabular. Why?
 \Css{div.longtable{text-align:center;}}
 \Css{table.longtable{margin-left:auto; margin-right: auto;}}
 \Configure{longtableparbox}{\IgnorePar\leavevmode\ShowPar\par}
+\Configure{longtablecaption}{\ifvmode\IgnorePar\fi\EndP\HCode{<caption class="longtable">}\par\ShowPar\HCode{<span class="id">}}{:\ }{\HCode{</span><span class="content">}}{\HCode{</span>}\ifvmode\IgnorePar\fi\EndP\HCode{</caption>}}
+
+\Css{caption.longtable .id{font-weight:bold;}}
 >>>
 
 
