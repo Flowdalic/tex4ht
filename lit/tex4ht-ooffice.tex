@@ -11976,7 +11976,8 @@ OO doesn't seem to hono mfenced
    {\HCode{<table:table-row \Hnewline}\halignTR\HCode{ 
                               table:style-name="TBL-\TableNo-\HRow-">}}
    {\HCode{</table:table-row>}}
-   {\HCode{<table:table-cell 
+   {\edef\cell:style:name{}% suppress compilation error
+     \HCode{<table:table-cell 
              \ifnum \HMultispan>1 table:number-columns-spanned="\HMultispan"\fi
            \space  table:style-name="TBL-\TableNo-\HRow-\HCol" ><text:p>}|<td save EndP|>%
     |<start array par box|>\PushStack\Table:Stck\TableNo}

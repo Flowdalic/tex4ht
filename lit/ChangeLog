@@ -1,5 +1,7 @@
 2022-04-28  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-ooffice.tex (ooffice.4ht): added dummy definition of
+	\cell:style:name to prevent compilation error with longtable.
 	* tex4ht-4ht.tex (longtable.4ht),
 	* tex4ht-html4.tex (html4.4ht): fixed support for longtable
 	captions.
