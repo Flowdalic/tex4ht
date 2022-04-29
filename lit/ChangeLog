@@ -1,3 +1,10 @@
+2022-04-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (enumitem.4ht): execute code stored in the "after"
+	key after closing commands for the environment.
+	* tex4ht-html4.tex (html4.4ht): vertically align enumitem numers and
+	content, provide some vertical spacing.
+
 2022-04-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added dummy definition of

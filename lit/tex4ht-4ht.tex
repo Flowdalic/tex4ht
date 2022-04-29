@@ -28378,8 +28378,23 @@ A style file for resumes.
 \endinput
 >>>        \AddFile{9}{enumitem}
 
-\<enumitem config\><<<
+If user opens a new environment in Enumitem's "before" key,
+it will prevent execution of the closing command for the 
+original environment, and generated tags will be mismatched.
 
+This code postpones execution of code from the "after" key after
+closing of the Enumitem environment, so it can be correctly closed.
+
+See \Link[https://tex.stackexchange.com/q/642439/2891] this example
+what can go wrong\EndLink.
+
+\<enumitem config\><<<
+\AddToHook{env/enumerate/end}{\ifx\enit@after\@empty\else%
+  \let\enit:after\enit@after
+  \let\enit@after\@empty
+  \let\enumerate:executed\@empty
+  \append:def\end:DL{\enit:after}
+\fi}
 >>>
 
 %%%%%%%%%%%%%
