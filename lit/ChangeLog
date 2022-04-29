@@ -1,5 +1,8 @@
 2022-04-29  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (multicol.4ht),
+	* tex4ht-html4.tex (html4.4ht): moved HTML code for Multicol to
+	from multicol.4ht to html4.4ht. Fixed minor CSS issues.
 	* tex4ht-4ht.tex (enumitem.4ht): execute code stored in the "after"
 	key after closing commands for the environment.
 	* tex4ht-html4.tex (html4.4ht): vertically align enumitem numers and

@@ -32635,7 +32635,7 @@ but fatal error is a worse possibility.
 
 \def\columnrulecolor{\a:columnrulecolor}
 \NewConfigure{columnrulecolor}{1}
-\Configure{columnrulecolor}{\#555;}
+\Configure{columnrulecolor}{\#555}
 
 % legal color
 
@@ -32686,37 +32686,19 @@ but fatal error is a worse possibility.
 \NewConfigure{multicols}{1}
 \Configure{multicols}{columns}
 
-\def\:wr:mcol:css{%
-        \Css{.\a:multicols-\mcolnum\space p:first-child { margin-top: 0em; }}%
-        \Css{.\a:multicols-\mcolnum {%
-           -moz-column-count:\mcolnum; 
-           -webkit-column-count:\mcolnum;
-           column-count:\mcolnum;
-           -moz-column-gap: \a:columngap;
-           -webkit-column-gap: \a:columngap; 
-           column-gap: \a:columngap;
-           -moz-column-rule-width: \a:columnrulewidth; 
-           -webkit-column-rule-width: \a:columnrulewidth; 
-           column-rule-rule-width: \a:columnrulewidth;
-           -moz-column-rule-color: \a:columnrulecolor; 
-           -webkit-column-rule-color: \a:columnrulecolor; 
-           column-rule-color: \a:columnrulecolor;
-           -moz-column-rule-style: \a:columnrulestyle; 
-           -webkit-column-rule-style: \a:columnrulestyle; 
-           column-rule-style: \a:columnrulestyle;
-           -moz-column-fill: \a:columnfill; 
-           -webkit-column-fill: \a:columnfill; 
-           column-fill: \a:columnfill;
-           }%
-        }%
-}
-\def\mult:cols{\IgnorePar\EndP%
-        \HCode{<div class="\a:multicols-\mcolnum">}%
+% CSS needs to be written for every column count
+\NewConfigure{multicolscss}{1}
+\def\:wr:mcol:css{\a:multicolscss }
+
+% this configuration should configure HTML code inserted for multicols environment
+\NewConfigure{multicolscolumn}{2}
+
+\def\mult:cols{\a:multicolscolumn%
         \expandafter\ifx\csname .\a:multicols-\mcolnum\endcsname\relax%
         \:wr:mcol:css
         \expandafter\gdef\csname .\a:multicols-\mcolnum\endcsname{1}%
         \fi\ShowPar\par}
-\append:def\endmulticols{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}} 
+\append:def\endmulticols{\b:multicolscolumn} 
 >>>
 
 \Section{lettrine.sty}

@@ -15672,6 +15672,35 @@ IE doesn't distinguish between upper and lower case characters in css
 \<configure html4 multicol\><<<
 \HAssign\MultiCols=0
 \ConfigureEnv{multicols}{}{}{}{}
+
+\Configure{multicolscolumn}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="\a:multicols-\mcolnum">}} 
+{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+
+\Configure{multicolscss}{%
+  \Css{.\a:multicols-\mcolnum\space :first-child { margin-top: 0em; }}%
+  \Css{.\a:multicols-\mcolnum {%
+      -moz-column-count:\mcolnum; 
+      -webkit-column-count:\mcolnum;
+      column-count:\mcolnum;
+      -moz-column-gap: \a:columngap;
+      -webkit-column-gap: \a:columngap; 
+      column-gap: \a:columngap;
+      -moz-column-rule-width: \a:columnrulewidth; 
+      -webkit-column-rule-width: \a:columnrulewidth; 
+      column-rule-rule-width: \a:columnrulewidth;
+      -moz-column-rule-color: \a:columnrulecolor; 
+      -webkit-column-rule-color: \a:columnrulecolor; 
+      column-rule-color: \a:columnrulecolor;
+      -moz-column-rule-style: \a:columnrulestyle; 
+      -webkit-column-rule-style: \a:columnrulestyle; 
+      column-rule-style: \a:columnrulestyle;
+      -moz-column-fill: \a:columnfill; 
+      -webkit-column-fill: \a:columnfill; 
+      column-fill: \a:columnfill;
+    }%
+  }%
+}
 %    {\par\IgnorePar\EndP
 %     \gHAdvance\MultiCols by 1\relax
 %     \HCode{<table class="multicols"
