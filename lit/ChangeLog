@@ -1,3 +1,9 @@
+2022-05-01  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex,
+	* tex4ht-mathml.tex,
+	* tex4ht-options.tex: copyright 2022, \write version.
+
 2022-04-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (multicol.4ht),
