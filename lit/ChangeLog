@@ -1,3 +1,9 @@
+2022-05-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (xrhyper-hooks.4ht, xr-hooks.4ht): fixed support
+	for the cut files.
+	https://puszcza.gnu.org.ua/bugs/?561
+
 2022-05-01  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex,
