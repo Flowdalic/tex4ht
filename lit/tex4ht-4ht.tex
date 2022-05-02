@@ -3961,7 +3961,7 @@ Declare file directory for filtes that were cut from the main file (using option
     \edef\:tempa{#2}%
     \def\:CrossWord##1##2##3{\:extract:filename:from:xref{##1}{##2}{\:tempa}}%
     \catcode`\:=11% : is not letter at this moment
-    \input #1.xref% load saved cross-references
+    \InputIfFileExists{#1.xref}{}{}% load saved cross-references
     \endgroup
 }
 
