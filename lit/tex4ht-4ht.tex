@@ -27300,10 +27300,11 @@ We need to use dvips driver with XeLaTeX
   \def\:tcbcolid{tcolobox-\arabic{:tcbcolcount}}
   % Open box
   \a:tcolorbox%
-  % save label, if it is set
+  % set label if it exists
   \ifdefined\tcolorbox:label:key%
+    \let\@currentlabel\tcolorbox:currentlabel% at this moment, \@currentlabel has wrong value
+    \o:tcb@set@label:{\tcolorbox:label:key}%
     \AnchorLabel% save cross-ref destination
-    \label{\tcolorbox:label:key}%
     \global\let\tcolorbox:label:key\undefined% 
   \fi%
   % open title
@@ -27344,10 +27345,10 @@ We need to use dvips driver with XeLaTeX
 \NewConfigure{tcolorbox}{4}
 \NewConfigure{tcolorlowerbox}{2}
 
-% we need to save label for a later use
+% we need to save current label for a later use
 \def\:tempa#1{%
   \xdef\tcolorbox:label:key{#1}%
-  \o:tcb@set@label:{#1}%
+  \global\let\tcolorbox:currentlabel\@currentlabel%
 }
 \HLet\tcb@set@label\:tempa
 
