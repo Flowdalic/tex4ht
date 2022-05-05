@@ -1,3 +1,8 @@
+2022-05-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed underbrace rendering.
+	https://github.com/michal-h21/make4ht/issues/76
+
 2022-05-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tcolorbox.4ht): fixed \label support for
