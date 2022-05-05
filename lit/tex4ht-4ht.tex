@@ -27353,6 +27353,7 @@ We need to use dvips driver with XeLaTeX
 \HLet\tcb@set@label\:tempa
 
 |<tcolorbox minipage|>
+|<tcolorbox nameref|>
 
 \Hinput{tcolorbox}
 \endinput
@@ -27370,6 +27371,19 @@ where spurious end \`'</p>' tags were inserted
 \pend:def\tcb@minipage@bottom{\SaveEndP}
 \pend:def\tcb@minipage@center{\SaveEndP}
 
+>>>
+
+This code fixes nameref support in Tcolorbox.
+
+\<tcolorbox nameref\><<<
+\AfterEndPreamble{%
+  % fix \nameref support
+  \def\:tempa#1{%
+    \gdef\NR:Title{\a:newlabel{#1}}%
+    \o:tcb@gettitle:{#1}%
+  }%
+  \HLet\tcb@gettitle\:tempa
+}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%
