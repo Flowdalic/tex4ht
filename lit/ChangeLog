@@ -1,3 +1,15 @@
+2022-05-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-modern.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/mlm/mlmex.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/mlm/mlmsy.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/mlm/rm-mlm.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/mlm/mlmbsy.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/mlm/rm-mlmvt.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/mlm/mlmmi.htf
+	): Added support for ML Modern fonts.
+	https://tex.stackexchange.com/a/643260/2891
+
 2022-05-08  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (xrhyper-hooks.4ht): copyright.
