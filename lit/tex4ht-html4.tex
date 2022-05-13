@@ -1139,8 +1139,33 @@ tex4ht-body>>>
        \Log:Note{For section filenames that reflect on
                  their titles use the command line 
                  option `sec-filename'}
+       \:CheckOption{cut-fullname}
+       \if:Option
+         |<section type names for cutat files|>
+       \else
+          \Log:Note{For section filenames that use full
+                 jobname and section type use the command line 
+                 option `cut-fullname'}
+       \fi
     \fi 
 \fi
+>>>
+
+This redefines internal macro from tex4ht.sty to use a full 
+section type name instead of just first two characters. 
+This can be usefull especially when you cut at level that cuts both 
+subsections and subsubsections, as these will produce the same filenames.
+
+See \Link[https://tex.stackexchange.com/a/644072/2891]{}{} this answer for more
+details\EndLink.
+
+\<section type names for cutat files\><<<
+\let\j:bname\jobname
+\def\fx:pt#1xxx!*?: {%
+  \expandafter\ifx \csname big:#1:\endcsname\relax%
+  \expandafter\gHAssign\csname big:#1:\endcsname  0  \fi%
+  \expandafter\gHAdvance\csname big:#1:\endcsname  1%
+\edef\big:fn{#1\csname big:#1:\endcsname}}
 >>>
 
 \<section names for cutat files\><<<

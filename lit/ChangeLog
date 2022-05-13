@@ -1,3 +1,10 @@
+2022-05-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): added option "cut-fullname", to
+	produce full section file names based on jobname and section type.
+	By default, both are truncated to two characters.
+	https://tex.stackexchange.com/a/644072/2891
+
 2022-05-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-modern.tex (
