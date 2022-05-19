@@ -1,3 +1,11 @@
+2022-05-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (cancel.4ht),
+	* tex4ht-html4.tex ( html4.4ht, html-math.4ht),
+	* tex4ht-mathml.tex (mathml.4ht): Added support for the Cancel
+	package.
+	https://github.com/michal-h21/make4ht/issues/76
+
 2022-05-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): fixed support for \overrightarrow

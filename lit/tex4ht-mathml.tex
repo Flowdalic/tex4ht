@@ -3856,7 +3856,17 @@ to emulate effects, especially double, dotted and dashed lines.
 \Css{.dotuline-math {border-bottom: 1px dotted black;}}
 >>>
 
+Support for the Cancel package
 
+\<configure mathml cancel\><<<
+\Configure{cancel-math}{\HCode{<\a:mathml menclose notation="updiagonalstrike">}}{\HCode{</\a:mathml menclose>}}
+\Configure{bcancel-math}{\HCode{<\a:mathml menclose notation="downdiagonalstrike">}}{\HCode{</\a:mathml menclose>}}
+\Configure{xcancel-math}{\HCode{<\a:mathml menclose notation="updiagonalstrike downdiagonalstrike">}}{\HCode{</\a:mathml menclose>}}
+\Configure{cancelto}
+{\HCode{<\a:mathml msup><\a:mathml menclose notation="updiagonalarrow"><\a:mathml mrow>}}
+{\HCode{</\a:mathml mrow></\a:mathml menclose><\a:mathml mrow>}}
+{\HCode{</\a:mathml mrow></\a:mathml msup>}}
+>>>
 
 
 

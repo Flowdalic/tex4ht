@@ -31004,6 +31004,47 @@ Configurations in math mode are named after the command with the "-math" suffix.
 >>>
 
 %%%%%%%%%%%%%%%%%%%
+\Section{cancel}
+%%%%%%%%%%%%%%%%%%%
+
+\<cancel.4ht\><<< 
+% cancel.4ht (|version), generated from |jobname.tex 
+% Copyright 2022 TeX Users Group 
+|<TeX4ht license text|> 
+|<cancel config|>
+\Hinput{cancel} 
+\endinput 
+>>> \AddFile{9}{cancel}
+
+\<cancel config\><<<
+\def\:cancelchoose#1#2{\relax\ifmmode\csname a:#1-math\endcsname#2\csname b:#1-math\endcsname\else\csname a:#1\endcsname#2\csname b:#1\endcsname\fi}
+\NewConfigure{cancel}{2}
+\NewConfigure{cancel-math}{2}
+\def\:tempa#1{\:cancelchoose{cancel}{#1}}
+% \def\:tempa#1{\ifmmode\a:cancelmath#1\b:cancelmath\else\a:cancel#1\b:cancel\fi}
+\HLet\cancel\:tempa
+
+\NewConfigure{bcancel}{2}
+\NewConfigure{bcancel-math}{2}
+\def\:tempa#1{\:cancelchoose{bcancel}{#1}}
+% \def\:tempa#1{\ifmmode\a:bcancelmath#1\b:bcancelmath\else\a:bcancel#1\b:bcancel\fi}
+\HLet\bcancel\:tempa
+
+\NewConfigure{xcancel}{2}
+\NewConfigure{xcancel-math}{2}
+\def\:tempa#1{\:cancelchoose{xcancel}{#1}}
+% \def\:tempa#1{\ifmmode\a:xcancelmath#1\b:xcancelmath\else\a:xcancel#1\b:xcancel\fi}
+\HLet\xcancel\:tempa
+
+\NewConfigure{cancelto}{3}
+\def\:tempa#1#2{\a:cancelto#1\b:cancelto#2\c:cancelto}
+\HLet\cancelto\:tempa
+
+>>>
+
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%
 \Section{go}
 %%%%%%%%%%%%%%%%%%%
 
