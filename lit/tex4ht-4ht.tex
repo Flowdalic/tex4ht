@@ -31212,11 +31212,11 @@ Configure list of listings
       \expandafter\lstset\expandafter{\lst@set}% 
       \lsthk@DisplayStyle%
       \catcode\active=\active%
-      \a:lstinputlisting\special{t4ht@[}\lst@Init\relax \let\lst@gobble\z@%
+      \a:lstinputlisting\ht:special{t4ht@[}\lst@Init\relax \let\lst@gobble\z@%
       \lst@SkipToFirst%
       \lst@ifprint \def\lst@next{\input{#1}}% 
              \else \let\lst@next\@empty \fi%
-      \special{t4ht@]}\lst@next \lst@DeInit%
+      \ht:special{t4ht@]}\lst@next\ht:special{t4ht@[}\lst@DeInit\ht:special{t4ht@]}%
       \b:lstinputlisting%
     \endgroup} 
 

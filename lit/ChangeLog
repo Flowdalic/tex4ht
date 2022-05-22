@@ -1,3 +1,9 @@
+2022-05-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (listings.4ht),
+	* tex4ht-html4.tex (html4.4ht): removed spurious line from listings.
+	https://tex.stackexchange.com/a/645197/2891
+
 2022-05-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (cancel.4ht),
