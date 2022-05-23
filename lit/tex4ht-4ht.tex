@@ -3902,7 +3902,9 @@ Hyperref pasess five arguments to \`|\newlabel|, we must adapt \`|\XR:rEfLiNK| t
   \filename@parse{#1}% Get basename of the linked html file, 
   % xr:dir\filename@base contains file's directory
   \a:xr[\csname xr:dir:\filename@base\endcsname#1]{#2}{}%
-  \ifx\hyperrefLabel\:UnDef #3\else \hyperrefLabel\fi \b:xr}
+  % this extra \fi fixes warning about unclosed \ifx, I hope it doesn't break anything
+  % I cannot find where that \ifx starts
+  \ifx\hyperrefLabel\:UnDef #3\else \hyperrefLabel\fi \b:xr\fi}
 \NewConfigure{xr}{2}
 \Configure{xr}{\Link}{\EndLink}
 \def\XR:rEfLiNK#1#2#3#4#5{{\xr:rEfLiNK#1}{\xr:rEfLiNK#2}{\xr:rEfLiNK#3}}
