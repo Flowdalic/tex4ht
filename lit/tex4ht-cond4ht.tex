@@ -2,11 +2,12 @@
 % (1)  tex tex4ht-cond4ht    or   xhtex tex4ht-cond4ht
 % (2)  tex cond4ht.4ht
 %
-% Copyright 2009-2021 TeX Users Group
+% Copyright 2009-2022 TeX Users Group
 % Copyright 1997-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
 
+\vbadness=10000
 \csname tex4ht\endcsname
 
   \input ProTex.sty
@@ -454,7 +455,7 @@ tex4ht-4ht, e.g., for adding cases to {\tt\string\exit:ifnot}.
 %  the copyright notice.
 %
 % |mkfilename (|version), generated from |jobname.4ht
-% Copyright 2009-2021 TeX Users Group
+% Copyright 2009-2022 TeX Users Group
 % Copyright 1997-2009 Eitan M. Gurari
 |<TeX4ht copywrite|>
 
@@ -567,12 +568,14 @@ tex4ht-4ht, e.g., for adding cases to {\tt\string\exit:ifnot}.
 }
    \catcode`\:=12
 
-
-
 \documentclass{book}
    \ifx \HCode\UnDef
-      \def\temp{\usepackage[\ifx \OPTIONS\UnDef
-                     xhtml,3,sections+\else \OPTIONS\fi]{tex4ht}}
+      \ifx\OPTIONS\UnDef
+        \toks0={xhtml,3,sections+}%
+      \else
+        \toks0={\OPTIONS}%
+      \fi
+      \def\temp{\usepackage[\the\toks0]{tex4ht}}
       \expandafter\temp
    \fi
    \Configure{ProTex}{4ht,<<<>>|empty>,||,title,list,[[]]}
