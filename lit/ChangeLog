@@ -1,3 +1,11 @@
+2022-06-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-modern.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/mlm/ec-mlm.htf,
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/mlm/ec-mlmvt.htf
+	): added EC versions of Mlmodern fonts.
+	https://tex.stackexchange.com/a/643260/2891
+
 2022-05-24  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-cond4ht.tex (\mkfilename == mktex4ht.4ht):
