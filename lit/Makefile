@@ -718,7 +718,7 @@ endif
 # The directories where tex4ht is installed in TeX Live,
 # i.e., where we will copy and commit updates.
 
-texmf = /r/tug/home/texlive/karl/Master/texmf-dist
+texmf = /v/texlive/karl/Master/texmf-dist
 inst_dir_4ht = $(texmf)/tex/generic/tex4ht
 inst_dir_top = $(texmf)/tex4ht
 inst_dir_scripts = $(texmf)/scripts/tex4ht
@@ -784,7 +784,7 @@ diff-htfonts:
 
 # Compare and update.
 update-htfonts:
-	./update-htfonts update $(ht_fonts_devdir) $(ht_fonts_instdir) | tee /tmp/htdif
+	./update-htfonts update $(ht_fonts_devdir) $(ht_fonts_instdir) | tee /tmp/htupd
 .PHONY: update-htfonts
 
 # 

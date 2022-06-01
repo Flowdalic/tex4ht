@@ -83,7 +83,7 @@ echo "$prg:        to $instdir"
 #
 find "$devdir" -type f -print | sort | while read devf; do
   instf=`echo "$devf" | sed "s,^$devdir/,$instdir/,"`
-  echo "$devf" | grep OpenSans >/dev/null &&
+  #echo "$devf" | grep ec-mlm >/dev/null &&
   #$verbose && echo "considering $devf -> $instf"
   
   if test -r "$instf"; then
