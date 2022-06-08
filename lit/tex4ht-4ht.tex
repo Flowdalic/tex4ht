@@ -13591,10 +13591,14 @@ The need to initialize   \''\@svsechd' arises in
 Nameref redefines ifthenelse command, but it clashes with BibLaTeX,
 so we revert back to the original version.
 
+The 2022 version of Nameref doesn't redefine it anymore, so we will
+restore the original ifthen only if we are on a system with not updated
+Nameref.
+
 \<fix nameref ifthen\><<<
-\@ifpackageloaded{nameref}{%
+\ifdefined\NROrg@ifthenelse%
 \let\ifthenelse\NROrg@ifthenelse%
-}{}
+\fi
 >>>
 
 \<fix ifthen\><<<
