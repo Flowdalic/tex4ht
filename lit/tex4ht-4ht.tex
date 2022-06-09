@@ -1755,8 +1755,9 @@ of entries as \''\Alph'.
      XXI\or XXII\or XXIII\or XXIV\or XV\or XVI\else
      \expandafter\uppercase\expandafter{\romannumeral ##1}\fi}%
    \a:currentlabel
+   \expandafter\ifcsname p@#1\endcsname%
    \edef\:temp{\csname p@#1\expandafter\endcsname\csname the#1\endcsname}\ifx \:temp\empty
-   \else \global\let\@currentlabel|=\:temp\fi
+   \else \global\let\@currentlabel|=\:temp\fi\fi
 \egroup
 >>>
 
