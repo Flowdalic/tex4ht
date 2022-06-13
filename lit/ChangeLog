@@ -1,3 +1,11 @@
+2022-06-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-cjk-utf8.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/cjk/utf8/unisong*.htf
+	): renamed utf8song*.htf to unisong*.htf, as the upstream fonts were
+	renamed.
+	https://tex.stackexchange.com/q/647557/2891
+
 2022-06-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.tex (jats.4ht): added basic formatting support for

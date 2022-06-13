@@ -147,7 +147,7 @@ tex4ht_fonts_cjk_derived = \
 
 derived += $(tex4ht_fonts_cjk_utf8_derived)
 tex4ht_fonts_cjk_utf8_derived = \
-  $(ht_fonts_devdir)/unicode/cjk/utf8/utf8songa0.htf
+  $(ht_fonts_devdir)/unicode/cjk/utf8/unisonga0.htf
 
 # noncjk.tex \input's modern, but seems more maintainable
 # to have separate lists.
