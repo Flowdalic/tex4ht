@@ -4327,6 +4327,63 @@ Add dummy .4ht file. We may use it in the future.
 >>> \AddFile{9}{ctex}
 
 %%%%%%%%%%%%%%%%%
+\Section{ctexart}
+%%%%%%%%%%%%%%%%%
+
+This is a class relatex to Ctex. It fails with a fatal error 
+with LuaTeX and XeTeX, so we need to suppress lot of it's behavior.
+
+We need to use the LaTeX hook mechanism to load the patch file
+before the class itself.
+
+\<add to usepackage\><<<
+\AddToHook{class/ctexart/before}{\input{ctexart-hooks.4ht}}
+>>>
+
+\<ctexart-hooks.4ht\><<<
+% ctexart-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\ExplSyntaxOn
+
+% prevent multiple execution of this file
+\ifdefined\l_save_engine_str\endinput\fi
+\str_new:N \l_save_engine_str 
+% stop processing if the engine is pdftex, we want to change processing only for LuaTeX
+\def\l_save_engine_str{pdftex}
+\str_if_eq:NNTF \c_sys_engine_str\l_save_engine_str{\ExplSyntaxOff\endinput}{}
+
+% the luatexja package causes fatal error
+\:dontusepackage{luatexja}
+
+% fix compilation errors 
+\AddToHook{package/ctexhook/after}{
+  % don't let ctex to insert any files
+  \cs_set:Npn \ctex_file_input:n #1{}
+  % define some macros that are declared in the input files, and which are needed in the class
+  \cs_set:Npn \ctex_add_to_selectfont:n #1{}
+  \dim_new:N \ccwd
+  \skip_new:N \l__ctex_ccglue_skip
+  \cs_set_protected:Npn \ctex_update_em_unit:
+  { \dim_set:Nn \ccwd { \f@size \p@ } }
+  \cs_set_protected:Npn \ctex_update_ccglue: {}
+}
+
+\ExplSyntaxOff
+\endinput
+>>> \AddFile{9}{ctexart-hooks}
+
+Add dummy .4ht file. We may use it in the future.
+
+\<ctexart.4ht\><<<
+% ctexart.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\Hinput{ctexart}
+\endinput
+>>> \AddFile{9}{ctexart}
+
+%%%%%%%%%%%%%%%%%
 \Section{polyglossia}
 %%%%%%%%%%%%%%%%%
 
