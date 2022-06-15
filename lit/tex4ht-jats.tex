@@ -158,8 +158,9 @@ Configurations that are shared only for article and report
 
 \<ams art,proc,book\><<<
 |<latex numbered sections|>
-|<figcaption|>
+|<latex floats|>
 |<abstract|>
+|<latex tables|>
 >>>
 
 \section{Configurations for Memoir}
@@ -173,7 +174,8 @@ Configurations that are shared only for article and report
 \section{Shared class configurations}
 \<shared latex classes\><<<
 |<latex sections|>
-|<figcaption|>
+|<latex floats|>
+|<latex tables|>
 >>>
 
 \<shared article,report\><<<
@@ -570,6 +572,74 @@ about font name and size is lost.
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
    {\HCode{<title>}\space\HtmlParOff}
    {\HCode{</title>}\HtmlParOn \ShowPar\par}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Abstracts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<abstract\><<<
+\ConfigureEnv{abstract}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<abstract>\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</abstract>}\par}{}{}
+
+\Configure{abstracttitle}{\ifvmode\IgnorePar\fi\EndP\HCode{<label>}\HtmlParOff\NoFonts}
+   {\HCode{</label>}\EndNoFonts\HtmlParOn\par}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Floats}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<latex floats\><<<
+
+\Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\IgnorePar\EndP\HCode{<fig>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</fig>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\IgnorePar\EndP\HCode{<fig>\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%    
+   }
+   {\egroup
+   \IgnorePar\EndP\HCode{</fig>}|<try env inline par|>\par}
+   {}{}
+
+
+\Configure{caption}{\IgnorePar\EndP\HCode{<label>}}
+   {: } {\HCode{</label><caption>}\noindent\ShowPar}
+   {\HCode{</caption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+>>>
+%%%%%%%%%%%%%%%%%%%
+\section{Tables}
+%%%%%%%%%%%%%%%%%%%
+
+\<latex tables\><<<
+\ConfigureEnv{table}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<table-wrap position="float">}
+   \Configure{float}{}{}{}{}
+   }
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</table-wrap>}\par\ShowPar}
+   {}{}
+
+\ConfigureEnv{tabular}
+     {\Configure{noalign}%
+{\f:tabular\d:tabular \HCode{<tr><td colspan="\ar:cnt">}}
+{\HCode{</td></tr>}\pend:def\TableNo{0}\c:tabular\e:tabular}%
+%
+\IgnorePar\ifvmode\else\HCode{<!--tex4ht:inline-->}\fi
+\EndP\PushStack\Col:Marg\AllColMargins
+}
+{\PopStack\Col:Marg\AllColMargins\ShowPar
+\Configure{noalign}{}{}%
+%
+\ShowPar
+%
+}{}{}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
