@@ -1,7 +1,7 @@
 2022-06-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.tex (jats.4ht): added support for Koma, AMS and Memoir
-	classes, figures and tables.
+	classes, figures, tables and footnotes.
 
 	* tex4ht-jats.tex (jats.4ht): added xml:lang support for the article
 	element.

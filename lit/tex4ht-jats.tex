@@ -161,6 +161,7 @@ Configurations that are shared only for article and report
 |<latex floats|>
 |<abstract|>
 |<latex tables|>
+|<latex footnotes|>
 >>>
 
 \section{Configurations for Memoir}
@@ -176,6 +177,7 @@ Configurations that are shared only for article and report
 |<latex sections|>
 |<latex floats|>
 |<latex tables|>
+|<latex footnotes|>
 >>>
 
 \<shared article,report\><<<
@@ -640,6 +642,18 @@ about font name and size is lost.
 \ShowPar
 %
 }{}{}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Footnotes}
+%%%%%%%%%%%%%%%%%%%%%
+
+\<latex footnotes\><<<
+\Configure{footnotemark}{\bgroup\NoFonts\HCode{<fn symbol="}\Configure{textsuperscript}{}{}}{\HCode{">}\EndNoFonts\egroup}
+% suppress footnote number in footnotext, it was already used in footnotemark
+\Configure{footnotetext}{\NoFonts\ShowPar\setbox0=\vbox\bgroup}
+{\egroup\EndNoFonts\SaveEndP\par\ShowPar\normalsize}% force new paragraph and normal font size
+{\EndP\RecallEndP\HCode{</fn>}}%
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
