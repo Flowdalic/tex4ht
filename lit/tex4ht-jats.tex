@@ -68,26 +68,126 @@ file.
 \section{Classes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \<configure jats article\><<<
-|<latex sections|>
+|<article,report,book|>
+|<article,report|>
 >>>
 
 \<configure jats book\><<<
-|<latex chapters|>
+|<article,report,book|>
+|<book,report|>
+>>>
+
+\<configure jats report\><<<
+|<article,report,book|>
+|<article,report|>
+|<book,report|>
+>>>
+
+Shared configurations for base LaTeX classes.
+
+\<article,report,book\><<<
+|<shared latex classes|>
+>>>
+
+Configurations that are shared only for article and report
+
+\<article,report\><<<
+|<shared article,report|>
+>>>
+
+\<book,report\><<<
+|<shared book,report|>
+>>>
+
+\section{Configurations for Koma Script}
+
+\<configure jats scrartcl\><<<
+|<scr article,report,book|>
+|<scr article,report|>
+>>>
+
+\<configure jats scrbook\><<<
+|<scr article,report,book|>
+|<scr report,book|>
+>>>
+
+\<configure jats scrreprt\><<<
+|<scr article,report,book|>
+|<scr article,report|>
+|<scr report,book|>
+>>>
+
+\<scr article,report,book\><<<
+|<shared latex classes|>
+>>>
+
+\<scr article,report\><<<
+|<shared article,report|>
+>>>
+
+\<scr report,book\><<<
+|<shared book,report|>
+>>>
+
+\section{Configurations for AMS classes}
+
+\<configure jats amsart\><<<
+|<ams art,proc,book|>
+|<ams art,proc|>
+>>>
+
+\<configure jats amsproc\><<<
+|<ams art,proc,book|>
+|<ams proc,book|>
+|<ams art,proc|>
+>>>
+
+\<configure jats amsbook\><<<
+|<ams art,proc,book|>
+|<ams proc,book|>
+>>>
+
+|<ams art,proc|><<<
+>>>
+
+\<ams proc,book\><<<
+|<latex numbered chapters|>
+>>>
+
+\<ams art,proc,book\><<<
+|<latex numbered sections|>
+|<figcaption|>
+|<abstract|>
+>>>
+
+\section{Configurations for Memoir}
+
+\<configure jats memoir\><<<
+|<shared latex classes|>
+|<shared article,report|>
+|<shared book,report|>
+>>>
+
+\section{Shared class configurations}
+\<shared latex classes\><<<
 |<latex sections|>
+|<figcaption|>
 >>>
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Packages}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\<configure jats url\><<<
-|<url links|>
+\<shared article,report\><<<
+|<abstract|>
 >>>
 
-\<configure jats hyperref\><<<
-|<hyperref links|>
+\<shared book,report\><<<
+|<latex chapters|>
 >>>
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Basic system configurations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \<xml structure\><<<
 \Configure{VERSION}{\HCode{<?xml version="1.0" encoding="UTF-8"?>\Hnewline}}
@@ -349,8 +449,21 @@ about font name and size is lost.
 >>>
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Document structure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sections}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \<latex chapters\><<<
+|<latex numbered chapters|>
+|<latex unnumbered chapters|>
+>>>
+
+
+\<latex numbered chapters\><<<
 \Configure{chapter}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
@@ -361,11 +474,6 @@ about font name and size is lost.
    {\if@mainmatter
        \HCode{<label>}\chaptername\ \thechapter\HCode{</label>}\fi}
 
-\Configure{likechapter}
-{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
-{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
-   {\HCode{<title>}\space\HtmlParOff}
-   {\HCode{</title>}\HtmlParOn \ShowPar\par}
 
 \Configure{appendix}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
@@ -377,8 +485,20 @@ about font name and size is lost.
    \appendixname\ \thechapter\HCode{</label>}}
 >>>
 
-\<latex sections\><<<
+\<latex unnumbered chapters\><<<
+\Configure{likechapter}
+{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
+   {\HCode{<title>}\space\HtmlParOff}
+   {\HCode{</title>}\HtmlParOn \ShowPar\par}
+>>>
 
+\<latex sections\><<<
+|<latex numbered sections|>
+|<latex unnumbered sections|>
+>>>
+
+\<latex numbered sections\><<<
 \Configure{section}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
@@ -391,11 +511,6 @@ about font name and size is lost.
        \HCode{<label>}\@seccntformat{section}%
        \HCode{</label>}\fi }
 
-\Configure{likesection}
-{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
-{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
-   {\HCode{<title>}\space\HtmlParOff}
-   {\HCode{</title>}\HtmlParOn \ShowPar\par}
 
 \Configure{subsection}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
@@ -409,11 +524,6 @@ about font name and size is lost.
        \HCode{<label>}\@seccntformat{section}%
        \HCode{</label>}\fi }
 
-\Configure{likesubsection}
-{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
-{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
-   {\HCode{<title>}\space\HtmlParOff}
-   {\HCode{</title>}\HtmlParOn \ShowPar\par}
 
 \Configure{subsubsection}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
@@ -427,11 +537,6 @@ about font name and size is lost.
        \HCode{<label>}\@seccntformat{section}%
        \HCode{</label>}\fi }
 
-\Configure{likesubsubsection}
-{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
-{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
-   {\HCode{<title>}\space\HtmlParOff}
-   {\HCode{</title>}\HtmlParOn \ShowPar\par}
 
 \Configure{paragraph}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
@@ -439,6 +544,26 @@ about font name and size is lost.
    {\HCode{<title>}\space\HtmlParOff}
    {\HCode{</title>}\HtmlParOn \ShowPar\par}
 
+>>>
+
+\<latex unnumbered sections\><<<
+\Configure{likesection}
+{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
+   {\HCode{<title>}\space\HtmlParOff}
+   {\HCode{</title>}\HtmlParOn \ShowPar\par}
+
+\Configure{likesubsection}
+{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
+   {\HCode{<title>}\space\HtmlParOff}
+   {\HCode{</title>}\HtmlParOn \ShowPar\par}
+
+\Configure{likesubsubsection}
+{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{</sec>\Hnewline}}
+   {\HCode{<title>}\space\HtmlParOff}
+   {\HCode{</title>}\HtmlParOn \ShowPar\par}
 
 \Configure{likeparagraph}
 {\ifvmode\IgnorePar\fi\EndP\IgnorePar\HCode{<sec>\Hnewline}}
@@ -447,5 +572,16 @@ about font name and size is lost.
    {\HCode{</title>}\HtmlParOn \ShowPar\par}
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Packages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<configure jats url\><<<
+|<url links|>
+>>>
+
+\<configure jats hyperref\><<<
+|<hyperref links|>
+>>>
 
 \endinput
