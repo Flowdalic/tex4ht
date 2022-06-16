@@ -1,3 +1,9 @@
+2022-06-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-jats.tex (jats.4ht): added support for the quote
+	environment.
+	https://tex.stackexchange.com/q/647208/2891
+
 2022-06-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.tex (jats.4ht): added support for Koma, AMS and Memoir
