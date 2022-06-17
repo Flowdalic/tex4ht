@@ -157,6 +157,7 @@ Configurations that are shared only for article and report
 >>>
 
 \<ams art,proc,book\><<<
+|<latex maketitle|>
 |<latex numbered sections|>
 |<latex floats|>
 |<abstract|>
@@ -175,6 +176,7 @@ Configurations that are shared only for article and report
 
 \section{Shared class configurations}
 \<shared latex classes\><<<
+|<latex maketitle|>
 |<latex sections|>
 |<latex floats|>
 |<latex tables|>
@@ -458,6 +460,61 @@ about font name and size is lost.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Document structure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Maketitle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+JATS expects specific elements in the document metadata. We produce some custom
+elements, which are expected to be removed in the make4ht post-processing. Contents
+of maketitle should be moved to the metadata block and removed from the document 
+body.
+
+\<latex maketitle\><<<
+\Configure{maketitle}
+   {\ifvmode \IgnorePar\fi \EndP |<title for TITLE|>%
+    \HCode{<maketitle>}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</maketitle>}}
+   {\NoFonts\IgnorePar\HCode{<article-title>}\IgnorePar}
+   {\HCode{</article-title>}\IgnoreIndent\EndNoFonts}
+>>>
+
+This macro is used to print zeropaded days and months in the ISO date attribute
+
+\<latex maketitle\><<<
+\def\date:zeropad#1{\ifnum #1<10 0\fi#1}
+>>>
+
+
+\<latex maketitle\><<<
+\Configure{thanks author date and} 
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<aff>}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</aff>}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<contrib contrib-type="author"><name><string-name>}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</string-name></name></contrib>}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<date iso-8601-date="\the\year-\date:zeropad{\the\month}-\date:zeropad{\the\day}"><string-date>}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</string-date></date>}}
+   {\HCode{</string-name></name></contrib><contrib contrib-type="author"><name><string-name>}}
+   {\HCode{}}
+
+\Configure{thank}
+{\HCode{<affref rid="\the\c@footnote">}} 
+{\HCode{</affref>}}
+{\HCode{<aff id="\the\c@footnote"><affmark>}}
+{\HCode{</affmark>}} {\HCode{</aff>}}
+>>>
+
+\<title for TITLE\><<<
+{\Configure{maketitle}{}{}{}{}%
+% \let\thanks|=\:gobble
+\def\TeX{TeX}%
+\def\mbox{\hbox}%
+\def\gobble:font##1##2{##2}\:TITLE: \no:fonts
+\def\footnotemark[##1]{}%
+\def\:hashintitle{\protect\symbol{35}}
+\let\#\:hashintitle
+\NoFonts\Tag{TITLE+}{\@title}\EndNoFonts}
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sections}
