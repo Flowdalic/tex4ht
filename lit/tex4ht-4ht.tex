@@ -26759,6 +26759,7 @@ use  instructions like \`'\setlength\tmp:dim\Gin@ewidth'  instead of
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \SubSection{graphbox}
+%%%%%%%%%%%%%%%%%%%%%%%
 
 Graphbox redefines \`'\Gin@setfile'  to make some manipulations with the
 graphics box. We want to revert it, because it fatally breaks TeX4ht, and 
@@ -26776,7 +26777,35 @@ it isn't useful in XML anyway.
   \let\Gin@setfile\old@box@Gin@setfile
 }
 >>> \AddFile{9}{graphbox-hooks}
+
 %%%%%%%%%%%%%%%%%%%%%%%
+\SubSection{pdfpages}
+\<pdfpages.4ht\><<<
+% pdfpages.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<pdfpages configurations|>
+\Hinput{pdfpages} 
+\endinput
+>>> \AddFile{9}{pdfpages}
+
+TeX4ht supports inclusion of PDF thanks to Graphicx package, we just need 
+to make it compatible with Pdfpages.
+
+\<pdfpages configurations\><<<
+\define@key{Gin}{page}[]{\edef\Gin@page{#1}}
+
+\def\AM@findfile#1{%
+  \AM@findfile@i{#1}{pdf}%
+  \AM@findfile@ii{#1}%
+}
+\catcode`\:=12
+\renewcommand\AM@output[1]{%
+  \@for\@pages:=\AM@pagestemp\do{\includegraphics[page=\@pages]{\AM@currentdocname}}
+}
+\catcode`\:=11
+>>>
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \Section{svg}
