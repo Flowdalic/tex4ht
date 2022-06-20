@@ -5226,6 +5226,7 @@ be removed safely.
 \def\hyper@anchor#1{\hyper@anchorstart{#1}\hyper@anchorend}
 >>>
 
+
 \<config hyperref\><<<
 \def\hyper@linkurl#1#2{%
   \leavevmode  \begingroup    \hyper@chars
@@ -5380,6 +5381,7 @@ We can load nameref from the early hook file
 \:AtEndOfPackage{%
 |<load nameref in hyperref hooks|>
 |<define autoref captions|>
+|<define Hy@numberline|>
 }
 >>> \AddFile{9}{hyperref-hooks}
 
@@ -5432,6 +5434,12 @@ one of these captions in the preamble.
 \providecommand*\pageautorefname{page}
 >>>
 
+Some packages redefine the following command, which is declared in various Hyperref drivers,
+but not with TeX4ht. User will then get an error:
+
+\<define Hy@numberline\><<<
+\def\Hy@numberline#1{#1 }
+>>>
 
 \<nameref moved from old hyperref\><<<
 \def\tht:label#1{%
