@@ -11487,13 +11487,39 @@ The following has been changed for getting links in \`'.aux' files to
 \`'.lot' (list of tables) and \`'lof'  (list of figures) files.
 
 \<latex ltfloat\><<<
+|<latex caption index|>
 \long\def\:tempc#1[#2]#3{\par \cur:lbl{}%
   |<write caption to toc|>\begingroup
+    |<latex caption index save|>
     \@parboxrestore \normalsize
     \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
-  \endgroup |<cancel if-label anchors|>}
+  \endgroup 
+|<latex caption index print|>
+|<cancel if-label anchors|>}
 \def\numberline#1{\hbox to\@tempdima{#1\hfil} }
 \HLet\@caption|=\:tempc
+>>>
+
+The index commands used inside caption may result in fatal error. 
+We use the LaTeX 3 sequences to save their contents inside caption,
+and print them when it is safe.
+
+\<latex caption index\><<<
+\ExplSyntaxOn
+\seq_new:N\:savedindex
+\def\:initsaveindex{\seq_gclear:N\:savedindex}
+\def\:saveindex#1{\seq_gput_right:Nn\:savedindex{#1}}
+\def\:printsavedindex{\seq_map_inline:Nn\:savedindex{\index{##1}}}
+\ExplSyntaxOff
+>>>
+
+\<latex caption index save\><<<
+\:initsaveindex%
+\let\index\:saveindex%
+>>>
+
+\<latex caption index print\><<<
+\:printsavedindex%
 >>>
 
 The \''|<cancel if-label anchors|>' request no 

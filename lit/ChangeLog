@@ -1,3 +1,9 @@
+2022-06-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): fixed support for \index commands
+	inside \caption.
+	https://tex.stackexchange.com/a/647924/2891
+
 2022-06-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (pdfpages.4ht): added support for the Pdfpages
