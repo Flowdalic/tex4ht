@@ -52,6 +52,7 @@ file.
 
 \<configure jats tex4ht\><<<
 \special{t4ht.xml}
+\Configure{ext}{xml}
 |<xml structure|>
 |<document structure|>
 |<xml:lang declarations|>
@@ -363,7 +364,7 @@ Configurations that are shared only for article and report
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \<basic hyperlinks\><<<
-\Configure{Link}{xref}{rid=}{id=}{\empty}   
+\Configure{Link}{xref}{rid=}{id=}{}   
 \LinkCommand\ExternalLink{ext-link,xlink:href,id}
 >>>
 

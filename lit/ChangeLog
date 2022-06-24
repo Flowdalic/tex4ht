@@ -1,3 +1,8 @@
+2022-06-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-jats.4ht (jats.4ht): declare XML extension, print # symbol
+	in links.
+
 2022-06-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): fixed support for \index commands
