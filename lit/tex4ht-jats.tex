@@ -57,6 +57,7 @@ file.
 |<document structure|>
 |<xml:lang declarations|>
 |<basic hyperlinks|>
+|<basic pictures|>
 |<basic fonts|>
 |<basic jats mathml|>
 >>>
@@ -376,6 +377,19 @@ Configurations that are shared only for article and report
 >>>
 
 \<hyperref links\><<<
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Pictures}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<basic pictures\><<<
+\Configure{IMG}
+  {\ht:special{t4ht=<graphic\Hnewline xlink:href="\a:imgdir}}
+  {\ht:special{t4ht=" xlink:title="}}
+  {" }
+  {\ht:special{t4ht=" }}
+  {\ht:special{t4ht=\xml:empty>}}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
