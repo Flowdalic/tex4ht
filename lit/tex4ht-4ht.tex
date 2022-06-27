@@ -3475,9 +3475,15 @@ definitions.
 % \NR:Type threw an undefined control sequence error. I think
 % \@currenvir is safe, there is nothing special about \@captype. 
 %   
+% use of \index and \label inside caption results in a fatal error
+% we need to disable them in \NR:Title
 \long\def\@caption#1[#2]{%
     \gdef\NR:Type{\@currenvir}%
-    \gdef\NR:Title{\a:newlabel{#2}}%
+    \begingroup%
+    \let\index\:gobble%
+    \let\label\:gobble%
+    \xdef\NR:Title{\a:newlabel{#2}}%
+    \endgroup%
    \o:NR@@caption{#1}[{#2}]%
 }      
 

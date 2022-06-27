@@ -1,3 +1,8 @@
+2022-06-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (nameref.4ht): disable \index and \label inside
+	\caption, to prevent fatal errors.
+
 2022-06-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.4ht (jats.4ht): added support for pictures.
