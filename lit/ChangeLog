@@ -1,3 +1,9 @@
+2022-06-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): retain text formatting inside
+	\mathop.
+	https://tug.org/pipermail/tex4ht/2016q4/001631.html
+
 2022-06-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.4ht (jats.4ht): added support for list environments.

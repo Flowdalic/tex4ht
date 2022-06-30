@@ -3468,6 +3468,20 @@ Extra brackets are used in order to support subscripts and superscripts.
 \section{Sized Operations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+This code tries to prevent discarding of math formatting inside of 
+mathop. See \Link{https://tug.org/pipermail/tex4ht/2016q4/001631.html}{}this bug report\EndLink.
+
+I use AtBeginDocument because it doesn't seem to have any effect otherwise. The code comes
+from tex4ht-info.tex. 
+
+\<configure mathml latex\><<<
+\AtBeginDocument{%
+\Configure{mathop*}{*}{}{}                                                                                                                                                          
+   { \Configure{mathop}{*}{<mo>}{</mo>}{} }   
+}
+>>>
+
+
 \<plain,latex mathml\><<<
 \def\mathop:prefix#1{%
    \Configure{mathop}{*}{<\a:mathml mo #1\Hnewline>}{</\a:mathml mo>}%
