@@ -5321,14 +5321,40 @@ which requires 5 fields instead of 2.
 %  \Configure{ref}{}{}{}\ref{#1}}}
 
 \<config hyperref\><<<
-\def\label@hyperref[#1]#2{{%
-   \def\hyperrefLabel{#2}%
-   \Configure{ref}
-     {\Link}{\EndLink}{\Configure{ref}{}{}{}#2}\ref{#1}}}
+|<label@@hyperref|>
 |<autoref references|>
 |<restore pre hyperref|>
 |<nameref.sty NOT HERE|>
 \csname ReadBookmarks\endcsname
+>>>
+
+% We don't use this code anymore
+% \def\label@hyperref[#1]#2{{%
+%    \def\hyperrefLabel{#2}%
+%    \Configure{ref}
+%      {\Link}{\EndLink}{\Configure{ref}{}{}{}#2}\ref{#1}}}
+
+The  \Verb+\hyperref[label]{title}+ command should print the 
+title when label is undefined. The older configuration printed
+?? instead. This should fix this issue. 
+\Link{https://tex.stackexchange.com/a/649552/2891}{}More info\EndLink.
+
+\<label@@hyperref\><<<
+\def\label@@hyperref#1#2#3{%
+  \ifx#1\relax
+    \protect\G@refundefinedtrue
+    \@latex@warning{%
+      Hyper reference `#2' on page \thepage \space undefined%
+    }%
+    \begingroup
+      \hyperrefundefinedlink{#3}%
+    \endgroup
+  \else%
+    \def\hyperrefLabel{#3}%
+    \Configure{ref}%
+      {\Link}{\EndLink}{\Configure{ref}{}{}{}#3}\ref{#2}%
+  \fi
+}
 >>>
 
 A \Verb+\def\@@hyperref#1#2#3{\Link[#2]{}{}#1\EndLink}+
