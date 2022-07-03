@@ -1,3 +1,9 @@
+2022-07-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (colortbl.4ht): fixed error when \arrayrulecolor is
+	used outside of Tabular.
+	https://tex.stackexchange.com/a/649734/2891
+
 2022-07-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (hyperref.4ht): fixed handling of undefined

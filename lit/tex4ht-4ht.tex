@@ -27773,14 +27773,18 @@ need also a treatment similar to \''\CT@column@color'?
 \NewConfigure{rowcolor}{1}
 >>>
 
-Fixes for colored hlines
+Fixes for colored hlines. The \`|\hline:color| can be used in CSS, for instance.
 
 \<fix colortbl\><<<
 % default hline color is black
 \def\hline:color{000}
 % save rule color in format usable in CSS
 \newcommand\tmp:arrayrulecolor[2][named]{%
-\noalign{\convertcolorspec{#1}{#2}{HTML}\:tmp\global\let\hline:color\:tmp}%
+\ifvoid\@arstrutbox% test if we are inside a tabular environment
+\convertcolorspec{#1}{#2}{HTML}\:tmp\global\let\hline:color\:tmp% we are not
+\else%
+\noalign{\convertcolorspec{#1}{#2}{HTML}\:tmp\global\let\hline:color\:tmp}% we are
+\fi
 }
 \HLet\arrayrulecolor\tmp:arrayrulecolor
 >>>
