@@ -657,7 +657,7 @@ We reserve code 254 (and 255) for unknown symbols.
 
 
 \<configure mathml amsmath\><<<
-\Configure{boldsymbol}{\bgroup\HCode{<mstyle mathvariant="bold-italic">}}{\HCode{</mstyle>}\egroup}
+\Configure{boldsymbol}{\bgroup\HCode{<\a:mathml mstyle mathvariant="bold-italic">}}{\HCode{</\a:mathml mstyle>}\egroup}
 >>>
 
 \<configure mathml amsmath\><<<
@@ -939,8 +939,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="..."><mtext>
 >>>
 
 \<mml fonts\><<<
-\Configure{htf}{0}{+}{<mstyle\Hnewline
-   class="}{\%s}{-\%s}{x-x-\%d}{}{">}{</mstyle>}%
+\Configure{htf}{0}{+}{<\a:mathml mstyle\Hnewline
+   class="}{\%s}{-\%s}{x-x-\%d}{}{">}{</\a:mathml mstyle>}%
 >>>
 
 \<tex compiler mathml\><<<
@@ -5389,9 +5389,9 @@ with small  shifting.
     \Configure{color}%
       {\Configure{SetHColor}
            {\Css{.textcolor\textcolorN{color:\HColor}}}}%
-    \HCode{<\ifmathml mstyle\else span\fi
+    \HCode{<\ifmathml\a:mathml mstyle\else span\fi
            \space id="textcolor\textcolorN">}}%
-   {\HCode{</\ifmathml mstyle\else span\fi>}}
+   {\HCode{</\ifmathml\a:mathml  mstyle\else span\fi>}}
 >>>
 
 
@@ -5400,7 +5400,7 @@ with small  shifting.
    {\ifmathml
        \Configure{color}%
          {\Configure{SetHColor}
-              {\HCode{<mstyle mathcolor="\HColor">}}}%       
+              {\HCode{<\a:mathml mstyle mathcolor="\HColor">}}}%       
     \else
        \gHAdvance\textcolorN by 1
        \Configure{color}%
@@ -5409,7 +5409,7 @@ with small  shifting.
        \HCode{<span id="textcolor\textcolorN">}%
     \fi
    }%
-   {\HCode{</\ifmathml mstyle\else span\fi>}}
+   {\HCode{</\ifmathml\a:mathml  mstyle\else span\fi>}}
 >>>
 
 
