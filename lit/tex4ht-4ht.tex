@@ -3482,7 +3482,7 @@ definitions.
     \begingroup%
     \let\index\:gobble%
     \let\label\:gobble%
-    \xdef\NR:Title{\a:newlabel{#2}}%
+    \protected@xdef\NR:Title{\a:newlabel{#2}}%
     \endgroup%
    \o:NR@@caption{#1}[{#2}]%
 }      

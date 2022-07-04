@@ -1,3 +1,9 @@
+2022-07-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (nameref.4ht): use \protected@xdef in definition of
+	caption title, to prevent further errors.
+	https://tex.stackexchange.com/a/649734/2891
+
 2022-07-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (colortbl.4ht): fixed error when \arrayrulecolor is
