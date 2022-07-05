@@ -1,3 +1,13 @@
+2022-07-05  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex4ht_4ht_derived): add texpower.
+	(all): rm texput.log, no need to check it.
+	* tex4ht-4ht.tex (\writesixteen),
+	* tex4ht-sty.tex (\writesixteen): just one "Verify length"
+	is enough, without exclamation points (irritating match when
+	searching for TeX error messages), especially we don't do any such
+	verification.
+
 2022-07-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): don't redefine \MakeUppercase,

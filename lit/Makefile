@@ -115,7 +115,7 @@ tex4ht_4ht_derived = \
   reading.4ht \
   scrartcl.4ht scrbook.4ht scrreprt.4ht scrjura.4ht sectionbreak.4ht \
     skak.4ht spanish.4ht subscript.4ht svg.4ht \
-  tabu.4ht tcolorbox.4ht titlesec.4ht tocloft.4ht \
+  tabu.4ht tcolorbox.4ht texpower.4ht titlesec.4ht tocloft.4ht \
     tuenc-luatex.4ht tuenc-xetex.4ht \
     tugboat.4ht \
   usepackage.4ht usepackage-fontspec.4ht \
@@ -381,6 +381,7 @@ endif
 
 # 
 all: $(derived)
+	rm -f texput.log
 	texlua checklog.lua *.log
 
 $(tex4ht_4ht_derived): tex4ht-4ht.tex cond4ht.4ht $(common)
