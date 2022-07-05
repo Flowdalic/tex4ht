@@ -14405,12 +14405,20 @@ and it causes  a loss of spaces in tex4ht.
 \Section{Accents}
 %%%%%%%%%%%%%%%%%%
 
-The following is for 
+The following was for 
 \`'/n/candy/0/tex/teTeX/texmf/tex/latex/base/inputenc.sty'
 and files like 
 \`'/n/candy/0/tex/teTeX/texmf/tex/latex/base/latin1.def'.
 
-\<latex accents\><<<
+But 2022 release of LaTeX don't need special handling of \`'\@tabacckcludge',
+the accents works even when we remove the following redefinitions.
+
+What is more serious is that these redefinitions of MakeUppercase and
+MakeLowercase don't change text case anymore, and it also causes
+compilation error for the \`'\chapter' command. So we need to 
+disable it even if it was useful in some older documents.
+
+\<latex accents not used anymore\><<<
 \let\:tabacckludge|=\@tabacckludge
 \def\@tabacckludge#1{\csname #1\endcsname}
 \long\def\:temp#1{\bgroup  \let\@tabacckludge|=\:tabacckludge
@@ -14420,6 +14428,9 @@ and files like
    \csname o:MakeLowercase :\endcsname{#1}\egroup}
 \expandafter\HLet\csname MakeLowercase \endcsname|=\:temp
 >>>
+
+The following is the reasoning why the previous lines were included in the
+first place: 
 
 \Verbatim
 
