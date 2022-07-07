@@ -1,3 +1,9 @@
+2022-07-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, bookmark-hooks.4ht): prevent
+	errors with the Bookmark package.
+	https://tex.stackexchange.com/a/650128/2891
+
 2022-07-05  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (tex4ht_4ht_derived): add texpower.

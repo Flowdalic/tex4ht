@@ -6220,6 +6220,27 @@ Hype: \hyperref[sec:foobar]{Link to Section \ref*{sec:foobar}}
 \EndVerbatim
 \EndHPage{}]
 
+\Section{bookmark.sty}
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{bookmark.sty}{bookmark-hooks.4ht}
+>>>
+
+\<bookmark-hooks.4ht\><<<
+% bookmark-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<pass draft mode to bookmark|>
+\endinput
+>>>        \AddFile{9}{bookmark-hooks}
+
+The bookmark package redefines sectioning commands, biliography, etc., which we don't
+want, as it clashes with TeX4ht. It is useful only in the PDF mode anayway.
+
+\<pass draft mode to bookmark\><<<
+\PassOptionsToPackage{draft}{bookmark}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 \Chapter{Miscellaneous Environments}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
