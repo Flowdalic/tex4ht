@@ -30,8 +30,8 @@
 
 	* tex4ht-options.tex (tex4ht.4ht): load jats.4ht before mathml.4ht.
 
-	* tex4ht-mathml.tex (mathml.4ht): added \a:mathml prefix for more
-	elements where it was missing.
+	* tex4ht-mathml.tex (mathml.4ht, html-mml.4ht): added \a:mathml
+	prefix for more elements where it was missing.
 
 	* tex4ht-mathml.tex (mathml.4ht): use \a:mathml prefix for Ulem
 	commands.
