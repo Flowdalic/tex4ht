@@ -1,3 +1,8 @@
+2022-07-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): make \ref and \Ref commands robust.
+	https://tex.stackexchange.com/a/651075/2891
+
 2022-07-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.tex (jats.4ht): overwrite MathML redefinitions for

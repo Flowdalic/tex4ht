@@ -1489,7 +1489,7 @@ A better def is given to \''\l:bel' in AmsLaTeX .
 \let\o:ref|=\:ref
 \def\::ref#1{{\:SUBOff\:SUPOff\xdef\RefArg{#1}}\expandafter\o:ref
                                                \expandafter{\RefArg}}
-\def\:ref{\@ifstar{\Protect\::ref}{\Protect\::ref}}
+\DeclareDocumentCommand\:ref{s}{\IfBooleanTF{#1}{\Protect\::ref}{\Protect\::ref}}
 \let\ref|=\:ref
 >>>
 
@@ -1504,7 +1504,7 @@ first letter of the referenced label.
   \::ref{#1}%
   \let\rEfLiNK\olda:rEfLiNK%
 }
-\def\:Ref{\@ifstar{\Protect\::Ref}{\Protect\::Ref}}
+\DeclareDocumentCommand\:Ref{s}{\IfBooleanTF{#1}{\Protect\::Ref}{\Protect\::Ref}}
 \let\Ref\:Ref
 >>>
 
