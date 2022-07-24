@@ -23654,7 +23654,11 @@ This modification is needed since Stefan
   \edef\:temp{\noexpand\@b:bitem{#1}}\@safe@activesfalse\:temp}
 >>>
 
-\<bbl@redefinerobust\><<<
+
+I don't know what this code was meant to do in the past, but it fails 
+with the current LaTeX. It is better to not use it.
+See \Link[https://tex.stackexchange.com/q/651631/2891]{}{} this issue\EndLink.
+\<not use bbl@redefinerobust\><<<
 \def\:tempc#1{%
   \edef\bbl@tempa{\expandafter\@gobble\string#1}%
   \expandafter\ifx\csname \bbl@tempa\space\endcsname\relax
