@@ -1,3 +1,8 @@
+2022-07-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): don't redefine \MakeUppercase and
+	\MakeLowercase in BibLaTeX.
+
 2022-07-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (babel.4ht): don't redefine \ref in Babel.

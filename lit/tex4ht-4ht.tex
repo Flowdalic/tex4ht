@@ -2215,6 +2215,31 @@ We put the hook ourselves thanks to Configure{ifthenelse}.
 % Biblatex 3.0
 % 
 % Hacks for biblatex
+
+% I don't really understand this, but language processing is broken by default
+% with biblatex. It loads language file, but it executes code which should be 
+% executed only in the case if the language file fails, it displays an error message
+% and language handling doesn't work. When we execute following code, the language 
+% files are loaded before checking of the success and it seems to work.
+ 
+\AtBeginDocument{%
+\@ifpackageloaded{babel}
+      {% This is required for languages which are never explicitly selected
+        % It seems this code was executed also with Polyglossia, where it caused compilation error
+        \@ifpackageloaded{polyglossia}{}{% 
+        \def\do#1{\blx@lbxinput{#1}{}{}}%
+       \ifx\@empty\bbl@loaded\else%
+       \expandafter\docsvlist\expandafter{\bbl@loaded}%
+      \fi}}{}%
+}
+\fi % end of version boolean
+>>>
+
+2022/07/25:  It seems that we don't need to redefine MakeUppercase and MakeLowercase, BiBLaTeX works without these
+redefinitions, and on the contrary, we get compilation error with these, as they were changed in the LaTeX kernel. 
+So I think it is best to remove them. 
+
+\<biblatex dont use\><<<
 % MakeUppercase is redefined by tex4ht, biblatex tries to redefine it as well, but it relies on original 
 % LaTeX version:
 \DeclareRobustCommand{\MakeUppercase}[1]{{%
@@ -2237,24 +2262,6 @@ We put the hook ourselves thanks to Configure{ifthenelse}.
   \blx@hook@lc\protected@edef\reserved@a{\lowercase{#1}}%
   \reserved@a
 }}
-
-% I don't really understand this, but language processing is broken by default
-% with biblatex. It loads language file, but it executes code which should be 
-% executed only in the case if the language file fails, it displays an error message
-% and language handling doesn't work. When we execute following code, the language 
-% files are loaded before checking of the success and it seems to work.
- 
-\AtBeginDocument{%
-\@ifpackageloaded{babel}
-      {% This is required for languages which are never explicitly selected
-        % It seems this code was executed also with Polyglossia, where it caused compilation error
-        \@ifpackageloaded{polyglossia}{}{% 
-        \def\do#1{\blx@lbxinput{#1}{}{}}%
-       \ifx\@empty\bbl@loaded\else%
-       \expandafter\docsvlist\expandafter{\bbl@loaded}%
-      \fi}}{}%
-}
-\fi % end of version boolean
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
