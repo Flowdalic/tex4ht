@@ -3503,7 +3503,7 @@ from tex4ht-info.tex.
    \MathSymbol\mathop{#1}%
    \expandafter\def\csname #1:limits\endcsname{\expandafter
                     \:same \math:sym\mathop{#1}\limits}%
-   \expandafter\def\csname #1:nolimits\endcsname{\expandafter
+   \expandafter\ProvideDocumentCommand\csname #1:nolimits\endcsname{}{\expandafter
                   \:same \math:sym\mathop{#1}\nolimits}%
    \expandafter\edef\csname n:#1:\endcsname{\noexpand\ifDisplayMath
           \noexpand\expandafter \expandafter\noexpand \csname #1:limits\endcsname
