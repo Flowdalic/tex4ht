@@ -1142,6 +1142,7 @@ The following protection, e.g., for titles of sections.
 
 \<latex ltplain\><<<
 |<plain,ltplain obeylines,oalign|>
+|<ltplain percent|>
 >>>
 
 plain.tex and latex.
@@ -1191,6 +1192,23 @@ xxxxxxxxxxxxxxxxxxxxx
     <P >xxxxxxxxxxxxxxxxxxxxxxxxxx
 
 \EndVerbatim\EndHPage{}]\fi
+
+
+
+The \''\%' command needs to be redefined for TeX4ht source files,
+but this redefinition causes compilation errors when it is used in
+titles or captions. So we redefine it to the original LaTeX
+definition. We can detect if we are in the literate sources by checking 
+if the \''\MAKETITLE' command is defined.
+
+See \Link[https://tex.stackexchange.com/q/652848/2891]{}{}
+this question on TeX.sx for more details\EndLink.
+
+\<ltplain percent\><<<
+\ifdefined\MAKETITLE\else
+\chardef\%=`\%
+\fi
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{ltspace (Horizontal Spaces)}

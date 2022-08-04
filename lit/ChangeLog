@@ -1,3 +1,9 @@
+2022-08-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): revert to the original definition of
+	\% when TeX4ht doesn't compile literate sources.
+	https://tex.stackexchange.com/a/652950/2891
+
 2022-07-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): protect \sum etc., in order to

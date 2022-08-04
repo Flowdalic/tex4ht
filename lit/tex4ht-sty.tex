@@ -2224,6 +2224,15 @@ tags that in the meantime are created by the system.
 \catcode`\%|=12 \def\prcnt:ch{%} \catcode`\%|=14
 >>>
 
+I don't know what this code is supposed to do, but it can produce
+fatal errors when \''\%' is used inside of title, captions or sections.
+See \Link[https://tex.stackexchange.com/q/652848/2891]{}{}
+this question on TeX.sx for an example\EndLink.
+
+But when I remove it, the compilation process of TeX4ht sources fails,
+so we will need to revert to the original version of the percent command
+probably in latex.4ht.
+
 \<html utilities\><<<
 \catcode`\%|=12 \def\%{%} \catcode`\%|=14
 >>>
