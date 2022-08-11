@@ -1,3 +1,9 @@
+2022-08-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html5.tex (html5.4ht): fixed support for the figure*
+	environment.
+	https://tex.stackexchange.com/q/653084/2891
+
 2022-08-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): revert to the original definition of

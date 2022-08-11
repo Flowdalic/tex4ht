@@ -336,6 +336,14 @@ Configure HTML5 figures. Floats are converted as captions too.
    \:xhtml{\IgnorePar\EndP}\HCode{</figure>}|<try env inline par|>\par}
    {}{}
 
+\ConfigureEnv{figure*}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%    
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}|<try env inline par|>\par}
+   {}{}
+
 \Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
 \Css{figure.figure {text-align:center;}}
 
