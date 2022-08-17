@@ -1,3 +1,9 @@
+2022-08-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (html-mml.4ht): test argument of \mathopen in
+	Amsmath equation.
+	https://tex.stackexchange.com/q/654236/2891
+
 2022-08-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html5.tex (html5.4ht): fixed support for the figure*

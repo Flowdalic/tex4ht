@@ -102,6 +102,7 @@
 
 
 \<amsmath html-mml pre 2000\><<<
+% pre 2000
 \Configure{equation}
   {\ifvmode \IgnorePar\fi \EndP
    \HCode{<table class="equation"><tr><td>}%
@@ -123,6 +124,7 @@
 
 
 \<amsmath html-mml jan 2000\><<<
+% jan 2000
 \Configure{equation}
   {\ifvmode \IgnorePar\fi \EndP
    \HCode{<table class="equation"><tr><td>}%
@@ -148,11 +150,14 @@
 
 
 \<amsmath html-mml july 2000\><<<
+% and here it should be
+|<alt mathopen for eq|>
 \Configure{equation}
   {\ifvmode \IgnorePar\fi\EndP
    \HCode{<table class="equation"><tr><td>}%
    |<amsmath equation july 2000|>%
    |<math display in equation|>%
+   |<mathopen in equation|>
   }
   {\ifvmode \IgnorePar\fi\EndP
    \HCode{</td><td class="eq-no">}%
@@ -176,11 +181,23 @@
    
 
 
+
 \<amsmath equation jan 2000\><<<
 |<amsmath equation july 2000|>%
 >>>
 
+Current AMSMath uses empty mathopen at the beginning of an equation, 
+which results in missing markup for subsequent numbers and characters.
 
+We check for empty parameter, and don't execute configurations when it is empty.
+
+\<alt mathopen for eq\><<<
+\def\eq:mathopen#1{\ifx\relax#1\relax\else\a:mathopen\fi\o:mathopen:{#1}}
+>>>
+
+\<mathopen in equation\><<<
+\let\mathopen\eq:mathopen%
+>>>
 
 
 
