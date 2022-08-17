@@ -1,5 +1,10 @@
 2022-08-17  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): save title used in titlepage in Koma
+	script classes to the xref file, so it is available in the <title>
+	element.
+	https://tex.stackexchange.com/q/654343/2891
+
 	* tex4ht-4ht.tex (babel-hooks.4ht, graphics-hooks.4ht): fixed
 	support for the early^ option with Babel and Graphics packages.
 	https://tex.stackexchange.com/q/654236/2891
