@@ -856,6 +856,6 @@ diff = diff -u0 --ignore-all-space --ignore-blank-lines \
   --ignore-matching-lines='write-1.version\|, generated from\|Copyright'
 
 # run weekly by karl.
-croncheck: diff-all \
+croncheck: upm diff-all \
 	   inst-check-copyright inst-check-files inst-check-version \
 	   diff-htfonts

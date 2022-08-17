@@ -5,7 +5,7 @@
 	element.
 	https://tex.stackexchange.com/q/654343/2891
 
-	* tex4ht-4ht.tex (babel-hooks.4ht, graphics-hooks.4ht): fixed
+	* tex4ht-4ht.tex (babel-sty-hooks.4ht, graphics-hooks.4ht): fixed
 	support for the early^ option with Babel and Graphics packages.
 	https://tex.stackexchange.com/q/654236/2891
 
