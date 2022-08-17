@@ -1,5 +1,9 @@
 2022-08-17  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (babel-hooks.4ht, graphics-hooks.4ht): fixed
+	support for the early^ option with Babel and Graphics packages.
+	https://tex.stackexchange.com/q/654236/2891
+
 	* tex4ht-mathml.tex (html-mml.4ht): test argument of \mathopen in
 	Amsmath equation.
 	https://tex.stackexchange.com/q/654236/2891

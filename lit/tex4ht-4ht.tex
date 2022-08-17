@@ -23760,6 +23760,20 @@ environments to insert XML tags.
 \renewcommand{\mkenddispquote}[2]{#1\b:displayquote#2\c:displayquote}
 >>>
 
+Handle circumflex catcodes when the \Verb|early^| option is used.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{babel.sty}{babel-sty-hooks.4ht}
+>>>
+
+\<babel-sty-hooks.4ht\><<<
+% babel-sty-hooks.4ht, generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<disable early sup|>
+>>> 
+\AddFile{9}{babel-sty-hooks}
+
 %%%%%%%%%%%%%%%%%%%%%%
 \Section{CJK}
 %%%%%%%%%%%
@@ -26820,7 +26834,22 @@ dvips needs to be used instead
 \ifdefined\XeTeXversion
   \PassOptionsToPackage{dvips}{graphics}
 \fi
+|<disable early sup|>
 >>> \AddFile{9}{graphics-hooks}
+
+The \Verb|early^| option can break some packages that changes catcode of 
+circumflex too. We need to revert to the original definition for the package
+processing, and then return to the TeX4ht definition after the package 
+is processed.
+
+\<disable early sup\><<<
+\ifdefined\recall:sup
+\recall:sup
+\:AtEndOfPackage{
+  \early:sup
+}
+\fi
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \SubSection{graphicx}
