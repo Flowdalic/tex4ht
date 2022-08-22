@@ -1,3 +1,8 @@
+2022-08-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.4ht (html4.4ht): redefine meaning of \% inside of the
+	\Css command for correct output of percentages to the CSS file.
+
 2022-08-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): save title used in titlepage in Koma

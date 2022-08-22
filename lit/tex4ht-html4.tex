@@ -17648,6 +17648,7 @@ sent to the lg file (where else it can be sent?).
 
 \<cascade style sheets\><<<
 \def\Css#1{{\def\:temp{\Configure{Needs}}%
+   \let\%\prcnt:ch%
    \expandafter\:temp\expandafter{\aa:Css}\Needs{#1}}}
 >>>
 
