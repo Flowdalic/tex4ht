@@ -7655,6 +7655,17 @@ this way originally. These configurations are used in the MathML mode.
 \Configure{>}{\mskip\medmuskip}
 >>>
 
+We need to make some commands robust, using the ProvideDocumentCommand. 
+This should prevent fatal errors when such commands are used in sections
+or captions.
+
+\<latex math\><<<
+\ProvideDocumentCommand\left:temp{m}{\a:left{#1}\o:left:#1\b:left{#1}}
+\HLet\left\left:temp
+\ProvideDocumentCommand\right:temp{m}{\a:right{#1}\o:right:#1\b:right{#1}}
+\HLet\right\right:temp
+>>>
+
 \<plain math\><<<
  \def\:tempc{\relax\csname a:,\endcsname}
 \HLet\,=\:tempc

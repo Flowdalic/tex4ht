@@ -1,3 +1,8 @@
+2022-08-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): make \left and \right commands robust.
+	https://puszcza.gnu.org.ua/bugs/?423
+
 2022-08-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.4ht (html4.4ht): redefine meaning of \% inside of the
