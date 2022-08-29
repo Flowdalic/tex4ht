@@ -20,18 +20,13 @@ optionally using MathML.
 
 <ul>
   <li>it supports most LaTeX packages and custom commands, including:
-    <ul>
-      <li>BibLaTeX</li>
-      <li><a href="https://tex.stackexchange.com/a/488741/2891">TikZ</a></li>
-      <li>Fontspec</li>
-    </ul>
+      BibLaTeX,
+      <a href="https://tex.stackexchange.com/a/488741/2891">TikZ</a>,
+      Fontspec
   </li>
-  <li>it supports various input format, apart from LaTeX:
-    <ul>
-      <li><a href="https://www.kodymirus.cz/pythontex-tex4ht/pythontex-gallery.html">PythonTeX</a></li>
-      <li><a href="https://tex.stackexchange.com/a/506439/2891">RMarkdown</a> and other formats supported by Knitr and Pandoc</li>
-
-    </ul>
+  <li>it supports various input formats, apart from LaTeX:
+      <a href="https://www.kodymirus.cz/pythontex-tex4ht/pythontex-gallery.html">PythonTeX</a>,
+      <a href="https://tex.stackexchange.com/a/506439/2891">RMarkdown</a> and other formats supported by Knitr and Pandoc
   </li>
   <li>extensive support for modification of the output</li>
   <li>output formats include HTML 5, ODT and Docbook</li>
@@ -103,6 +98,21 @@ previous one, HTML5 in UTF-8 encoding with MathML:</p>
 <pre>
 <samp>$ <kbd>make4ht file.tex "mathml"</kbd></samp>
 </pre>
+
+<p>If you want to have MathJax (rather than the browser) rasterize the MathML:
+<pre>
+<samp>$ <kbd>make4ht file.tex "mathml,mathjax"</kbd></samp>
+</pre>
+
+<p>But perhaps the best method of all is to insert LaTeX into the HTML
+output, and have MathJax rasterize the LaTeX:
+<pre>
+<samp>$ <kbd>make4ht file.tex "mathjax"</kbd></samp>
+</pre>
+
+<p>This has the additional advantage (thanks to MathJax) that
+right-clicking on any equation in the HTML brings up a menu offering to
+provide the source for the equation.
 
 <h3>Bug reports</h3>
 

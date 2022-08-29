@@ -1,3 +1,8 @@
+2022-08-29  Karl Berry  <karl@freefriends.org>
+
+	* index.html: show mathml/mathjax and latex/mathjax examples
+	 (via Dick Koch).
+
 2022-08-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* index.html: added link to the new documentation.
@@ -6,8 +11,8 @@
 
 	* development.html: working on splitting text to subpages.
 	* index.html: removed spurious lines from code listings.
-	* mainheader.html: put main menu to a standalone file that can be sourced
-	from other files.
+	* mainheader.html: put main menu to a standalone file that can be
+	sourced from other files.
 
 2020-07-03  Michal Hoftich  <michal.h21@gmail.com>
 
