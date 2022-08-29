@@ -8651,6 +8651,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \edef\:RestoreMathjaxCatcodes{\catcode`\noexpand \&=\the\catcode`\&}
 \def\:HandleMathjaxCatcodes{\edef\:RestoreMathjaxCatcodes{\catcode`\noexpand \&=\the\catcode`\&}\catcode`\&=11}
 \Configure{$}{\:HandleMathjaxCatcodes}{\:RestoreMathjaxCatcodes}{\expandafter\AltMathOne}
+\Configure{$$}{\:HandleMathjaxCatcodes}{\:RestoreMathjaxCatcodes}{\expandafter\AltlDisplayDollars}
 % for some reason, it is necessary to specify the catcode change directly in the configuration
 \Configure{()}{\:HandleMathjaxCatcodes\catcode`\&=11\AltlMath}{\:RestoreMathjaxCatcodes}
 \Configure{[]}{\:HandleMathjaxCatcodes\catcode`\&=11\AltlDisplay}{\:RestoreMathjaxCatcodes}
