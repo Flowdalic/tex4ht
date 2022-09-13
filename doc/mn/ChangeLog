@@ -1,3 +1,9 @@
+2022-09-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* TeX4ht-doc.tex (mn-htf.html): fixed quote characters in the HTF code
+	listings.
+	https://tex.stackexchange.com/q/657011/2891
+
 2021-05-14  Karl Berry  <karl@freefriends.org>
 
 	* TeX4ht-doc.tex: replace reference to specific converter

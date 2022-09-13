@@ -6400,20 +6400,31 @@ using a standard compilation, say, for an output in PDF or PostScript.
         Each of these intermediate lines provides a representation for
         a corresponding character code.    
 
-        \Example
-\Verbatim
-            ectt 0 255
-            '&#x0060;'    ''        0
-            '&#x00B4;'    ''        1
-            '&#x02C6;'    ''        2
-            '~'           ''        3
-            ..................
-            'i'          '1'       25 dotless i
-            ..................
-            ''           ''        255
-            ectt 0 255
-\EndVerbatim  
+        \Example%
+% We don't use \Verbatim for this code listings, because we want to keep 
+% the ' character as upquote
 
+ 
+ {\tt%
+ \catcode`'=\active%
+ \catcode` =\active%
+ \catcode`&=12%
+ \catcode`#=12%
+ \def {~}%
+ \obeylines%
+ \def'{\char13}%
+  ectt 0 255
+    '&#x0060;'    ''        0
+    '&#x00B4;'    ''        1
+    '&#x02C6;'    ''        2
+    '~'           ''        3
+    ..................
+    'i'          '1'       25 dotless i
+    ..................
+    ''           ''        255
+    ectt 0 255
+}%
+% \EndVerbatim  
 \EndExample
 
 \item Each intermediate line consists of three fields
