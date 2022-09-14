@@ -4412,6 +4412,28 @@ Add dummy .4ht file. We may use it in the future.
 >>> \AddFile{9}{ctexart}
 
 %%%%%%%%%%%%%%%%%
+\Section{luatexja}
+%%%%%%%%%%%%%%%%%
+
+The LuaTeX-ja package produces fatal errors with \TeX4ht, so we need to disable it. 
+The same is true also for the luatexja-fontspec package.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{luatexja.sty}{luatexja-hooks.4ht}
+\Configure{PackageHooks}{luatexja-fontspec.sty}{luatexja-hooks.4ht}
+>>>
+
+\<luatexja-hooks.4ht\><<<
+% luatexja-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\:dontusepackage{luatexja}
+\:dontusepackage{luatexja-fontspec}
+\endinput
+>>> \AddFile{9}{luatexja-hooks}
+
+
+%%%%%%%%%%%%%%%%%
 \Section{polyglossia}
 %%%%%%%%%%%%%%%%%
 

@@ -1,3 +1,9 @@
+2022-09-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, luatexja-hooks.4ht): prevent
+	luatexja and luatexja-fontspec packages from loading.
+	https://tex.stackexchange.com/a/287890/2891
+
 2022-08-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht),
