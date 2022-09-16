@@ -1,3 +1,11 @@
+2022-09-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): initialize the \SUPOn and \SUBOn
+	macros.
+
+	* tex4ht-4ht (usepackage.4ht): disable TeX4ht redefinitions of the ^
+	character at the loading of the doc and hypdoc packages.
+
 2022-09-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, luatexja-hooks.4ht): prevent

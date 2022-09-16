@@ -17552,10 +17552,20 @@ unnumberedsubsubsec%
 % Copyright (C) |CopyYear.1997.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
 
+
+
 |<doc.sty|>
 \Hinput{doc}
 \endinput
 >>>        \AddFile{9}{doc}
+
+We have issue with catcode of the hat character, so we need to turn off
+TeX4ht code for this character when the package is processed.
+
+\<add to usepackage\><<<
+\AddToHook{package/doc/before}{\SUPOff}
+\AddToHook{package/doc/after}{\SUPOn}
+>>>
 
 \<doc.sty\><<<
 \:CheckOption{no^} \if:Option \else
@@ -17626,6 +17636,20 @@ unnumberedsubsubsec%
     \fi}
 \fi
 >>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{hypdoc.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We don't need configuration file for the hypdoc package, but we need
+to fix catcode issues with the hat character.
+
+
+\<add to usepackage\><<<
+\AddToHook{package/hypdoc/before}{\SUPOff}
+\AddToHook{package/hypdoc/after}{\SUPOn}
+>>>
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{holtxdoc.sty}
