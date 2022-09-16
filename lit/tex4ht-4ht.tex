@@ -4301,6 +4301,7 @@ document.
 \@ifpackageloaded{fontspec}{}
 {\RequirePackage{fontspec}} % it is loaded by unicode-math
 \NewDocumentCommand \setmathfont { O{} m O{} }{}
+\NewDocumentCommand \unimathsetup {m} {} 
 \catcode`\:=11\makeatletter
 \endinput
 >>> \AddFile{9}{unicode-math-hooks}

@@ -1,5 +1,8 @@
 2022-09-16  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (unicode-math-hooks.4ht): declare the \unimathsetup
+	command.
+
 	* tex4ht-sty.tex (tex4ht.sty): initialize the \SUPOn and \SUBOn
 	macros.
 
