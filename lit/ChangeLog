@@ -1,3 +1,8 @@
+2022-09-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (csbulletin.4ht): basic support for the CSTUG
+	Bulletin.
+
 2022-09-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (unicode-math-hooks.4ht): declare the \unimathsetup
