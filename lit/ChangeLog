@@ -1,5 +1,8 @@
 2022-09-22  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): use CSS grid for description list
+	based enumerate environments.
+
 	* tex4ht-html4.tex (html4.4ht): prevent reseting of list
 	environments that are placed inside multicols environment.
 	https://tex.stackexchange.com/q/659089/2891

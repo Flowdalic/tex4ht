@@ -2942,12 +2942,13 @@ such a case, we don't have proper nestings of environments.
    {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt  
         class="enumerate">}\bgroup \bf}  
    {\egroup\EndP\HCode{</dt><dd\Hnewline class="enumerate">}|<list par|>} 
-\Css{dd.enumerate {margin-left: 2em;}} 
-\Css{dt.enumerate {float:left;   
-              clear:left;   
-              margin-right:0.5em;   
-              margin-left:0.5em;   
-              text-align:right; }}
+\Css{dl.enumerate {display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}}
+% \Css{dd.enumerate {margin-left: 2em;}} 
+% \Css{dt.enumerate {float:left;   
+%               clear:left;   
+%               margin-right:0.5em;   
+%               margin-left:0.5em;   
+%               text-align:right; }}
 >>>
 
 \<description-based enumerate list note\><<<
