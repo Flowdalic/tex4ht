@@ -1,3 +1,9 @@
+2022-09-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): prevent reseting of list
+	environments that are placed inside multicols environment.
+	https://tex.stackexchange.com/q/659089/2891
+
 2022-09-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (csbulletin.4ht): basic support for the CSTUG
