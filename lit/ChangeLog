@@ -1,5 +1,9 @@
 2022-09-26  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-fonts-modern.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/mathkerncmssi/mathkerncmssi.htf
+	): added support for the Sansmathaccent font.
+
 	* tex4ht-4ht.tex (usepackage.4ht, 
 	lua-widow-control-hooks.4ht): added support for the
 	Lua-widow-control package.
