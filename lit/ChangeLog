@@ -1,3 +1,9 @@
+2022-09-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, 
+	lua-widow-control-hooks.4ht): added support for the
+	Lua-widow-control package.
+
 2022-09-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use CSS grid for description list

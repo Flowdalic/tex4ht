@@ -4886,6 +4886,33 @@ PDF mode, it is safest thing to do to just disable the package.
 \endinput
 >>> \AddFile{9}{pdfx-hooks}
 
+
+%%%%%%%%%%%%%%%%%
+\Section{lua-widow-control}
+%%%%%%%%%%%%%%%%%
+
+The lua-widow-control package uses LuaTeX hooks to remove windows and orphans
+on pages. We need to disable it, as it interferes with TeX4ht and produces 
+a fatal error.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{lua-widow-control.sty}{lua-widow-control-hooks.4ht}
+>>>
+
+\<lua-widow-control-hooks.4ht\><<<
+% lua-widow-control-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\:dontusepackage{lua-widow-control}
+% provide dummy definition of package's commands
+\NewDocumentCommand \lwcsetup {m} {}
+\NewDocumentCommand \lwcemergencystretch { } {}
+\def\lwcenable{}
+\def\lwcdisable{}
+\endinput
+>>> \AddFile{9}{lua-widow-control-hooks}
+
+
 %%%%%%%%%%%%%%%%%
 \Section{animate.sty}
 %%%%%%%%%%%%%%%%%
