@@ -25793,8 +25793,14 @@ A \''\relax' is prepended to the start of the definitions
 \NewConfigure{inst}{2}
 >>>
 
-\<beamer toc\><<<
+It seems that TOC in Beamer doesn't work. It probably isn't that
+important, as it is usually used only in frame outlines, which 
+aren't used in \TeX4ht output anyway. I will remove the following
+code because it causes clash with BibLaTeX.
+
+\<beamer toc no more\><<<
 \def\addtocontents#1#2{%
+   \let\glossary\@gobble%
    \add:toc{#1}{}{#2}%
 }
 \def\add:toc#1#2#3{{%
