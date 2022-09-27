@@ -1,3 +1,7 @@
+2022-09-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (beamer.4ht): declare hooks for \emph.
+
 2022-09-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-modern.tex (
