@@ -1,3 +1,9 @@
+2022-09-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (beamer.4ht),
+	* tex4ht-html4.tex (html4.4ht): fixed tag mismatch for BibLaTeX
+	bibliographies that are spread over several slides.
+
 2022-09-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (beamer.4ht): don't redeclare \addtocontents, in

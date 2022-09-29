@@ -25958,6 +25958,34 @@ transported into the slide blocks.
 
 >>>
 
+ Beamer can break BibLaTeX's bibliography across several slides, 
+ which can lead in tag mis-match, as the closing tags for the bibliography 
+ are inserted as child of other element, than the opening tags.
+
+ This redefinition uses Beamer's macros to insert tags for each individual
+ bib item, without container item that would cause problems.
+
+
+\<conf beamer current\><<<
+\NewConfigure{beamerbiblatex}{3}
+\@ifpackageloaded{biblatex}{
+  \pend:defI\beamer@biblabeltemplate{%
+    \ifdefined\end:itm\end:itm\fi%
+    \gdef\end:itm{\c:beamerbiblatex}%
+    \a:beamerbiblatex%
+  }
+  \append:defI\beamer@biblabeltemplate{\b:beamerbiblatex}
+  \AfterPreamble{%
+    \def\bibConfigure{%
+      \ConfigureList{thebibliography}%
+      {\PushMacro\end:itm\let\end:itm=\empty}%
+      {\end:itm\PopMacro\end:itm\global\let\end:itm\end:itm}{}{}%
+    }
+  }
+}
+{}
+
+>>>
 %%%%%%%%%%%%%
 \SubSection{beamerbasetoc}
 %%%%%%%%%%%%%

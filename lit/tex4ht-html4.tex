@@ -14319,6 +14319,12 @@ supported formats by tex4ht.
      div.Beispiel, div.Examples, div.example, div.examples{color:green;}}
 >>>
 
+\<beamer environments\><<<
+\Configure{beamerbiblatex}{\HCode{<div class="bibitem"><div class="label">}}
+{\HCode{</div><div class="bibcontent">}}{\HCode{</div></div>\Hnewline}}
+\Css{.bibitem{display:grid;grid-template-columns:3em 1fr;}}
+>>>
+
 \<beamer slides\><<<
 \:CheckOption{1} \if:Option
   \ConfigureEnv{slide}
