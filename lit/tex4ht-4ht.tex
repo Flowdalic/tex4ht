@@ -4912,6 +4912,25 @@ a fatal error.
 \endinput
 >>> \AddFile{9}{lua-widow-control-hooks}
 
+%%%%%%%%%%%%%%%%%%%%%
+\Section{tagpdf}
+%%%%%%%%%%%%%%%%%%%%%
+
+This package adds support for tagged PDF to LaTeX. We need to suppress it in TeX4ht,
+as it leads to a fatal error.
+\<add to usepackage\><<<
+\Configure{PackageHooks}{tagpdf.sty}{tagpdf-hooks.4ht}
+>>>
+
+\<tagpdf-hooks.4ht\><<<
+% tagpdf-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\:AtEndOfPackage{%
+  \RenewDocumentCommand \tagpdfsetup { m }{}
+}
+\endinput
+>>> \AddFile{9}{tagpdf-hooks}
 
 %%%%%%%%%%%%%%%%%
 \Section{animate.sty}
