@@ -1,3 +1,7 @@
+2022-10-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (beamer.4ht): disable frame breaks.
+
 2022-09-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, tagpdf-hooks.4ht): basic Tagpdf
