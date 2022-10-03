@@ -25960,7 +25960,7 @@ transported into the slide blocks.
 
 \NewConfigure{frame}{2}
 \NewConfigure{frametitle}{2}
-\AddToHook{env/beamer@frameslide/before}{\RecallEndP\a:frame}
+\AddToHook{env/beamer@frameslide/before}{\RecallEndP\a:frame\beamer@autobreakfalse}
 \AddToHook{env/beamer@frameslide/after}{\b:frame}
 
 \long\def\:temp[#1]#2{%
@@ -25982,7 +25982,6 @@ It should still work in the picture mode, as we use the HLet command.
 
 \<conf beamer current\><<<
 \HLet\framebreak\relax
-\HLet\beamer@autobreakframe\relax 
 >>>
 
  Beamer can break BibLaTeX's bibliography across several slides, 
