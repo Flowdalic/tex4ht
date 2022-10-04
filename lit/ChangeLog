@@ -1,5 +1,10 @@
 2022-10-04  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): use displaystyle attribute in
+	equation like environments to get correct size of fractions and
+	other elements.
+	https://tex.stackexchange.com/a/660509/2891
+
 	* tex4ht-4ht.tex (beamer.4ht): removed nonsensical SVG elements from
 	the columns environment.
 

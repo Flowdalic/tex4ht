@@ -2115,7 +2115,7 @@ POP
        \DisplayMathtrue
     \fi
     \HCode{<\a:mathml mtable\Hnewline
-                \a:mathml columnalign="left" \mml:class="#2">}}
+       \a:mathml displaystyle="true" \a:mathml columnalign="left" \mml:class="#2">}}
    {\HCode{</\a:mathml mtable>}\end:mathalign }
    {\HCode{<\a:mathml mtr>}}    {\HCode{</\a:mathml mtr>}}
    {\HCode{<\a:mathml mtd\Hnewline
@@ -2630,7 +2630,8 @@ in page 252-- in intro to theory book.
    {\ifvmode \IgnorePar \fi \EndP \ShowPar \par}
    {}{}
 \Configure{eqnarray}
-   {\HCode{<\a:mathml mtable\Hnewline \mml:class="eqnarray\ifx 
+   {\HCode{<\a:mathml mtable\Hnewline \a:mathml displaystyle="true" 
+       \mml:class="eqnarray\ifx 
        \@seqncr\@eqncr\else-star\fi"
        \a:mathml columnalign="right center left" >}}%
    {\HCode{</\a:mathml mtable>}}
