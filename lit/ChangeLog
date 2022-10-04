@@ -1,3 +1,8 @@
+2022-10-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (beamer.4ht): removed nonsensical SVG elements from
+	the columns environment.
+
 2022-10-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (beamer.4ht): disable frame breaks.

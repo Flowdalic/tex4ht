@@ -25984,6 +25984,12 @@ It should still work in the picture mode, as we use the HLet command.
 \HLet\framebreak\relax
 >>>
 
+This should prevent insertion of SVG elements around columns:
+
+\<conf beamer current\><<<
+\HLet\beamer@@spacingcover\relax
+>>>
+
  Beamer can break BibLaTeX's bibliography across several slides, 
  which can lead in tag mis-match, as the closing tags for the bibliography 
  are inserted as child of other element, than the opening tags.
