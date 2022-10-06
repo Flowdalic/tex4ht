@@ -99,7 +99,7 @@ tex4ht_4ht_derived = \
   abstract.4ht adjustbox.4ht algorithmic.4ht amsmath.4ht \
 	animate.4ht authblk.4ht appendix.4ht \
   biblatex.4ht biblatex-chicago.4ht book.4ht bussproofs.4ht \
-  caption.4ht cleveref.4ht color.4ht colortbl.4ht \
+  caption.4ht cleveref.4ht color.4ht colortbl.4ht csbulletin.4ht \
   fontspec.4ht fontspec-4ht.lua fontspec-luatex.4ht fontspec-xetex.4ht \
     footmisc.4ht framed.4ht frenchb.4ht floatpag.4ht \
   geometry.4ht graphics.4ht graphicx.4ht \
