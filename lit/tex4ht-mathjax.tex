@@ -110,7 +110,7 @@ numbers them consecutively. In these cases, other mechanisms may be necessary.
 \ExplSyntaxOn
 \cs_generate_variant:Nn \regex_extract_once:nnNTF {nV}
 \newcommand\VerbMath[2][]{%
-  \cs_if_exist:cTF{#1}{
+  \cs_if_exist:cTF{#2}{
     \RenewDocumentEnvironment{#2}{+!b}{%
       \NoFonts\expandafter\VerbMathToks\expandafter{\detokenize{##1}}{#2}\EndNoFonts%
       \ifx\relax#1\relax\else%
