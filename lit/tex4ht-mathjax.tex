@@ -99,12 +99,24 @@ environments. They will then keep the LaTeX code unchanged.
 The \verb|\VerbMath| command redefines environments to pass their content
 verbatim to the HTML output.
 
+The optional command can contain name of the counter that should be updated.
+It will also use LaTeX 3 regular expressions to search for label commands.
+Thanks to that, cross-referencing to the math environments should work.
+It is a bit limited, for example subequations cannot work. There can be also
+issues in books, where equation numbers are based on chapters, but MathJax
+numbers them consecutively. In these cases, other mechanisms may be necessary.
+
 \<defined commands\><<<
 \ExplSyntaxOn
-\newcommand\VerbMath[1]{%
+\cs_generate_variant:Nn \regex_extract_once:nnNTF {nV}
+\newcommand\VerbMath[2][]{%
   \cs_if_exist:cTF{#1}{
-    \RenewDocumentEnvironment{#1}{+!b}{%
-      \NoFonts\expandafter\VerbMathToks\expandafter{\detokenize{##1}}{#1}\EndNoFonts%
+    \RenewDocumentEnvironment{#2}{+!b}{%
+      \NoFonts\expandafter\VerbMathToks\expandafter{\detokenize{##1}}{#2}\EndNoFonts%
+      \ifx\relax#1\relax\else%
+      \refstepcounter{#1}%
+      \regex_extract_once:nVNTF { label\s* \x{7B}([^\x{7D}]*)\x{7D}} {\l_tmpb_tl} \l_tmp_seq {\label{\seq_item:Nn\l_tmp_seq{2}}} {}%
+      \fi
     }{}
   }{}%
 }
@@ -154,7 +166,7 @@ Require verbatim math environments.
 \VerbMath{split}
 \VerbMath{multline}
 \VerbMath{multline*}
-\VerbMath{equation}
+\VerbMath[equation]{equation}
 \VerbMath{equation*}
 \VerbMath{math}
 \VerbMath{displaymath}
