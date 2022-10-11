@@ -25,6 +25,7 @@
 |<defined commands|>
 \AtBeginDocument{%
 |<configurations|>
+|<mhchem configurations|>
 }
 \endinput
 >>>
@@ -217,8 +218,10 @@ Fixes for tables of contents.
 \fixmathjaxtoc\exp
 >>>
 
-\<configure mathjax-latex-4ht mhchem\><<<
+\<mhchem configurations\><<<
+\@ifpackageloaded{mhchem}{%
 \def\ce#1{\texttt{\detokenize{\(\ce{#1}\)}}}
+}{}
 >>>
 
 \endinput
