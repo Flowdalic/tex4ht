@@ -72,10 +72,27 @@ We still use regula expressions to escape invalid XML characters to entities, so
 
 >>>
 
-Provide configuratio for MathJax
+Provide configuration for MathJax
 
 \<defined commands\><<<
 \NewConfigure{MathJaxConfig}{1}
+>>>
+
+The MathJaxMacros configuration includes a file with TeX macro 
+definitions, and include them at the beginning of each HTML page.
+MathJax then interprets them, so they are available in math. 
+This is an alternative to JavaScript method using MathJaxConfig.
+
+The file cannot contain any other commands than newcommand,
+all characters that could cause issues in the HTML parsing must
+be escaped, so \verb|<| should became \verb|&lt;|, for example.
+
+\<defined commands\><<<
+\NewConfigure{MathJaxMacros}[1]{%
+\Configure{@BODY}{\bgroup\NoFonts\ttfamily\detokenize{\(}%
+  \special{t4ht*<#1}%
+\detokenize{\)}\EndNoFonts\egroup}%
+}
 >>>
 
 The following commands are used for patching of the standard math commands and
