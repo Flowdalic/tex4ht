@@ -1,5 +1,9 @@
 2022-10-17  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (latex.4ht): declare \Configure{MathJaxSource} as
+	an alias to \Configure{MathjaxSource}, for the consistency with the
+	other MathJax configuration names.
+
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): added
 	\Configure{MathJaxMacros} for inclusion of file with \LaTeX\ command
 	declarations.
