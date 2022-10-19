@@ -6567,7 +6567,7 @@ to use it in LaTeX configuration.
 \Configure{PicMath}
 {\setbox0=}
 {\Css{img[src="\PictureFile"]{%
-  vertical-align:-\fp_eval:n{ \dim_to_fp:n{\dp0}/\dim_to_fp:n{\ht0} * 100}\%
+  vertical-align:-\fp_eval:n{ \dim_to_fp:n{\dp0}/(\dim_to_fp:n{\ht0}+\dim_to_fp:n{\dp0}) * 100}\%
 }}\box0}
 {}
 { class="math" }
