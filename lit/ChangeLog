@@ -1,3 +1,9 @@
+2022-10-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht): calculate vertical alignment
+	for inline math.
+	https://tex.stackexchange.com/a/662257/2891
+
 2022-10-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): declare \Configure{MathJaxSource} as

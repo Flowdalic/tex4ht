@@ -6557,7 +6557,22 @@ The above should be sensitive to cases like the following one.
 \special{t4ht*=}%
 >>>
 
+This version of PicMath tries to set the correct vertical alignment for inline math. 
+It typessets the math inside a box, measures depth and height, calculates 
+the alignment, and outputs it using CSS. It uses Expl3 features, so we need
+to use it in LaTeX configuration.
 
+\<configure html4 latex\><<<
+\ExplSyntaxOn
+\Configure{PicMath}
+{\setbox0=}
+{\Css{img[src="\PictureFile"]{%
+  vertical-align:-\fp_eval:n{ \dim_to_fp:n{\dp0}/\dim_to_fp:n{\ht0} * 100}\%
+}}\box0}
+{}
+{ class="math" }
+\ExplSyntaxOff
+>>>
 
 
 %%%%%%%%%%%%%%%%%%
