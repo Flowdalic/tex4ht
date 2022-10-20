@@ -12352,6 +12352,22 @@ prevent this issue.
 \endinput
 >>>        \AddFile{9}{subcaption}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{floatrow.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We must prevent Floatrow from redefining of basic LaTeX
+environments, such as table.
+
+\<floatrow.4ht\><<<
+% floatrow.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\def\:tempa#1{}
+\HLet\flrow@restyle\:tempa
+\Hinput{floatrow}
+\endinput
+>>>  \AddFile{9}{floatrow}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Index and Glossary}

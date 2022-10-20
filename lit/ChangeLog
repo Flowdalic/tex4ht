@@ -1,3 +1,10 @@
+2022-10-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (floatrow.4ht): basic support for the Floatrow
+	package.
+	https://puszcza.gnu.org.ua/bugs/?578
+	https://tex.stackexchange.com/a/662426/2891
+
 2022-10-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht): calculate vertical alignment
