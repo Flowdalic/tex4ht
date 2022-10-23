@@ -13923,13 +13923,20 @@ for margin pars.
       \fi
       class="includegraphics"
      }
+\else \:CheckOption{Gin-percent} \if:Option
+\ExplSyntaxOn
+\Configure{Gin-dim}
+   {\if:boundingbox{style="max-width:\fp_eval:n{round(\Gin@req@width/\textwidth*100,2)}\char_generate:nn { `\% } { 12 }"}{}}
+\ExplSyntaxOff
 \else
-   \Log:Note{for key dimensions try the option
-       `Gin-dim'; for key dimensions when bounding box is unavailable 
-       try `Gin-dim+'; neither is recommended}
+   \Log:Note{for setting image dimensions, try the option
+       `Gin-dim'; to use percents instead of units, use 
+       `Gin-perecent'; for key dimensions when bounding 
+       box is unavailable try `Gin-dim+'; 
+       neither is recommended}
    \Configure{Gin-dim}
    {\if:boundingbox{|<graphics width/height|>}{}}
-\fi \fi
+\fi \fi \fi
 >>>
 
 \<pixels graphics width/height\><<<

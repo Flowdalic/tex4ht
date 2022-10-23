@@ -1,3 +1,9 @@
+2022-10-23  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): added the Gin-percent option. It
+	sets the dimention of images in percent of the page width.
+	https://tex.stackexchange.com/a/563314/2891
+
 2022-10-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (floatrow.4ht): basic support for the Floatrow
