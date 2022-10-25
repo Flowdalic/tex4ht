@@ -1,5 +1,9 @@
 2022-10-25  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (endnotes.4ht): fixed clash between Endnotes and
+	BibLaTeX.
+	https://tug.org/pipermail/tex4ht/2022q4/003274.html
+
 	* tex4ht-mathml.tex (mathml.4ht, html-mml.4ht): fixed support for
 	\hline inside the array environment.
 	https://tex.stackexchange.com/a/662845/2891

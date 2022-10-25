@@ -32740,13 +32740,24 @@ of  \''<a>' elements.
 \NewConfigure{makeenmark}{2}
 \def\enoteformat{\rightskip\z@ \leftskip\z@ \parindent=1.8em
      \leavevmode\llap{\hbox{\textsuperscript{\@theenmark}}}}
+
+\NewConfigure{theendnotes}{2}
+\NewConfigure{enoteformat}{2}
+>>>
+
+BibLaTeX patches theendnotes at begin document, and it produces
+compilation error, because it cannot find the \''\enoteformat'
+command here. We can postpone our redefinition to the moment,
+when BibLaTeX patched the command already.
+
+\<fix endnotes\><<<
+\AtBeginDocument{%
 \def\:tempc{\bgroup
    \pend:def\enoteformat{\a:enoteformat}%
    \append:def\enoteformat{\b:enoteformat}%
    \a:theendnotes \o:theendnotes: \b:theendnotes \egroup}
 \HLet\theendnotes=\:tempc
-\NewConfigure{theendnotes}{2}
-\NewConfigure{enoteformat}{2}
+}
 >>>
 
 %%%%%%%%%%%%%%%%%
