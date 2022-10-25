@@ -1,5 +1,11 @@
 2022-10-25  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (fontmath.4ht, plain.4ht),
+	* tex4ht-html4.tex (html4-math.4ht),
+	* tex4ht-unicode.tex (unicode.4ht): fixed \Longrightarrow and
+	\Longleftarrow symbols.
+	https://github.com/michal-h21/make4ht/issues/86
+
 	* tex4ht-4ht.tex (endnotes.4ht): fixed clash between Endnotes and
 	BibLaTeX.
 	https://tug.org/pipermail/tex4ht/2022q4/003274.html
