@@ -1173,7 +1173,7 @@ space, without having them ignored, must use &nbsp; or other
 \Configure{array} 
    {\halignTB{array}}
    {\ifvmode \IgnorePar\fi |<insert Clr|>\Tg</\a:mathml mtable>}
-   {\Tg<\a:mathml mtr>}{\Tg</\a:mathml mtr>}
+   {\Tg<\a:mathml mtr \mml:class="array-row">}{\Tg</\a:mathml mtr>}
    {|<mtd array|>}
    {\Tg</\a:mathml mtd>}
 \ConfigureEnv{array}
@@ -1205,7 +1205,7 @@ space, without having them ignored, must use &nbsp; or other
 
 
 \<mtd array\><<<
-\HCode{<\a:mathml mtd\Hnewline \mml:class="array" 
+\HCode{<\a:mathml mtd\Hnewline \mml:class="array-td" 
    \ifnum 1<\HMultispan columnspan="\HMultispan"\fi}%
    \halignTD    \HCode{>}%
 >>>
@@ -1232,15 +1232,15 @@ space, without having them ignored, must use &nbsp; or other
 \def\:MM{m}
 \def\mathml:hborder{%
 \Configure{HBorder}
-   {<\a:mathml mtr\Hnewline \mml:class="hline">} 
+   {<\a:mathml mtr\Hnewline \mml:class="array-hline">} 
    {|<mml hline|>}
    {</\a:mathml mtr>}
-   {<\a:mathml mtr\Hnewline \mml:class="cline">}
+   {<\a:mathml mtr\Hnewline \mml:class="array-cline">}
    {<\a:mathml mtd></\a:mathml mtd>}
    {|<mml hline|>}
    {</\a:mathml mtr>}
    {<\a:mathml mtr\Hnewline
-         \mml:class="vspace" style="font-size:\HBorderspace">}
+         \mml:class="array-vspace" style="font-size:\HBorderspace">}
    {<\a:mathml mtd\Hnewline></\a:mathml mtd>}
    {</\a:mathml mtr>}
   }
@@ -1252,18 +1252,18 @@ space, without having them ignored, must use &nbsp; or other
 \def\:MM{\ifmathml \a:mathml m\fi}
 \Configure{HBorder}
    {<\:MM tr\Hnewline 
-       \ifmathml \expandafter\mml:class\else class\fi="hline">} 
+       \ifmathml \expandafter\mml:class\else class\fi="array-hline">} 
    {\ifmathml|<mml hline|>\else
-            <td><hr\xml:empty></td>\fi} 
+            <td></td>\fi} 
    {</\:MM tr>}
    {<\:MM tr\Hnewline
-       \ifmathml \expandafter\mml:class\else class\fi ="cline">}
+       \ifmathml \expandafter\mml:class\else class\fi ="array-cline">}
    {<\:MM td></\:MM td>}
    {\ifmathml|<mml hline|>\else
-            <td><hr\xml:empty></td>\fi}
+            <td></td>\fi}
    {</\:MM tr>}
    {<\:MM tr\Hnewline
-         \ifmathml \expandafter\mml:class\else  class\fi="vspace"
+         \ifmathml \expandafter\mml:class\else  class\fi="array-vspace"
          style="font-size:\HBorderspace">}
    {<\:MM td\Hnewline>\ifmathml\else\string&\#x00A0;\fi
       </\:MM td>}
@@ -1286,16 +1286,19 @@ space, without having them ignored, must use &nbsp; or other
                \HCode{</\:MT td>}|<td recall EndP|>}
 >>>
 
+It seems that Firefox doesn't support MathML styling
+using element names, but classes works. We need to hide
+rows produced by hline.
 
 \<configure html-mml latex\><<<
-\Css{mtr.hline mtd{ 
+\Css{.array-hline,.array-cline{ 
   border-bottom:black solid 1px;  
-  padding-top:2px; 
-  padding-bottom:0em; 
+  height:0px;
 }} 
-\Css{mtr.hline mtd mo{ 
+\Css{.hline-mtd{ 
   display:none 
 }}
+\Css{.array-hline + .array-row:last-child{display:none;}}
 >>>
 
 \<td save EndP\><<<
@@ -1308,7 +1311,7 @@ space, without having them ignored, must use &nbsp; or other
 
 
 \<mml hline\><<<
-<\a:mathml mtd><mo> \string&\#x0332; </mo></\a:mathml mtd>
+<\a:mathml mtd \mml:class="hline-mtd"></\a:mathml mtd>
 >>>
 
 

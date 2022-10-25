@@ -1,3 +1,9 @@
+2022-10-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht, html-mml.4ht): fixed support for
+	\hline inside the array environment.
+	https://tex.stackexchange.com/a/662845/2891
+
 2022-10-23  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added the Gin-percent option. It
