@@ -4977,31 +4977,34 @@ as it leads to a fatal error.
 \endinput
 >>> \AddFile{9}{subfiles}
 
-We use the original version of \Verb|\subfiles@renewEndDocument|, the only 
-change is that we added the \Verb|\choose:begin| redefinition. It is necessary
-to prevent processing of the document after \Verb|\end{document}| in the 
-included subfile.
+The Subfiles package redefines handling of LaTeX environments.
+Because the included TeX files contain \Verb|\end{document}|,
+it causes immediate stop of the main file processing. 
+
+We must test for environment names in the included document,
+and set \Verb|\choose:begin| to grab the second argument,
+which will prevent the stop of the processing.
+
 
 \<subfiles enddocument\><<<
+\def\subfiles:end{%
+  \def\:temp{document}
+  \ifx\@currenvir\:temp
+    \let\choose:begin\@secondoftwo%
+    \subfiles@restoreEndFrom\:gobble
+  \fi%
+}
+
 \def\:tempa#1{%
   \ifcsname subfiles@end\endcsname
-  \else
-    \subfiles@saveEndTo\subfiles@end
-  \fi
-  \let\choose:begin\@secondoftwo
-  \expandafter\def\csname end \endcsname##1{%
-    \romannumeral
-    \subfiles@StrIfEqTF{##1}{document}{%
-      \z@
-      \subfiles@restoreEndFrom\subfiles@end
-      #1%
-    }{%
-      \expandafter\expandafter\expandafter\z@\subfiles@end{##1}%
-    }%
-  }%
+\else
+  \subfiles@saveEndTo\subfiles@end
+\fi
+\pend:defI\end\subfiles:end
 }
 
 \HLet\subfiles@renewEndDocument\:tempa
+
 >>>
 
 \Section{url.sty}
