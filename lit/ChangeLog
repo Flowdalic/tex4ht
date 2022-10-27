@@ -1,3 +1,9 @@
+2022-10-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): remove extra vertical lines after
+	last \hline in a table.
+	https://github.com/michal-h21/make4ht/issues/88
+
 2022-10-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (subfiles.4ht): fixed handling of environments
