@@ -1292,13 +1292,15 @@ rows produced by hline.
 
 \<configure html-mml latex\><<<
 \Css{.array-hline,.array-cline{ 
-  border-bottom:black solid 1px;  
+  border-top: 1px solid black;  
   height:0px;
 }} 
-\Css{.hline-mtd{ 
+\Css{.array-hline + .array-vspace:last-child{display:none;}}
+\Css{.hline-mtd, .array-hline td{ 
   display:none 
 }}
 \Css{.array-hline + .array-row:last-child{display:none;}}
+\Css{.array-hline:first-child{border-bottom:1px solid black;border-top:none;}}
 >>>
 
 \<td save EndP\><<<
