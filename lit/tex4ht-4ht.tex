@@ -3650,7 +3650,7 @@ This is basic support for the cleveref package.
     {\def\@tempa{\csname cref@#1@alias\endcsname}}%
   \protected@xdef\cref@currentlabel{%
     [\@tempa][\arabic{#1}][\cref@result]%
-    \csname p@#1\endcsname\csname the#1\endcsname}
+    \csname p@#1\endcsname\csname the#1\endcsname}%
     \cref:currentlabel{#1}%
     }%
 \def\refstepcounter@optarg[#1]#2{%
@@ -3661,7 +3661,7 @@ This is basic support for the cleveref package.
     {\def\@tempa{\csname cref@#1@alias\endcsname}}%
   \protected@xdef\cref@currentlabel{%
     [\@tempa][\arabic{#2}][\cref@result]%
-    \csname p@#2\endcsname\csname the#2\endcsname}
+    \csname p@#2\endcsname\csname the#2\endcsname}%
     \cref:currentlabel{#2}%
   }%
 >>>
@@ -3671,7 +3671,7 @@ Support for links from the \Verb|\cref| command.
 
 \<cleveref links\><<<
 \ifdefined\@firstoffive\else%
-  \def\@firstoffive#1#2#3#4#5{#1}
+  \def\@firstoffive#1#2#3#4#5{#1}%
 \fi
 \def\:tempa#1#2{\bgroup%
   \def\rEfLiNK##1##2{\Link{##1}{}}%
@@ -3694,11 +3694,11 @@ Fixes for the amsthm cleveref redefinitions.
   \def\:tempb[#1]#2#3#4{%
    % call original amsthm theorem definition, but
    % disable \:thm in order to prevent infinite loop
-   \let\:thm\:gobble
+   \let\:thm\:gobble%
    \cref@thmnoarg{#2}%
    \o:cref@thmoptarg:[#1]{#2}{#3}{#4}
   }%
-  \HLet\cref@thmoptarg\:tempb
+  \HLet\cref@thmoptarg\:tempb%
 }{}%
 >>>
 

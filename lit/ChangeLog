@@ -1,5 +1,9 @@
 2022-10-27  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (cleveref.4ht): removed spurious spaces produced by
+	non-commented end lines.
+	https://github.com/michal-h21/make4ht/issues/89
+
 	* tex4ht-html4.tex (html4.4ht),
 	* tex4ht-mathml.tex (mathml.4ht): fixed wrong horizontal lines in
 	tables.
