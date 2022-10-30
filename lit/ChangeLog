@@ -1,3 +1,8 @@
+2022-10-30  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (cleveref.4ht),
+	* tex4ht-unicode.tex (unicode.4ht): copyright 2022.
+
 2022-10-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (cleveref.4ht): removed spurious spaces produced by
