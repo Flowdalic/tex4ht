@@ -4936,11 +4936,11 @@ tail>>>
 \section{Boxed}
 %%%%%%%%%%%%%%%%%%
 
-\<configure html-mml amsmath\><<<
+\<configure mathml amsmath\><<<
 \Configure{boxed}
-   {\ifmathml \Tg<\a:mathml mrow \mml:class="boxed">%
+   {\ifmathml \Tg<\a:mathml menclose \a:mathml notation="box">\Tg<\a:mathml mrow>%
     \else     \HCode{<span class="boxed">}\IgnorePar\fi}
-   {\ifmathml \Tg</\a:mathml mrow>%
+   {\ifmathml \Tg</\a:mathml mrow>\Tg</\a:mathml menclose>%
     \else \HCode{</span>}\fi}
 \Css{.boxed{border: 1px solid black; padding-left:2px;
                                      padding-right:2px;}}
