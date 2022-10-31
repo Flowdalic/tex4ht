@@ -1,5 +1,8 @@
 2022-10-31  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-unicode.tex (unicode.4ht): fixed Unicode characters for
+	more long arrow commands.
+
 	* tex4ht-4ht.tex (minted.4ht): don't insert comments in
 	\mintedinline, it can cause removal of HTML tags.
 	https://github.com/michal-h21/make4ht/issues/92
