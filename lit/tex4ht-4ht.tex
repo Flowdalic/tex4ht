@@ -25317,7 +25317,10 @@ in the generated HTML.
 \NewConfigure{InlineCode}{2}
 % this is a hack to hide a newline that is produced, and which causes spurious space in the output
 \NewConfigure{MintedHideNewline}{2} 
-\Configure{MintedHideNewline}{\HCode{<!--}}{\HCode{-->}}
+% I cannot reproduce the newline issue now, but it seems that 
+% this comment can hide desired tags sometimes, so we should disable it.
+% See https://github.com/michal-h21/make4ht/issues/92
+%\Configure{MintedHideNewline}{\HCode{<!--}}{\HCode{-->}}
 
 \def\:tempa#1{%
   \endgroup%

@@ -1,3 +1,9 @@
+2022-10-31  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (minted.4ht): don't insert comments in
+	\mintedinline, it can cause removal of HTML tags.
+	https://github.com/michal-h21/make4ht/issues/92
+	
 2022-10-30  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (cleveref.4ht),
