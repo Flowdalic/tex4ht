@@ -629,6 +629,7 @@ We reserve code 254 (and 255) for unknown symbols.
 |<math fonts utilities|>
 |<set mathcal class|>
 |<set mathcal symbols|>
+|<redefine mathcal|>
 |<mathml plain,fontmath|>
 >>>
 
@@ -4487,9 +4488,14 @@ catching of  left subscripts and superscripts.
 \fi
 >>>
 
+This version of mathcal will prevent conversion of letters to Unicode Script values. 
+The Script style is required using the mathvariant attribute, so it should be 
+rendered correctly.
 
-
-
+\<redefine mathcal\><<<
+\def\:tempa#1{\HCode{<\a:mathml mstyle\Hnewline mathvariant="script">}#1\HCode{</\a:mathml mstyle>}}
+\HLet\mathcal\:tempa
+>>>
 
 
 \<configure mathml amssymb\><<<
