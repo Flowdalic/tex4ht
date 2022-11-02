@@ -4493,7 +4493,7 @@ The Script style is required using the mathvariant attribute, so it should be
 rendered correctly.
 
 \<redefine mathcal\><<<
-\def\:tempa#1{\HCode{<\a:mathml mstyle\Hnewline mathvariant="script">}#1\HCode{</\a:mathml mstyle>}}
+\def\:tempa#1{\bgroup\HCode{<\a:mathml mstyle\Hnewline mathvariant="script">}#1\HCode{</\a:mathml mstyle>}\egroup}
 \HLet\mathcal\:tempa
 >>>
 
