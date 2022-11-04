@@ -33442,6 +33442,74 @@ of \''\:temp' below.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
+\Section{xskak.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<xskak.4ht\><<<
+% xskak.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<xskak depth|>
+|<xskak inline elements|>
+|<xskak.sty|>
+\Hinput{xskak}
+\endinput
+>>>\AddFile{9}{xskak}
+
+This command calculates vertical align for Xskak commands that can be used inline,
+so the image is aligned correctly to the baseline of the surrounding text.
+
+\<xskak depth\><<<
+\ExplSyntaxOn
+\def\:xskakdepth{vertical-align:-\fp_eval:n{ 
+  \dim_to_fp:n{\dp0}/(\dim_to_fp:n{\ht0}+\dim_to_fp:n{\dp0}) * 100
+}\@percentchar;}
+\ExplSyntaxOff
+>>>
+
+The following commands are used in text, so we save the result in a box, which can
+be used for calculation of vertical alignment.
+
+\<xskak inline elements\><<<
+\NewConfigure{mainline}{2}
+\def\:tempa#1{%
+  \setbox0=\hbox{\o:mainline:{#1}}%
+  \edef\:xskakalt{\detokenize{#1}}%
+  %\a:mainline\Picture*[\detokenize{#1}]{ style="\:xskakdepth"}\box0\EndPicture\b:mainline%
+  \a:mainline\box0\b:mainline%
+}
+\HLet\mainline\:tempa
+
+\NewConfigure{xskakget}{2}
+\def\:tempa#1{%
+  \edef\:xskakalt{\detokenize{#1}}%
+  \setbox0=\hbox{\o:xskakget:{#1}}%
+  \a:xskakget\box0\b:xskakget%
+}
+\HLet\xskakget\:tempa
+>>>
+
+The chessboard configuration is defined by chessboard.4ht too. We declare it here
+because 
+
+\<xskak.sty\><<<
+\NewConfigure{chessboard}{2}
+>>>
+
+\<xskak.sty\><<<
+\def\:tempa{%
+  % reset to the original version of \chessboard
+  \let\:currchesboard\chessboard
+  \let\chessboard\o:chessboard:%
+  \o:newchessgame:%
+  % set the TeX4ht version of \chessboard back
+  \let\chessboard\:currchesboard
+}
+\HLet\newchessgame\:tempa
+>>>
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{texmate.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%
 

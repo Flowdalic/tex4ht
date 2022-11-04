@@ -19426,6 +19426,27 @@ latex.ltx, fontmath.ltx, plain.tex
 >>>
 
 %%%%%%%%%%%%%%%%%
+\section{xskak}
+%%%%%%%%%%%%%%%%%
+
+\<configure html4 xskak\><<<
+\Configure{mainline}{\Picture*[\:xskakalt]{ style="\:xskakdepth"}}{\EndPicture}
+\Configure{xskakget}{\Picture*[\:xskakalt]{ style="\:xskakdepth"}}{\EndPicture}
+>>>
+
+%%%%%%%%%%%%%%%%%
+\section{chessboard}
+%%%%%%%%%%%%%%%%%
+
+If called from Xskak, we can use the xskakget command to get 
+chess notation as an alt text.
+
+\<configure html4 chessboard\><<<
+\def\chessboard:alt{\ifdefined\o:xskakget:\o:xskakget:{nextfen}\fi}
+\Configure{chessboard}{\Picture*[\chessboard:alt]{}}{\EndPicture}
+>>>
+
+%%%%%%%%%%%%%%%%%
 \section{texmate}
 
 \<configure html4 texmate\><<<
