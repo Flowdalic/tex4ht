@@ -3729,19 +3729,41 @@ because Hyperref exits before this macro is defined.
 %%%%%%%%%%%%%%%%%%
 \Section{authblk}
 
-This is a basic fix for authblk package. 
-\Link[https://tex.stackexchange.com/a/309246/2891]{}{}More context.\EndLink
 \<authblk.4ht\><<<
 % authblk.4ht (|version), generated from |jobname.tex
 % Copyright 2017 TeX Users Group
 |<TeX4ht license text|>
-\def\maketitle{\bgroup%
- \AB@maketitle%
-\egroup}
-
+|<authblk maketitle|>
 \Hinput{authblk}
 \endinput
 >>> \AddFile{8}{authblk}
+
+This is a basic fix for authblk package. 
+\Link[https://tex.stackexchange.com/a/309246/2891]{}{}Original issue.\EndLink
+
+This is modified  version of TeX4ht maketitle, with support for arguments in
+@author, and it uses AB@maketitle, as o:maketitle: caused infinite loop.
+
+\<authblk maketitle\><<<
+\let\o:maketitle:|=\maketitle
+\def\maketitle{\bgroup 
+   |<adjust minipageNum for setcounter footnote 0|>%
+   \ifx \EndPicture\:UnDef  
+      \def\sec:typ{title}%
+      \Configure{HtmlPar}{}{}{}{}%
+      \Configure{newpage}{}%
+      \ConfigureEnv{center}{\empty}{}{\empty}{\empty}
+      \renewenvironment{tabular}[2][]{\begin{center}}{\end{center}}
+      \ConfigureEnv{tabular}{\empty}{}{}{}%
+      |<title for TITLE|>%
+      \pend:def\@title{\a:ttl}\append:def\@title{\b:ttl}%
+      \pend:def\@date{\a:date}\append:def\@date{\b:date}%
+      \pend:defI\@author{\a:author}\append:def\@author{\b:author}%
+      |</and for maketitle|>%
+   \fi 
+   \pic:gobble\a:mktl  \AB@maketitle \pic:gobble\b:mktl
+   \egroup \let\maketitle|=\empty}
+>>>
 
 %%%%%%%%%%%%%%%%%%
 \Section{geometry}
