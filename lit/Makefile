@@ -223,6 +223,10 @@ derived += $(tex4ht_fonts_mnsymbol_derived)
 tex4ht_fonts_mnsymbol_derived = \
 	$(ht_fonts_devdir)/unicode/MnSymbol/MnSymbolA-Bold10.htf
 
+derived += $(tex4ht_fonts_stix_derived)
+tex4ht_fonts_stix_derived = \
+	$(ht_fonts_devdir)/unicode/STIX/stix-mathbb.htf
+
 # htcmd not used
 #derived += $(tex4ht_htcmd_derived)
 #tex4ht_htcmd_derived = htcmd.c
@@ -443,6 +447,9 @@ $(tex4ht_fonts_opensans_derived): tex4ht-fonts-opensans.tex
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_mnsymbol_derived): tex4ht-fonts-mnsymbol.tex
+	$(HTTEX) $< ""
+
+$(tex4ht_fonts_stix_derived): tex4ht-fonts-stix.tex
 	$(HTTEX) $< ""
 
 # requires more memory than configured in other tex programs.
