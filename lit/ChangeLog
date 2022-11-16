@@ -30,7 +30,7 @@
 	array vspace, as it can lead to wrong size of the table.
 	https://github.com/michal-h21/make4ht/issues/91
 
-	* tex4ht-mathml.tex(mathml.4ht): prevent use of Unicode characters
+	* tex4ht-mathml.tex (mathml.4ht): prevent use of Unicode characters
 	inside \mathcal. 
 	https://github.com/michal-h21/make4ht/issues/95
 

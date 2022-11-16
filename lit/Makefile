@@ -770,7 +770,7 @@ install-scripts:
 # from whence they get to CTAN.
 
 srcfiles = $(shell svn status -v | awk '{print $$NF}' \
-             | egrep -v '^\.|^archive|ProTex.sty$$')
+             | egrep -v '^\.|^archive|extra-bin|vcss|xmllint|mf|ProTex.sty$$')
 
 # Diff source files from installed to dev.
 diff-src:
