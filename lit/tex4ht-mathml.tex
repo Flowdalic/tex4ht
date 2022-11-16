@@ -86,7 +86,7 @@
 \<amsmath mathml\><<<
 \Configure{equation}
   {\Configure{gather}
-     {\HCode{<\a:mathml mtable\Hnewline
+     {\HCode{<\a:mathml mtable\Hnewline \a:mathml displaystyle="true"
         \mml:class="equation"><\a:mathml mtr><\a:mathml mtd>}\IgnorePar }
      {\HCode{</\a:mathml mtd></\a:mathml mtr></\a:mathml mtable>}}
      {}
@@ -205,7 +205,7 @@ We check for empty parameter, and don't execute configurations when it is empty.
 
 \<amsmath equation july 2000\><<<
 \Configure{gather}
-     {\HCode{<\a:mathml mtable\Hnewline
+     {\HCode{<\a:mathml mtable\Hnewline 
         \mml:class="equation"><\a:mathml mtr><\a:mathml mtd>}\IgnorePar 
          |<math display in equation|>}
      {\HCode{</\a:mathml mtd></\a:mathml mtr></\a:mathml mtable>}}
@@ -2067,7 +2067,7 @@ POP
 
 \<amsmath mathml\><<<
 \Configure{multline}
-   {\HCode{<\a:mathml mtable\Hnewline  \mml:class="multline">}}
+   {\HCode{<\a:mathml mtable\Hnewline \a:mathml displaystyle="true"  \mml:class="multline">}}
    {\HCode{</\a:mathml mtable>}}
    {\HCode{<\a:mathml mtr>%
            <\a:mathml mtd\Hnewline \mml:class="multline">}}
@@ -2075,18 +2075,18 @@ POP
    {\HCode{</\a:mathml mtd><\a:mathml mtd>}} 
    {}
 \Configure{multline*}
-   {\HCode{<\a:mathml mtable\Hnewline \mml:class="multline-star">}}   
+   {\HCode{<\a:mathml mtable\Hnewline \a:mathml displaystyle="true" \mml:class="multline-star">}}   
    {\HCode{</\a:mathml mtable>}}
    {\HCode{<\a:mathml mtr><\a:mathml mtd\Hnewline  
                                         \mml:class="multline-star">}} 
    {\HCode{</\a:mathml mtd></\a:mathml mtr>}} 
 \Configure{gather}
-   {\HCode{<\a:mathml mtable\Hnewline \mml:class="gather">}}
+   {\HCode{<\a:mathml mtable\Hnewline \a:mathml displaystyle="true" \mml:class="gather">}}
    {\HCode{</\a:mathml mtable>}}
    {\HCode{<\a:mathml mtr>}}    {\HCode{</\a:mathml mtr>}} 
    {\HCode{\Hnewline<\a:mathml mtd>}}   {\HCode{</\a:mathml mtd>}}
 \Configure{gather*}
-   {\HCode{<\a:mathml mtable\Hnewline \mml:class="gather-star">}}
+   {\HCode{<\a:mathml mtable\Hnewline \a:mathml displaystyle="true" \mml:class="gather-star">}}
    {\HCode{</\a:mathml mtable>}}
    {\HCode{<\a:mathml mtr>}}    {\HCode{</\a:mathml mtr>}} 
    {\HCode{\Hnewline<\a:mathml mtd>}}   {\HCode{</\a:mathml mtd>}}

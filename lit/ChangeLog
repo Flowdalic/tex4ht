@@ -1,3 +1,10 @@
+2022-11-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): use displaystyle=true attribute in
+	Gather and similar environments, to force the display style for the
+	enclosed content.
+	https://github.com/michal-h21/make4ht/issues/101
+
 2022-11-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (authblk.4ht): better handling of the authblk
