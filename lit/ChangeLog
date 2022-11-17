@@ -1,3 +1,8 @@
+2022-11-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (caption-hooks.4ht): don't use Caption's version of
+	\@caption, as it doesn't work with \index command included inside.
+
 2022-11-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): use displaystyle=true attribute in
