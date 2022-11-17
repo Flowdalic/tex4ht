@@ -12377,6 +12377,48 @@ prevent this issue.
 \endinput
 >>>        \AddFile{9}{subcaption}
 
+
+%%%%%%%%%%%%%
+\Section{footnotebackref.sty}
+%%%%%%%%%%%%%
+
+Dummy package for footnotebackref. We need to disable it completely.
+
+\<footnotebackref.4ht\><<<
+% footnotebackref.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+\Hinput{footnotebackref}
+\endinput
+>>> \AddFile{9}{footnotebackref}
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{footnotebackref.sty}{footnotebackref-hooks.4ht}
+>>>
+
+We disable the package, but still support the package options, as
+other packages (such as tablefootnote.sty) rely on them.
+
+\<footnotebackref-hooks.4ht\><<<
+\:dontusepackage{footnotebackref}
+\RequirePackage{kvoptions}% v3.10
+\@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}
+
+\SetupKeyvalOptions{family=FootnoteBackref, prefix=FootnoteBackref@}
+
+% The symbol between the footnotenumber and the footnotetext
+% If empty no symbol will be printed
+\DeclareStringOption{symbol}
+
+% Option to hyperlink the footnotenumber
+\DeclareBoolOption[true]{numberlinked}
+\ProcessKeyvalOptions*
+\endinput
+>>> \AddFile{9}{footnotebackref-hooks}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{floatrow.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
