@@ -3549,7 +3549,13 @@ definitions.
 \@ifpackageloaded{caption}{
   \pend:defIII\caption@beginex{%
     \gdef\NR:Type{\@currenvir}%
-    \gdef\NR:Title{\a:newlabel{##2}}%
+    % handle \label and \index in Caption's package
+    % version of \caption
+    \begingroup%
+    \let\index\:gobble%
+    \let\label\:gobble%
+    \protected@xdef\NR:Title{\a:newlabel{##2}}%
+    \endgroup%
   }
 }{}
 
