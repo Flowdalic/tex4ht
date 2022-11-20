@@ -1,3 +1,7 @@
+2022-11-20  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (authblk.4ht, caption-hooks.4ht): copyright 2022.
+
 2022-11-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (nameref.4ht): disable \index and \label commands
