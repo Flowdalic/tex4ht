@@ -3588,11 +3588,11 @@ definitions.
 \let\T:ref=\::ref
 \def\::ref{\@ifstar{\protect\T@ref}{\protect\T@ref}}
 \def\T@ref#1{%
-  \@safe@activestrue
-  \let\::ref \T:ref
+  \@safe@activestrue%
+  \let\::ref\T:ref%
   \expandafter\@setref\csname r@#1\endcsname\@firstoffive{#1}%
-  \def\::ref{\@ifstar{\protect\T@ref}{\protect\T@ref}}
-  \@safe@activesfalse
+  \def\::ref{\@ifstar{\protect\T@ref}{\protect\T@ref}}%
+  \@safe@activesfalse%
 }
 
 \gdef\defineautorefname#1#2{%

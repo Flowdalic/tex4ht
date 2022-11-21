@@ -1,5 +1,7 @@
 2022-11-21  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (nameref.4ht): removed spurious space after \ref.
+
 	* tex4ht-4ht.tex (babel-sty-hooks.4ht): disable the \babelfont
 	command.
 	https://github.com/michal-h21/tex4ebook/issues/94
