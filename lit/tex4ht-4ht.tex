@@ -24007,8 +24007,22 @@ Handle circumflex catcodes when the \Verb|early^| option is used.
 % Copyright 2022 TeX Users Group
 |<TeX4ht license text|>
 |<disable early sup|>
+|<babelfont|>
 >>> 
 \AddFile{9}{babel-sty-hooks}
+
+The babelfont command can be used in the document preamble.
+It can cause fatal errors, because it changes font encodings
+and can cause loating of OTF fonts
+
+\<babelfont\><<<
+\NewDocumentCommand\:babelfont{o m o m}{}
+
+\:AtEndOfPackage{%
+  % disable \babelfont
+  \let\babelfont\:babelfont
+}
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%
 \Section{CJK}
