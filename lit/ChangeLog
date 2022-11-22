@@ -1,5 +1,11 @@
 2022-11-22  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (slashbox.4ht): added basic support for the
+	Slashbox package.
+
+	* tex4ht-4ht.tex (glossaries.4ht): removed spurious tags from the
+	glossary.
+
 	* tex4ht-4ht.tex (caption.4ht): fixed support for the
 	\ContinuedFloat command.
 

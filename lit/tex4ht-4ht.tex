@@ -13048,6 +13048,7 @@ The above doesn't work always.  Try
 % Copyright (C) |CopyYear.2008.       Eitan M. Gurari         %
 |<TeX4ht copyright|>
 |<config glossaries|>
+|<index in glossary|>
 \Hinput{glossaries}
 \endinput
 >>>        \AddFile{6}{glossaries}
@@ -13073,6 +13074,18 @@ The above doesn't work always.  Try
  \fi 
 } 
 \HLet\@gls@removespaces\:tempc
+>>>
+
+This should fix wrong handling of paragraphs in glossary.
+The problem is that extra paragraph is inserted
+when a new letter is started.
+
+\<index in glossary\><<<
+\Configure{@begin}{theglossary}{
+  \Configure{theindex}{}{}{}{}{}{}{}{}{}{}
+  \def\idx:item{\SaveEverypar\ht:everypar{}}
+  \let\end:theidx\empty
+}
 >>>
 
 %%%%%%%%%%%%%%%%%%
@@ -27940,6 +27953,27 @@ This code fixes nameref support in Tcolorbox.
   \HLet\tcb@gettitle\:tempa
 }
 >>>
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\Section{slashbox}
+%%%%%%%%%%%%%%%%%%%%%%%
+\<slashbox.4ht\><<<
+% slashbox.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<slashbox config|>
+\Hinput{slashbox}
+\endinput
+>>> \AddFile{9}{slashbox}
+
+\<slashbox config\><<<
+\NewConfigure{slashbox}{2}
+\def\:tempa[#1][#2]#3#4{\a:slashbox\o:@@@slashbox:[#1][#2]{#3}{#4}\b:slashbox}
+
+\HLet\@@@slashbox\:tempa
+\Configure{slashbox}{\Picture+{}}{\EndPicture}
+>>>
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \Section{dvipsnam}
