@@ -1,3 +1,8 @@
+2022-11-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (caption.4ht): fixed support for the
+	\ContinuedFloat command.
+
 2022-11-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): removed spurious space from in text

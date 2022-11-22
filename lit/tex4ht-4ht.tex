@@ -12343,16 +12343,25 @@ different. We should keep the separator selected by the user.
 
 \<caption redefine makecaption\><<<
 \long\def\@makecaption#1#2{%   
+  |<fix continued float|>%
   \caption@make@above%
   \cptA:\caption@@make{\cap:ref{#1}}{\cptC:#2}\cptD:%
   \caption@make@below%
 }
 \long\def\caption@makecaption#1#2{%   
+  |<fix continued float|>%
   \caption@make@above%
   \cptA:\caption@@make{\cap:ref{#1}}{\cptC:#2}\cptD:%
   \caption@make@below%
 }
 >>>
+
+This definition should fix support for the \''ContinedFloat' command. 
+Without it, we can get an error message that the current float type
+is different than the one to be continued.
+
+\<fix continued float\><<<
+\xdef\continuedfloat@captype{\@captype}>>>
 
 Caption's version of addcontentsline doesn't prevent expansion of macros, which 
 may lead to errors when for example \''\%' is used. The use of detokenize should
