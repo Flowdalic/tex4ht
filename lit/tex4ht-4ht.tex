@@ -36182,6 +36182,29 @@ Use
 >>>        \AddFile{9}{footmisc}
 
 %%%%%%%%%%%%%%%
+\Section{tablefootnote}
+%%%%%%%%%%%%%%%%%
+
+\<tablefootnote.4ht\><<<
+% tablefootnote.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<config tablefootnote|>
+\Hinput{tablefootnote}
+\endinput
+>>>       \AddFile{9}{tablefootnote}
+
+The \''\tablefootnote| command tries to print list of footnotes 
+at the end of a table where they were used. I haven't found
+a good way how to do this in TeX4ht, so we just use normal footnote
+instead.
+
+\<config tablefootnote\><<<
+\let\tablefootnote\footnote
+>>>
+
+
+%%%%%%%%%%%%%%%
 \Section{Other}
 %%%%%%%%%%%%%%%%%
 
