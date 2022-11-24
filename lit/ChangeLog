@@ -1,3 +1,10 @@
+2022-11-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/*
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/musix/*
+	): added support for MusixTeX fonts.
+
 2022-11-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tablefootnote.4ht): added basic support for the
