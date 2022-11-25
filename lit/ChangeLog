@@ -1,3 +1,12 @@
+2022-11-25  Michal Hoftich  <michal.h21@gmail.com>
+	
+	* tex4ht-4ht.tex (imakeidx.4ht): fixed error in
+	\NewConfigure{makeindex}.
+
+	* tex4ht-4ht.tex (indextools.4ht): added support for the Indextools
+	package.
+	https://github.com/michal-h21/tex4ebook/issues/95
+
 2022-11-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (

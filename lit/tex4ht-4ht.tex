@@ -31145,7 +31145,7 @@ destination to the idx file
 \HLet\imki@wrindexentrysplit\:temp
 
 \ifx \a:makeindex\:UnDef
-\NewConfigure{makeindex}{}\Configure{makeindex}{}
+\NewConfigure{makeindex}{1}\Configure{makeindex}{}
 \fi
 >>>
 
@@ -31171,6 +31171,57 @@ needs a special treatment.
 
 \<index haddr\><<<
 d|<haddr prefix|>\last:haddr
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\SubSection{indextools.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<indextools.4ht\><<<
+% indextools.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<indextools index|>
+|<indextools defs|>
+|<indextools disable options|>
+
+\Hinput{indextools}
+\endinput
+>>> \AddFile{7}{indextools}
+
+
+
+
+Insert destinations for index items in text, and save the link to the .idx file
+
+\<indextools index\><<<
+\def\:tempa[#1]#2{\html:addr%
+	\ifindtl@splitindex\else% with splitindex, we would get duplicate index entry destinations
+		\hbox{\Link-{}{dx\last:haddr}\EndLink}%
+		\expandafter\protected@write\csname#1@idxfile\endcsname{}%
+		{\string\beforeentry{\RefFileNumber\FileNumber}{dx\last:haddr}{\a:makeindex}}%
+	\fi%
+	\o:@index:[#1]{#2}%
+}
+\HLet\@index\:tempa%
+
+\ifx \a:makeindex\:UnDef
+	\NewConfigure{makeindex}{1}\Configure{makeindex}{}
+\fi
+>>>
+
+\<indextools defs\><<<
+\Configure{@begin}{theindex}{\ind:defs}
+>>>
+
+\<indextools disable options\><<<
+% disable redefiniton of \theindex in \AtBeginDocument
+\indtl@originaltrue
+
+% prevent automatic compilation of the index
+\let\KV@indtl@noautomaticfalse\KV@indtl@noautomatictrue
+\KV@indtl@noautomatictrue
+\indtl@disableautomatictrue
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%
