@@ -1,3 +1,7 @@
+2022-11-27  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (imakeidx.4ht): copyright 2022.
+
 2022-11-25  Michal Hoftich  <michal.h21@gmail.com>
 	
 	* tex4ht-4ht.tex (imakeidx.4ht): fixed error in
