@@ -26,6 +26,7 @@
 \AtBeginDocument{%
 |<configurations|>
 |<mhchem configurations|>
+|<restore environments|>
 }
 \endinput
 >>>
@@ -266,6 +267,16 @@ Fixes for tables of contents.
 \<mhchem configurations\><<<
 \@ifpackageloaded{mhchem}{%
 \def\ce#1{\texttt{\detokenize{\(\ce{#1}\)}}}
+}{}
+>>>
+
+Restore environments redefined to produce verbatim output to their
+original meaning in the picture mode. Otherwise math cannot work
+inside TikZ etc.
+
+\<restore environments\><<<
+\@ifpackageloaded{tikz}{%
+\tikzset{every picture/.append code={\RestoreMathJaxEnvironments}} 
 }{}
 >>>
 
