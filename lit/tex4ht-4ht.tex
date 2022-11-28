@@ -33749,6 +33749,90 @@ because
 \endinput
 >>> \AddFile{9}{menukeys}
 
+\<musicography.4ht\><<<
+% musicography.4ht (|version), generated from |jobname.tex
+% Copyright 2022 TeX Users Group
+|<TeX4ht license text|>
+|<musicography symbols|>
+\Hinput{musicography}
+\endinput
+>>>\AddFile{9}{musicography}
+
+We convert most of the musicography symbols to pictures.
+It isn't optiomal, but I found that corresponding Unicode characters
+are either missing, or produce weird overlapping with the following
+character.
+
+The biggest issue with pictures is that it can produce a huge number 
+of images for repeated use of the each command. It could be 
+better to use specific image for each symbol only once. And
+also to better handle the vertical alignment to the baseline, 
+similarly how the \''\PicMath' command does. But my tests
+in this area failed so far, so I will leave it as it is now.
+
+\<musicography symbols\><<<
+\NewConfigure{musSymbol}{2}
+\NewDocumentCommand{\:musSymbol}{ O{\musFont} m m m m }{%
+  \a:musSymbol\o:musSymbol:[#1]{#2}{#3}{#4}{#5}\b:musSymbol%
+}
+
+\NewConfigure{musFlaggedNote}{2}
+\NewDocumentCommand{\:musFlaggedNote}{ m m }{%
+  \a:musFlaggedNote\o:musFlaggedNote:{#1}{#2}\b:musFlaggedNote
+}
+\HLet\musFlaggedNote\:musFlaggedNote
+
+
+\NewConfigure{musStemmedNote}{2}
+\NewDocumentCommand{\:musStemmedNote}{ m }{%
+  \a:musStemmedNote\o:musStemmedNote:{#1}\b:musStemmedNote%
+}
+
+\HLet\musStemmedNote\:musStemmedNote
+
+
+\NewConfigure{musDottedNote}{2}
+\NewDocumentCommand{\:musDottedNote}{ m }{%
+  \a:musDottedNote\o:musDottedNote:{#1}\b:musDottedNote%
+}
+
+\HLet\musDottedNote\:musDottedNote
+
+
+\NewConfigure{musStack}{2}
+\NewDocumentCommand{\:musStack}{ O{\musNumFont} m }{%
+  \a:musStack\o:musStack:[#1]{#2}\b:musStack%
+}
+
+\HLet\musStack\:musStack
+
+\NewConfigure{meterCplus}{2}
+\NewDocumentCommand{\:meterCplus}{ m }{\a:meterCplus\o:meterCplus:{#1}\b:meterCplus}
+\HLet\meterCplus\:meterCplus
+
+
+\Configure{musStack}{\Picture+{}}{\EndPicture}
+\Css{.mustack{display:block-inline}}
+\Configure{musDottedNote}{\Picture+{}}{\EndPicture}
+\Configure{musStemmedNote}{\Picture+{}}{\EndPicture}
+\Configure{musFlaggedNote}{\Picture+{}}{\EndPicture}
+\Configure{musSymbol}{\Picture+{}}{\EndPicture}
+\Configure{meterCplus}{\Picture+{}}{\EndPicture}
+
+
+% \def\:tempa#1#2{%
+% \def\:tempb{\x:unicode{#2}}%
+% \HLet#1\:tempb%
+% }
+% these characters are strange, they seems to overlap with the following character, and they are too small
+% it is probably better to use images
+% \:tempa\musEighth{1D160}
+% \:tempa\musSixteenth{1D161}
+% \:tempa\musThirtySecond{1D162}
+% \:tempa\musSixtyFourth{1D163}
+
+>>> 
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 \Section{vanilla.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%
