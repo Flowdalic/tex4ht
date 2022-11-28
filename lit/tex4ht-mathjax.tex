@@ -114,6 +114,32 @@ environments. They will then keep the LaTeX code unchanged.
 }
 >>>
 
+In pictures, we want to use the original version of the math environments. Because we use
+an agressive verbatim method for the environments, we cannot use the usual \verb'\HLet' method.
+Instead, we save the original meaning, and user needs to restore it manually, using
+the \verb'\RestoreMathJaxEnvironments' command.
+
+\<defined commands\><<<
+\ExplSyntaxOn
+\seq_new:N\:savedmathjaxenvs
+
+\newcommand\:savemathjaxenv[1]{%
+  \seq_gput_right:Nn\:savedmathjaxenvs{#1}
+  \expandafter\let\csname mathjax-#1\expandafter\endcsname\csname #1\endcsname%
+  \expandafter\let\csname mathjax-end#1\expandafter\endcsname\csname end#1\endcsname%
+}
+
+\newcommand\RestoreMathJaxEnvironment[1]{%
+  \expandafter\let\csname #1\expandafter\endcsname\csname mathjax-#1\endcsname%
+  \expandafter\let\csname end#1\expandafter\endcsname\csname mathjax-end#1\endcsname%
+}
+
+\newcommand\RestoreMathJaxEnvironments{%
+  \seq_map_function:NN\:savedmathjaxenvs\RestoreMathJaxEnvironment%
+}
+\ExplSyntaxOff
+>>>
+
 The \verb|\VerbMath| command redefines environments to pass their content
 verbatim to the HTML output.
 
@@ -129,6 +155,7 @@ numbers them consecutively. In these cases, other mechanisms may be necessary.
 \cs_generate_variant:Nn \regex_extract_once:nnNTF {nV}
 \newcommand\VerbMath[2][]{%
   \cs_if_exist:cTF{#2}{
+    \:savemathjaxenv{#2}%
     \RenewDocumentEnvironment{#2}{+!b}{%
       \NoFonts\expandafter\VerbMathToks\expandafter{\detokenize{##1}}{#2}\EndNoFonts%
       \ifx\relax#1\relax\else%

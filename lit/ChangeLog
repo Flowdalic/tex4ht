@@ -1,5 +1,9 @@
 2022-11-28  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): provided the
+	\RestoreMathJaxEnvironments command.
+	https://tex.stackexchange.com/a/666771/2891
+
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): removed the
 	\fixmathjaxsec command, robust commands should be used instead.
 	https://tex.stackexchange.com/q/666705/2891
