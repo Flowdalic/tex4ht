@@ -148,10 +148,13 @@ keep their verbatim appearance in the TOC
 \def\fixmathjaxtoc#1{\Configure{writetoc}{\def#1{\detokenize{#1}}}}
 >>>
 
-Some math commands cause issues when used in sections, so we will deactivate them.
+This was meant to fix some commands in sectioning commands, but it is not
+a good solution. Better is to define the problematic commands as robust.
 
-\<defined commands\><<<
+\<not defined commands\><<<
 \def\fixmathjaxsec#1{\def#1{\detokenize{#1}}}
+\fixmathjaxsec\right
+\fixmathjaxsec\left
 >>>
 
 Require verbatim math environments.
@@ -207,8 +210,6 @@ them into pictures.
 Fixes for tables of contents.
 
 \<configurations\><<<
-\fixmathjaxsec\left
-\fixmathjaxsec\right
 \fixmathjaxtoc\int
 \fixmathjaxtoc\,
 \fixmathjaxtoc\sin
