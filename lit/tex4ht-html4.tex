@@ -4804,6 +4804,7 @@ The `index=i' provides the initial setting.
 \<inline footnote text\><<<
 \Configure{footnotetext}
    {|<open inline footnote box|>%
+    \AnchorLabel%
     |<fn mark sup|>|<inline fn text /Link|>%
     \NoFonts
     \Tag{|<footnote id|>-bk}{}%
@@ -5061,7 +5062,7 @@ The `index=i' provides the initial setting.
 \Configure{footnotetext}
    {|<open footnote page|>%
     |<fn mark sup|>\Link{}{|<footnote id|>}%
-    \NoFonts
+    \NoFonts\AnchorLabel
    }
    {\EndNoFonts \EndLink|<fn mark end sup|>}
    {|<close footnote page|>}
