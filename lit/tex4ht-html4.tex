@@ -2146,8 +2146,8 @@ should be used whe addcontentline instructions are present.
 
 \<configure html4 multirow\><<<
 \Configure{multirow}
-    {\HCode{<div class="multirow"><!-- rows=\the\@tempcnta\space -->}}
-    {\HCode{</div>}}
+    {\ifvmode\IgnorePar\fi\EndP\HCode{<div class="multirow"><!-- rows=\the\@tempcnta\space -->}}
+    {\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
 >>>
 
 %%%%%%%%%%%%%
