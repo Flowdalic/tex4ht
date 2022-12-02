@@ -1,3 +1,9 @@
+2022-12-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (fancyvrb.4ht): use \nobreak to prevent unwanted
+	line breaks.
+	https://github.com/michal-h21/make4ht/issues/104
+
 2022-12-01  Michal Hoftich  <michal.h21@gmail.com>
 	
 	* tex4ht-html4.tex (html4.4ht): fixed cross-reference links to

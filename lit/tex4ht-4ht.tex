@@ -25183,7 +25183,9 @@ as they resulted in unwanted blank lines.
   \setbox\@tempboxa=\FV@ListProcessLine{#1}%
   \let\FV@ProcessLine\FV@ListProcessLine@iv}
 \def\FV@ListProcessLine@iv#1{%
-  \box\@tempboxa
+  % we use \nobreak to really prevent unwanted line breaks
+  % see https://github.com/michal-h21/make4ht/issues/104
+  \box\@tempboxa\nobreak% 
   \setbox\@tempboxa=\FV@ListProcessLine{#1}}%
 \def\FV@ListProcessLastLine{%
   \ifx\FV@ProcessLine\FV@ListProcessLine@iv
