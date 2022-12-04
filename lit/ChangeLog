@@ -1,3 +1,8 @@
+2022-12-04  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (footnotebackref-hooks.4ht, glossaries.4ht):
+	use standard headers to get the \write-1{version}.
+
 2022-12-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (fancyvrb.4ht): use \nobreak to prevent unwanted
