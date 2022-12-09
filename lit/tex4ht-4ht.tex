@@ -11034,7 +11034,6 @@ using CSS, so we don't try that.
   \tl_set:Nx \l__tblr_f_tl{\__tblr_spec_item:ne { hline } { [#1][#2](#3) / @dash }}
   % create CSS only when a dash style is set 
   \tl_if_empty:NF\l__tblr_f_tl{
-    \typeout{******** hline print:~#1,#2,#3,#4~ \__tblr_spec_item:ne { hline } { [#1][#2](#3) / @dash }}
     % get hline color
     \tl_set:Nx \l__tblr_g_tl { \__tblr_spec_item:ne { hline } { [#1][#2](#3) / fg } }
     \def\:hlinecolor{\#000000}
