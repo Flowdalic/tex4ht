@@ -2246,6 +2246,45 @@ We mainly need to handle paragraphs.
 >>>
 %%%%%%%%%%%%%
 
+\subsection{Tabularray}
+
+\<configure html4 tabularray\><<<
+\Configure{tabularray}{
+  \ifvmode\IgnorePar\fi\EndP
+  \gHAdvance\Next:TableNo by 1 \global\let\TableNo=\Next:TableNo%
+  \HCode{<table class="tabularray \@currenvir" id="tbl-\TableNo">}
+}{\ifvmode\IgnorePar\fi\EndP\HCode{</table>}}
+{\HCode{<tr id="row-\TableNo\HRow-">}}{\HCode{</tr>}}
+{\HCode{<td id="cell\TableNo-\HRow-\HCol" style="\CellStyle" \CellAttributes>}}{\HCode{</td>}}
+{\Configure{tabularrayattributes}{rowspan="\HRowspan"}}
+{\Configure{tabularrayattributes}{colspan="\HMultispan"}}{}
+
+% cells hidden by cell and row spans. they shouldn't be included in HTML, so we hide them using comments
+\Configure{tabularrayignoredcell}{\HCode{<!-- ignored cell: }}{\HCode{ -->}}
+
+% this is a default alignment, so we can ignore it, to save some space in the generated files
+% \Configure{tabularrayhalign}{l}{\Configure{tabularraystyles}{text-align:left;}}
+\Configure{tabularrayhalign}{r}{\Configure{tabularraystyles}{text-align:right;}}
+\Configure{tabularrayhalign}{c}{\Configure{tabularraystyles}{text-align:center;}}
+\Configure{tabularrayhalign}{j}{\Configure{tabularraystyles}{text-align:justify;}}
+
+% this is a default alignment, so we can ignore it, to save some space in the generated files
+% \Configure{tabularrayvalign}{m}{\Configure{tabularraystyles}{vertical-align:middle;}}
+\Configure{tabularrayvalign}{h}{\Configure{tabularraystyles}{vertical-align:top;}}
+\Configure{tabularrayvalign}{p}{\Configure{tabularraystyles}{vertical-align:top;}}
+\Configure{tabularrayvalign}{f}{\Configure{tabularraystyles}{vertical-align:bottom;}}
+% the vertical alignment of the following two is not correct, but CSS doesn't support the correct one
+\Configure{tabularrayvalign}{t}{\Configure{tabularraystyles}{vertical-align:top;}}
+\Configure{tabularrayvalign}{b}{\Configure{tabularraystyles}{vertical-align:bottom;}}
+
+% Save column width only on the first row
+\Configure{tabularraycolumnwidth}{\ifnum\HRow=1\Css{\#tbl-\TableNo\space td:nth-child(\HCol){width:\HColWidth;}}\fi}
+\Css{table.tabularray{table-layout: fixed;border-collapse:collapse;margin:0.3em 0;}}
+>>>
+
+
+
+
 %%%%%%%%%%%%%
 \subsection{Mdwtab}
 %%%%%%%%%%%%%

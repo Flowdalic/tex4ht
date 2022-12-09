@@ -1,3 +1,10 @@
+2022-12-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tabularray.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the Tabularray
+	package.
+	https://puszcza.gnu.org.ua/bugs/?584
+
 2022-12-04  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (footnotebackref-hooks.4ht, glossaries.4ht):
