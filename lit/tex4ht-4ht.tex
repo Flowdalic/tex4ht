@@ -4890,8 +4890,7 @@ The pdfbase package redefines \`|\@outputpage| macro, which causes tex4ht patche
 % Copyright 2020 TeX Users Group
 |<TeX4ht license text|>
 \:AtEndOfPackage{%
-  \let\old:outputpage\@outputpage
-  \def\@outputpage{\old:outputpage{}}
+  \expandafter\let\expandafter\@outputpage\csname pbs_outputpage_orig:\endcsname
 }
 >>> \AddFile{9}{pdfbase-hooks}
 

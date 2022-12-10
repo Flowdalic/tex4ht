@@ -1,3 +1,9 @@
+2022-12-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (pdfbase-hooks.4ht): fixed handling of Pdfbase
+	outut routine, to prevent fatal error.
+	https://puszcza.gnu.org.ua/bugs/?586
+
 2022-12-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tabularray.4ht),
