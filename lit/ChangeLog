@@ -1,3 +1,7 @@
+2022-12-11  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (pdfbase-books.4ht): copyright 2022.
+
 2022-12-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (pdfbase-hooks.4ht): fixed handling of Pdfbase
