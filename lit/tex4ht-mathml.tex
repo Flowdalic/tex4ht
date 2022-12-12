@@ -1696,7 +1696,14 @@ Use variant of original LaTeX macro used in \textunderscore
    {}%
 >>>
 
+The bf command should work in math. The following definition is a bit fragile, it expects
+that it is used inside a group for a small chunk of text.
 
+\<mathml fonts\><<<
+\def\:closebf{\HCode{</\a:mathml mi>}\EndPauseMathClass}
+\def\:tempa{\ifmmode\expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi{\PauseMathClass\HCode{<\a:mathml mi mathvariant="bold">}\aftergroup\:closebf}{\o:bf:}}
+\HLet\bf\:tempa
+>>>
 
 
 \<configure html-mml latex\><<<

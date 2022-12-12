@@ -1,3 +1,8 @@
+2022-12-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): added support for the \bf command.
+	https://github.com/michal-h21/make4ht/issues/98
+
 2022-12-11  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (pdfbase-books.4ht): copyright 2022.
