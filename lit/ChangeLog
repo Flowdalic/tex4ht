@@ -1,3 +1,9 @@
+2022-12-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): disable stretchy attribute for
+	MathClass-rel operators.
+	https://github.com/michal-h21/make4ht/issues/97
+
 2022-12-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): added support for the \bf command.
