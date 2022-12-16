@@ -4,14 +4,11 @@
 	\subparagraph in base classes.
 	https://tex.stackexchange.com/q/668713/2891
 
-	* tex4ht-4ht.tex (amsart.4ht, amsart.4ht, amsbook.4ht,
-	amsbook.4ht, amsproc.4ht, amsproc.4ht, article.4ht,
-	article.4ht, book.4ht, book.4ht, mwart.4ht, mwart.4ht,
-	mwbk.4ht, mwbk.4ht, mwrep.4ht, mwrep.4ht, report.4ht,
-	report.4ht, scrbook.4ht, scrbook.4ht, scrreprt.4ht,
-	scrreprt.4ht): prevent duplicate TOC printing with
-	\Configure{tableofcontents*} when \tableofcontents command is used
-	in the document.
+	* tex4ht-4ht.tex (amsart.4ht.4ht, amsbook.4ht, amsproc.4ht,
+	article.4ht, book.4ht, mwart.4ht, mwbk.4ht, mwrep.4ht,
+	report.4ht, scrbook.4ht, scrreprt.4ht): prevent duplicate TOC
+	printing with \Configure{tableofcontents*} when \tableofcontents
+	command is used in the document.
 	https://tex.stackexchange.com/q/668713/2891
 
 2022-12-15  Michal Hoftich  <michal.h21@gmail.com>
@@ -33,7 +30,7 @@
 
 2022-12-11  Karl Berry  <karl@freefriends.org>
 
-	* tex4ht-4ht.tex (pdfbase-books.4ht): copyright 2022.
+	* tex4ht-4ht.tex (pdfbase-hooks.4ht): copyright 2022.
 
 2022-12-10  Michal Hoftich  <michal.h21@gmail.com>
 
