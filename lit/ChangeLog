@@ -1,5 +1,9 @@
 2022-12-16  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): fixed numbering of \paragraph and
+	\subparagraph in base classes.
+	https://tex.stackexchange.com/q/668713/2891
+
 	* tex4ht-4ht.tex (amsart.4ht, amsart.4ht, amsbook.4ht,
 	amsbook.4ht, amsproc.4ht, amsproc.4ht, article.4ht,
 	article.4ht, book.4ht, book.4ht, mwart.4ht, mwart.4ht,

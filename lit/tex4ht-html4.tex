@@ -11101,8 +11101,13 @@ a \par b
 
 
 \<latex shared paragraph config\><<<
+\ConfigureMark{paragraph}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">}\@seccntformat{paragraph}%
+       \HCode{</span>}\fi }
 \Configure{paragraph}{}{}
-  {\ShowPar\IgnoreIndent\HCode{<span class="paragraphHead"\a:LRdir>}\begingroup\bf}
+  {\ShowPar\IgnoreIndent\HCode{<span class="paragraphHead"\a:LRdir>}\begingroup\bf\TitleMark\space}
   {\endgroup\HCode{</span>}\par\IgnorePar}
 \Configure{likeparagraph}{}{}
   {\ShowPar\IgnoreIndent\HCode{<span class="likeparagraphHead"\a:LRdir>}}
@@ -11112,7 +11117,10 @@ a \par b
 >>>
 
 \<latex config div 4.0t\><<<
-\ConfigureMark{subparagraph}{}
+\ConfigureMark{subparagraph}{\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">}\@seccntformat{subparagraph}%
+       \HCode{</span>}\fi }
 \Configure{subparagraph}{}{}
   {\ShowPar\HCode{<span class="subparagraphHead"\a:LRdir>}\begingroup\bf
    \TitleMark\space}
