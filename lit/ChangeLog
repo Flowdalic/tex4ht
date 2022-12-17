@@ -1,3 +1,9 @@
+2022-12-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): removed large left margin from
+	enumitem item with the Enumitem package.
+	https://tex.stackexchange.com/a/668862/2891
+
 2022-12-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fixed numbering of \paragraph and
