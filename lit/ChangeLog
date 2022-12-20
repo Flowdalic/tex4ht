@@ -1,3 +1,9 @@
+2022-12-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): use correct displayformat for
+	\dfrac and \dbinom.
+	https://tex.stackexchange.com/a/669031/2891
+
 2022-12-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): removed large left margin from
