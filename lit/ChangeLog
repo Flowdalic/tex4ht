@@ -1,3 +1,9 @@
+2022-12-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): use <mstyle> instead of <mrow> for
+	\dfrac and \dbinom, because MathJax had issues with <mrow>
+	https://tex.stackexchange.com/a/669031/2891
+	
 2022-12-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): use correct displayformat for

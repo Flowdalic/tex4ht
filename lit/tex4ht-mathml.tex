@@ -1598,10 +1598,10 @@ configurations, respectively.
 Use correct math style for Amsmath's variants of inline fractions.
 
 \<configure mathml amsmath\><<<
-\pend:def\dfrac{\Configure{genfrac}{\HCode{<\a:mathml mrow \mathchoice{\a:mathml displaystyle="true"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mrow>}}}
-\pend:def\tfrac{\Configure{genfrac}{\HCode{<\a:mathml mrow \mathchoice{\a:mathml displaystyle="false"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mrow>}}}
-\pend:def\dbinom{\Configure{genfrac}{\HCode{<\a:mathml mrow \mathchoice{\a:mathml displaystyle="true"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mrow>}}}
-\pend:def\tbinom{\Configure{genfrac}{\HCode{<\a:mathml mrow \mathchoice{\a:mathml displaystyle="false"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mrow>}}}
+\pend:def\dfrac{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="true"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mstyle>}}}
+\pend:def\tfrac{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="false"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mstyle>}}}
+\pend:def\dbinom{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="true"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mstyle>}}}
+\pend:def\tbinom{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="false"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mstyle>}}}
 >>>
 
 \<mathml latex\><<<
