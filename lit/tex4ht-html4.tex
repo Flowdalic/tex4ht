@@ -15529,8 +15529,8 @@ Support for background and border color
 \ConfigureList{tasks}
 {\ifvmode\IgnorePar\fi\EndP\HCode{<div class="tasks">}\def\end:task{}}
 {\ifvmode\IgnorePar\fi\EndP\end:task\HCode{</div>}}
-{\end:task\HCode{<div class="task"><span class="label">}\def\end:task{\HCode{</div>}}}
-{\HCode{</span>}\noindent}
+{\ifvmode\IgnorePar\fi\EndP\end:task\HCode{<div class="task">}\par\ShowPar\HCode{<span class="label">}\def\end:task{\HCode{</div>}}}
+{\HCode{</span>}}
 >>>
 
 
