@@ -28019,6 +28019,10 @@ We need to use dvips driver with XeLaTeX
 \append:def\mdf@@ignorelastdescenders{\let\orig:unskip\unskip\def\unskip{\let\unskip\orig:unskip}}%
 \HLet\mdf@lrbox\:gobble
 \HLet\endmdf@lrbox\relax
+% disable compilation error caused by Mdframed's patch for Amsthm:
+\AtBeginDocument{%
+  \let\mdf@patchamsthm\relax%
+}
 \Hinput{mdframed}
 \endinput
 >>> \AddFile{9}{mdframed}
