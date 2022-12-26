@@ -6953,7 +6953,7 @@ and the command \`'\end{xxx}' referes to the meaning of \`'\endxxx'.
       \pend:defI\begin{\let\chk:pic|=\EndPicture }
       \let\o:begin:|=\begin
       \let\choose:begin\@firstoftwo
-\def\begin#1{\csname @begin:#1\endcsname 
+\DeclareRobustCommand\begin[1]{\csname @begin:#1\endcsname 
   \choose:begin
     {\let\choose:begin\@firstoftwo |<revised begin|>}%
     {\o:begin:{#1}}}
@@ -7029,7 +7029,7 @@ are initiated within  \''\begin{...}'. For instance, in eqnarray there
 
 \<latex ltmiscen\><<<
 \let\o:end:|=\end
-\def\end#1{\choose:begin
+\DeclareRobustCommand\end[1]{\choose:begin
   {|<revised end|>}%
   {\o:end:{#1}}}
 >>>

@@ -1,3 +1,9 @@
+2022-12-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): declared \begin and \end as robust
+	commands.
+	https://tex.stackexchange.com/a/669675/2891
+
 2022-12-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (mdframed.4ht): fixed support for Mdframed used
