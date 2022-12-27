@@ -1,3 +1,9 @@
+2022-12-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fixed use of \left and
+	\right in a TOC.
+	https://tex.stackexchange.com/a/669861/2891
+	
 2022-12-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (mdframed.4ht): prevent compilation error when we
