@@ -1,3 +1,8 @@
+2022-12-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (nameref.4ht): fixed support for \\ in \caption.
+	https://tex.stackexchange.com/a/670159/2891
+
 2022-12-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fixed use of \left and

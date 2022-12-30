@@ -3499,11 +3499,23 @@ definitions.
 %   
 % use of \index and \label inside caption results in a fatal error
 % we need to disable them in \NR:Title
+
+% there can be more problematic commands, so we provide a configuration
+% that can be used multiple times - the default value fixes known commands
+% but a user can add more of them
+
+\def\a:captioncommandsfix{}
+\NewConfigure{CaptionCommandsFix}[1]{\concat:config\a:captioncommandsfix{#1}}
+\Configure{CaptionCommandsFix}{
+  \let\index\:gobble%
+  \let\label\:gobble%
+  \let\\\relax% causes issues when \centering is active
+}
+
 \long\def\@caption#1[#2]{%
     \gdef\NR:Type{\@currenvir}%
     \begingroup%
-    \let\index\:gobble%
-    \let\label\:gobble%
+    \a:captioncommandsfix
     \protected@xdef\NR:Title{\a:newlabel{#2}}%
     \endgroup%
    \o:NR@@caption{#1}[{#2}]%
@@ -3552,8 +3564,7 @@ definitions.
     % handle \label and \index in Caption's package
     % version of \caption
     \begingroup%
-    \let\index\:gobble%
-    \let\label\:gobble%
+    \a:captioncommandsfix
     \protected@xdef\NR:Title{\a:newlabel{##2}}%
     \endgroup%
   }
