@@ -1,3 +1,9 @@
+2023-01-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4th-html4.tex (html4.4ht): set font size for \subsubsection 
+	to be at least as big as the main text.
+	https://puszcza.gnu.org.ua/bugs/?592
+
 2022-12-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (nameref.4ht): fixed support for \\ in \caption.
