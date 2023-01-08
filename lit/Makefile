@@ -72,18 +72,18 @@ HTTEX = ht "etex $(tex_opts)"  # set tex options for plain tex
 
 default: all
 
-# most files (not all, but it's not worth worrying about) read
-# mktex4ht.4ht, but we have to avoid depending on it for the file which
-# generates it (cond4ht), so we need two different variables.
-# Similarly for tex4ht.sty, though that is modified far less often.
+# tex4ht.sty is read by most (all?) files, but we have to avoid
+# depending on it for the file which generates it (tex4ht-sty.tex), so
+# we need two different variables.
 # 
-common_no_cond_sty = tex4ht-cpright.tex common.tex common-code.tex \
+common_no_tex4ht_sty = tex4ht-cpright.tex common.tex common-code.tex \
   ProTex.sty AlProTex.sty tex4ht-dir.tex
-# common = mktex4ht.4ht tex4ht.sty $(common_no_cond_sty)
 common = tex4ht.sty $(common_no_cond_sty)
-# Michal 10/05/2017: it seems that when mktex4ht.4ht is included as
-# common, it causes constant recompilations.
 common_info = $(common) common-info.tex
+#
+# mktex4ht.4ht is read by almost everything, but since it is mostly just
+# the list of packages, it changes often, without any particular need to
+# rebuild everything when it does. So leave it out.
 
 # Substitute directories used, especially for Java.
 tex4ht-dir.tex: tex4ht-dir.m4
@@ -389,8 +389,7 @@ endif
 
 # 
 all: $(derived)
-	rm -f texput.log
-	texlua checklog.lua *.log
+	rm -f texput.log; texlua checklog.lua *.log
 
 $(tex4ht_4ht_derived): tex4ht-4ht.tex cond4ht.4ht $(common)
 	etex $(tex_opts) $<
@@ -401,8 +400,7 @@ $(tex4ht_bibtex2_derived): tex4ht-bibtex2.tex $(common)
 $(tex4ht_c_derived): tex4ht-c.tex $(common)
 	etex $(tex_opts) $<
 
-$(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex mktex4ht-cnf.tex \
-                           $(common_no_cond_sty)
+$(tex4ht_cond4ht_derived): tex4ht-cond4ht.tex mktex4ht-cnf.tex $(common)
 	etex $(tex_opts) $<
 	etex $(tex_opts) cond4ht.4ht
 
@@ -548,7 +546,7 @@ $(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
 $(tex4ht_options_derived): tex4ht-options.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
-$(tex4ht_sty_derived): tex4ht-sty.tex $(common_no_cond_sty)
+$(tex4ht_sty_derived): tex4ht-sty.tex $(common_no_tex4ht_sty)
 	$(HTTEX) $< ""
 
 $(tex4ht_svg_derived): tex4ht-svg.tex $(common)

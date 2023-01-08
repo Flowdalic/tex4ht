@@ -1,3 +1,14 @@
+2023-01-08  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (common_no_tex4ht_sty): rename to common_no_cond_sty,
+	since tex4ht.sty is what is left out. Mention that we also leave
+	out mktex4ht.4ht from all, since it's mostly just the list of packages.
+	(tex4ht_sty_derived): dependency is now $(common_no_tex4ht_sty).
+	(tex4ht_cond4ht_derived): can depend on $(common).
+	
+	* mktex4ht-cnf.tex,
+	* tex4ht-html4.tex (html4.4ht, html4-math.4ht): copyright 2023.
+
 2023-01-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4th-html4.tex (html4.4ht): set font size for \subsubsection 
