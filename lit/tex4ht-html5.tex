@@ -69,6 +69,45 @@
 \fi
 >>>
 
+\section{Default CSS style}
+
+This style fixes some common issues regarding size of sectioning commands,
+background of generated images in the dark mode, or line lenght. 
+
+
+\<configure html5 tex4ht\><<<
+\:CheckOption{nostyle}\if:Option
+\else
+\Log:Note{We use a default CSS style. Use the `nostyle' option if you want to use custom a CSS design}
+\Css{body{
+    margin:1em auto;
+    max-width:80ch;
+    padding:0 .62em;
+}}
+
+\Css{h1,h2,h3,h4,h5 {
+    line-height:1.2;
+}}
+\Css{@media print{
+    body{
+      max-width:none
+    }
+}}
+\Css{.partHead, likepartHead  { font-size: 2em; }}
+\Css{.chapterHead, likechapterHead  { font-size: 1.7411em; }}
+\Css{.sectionHead, likesectionHead  { font-size: 1.5157em; }}
+\Css{.subsectionHead, likesubsectionHead  { font-size: 1.3195em; }}
+\Css{.subsubsectionHead, likesubsubsectionHead  { font-size: 1.1487em; }}
+
+\Css{
+  @media (prefers-color-scheme: dark) {
+    img[src^="\jobname"]{filter: invert(1); }
+  }
+}
+\fi
+>>>
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Language and charset setting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

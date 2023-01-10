@@ -1,3 +1,9 @@
+2023-01-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html5.tex (html5.4ht): added default CSS style for sections
+	and page dimensions.
+	https://puszcza.gnu.org.ua/bugs/?592
+
 2023-01-08  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (common_no_tex4ht_sty): rename to common_no_cond_sty,
