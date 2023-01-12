@@ -1,5 +1,9 @@
 2023-01-12  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (embedfile-hooks.4ht, usepackage.4ht): declared
+	error printing command, to prevent actual error message.
+	https://github.com/ho-tex/embedfile/pull/7
+
 	* tex4ht-4ht.tex (embedfile.4ht): added support for the embedfile
 	package.
 	https://github.com/michal-h21/tex4ebook/issues/99

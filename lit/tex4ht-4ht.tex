@@ -5086,6 +5086,22 @@ they don't exist. We don't try to emulate them.
 \newcommand\embedfilegetobject[2]{}
 >>>
 
+The embedfile stops it's loading once it finds that we use engine that
+doesn't output PDF. We need to declare a command that prints an error
+message before the package quits.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{embedfile.sty}{embedfile-hooks.4ht}
+>>>
+
+\<embedfile-hooks.4ht\><<< 
+% embedfile-hooks.4ht (|version), generated from |jobname.tex 
+% Copyright 2023 TeX Users Group 
+|<TeX4ht license text|> 
+\def\EmFi@Error#1#2{}
+>>> \AddFile{9}{embedfile-hooks}
+
+
 \Section{url.sty}
 %%%%%%%%%%%%%%%%%%
 
