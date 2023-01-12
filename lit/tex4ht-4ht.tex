@@ -1,7 +1,7 @@
 % $Id$
 % tex tex4ht-4ht   or   ht tex tex4ht-4ht
 %
-% Copyright 2009-2022 TeX Users Group    
+% Copyright 2009-2023 TeX Users Group    
 % Copyright 1996-2009 Eitan M. Gurari    
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -5043,6 +5043,47 @@ which will prevent the stop of the processing.
 
 \HLet\subfiles@renewEndDocument\:tempa
 
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\Section{embedfile.sty}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\<embedfile.4ht\><<< 
+% embedfile.4ht (|version), generated from |jobname.tex 
+% Copyright 2023 TeX Users Group 
+|<TeX4ht license text|> 
+|<embedfile file|>
+|<embedfile dummy commands|>
+\Hinput{embedfile}
+\endinput
+
+>>> \AddFile{9}{embedfile}
+
+The embedfile command included a file to PDF. We cannot do that in the
+HTML output, but we can at least register the file, so it will be for 
+example copied to the output directory.
+
+\<embedfile file\><<<
+\NewConfigure{embedfile}{1}
+\Configure{embedfile}{{\Configure{Needs}{File: \embed:file}\Needs{}}}
+\newcommand\embedfile[2][]{
+  \edef\embed:file{#2}%
+  \a:embedfile%
+}
+>>>
+
+These commands are defined just that we don't get error messages that
+they don't exist. We don't try to emulate them.
+
+\<embedfile dummy commands\><<<
+% dummy commands that can be used in the document
+\newcommand\embedfilefinish{}
+\newcommand\embedfilesetup[1]{}
+\newcommand\embedfilesort[1]{}
+\newcommand\embedfilefield[2]{}
+\newcommand\embedfileifobjectexists[4]{}
+\newcommand\embedfilegetobject[2]{}
 >>>
 
 \Section{url.sty}

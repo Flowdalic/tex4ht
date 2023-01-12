@@ -1,3 +1,9 @@
+2023-01-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (embedfile.4ht): added support for the embedfile
+	package.
+	https://github.com/michal-h21/tex4ebook/issues/99
+
 2023-01-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html5.tex (html5.4ht): added default CSS style for sections
