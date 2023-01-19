@@ -1,3 +1,9 @@
+2023-01-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht, ooffice-mml.4ht): use \prcnt:ch
+	instead of \% in style declarations, because it would produce extra
+	backslash otherwise (thanks Gareth Walker for the report.
+
 2023-01-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (embedfile-hooks.4ht, usepackage.4ht): declared
