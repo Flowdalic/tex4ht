@@ -1,3 +1,10 @@
+2023-01-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): previous commit introduced bugs
+	to the code, which are now being fixed. I forgot to remove some
+	percent characters, which led to unclosed attribute values and
+	invalid XML.
+
 2023-01-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht, ooffice-mml.4ht): use \prcnt:ch
