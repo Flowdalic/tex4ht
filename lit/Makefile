@@ -227,6 +227,10 @@ derived += $(tex4ht_fonts_stix_derived)
 tex4ht_fonts_stix_derived = \
 	$(ht_fonts_devdir)/unicode/STIX/stix-mathbb.htf
 
+derived += $(tex4ht_fonts_arphic_derived)
+tex4ht_fonts_arphic_derived = \
+	$(ht_fonts_devdir)/unicode/arphic/bsmiu9d.htf
+
 # htcmd not used
 #derived += $(tex4ht_htcmd_derived)
 #tex4ht_htcmd_derived = htcmd.c
@@ -448,6 +452,9 @@ $(tex4ht_fonts_mnsymbol_derived): tex4ht-fonts-mnsymbol.tex
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_stix_derived): tex4ht-fonts-stix.tex
+	$(HTTEX) $< ""
+
+$(tex4ht_fonts_arphic_derived): tex4ht-fonts-arphic.tex
 	$(HTTEX) $< ""
 
 # requires more memory than configured in other tex programs.

@@ -1,3 +1,8 @@
+2023-02-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-arphic.tex: added support for some CJK fonts.
+	https://github.com/michal-h21/make4ht/issues/105
+
 2023-02-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fixed indentation of TOC entries for
