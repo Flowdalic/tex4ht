@@ -1,3 +1,7 @@
+2023-02-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-stix2.tex: added support for Stix2 fonts.
+
 2023-02-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-arphic.tex: added support for some CJK fonts.
