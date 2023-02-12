@@ -750,6 +750,9 @@ inst_dir_4ht = $(texmf)/tex/generic/tex4ht
 inst_dir_top = $(texmf)/tex4ht
 inst_dir_scripts = $(texmf)/scripts/tex4ht
 inst_dir_source = $(texmf)/source/generic/tex4ht
+#
+inst_dir_all = $(inst_dir_4ht) $(inst_dir_top) $(inst_dir_scripts) \
+               $(inst_dir_source)
 
 # Simple command to "install" from dev to TL.
 # (Other methods are also used.)
@@ -813,6 +816,11 @@ diff-htfonts:
 update-htfonts:
 	./update-htfonts update $(ht_fonts_devdir) $(ht_fonts_instdir) | tee /tmp/htupd
 .PHONY: update-htfonts
+
+# svn status of results.
+svnstatus st:
+	svn status $(inst_dir_all) | sed s,$(texmf),, # reduce output
+	@echo $(inst_dir_all)
 
 # 
 # diff all files in the main TeX Live installation directory against

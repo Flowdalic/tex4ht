@@ -1,3 +1,8 @@
+2023-02-12  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (inst_dir_all): new variable.
+	(svnstatus st): new convenience targets.
+
 2023-02-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tcolorbox.4ht): fixed unclosed paragraph with the
