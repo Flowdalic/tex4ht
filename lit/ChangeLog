@@ -1,3 +1,8 @@
+2023-02-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tcolorbox.4ht): fixed unclosed paragraph with the
+	new version of Tcolorbox.
+
 2023-02-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-stix2.tex: added support for Stix2 fonts.

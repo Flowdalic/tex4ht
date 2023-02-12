@@ -28131,6 +28131,8 @@ We need to use dvips driver with XeLaTeX
   % close title and open main box
   \c:tcolorbox%
   \box\tcb@upperbox%
+  % the paragraph opened in the upper box can be unclosed
+  \RecallEndP
   % deal with lower box, if it is set
   \iftcb@hasLower%
     \a:tcolorlowerbox%
@@ -28143,6 +28145,9 @@ We need to use dvips driver with XeLaTeX
 \HLet\tcb@drawcolorbox\:tempa
 % overwrite other versions of box drawing macros
 \HLet\tcb@drawcolorbox@standalone\:tempa
+
+% save the state of paragraph before opening the content box
+\pend:def\tcb@set@@upper@and@lower{\SaveEndP}
 
 % we need to close tcolorbox environment here,
 % in the box. otherwise, last paragraph end 
