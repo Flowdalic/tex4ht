@@ -5107,7 +5107,7 @@ message before the package quits.
 
 \<url.4ht\><<<
 % url.4ht (|version), generated from |jobname.tex 
-% Copyright |CopyYear.1997. Eitan M. Gurari
+% Copyright 1997-2023 TeX Users Group 
 |<TeX4ht copywrite|>
    |<fix url|>
 \expandafter\ifx\csname Url@OT1encSpecials\endcsname\relax
@@ -5125,10 +5125,10 @@ message before the package quits.
 >>>
 
 \<fix url\><<<
-\protected\def\:temp{\leavevmode \begingroup
+\protected\def\:temp{\leavevmode \begingroup\ht:special{t4ht@(}%
   \def\UrlLeft##1\UrlRight{\ifmmode \else \UrlFont\fi \Url:use{##1}}%
   \def\Url@use##1 ##2{\ifmmode \else \UrlFont\fi
-                      \Url:use{##1}}\let\,\empty \Configure{$}{}{}{}\Url}
+  \Url:use{##1}}\let\,\empty \Configure{$}{}{}{}\ht:special{t4ht@)}\Url}
 \HLet\url\:temp
 >>>
 

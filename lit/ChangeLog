@@ -1,3 +1,8 @@
+2023-02-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (url.4ht): remove spaces before \url command.
+	https://github.com/michal-h21/tex4ebook/issues/102
+
 2023-02-12  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (inst_dir_all): new variable.
