@@ -130,6 +130,9 @@ the \verb'\RestoreMathJaxEnvironments' command.
   \expandafter\let\csname mathjax-end#1\expandafter\endcsname\csname end#1\endcsname%
 }
 
+% we must not reintroduce the matrix environmeint in TikZ, because it interferes with the \matrix command
+\newcommand\:ignoretikzmatrix{\seq_remove_all:Nn\:savedmathjaxenvs{matrix}}
+
 \newcommand\RestoreMathJaxEnvironment[1]{%
   \expandafter\let\csname #1\expandafter\endcsname\csname mathjax-#1\endcsname%
   \expandafter\let\csname end#1\expandafter\endcsname\csname mathjax-end#1\endcsname%
@@ -278,7 +281,7 @@ inside TikZ etc.
 
 \<restore environments\><<<
 \@ifpackageloaded{tikz}{%
-\tikzset{every picture/.append code={\RestoreMathJaxEnvironments}} 
+\tikzset{every picture/.append code={\:ignoretikzmatrix\RestoreMathJaxEnvironments}} 
 }{}
 >>>
 
