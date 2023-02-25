@@ -15780,7 +15780,7 @@ any of the options is on.
             \let\au:StartSec|=\:StartSec   
             \def\:StartSec{\:tableofcontents
                \global\let\auto:toc|=\:UnDef \global\let\:StartSec\au:StartSec\:StartSec}%
-            \pend:def\tableofcontents{\gdef\:StartSec{\au:StartSec}}%
+            \append:def\tableofcontents{\gdef\:StartSec{\au:StartSec}}%
    \fi  \fi
 }
 >>>

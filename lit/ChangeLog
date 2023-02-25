@@ -1,3 +1,11 @@
+2023-02-25  Michal Hoftich  <michal.h21@gmail.com>
+	* tex4ht-4ht.tex (amsart.4ht.4ht, amsbook.4ht, amsproc.4ht,
+	article.4ht, book.4ht, mwart.4ht, mwbk.4ht, mwrep.4ht,
+	report.4ht, scrbook.4ht, scrreprt.4ht): print table of contents when
+	\tableofcontents command is used and the document is split to
+	subpages.
+	https://tex.stackexchange.com/a/676531/2891
+
 2023-02-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): don't restore the
