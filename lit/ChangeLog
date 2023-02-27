@@ -1,4 +1,9 @@
+2023-02-27  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-mathjax.tex: 2023.
+
 2023-02-27  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-fonts-noncjk.tex (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/cyrillic/cmcyr/cmcbxti.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/win/1251/cyrillic/cmcyr/cmcbxti.htf
@@ -9,6 +14,7 @@
 	https://tug.org/pipermail/tex4ht/2023q1/003329.html
 
 2023-02-25  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-4ht.tex (amsart.4ht.4ht, amsbook.4ht, amsproc.4ht,
 	article.4ht, book.4ht, mwart.4ht, mwbk.4ht, mwrep.4ht,
 	report.4ht, scrbook.4ht, scrreprt.4ht): print table of contents when
