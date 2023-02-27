@@ -1,3 +1,13 @@
+2023-02-27  Michal Hoftich  <michal.h21@gmail.com>
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/cyrillic/cmcyr/cmcbxti.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/win/1251/cyrillic/cmcyr/cmcbxti.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/win/1251/cyrillic/cmcyr/cmcbx.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/5/cyrillic/cmcyr/cmcbxti.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/5/cyrillic/cmcyr/cmcbx.htf
+	): fixed wrong character.
+	https://tug.org/pipermail/tex4ht/2023q1/003329.html
+
 2023-02-25  Michal Hoftich  <michal.h21@gmail.com>
 	* tex4ht-4ht.tex (amsart.4ht.4ht, amsbook.4ht, amsproc.4ht,
 	article.4ht, book.4ht, mwart.4ht, mwbk.4ht, mwrep.4ht,
