@@ -1,3 +1,9 @@
+2023-03-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (physics.4ht): fixed MathML issues with the Physics
+	package.
+	https://github.com/michal-h21/make4ht/issues/109
+
 2023-03-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added jpeg to list of supported

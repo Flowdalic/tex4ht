@@ -31257,6 +31257,28 @@ UnDFexyz%
 \NewConfigure{longdiv}{2}
 >>>
 
+\Section{physics.sty}
+
+\<physics.4ht\><<<
+% physics.4ht (|version), generated from |jobname.tex 
+% Copyright 2023 TeX Users Group 
+|<TeX4ht license text|> 
+|<physics argopen|>
+\Hinput{physics}
+\endinput
+>>> \AddFile{9}{physics}
+
+argopen and argclose cause issues in MathML, so we make a dummy definition, which is then
+used outside of Pictures. The original version added automatically left and right, which is
+not necessary in MathML anyway.
+
+\<physics argopen\><<<
+\DeclareDocumentCommand\physics:argopen{s}{} % Special open grouping for argument of a function
+\DeclareDocumentCommand\physics:argclose{s}{} % Special close grouping for argument of a function
+\HLet\argopen\physics:argopen
+\HLet\argclose\physics:argclose
+>>> 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Indexes}
 \SubSection{index.sty}
