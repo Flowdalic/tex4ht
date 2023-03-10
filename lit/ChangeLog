@@ -1,3 +1,10 @@
+2023-03-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (xr.4ht,  xr-hyper.4ht, cleveref.4ht): fixed clash
+	between Cleveref and Xr.
+	https://github.com/michal-h21/make4ht/issues/113
+	https://tex.stackexchange.com/q/678730/2891
+
 2023-03-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (physics.4ht): fixed MathML issues with the Physics

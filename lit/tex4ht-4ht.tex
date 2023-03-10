@@ -3631,7 +3631,7 @@ definitions.
 
 \<cleveref.4ht\><<<
 % cleveref.4ht (|version), generated from |jobname.tex
-% Copyright 2018-2022 TeX Users Group
+% Copyright 2018-2023 TeX Users Group
 |<TeX4ht license text|>
 
 |<cleveref refstepcounter|>
@@ -3692,6 +3692,7 @@ Support for links from the \Verb|\cref| command.
 \fi
 \def\:tempa#1#2{\bgroup%
   \def\rEfLiNK##1##2{\Link{##1}{}}%
+  \def\XRrEfLiNK[##1]##2##3{\Link[##1]{##2}{}}% handle links from Xr and Xr-hyper
   \expandafter\expandafter\expandafter\@firstoffive\csname r@#2\endcsname{}{}{}{}{}%
   \cref@getlabel{#2}{\@templabel}%
   #1{\@templabel}{}{}%
@@ -3845,7 +3846,7 @@ before \''\begin{document}'.
 
 \<xr.4ht\><<<
 % xr.4ht (|version), generated from |jobname.tex
-% Copyright |CopyYear.1997. Eitan M. Gurari
+% Copyright 1997-2023 TeX Users Group
 |<TeX4ht copywrite|>
    |<fix xr|>
    |<fix xr-nonhyper|>
@@ -3933,11 +3934,17 @@ For xref file
 \`'-'. The if acts on \`')F1F-' to get the file name. Where the \`'x'
 got into the picture? Did \''\aXrefFile' introduced it? where? 
 
+We must also test for references with the @cref suffix - these are automatically
+created by Cleveref and contain meta info about reference types.
+
 \<xr newlabel\><<<
-\expandafter\xdef\csname r@\XR@prefix#2\endcsname{\XR:rEfLiNK #3}%
+\regex_match:nnTF{@cref}{#2}% we must handle cleveref meta references
+{\expandafter\xdef\csname r@\XR@prefix#2\endcsname{#3}}%
+{\expandafter\xdef\csname r@\XR@prefix#2\endcsname{\XR:rEfLiNK #3}}%
 >>>
 
 \<fix xr\><<<
+\ExplSyntaxOn
 \long\def\XR@test#1#2#3#4\XR@{%
   \ifx#1\newlabel
      |<xr newlabel|>%
@@ -3946,6 +3953,7 @@ got into the picture? Did \''\aXrefFile' introduced it? where?
   \fi\fi
   \ifeof\@inputcheck\expandafter\XR@aux
   \else\expandafter\XR@read\fi}
+\ExplSyntaxOff
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -3954,7 +3962,7 @@ got into the picture? Did \''\aXrefFile' introduced it? where?
 
 \<xr-hyper.4ht\><<<
 % xr-hyper.4ht (|version), generated from |jobname.tex
-% Copyright |CopyYear.2003. Eitan M. Gurari     
+% Copyright 2003-2023 TeX Users Group
 |<TeX4ht copywrite|>
    |<fix xr|>
    |<fix xr-hyper|>
