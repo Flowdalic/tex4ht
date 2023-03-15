@@ -1,3 +1,13 @@
+2023-03-15  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex(amsart.4ht, amsart.4ht, amsbook.4ht,
+	amsproc.4ht, article.4ht, book.4ht, mwart.4ht,
+	mwbk.4ht, mwrep.4ht, report.4ht, scrbook.4ht,
+	scrreprt.4ht),
+	* tex4ht-html4.tex (html4.4ht): Fixed wrong first pagaraph in
+	theindex environment.
+	https://tex.stackexchange.com/a/679239/2891
+	
 2023-03-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (

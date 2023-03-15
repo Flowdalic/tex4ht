@@ -4519,13 +4519,12 @@ Q. Where placefigure is declared?
 \Configure{@begin}{theindex}{\section*{\indexname}}
 \Configure{theindex}
    {\ifvmode \IgnorePar\fi \EndP
-    \HCode{<div class="theindex">}\let\end:theidx\empty}
+    \HCode{<div class="theindex">}\HCode{<p class="theindex">}\def\end:theidx{\HCode{</p>}}}
    {\end:theidx\HCode{</div>}}
    {} {\HCode{<br />}\hfil\break}
    {\ \ \ \ } {\HCode{<br />}\hfil\break}
    {\ \ \ \ \ \ \ \ } {\HCode{<br />}\hfil\break}
-   {\hbox{\end:theidx\HCode{<p class="theindex">}}%
-    \def\end:theidx{\HCode{</p>}}}
+   {\hbox{\end:theidx\HCode{<p class="theindex">}}}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4557,7 +4556,7 @@ The `index=i' provides the initial setting.
                use the command line option `index=i' (e.g., index=2)}
 \Configure{theindex}
    {\ifvmode \IgnorePar\fi \EndP
-    \HCode{<div class="theindex">}\let\end:theidx|=\empty}
+    \HCode{<div class="theindex">}\HCode{<p class="theindex">}\def\end:theidx{\HCode{</p>}}}
    {\end:theidx\HCode{</div>}}
    {\hbox\bgroup\HCode{<span class="index-item">}} 
    {\HCode{<br /></span>}\egroup\hfill\break}
@@ -4565,8 +4564,7 @@ The `index=i' provides the initial setting.
    {\HCode{<br /></span>}\egroup\hfill\break}
    {\hbox\bgroup\HCode{<span class="index-subsubitem">}\ \ \ \ \ \ \ \ } 
    {\HCode{<br /></span>}\egroup\hfill\break}
-   {\hbox{\end:theidx\HCode{<p class="theindex">}}%
-    \def\end:theidx{\HCode{</p>}}}
+   {\hbox{\end:theidx\HCode{<p class="theindex">}}}
 \Css{.index-item, .index-subitem, .index-subsubitem {display:block}}
 >>>
 
@@ -4577,13 +4575,12 @@ The `index=i' provides the initial setting.
                use the command line option `index=i' (e.g., index=2)}
 \Configure{theindex}
    {\ifvmode \IgnorePar\fi \EndP
-    \HCode{<div class="theindex">}\let\end:theidx|=\empty}
+    \HCode{<div class="theindex">}\HCode{<p class="theindex">}\def\end:theidx{\HCode{</p>}}}
    {\end:theidx\HCode{</div>}}
    {} {\hfil\break\HCode{<br />}}
    {\ \ \ \ } {\hfil\break\HCode{<br />}}
    {\ \ \ \ \ \ \ \ } {\hfil\break\HCode{<br />}}
-   {\hbox{\end:theidx\HCode{<p class="theindex">}}%
-    \def\end:theidx{\HCode{</p>}}}
+   {\hbox{\end:theidx\HCode{<p class="theindex">}}}
 >>>
 
 \<conf multi cols\><<<
