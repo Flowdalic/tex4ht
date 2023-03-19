@@ -16360,6 +16360,31 @@ Hfootnote counter, which isn't declared.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{memhfixc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<memhfixc.4ht\><<<
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+% memhfixc.4ht (|version), generated from |jobname.tex 
+% Copyright 2023 TeX Users Group
+|<TeX4ht copyright|>
+|<memhfixc nameref|>
+\Hinput{memhfixc}
+\endinput
+>>>        \AddFile{8}{memhfixc}
+
+Memoir redefines the nameref command in a way that it prints ref number instead
+of the desired title. This should fix that, and in addition it should fix the
+titleref command.
+
+\<memhfixc nameref\><<<
+\@ifpackageloaded{nameref}{
+\HLet\@mem@titlerefnolink\@namerefstar
+\HLet\@mem@titleref\T@nameref
+}{}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{revtex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

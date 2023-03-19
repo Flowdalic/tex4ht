@@ -1,3 +1,9 @@
+2023-03-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (memhfixc.4ht): fixed interaction between Memoir
+	and Nameref.
+	https://github.com/michal-h21/make4ht/issues/74
+
 2023-03-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex(amsart.4ht, amsart.4ht, amsbook.4ht,
