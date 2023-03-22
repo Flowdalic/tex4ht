@@ -12684,6 +12684,32 @@ other packages (such as tablefootnote.sty) rely on them.
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{pagenote}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<pagenote.4ht\><<<
+% pagenote.4ht (|version), generated from |jobname.tex
+% Copyright 2023 TeX Users Group
+|<TeX4ht license text|>
+|<pagenote definitions|>
+\Hinput{pagenote}
+\endinput
+>>> \AddFile{9}{pagenote}
+
+
+\<pagenote definitions\><<<
+% patch commands that print note numbers, so we can add links
+\NewConfigure{notenumintext}{2}
+\def\:tempa#1{\a:notenumintext\o:notenumintext:{#1}\b:notenumintext}
+\HLet\notenumintext\:tempa
+
+\NewConfigure{notenuminnotes}{2}
+% we must save the note id in \:currentnoteid, to make it available in \Configure{notenuminnotes}
+\def\:tempa#1{\def\:currentnoteid{#1}\a:notenuminnotes\o:notenuminnotes:{#1}\b:notenuminnotes}
+\HLet\notenuminnotes\:tempa
+
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{floatrow.sty}
@@ -13377,7 +13403,7 @@ The above are problematic when spaces are present.
 \<config glossary\><<<
 \Configure{@begin}{theglossary}{\ind:defs}
 |<theglossary warning|>
-\warn:gls{\jobname}
+refextract\warn:gls{\jobname}
 >>>
 
 \<theglossary warning\><<<

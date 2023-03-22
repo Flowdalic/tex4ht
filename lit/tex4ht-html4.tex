@@ -5648,6 +5648,17 @@ An alternative css-based approach:
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%
+\subsection{pagenote}
+%%%%%%%%%%%%%%%%%%%%%
+
+Add links and backlinks to pagenotes
+
+\<configure html4 pagenote\><<<
+\Configure{notenumintext}{\Link{pagenote\thepagenote}{pagenote-bk\thepagenote}}{\EndLink}
+\Configure{notenuminnotes}{\Link{pagenote-bk\:currentnoteid}{pagenote\:currentnoteid}}{\EndLink}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%
 \subsection{Wrapfig}
 %%%%%%%%%%%%%%%%%%%
 
