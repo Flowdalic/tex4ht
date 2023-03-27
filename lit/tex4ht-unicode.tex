@@ -356,12 +356,18 @@ applets. a candidadte for delition.
 \:CheckOption{new-accents}     \if:Option \else
    |<old unicode accents|>
    \ifx \mathml:on\:UnDef
+% this configuration causes wrong rendering of accents in the default TeX4ht 
+% math output - accented text, like vectors is converted without accents
+% we will rather use the default configuration, which produces pictures
+% in the text mode, accents seems to work fine with or without this configuration
+   \iffalse % we use \iffalse, because simple commenting off didn't work
       \Configure{accents}
         {\ifmmode \expandafter\mathord\fi
          {|<temp hcode accents|>%
          \ht:special{t4ht@[}x\ht:special{t4ht@]}}}
         {\ifmmode \expandafter\mathord\fi
           {\HCode{<span class='accent#1'>}#3\HCode{</span>}}}
+   \fi
    \else
       \:warning{unicode.4ht loaded after mathml.4ht}
    \fi
