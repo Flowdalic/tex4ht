@@ -937,6 +937,8 @@ is loaded, and then load the saved versions back to the original commands.
 >>> \AddFile{9}{titlesec-hooks}
 
 \<titlesec-packagehooks\><<<
+\let\ttl:@makechapterhead\@makechapterhead
+\let\ttl:@makeschapterhead\@makeschapterhead
 \let\ttl:chapter\chapter
 \let\ttl:section\section
 \let\ttl:subsection\subsection
@@ -950,6 +952,8 @@ is loaded, and then load the saved versions back to the original commands.
   \let\subsubsection\ttl:subsubsection
   \let\paragraph\ttl:paragraph
   \let\subparagraph\ttl:subparagraph
+  \let\@makechapterhead\ttl:@makechapterhead
+  \let\@makeschapterhead\ttl:@makeschapterhead
 }
 >>>
 
