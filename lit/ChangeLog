@@ -1,3 +1,10 @@
+2023-03-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-modern.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/lm/lm-ec/ec-lm.htf
+	): fixed small caps output from Latin Modern.
+	https://tex.stackexchange.com/a/681035/2891
+
 2023-03-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (titlesec-hooks.4ht): prevent redefinition of
