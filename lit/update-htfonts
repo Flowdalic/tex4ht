@@ -1,5 +1,6 @@
 #!/bin/sh
 # $Id$
+# Update TeX4ht font files (.htf). See ./Makefile for invocations.
 # Public domain. Originally written by Karl Berry, 2022.
 
 # don't bother with real option parsing.
@@ -34,7 +35,8 @@ fi
 devdir=$1
 instdir=$2
 verbose=true
-tmp=/tmp/htdif # prefix
+tmpdir=/tmp/htdif.d # prefix
+rm -rf $tmpdir; mkdir $tmpdir
 
 if test ! -d "$devdir"; then
   echo "$0: devdir not a directory: $devdir" >&2
@@ -66,8 +68,8 @@ copy_file () {
 htf_same () {
   src=$1; dest=$2;
   #
-  src_filtered=$tmp.s`basename "$src"`
-  dest_filtered=$tmp.d`basename "$dest"`
+  src_filtered=$tmpdir/s`basename "$src"`
+  dest_filtered=$tmpdir/d`basename "$dest"`
   #
   sed 's/20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]\(-[0-9][0-9]:[0-9][0-9]\)*//' \
       $src >$src_filtered || exit 1
@@ -79,7 +81,7 @@ htf_same () {
 #  Iterate through all files in the dev directory.
 echo "$prg: comparing $devdir"
 echo "$prg:        to $instdir"
->$tmp.0 # accumulate diffs here
+>$tmpdir/0 # accumulate diffs here
 #
 find "$devdir" -type f -print | sort | while read devf; do
   instf=`echo "$devf" | sed "s,^$devdir/,$instdir/,"`
@@ -93,7 +95,7 @@ find "$devdir" -type f -print | sort | while read devf; do
     else
       $verbose && echo "`basename \"$devf\"`: diff ($devf != $instf)"
       # save diff from (older) DEST to newer (SRC).
-      diff -u0 "$dest" "$src" >>$tmp.0
+      diff -u0 "$dest" "$src" >>$tmpdir/0
       #
       copy_file "$devf" "$instf"
     fi
@@ -122,14 +124,14 @@ find "$devdir" -type f -print | sort | while read devf; do
 done
 
 #  check for extra files in $instdir
-(cd "$devdir" && find . -type f -print | sort) >$tmp.devdir || exit 1
-(cd "$instdir" && find . -type f -print | sort) >$tmp.instdir || exit 1
+(cd "$devdir" && find . -type f -print | sort) >$tmpdir/devdir || exit 1
+(cd "$instdir" && find . -type f -print | sort) >$tmpdir/instdir || exit 1
 
 echo "$prg: files in devdir and not in instdir (should be empty):"
-comm -23 $tmp.devdir $tmp.instdir
+comm -23 $tmpdir/devdir $tmpdir/instdir
 
 echo "$prg: files in instdir and not in devdir (you should remove):"
-comm -13 $tmp.devdir $tmp.instdir
+comm -13 $tmpdir/devdir $tmpdir/instdir
 # maybe better to leave it for manual removal?
 
 echo "$prg: done."
