@@ -16497,10 +16497,10 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 
 \Configure{verseline}
    {\ifvmode \IgnorePar\fi \EndP \end:verseln  
-    \HCode{<div class="verseline">}\def\end:verseln{\HCode{</div>}}}
+    \HCode{<div class="verseline">}\def\end:verseln{\HCode{</div>}}\par\ShowPar}
    {\ifvmode \IgnorePar\fi \EndP \end:verseln
     \HCode{<div class="skip-verseline">}%
-    \def\end:verseln{\HCode{</div>}}}  
+    \def\end:verseln{\HCode{</div>}}\par\ShowPar}  
 
 \Configure{flagverse}
    {\HCode{<span class="flagverse">}\bgroup \setlength{\vleftskip}{0em}}
