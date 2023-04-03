@@ -11355,6 +11355,27 @@ for horizontal and vertical alignment, background color and rules.
 >>>
 
 %%%%%%%%%%%%%%%%%%%
+\Section{tabto}
+%%%%%%%%%%%%%%%%%%%
+
+\<tabto.4ht\><<<
+% tabto.4ht (|version), generated from |jobname.tex 
+% Copyright 2023 TeX Users Group 
+|<TeX4ht license text|> 
+|<tabto redefine|>
+\Hinput{tabto}
+\endinput
+>>>\AddFile{9}{tabto}
+
+\<tabto redefine\><<<
+\NewConfigure{tabto}{1}
+\NewConfigure{tabtos}{1} % for starred version \tabto*
+% the provided dimension is stored in \Htabsize
+\ProvideDocumentCommand\tabto:fourht{sm}{\def\Htabsize{\the\dimexpr#2\relax}\IfBooleanTF {#1}{\a:tabtos}{\a:tabto}}
+\HLet\tabto\tabto:fourht
+>>>
+
+%%%%%%%%%%%%%%%%%%%
 \Chapter{multirow}
 %%%%%%%%%%%%%%%%%%%
 

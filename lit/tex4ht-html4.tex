@@ -2323,6 +2323,21 @@ We mainly need to handle paragraphs.
 >>>
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{tabto}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+HTML doesn't support concept of tabbing, so we will just
+insert fixed-length space. I am not sure if it is better
+than nothing.
+
+\<configure html4 tabto\><<<
+\Configure{tabto}{\HCode{<span class="tabto" style="width:\Htabsize;"> </span>}}
+\Configure{tabtos}{\HCode{<span class="tabto" style="width:\Htabsize;"> </span>}}
+
+\Css{.tabto{display: inline-block;}}
+>>>
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
