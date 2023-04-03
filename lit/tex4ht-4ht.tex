@@ -954,7 +954,22 @@ is loaded, and then load the saved versions back to the original commands.
   \let\subparagraph\ttl:subparagraph
   \let\@makechapterhead\ttl:@makechapterhead
   \let\@makeschapterhead\ttl:@makeschapterhead
+  |<disable titlesec format|>
 }
+>>>
+
+Titlesec formatting can cause various issues, 
+so it is best to disable it completely.
+
+\<disable titlesec format\><<<
+\def\ttl@format@si#1#2#3#4#5#6#7{}
+\def\ttl@format@ii#1[#2]#3#4#5#6{
+  \@ifnextchar[{%
+    \ttl@format@iii{#2}%
+  }{%
+  \ttl@format@iii{#2}[]}
+}
+\def\ttl@format@iii#1[#2]{}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%

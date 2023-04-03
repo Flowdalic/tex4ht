@@ -1,5 +1,9 @@
 2023-04-03  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (titlesec-hooks.4ht): disable declaration of title
+	formatting.
+	https://tex.stackexchange.com/a/680943/2891
+
 	* tex4ht-html4.tex (html4.4ht): fixed paragraph handling for the
 	Verse package.
 	https://tex.stackexchange.com/a/681694/2891
