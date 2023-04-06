@@ -2190,7 +2190,7 @@ We put the hook ourselves thanks to Configure{ifthenelse}.
 \NewConfigure{printshorthands}{4}
 \NewConfigure{@shorthands}[1]{\concat:config\a:@shorthands{#1}} 
 \let\a:@shorthands\empty 
-% \def\nolinkurl{\o:url:}
+\def\nolinkurl#1{#1}
 % \def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
 %   \blx@warning@noline {Page references have changed.\MessageBreak
 %     Rerun to get references right}\@tempswatrue \blx@reruntrue \fi

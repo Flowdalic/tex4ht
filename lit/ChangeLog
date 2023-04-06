@@ -1,3 +1,9 @@
+2023-04-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (biblatex.4ht): print contents of the \nolinkurl as
+	is.
+	https://tex.stackexchange.com/q/681968/2891
+
 2023-04-03  Michal Hoftich  <michal.h21@gmail.com>
 	
 	* tex4ht-4ht.tex (tabto.4ht),
