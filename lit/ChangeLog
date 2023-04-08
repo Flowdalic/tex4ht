@@ -1,5 +1,9 @@
 2023-04-08  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): show next paragraph after footnote
+	with the fn-in option in Koma Script classes.
+	https://tex.stackexchange.com/a/682211/2891
+
 	* tex4ht-html4.tex (html4.4ht): fixed indentation of additional
 	BibLaTeX styles.
 	https://tex.stackexchange.com/a/682200/2891
