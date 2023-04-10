@@ -1,6 +1,9 @@
 2023-04-10  Michal Hoftich  <michal.h21@gmail.com>
 
-	* tex4ht-4ht.tex( 
+	* tex4ht-4ht.tex (longtable.4ht): fixed another \caption issue.
+	https://tex.stackexchange.com/q/682383/2891
+
+	* tex4ht-4ht.tex ( 
 	aa.4ht, acm_proc_article-sp.4ht, article.4ht, book.4ht, 
 	JHEP.4ht, report.4ht, revtex4.4ht, scrbook.4ht, scrbook.4ht, 
 	scrreprt.4ht, scrreprt.4ht

@@ -10553,7 +10553,8 @@ normal code for caption will not work.
 \NewConfigure{longtablecaption}{4}
 \def\:tempc#1#2#3{%
     \a:longtablecaption #1{\cap:ref{#2}}\if\relax\detokenize{#1}\relax\else\b:longtablecaption\fi\c:longtablecaption#3\d:longtablecaption
-    \endgraf\vskip\baselineskip}
+    \endgraf%\vskip\baselineskip <- this caused error in https://tex.stackexchange.com/q/682383/2891
+ }
 \HLet\LT@makecaption\:tempc
 >>>
 
