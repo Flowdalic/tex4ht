@@ -15614,7 +15614,7 @@ CAN'T, e.g., :
     \else
       \addcontentsline{toc}{part}{#1}%
     \fi
-    \csname @endpart\endcsname}
+    }
 >>>
 
 The \''\@endpart' is not defined for \`'article' class.
@@ -15629,7 +15629,9 @@ The above is LaTeX's def without the output of titles.
 \let\no@part|=\@part
 \def\@part[#1]#2{%
    {\let\addcontentsline|=\:gobbleIII\no@part[#1]{}}%
-   \HtmlEnv   \Toc:Title{#1}\:part{#2}}
+   \HtmlEnv   \Toc:Title{#1}\:part{#2}%
+   \csname @endpart\endcsname%
+ }
 >>>
 
 \<html late parts\><<<
@@ -17030,7 +17032,7 @@ titleref command.
     \else
       \addcontentsline{toc}{part}{#1}%
     \fi
-    \csname @endpart\endcsname}
+    }
 \let\:tempb\part
 \Def:Section\part{\thepart}{#1}
 \let\:part\part
@@ -17038,14 +17040,18 @@ titleref command.
 \let\no@part\@part
 \def\@part[#1]#2{%
    {\let\addcontentsline\:gobbleIII\no@part[#1]{}}%
-   \HtmlEnv   \Toc:Title{#1}\:part{#2}}
+   \HtmlEnv   \Toc:Title{#1}\:part{#2}%
+   \csname @endpart\endcsname%
+ }
 \Def:Section\likepart{}{#1}
 \let\:likepart\likepart
 \let\likepart\:UnDef
 \let\no@spart\@spart
 \def\@spart#1{%
    {\let\addcontentsline\:gobbleIII\no@spart{}}%
-   \HtmlEnv   \:likepart{#1}}
+   \HtmlEnv   \:likepart{#1}%
+   \csname @endpart\endcsname%
+ }
 
    \let\no@section\section
 \Def:Section\section{\ifnum \c:secnumdepth>\c@secnumdepth   \else
@@ -18484,7 +18490,7 @@ TeX4ht now loads before class files. We reuse the code used in Koma classes
     \else
       \addcontentsline{toc}{part}{#1}%
     \fi
-    \csname @endpart\endcsname}
+    }
 \let\:tempb\part
 \Def:Section\part{\thepart}{#1}
 \let\:part\part
@@ -18492,14 +18498,18 @@ TeX4ht now loads before class files. We reuse the code used in Koma classes
 \let\no@part\@part
 \def\@part[#1]#2{%
    {\let\addcontentsline\:gobbleIII\no@part[#1]{}}%
-   \HtmlEnv   \Toc:Title{#1}\:part{#2}}
+   \HtmlEnv   \Toc:Title{#1}\:part{#2}%
+   \csname @endpart\endcsname%
+ }
 \Def:Section\likepart{}{#1}
 \let\:likepart\likepart
 \let\likepart\:UnDef
 \let\no@spart\@spart
 \def\@spart#1{%
    {\let\addcontentsline\:gobbleIII\no@spart{}}%
-   \HtmlEnv   \:likepart{#1}}
+   \HtmlEnv   \:likepart{#1}%
+   \csname @endpart\endcsname%
+ }
 
 \fi
 \ifx \section\:UnDef\else
@@ -18669,7 +18679,7 @@ TeX4ht now loads before class files. We reuse the code used in Koma classes
     \else
       \addcontentsline{toc}{part}{#1}%
     \fi
-    \csname @endpart\endcsname}
+    }
 \let\:tempb\part
 \Def:Section\part{\thepart}{#1}
 \let\:part\part
@@ -18677,14 +18687,18 @@ TeX4ht now loads before class files. We reuse the code used in Koma classes
 \let\no@part\@part
 \def\@part[#1]#2{%
    {\let\addcontentsline\:gobbleIII\no@part[#1]{}}%
-   \HtmlEnv   \Toc:Title{#1}\:part{#2}}
+   \HtmlEnv   \Toc:Title{#1}\:part{#2}%
+   \csname @endpart\endcsname%
+ }
 \Def:Section\likepart{}{#1}
 \let\:likepart\likepart
 \let\likepart\:UnDef
 \let\no@spart\@spart
 \def\@spart#1{%
    {\let\addcontentsline\:gobbleIII\no@spart{}}%
-   \HtmlEnv   \:likepart{#1}}
+   \HtmlEnv   \:likepart{#1}%
+   \csname @endpart\endcsname%
+ }
 
 \fi
 \ifx \section\:UnDef\else

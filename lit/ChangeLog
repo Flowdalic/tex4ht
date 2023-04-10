@@ -1,3 +1,13 @@
+2023-04-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex( 
+	aa.4ht, acm_proc_article-sp.4ht, article.4ht, book.4ht, 
+	JHEP.4ht, report.4ht, revtex4.4ht, scrbook.4ht, scrbook.4ht, 
+	scrreprt.4ht, scrreprt.4ht
+	): call \@endpart after contents of \part were printed.
+	https://tex.stackexchange.com/a/682376/2891
+
+
 2023-04-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): show next paragraph after footnote
