@@ -12752,6 +12752,36 @@ other packages (such as tablefootnote.sty) rely on them.
 
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{enotez}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<enotez.4ht\><<<
+% enotez.4ht (|version), generated from |jobname.tex
+% Copyright 2023 TeX Users Group
+|<TeX4ht license text|>
+|<enotez definitions|>
+\Hinput{enotez}
+\endinput
+>>> \AddFile{9}{enotez}
+
+
+\<enotez definitions\><<<
+\NewConfigure{enotezmark}{2}
+\NewConfigure{enotezback}{2}
+% patch commands that print note numbers, so we can add links
+\ExplSyntaxOn
+% \:currentnoteid contains the note number
+\protected\def\:tempa #1#2{\def\:currentnoteid{#1}\a:enotezmark\o:enotez_write_mark:nn:{#1}{#2}\b:enotezmark}
+\HLet\enotez_write_mark:nn\:tempa
+
+\protected\def\:tempa#1{\def\:currentnoteid{#1}\a:enotezback\o:enotez_write_list_number:n:{#1}\b:enotezback}
+\HLet\enotez_write_list_number:n\:tempa
+
+\ExplSyntaxOff
+>>>
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{floatrow.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%

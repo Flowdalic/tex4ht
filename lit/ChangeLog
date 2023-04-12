@@ -1,3 +1,10 @@
+2023-04-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (enotez.4ht),
+	* tex4ht-html4.tex (html4.4ht): added basic support for the Enotez
+	package.
+	https://tex.stackexchange.com/a/682624/2891
+
 2023-04-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (longtable.4ht): fixed another \caption issue.

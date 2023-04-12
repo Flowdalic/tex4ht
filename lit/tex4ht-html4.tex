@@ -5686,6 +5686,17 @@ Add links and backlinks to pagenotes
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%
+\subsection{enotez}
+%%%%%%%%%%%%%%%%%%%%%
+
+Add links and backlinks to pagenotes with the Enotez package
+
+\<configure html4 enotez\><<<
+\Configure{enotezmark}{\Link{enotez\:currentnoteid}{enotez-bk\:currentnoteid}}{\EndLink}
+\Configure{enotezback}{\Link{enotez-bk\:currentnoteid}{enotez\:currentnoteid}\HCode{<sup>}}{\HCode{</sup>}\EndLink}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%
 \subsection{Wrapfig}
 %%%%%%%%%%%%%%%%%%%
 
