@@ -1,3 +1,8 @@
+2023-04-16  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (JHEP.4ht, memhfixc.4ht):
+	use |<TeX4ht copywrite|> so .4ht files \write the version.
+
 2023-04-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (enotez.4ht),
