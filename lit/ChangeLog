@@ -1,3 +1,9 @@
+2023-04-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (piton.4ht)
+	* tex4ht-html4.tex (html4.4ht): added support for the Piton package.
+	https://github.com/michal-h21/make4ht/issues/118
+
 2023-04-16  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (JHEP.4ht, memhfixc.4ht):

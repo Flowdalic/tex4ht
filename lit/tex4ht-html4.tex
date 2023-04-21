@@ -15385,6 +15385,29 @@ Configuration for listings with colored backgrounds
 >>>
 
 
+%%%%%%%%%%%%%%%%%%%%
+\subsection{piton}
+%%%%%%%%%%%%%%%%%%%%
+
+\<configure html4 piton\><<<
+% handle \color commands
+% piton already uses hexadecimal colors, so we don't need to convert them for use in CSS
+\def\:endundeclaredcolor{\HCode{</span>}}
+\def\:undeclaredcolor[#1]#2{\o:@undeclaredcolor:[#1]{#2}
+\HCode{<span style="color:\##2">}\aftergroup\:endundeclaredcolor
+}
+
+\Configure{piton}{%
+  \ifvmode\IgnorePar\fi\EndP\HCode{<pre class="piton">}\HtmlParOff\NoFonts%
+  \Configure{newline}{\HCode{\Hnewline}}% don't insert any special tags for newlines, only newline characters
+}
+{\EndNoFonts\HCode{</pre>}\HtmlParOn}
+
+\Configure{pitonline}{\HLet\@undeclaredcolor\:undeclaredcolor}{\HCode{<code style="white-space:pre">}}{\HCode{</code>}}
+\Configure{pitonnumber}{\HCode{<span class="linenumber">}}{\HCode{</span>}}
+\Css{pre.piton{font-family: monospace,monospace; font-size:1rem; text-align:left; clear:both; }}
+\Css{.piton .linenumber{font-size: small; margin-right: 1em;}}
+>>>
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{pythontex}
