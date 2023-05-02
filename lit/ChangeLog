@@ -1,3 +1,9 @@
+2023-05-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): disable newlines when caption is
+	written to the TOC file.
+	https://puszcza.gnu.org.ua/bugs/?599
+
 2023-04-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (piton.4ht)

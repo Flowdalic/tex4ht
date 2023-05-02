@@ -14449,7 +14449,9 @@ it failed me.
                  \let\pageno|=\c@page   \fi 
 \let\accent:def|=\def
 \pend:def\protect:wrtoc{\:protect 
-   \Configure{ }{ }\toc:lbl:idx}
+   \Configure{ }{ }%
+   \let\\\space%
+ \toc:lbl:idx}
   \def\endMkHalign{\EndMkHalign}
 \def\:protect{\vrb:tt   
   \let\protect|=\@unexpandable@protect      
