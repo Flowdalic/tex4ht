@@ -32632,8 +32632,8 @@ the fancy page style.
 
 \<lineno.4ht\><<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% lineno.4ht                            |version %
-% Copyright (C) |CopyYear.2000.       Eitan M. Gurari         %
+% lineno.4ht (|version), generated from |jobname.tex 
+% Copyright (C) 2000-2009  Eitan M. Gurari %
 |<TeX4ht copyright|>
 
 \let\:tempc\linelabel
@@ -32654,6 +32654,13 @@ the fancy page style.
    }
 \HLet\MakeLineNo\:tempc
 \NewConfigure{lineno}{2}
+
+% \linenumbers don't have any sense in the HTML output
+% moreover, they cause equations and possibly other elements to fail
+\HLet\linenumbers\relax
+
+% if \linenumbers were used in the document preamble, we must disable them now:
+\LineNumbersfalse
 
 \Hinput{lineno}
 \endinput

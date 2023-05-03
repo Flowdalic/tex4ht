@@ -1,3 +1,8 @@
+2023-05-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (lineno.4ht): disable line numbering.
+	https://github.com/michal-h21/make4ht/issues/119
+
 2023-05-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): disable newlines when caption is
