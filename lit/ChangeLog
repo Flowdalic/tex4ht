@@ -1,4 +1,16 @@
+
+
 2023-05-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-stix2.tex,
+	* tex4ht-fonts-spectral.tex,
+	* tex4ht-fonts-opensans.tex,
+	* tex4ht-fonts-newtx.tex,
+	* tex4ht-fonts-libertine.tex,
+	* tex4ht-fonts-kpfonts.tex,
+	* tex4ht-fonts-fourier.tex,
+	* tex4ht-fonts-ebgaramond.tex,
+	* tex4ht-fonts-arphic.tex: fixed backslash character.
 
 	* tex4ht-fonts-noncjk.tex (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/xslz20d.htf
@@ -17,6 +29,7 @@
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/avantgar/pagdo8t.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/avantgar/pagdc8t.htf
 	): fixed backslash character.
+
 
 2023-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
