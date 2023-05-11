@@ -1,3 +1,23 @@
+2023-05-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/xslz20d.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/musixsps.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/xsldd20.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/frenchtab.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/xslhz20d.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/musixspx.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/MuseJazzText.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/musix/musix24.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/pcrbc7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/pcrbc8t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/pcrbo7t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/pcrbo8t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/avantgar/pagdo8r.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/avantgar/pagdo8t.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/avantgar/pagdc8t.htf
+	): fixed backslash character.
+
 2023-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (lineno.4ht): disable line numbering.
