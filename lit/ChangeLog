@@ -1,4 +1,6 @@
+2023-05-14  Karl Berry  <karl@freefriends.org>
 
+	* update-htfonts: also install tex4ht-fonts*.tex and other sources.
 
 2023-05-11  Michal Hoftich  <michal.h21@gmail.com>
 

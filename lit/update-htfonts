@@ -134,4 +134,16 @@ echo "$prg: files in instdir and not in devdir (you should remove):"
 comm -13 $tmpdir/devdir $tmpdir/instdir
 # maybe better to leave it for manual removal?
 
+#  also copy source files.
+t4srcdir=`echo "$instdir" \
+          | sed 's,/texmf-dist/.*,/texmf-dist/source/generic/tex4ht,'`
+echo "$prg: copying source files to $t4srcdir."
+cp -p ChangeLog Makefile tex4ht-fonts*.tex update-htfonts "$t4srcdir"
+
+echo
+(set -x;
+ $svn status "$instdir"
+ $svn status "$t4srcdir"
+)
+
 echo "$prg: done."
