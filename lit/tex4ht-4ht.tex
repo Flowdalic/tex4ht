@@ -3712,10 +3712,11 @@ Support for links from the \Verb|\cref| command.
 \def\:tempa#1#2{\bgroup%
   \def\rEfLiNK##1##2{\Link{##1}{}}%
   \def\XRrEfLiNK[##1]##2##3{\Link[##1]{##2}{}}% handle links from Xr and Xr-hyper
-  \expandafter\expandafter\expandafter\@firstoffive\csname r@#2\endcsname{}{}{}{}{}%
   \cref@getlabel{#2}{\@templabel}%
-  #1{\@templabel}{}{}%
-  \EndLink\egroup%
+  #1{% add links only around reference numbers, not the previous text, because it can contain punctuation
+    \expandafter\expandafter\expandafter\@firstoffive\csname r@#2\endcsname{}{}{}{}{}%
+  \@templabel\EndLink}{}{}%
+  \egroup%
 }%
 
 \HLet\@@@setcref=\:tempa

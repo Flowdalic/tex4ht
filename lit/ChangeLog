@@ -1,3 +1,9 @@
+2023-05-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (cleveref.4ht): don't include punctuation in links
+	with Cleveref references.
+	https://tex.stackexchange.com/a/686051/2891
+
 2023-05-14  Karl Berry  <karl@freefriends.org>
 
 	* update-htfonts: also install tex4ht-fonts*.tex and other sources.
