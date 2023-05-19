@@ -40809,7 +40809,7 @@ Declarationf for Cyrillics characters are loaded with XeLaTeX
 
 \<spanish.4ht\><<< 
 % spanish.4ht (|version), generated from |jobname.tex 
-% Copyright 2021 TeX Users Group 
+% Copyright 2021-2023 TeX Users Group 
 |<TeX4ht license text|> 
 |<spanish defs|>
 \Hinput{spanish} 
@@ -40945,7 +40945,10 @@ in Spanish babel.
 \<spanish defs\><<<
 \let\orig:nolimits\nolimits
 \let\nolimits\o:nolimits:
-\AtBeginDocument{\let\nolimits\orig:nolimits}
+\AtBeginDocument{
+  \let\nolimits\orig:nolimits
+  \let\es@operators\relax
+}
 >>>
 
 % \def\@text@composite#1#2#3\@text@composite{%
