@@ -1,3 +1,7 @@
+2023-05-21  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (lineno.4ht): copyright 2023.
+
 2023-05-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (spanish.4ht): fixed clash between Spanish Babel
