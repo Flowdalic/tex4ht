@@ -19571,7 +19571,7 @@ If called from Xskak, we can use the xskakget command to get
 chess notation as an alt text.
 
 \<configure html4 chessboard\><<<
-\def\chessboard:alt{\ifdefined\o:xskakget:\o:xskakget:{nextfen}\fi}
+\def\chessboard:alt{\ifdefined\o:xskakget:\ifcsname Xskak.\xskak@val@gameid.\xskak@val@movenr.\xskak@val@player.nextfen\endcsname\o:xskakget:{nextfen}\fi\fi}
 \Configure{chessboard}{\Picture*[\chessboard:alt]{}}{\EndPicture}
 >>>
 
