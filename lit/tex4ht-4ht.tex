@@ -12675,11 +12675,15 @@ prevent this issue.
 
 \<subcaption.4ht\><<<
 % subcaption.4ht (|version), generated from |jobname.tex
-% Copyright 2021 TeX Users Group
+% Copyright 2021-2023 TeX Users Group
 |<TeX4ht license text|>
 \NewConfigure{subfigure}{2}
 \ConfigureEnv{subfigure}{\a:subfigure}{\b:subfigure}{}{}
 \ConfigureEnv{subtable}{\a:subfigure}{\b:subfigure}{}{}
+% these counters are not reset with TeX4ht, which leads to 
+% wrong numbering of subfigures
+\AddToHook{env/figure/begin}{\setcounter{subfigure}{0}}
+\AddToHook{env/table/begin}{\setcounter{subtable}{0}}
 \Hinput{subcaption}
 \endinput
 >>>        \AddFile{9}{subcaption}

@@ -1,5 +1,9 @@
 2023-06-07  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (subcaption.4ht): fixed numbering of subfigures and
+	subtables.
+	https://tex.stackexchange.com/a/687996/2891
+
 	* tex4ht-4ht.tex (xecjk-hooks.4ht): allow xeCJK to be executed with
 	LuaLaTeX.
 	https://github.com/michal-h21/make4ht/issues/123
