@@ -4343,7 +4343,9 @@ Note that not all commands are provided, more can be added on user request.
 \DeclareDocumentCommand\xeCJKsetup{m}{}
 % }
 \AtBeginDocument{%
-  \xeuniuseblock{CJK}
+  \ifdefined\xeuniuseblock%
+  \xeuniuseblock{CJK}%
+  \fi%
 }
 >>> \AddFile{9}{xecjk-hooks}
 
