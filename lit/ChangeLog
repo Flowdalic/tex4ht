@@ -1,3 +1,9 @@
+2023-06-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): removed spurious </p> after the
+	tcolorbox environment.
+	https://tex.stackexchange.com/q/688072/2891
+
 2023-06-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (subcaption.4ht): fixed numbering of subfigures and
