@@ -25106,15 +25106,18 @@ gbksong94 0 255
 
 \def\GbkAlias#1#2{%
      \def\CURR{#1\ifnum\GBK<10 0\fi\GBK}
-     \def\curfnt{#1}\def\tmp{gbkhei}\ifx \curfnt\tmp
-       \leavevmode
-           \special{t4ht>\CURR.log}%
-            \special{t4ht=htfcss: 
-                \CURR\space font-family: }\HChar{186}\HChar{218}%
-            \HChar{204}\HChar{229}\special{t4ht=, sans-serif;}\hfill\break
-            \special{t4ht<\CURR.log}
-        \Needs{"mv \CURR.htf tmp; cat tmp \CURR.log > \CURR.htf; rm \CURR.log"}
-      \fi
+     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     % what was the purpose of this code? it produced invalid output for the gbkhei fonts
+     % \def\curfnt{#1}\def\tmp{gbkhei}\ifx \curfnt\tmp
+     %   \leavevmode
+     %       \special{t4ht>\CURR.log}%
+     %        \special{t4ht=htfcss: 
+     %            \CURR\space font-family: }\HChar{186}\HChar{218}%
+     %        \HChar{204}\HChar{229}\special{t4ht=, sans-serif;}\hfill\break
+     %        \special{t4ht<\CURR.log}
+     %    \Needs{"mv \CURR.htf tmp; cat tmp \CURR.log > \CURR.htf; rm \CURR.log"}
+     %  \fi
+     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      \immediate\write\dbcs{\string\<\CURR\string\><<<}
      \immediate\write\dbcs{.gbksong\ifnum\GBK<10 0\fi\GBK}
      \immediate\write\dbcs{#2}
@@ -25138,7 +25141,7 @@ gbksong94 0 255
 
   \SECTION{gbkcy}{htfcss: \CURR\space font-family:fantasy;}
   \SECTION{gbkfs}{htfcss: \CURR\space font-style: italic;}
-%  \SECTION{gbkhei}{htfcss: \CURR\space font-family: &#186;&#218;&#204;&#229;, sans-serif;}
+ % \SECTION{gbkhei}{htfcss: \CURR\space font-family: &#186;&#218;&#204;&#229;, sans-serif;}
   \SECTION{gbkhei}{}
   \SECTION{gbkkai}{htfcss:
         \CURR\space font-family: monospace,monospace; font-style: italic;}

@@ -1,3 +1,9 @@
+2023-06-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-cjk.tex (
+	tex4ht.dir/texmf/tex4ht/ht-fonts/alias/gbk/gbkhei/*.htf
+	): fixed invalid HTF files.
+
 2023-06-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): removed spurious </p> after the
