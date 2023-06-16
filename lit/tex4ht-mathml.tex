@@ -848,9 +848,9 @@ The special replaces the `x' character.
 
 \<plain,latex mathml\><<<
 \let\mml:TeX|=\TeX
-\def\TeX{\ifmathml 
+\def\TeX{\ifmathml\ifmtext TeX\else
    \HCode{<\a:mathml mtext
-      \mml:class="TeX">TeX</\a:mathml mtext>}\else \mml:TeX\fi}
+      \mml:class="TeX">TeX</\a:mathml mtext>}\fi\else \mml:TeX\fi}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%

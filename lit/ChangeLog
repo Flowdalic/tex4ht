@@ -1,3 +1,8 @@
+2023-06-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed \TeX used in \text.
+	https://github.com/michal-h21/tex4ebook/issues/108
+
 2023-06-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-cjk.tex (
