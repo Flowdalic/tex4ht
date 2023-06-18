@@ -23,7 +23,6 @@ if test x"$1" = xdiff; then
   cp="echo would $cp"
   mkdir="echo would $mkdir"
   svn="echo would $svn"
-
 elif test x"$1" = xupdate; then
   shift
   do_updates=true
@@ -34,7 +33,6 @@ fi
 
 devdir=$1
 instdir=$2
-verbose=true
 tmpdir=/tmp/htdif.d # prefix
 rm -rf $tmpdir; mkdir $tmpdir
 
