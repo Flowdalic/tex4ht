@@ -1,3 +1,9 @@
+2023-06-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): use the requested image extension
+	for conversion of EPS files.
+	https://tex.stackexchange.com/q/689248/2891
+
 2023-06-18  Karl Berry  <karl@freefriends.org>
 
 	* update-htfonts: dup verbose assignment.

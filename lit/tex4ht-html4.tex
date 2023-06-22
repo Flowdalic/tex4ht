@@ -13963,7 +13963,7 @@ for margin pars.
 \Configure{EpsConvert}{"epstopdf "\Gin@base.eps"  && pdf2svg "\Gin@base.pdf" "\Gin@base.svg""}
 \else
 \Configure{PdfConvert}{png}{"\a:Ghostscript\space -q -dNOPAUSE -dBATCH -dusecropbox -sDEVICE=pngalpha -r\gr:density\space \ifx\Gin@page\@empty\else -dFirstPage="\Gin@page"  -dLastPage="\Gin@page"\fi\space -sOutputFile="\Gin@base-\Gin@page.\a:PdfConvert" "\Gin@base.pdf" "}
-\Configure{EpsConvert}{"\a:Ghostscript\space -dSAFER    -dBATCH    -dNOPAUSE    -dEPSCrop    -r\gr:density\space -sDEVICE=pngalpha -sOutputFile="\Gin@base.png" "\Gin@base.eps" "}
+\Configure{EpsConvert}{"\a:Ghostscript\space -dSAFER    -dBATCH    -dNOPAUSE    -dEPSCrop    -r\gr:density\space -sDEVICE=pngalpha -sOutputFile="\Gin@base\PictExt" "\Gin@base.eps" "}
 \fi
 \Configure{graphics*}
    {pdf}
