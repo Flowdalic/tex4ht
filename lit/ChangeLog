@@ -1,3 +1,9 @@
+2023-06-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): don't produce paragraphs inside <dt>
+	element.
+	https://github.com/michal-h21/tex4ebook/issues/109
+
 2023-06-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use the requested image extension
