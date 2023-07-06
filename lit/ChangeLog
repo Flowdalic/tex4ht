@@ -1,3 +1,11 @@
+2023-07-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/cfrinitials/*.htf,
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/cfrinitials/*.htf
+	): added support for the CFR-Initials font bundle.
+	https://tex.stackexchange.com/a/690426/2891
+
 2023-06-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): don't produce paragraphs inside <dt>
