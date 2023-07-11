@@ -1,3 +1,8 @@
+2023-07-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed \tilde accent in MathML.
+	https://github.com/michal-h21/make4ht/issues/125
+
 2023-07-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (

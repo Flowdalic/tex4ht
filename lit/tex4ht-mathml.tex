@@ -783,11 +783,15 @@ We reserve code 254 (and 255) for unknown symbols.
 \:CheckOption{new-accents}     \if:Option \else
   \Configure{accent}\widetilde\widetilde{{}{}} 
   {}
-  {\HCode{<\a:mathml mover\Hnewline accent="false"><\a:mathml mrow\Hnewline>}#2\HCode{</\a:mathml mrow>}%
+  {\HCode{<\a:mathml mover\Hnewline accent="true"><\a:mathml mrow\Hnewline>}#2\HCode{</\a:mathml mrow>}%
     \:widetilde:over  \HCode{</\a:mathml mover>}}
+  \Configure{accent}\tilde\tilde{{}{}} 
+  {}
+  {\HCode{<\a:mathml mover\Hnewline accent="true"><\a:mathml mrow\Hnewline>}#2\HCode{</\a:mathml mrow>}%
+    \:tilde:over  \HCode{</\a:mathml mover>}}
   \Configure{accent}\widehat\widehat{{}{}} 
   {}
-  {\HCode{<\a:mathml mover\Hnewline accent="false"><\a:mathml mrow\Hnewline>}#2\HCode{</\a:mathml mrow>}%
+  {\HCode{<\a:mathml mover\Hnewline accent="true"><\a:mathml mrow\Hnewline>}#2\HCode{</\a:mathml mrow>}%
     \:widehat:over  \HCode{</\a:mathml mover>}}
 \fi
 >>>
