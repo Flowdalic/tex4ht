@@ -22080,6 +22080,45 @@ $\m@th\displaystyle{{}#}$%
 \NewConfigure{dcases*}{6}
 >>>
 
+\<add to usepackage\><<<
+\Configure{PackageHooks}{mathtools.sty}{mathtools-hooks.4ht}
+>>>
+
+\<mathtools-hooks.4ht\><<<
+% mathtools-hooks.4ht, generated from |jobname.tex
+% Copyright 2023 TeX Users Group
+|<TeX4ht license text|>
+|<mathtools inner wrapper|>
+>>> 
+\AddFile{9}{mathtools-hooks}
+
+
+This should prevent compilation errors with commands declared using \''\DeclarePairedDelimiter' and MathML. 
+We need to patch the command at the moment when it is declared, so it must be available
+already in the preamble. This is why we use early hooks.
+
+\<mathtools inner wrapper\><<<
+\ExplSyntaxOn
+\:AtEndOfPackage{
+\renewcommand\MT_delim_default_inner_wrappers:n [1]{
+   \@namedef{MT_delim_\MH_cs_to_str:N #1 _star_wrapper:nnn}##1##2##3{
+      \ifx\EndPicture\undefined
+      \bgroup ##1 ##2  ##3\egroup
+      \else
+      \mathopen{}\mathclose\bgroup ##1 ##2  \aftergroup\egroup ##3
+      \fi
+    }
+    \@namedef{MT_delim_\MH_cs_to_str:N #1 _nostarscaled_wrapper:nnn}##1##2##3{
+      \mathopen{##1}##2\mathclose{##3}
+    }
+    \@namedef{MT_delim_\MH_cs_to_str:N #1 _nostarnonscaled_wrapper:nnn}##1##2##3{
+      \mathopen##1##2\mathclose##3
+    }
+  }
+}
+\ExplSyntaxOff
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Other}
 %%%%%%%%%%%%%%%%%%%%%%
