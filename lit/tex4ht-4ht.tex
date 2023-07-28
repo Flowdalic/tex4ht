@@ -34228,7 +34228,7 @@ of \''\:temp' below.
 
 \<xskak.4ht\><<<
 % xskak.4ht (|version), generated from |jobname.tex
-% Copyright 2022 TeX Users Group
+% Copyright 2022-2023 TeX Users Group
 |<TeX4ht license text|>
 |<xskak depth|>
 |<xskak inline elements|>
@@ -34259,7 +34259,10 @@ be used for calculation of vertical alignment.
   %\a:mainline\Picture*[\detokenize{#1}]{ style="\:xskakdepth"}\box0\EndPicture\b:mainline%
   \a:mainline\box0\b:mainline%
 }
-\HLet\mainline\:tempa
+% I've found that mainline redefinition can lead to compilation errors
+% As it prints text and chess symbols are retrieved from SkakNew.htf, maybe we don't need
+% to compile it to image at all, unless we get further bug reports.
+% \HLet\mainline\:tempa
 
 \NewConfigure{xskakget}{2}
 \def\:tempa#1{%
@@ -34278,15 +34281,15 @@ because
 >>>
 
 \<xskak.sty\><<<
-\def\:tempa{%
+\newcommand\:newchessgame[1][]{%
   % reset to the original version of \chessboard
   \let\:currchesboard\chessboard
   \let\chessboard\o:chessboard:%
-  \o:newchessgame:%
+  \o:newchessgame:[#1]%
   % set the TeX4ht version of \chessboard back
   \let\chessboard\:currchesboard
 }
-\HLet\newchessgame\:tempa
+\HLet\newchessgame\:newchessgame
 >>>
 
 

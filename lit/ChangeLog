@@ -1,5 +1,8 @@
 2023-07-28  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (xskak.4ht): removed redefiniton of \mainline and
+	added optional argument for \newchessgame.
+
 	* tex4ht-fonts-noncjk.tex (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/misc/SkakNew.htf
 	): fixed some wrong characters.
