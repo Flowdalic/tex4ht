@@ -1,3 +1,11 @@
+2023-07-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/mathabx/matha.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/mathabx/mathb.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/mathabx/mathx.htf
+	): added support for Mathabx fonts. Thanks to Arkady Benediktov.
+
 2023-07-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, mathtools-hooks.4ht): fixed
