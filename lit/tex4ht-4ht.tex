@@ -21565,7 +21565,14 @@ The split environment looks like
 The folowing tries to compensate for the above extra openning split 
 environment.   
 
-\<equations of amsmath.sty\><<<
+But in 2023, this causes fatal error in the compilation. Furthermore,
+the test cases that follows work in the picture and MathML modes, 
+so it seems that it isn't necessary anymore.
+
+Bug report for the fatal error can be 
+\Link[https://github.com/michal-h21/make4ht/issues/132]{}{}found here\EndLink
+
+\<do not use in equations of amsmath.sty\><<<
 \Configure{@begin}
   {split}
   {\relax
