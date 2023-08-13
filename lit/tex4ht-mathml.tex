@@ -1847,9 +1847,9 @@ Used to be
    {\relax \csname SUB:prime\endcsname\sp{%
       \global\let\SUB:prime=\:UnDef
       \def\:tempa{\prime\prime}\ifx \:tempa\:primes
-              \mathop{\HCode{\string&\#x2033;}}\else
+              \mathop{\HCode{<\a:mathml mi>\string&\#x2033;</\a:mathml mi>}}\else
       \def\:tempa{\prime\prime\prime}\ifx \:tempa\:primes
-              \mathop{\HCode{\string&\#x2034;}}\else
+              \mathop{\HCode{<\a:mathml mi>\string&\#x2034;</\a:mathml mi>}}\else
               \:primes \fi\fi}%
    }
    {\let\prime=\relax \xdef\:primes{\:primes\prime}}

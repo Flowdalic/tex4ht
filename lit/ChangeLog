@@ -1,5 +1,8 @@
 2023-08-13  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): fixed wrong markup for primes.
+	https://github.com/michal-h21/make4ht/issues/130
+
 	* tex4ht-docbook.tex (docbook.4ht): added formatting for the Ulem
 	package configurations.
 	https://github.com/michal-h21/make4ht/issues/131
