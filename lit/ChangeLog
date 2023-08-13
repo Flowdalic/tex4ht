@@ -1,5 +1,9 @@
 2023-08-13  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): fixed handling of \tfrac and
+	\dfrac inside of \frac.
+	https://github.com/michal-h21/make4ht/issues/129
+
 	* tex4ht-mathml.tex (mathml.4ht): fixed wrong markup for primes.
 	https://github.com/michal-h21/make4ht/issues/130
 

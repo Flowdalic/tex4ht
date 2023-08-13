@@ -1599,11 +1599,16 @@ configurations, respectively.
  }
 >>>
 
-Use correct math style for Amsmath's variants of inline fractions.
+Use correct math style for Amsmath's variants of inline fractions. We also need to add fractions markup in tfrac and dfrac to 
+support their use \Link[https://github.com/michal-h21/make4ht/issues/129]{}{}inside of fractions\EndLink.
 
 \<configure mathml amsmath\><<<
-\pend:def\dfrac{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="true"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mstyle>}}}
-\pend:def\tfrac{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="false"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mstyle>}}}
+\pend:def\dfrac{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="true"}{}{}{}><mfrac><mrow>}
+  \Configure{over}{}{}}{}{}{\HCode{</mrow><mrow>}
+} {}{\HCode{</mrow></mfrac></\a:mathml mstyle>}}}
+\pend:def\tfrac{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="false"}{}{}{}><mfrac><mrow>}
+  \Configure{over}{}{}}{}{}{\HCode{</mrow><mrow>}
+}{}{\HCode{</mrow></mfrac></\a:mathml mstyle>}}}
 \pend:def\dbinom{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="true"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mstyle>}}}
 \pend:def\tbinom{\Configure{genfrac}{\HCode{<\a:mathml mstyle \mathchoice{\a:mathml displaystyle="false"}{}{}{}>}}{}{}{}{}{\HCode{</\a:mathml mstyle>}}}
 >>>
