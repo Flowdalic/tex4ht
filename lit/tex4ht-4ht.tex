@@ -4896,6 +4896,7 @@ converted to SVG by default.
   document before use of TikZ if you want to another driver. Use tikz+ option if your TikZ pictures use patterns.}%
   \def\pgfsysdriver{pgfsys-dvisvgm4ht.def}%
 \fi%
+\ifdefined\find:externalize\else
 \:AtEndOfPackage{%
 \let\use:tikzlibrary\usetikzlibrary
 \def\find:externalize#1external#2\@nil{%
@@ -4914,6 +4915,7 @@ converted to SVG by default.
 }
 \append:defI\use@@tikzlibrary{\find:externalize##1external\@nil}%
 }
+\fi
 >>> \AddFile{9}{tikz-hooks}
 
 %%%%%%%%%%%%%%%%%%
