@@ -1,4 +1,7 @@
 2023-08-16  Michal Hoftich  <michal.h21@gmail.com>
+	
+	* tex4ht-4ht.tex (memoir.4ht): added indexing support for Memoir.
+	https://tex.stackexchange.com/a/693652/2891
 
 	* tex4ht-4ht.tex (tikz-hooks.4ht): fixed infinite loop with
 	externalization when TikZ was used multiple times in the document.

@@ -16421,6 +16421,28 @@ Hfootnote counter, which isn't declared.
 }{}
 >>>
 
+Indexing support for Memoir. It supports split index like functionality,
+but quite complicatedly using aux files. This version produces idx file
+in the format expected by make4ht for the splitindex support.
+
+PS: I had to double the \''|' characters in the macro definition, otherwise
+they were stripped by the literate programming system. 
+
+\<memoir cfg\><<<
+\def\:tempa#1||#2||#3\\{%
+  \html:addr\hbox{\Link-{}{dx\last:haddr}\EndLink}%
+  \expandafter\protected@write\csname \jobname @idxfile\endcsname{}{\string\beforeentry{\RefFileNumber\FileNumber}{dx\last:haddr}{}}%
+  \expandafter\protected@write\csname \jobname @idxfile\endcsname{}{\string\indexentry[\@idxfile]{#1}{\thepage}}%
+  \endgroup%
+  \@esphack%
+}
+\HLet\@@wrindexhyp\:tempa
+\HLet\@@wrspindexhyp\:tempa
+
+% we use make4ht's splitindex functionality, which produces .ind files in the form of \jobname-idxname.ind
+\renewcommand{\printindex}[1][\jobname]{\@input@{\jobname-#1.ind}}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{mempatch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
