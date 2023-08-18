@@ -2180,9 +2180,9 @@ should be used whe addcontentline instructions are present.
    {=}{\HCode{ style="vertical-align:baseline; white-space:nowrap;"}} 
    {||}{\HCode{ style="vertical-align:middle; white-space:nowrap;"}} 
    {_}{\HCode{ style="vertical-align:bottom; white-space:nowrap;"}} 
-   {p}{\HCode{ style="white-space:normal; text-align:left;"}} 
-   {m}{\HCode{ style="white-space:nowrap; text-align:left; vertical-align:middle;"}} 
-   {b}{\HCode{ style="white-space:normal; text-align:left; vertical-align:baseline;"}} 
+   {p}{\HCode{ style="white-space:normal; text-align:left;"}\Protect\a:HColWidth} 
+   {m}{\HCode{ style="white-space:normal; text-align:left; vertical-align:middle;"}\Protect\a:HColWidth} 
+   {b}{\HCode{ style="white-space:normal; text-align:left; vertical-align:bottom;"}\Protect\a:HColWidth} 
    {L}{\HCode{ style="white-space:normal; text-align:left;"}} 
    {R}{\HCode{ style="white-space:normal; text-align:right;"}} 
    {C}{\HCode{ style="white-space:normal; text-align:center;"}} 
@@ -4304,9 +4304,9 @@ Q. Where placefigure is declared?
    {p}{\HCode{ style="white-space:normal; text-align:left;"}%
           \Protect\a:HColWidth}
    {m}{\HCode{ style="white-space:nowrap; 
-                      text-align:left; vertical-align:middle;"}}
+                      text-align:left; vertical-align:middle;"}\Protect\a:HColWidth}
    {b}{\HCode{ style="white-space:nowrap; text-align:left;
-                      vertical-align:baseline;"}}
+                      vertical-align:baseline;"}\Protect\a:HColWidth}
    {}
 >>>
 
@@ -20005,8 +20005,8 @@ The following should be just under LaTeX.
    {||}{\HCode{ style="vertical-align:middle; white-space:nowrap;"}}
    {_}{\HCode{ style="vertical-align:bottom; white-space:nowrap;"}}
    {p}{\HCode{ style="white-space:normal; text-align:left;"}\Protect\a:HColWidth}
-   {m}{\HCode{ style="white-space:nowrap; text-align:left; vertical-align:middle;"}}
-   {b}{\HCode{ style="white-space:nowrap; text-align:left; vertical-align:baseline;"}}
+   {m}{\HCode{ style="white-space:normal; text-align:left; vertical-align:middle;"}\Protect\a:HColWidth}
+   {b}{\HCode{ style="white-space:normal; text-align:left; vertical-align:bottom;"}\Protect\a:HColWidth}
    {}
 \NewConfigure{HColWidth}{1}
 \Configure{HColWidth}{}

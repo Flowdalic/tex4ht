@@ -1,5 +1,11 @@
 2023-08-18  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): added support for column width in
+	"b" and "m" table preamble tokens. Fixed wrong alignment and word
+	wrapping.
+	https://tex.stackexchange.com/a/693816/2891
+
+
 	* tex4ht-html4.tex (html4.4ht): simplified setting of table column
 	widths with the `p-width` option.
 	https://tex.stackexchange.com/a/693816/2891
