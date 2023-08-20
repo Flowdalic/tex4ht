@@ -280,53 +280,6 @@ etex |<@|>5 |<'|>|<texinfo definitions|>|<get parameters|>|empty>>>
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Context}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\<def script\><<<-
-%%%%%%%%%%%%%%%
-\section{ConTeXt}
-%%%%%%%%%%%%%%%
-
-
-\<context...\><<<
-|<unix line|>|<windows line|>
-        |<texexec|>
-        |<base|>tex4ht |<dir ch|>|<@|>1 |<III|>
-        |<base|>t4ht |<dir ch|>|<@|>1 |<IV|>
-
->>>
-
-\<texexec\><<<
-|<ruby call|>texexec --arg="ht-1=|<@|>2" --use=tex4ht --dvi --nobackend |<@|>5 |<@|>1 >>>
-->>>
-
-
-``In the latest ConTeXt, texexec for Windows is realized 
-as a batch file from which texmfstart.exe ---> ruby script 
-is called.'' 
-
-\immediate\write16{...............................fix......}
-\immediate\write16{%
-perl /opt/cvr/gurari/main.dir/try.dir/context.dir/context/perltk/texexec.pl%
-}
-\immediate\write16{........................................}
-
-
-\<add script\><<<-
-\<\pref context.\ext\><<<
-\<context...\>
->>> %
-%
-\OutputCodE\<\pref context.\ext\>   \script{\pref context}{\ext}  %
-%
-->>>
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{XeTeX}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -501,7 +454,6 @@ The first line is for `ht ...  ...' scripts.
  "ht",   "htlatex",   "latex",    "", "", "-cvalidatehtml",
  "ht",   "httex",     "tex",      "", "", "-cvalidatehtml",
  "ht",   "httexi",    "texi",     "", "", "-cvalidatehtml",
- "ht",   "htcontext", "context",  "", "", "-cvalidatehtml",
  "ht",   "htxetex",   "xetex",    "", "", "-cvalidatehtml",
  "ht",   "htxelatex", "xelatex",  "", "", "-cvalidatehtml",
 ->>>
@@ -557,7 +509,6 @@ The first line is for `ht ...  ...' scripts.
  "xh", "xhlatex",  "latex",   "xhtml", "", "-cvalidate",
  "xh", "xhtex",    "tex",     "xhtml", "", "-cvalidate",
  "xh", "xhtexi",   "texi",    "xhtml", "", "-cvalidate",
- "xh", "xhcontext","context", "xhtml", "", "-cvalidat",
  "xh", "xhxelatex", "xelatex", "xhtml", "", "-cvalidate",
  "xh", "xhxetex",  "xetex",   "xhtml", "", "-cvalidate",
 ->>>
@@ -588,7 +539,6 @@ The first line is for `ht ...  ...' scripts.
  "uxh", "uxhlatex",  "latex",   "xhtml,uni-html4", " -cunihtf", "-cvalidate",
  "uxh", "uxhtex",    "tex",     "xhtml,uni-html4", " -cunihtf", "-cvalidate",
  "uxh", "uxhtexi",   "texi",    "xhtml,uni-html4", " -cunihtf", "-cvalidate",
- "uxh", "uxhcontext","context",  "xhtml,uni-html4", " -cunihtf", "-cvalidate",
  "uxh", "uxhxelatex",  "xelatex",   "xhtml,uni-html4", " -cunihtf", "-cvalidate",
  "uxh", "uxhxetex",    "xetex",     "xhtml,uni-html4", " -cunihtf", "-cvalidate",
 ->>>
@@ -617,7 +567,6 @@ The first line is for `ht ...  ...' scripts.
  "xhm", "xhmlatex", "latex",  "xhtml,mathml", " -cunihtf", "-cvalidate",
  "xhm", "xhmtex",   "tex",    "xhtml,mathml", " -cunihtf", "-cvalidate",
  "xhm", "xhmtexi",  "texi",   "xhtml,mathml", " -cunihtf", "-cvalidate",
- "xhm", "xhmcontext","context", "xhtml,mathml", " -cunihtf", "-cvalidate",
  "xhm", "xhmxelatex", "xelatex",  "xhtml,mathml", " -cunihtf", "-cvalidate",
  "xhm", "xhmxetex",   "xetex",    "xhtml,mathml", " -cunihtf", "-cvalidate",
 ->>>
@@ -647,7 +596,6 @@ The first line is for `ht ...  ...' scripts.
  "mz", "mzlatex",   "latex",   "xhtml,mozilla", " -cmozhtf",  "-cvalidate",
  "mz", "mztex",     "tex",     "xhtml,mozilla", " -cmozhtf",  "-cvalidate",
  "mz", "mztexi",    "texi",    "xhtml,mozilla", " -cmozhtf",  "-cvalidate",
- "mz", "mzcontext", "context", "xhtml,mozilla", " -cmozhtf",  "-cvalidate",
  "mz", "mzxelatex", "xelatex",   "xhtml,mozilla", " -cmozhtf",  "-cvalidate",
  "mz", "mzxetex",   "xetex",     "xhtml,mozilla", " -cmozhtf",  "-cvalidate",
 ->>>
@@ -677,7 +625,6 @@ The first line is for `ht ...  ...' scripts.
  "oo", "oolatex",   "latex",   "xhtml,ooffice", "ooffice/\! -cmozhtf",  "-cooxtpipes -coo",
  "oo", "ootex",     "tex",     "xhtml,ooffice", "ooffice/\! -cmozhtf",  "-cooxtpipes -coo",
  "oo", "ootexi",    "texi",    "xhtml,ooffice", "ooffice/\! -cmozhtf",  "-cooxtpipes -coo",
- "oo", "oocontext", "context", "xhtml,ooffice", "ooffice/\! -cmozhtf",  "-cooxtpipes -coo",
  "oo", "ooxelatex",   "xelatex",   "xhtml,ooffice", "ooffice/\! -cmozhtf",  "-cooxtpipes -coo",
  "oo", "ooxetex",     "xetex",     "xhtml,ooffice", "ooffice/\! -cmozhtf",  "-cooxtpipes -coo",
 ->>>
@@ -710,7 +657,6 @@ The first line is for `ht ...  ...' scripts.
  "es", "eslatex",   "latex",   "xhtml,emspk", " -cemspkhtf -s4es",  "-cemspk",
  "es", "estex",     "tex",     "xhtml,emspk", " -cemspkhtf -s4es",  "-cemspk",
  "es", "estexi",    "texi",    "xhtml,emspk", " -cemspkhtf -s4es",  "-cemspk",
- "es", "escontext", "context", "xhtml,emspk", " -cemspkhtf -s4es",  "-cemspk",
  "es", "esxelatex",   "xelatex",   "xhtml,emspk", " -cemspkhtf -s4es",  "-cemspk",
  "es", "esxetex",     "xetex",     "xhtml,emspk", " -cemspkhtf -s4es",  "-cemspk",
 ->>>
@@ -743,7 +689,6 @@ The first line is for `ht ...  ...' scripts.
  "js", "jslatex",   "latex",   "xhtml,jsml", " -cjsmlhtf",  "-cjsml",
  "js", "jstex",     "tex",     "xhtml,jsml", " -cjsmlhtf",  "-cjsml",
  "js", "jstexi",    "texi",    "xhtml,jsml", " -cjsmlhtf",  "-cjsml",
- "js", "jscontext", "context", "xhtml,jsml", " -cjsmlhtf",  "-cjsml",
  "js", "jsxelatex",   "xelatex",   "xhtml,jsml", " -cjsmlhtf",  "-cjsml",
  "js", "jsxetex",     "xetex",     "xhtml,jsml", " -cjsmlhtf",  "-cjsml",
 ->>>
@@ -776,7 +721,6 @@ The first line is for `ht ...  ...' scripts.
  "jm", "jmlatex",   "latex",   "xhtml,jsmath", " -cmozhtf", "",
  "jm", "jmtex",     "tex",     "xhtml,jsmath", " -cmozhtf", "",
  "jm", "jmtexi",    "texi",    "xhtml,jsmath", " -cmozhtf", "",
- "jm", "jmcontext", "context", "xhtml,jsmath", " -cmozhtf", "",
  "jm", "jmxelatex",   "xelatex",   "xhtml,jsmath", " -cmozhtf", "",
  "jm", "jmxetex",     "xetex",     "xhtml,jsmath", " -cmozhtf", "",
 ->>>
@@ -823,11 +767,9 @@ The first line is for `ht ...  ...' scripts.
  "tei",  "teilatex",  "latex",   "xhtml,tei",    " -cunihtf",  "-cvalidate",
  "tei",  "teitex",    "tex",     "xhtml,tei",    " -cunihtf",  "-cvalidate",
  "tei",  "teitexi",   "texi",    "xhtml,tei",    " -cunihtf",  "-cvalidate",
- "tei",  "teicontext","context", "xhtml,tei",    " -cunihtf",  "-cvalidate",
  "teim", "teimlatex", "latex",   "xhtml,tei-mml"," -cunihtf",  "-cvalidate",
  "teim", "teimtex",   "tex",     "xhtml,tei-mml"," -cunihtf",  "-cvalidate",
  "teim", "teimtexi",  "texi",    "xhtml,tei-mml"," -cunihtf",  "-cvalidate",
- "teim", "teimcontext","context","xhtml,tei-mml"," -cunihtf",  "-cvalidate",
  "tei",  "teixelatex",  "xelatex",   "xhtml,tei",    " -cunihtf",  "-cvalidate",
  "tei",  "teixetex",    "xetex",     "xhtml,tei",    " -cunihtf",  "-cvalidate",
 ->>>
@@ -869,11 +811,9 @@ The first line is for `ht ...  ...' scripts.
  "db",  "dblatex",   "latex",   "xhtml,docbook",     " -cunihtf",  "-cvalidate -cdocbk",
  "db",  "dbtex",     "tex",     "xhtml,docbook",     " -cunihtf",  "-cvalidate -cdocbk",
  "db",  "dbtexi",    "texi",    "xhtml,docbook",     " -cunihtf",  "-cvalidate -cdocbk",
- "db",  "dbcontext", "context", "xhtml,docbook",     " -cunihtf",  "-cvalidate -cdocbk",
  "dbm", "dbmlatex",  "latex",   "xhtml,docbook-mml", " -cunihtf",  "-cdocbk",
  "dbm", "dbmtex",    "tex",     "xhtml,docbook-mml", " -cunihtf",  "-cdocbk",
  "dbm", "dbmtexi",   "texi",    "xhtml,docbook-mml", " -cunihtf",  "-cdocbk",
- "dbm", "dbmcontext","context", "xhtml,docbook-mml", " -cunihtf",  "-cdocbk",
  "db",  "dbxelatex",   "xelatex",   "xhtml,docbook",     " -cunihtf",  "-cvalidate -cdocbk",
  "db",  "dbxetex",     "xetex",     "xhtml,docbook",     " -cunihtf",  "-cvalidate -cdocbk",
 ->>>
@@ -907,7 +847,6 @@ The first line is for `ht ...  ...' scripts.
  "w", "wlatex",   "latex",   "xhtml,word", " -csymhtf", "",
  "w", "wtex",     "tex",     "xhtml,word", " -csymhtf", "",
  "w", "wtexi",    "texi",    "xhtml,word", " -csymhtf", "",
- "w", "wcontext", "context", "xhtml,word", " -csymhtf", "",
  "w", "wxelatex",   "xelatex",   "xhtml,word", " -csymhtf", "",
  "w", "wxetex",     "xetex",     "xhtml,word", " -csymhtf", "",
 ->>>
@@ -940,7 +879,6 @@ The first line is for `ht ...  ...' scripts.
  "jh", "jhlatex",  "latex",  "html,javahelp,xml,3.2,unicode", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp -cvalidatehtml",
  "jh", "jhtex",    "tex",    "html,javahelp,xml,3.2,unicode", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp -cvalidatehtml",
  "jh", "jhtexi",   "texi",   "html,javahelp,xml,3.2,unicode", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp -cvalidatehtml",
- "jh", "jhcontext","context", "html,javahelp,xml,3.2,unicode", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp -cvalidatehtml",
  "jh", "jhxelatex",  "xelatex",  "html,javahelp,xml,3.2,unicode", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp -cvalidatehtml",
  "jh", "jhxetex",    "xetex",    "html,javahelp,xml,3.2,unicode", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp -cvalidatehtml",
 ->>>
@@ -967,7 +905,6 @@ The first line is for `ht ...  ...' scripts.
  "jh1", "jh1latex",  "latex",  "html,javahelp,xml,3.2,unicode,jh1.0", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp",
  "jh1", "jh1tex",    "tex",    "html,javahelp,xml,3.2,unicode,jh1.0", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp",
  "jh1", "jh1texi",   "texi",   "html,javahelp,xml,3.2,unicode,jh1.0", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp",
- "jh1", "jh1context","context", "html,javahelp,xml,3.2,unicode,jh1.0", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp",
  "jh1", "jh1xelatex",  "xelatex",  "html,javahelp,xml,3.2,unicode,jh1.0", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp",
  "jh1", "jh1xetex",    "xetex",    "html,javahelp,xml,3.2,unicode,jh1.0", " -cmozhtf -u10", " -d$texFile-doc/ -cjavahelp",
 ->>>
@@ -1046,7 +983,6 @@ against that file.
 \def\Quote{\bgroup \setcats \Qcont}  \def\Qcont#1{\egroup\def\quote{#1}}
 \def\Argchar{\bgroup \setcats \Acont}\def\Acont#1{\egroup\def\argchar{#1}}
 \def\Dirchar{\bgroup \setcats \Dicont}\def\Dicont#1{\egroup\def\dirchar{#1}}
-\def\Rubycall{\bgroup \setcats \Dcont}\def\Dcont#1{\egroup\def\rubyCall{#1}}
 \def\Echooff{\bgroup \setcats \Dcont}\def\Dcont#1{\egroup\def\echoOff{#1}}
 \def\Ext{\bgroup \setcats \Econt}    \def\Econt#1{\egroup\def\ext{#1}%
   ?<unix shebang line?>}
@@ -1062,7 +998,6 @@ against that file.
 \let\quote=\relax
 \let\argchar=\relax
 \let\dirchar=\relax
-\let\rubyCall=\relax
 \let\echoOff=\relax
 \let\ext=\relax
 \ifx \script\UnDef \let\script=\relax \fi
@@ -1092,9 +1027,6 @@ against that file.
 
 \<base\><<<
 |base>>>
-
-\<ruby call\><<<
-|rubyCall>>>
 
 \<echo off\><<<
 |echoOff>>>
@@ -1138,7 +1070,6 @@ to insert the at-echo off only for Windows.
    \temp\quote
    \temp\argchar
    \temp\dirchar
-   \temp\rubyCall
    \temp\echoOff
    \temp\ext
    \temp\script
@@ -1311,7 +1242,6 @@ shebang line, the defaul shell (which can be anything) is used.
 \Quote{'}
 \Argchar{$}
 \Dirchar{-f/}
-\Rubycall{}
 \Echooff{}
 \Remark{#}
 ->>>
@@ -1327,7 +1257,6 @@ shebang line, the defaul shell (which can be anything) is used.
 \Quote{}
 \Argchar{%}
 \Dirchar{}
-\Rubycall{call }
 \Echooff{@echo off}
 \Remark{Rem }
 ->>>
@@ -1523,7 +1452,7 @@ A configuration file may contain records of the following kinds.
 \item[\#] Comment
 \item[name = type]  Defines a ht*tex like command, and assocites to it 
 the TeX compiler of the specified type.  Examples of TeX types: latex, tex,
-texi, and context.
+texi.
 \item[name.tex = options]  Command line options for the compilation under 
    the (la)tex compiler  
 \item[name.tex4ht = options]  Command line options for  tex4ht.c
@@ -1714,7 +1643,7 @@ sub showInstrucions(){
   print "        jhlatex, eslatex, teilatex, teimlatex, uxhlatex,  \n";
   print "        wlatex, xhmlatex\n";
   print " \n";
-  print "        also 'tex', 'texi', 'context', 'xetex', and 'xelatex'\n";
+  print "        also 'tex', 'texi', 'xetex', and 'xelatex'\n";
   print "        instead of 'latex'\n";
   print " \n";
   print "    #2: file name\n";
@@ -1761,7 +1690,7 @@ print "    \n";
 print "   name = type\n";
 print "          Defines a ht*tex like command, and assocites to it the \n";
 print "          TeX compiler of the specified type. Examples of TeX \n";
-print "          types: latex, tex, texi, context, xetex, and xelatex.\n";
+print "          types: latex, tex, texi, xetex, xelatex.\n";
 print "    \n";
 print "   name.tex = options\n";
 print "          Command line options for the compilation under\n";
