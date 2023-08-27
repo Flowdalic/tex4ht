@@ -1,3 +1,8 @@
+2023-08-27  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex,
+	* tex4ht-docbook.tex: copyright 2023.
+
 2023-08-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added support for column width in
