@@ -1,3 +1,9 @@
+2023-08-31  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): calculate padding for individual
+	Tcolorbox boxes.
+	https://tex.stackexchange.com/a/694862/2891
+
 2023-08-27  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex,

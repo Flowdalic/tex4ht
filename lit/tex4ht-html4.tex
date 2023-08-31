@@ -16500,11 +16500,21 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 
 
 \<configure html4 tcolorbox\><<<
+% support macro for correct calculation of padding in Tcolorbox
+\def\calc:tcbpadding#1{\strip@pt\dimexpr \kvtcb@boxsep+#1\relax px}
+
 \Configure{tcolorbox}
 {\ifvmode\IgnorePar\fi\EndP\HCode{<div class="tcolorbox \@currenvir" id="\:tcbcolid">} 
   % \tcbcolid and colors are defined in tcolorbox.4ht
   \Css{\#\:tcbcolid\space .tcolorbox-title{color: \:tcbcoltitle; background-color: \:tcbcolframe;}}
   \Css{\#\:tcbcolid\space .tcolorbox-content{color: \:tcbcolupper; background-color: \:tcbcolback; border: 1px solid \:tcbcolframe;}}
+  % calculate paddings
+  \Css{\#\:tcbcolid\space div{
+      padding-top:\calc:tcbpadding{\kvtcb@top};
+      padding-bottom:\calc:tcbpadding{\kvtcb@bottom};
+      padding-left:\calc:tcbpadding{\kvtcb@leftupper};
+      padding-right:\calc:tcbpadding{\kvtcb@rightupper};
+  }}
 }
 {\HCode{\Hnewline<div class="tcolorbox-title">}\par}
 {\ifvmode\IgnorePar\fi\EndP\HCode{</div>\Hnewline<div class="tcolorbox-content">}}
