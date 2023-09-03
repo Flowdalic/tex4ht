@@ -1,3 +1,7 @@
+2023-09-03  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-mkht.tex: ChangeLog.
+
 2023-08-31  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): calculate padding for individual
