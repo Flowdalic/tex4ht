@@ -1,3 +1,9 @@
+2023-09-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed spacing in \limsup,
+	\liminf and few other two word operators.
+	https://github.com/michal-h21/make4ht/issues/133
+
 2023-09-03  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mkht.tex: ChangeLog.
