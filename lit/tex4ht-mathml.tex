@@ -2578,6 +2578,10 @@ The following CSS caused too large whitespace around functions
     \ifnum\HCol=2
        \PauseMathClass
        \HCode{<\a:mathml mtext>}%
+       % the content of this environment is displayed as text, we must switch back to the normal math processing
+       % in inline math
+       \Configure{$}{\EndPauseMathClass\HCode{</\a:mathml mtext>}}{\PauseMathClass\HCode{<\a:mathml mtext>}}{}%
+       \Configure{()}{\HCode{</\a:mathml mtext>}\EndPauseMathClass$}{$\PauseMathClass\HCode{<\a:mathml mtext>}}{}%
     \fi
    }
    {\ifnum\HCol=2 

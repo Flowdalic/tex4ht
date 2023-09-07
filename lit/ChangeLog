@@ -1,3 +1,9 @@
+2023-09-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed handling of inline math
+	inside the dcases* environment.
+	https://github.com/michal-h21/make4ht/issues/135
+
 2023-09-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): fixed spacing in \limsup,
