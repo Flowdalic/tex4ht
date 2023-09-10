@@ -1,3 +1,7 @@
+2023-09-10  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-mkht.tex (mkht-scripts): copyright 2023.
+
 2023-09-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): fixed handling of inline math
