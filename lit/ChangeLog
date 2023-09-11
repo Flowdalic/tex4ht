@@ -1,3 +1,9 @@
+2023-09-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (hyperref-hooks.4ht): undefine the \@chapter
+	command to prevent wrong cutting of pages with numeric options.
+	https://puszcza.gnu.org.ua/bugs/?608
+
 2023-09-10  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mkht.tex (mkht-scripts): copyright 2023.

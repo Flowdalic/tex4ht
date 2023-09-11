@@ -5655,6 +5655,13 @@ TeX4ht hooks.
    \let\label\sv:label
    %\input nameref.4ht
 }
+% Nameref defines the \@chapter command unconditionally, 
+% but this breaks the page cutting functionality
+% of TeX4ht, so we need to undefine it. 
+% See this post for more details https://tex.stackexchange.com/q/695624/2891
+\ifdefined\chapter\else
+  \global\let\@chapter\@relax
+\fi
 >>>
 
 Hyperref defines following captions at the end of the package. 
