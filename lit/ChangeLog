@@ -1,5 +1,12 @@
 2023-09-11  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): prevent duplicate TOC when the
+	\tableofcontents command is used in the document which is not split
+	into subpages.
+	https://tex.stackexchange.com/a/695831/2891
+
+2023-09-11  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-4ht.tex (hyperref-hooks.4ht): undefine the \@chapter
 	command to prevent wrong cutting of pages with numeric options.
 	https://puszcza.gnu.org.ua/bugs/?608
