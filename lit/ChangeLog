@@ -1,3 +1,8 @@
+2023-09-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): added support for the \mathvariant
+	command (thanks to Linas Stonys).
+
 2023-09-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): prevent duplicate TOC when the

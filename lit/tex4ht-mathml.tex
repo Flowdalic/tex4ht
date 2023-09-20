@@ -1843,7 +1843,32 @@ Used to be
 
 
 
+Support for the \verb'\mathversion' command. Thanks to Linas Stonys
+for the report and additional testing.
 
+\<configure mathml fontmath\><<<
+|<mathversion config|>
+>>>
+
+We can configure attributes that will be added to the \verb'<math>' element 
+using \verb'\Configure{mathversion-style}' ideally, 
+use something like \verb'mathvariant="xxx"'.
+
+\<mathversion config\><<<
+\NewConfigure{mathversion-style}[2]{\expandafter\gdef\csname :mathversion-#1\endcsname{#2}}
+% ToDo: Add support for other mathversions
+\Configure{mathversion-style}{bold}{\a:mathml mathvariant="bold-italic"}
+>>>
+
+Now we can append code to \verb'\mathversion'. 
+It will add the mathvariant tag to the \verb'<math>' element.
+
+\<mathversion config\><<<
+\append:defI\mathversion{%
+    % \a:DviMathML is executed at the beginning of math \a:@math is hook for attributes. we need to append out tags to it
+    \Configure{DviMathML}{\append:def\a:@math{\expandafter\csname :mathversion-\math@version\endcsname}}{}%
+}
+>>>
 
 \<plain,latex mathml\><<<
 \Configure{afterSUB}{'}{\def\SUB:prime{\SUB:SUP}}
