@@ -1,3 +1,8 @@
+2023-09-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): test for the existence of
+	\au:StartSec command before we try to insert it to \tableofcontents.
+
 2023-09-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): added support for the \mathvariant
