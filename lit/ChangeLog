@@ -1,5 +1,8 @@
 2023-09-25  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): check for the existence of the
+	mathvariant csname.
+
 	* tex4ht-ooffice.tex (ooffice.4ht): use <text:p> elements instead of
 	<text:h> for list environments. They were included in the TOC after
 	automatic TOC update in LibreOffice.

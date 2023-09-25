@@ -1866,7 +1866,7 @@ It will add the mathvariant tag to the \verb'<math>' element.
 \<mathversion config\><<<
 \append:defI\mathversion{%
     % \a:DviMathML is executed at the beginning of math \a:@math is hook for attributes. we need to append out tags to it
-    \Configure{DviMathML}{\append:def\a:@math{\expandafter\csname :mathversion-\math@version\endcsname}}{}%
+    \Configure{DviMathML}{\append:def\a:@math{\ifcsname :mathversion-\math@version\endcsname\expandafter\csname :mathversion-\math@version\endcsname\fi}}{}%
 }
 >>>
 
