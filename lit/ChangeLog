@@ -1,3 +1,10 @@
+2023-09-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice.4ht): use <text:p> elements instead of
+	<text:h> for list environments. They were included in the TOC after
+	automatic TOC update in LibreOffice.
+	https://tug.org/pipermail/tex4ht/2023q3/003399.html
+
 2023-09-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): test for the existence of

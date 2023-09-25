@@ -2018,11 +2018,11 @@ change the configuration slightly. We modify directly the
                         \HCode{</text:list-item>}%
    }%
     \HCode{<text:list-item>%
-           <text:h text:style-name="dt|<cond rtl class|>"\Hnewline >%
+           <text:p text:style-name="dt|<cond rtl class|>"\Hnewline >%
           }%
    }
    {\EndP
-    \HCode{</text:h>}%
+    \HCode{</text:p>}%
     \HCode{<!--dd\Hnewline class="description"-->}%
     \par
    }
@@ -2292,9 +2292,9 @@ change the configuration slightly. We modify directly the
     \RecallHtmlPar
     \HCode{</text:list-item></text:list>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\HCode{</text:list-item>}}%
-    \HCode{<text:list-item><text:h
+    \HCode{<text:list-item><text:p
       text:style-name="dt|<cond rtl class|>"\Hnewline >}\bgroup \bf}
-   {\egroup\HCode{</text:h>}\par\ShowPar}
+   {\egroup\HCode{</text:p>}\par\ShowPar}
 >>>
 
 
@@ -2608,7 +2608,7 @@ change the configuration slightly. We modify directly the
     \PopMacro\end:Itm \global\let\end:Itm\end:Itm
     \HCode{</text:list>}\RecallHtmlPar  \ShowPar}  
    {\end:itm \end:Itm \gdef\end:Itm{\HCode{</text:list-item>}}% 
-      \gdef\end:itm{\HCode{</text:h>}}\HCode{<text:list-item><text:h  
+      \gdef\end:itm{\HCode{</text:p>}}\HCode{<text:list-item><text:p  
       text:style-name="dt|<cond rtl class|>"\Hnewline >}\bgroup \bf}  
    {\egroup \end:itm \gdef\end:itm{\HCode{</text:p>}}%  
       \HCode{<text:p\Hnewline  
@@ -2774,7 +2774,7 @@ change the configuration slightly. We modify directly the
     \PopMacro\end:Itm \global\let\end:Itm\end:Itm
     \HCode{</text:list>}\RecallHtmlPar  \ShowPar}  
    {\end:itm \end:Itm \gdef\end:Itm{\HCode{</text:list-item>}}% 
-      \gdef\end:itm{\HCode{</text:h>}}\HCode{<text:list-item><text:h  
+      \gdef\end:itm{\HCode{</text:p>}}\HCode{<text:list-item><text:p  
       text:style-name="dt|<cond rtl class|>"\Hnewline >}\bgroup \bf}  
    {\egroup \end:itm \gdef\end:itm{\HCode{</text:p>}}%  
       \HCode{<text:p\Hnewline  
@@ -3156,10 +3156,10 @@ See html4 comment regarding \verb+\Configure{jbanchor}{\Link}{\EndLink}+
     \EndP\HCode{</text:p></text:list-item></text:list>}\ShowPar}
    {\ifvmode \IgnorePar\fi \EndP
     \end:itm \global\def\end:itm{\EndP\HCode{</text:p></text:list-item>}}%
-    \HCode{<text:list-item><text:h  
+    \HCode{<text:list-item><text:p  
            text:style-name="printthebibliography-dt"\Hnewline>}\bgroup \bf}
    {\ifvmode \IgnorePar\fi \EndP
-    \egroup\HCode{</text:h><text:p 
+    \egroup\HCode{</text:p><text:p 
            text:style-name="printthebibliography-dd"\Hnewline>}\par\ShowPar}
 >>>
 
@@ -3175,15 +3175,15 @@ See html4 comment regarding \verb+\Configure{jbanchor}{\Link}{\EndLink}+
     \HCode{<text:list  
                text:style-name="printshorthands"
                      text:name="printshorthands"\Hnewline
-           ><text:list-item><text:h  
+           ><text:list-item><text:p  
            text:style-name="printshorthands-dt"\Hnewline>}%
    }
    {\ifvmode \IgnorePar\fi \EndP  
     \HCode{</text:list-item></text:list>}}
    {\ifvmode \IgnorePar\fi \EndP
-    \HCode{</text:list-item><text:list-item><text:h  
+    \HCode{</text:list-item><text:list-item><text:p  
            text:style-name="printshorthands-dt"\Hnewline>}}
-   {\HCode{</text:h><text:p text:style-name="printshorthands-dd">}%
+   {\HCode{</text:p><text:p text:style-name="printshorthands-dd">}%
     \Next:EndP{\HCode{</text:p>}}%     
    }
 \Configure{@shorthands}
@@ -8071,7 +8071,7 @@ It seems that it is a best method how to come with solutions that work in the OD
     \special{t4ht@.}%
    }  
    {\end:itm \end:Itm \gdef\end:Itm{\HCode{</text:list-item>}}% 
-      \gdef\end:itm{\HCode{</text:h>}\special{t4ht@.}}\HCode{<text:list-item><text:h  
+      \gdef\end:itm{\HCode{</text:p>}\special{t4ht@.}}\HCode{<text:list-item><text:p  
       text:style-name="algorithmic-dt|<cond rtl class|>"\Hnewline >}\bgroup \bf
      \special{t4ht@. }%
    }  
@@ -10770,9 +10770,9 @@ semicolons from catcode changes when loaded, e.g., in french.
     \RecallHtmlPar
     \HCode{</text:list-item></text:list>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\HCode{</text:list-item>}}%
-    \HCode{<text:list-item><text:h
+    \HCode{<text:list-item><text:p
       text:style-name="dt|<cond rtl class|>"\Hnewline >}\bgroup \bf}
-   {\egroup\HCode{</text:h>}\par\ShowPar}%
+   {\egroup\HCode{</text:p>}\par\ShowPar}%
   }
 >>>
 
