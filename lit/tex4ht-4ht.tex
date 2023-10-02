@@ -9227,8 +9227,8 @@ group for avoiding problematic font of the form
 Similarly for the following.
 
 \<latex ltboxes\><<<
-\let\:sbox|=\sbox
-\long\def\sbox#1#2{\:sbox#1{{#2}}}
+\DeclareRobustCommand\:sbox[2]{\o:sbox:{#1}{{#2}}}
+\HLet\sbox\:sbox
 >>>
  
 

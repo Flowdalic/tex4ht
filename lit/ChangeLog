@@ -1,3 +1,9 @@
+2023-10-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): fixed support for \csname commands in
+	\sbox.
+	https://puszcza.gnu.org.ua/bugs/?610
+
 2023-09-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): check for the existence of the
