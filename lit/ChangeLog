@@ -1,3 +1,10 @@
+2023-10-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): disable the \DocumentMetadata
+	command, in order to prevent invocation of the LaTeX tagging system,
+	which clashes with TeX4ht.
+	https://puszcza.gnu.org.ua/bugs/?477
+
 2023-10-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): fixed support for \csname commands in

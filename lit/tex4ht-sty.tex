@@ -175,6 +175,12 @@
    \let\AtBeginDocument\origatbegindocument
 
 \fi
+% disable new LaTeX's tagging support, 
+% but save the requested keys for possible latter processing
+\ifdefined\DocumentMetadata
+  \def\DocumentMetadata#1{\def\:DocumentMetadata{#1}}
+\fi
+
 \def\writesixteen#1{\immediate\write99999{#1}}
 |<save cat codes|>
 |<ifs for TeX4ht|>
