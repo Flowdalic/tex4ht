@@ -1,5 +1,11 @@
 2023-10-04  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): removed \mathchoice from
+	configurations of \dfrac, \tfrac, \tbinom and \dbinom. It caused
+	output of verbatim TeX code in the ODT output.
+
+2023-10-04  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-sty.tex (tex4ht.sty): disable the \DocumentMetadata
 	command, in order to prevent invocation of the LaTeX tagging system,
 	which clashes with TeX4ht.
