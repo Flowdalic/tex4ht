@@ -1,5 +1,9 @@
 2023-10-09  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (usepackage-fontspec.4ht): process keyval options
+	from the first optional argument in \newfontfamily.
+	https://tex.stackexchange.com/a/698071/2891
+
 	* tex4ht-html5.tex (html5.4ht): fixed CSS selector for setting size
 	of starred section titles.
 

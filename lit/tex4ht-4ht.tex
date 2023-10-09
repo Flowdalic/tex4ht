@@ -4676,6 +4676,7 @@ The actual configurations which are used when fontspec is loaded:
 \DeclareDocumentCommand \newfontfamily { m O{} m O{} }
  {
   % \fontspec_set_family:cnn { g__fontspec_ \cs_to_str:N #1 _family } {#2} {#3}
+  \keys_set_known:nn {fontspec4ht}{#2}
   \keys_set_known:nn {fontspec4ht}{#4}
   \seq_put_right:Nn \fontspec_ht_fontfamilies {#3}
   \use:x
