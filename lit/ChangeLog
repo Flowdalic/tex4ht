@@ -1,5 +1,8 @@
 2023-10-09  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html5.tex (html5.4ht): fixed CSS selector for setting size
+	of starred section titles.
+
 	* tex4ht-html4.tex (html4.4ht): removed spurious spaces from TOCs,
 	simplified their formatting using CSS.
 	https://puszcza.gnu.org.ua/bugs/?605
