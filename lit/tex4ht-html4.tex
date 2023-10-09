@@ -1860,20 +1860,14 @@ should be used whe addcontentline instructions are present.
             #1 \fi #2\HCode{</span>}\par}
    \def\toclikesection#1#2#3{\par
       \HCode{<span class="likesectionToc" \a:LRdir>}#2\HCode{</span>}\par}%
-   \def\tocsubsection#1#2#3{\par\ \toc:num{subsection}{#1}{#2}\par}
-   \def\toclikesubsection#1#2#3{\par\ 
-      \HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocsubsubsection#1#2#3{\par
-      \ \ \toc:num{subsubsection}{#1}{#2}\par}
-   \def\toclikesubsubsection#1#2#3{\par
-      \ \ \HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocparagraph#1#2#3{\par\ \ \toc:num{paragraph}{#1}{#2}\par}
-   \def\toclikeparagraph#1#2#3{\par\ \ 
-      \HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocsubparagraph#1#2#3{\par
-      \ \ \ \ \toc:num{subparagraph}{#1}{#2}\par}
-   \def\toclikesubparagraph#1#2#3{\par
-      \ \ \ \ \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubsection#1#2#3{\par\toc:num{subsection}{#1}{#2}\par}
+   \def\toclikesubsection#1#2#3{\par\HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubsubsection#1#2#3{\par\toc:num{subsubsection}{#1}{#2}\par}
+   \def\toclikesubsubsection#1#2#3{\par\HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocparagraph#1#2#3{\par\toc:num{paragraph}{#1}{#2}\par}
+   \def\toclikeparagraph#1#2#3{\par\HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubparagraph#1#2#3{\par\toc:num{subparagraph}{#1}{#2}\par}
+   \def\toclikesubparagraph#1#2#3{\par\HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
 \else
    |<chapter toc css|>%
    \def\tocchapter#1#2#3{\par
@@ -1883,22 +1877,16 @@ should be used whe addcontentline instructions are present.
       \HCode{<span class="likechapterToc" \a:LRdir>}#2\HCode{</span>}\par}%
    \def\tocappendix#1#2#3{\par
       \HCode{<span class="appendixToc" \a:LRdir>}#1 #2\HCode{</span>}\par}
-   \def\tocsection#1#2#3{\par\ \toc:num{section}{#1}{#2}\par}
-   \def\toclikesection#1#2#3{\par\ \HCode{<span class="likesectionToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocsubsection#1#2#3{\par\ \ \toc:num{subsection}{#1}{#2}\par}
-   \def\toclikesubsection#1#2#3{\par
-      \ \ \HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocsubsubsection#1#2#3{\par
-      \ \ \ \toc:num{subsubsection}{#1}{#2}\par}
-   \def\toclikesubsubsection#1#2#3{\par
-      \ \ \ \HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocparagraph#1#2#3{\par\ \ \ \toc:num{paragraph}{#1}{#2}\par}
-   \def\toclikeparagraph#1#2#3{\par
-      \ \ \ \HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocsubparagraph#1#2#3{\par
-      \ \ \ \ \ \toc:num{subparagraph}{#1}{#2}\par}
-   \def\toclikesubparagraph#1#2#3{\par
-      \ \ \ \ \ \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsection#1#2#3{\par\toc:num{section}{#1}{#2}\par}
+   \def\toclikesection#1#2#3{\par\HCode{<span class="likesectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubsection#1#2#3{\par\toc:num{subsection}{#1}{#2}\par}
+   \def\toclikesubsection#1#2#3{\par\HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubsubsection#1#2#3{\par\toc:num{subsubsection}{#1}{#2}\par}
+   \def\toclikesubsubsection#1#2#3{\par\HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocparagraph#1#2#3{\par\toc:num{paragraph}{#1}{#2}\par}
+   \def\toclikeparagraph#1#2#3{\par\HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubparagraph#1#2#3{\par\toc:num{subparagraph}{#1}{#2}\par}
+   \def\toclikesubparagraph#1#2#3{\par\HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
 \fi
 \def\toc:num#1#2#3{\def\:temp{#1#2}%
    \HCode{<span class="#1Toc" \a:LRdir>}\ifx \:temp\empty 
@@ -1919,30 +1907,24 @@ should be used whe addcontentline instructions are present.
         .appendixToc a, .appendixToc, .addchapToc a
         {line-height: 200\%; font-weight:bold;}}
    \def\tocchapter#1#2#3{\par
-      \HCode{<span class="chapterToc" \a:LRdir>}#1\ \ #2\HCode{</span>}\par}
+      \HCode{<span class="chapterToc" \a:LRdir>}#1\ #2\HCode{</span>}\par}
    \def\toclikechapter#1#2#3{\par
       \HCode{<span class="likechapterToc" \a:LRdir>}#2\HCode{</span>}\par}%
    \def\tocaddchap#1#2#3{\par
       \HCode{<span class="addchapToc" \a:LRdir>}#2\HCode{</span>}\par}%
    \def\tocappendix#1#2#3{\par
-      \HCode{<span class="appendixToc" \a:LRdir>}#1\ \ #2\HCode{</span>}\par}
-   \def\tocsection#1#2#3{\par\ \toc:num{section}{#1}{#2}\par}
-   \def\toclikesection#1#2#3{\par\ 
-      \HCode{<span class="likesectionToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocsubsection#1#2#3{\par\ \ \toc:num{subsection}{#1}{#2}\par}
-   \def\toclikesubsection#1#2#3{\par
-      \ \ \HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocsubsubsection#1#2#3{\par
-      \ \ \ \toc:num{subsubsection}{#1}{#2}\par}
-   \def\toclikesubsubsection#1#2#3{\par
-      \ \ \ \HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocparagraph#1#2#3{\par\ \ \ \toc:num{paragraph}{#1}{#2}\par}
-   \def\toclikeparagraph#1#2#3{\par
-      \ \ \ \HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
-   \def\tocsubparagraph#1#2#3{\par
-      \ \ \ \ \ \toc:num{subparagraph}{#1}{#2}\par}
+      \HCode{<span class="appendixToc" \a:LRdir>}#1\ #2\HCode{</span>}\par}
+   \def\tocsection#1#2#3{\par\toc:num{section}{#1}{#2}\par}
+   \def\toclikesection#1#2#3{\par\HCode{<span class="likesectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubsection#1#2#3{\par\toc:num{subsection}{#1}{#2}\par}
+   \def\toclikesubsection#1#2#3{\par\HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubsubsection#1#2#3{\par\toc:num{subsubsection}{#1}{#2}\par}
+   \def\toclikesubsubsection#1#2#3{\par\HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocparagraph#1#2#3{\par\toc:num{paragraph}{#1}{#2}\par}
+   \def\toclikeparagraph#1#2#3{\par\HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+   \def\tocsubparagraph#1#2#3{\par\toc:num{subparagraph}{#1}{#2}\par}
    \def\toclikesubparagraph#1#2#3{\par
-      \ \ \ \ \ \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+      \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
 \def\toc:num#1#2#3{\def\:temp{#1#2}%
    \HCode{<span class="#1Toc" \a:LRdir>}\ifx \:temp\empty 
    \else \def\:temp{#2}\ifx\:temp\empty\else #2\ \ \fi\fi #3\HCode{</span>}}
@@ -1966,16 +1948,16 @@ should be used whe addcontentline instructions are present.
    \def\toclikesubsection#1#2#3{\par\ 
       \HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
    \def\tocsubsubsection#1#2#3{\par
-      \ \ \toc:num{subsubsection}{#1}{#2}\par}
+      \toc:num{subsubsection}{#1}{#2}\par}
    \def\toclikesubsubsection#1#2#3{\par
-      \ \ \HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+      \HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
    \def\tocparagraph#1#2#3{\par\ \ \toc:num{paragraph}{#1}{#2}\par}
    \def\toclikeparagraph#1#2#3{\par\ \ 
       \HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
    \def\tocsubparagraph#1#2#3{\par
-      \ \ \ \ \toc:num{subparagraph}{#1}{#2}\par}
+      \toc:num{subparagraph}{#1}{#2}\par}
    \def\toclikesubparagraph#1#2#3{\par
-      \ \ \ \ \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+      \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
 \else
    \Css{.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc,
         .appendixToc a, .appendixToc
@@ -1992,18 +1974,18 @@ should be used whe addcontentline instructions are present.
       \HCode{<span class="likesectionToc" \a:LRdir>}#2\HCode{</span>}\par}
    \def\tocsubsection#1#2#3{\par\ \ \toc:num{subsection}{#1}{#2}\par}
    \def\toclikesubsection#1#2#3{\par
-      \ \ \HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+      \HCode{<span class="likesubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
    \def\tocsubsubsection#1#2#3{\par
-      \ \ \ \toc:num{subsubsection}{#1}{#2}\par}
+      \toc:num{subsubsection}{#1}{#2}\par}
    \def\toclikesubsubsection#1#2#3{\par
-      \ \ \ \HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
+      \HCode{<span class="likesubsubsectionToc" \a:LRdir>}#2\HCode{</span>}\par}
    \def\tocparagraph#1#2#3{\par\ \ \ \toc:num{paragraph}{#1}{#2}\par}
    \def\toclikeparagraph#1#2#3{\par
-      \ \ \ \HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+      \HCode{<span class="likeparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
    \def\tocsubparagraph#1#2#3{\par
-      \ \ \ \ \ \toc:num{subparagraph}{#1}{#2}\par}
+      \toc:num{subparagraph}{#1}{#2}\par}
    \def\toclikesubparagraph#1#2#3{\par
-      \ \ \ \ \ \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
+      \HCode{<span class="likesubparagraphToc" \a:LRdir>}#2\HCode{</span>}\par}
 \fi
 \def\toc:num#1#2#3{\def\:temp{#1#2}%
    \HCode{<span class="#1Toc" \a:LRdir>}\ifx \:temp\empty 
@@ -2029,13 +2011,13 @@ should be used whe addcontentline instructions are present.
   {}
   {\HCode{</span><br />}}
 \ConfigureToc{subsection}
-  {\HCode{<span class="subsectionToc" \a:LRdir>}\ \ \toc:Mark{subsection}}
+  {\HCode{<span class="subsectionToc" \a:LRdir>}\toc:Mark{subsection}}
   {\End:Mark}
   {}
   {\HCode{</span><br />}}
 \ConfigureToc{subsubsection}
   {\HCode{<span
-       class="subsubsectionToc" \a:LRdir>}\ \ \ \ \toc:Mark{subsubsection}}
+       class="subsubsectionToc" \a:LRdir>}\toc:Mark{subsubsection}}
   {\End:Mark}
   {}
   {\HCode{</span><br />}}
@@ -8843,27 +8825,10 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \fi
 |<config book-report-article|>
 |<config report / article 4.0t|>
-\:CheckOption{1} \if:Option 
-\else 
-   \:CheckOption{2} \if:Option \else 
-      \:CheckOption{3} \if:Option \else 
-         \:CheckOption{4} \if:Option \else 
-            \:CheckOption{5} \if:Option \else 
-               \:CheckOption{6} \if:Option \else 
-                  \:CheckOption{7} \if:Option \else 
-                  \fi
-               \fi
-            \fi 
-         \fi 
-      \fi 
-   \fi
-   \if:Option 
-       \Css{.subsectionToc,    .likesubsectionToc    {margin-left:2em;}}
-       \Css{.subsubsectionToc, .likesubsubsectionToc {margin-left:4em;}}
-       \Css{.paragraphToc, .likeparagraphToc {margin-left:6em;}}
-       \Css{.subparagraphToc, .likesubparagraphToc  {margin-left:8em;}}
-   \fi
-\fi 
+\Css{.subsectionToc,    .likesubsectionToc    {margin-left:1em;}}
+\Css{.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}}
+\Css{.paragraphToc, .likeparagraphToc {margin-left:3em;}}
+\Css{.subparagraphToc, .likesubparagraphToc  {margin-left:4em;}}
 >>>
 
 
@@ -8904,6 +8869,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 |<config report / article 4.0t|>
 |<32,4 report,book|>
 |<32,4 report|>
+|<book: css|>
 >>>
 
 \<32,4 report\><<<
@@ -8985,70 +8951,26 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 .likechapterToc  
                                          {margin-left:0em;}}
 \Css{
-.chapterToc     \string~ .likesectionToc,  
-.chapterToc     \string~ .sectionToc,  
-.likechapterToc \string~ .likesectionToc,        
-.likechapterToc \string~ .sectionToc  
-                                         {margin-left:2em;}}
-\Css{
-.chapterToc     \string~ .likesectionToc \string~ .likesubsectionToc, 
-.chapterToc     \string~ .likesectionToc \string~ .subsectionToc,  
-.chapterToc     \string~ .sectionToc     \string~ .likesubsectionToc, 
-.chapterToc     \string~ .sectionToc     \string~ .subsectionToc,  
-.likechapterToc \string~ .likesectionToc \string~ .likesubsectionToc,     
-.likechapterToc \string~ .likesectionToc \string~ .subsectionToc,  
-.likechapterToc \string~ .sectionToc     \string~ .likesubsectionToc,     
-.likechapterToc \string~ .sectionToc     \string~ .subsectionToc 
-                                         {margin-left:4em;}}
-\Css{.chapterToc     \string~ .likesectionToc \string~ .likesubsectionToc \string~ .likesubsubsectionToc, 
-.chapterToc     \string~ .likesectionToc \string~ .likesubsectionToc \string~ .subsubsectionToc, 
-.chapterToc     \string~ .likesectionToc \string~ .subsectionToc     \string~ .likesubsubsectionToc,  
-.chapterToc     \string~ .likesectionToc \string~ .subsectionToc     \string~ .subsubsectionToc,  
-.chapterToc     \string~ .sectionToc     \string~ .likesubsectionToc \string~ .likesubsubsectionToc, 
-.chapterToc     \string~ .sectionToc     \string~ .likesubsectionToc \string~ .subsubsectionToc, 
-.chapterToc     \string~ .sectionToc     \string~ .subsectionToc     \string~ .likesubsubsectionToc,  
-.chapterToc     \string~ .sectionToc     \string~ .subsectionToc     \string~ .subsubsectionToc,  
-.likechapterToc \string~ .likesectionToc \string~ .likesubsectionToc \string~ .likesubsubsectionToc,    
-.likechapterToc \string~ .likesectionToc \string~ .likesubsectionToc \string~ .subsubsectionToc,    
-.likechapterToc \string~ .likesectionToc \string~ .subsectionToc     \string~ .likesubsubsectionToc,  
-.likechapterToc \string~ .likesectionToc \string~ .subsectionToc     \string~ .subsubsectionToc,  
-.likechapterToc \string~ .sectionToc     \string~ .likesubsectionToc \string~ .likesubsubsectionToc, 
-.likechapterToc \string~ .sectionToc     \string~ .likesubsectionToc \string~ .subsubsectionToc,    
-.likechapterToc \string~ .sectionToc     \string~ .subsectionToc     \string~ .likesubsubsectionToc   
-.likechapterToc \string~ .sectionToc     \string~ .subsectionToc     \string~ .subsubsectionToc 
-                                         {margin-left:6em;}}
-
-       
-\Css{.paragraphToc, .likeparagraphToc {margin-left:8em;}}
-\Css{.subparagraphToc, .likesubparagraphToc  {margin-left:10em;}}
-
-\Css{
-.likesectionToc ,     
-.sectionToc
-                                         {margin-left:0em;}}
-\Css{
-.likesectionToc \string~ .likesubsectionToc,     
-.likesectionToc \string~ .subsectionToc,  
-.sectionToc     \string~ .likesubsectionToc,     
-.sectionToc     \string~ .subsectionToc 
-                                         {margin-left:2em;}}
-\Css{.likesectionToc \string~ .likesubsectionToc \string~ .likesubsubsectionToc,    
-.likesectionToc \string~ .likesubsectionToc \string~ .subsubsectionToc,    
-.likesectionToc \string~ .subsectionToc     \string~ .likesubsubsectionToc,  
-.likesectionToc \string~ .subsectionToc     \string~ .subsubsectionToc,  
-.sectionToc     \string~ .likesubsectionToc \string~ .likesubsubsectionToc, 
-.sectionToc     \string~ .likesubsectionToc \string~ .subsubsectionToc,    
-.sectionToc     \string~ .subsectionToc     \string~ .likesubsubsectionToc,  
-.sectionToc     \string~ .subsectionToc     \string~ .subsubsectionToc  
-                                         {margin-left:4em;}}
+.likesectionToc,        
+.sectionToc  
+                                         {margin-left:1em;}}
 \Css{
 .likesubsectionToc,     
 .subsectionToc 
-                                         {margin-left:0em;}}
-\Css{
-.likesubsectionToc \string~ .subsubsectionToc,    
-.subsectionToc     \string~ .subsubsectionToc  
                                          {margin-left:2em;}}
+\Css{
+.likesubsectionToc,     
+.subsectionToc 
+                                         {margin-left:2em;}}
+\Css{
+.likesubsubsectionToc,
+.subsubsectionToc 
+                                         {margin-left:3em;}}
+
+       
+\Css{.paragraphToc, .likeparagraphToc {margin-left:4em;}}
+\Css{.subparagraphToc, .likesubparagraphToc  {margin-left:5em;}}
+
 >>>
 
 
