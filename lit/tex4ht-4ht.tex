@@ -26072,7 +26072,7 @@ Minted, it turns the breaklines option to false when it is used.
     \cs_set_eq:cN { ~ } \space
     \cs_set_protected:Npn \__piton_begin_line: { }
     \cs_set_protected:Npn \__piton_end_line: { }
-    \tl_set:Nx \l_tmpa_tl
+    \tl_set:Ne \l_tmpa_tl
       {
         \lua_now:e
           { piton.ParseBis('\l__piton_language_str',token.scan_string()) }
@@ -26101,7 +26101,7 @@ Minted, it turns the breaklines option to false when it is used.
     \automatichyphenmode = 1
     \cs_set_protected:Npn \__piton_begin_line: { }
     \cs_set_protected:Npn \__piton_end_line: { }
-    \tl_set:Nx \l_tmpa_tl
+    \tl_set:Ne \l_tmpa_tl
       {
         \lua_now:e
           { piton.Parse('\l__piton_language_str',token.scan_string()) }
