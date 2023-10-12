@@ -1,3 +1,9 @@
+2023-10-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): changed deprecated
+	\tl_set:Nx to \tl_set:Ne.
+	https://www.texdev.net/2023/10/10/get-the-jag-from-x-type-to-e-type
+
 2023-10-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage-fontspec.4ht): process keyval options

@@ -59,14 +59,14 @@ We still use regula expressions to escape invalid XML characters to entities, so
 \ExplSyntaxOn
 \cs_new_protected:Npn \alteqtoks #1
 {
-  \tl_set:Nx \l_tmpa_tl {\detokenize{#1}}
+  \tl_set:Ne \l_tmpa_tl {\detokenize{#1}}
   % % replace < > and & with xml entities
   \regex_replace_all:nnN { \x{26} } { &amp; } \l_tmpa_tl
   \regex_replace_all:nnN { \x{3C} } { &lt; } \l_tmpa_tl 
   \regex_replace_all:nnN { \x{3E} } { &gt; } \l_tmpa_tl
   % replace \par command with blank lines
   \regex_replace_all:nnN { \x{5C}par\b } {\x{A}\x{A}} \l_tmpa_tl
-  \tl_set:Nx \l_tmpb_tl{ \l_tmpa_tl }
+  \tl_set:Ne \l_tmpb_tl{ \l_tmpa_tl }
   \HCode{\l_tmpb_tl}
 }
 \ExplSyntaxOff
