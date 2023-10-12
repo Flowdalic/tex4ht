@@ -1,3 +1,9 @@
+2023-10-12  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-c.tex (<span char block>): avoid negative indexing into
+	font_tbl. Partial fix for report from Oliver Freyermuth,
+	https://puszcza.gnu.org.ua/bugs/?611.
+
 2023-10-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (piton.4ht): use e-type Expl3 functions.
