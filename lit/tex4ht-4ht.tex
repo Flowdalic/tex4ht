@@ -11075,7 +11075,7 @@ handling. Michal
 
 \<tabularray.4ht\><<< 
 % tabularray.4ht (|version), generated from |jobname.tex 
-% Copyright 2022 TeX Users Group 
+% Copyright 2022-2023 TeX Users Group 
 |<TeX4ht license text|> 
 |<tabularray definitions|>
 |<tabularray table and rows|>
@@ -11136,36 +11136,36 @@ using CSS, so we don't try that.
 % #1 row number, #2 column, #3 hline number (there can be multiple), #4 css property to be set
 \def\:tblr:hlinestyle#1#2#3#4{
   % get line height
-  \tl_set:Nx \l__tblr_h_tl{ \__tblr_spec_item:ne { hline } { [#1](#3) / @hline-height } }
+  \tl_set:Ne \l__tblr_h_tl{ \__tblr_spec_item:ne { hline } { [#1](#3) / @hline-height } }
   % get dash style
   \def\@tblr@dash{} % remove "dash" word from the variable for correct CSS string
-  \tl_set:Nx \l__tblr_f_tl{\__tblr_spec_item:ne { hline } { [#1][#2](#3) / @dash }}
+  \tl_set:Ne \l__tblr_f_tl{\__tblr_spec_item:ne { hline } { [#1][#2](#3) / @dash }}
   % create CSS only when a dash style is set 
   \tl_if_empty:NF\l__tblr_f_tl{
     % get hline color
-    \tl_set:Nx \l__tblr_g_tl { \__tblr_spec_item:ne { hline } { [#1][#2](#3) / fg } }
+    \tl_set:Ne \l__tblr_g_tl { \__tblr_spec_item:ne { hline } { [#1][#2](#3) / fg } }
     \def\:hlinecolor{\#000000}
     % convert color to CSS value if color is set
     \tl_if_empty:NF\l__tblr_g_tl{\get:xcolorcss{\l__tblr_g_tl}\:hlinecolor}
     % \Configure{tabularraystyles} doesn't expand attributes, so we need to expand it here
     % otherwise, we would get wrong color and hline style in the last row, because this macro is called twice here
-    \cs_set:cx{#4:}{#4:\dim_to_decimal_in_unit:nn{\l__tblr_h_tl*2}{1px}px~\l__tblr_f_tl\space~\:hlinecolor;}
+    \cs_set:ce{#4:}{#4:\dim_to_decimal_in_unit:nn{\l__tblr_h_tl*2}{1px}px~\l__tblr_f_tl\space~\:hlinecolor;}
     \Configure{tabularraystyles}{\csname#4:\endcsname}
   }
 }
 
 \def\:tblr:vlinestyle#1#2#3#4{
-  \tl_set:Nx \l__tblr_t_tl{ \__tblr_spec_item:ne { vline } { [#2](#3) / @vline-width } }
+  \tl_set:Ne \l__tblr_t_tl{ \__tblr_spec_item:ne { vline } { [#2](#3) / @vline-width } }
   \def\@tblr@dash{} % remove "dash" word from the variable for correct CSS string
-  \tl_set:Nx \l__tblr_f_tl{\__tblr_spec_item:ne { vline } { [#1][#2](#3) / @dash }}
+  \tl_set:Ne \l__tblr_f_tl{\__tblr_spec_item:ne { vline } { [#1][#2](#3) / @dash }}
   \tl_if_empty:NF\l__tblr_f_tl{
-    \tl_set:Nx \l__tblr_g_tl { \__tblr_spec_item:ne { vline } { [#1][#2](#3) / fg } }
+    \tl_set:Ne \l__tblr_g_tl { \__tblr_spec_item:ne { vline } { [#1][#2](#3) / fg } }
     \def\:hlinecolor{\#000000}
     % convert color to CSS value if color is set
     \tl_if_empty:NF\l__tblr_g_tl{\get:xcolorcss{\l__tblr_g_tl}\:hlinecolor}
     % \Configure{tabularraystyles} doesn't expand attributes, so we need to expand it here
     % otherwise, we would get wrong color and hline style in the last row, because this macro is called twice here
-    \cs_set:cx{#4:}{#4:\dim_to_decimal_in_unit:nn{\l__tblr_t_tl*2}{1px}px~\l__tblr_f_tl\space~\:hlinecolor;}
+    \cs_set:ce{#4:}{#4:\dim_to_decimal_in_unit:nn{\l__tblr_t_tl*2}{1px}px~\l__tblr_f_tl\space~\:hlinecolor;}
     \Configure{tabularraystyles}{\csname#4:\endcsname}
   }
 }
@@ -11218,7 +11218,7 @@ for horizontal and vertical alignment, background color and rules.
     \:tblr:vlinestyle{#1}{\int_eval:n{\c@colnum + 1}}{1}{border-right}
   }
   % support for the background color
-  \tl_set:Nx \l__tblr_b_tl
+  \tl_set:Ne \l__tblr_b_tl
   { \__tblr_data_item:neen { cell } {#1} {#2} { background } }
   % save background color to the list of CSS, if it is set
   \tl_if_empty:NF \l__tblr_b_tl{
