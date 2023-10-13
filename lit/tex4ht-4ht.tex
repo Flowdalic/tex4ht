@@ -33091,6 +33091,31 @@ The following might be problematic with a caption
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%
+\Section{transparent.sty}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\<transparent.4ht\><<<
+% transparent.4ht (|version), generated from |jobname.tex
+% Copyright 2023 TeX Users Group
+|<TeX4ht license text|>
+|<transparent shared config|>
+\Hinput{transparent}
+\endinput
+
+>>> \AddFile{7}{transparent}
+
+The transparent package doesn't define its commands in the DVI mode, so we need to provide
+our versions. 
+
+\<transparent shared config\><<<
+% dummy command, just to prevent compilation errors
+\providecommand\transparent[1]{}
+% this can actually do something useful, as it operates on encloded content.
+\NewConfigure{texttransparent}{2}
+\providecommand\texttransparent[2]{\def\transparent:opacity{#1}\a:texttransparent#2\b:texttransparent}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%
 \Section{alltt.sty}
 %%%%%%%%%%%%%%%%%%%%%%%
 

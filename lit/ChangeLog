@@ -1,3 +1,10 @@
+2023-10-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (transparent.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the transparent
+	package.
+	https://puszcza.gnu.org.ua/bugs/?612
+
 2023-10-12  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-c.tex (<span char block>): avoid negative indexing into
