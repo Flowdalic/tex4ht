@@ -16469,6 +16469,11 @@ static struct htf_4hf_rec *htf_4hf;
 \<mem for charset\><<<
 max_htf_4hf_n = 256;
 htf_4hf = m_alloc(struct htf_4hf_rec, 256);
+/* Zero the array, since otherwise some elements of htf_4hf may be used
+   before it's initialized. See https://puszcza.gnu.org.ua/bugs/?611.
+   Eitan never wrote a wrapper like malloc_chk for calloc, so
+   just do it manually. */
+memset (htf_4hf, 0, 256 * sizeof (struct htf_4hf_rec));
 >>>
 
 \<no mem for charset\><<<

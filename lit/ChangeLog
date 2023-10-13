@@ -1,5 +1,11 @@
 2023-10-13  Karl Berry  <karl@freefriends.org>
 
+	* tex4ht-c.tex (<mem for charset>): zero htf_4hf array after
+	allocation, to avoid uninitialized comparisons.
+	https://puszcza.gnu.org.ua/bugs/?611
+
+2023-10-13  Karl Berry  <karl@freefriends.org>
+
 	* tex4ht-cond4ht.tex: copyright 2023.
 
 2023-10-13  Michal Hoftich  <michal.h21@gmail.com>
