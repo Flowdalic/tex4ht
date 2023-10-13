@@ -26022,8 +26022,20 @@ Minted, it turns the breaklines option to false when it is used.
   \a:pitonnumber
   \bool_if:NT \l__piton_line_numbers_bool
   {
-    \bool_if:NF \l__piton_all_line_numbers_bool
-    { \tl_if_eq:nnF  { #1 } { \PitonStyle {Prompt}{} } } % corrected 2023/04/10
+  \bool_if:nF
+    {
+      \str_if_eq_p:nn { #1 } { \PitonStyle {Prompt}{} }
+      &&
+      \l__piton_skip_empty_lines_bool
+    }
+    { \int_gincr:N \g__piton_visual_line_int}
+
+  \bool_if:nT
+    {
+      ! \str_if_eq_p:nn { #1 } { \PitonStyle {Prompt}{} }
+      ||||
+      ( ! \l__piton_skip_empty_lines_bool && \l__piton_label_empty_lines_bool )
+    }
     \__piton_print_number:
   }
   \b:pitonnumber
@@ -26053,7 +26065,7 @@ Minted, it turns the breaklines option to false when it is used.
   \ht:special{t4ht@[}% ignore next linebreak, to preven spurious blank line at the beginning of listings
   \gdef\:pitonendignorelines{\ht:special{t4ht@]}}
 }
-\append:def\__piton_width_to_aux:{\b:piton}
+\append:def\__piton_write_aux:{\b:piton}
 
 >>>
 
