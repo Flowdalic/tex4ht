@@ -21712,6 +21712,21 @@ users redefine the latter macro.
 \Configure{texttransparent}{\HCode{<span class="texttransparent" style="opacity:\transparent:opacity;">}}{\HCode{</span>}}
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%
+\section{changepage}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\<configure html4 changepage\><<<
+% convert the used dimension to em
+\def\pt:to:em#1{\strip@pt\dimexpr#1/\f@size em}
+
+\Configure{adjustwidth}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="ajdustwidth" 
+  style="margin-left:\pt:to:em\adjustwidth:left;margin-right:\pt:to:em\adjustwidth:right;">}%
+\par\ShowPar}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+>>>
+
 
 \section{fontmath.ltx}
 

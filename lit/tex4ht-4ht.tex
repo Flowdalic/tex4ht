@@ -33128,6 +33128,40 @@ our versions.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%
+\Section{changepage.sty}
+%%%%%%%%%%%%%%%%%%%%%%%
+\<changepage.4ht\><<<
+% changepage.4ht (|version), generated from |jobname.tex
+% Copyright 2023 TeX Users Group
+|<TeX4ht license text|>
+|<changepage shared config|>
+\Hinput{changepage}
+\endinput
+
+>>> \AddFile{7}{changepage}
+
+Changepage uses a list environment to make a text with changed left and right margin. 
+We will instead save the margin didmension for the further processing in the output
+format configuration. 
+
+\<changepage shared config\><<<
+\NewConfigure{adjustwidth}{2}
+
+\def\:tempa#1#2{%
+  \def\adjustwidth:left{#1}%
+  \def\adjustwidth:right{#2}%
+  \a:adjustwidth%
+}
+\HLet\adjustwidth\:tempa
+\expandafter\HLet\csname adjustwidth*\endcsname\:tempa
+
+\def\:tempa{\b:adjustwidth}
+\HLet\endadjustwidth\:tempa
+\expandafter\HLet\csname endadjustwidth*\endcsname\:tempa
+
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%
 \Section{alltt.sty}
 %%%%%%%%%%%%%%%%%%%%%%%
 

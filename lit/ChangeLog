@@ -1,3 +1,10 @@
+2023-10-16  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (changepage.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the Changepage
+	package.
+	https://github.com/michal-h21/tex4ebook/issues/122
+
 2023-10-13  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-c.tex (<mem for charset>): zero htf_4hf array after
