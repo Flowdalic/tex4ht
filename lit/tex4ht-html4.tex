@@ -13857,7 +13857,7 @@ for margin pars.
    \Picture[\a:GraphicsAlt]{{\Gin@base.svg} |<graphics dim|>}}
 \Configure{graphics*}
    {eps}
-   {\openin15=\csname Gin@base\endcsname\PictExt\relax%
+   {\openin15={\csname Gin@base\endcsname\PictExt}\relax%
    \ifeof15% 
    \Needs{\a:EpsConvert}% 
    \fi%
@@ -13899,7 +13899,7 @@ for margin pars.
    {\ifdefined\Gin@page\else\def\Gin@page{1}\fi%
      \edef\svg:filename{\Gin@base-\Gin@page.\a:PdfConvert}%
      % test for existence of the converted file
-     \openin15=\svg:filename\relax
+     \openin15={\svg:filename}\relax
       \ifeof15 
       \Needs{\b:PdfConvert}%
       \fi 

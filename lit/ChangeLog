@@ -1,5 +1,10 @@
 2023-10-16  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht),
+	* tex4ht-ooffice.tex (ooffice.4ht): fixed support for PDF and EPS
+	files with spaces in filenames.
+	https://github.com/michal-h21/tex4ebook/issues/118
+
 	* tex4ht-4ht.tex (changepage.4ht),
 	* tex4ht-html4.tex (html4.4ht): added support for the Changepage
 	package.
