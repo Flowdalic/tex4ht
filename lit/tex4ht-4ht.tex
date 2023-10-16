@@ -5912,6 +5912,14 @@ TeX4ht code.
 
 >>>
 
+Some other commands that are not defined when Hyperref detects TeX4ht. 
+They are used by some packages, for example Lastpage, so we need to declare them to prevent errors.
+
+\<config hyperref\><<<
+\def\Hy@PageAnchorSlidesPlain{}%
+\def\Hy@PageAnchorSlide{}%           
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \SubSection{Forms}
 %%%%%%%%%%%%%%%%%%%%%%
