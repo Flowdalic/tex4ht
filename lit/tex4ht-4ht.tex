@@ -33170,6 +33170,32 @@ format configuration.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%
+\Section{cprotect.sty}
+%%%%%%%%%%%%%%%%%%%%%%%
+\<cprotect.4ht\><<<
+% cprotect.4ht (|version), generated from |jobname.tex
+% Copyright 2023 TeX Users Group
+|<TeX4ht license text|>
+|<cprotect shared config|>
+\Hinput{cprotect}
+\endinput
+
+>>> \AddFile{7}{cprotect}
+
+Cprotect package can protect commands and environments. It adds some
+special characters at the end of the protected content. Because
+of chatcode issues caused by redefinition of the hat character by TeX4ht,
+these characters were displayed verbatim in the document. This definition
+should fix the catcode issue and prevent this problem
+
+\<cprotect shared config\><<<
+{
+\catcode`\^=7
+\gdef\CPT@hat@hat@E@hat@hat@L{^^E^^L}
+}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%
 \Section{alltt.sty}
 %%%%%%%%%%%%%%%%%%%%%%%
 
