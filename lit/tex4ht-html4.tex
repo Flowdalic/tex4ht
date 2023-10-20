@@ -16458,6 +16458,10 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 
 % there is rule p + div elsewhere in TeX4ht. we want to nullify it.
 \Css{.tcolorbox .lowerbox{margin-top:0pt;}}
+
+% remove unwanted margins and border from listings inside tcolorbox
+% https://puszcza.gnu.org.ua/bugs/?312
+\Configure{tcblisting}{\Css{\#\:tcbcolid\space.lstinputlisting{margin-bottom:0em;margin-top:0em;border: none;}}}
 >>>
 
 %%%%%%%%%%%%%%%%

@@ -28490,7 +28490,7 @@ We need to use dvips driver with XeLaTeX
   \get:xcolorcss{tcbcolframe}\:tcbcolframe%
   \get:xcolorcss{tcbcolupper}\:tcbcolupper%
   % make unique ID for this box
-  \def\:tcbcolid{tcolobox-\arabic{:tcbcolcount}}
+  \gdef\:tcbcolid{tcolobox-\arabic{:tcbcolcount}}
   % Open box
   \a:tcolorbox%
   % set label if it exists
@@ -28529,6 +28529,15 @@ We need to use dvips driver with XeLaTeX
 % would be ignored and we would get invalid XML
 \def\:tempb{\d:tcolorbox\o:tcb@endboxanddraw:}
 \HLet\tcb@endboxanddraw\:tempb
+
+% tcolorbox supports libraries, but it loads them
+% in a way that doesn't register them for the use 
+% with .4ht files.
+% this fix is for tcblistingscore.code.tex
+\NewConfigure{tcblisting}{1}
+\def\:tempb{\o:endtcblisting:\d:tcolorbox\a:tcblisting}
+\HLet\endtcblisting\:tempb
+
 
 % this code prevents emptying of the box title when
 % some Tcolorbox options are used
