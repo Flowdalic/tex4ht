@@ -1,3 +1,7 @@
+2023-10-24  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): make the \@wrindex command robust.
+
 2023-10-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tcolorbox.4ht),

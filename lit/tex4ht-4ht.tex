@@ -12847,7 +12847,7 @@ the meaning of \''\chat`\#'.
 \let\a:wrindex\empty
 \expandafter\ifx \csname @indexfile\endcsname\relax \else
    \let\o:wrindex:|=\@wrindex
-   \def\@wrindex{\a:wrindex \o:wrindex:}
+   \DeclareRobustCommand\@wrindex{\a:wrindex \o:wrindex:}
    \Configure{wrindex}
       {|<control @|>\warn:idx{\jobname}%
        \:wribefr\@indexfile}
