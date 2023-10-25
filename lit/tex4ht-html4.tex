@@ -2249,7 +2249,7 @@ We mainly need to handle paragraphs.
   \gHAdvance\Next:TableNo by 1 \global\let\TableNo=\Next:TableNo%
   \HCode{<table class="tabularray \@currenvir" id="tbl-\TableNo">}
 }{\ifvmode\IgnorePar\fi\EndP\HCode{</table>}}
-{\HCode{<tr id="row-\TableNo\HRow-">}}{\HCode{</tr>}}
+{\HCode{<tr id="row-\TableNo-\HRow-">}}{\HCode{</tr>}}
 {\HCode{<td id="cell\TableNo-\HRow-\HCol" style="\CellStyle" \CellAttributes>}}{\HCode{</td>}}
 {\Configure{tabularrayattributes}{rowspan="\HRowspan"}}
 {\Configure{tabularrayattributes}{colspan="\HMultispan"}}{}

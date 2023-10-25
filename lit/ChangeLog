@@ -1,3 +1,8 @@
+2023-10-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tabularray.4ht),
+	* tex4ht-html4.tex (html4.4ht): fixed row id attributes.
+
 2023-10-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): make the \@wrindex command robust.

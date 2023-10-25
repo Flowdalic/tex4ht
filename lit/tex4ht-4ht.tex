@@ -11121,7 +11121,7 @@ Insert basic tags for table and rows
 }
 \HLet\__tblr_environ_code:nnnn\:tempa
 
-\long\def\:tempa#1{\xdef\HRow{\@arabic\c@rownum}\c:tabularray\o:__tblr_build_row:N:{#1}\d:tabularray}
+\long\def\:tempa#1{\int_set:Nn \c@rownum {#1}\xdef\HRow{\@arabic\c@rownum}\c:tabularray\o:__tblr_build_row:N:{#1}\d:tabularray}
 \HLet\__tblr_build_row:N\:tempa
 \ExplSyntaxOff
 >>>
