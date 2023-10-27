@@ -1,3 +1,9 @@
+2023-10-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-docbook.tex (docbook.4ht): fixed support for accented
+	characters.
+	https://github.com/michal-h21/make4ht/issues/138
+
 2023-10-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tabularray.4ht),

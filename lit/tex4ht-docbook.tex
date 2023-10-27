@@ -123,6 +123,26 @@
 >>>
 
 
+We reuse old accents code from unicode.4ht, because 
+we got errors for accented characters without explicit
+configuration for accents.
+
+\<latex etc\><<<
+\Configure{accents}
+{\ifmmode \expandafter\mathord\fi
+{\leavevmode
+\if !#1!\ht:special{t4ht@+&\#x#2;}%
+\else \expandafter \ifx\csname U#2#1\endcsname\relax
+    \ht:special{t4ht@+&{35}x#2;}%
+\else
+    \ht:special{t4ht@+&{35}x\csname U#2#1\endcsname;}%
+\fi \fi x%
+\ht:special{t4ht@[}x\ht:special{t4ht@]}}}
+{\ifmmode \expandafter\mathord\fi
+{#3}}
+>>>
+
+
 \<configure docbook-mml latex\><<< 
 \def\refLink#1#2#3\EndLink{%
    \ifvmode
