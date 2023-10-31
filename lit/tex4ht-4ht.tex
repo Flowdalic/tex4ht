@@ -12794,6 +12794,7 @@ other packages (such as tablefootnote.sty) rely on them.
 \<enotez definitions\><<<
 \NewConfigure{enotezmark}{2}
 \NewConfigure{enotezback}{2}
+\NewConfigure{enmark}{2}
 % patch commands that print note numbers, so we can add links
 \ExplSyntaxOn
 % \:currentnoteid contains the note number
@@ -12802,6 +12803,10 @@ other packages (such as tablefootnote.sty) rely on them.
 
 \protected\def\:tempa#1{\def\:currentnoteid{#1}\a:enotezback\o:enotez_write_list_number:n:{#1}\b:enotezback}
 \HLet\enotez_write_list_number:n\:tempa
+
+% enmark has issue with spurious space after note number, but space is missing after dot.
+\cs_set:Npn   \enmark #1 {\a:enmark#1\unskip\b:enmark}
+\Configure{enmark}{}{.}
 
 \ExplSyntaxOff
 >>>
