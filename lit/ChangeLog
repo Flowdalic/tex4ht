@@ -1,3 +1,9 @@
+2023-11-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.4ht: fixed support for font sizes with decimal points
+	in the `p-width` option.
+
+
 2023-10-31  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (enotez.4ht),

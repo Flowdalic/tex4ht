@@ -19990,12 +19990,14 @@ changes.
 
 \<configure html4 latex\><<<
 \:CheckOption{p-width} \if:Option 
+  \ExplSyntaxOn
   \Configure{HColWidth}
      {\ifnum\HRow=1% output CSS only on the first row, to prevent duplication
-      \tmp:dim=\HColWidth \divide\tmp:dim by \f@size\relax
+      \tmp:dim=\fp_to_dim:n{\dim_to_fp:n{\HColWidth}/\f@size}
       \Css{\#TBL-\TableNo\space td:nth-child(\HCol)% CSS selects ID of the current table column
           {width:\strip@pt\tmp:dim em;}}
      \fi}
+  \ExplSyntaxOff
 \else
    \Log:Note{for width specifications of tabular p entries, use
        the `p-width' command line option or a configuration similar
