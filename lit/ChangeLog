@@ -1,8 +1,13 @@
+2023-11-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tabu.4ht, usepackage.4ht): use Tabularx as a
+	emulation for Tabu.
+	https://tex.stackexchange.com/a/238155/2891
+
 2023-11-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.4ht: fixed support for font sizes with decimal points
 	in the `p-width` option.
-
 
 2023-10-31  Michal Hoftich  <michal.h21@gmail.com>
 

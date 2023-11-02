@@ -11010,6 +11010,7 @@ handling. Michal
 % Copyright 2018 TeX Users Group 
 |<TeX4ht license text|> 
 |<tabu config|>
+|<tabu redefine env|>
 \Hinput{tabu} 
 \endinput
 >>> \AddFile{9}{tabu}
@@ -11060,6 +11061,20 @@ handling. Michal
     \tabu@setcleanup 
     % \tabu@setreset % this causes issues
 }% \tabu@setup
+>>>
+
+\<tabu redefine env\><<<
+\def\:tempa#1#{%
+  \setbox\z@=\hbox#1{}% this is necessary to support \begin{tabu} to 7cm{...}
+  \ifvmode\IgnorePar\fi\EndP\let\endtabu\endtabularx\tabularx{\textwidth}% 
+}
+\HLet\tabu\:tempa
+>>>
+
+We need to load the tabularx package, because we use it instead of Tabu for actual tables
+
+\<add to usepackage\><<<
+\AddToHook{package/tabu/before}{\RequirePackage{tabularx}} 
 >>>
 
 
