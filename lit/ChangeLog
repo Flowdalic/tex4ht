@@ -1,3 +1,9 @@
+2023-11-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): define \vrb:tt as \texttt. It was
+	originally \tt, but this command is deprecated in LaTeX.
+	https://puszcza.gnu.org.ua/bugs/?172
+
 2023-11-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tabu.4ht, usepackage.4ht): use Tabularx as a
