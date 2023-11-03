@@ -1,5 +1,9 @@
 2023-11-03  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-ooffice.tex (ooffice.4ht): use \refname instead of \bibname
+	with the scrartcl class.
+	https://puszcza.gnu.org.ua/bugs/?172
+
 	* tex4ht-4ht.tex (latex.4ht): define \vrb:tt as \texttt. It was
 	originally \tt, but this command is deprecated in LaTeX.
 	https://puszcza.gnu.org.ua/bugs/?172
