@@ -9857,8 +9857,11 @@ problematic for leading lines of some, but not all, kinds.
          \tabcolsep|=\the\tabcolsep
       \noexpand\fi }%
 \fi
-\arrayrulewidth|=\z@  \doublerulesep|=\z@
-\arraycolsep|=\z@     \tabcolsep|=\z@
+% why did we set these variables to zero? it leads to wrong spacing 
+% in pictures. 
+% https://puszcza.gnu.org.ua/bugs/?229
+% \arrayrulewidth|=\z@  \doublerulesep|=\z@
+% \arraycolsep|=\z@     \tabcolsep|=\z@
 \Configure{MkHalign}
    {\@array:a}%
    {\@array:b\ProperTrTrue}%
