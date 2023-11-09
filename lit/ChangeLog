@@ -1,3 +1,9 @@
+2023-11-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): better detection of the first row in
+	tables with the "p-width" option.
+	https://github.com/michal-h21/make4ht/issues/114
+
 2023-11-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (array.4ht,latex.4ht,revtex4.4ht): don't set array

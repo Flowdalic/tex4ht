@@ -19990,9 +19990,19 @@ changes.
 
 \<configure html4 latex\><<<
 \:CheckOption{p-width} \if:Option 
+  \HAssign\:hcolwidthtbl=0
+  \gdef\:hcolwidthfirst{1}
   \ExplSyntaxOn
   \Configure{HColWidth}
-     {\ifnum\HRow=1% output CSS only on the first row, to prevent duplication
+     {%
+       % in some cases, the first \HRow is not 1, for example with \multicolumn
+       % see https://github.com/michal-h21/make4ht/issues/114
+       % when we enter a new table, we will save the first row
+       \ifx\:hcolwidthtbl\TableNo\else
+         \global\let\:hcolwidthtbl=\TableNo
+         \global\let\:hcolwidthfirst=\HRow
+       \fi
+       \ifx\HRow\:hcolwidthfirst% output CSS only on the first row, to prevent duplication
       \tmp:dim=\fp_to_dim:n{\dim_to_fp:n{\HColWidth}/\f@size}
       \Css{\#TBL-\TableNo\space td:nth-child(\HCol)% CSS selects ID of the current table column
           {width:\strip@pt\tmp:dim em;}}
