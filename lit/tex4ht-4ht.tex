@@ -5003,6 +5003,55 @@ as it leads to a fatal error.
 \endinput
 >>> \AddFile{9}{tagpdf-hooks}
 
+%%%%%%%%%%%%%%%%%%%%%
+\Section{accessibility}
+%%%%%%%%%%%%%%%%%%%%%
+
+The accessibility package is deprecated, but it leads to a fatal error 
+when it is used. So we will block it from loading, and provide our own
+version of commands provided by the package.
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{accessibility.sty}{accessibility-hooks.4ht}
+>>>
+
+\<accessibility-hooks.4ht\><<<
+% accessibility-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2023 TeX Users Group
+|<TeX4ht license text|>
+% redefine commands that would cause fatal error when the package is being processed
+\let\:origpdfobj\pdfobj
+\let\:origpdfoutput\pdfoutput
+\let\pdfoutput\@undefined
+\def\pdfobj reserveobjnum{}
+\:AtEndOfPackage{
+  \let\pdfobj\:origpdfobj
+  \let\pdfoutput\:origpdfoutput
+  \def\PDFStructObj#1#2{}%
+}
+\endinput
+
+>>> \AddFile{9}{accessibility-hooks}
+
+\<accessibility.4ht\><<<
+% accessibility.4ht (|version), generated from |jobname.tex
+% Copyright 2023 TeX Users Group
+|<TeX4ht license text|>
+|<accessibility alt|>
+\Hinput{accessibility}
+\endinput
+>>>\AddFile{9}{accessibility}
+
+The alt command does nothing in the picture mode,
+but it outputs its argument in the normal output. 
+
+\<accessibility alt\><<<
+\NewConfigure{accessibilityalt}{2}
+\def\:tempa#1{\a:accessibilityalt #1\b:accessibilityalt}
+\def\alt#1{}
+\HLet\alt\:tempa
+>>>
+
 %%%%%%%%%%%%%%%%%
 \Section{animate.sty}
 %%%%%%%%%%%%%%%%%

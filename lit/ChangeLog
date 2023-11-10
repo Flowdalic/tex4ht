@@ -1,3 +1,11 @@
+2023-11-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, accessibility-hooks.4ht,
+	accessibility.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the Accessibility
+	package.
+	https://tex.stackexchange.com/a/700927/2891
+
 2023-11-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): better detection of the first row in
