@@ -1,3 +1,7 @@
+2023-11-12  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (array.4ht): write version.
+
 2023-11-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, accessibility-hooks.4ht,
