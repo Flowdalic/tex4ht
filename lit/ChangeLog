@@ -1,3 +1,9 @@
+2023-11-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (citation-style-language.4ht): added Citation Style
+	Language support.
+	https://github.com/zepinglee/citeproc-lua/issues/40
+
 2023-11-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-newtx.tex (
