@@ -1,3 +1,9 @@
+2023-11-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): use <mtext> instead of <mrow> in
+	\Configure{qopname} to prevent rendering errors with MathJax.
+	https://tex.stackexchange.com/a/701927/2891
+
 2023-11-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (citation-style-language.4ht): added Citation Style
