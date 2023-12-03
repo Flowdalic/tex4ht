@@ -28514,6 +28514,19 @@ second parameter.
 
 >>>
 
+This code comes from this \Link[https://tex.stackexchange.com/a/470290/2891]{}{}answer\EndLink.
+See the comments for possible shortcommings.
+
+\<config xcolor\><<<
+\:CheckOption{color}\if:Option
+\pend:defI\@declaredcolor{%
+  \ifdefined\end:def:color\end:def:color\else\aftergroup\b:textcolor\fi
+  \a:textcolor\def\end:def:color{\b:textcolor}%
+}
+\fi
+>>>
+
+
 We need to use dvips driver with XeLaTeX
 
 \<add to usepackage\><<<
@@ -29774,7 +29787,7 @@ original environment, and generated tags will be mismatched.
 This code postpones execution of code from the "after" key after
 closing of the Enumitem environment, so it can be correctly closed.
 
-See \Link[https://tex.stackexchange.com/q/642439/2891] this example
+See \Link[https://tex.stackexchange.com/q/642439/2891]{}{} this example
 what can go wrong\EndLink.
 
 \<enumitem config\><<<

@@ -1,3 +1,8 @@
+2023-12-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (xcolor.4ht): added the "color" option.
+	https://tex.stackexchange.com/a/470290/2891
+
 2023-11-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): use <mtext> instead of <mrow> in
