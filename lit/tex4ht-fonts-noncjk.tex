@@ -11032,8 +11032,12 @@ htfcss: cmtt @media speech pitch:`<medium`>; pitch-range:0; stress:0; richness:8
 
 \AddFont[4es]{cmtt-emspk}{css/emacspeak/cm/cmtt}
 
+Arkady Benediktov reported that this font table contains 
+some wrong characters, most notable some accents and right quote.
+It would be better to just link to the cmtt font, which should
+have the same encoding.
 
-\<cmtcsc-uni\><<<
+\<cmtcsc-uni-old\><<<
 cmtcsc 0 127
 '&#x0393;' '' Gamma      0 `<version 0`>
 '&#x0394;' '' Delta      1 % cmtcsc.htf (unicode) (`version), generated from `jobname.tex
@@ -11164,6 +11168,14 @@ cmtcsc 0 127
 '~'        ''  tilde             126
 '&#x00A8;' ''  diaresis          127
 cmtcsc 0 127
+htfcss: cmtcsc font-family: monospace,monospace;
+>>>
+
+We will just link to cmtt font instead of using custom font table,
+as it contains errors.
+
+\<cmtcsc-uni\><<<
+.cmtt
 htfcss: cmtcsc font-family: monospace,monospace;
 >>>
 

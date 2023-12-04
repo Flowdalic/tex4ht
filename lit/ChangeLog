@@ -1,3 +1,10 @@
+2023-12-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/cm/cmtcsc.htf
+	): link to cmtt instead of using custom font table.
+	Thanks to Arkady Benediktov
+
 2023-12-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (xcolor.4ht): added the "color" option.
