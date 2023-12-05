@@ -1,3 +1,9 @@
+2023-12-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/cm/cmtcsc.htf
+	): require use of small caps monospaced font.
+
 2023-12-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (
