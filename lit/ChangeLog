@@ -1,5 +1,9 @@
 2023-12-11  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (biblatex.4ht): declare the \BibFileName in the aux
+	file, to prevent compilation errors in the subsequent compilations
+	with LaTEX.
+
 	* tex4ht-env.tex (
 	tex4ht.env-unix,
 	tex4ht.env-win32

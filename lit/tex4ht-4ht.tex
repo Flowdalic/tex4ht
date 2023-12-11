@@ -2158,6 +2158,9 @@ We put the hook ourselves thanks to Configure{ifthenelse}.
 % <biblatex-2.2>
 %
   \immediate\write\@auxout{%
+    \string\providecommand\string\BibFileName[2][]{}
+  }%
+  \immediate\write\@auxout{%
       \string\BibFileName[\therefsection]{\FileName}}%
 %
 % </biblatex-2.2>
