@@ -682,12 +682,12 @@ Gdvipng -T tight -D 144 -bg Transparent -pp %%2:%%2 %%1 -o %%3
 
 \<unix svg\><<<
 G.svg
-Gdvisvgm -n -p %%2 --exact -c 1.4,1.4 -s %%1 > %%3  >>>
+Gdvisvgm -n -p %%2 --exact -c 1.4,1.4 -o %%3 %%1  >>>
 
 
 \<win32 svg\><<<
 G.svg
-Gdvisvgm -n -p %%2 --exact -c 1.4,1.4 -s %%1 > %%3 >>>
+Gdvisvgm -n -p %%2 --exact -c 1.4,1.4 -o %%3 %%1  >>>
 
 dvisvgm is included with all \TeX\ distributions nowadays and the
 conversion is quite fast and efficient.

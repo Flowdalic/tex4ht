@@ -1,3 +1,11 @@
+2023-12-11  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-env.tex (
+	tex4ht.env-unix,
+	tex4ht.env-win32
+	): use the -o option with Dvisvgm, to prevent insertion of spurious
+	text, produced by Dvisvgm, at the start of the generated SVG file.
+
 2023-12-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (
