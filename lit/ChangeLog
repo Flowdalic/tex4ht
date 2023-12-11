@@ -1,3 +1,11 @@
+2023-12-11  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-env.tex: copyright 2023, leading comments.
+	* Makefile (diff-env, update-env): new targets to handle
+	tex4ht.env[-*] files.
+	(update-env, update): rename these never-used
+	and non-working targets to dev-update-env and dev-update.
+
 2023-12-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (biblatex.4ht): declare the \BibFileName in the aux

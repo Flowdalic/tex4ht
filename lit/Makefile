@@ -616,12 +616,12 @@ dest_java = $(dest_src)/java
 update = cp -pr
 mkdir = install -d
 #
-update-env:
+dev-update-env:
 	$(mkdir) $(dest_base)/unix $(dest_base)/win32
 	$(update) tex4ht.env-unix $(dest_base)/unix/tex4ht.env
 	$(update) tex4ht.env-win32 $(dest_base)/win32/tex4ht.env
 
-update: all
+dev-update: all
 	$(update) $(tex4ht_bibtex2_derived) $(dest_src)/
 #
 	$(update) $(tex4ht_c_derived) $(dest_src)/
@@ -633,7 +633,7 @@ update: all
 #
 	$(update) $(tex4ht_docbook_derived) $(dest_texmf)/
 #
-	$(MAKE) update-env
+	$(MAKE) dev-update-env
 #
 	$(update) $(tex4ht_html_speech_xtpipes_derived) $(dest_texmf)/
 #
@@ -758,6 +758,11 @@ inst_dir_all = $(inst_dir_4ht) $(inst_dir_top) $(inst_dir_scripts) \
 # (Other methods are also used.)
 install_data = cp -p
 
+# svn status of installed tree.
+svnstatus st:
+	svn status $(inst_dir_all) | sed s,$(texmf),, # reduce output
+	@echo $(inst_dir_all)
+
 # Diff and install the *.unix and *.bat scripts.
 # The suffix changes from .unix in development to .sh in TL,
 # and many of the scripts are not installed at all;
@@ -817,10 +822,21 @@ update-htfonts:
 	./update-htfonts update $(ht_fonts_devdir) $(ht_fonts_instdir) | tee /tmp/htupd
 .PHONY: update-htfonts
 
-# svn status of results.
-svnstatus st:
-	svn status $(inst_dir_all) | sed s,$(texmf),, # reduce output
-	@echo $(inst_dir_all)
+# 
+# Checking and updating tex4ht.env files.
+
+# Where they are in the installed tree.
+env_instdir = $(inst_dir_top)/base
+
+# Compare only.
+diff-env: $(tex4ht_env_derived)
+	-$(diff) $(env_instdir)/unix/tex4ht.env tex4ht.env-unix
+	-$(diff) $(env_instdir)/win32/tex4ht.env tex4ht.env-win32
+
+# Compare and update.
+update-env:
+	$(install_data) tex4ht.env-unix $(env_instdir)/unix/tex4ht.env
+	$(install_data) tex4ht.env-win32 $(env_instdir)/win32/tex4ht.env
 
 # 
 # diff all files in the main TeX Live installation directory against
@@ -832,7 +848,7 @@ svnstatus st:
 # 
 # The diff-scripts output is usually empty, so we can run that;
 # but diff-htfonts is too verbose to run every time.
-diff-all: diff-src diff-scripts diff-htfonts
+diff-all: diff-src diff-scripts diff-htfonts diff-env
 	@echo; echo '>>> $@'
 	-for f in $(inst_dir_4ht)/*; do $(diff) $$f .; done \
 	| tee /tmp/u | egrep -v '^ *[-+]%|^@@ |^- *$$|-1.version' \
