@@ -7960,7 +7960,7 @@ tag possibly missing.
   \Configure{fbox}
      {\ifvmode \IgnorePar\EndP 
                \HCode{<div class="fbox">}%
-               \def\end:bx{\HCode{</div>}\par}%
+               \def\end:bx{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\par}%
       \else
                \HCode{<span class="fbox">}%
                \def\end:bx{\HCode{</span>}}%

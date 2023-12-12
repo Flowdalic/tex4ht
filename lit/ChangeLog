@@ -1,5 +1,8 @@
 2023-12-12  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): close paragraph before end of \fbox.
+	https://tex.stackexchange.com/a/703823/2891
+
 	* tex4ht-html4.tex (html4.4ht): removed spurious blank lines in
 	files included using \VerbatimInput from the fancyvrb package.
 	https://puszcza.gnu.org.ua/bugs/?617
