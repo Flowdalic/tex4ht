@@ -15269,18 +15269,21 @@ imported from aux or another file.
 \subsection{fancyvrb}
 %%%%%%%%%%%%%%%%%%%
 
+We need to use special instructions to prevent extra blank lines that
+are comming from fancyvrb somehow. "x" before closing tag for "pre"
+is necessary because the last newline was not deleted otherwise.
 
 \<configure html4 fancyvrb\><<<
 \HAssign\fancyvrbNo|=0
 \Configure{fancyvrb}
    {\IgnorePar \EndP \gHAdvance\fancyvrbNo by 1
     \gHAssign\fancyvrb:cnt0
-    \HCode{<pre class="fancyvrb" id="fancyvrb\fancyvrbNo">}}
-   {\EndP\HCode{</pre>}}
-   {\gHAdvance\fancyvrb:cnt by 1
+    \HCode{<pre class="fancyvrb" id="fancyvrb\fancyvrbNo">}\ht:special{t4ht@[}}
+    {x\ht:special{t4ht@]}\EndP\HCode{</pre>}}
+    {\ht:special{t4ht@]}\gHAdvance\fancyvrb:cnt by 1
     \ifnum \fancyvrb:cnt>1 
     \HCode{\Hnewline}\fi} {}
-   {}{}
+   {}{\ht:special{t4ht@[}}
 \Css{pre.fancyvrb {white-space: pre-wrap; margin:0em;font-family:monospace,monospace;}}
 >>>
 
