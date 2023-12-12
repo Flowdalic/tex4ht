@@ -5626,6 +5626,33 @@ An alternative css-based approach:
 >>>
 
 %%%%%%%%%%%%%%%%
+\subsection{marginnote}
+%%%%%%%%%%%%%%%%
+
+This configuration will put marginnote into right margin if there is sufficient ammount of space.
+Otherwise, it will display it as a italic text.
+
+\<configure html4 marginnote\><<<
+\Configure{marginnote}{\HCode{<span class="marginnote">}}{\HCode{</span>}}
+
+\Css{.marginnote{
+  font-style: italic;}
+}
+
+\Css{
+  @media (min-width: 104ch){
+    .marginnote{
+      display: block;
+      float: right;
+      width: 12ch;
+      margin-right: -14ch;
+      font-style: normal;
+  }}
+}
+
+>>>
+
+%%%%%%%%%%%%%%%%
 \section{Floats}
 %%%%%%%%%%%%%%%%
 

@@ -1,3 +1,9 @@
+2023-12-12  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (marginnote.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the \marginnote
+	command.
+
 2023-12-11  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-env.tex: copyright 2023, leading comments.
