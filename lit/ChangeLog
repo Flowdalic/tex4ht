@@ -1,3 +1,8 @@
+2023-12-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): use <code> elements for \verb, also
+	disabled using of ht-fonts in this context.
+
 2023-12-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): close paragraph before end of \fbox.
