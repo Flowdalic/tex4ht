@@ -1,3 +1,9 @@
+2023-12-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): don't redefine \tabacckludge with
+	non-existent command.
+	https://tex.stackexchange.com/q/704949/2891
+
 2023-12-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use <code> elements for \verb, also
