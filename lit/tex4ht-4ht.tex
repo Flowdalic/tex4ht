@@ -29802,6 +29802,18 @@ what can go wrong\EndLink.
 \fi}
 >>>
 
+This should prevent enumitem from changing of items in description lists,
+because this can lead to errors.
+
+See \Link[https://github.com/hendricius/the-sourdough-framework/pull/312]{}{}for an example\EndLink.
+
+
+
+\<enumitem config\><<<
+\def\enit@postlabel{}
+>>>
+
+
 %%%%%%%%%%%%%
 \Section{esperanto.sty}
 %%%%%%%%%%%%%

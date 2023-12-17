@@ -1,3 +1,9 @@
+2023-12-17  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (enumitem.4ht): prevent errors with redefined
+	description list styles.
+	https://github.com/hendricius/the-sourdough-framework/pull/312
+
 2023-12-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): don't redefine \tabacckludge with
