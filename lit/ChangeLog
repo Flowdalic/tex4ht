@@ -1,3 +1,9 @@
+2023-12-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice-mml.4ht): use code from html-mml.4ht
+	to prevent spurious <mo> element in equation. It could prevent
+	displaying of equations.
+
 2023-12-17  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (enumitem.4ht): prevent errors with redefined

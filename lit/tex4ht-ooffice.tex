@@ -7741,6 +7741,7 @@ It seems that it is a best method how to come with solutions that work in the OD
 >>>
 
 
+
 \<tab-based display equation\><<<
 \Configure{equation}
   {\IgnorePar\ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
@@ -7876,6 +7877,7 @@ It seems that it is a best method how to come with solutions that work in the OD
 
 
 \<configure ooffice-mml amsmath\><<<
+|<alt mathopen for eq|>
 \:CheckOption{tab-eq}\if:Option 
     |<tab-based ams display equation|>
 \else
@@ -7885,6 +7887,22 @@ It seems that it is a best method how to come with solutions that work in the OD
 \fi
 >>>
 
+
+Current AMSMath uses empty mathopen at the beginning of an equation, 
+which results in missing markup for subsequent numbers and characters.
+
+We check for empty parameter, and don't execute configurations when it is empty.
+
+This is a copy from tex4ht-mathml.tex, because here it is used only in the 
+htlm-mml.4ht output.
+
+\<alt mathopen for eq\><<<
+\def\eq:mathopen#1{\ifx\relax#1\relax\else\a:mathopen\fi\o:mathopen:{#1}}
+>>>
+
+\<mathopen in equation\><<<
+\let\mathopen\eq:mathopen%
+>>>
 
 
 
@@ -7896,6 +7914,7 @@ It seems that it is a best method how to come with solutions that work in the OD
    |<equation start table|>% 
    |<amsmath equation july 2000|>%
    |<disp math within equation|>%
+   |<mathopen in equation|>%
   }
   {\ifvmode \IgnorePar\fi\EndP |<equation table cells separator|>}
   {\ifvmode \IgnorePar\fi\EndP |<equation end table|>%
@@ -7912,6 +7931,7 @@ It seems that it is a best method how to come with solutions that work in the OD
    \EndP \HCode{<text:p text:style-name="equ-p-tab"><text:tab/>}%
    \Tabtrue
    |<amsmath equation july 2000|>%
+   |<mathopen in equation|>%
    \IgnorePar}
   {\Tabfalse \ifvmode \IgnorePar\fi\EndP \HCode{<text:tab/>}}
   {\HCode{</text:p>}|<try inline par|>%
