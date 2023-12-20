@@ -1,5 +1,10 @@
 2023-12-20  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/misc/wasy.htf
+	): fixed wrong characters in the Wasy font.
+	Thanks to Arkady Benediktov
+
 	* tex4ht-ooffice.tex (ooffice-mml.4ht): use code from html-mml.4ht
 	to prevent spurious <mo> element in equation. It could prevent
 	displaying of equations.
