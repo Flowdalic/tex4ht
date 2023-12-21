@@ -1,3 +1,9 @@
+2023-12-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (xr-hyper.4ht): removed extra \fi, it is no longer
+	necessary.
+	https://github.com/michal-h21/make4ht/issues/140
+
 2023-12-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (
