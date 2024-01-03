@@ -1,3 +1,8 @@
+2024-01-03  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-fonts-libertinus.tex: Id.
+	* tex4ht-options.tex: 2024.
+
 2024-01-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-libertinus.tex: added support for the Libertinus
