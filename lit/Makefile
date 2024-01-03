@@ -197,6 +197,10 @@ derived += $(tex4ht_fonts_libertine_derived)
 tex4ht_fonts_libertine_derived = \
 	$(ht_fonts_devdir)/unicode/Linux_Biolinum_T/LinBiolinumT-lf-sc-ly1.htf
 
+derived += $(tex4ht_fonts_libertinus_derived)
+tex4ht_fonts_libertinus_derived = \
+	$(ht_fonts_devdir)/unicode/libertinus/LibertinusSans-Italic-lf-lgr.htf
+
 derived += $(tex4ht_fonts_newtx_derived)
 tex4ht_fonts_newtx_derived = \
 	$(ht_fonts_devdir)/unicode/txbmiaX/ntxbmia.htf
@@ -435,6 +439,9 @@ $(tex4ht_fonts_ebgaramond_derived): tex4ht-fonts-ebgaramond.tex
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_libertine_derived): tex4ht-fonts-libertine.tex
+	$(HTTEX) $< ""
+
+$(tex4ht_fonts_libertinus_derived): tex4ht-fonts-libertinus.tex
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_newtx_derived): tex4ht-fonts-newtx.tex

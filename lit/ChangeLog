@@ -1,3 +1,9 @@
+2024-01-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-libertinus.tex: added support for the Libertinus
+	font.
+	https://tex.stackexchange.com/a/706228/2891
+	
 2023-12-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (xr-hyper.4ht): removed extra \fi, it is no longer
