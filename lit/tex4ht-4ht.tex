@@ -25815,26 +25815,21 @@ The command
 
 \SubSection{Verb}
 
+We must prevent execution of the code in a:fancyvrb in \Verb+\FVC@Verb+, as it
+inserts special for ignoring of the output, so the rest of the document 
+wouldn't be produced. This hook is inserted by \Verb+\FV@FormattingPrep+.
+See \Link[://github.com/michal-h21/make4ht/issues/141]{}{}this issue\EndLink.
+
 \<fix fancyvrb\><<<
-\begingroup
-\catcode`\^^M=\active%
-\gdef\FVC@Verb#1{%
-  \begingroup%
-    \FV@UseKeyValues%
-    \let\a:fancyvrb|=\empty\FV@FormattingPrep%
-    \FV@CatCodes%
-    \outer\def^^M{}%
-    \catcode`#1=12%
-    \def\@tempa{\def\FancyVerbGetVerb####1####2}%
-    \expandafter\@tempa\string#1{\mbox{\a:verb##2\b:verb}\endgroup}%
-    \FancyVerbGetVerb\FV@EOL}%
-\endgroup
+\pend:defI\FVC@Verb{\bgroup\let\a:fancyvrb\empty\a:verb}
+\append:defI\FVC@Verb{\b:verb\egroup}
 >>>
 
 \<fix fancyvrb\><<<
-\def\FV@UseVerb#1{\mbox{\FV@UseKeyValues%
+\def\:tempa#1{\mbox{\FV@UseKeyValues%
    \let\a:fancyvrb|=\empty \FV@FormattingPrep%
    \a:verb #1\b:verb}}
+\HLet\:tempa\FV@UseVerb
 >>>
 
 \SubSection{Colors}

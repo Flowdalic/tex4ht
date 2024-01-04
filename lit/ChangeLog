@@ -1,3 +1,9 @@
+2024-01-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (fancyvrb.4ht): changed redefinition of \FVC@Verb
+	so it doesn't cause runtime errors with Minted's \mintinline.
+	https://github.com/michal-h21/make4ht/issues/141
+
 2024-01-03  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-fonts-libertinus.tex: Id.
