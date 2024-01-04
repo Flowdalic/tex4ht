@@ -33281,7 +33281,7 @@ our versions.
 %%%%%%%%%%%%%%%%%%%%%%%
 \<changepage.4ht\><<<
 % changepage.4ht (|version), generated from |jobname.tex
-% Copyright 2023 TeX Users Group
+% Copyright 2023-2024 TeX Users Group
 |<TeX4ht license text|>
 |<changepage shared config|>
 \Hinput{changepage}
@@ -33293,12 +33293,15 @@ Changepage uses a list environment to make a text with changed left and right ma
 We will instead save the margin didmension for the further processing in the output
 format configuration. 
 
+
 \<changepage shared config\><<<
 \NewConfigure{adjustwidth}{2}
 
 \def\:tempa#1#2{%
-  \def\adjustwidth:left{#1}%
-  \def\adjustwidth:right{#2}%
+  % arguments can be empty, in that case we must declare 
+  % the margins as null dimension, to prevent calculation errors
+  \edef\adjustwidth:left{\if\relax#1\relax0pt\else#1\fi}%
+  \edef\adjustwidth:right{\if\relax#2\relax0pt\else#2\fi}%
   \a:adjustwidth%
 }
 \HLet\adjustwidth\:tempa
