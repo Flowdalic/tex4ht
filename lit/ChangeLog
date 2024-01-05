@@ -1,3 +1,10 @@
+2024-01-05  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (unicode-math-hooks.4ht): require Amsmath from
+	Unicode-math. Declare commands to prevent errors in multiple uses of
+	Unicode-math. 
+	https://fosstodon.org/@alerque@mastodon.social/111701555810243494
+
 2024-01-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (changepage.4ht): fixed setting of empty margins.

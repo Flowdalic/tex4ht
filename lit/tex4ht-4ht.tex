@@ -4370,8 +4370,9 @@ document.
 \TivhTcats% we need to reset catcodes for : and @ before \RequirePackage
 \@ifpackageloaded{fontspec}{}
 {\RequirePackage{fontspec}} % it is loaded by unicode-math
-\NewDocumentCommand \setmathfont { O{} m O{} }{}
-\NewDocumentCommand \unimathsetup {m} {} 
+\RequirePackage{amsmath}
+\DeclareDocumentCommand \setmathfont { O{} m O{} }{}
+\DeclareDocumentCommand \unimathsetup {m} {} 
 \catcode`\:=11\makeatletter
 \endinput
 >>> \AddFile{9}{unicode-math-hooks}
