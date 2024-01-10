@@ -1,3 +1,9 @@
+2024-01-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (fancyvrb.4ht): fixed regression in \FVC@Verb in
+	other contexts than \mintinline.
+	https://puszcza.gnu.org.ua/bugs/index.php?617
+
 2024-01-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (unicode-math-hooks.4ht): require Amsmath from

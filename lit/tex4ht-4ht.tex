@@ -25822,8 +25822,8 @@ wouldn't be produced. This hook is inserted by \Verb+\FV@FormattingPrep+.
 See \Link[://github.com/michal-h21/make4ht/issues/141]{}{}this issue\EndLink.
 
 \<fix fancyvrb\><<<
-\pend:defI\FVC@Verb{\bgroup\let\a:fancyvrb\empty\a:verb}
-\append:defI\FVC@Verb{\b:verb\egroup}
+\def\:tempa#1{\let\sa:fancyvrb\a:fancyvrb\let\a:fancyvrb\empty\a:verb\o:FVC@Verb:{#1}\glet\a:fancyvrb\sa:fancyvrb\aftergroup\b:verb}
+\HLet\FVC@Verb\:tempa
 >>>
 
 \<fix fancyvrb\><<<
