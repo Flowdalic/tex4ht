@@ -30679,11 +30679,38 @@ What \Verb+\put@line+ of the 08 version does?
 
 \<siunitx.4ht\><<<
 % siunitx.4ht (|version), generated from |jobname.tex
-% Copyright 2021 TeX Users Group
+% Copyright 2021-2024 TeX Users Group
 |<TeX4ht license text|>
+|<siunitx ang|>
 \Hinput{siunitx}
 \endinput
 >>> \AddFile{9}{siunitx}
+
+This should bring support for the \Verb+\ang+ command, which can be used
+to input angles.
+
+\<siunitx ang\><<<
+\ExplSyntaxOn
+\cs_set_protected:Npn \__siunitx_angle_arc_print_auxv_fourht:w
+  #1 \q_nil #2 \q_nil #3 \q_nil #4 \q_nil #5 \q_nil #6 \q_stop
+{\bgroup\siunitx_print_number:n {#1#2#3#4#5}\egroup}
+
+\HLet\__siunitx_angle_arc_print_auxv:w\__siunitx_angle_arc_print_auxv_fourht:w
+
+
+\cs_set_protected:Npn \__siunitx_angle_arc_print_auxvi_fourht:n #1
+{
+  % we need to define these commands here
+  \def\degree{\ht:special{t4ht@+&{35}x2218;}x}
+  \def\arcminute{\prime}
+  \def\arcsecond{\prime\prime}
+  \ensuremath{\NoFonts\sp{#1}\EndNoFonts}
+}
+
+\HLet\__siunitx_angle_arc_print_auxvi:n\__siunitx_angle_arc_print_auxvi_fourht:n 
+\ExplSyntaxOff
+
+>>>
 
 %%%%%%%%%%%%%
 \Section{Ushort}
