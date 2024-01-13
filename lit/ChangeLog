@@ -1,3 +1,9 @@
+2024-01-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (memoir.4ht): don't load booktabs.4ht from
+	memoir.4ht, it causes fatal error when table rule commands are used.
+	https://github.com/michal-h21/make4ht/issues/142
+
 2024-01-12  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (siunitx.4ht): fixed support for the \ang command.
