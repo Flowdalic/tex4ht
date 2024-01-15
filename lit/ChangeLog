@@ -1,5 +1,8 @@
 2024-01-15  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (tcolorbox.4ht): fixed support for breakable boxes.
+	https://github.com/michal-h21/make4ht/issues/142
+
 	* tex4ht-4ht.tex (usepackage.4ht, tikz-hooks.4ht, pgf-hooks.4ht):
 	load the Dvisvgm driver for PGF when the PFG package is used.
 	https://github.com/michal-h21/make4ht/issues/142
