@@ -1,5 +1,9 @@
 2024-01-15  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (tcolorbox.4ht): don't use \RecallEndP in
+	tcolorbox, it can lead to spurious </p> tags.
+	https://github.com/michal-h21/make4ht/issues/142#issuecomment-1891507567
+
 	* tex4ht-4ht.tex (tcolorbox.4ht): fixed support for breakable boxes.
 	https://github.com/michal-h21/make4ht/issues/142
 

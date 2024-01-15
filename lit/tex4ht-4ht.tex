@@ -28647,7 +28647,9 @@ We need to use dvips driver with XeLaTeX
   \c:tcolorbox%
   \box\tcb@upperbox%
   % the paragraph opened in the upper box can be unclosed
-  \RecallEndP
+  % but I cannot find an example where it matters. \RecallEndP caused issues in the following sample:
+  % https://github.com/michal-h21/make4ht/issues/142#issuecomment-1891507567
+  % \RecallEndP
   % deal with lower box, if it is set
   \iftcb@hasLower%
     \a:tcolorlowerbox%
