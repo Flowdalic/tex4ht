@@ -4921,6 +4921,38 @@ converted to SVG by default.
 \fi
 >>> \AddFile{9}{tikz-hooks}
 
+%%%%%%%%%%%%%%%%%%%
+\Section{pgf.sty}
+%%%%%%%%%%%%%%%%%%%
+
+\<pgf.4ht\><<<
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+% pgf.4ht                                |version %
+% Copyright (C) |CopyYear.2003.       Eitan M. Gurari         %
+|<TeX4ht copyright|>
+\Hinput{pgf}
+\endinput
+>>>        \AddFile{9}{pgf}
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{pgf.sty}{pgf-hooks.4ht}
+>>>
+
+The following code loads the dvisvgm driver for TeX4ht. The default TeX4th driver
+provided by TikZ doesn't work well. 
+
+\<pgf-hooks.4ht\><<<
+% pgf-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+\ifdefined\pgfsysdriver\else%
+  \typeout{*****************************}
+  \typeout{TeX4ht info: Using dvisvgm4ht TikZ driver. Put \detokenize{\def\pgfsysdriver{driver-name}} to your 
+  document before use of TikZ if you want to another driver. Use tikz+ option if your TikZ pictures use patterns.}%
+  \def\pgfsysdriver{pgfsys-dvisvgm4ht.def}%
+\fi%
+>>>        \AddFile{9}{pgf-hooks}
+
 %%%%%%%%%%%%%%%%%%
 \Section{pdfbase.sty}
 %%%%%%%%%%%%%%%%%%
@@ -28180,18 +28212,6 @@ be wrapped around \''\mfpic ...  \endmfpic',
 \Configure{ @V}{}{}
 >>>
 
-%%%%%%%%%%%%%%%%%%%
-\Section{pgf.sty}
-%%%%%%%%%%%%%%%%%%%
-
-\<pgf.4ht\><<<
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-% pgf.4ht                                |version %
-% Copyright (C) |CopyYear.2003.       Eitan M. Gurari         %
-|<TeX4ht copyright|>
-\Hinput{pgf}
-\endinput
->>>        \AddFile{9}{pgf}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \Section{color.sty}
