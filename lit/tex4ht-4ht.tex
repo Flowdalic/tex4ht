@@ -4374,6 +4374,14 @@ document.
 \DeclareDocumentCommand \setmathfont { O{} m O{} }{}
 \DeclareDocumentCommand \unimathsetup {m} {} 
 \catcode`\:=11\makeatletter
+% declare prime and backprime Unicode symbols. they shouldn't be used with
+% explicit superscripts
+\DeclareDocumentCommand\dprime{}{\sp{\ht:special{t4ht@+\string&{35}x2033;}x}}
+\DeclareDocumentCommand\trprime{}{\sp{\ht:special{t4ht@+\string&{35}x2034;}x}}
+\DeclareDocumentCommand\qprime{}{\sp{\ht:special{t4ht@+\string&{35}x2057;}x}}
+\DeclareDocumentCommand\backprime{}{\sp{\ht:special{t4ht@+\string&{35}x2035;}x}}
+\DeclareDocumentCommand\backdprime{}{\sp{\ht:special{t4ht@+\string&{35}x2036;}x}}
+\DeclareDocumentCommand\backtrprime{}{\sp{\ht:special{t4ht@+\string&{35}x2037;}x}}
 \endinput
 >>> \AddFile{9}{unicode-math-hooks}
 
