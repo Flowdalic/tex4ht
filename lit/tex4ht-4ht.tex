@@ -5547,7 +5547,10 @@ be removed safely.
       \let\HyRef@currentHtag\empty
       \Hy@colorlink{\@urlcolor}#1\Hy@endcolorlink
     \else      
-      \Link[#2]{}{}\Hy@colorlink{\@urlcolor}#1\Hy@endcolorlink\EndLink
+      % we use this trick to hide possible ] characters in the URL
+      % https://tex.stackexchange.com/a/707193/2891
+      \def\:currentlink{#2}
+      \Link[\noexpand\:currentlink]{}{}\Hy@colorlink{\@urlcolor}#1\Hy@endcolorlink\EndLink
       \global\let\hyper:normalise|=\:UnDef
     \fi
   \endgroup }
