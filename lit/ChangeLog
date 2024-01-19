@@ -1,3 +1,8 @@
+2024-01-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (siunitx.4ht): require the Color package.
+	https://tex.stackexchange.com/q/707416/2891
+
 2024-01-16  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (unicode-math-hooks.4ht): added support for various

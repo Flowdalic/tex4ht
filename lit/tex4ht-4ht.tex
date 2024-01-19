@@ -30714,10 +30714,19 @@ What \Verb+\put@line+ of the 08 version does?
 % siunitx.4ht (|version), generated from |jobname.tex
 % Copyright 2021-2024 TeX Users Group
 |<TeX4ht license text|>
+|<siunitx require color|>
 |<siunitx ang|>
 \Hinput{siunitx}
 \endinput
 >>> \AddFile{9}{siunitx}
+
+In the ODT output, Siunitx leads to some catcode errors. It is caused by
+requiring of the Color package at begin document. The simple fix for
+that is to require color earlier.
+
+\<siunitx require color\><<<
+\RequirePackage{color}
+>>>
 
 This should bring support for the \Verb+\ang+ command, which can be used
 to input angles.
