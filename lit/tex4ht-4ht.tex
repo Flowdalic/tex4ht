@@ -30718,6 +30718,7 @@ What \Verb+\put@line+ of the 08 version does?
 \ExplSyntaxOn
 |<siunitx ang|>
 |<siunitx disable tight space|>
+|<siunitx disable S columns|>
 \ExplSyntaxOff
 \Hinput{siunitx}
 \endinput
@@ -30760,6 +30761,18 @@ We disable the boolean that is set by this option to prevent that.
 \<siunitx disable tight space\><<<
 % https://tex.stackexchange.com/q/707485/2891
 \bool_set_false:N \l__siunitx_number_tight_bool
+>>>
+
+Siunitx provides special column specification in tables. It enables alignment
+of cells based on the floating point of numbers. Unfortunatelly, it
+also completelly breaks TeX4ht table processing, so tables that use
+it come out as a complete mess. 
+
+\<siunitx disable S columns\><<<
+% disable S columns for tables
+% https://tex.stackexchange.com/q/707485/2891
+\cs_set_protected:Npn \siunitx_cell_begin:w {}
+\cs_set_protected:Npn \siunitx_cell_end: {}
 >>>
 
 %%%%%%%%%%%%%
