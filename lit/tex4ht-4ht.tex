@@ -30715,7 +30715,10 @@ What \Verb+\put@line+ of the 08 version does?
 % Copyright 2021-2024 TeX Users Group
 |<TeX4ht license text|>
 |<siunitx require color|>
+\ExplSyntaxOn
 |<siunitx ang|>
+|<siunitx disable tight space|>
+\ExplSyntaxOff
 \Hinput{siunitx}
 \endinput
 >>> \AddFile{9}{siunitx}
@@ -30732,7 +30735,6 @@ This should bring support for the \Verb+\ang+ command, which can be used
 to input angles.
 
 \<siunitx ang\><<<
-\ExplSyntaxOn
 \cs_set_protected:Npn \__siunitx_angle_arc_print_auxv_fourht:w
   #1 \q_nil #2 \q_nil #3 \q_nil #4 \q_nil #5 \q_nil #6 \q_stop
 {\bgroup\siunitx_print_number:n {#1#2#3#4#5}\egroup}
@@ -30750,8 +30752,14 @@ to input angles.
 }
 
 \HLet\__siunitx_angle_arc_print_auxvi:n\__siunitx_angle_arc_print_auxvi_fourht:n 
-\ExplSyntaxOff
+>>>
 
+It seems that the tight-spacing option can cause errors with TeX4ht. 
+We disable the boolean that is set by this option to prevent that. 
+
+\<siunitx disable tight space\><<<
+% https://tex.stackexchange.com/q/707485/2891
+\bool_set_false:N \l__siunitx_number_tight_bool
 >>>
 
 %%%%%%%%%%%%%
