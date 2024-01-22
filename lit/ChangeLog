@@ -1,5 +1,9 @@
 2024-01-22  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-docbook.tex (docbook.4ht): print reference number in the
+	\ref command.
+	https://github.com/michal-h21/make4ht/issues/144
+
 	* tex4ht-4ht.tex (tikz-cd.4ht): convert the tikzcd environments to
 	pictures.
 	https://github.com/michal-h21/make4ht/issues/143

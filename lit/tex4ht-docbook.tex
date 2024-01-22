@@ -118,7 +118,7 @@
      \Link{#1}{#2}\expandafter\ifx \csname RefArg\endcsname\relax\else \Tg<!--ref: \RefArg-->\fi\EndLink
      #3\HCode{</para></note>}
    \else
-     \Link{#1}{#2}\expandafter\ifx \csname RefArg\endcsname\relax\else \Tg<!--ref: \RefArg-->\fi\EndLink
+     \Link{#1}{#2}\expandafter\ifx \csname RefArg\endcsname\relax\else \Tg<!--ref: \RefArg-->\fi#3\EndLink
    \fi}
 >>>
 
