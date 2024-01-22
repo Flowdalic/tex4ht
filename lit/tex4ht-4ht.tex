@@ -4962,6 +4962,25 @@ TeX4ht driver provided by TikZ doesn't work well.
 >>>        \AddFile{9}{pgf-hooks}
 
 %%%%%%%%%%%%%%%%%%
+\Section{tikz-cd.sty}
+%%%%%%%%%%%%%%%%%%
+
+\<tikz-cd.4ht\><<<
+% tikz-cd.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+|<tikzcd-picture|>
+\Hinput{tikz-cd}
+\endinput
+>>> \AddFile{9}{tikz-cd}
+
+Convert the tikzcd environment to pictures by default.
+
+\<tikzcd-picture\><<<
+\ConfigureEnv{tikzcd}{\Picture+{}}{\EndPicture}{}{}
+>>>
+
+%%%%%%%%%%%%%%%%%%
 \Section{pdfbase.sty}
 %%%%%%%%%%%%%%%%%%
 
