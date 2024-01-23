@@ -5252,7 +5252,7 @@ when the command is encountered.
 \escapechar=`\\%
 \protect:wrtoc
 \csname Modify#1ToToc\endcsname
-\edef\:writetoc{\csname if:toc\endcsname{\the\:tokwrite
+\protected:edef\:writetoc{\csname if:toc\endcsname{\the\:tokwrite
    {\string\doTocEntry
     \string\toc \expandafter\ifx\csname toToc:#1\endcsname\relax #1\else
        \csname toToc:#1\endcsname\fi
@@ -11132,6 +11132,19 @@ titles of sections are referenced.
 
 LaTeX has \`'\def\@unexpandable@protect{\noexpand\protect\noexpand}' to be included in  immediate defines.
 
+This is a variant of \`'\protected@edef' from LaTeX. We cannot use it directly here, so I've made a copy.
+
+\<html utilities\><<<
+\def\:unexpand:protect{\noexpand\protect\noexpand}
+\def\:restore:protect{\let\protect\orig:protect}
+\def\protected:edef{%
+  \let\:orig:protect\protect%
+  \let\protect\:unexpand:protect%
+  \afterassignment\:restore:protect%
+  \edef%
+}
+
+>>>
 
 \Section{Tags}
 
