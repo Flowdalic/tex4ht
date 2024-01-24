@@ -21752,6 +21752,52 @@ users redefine the latter macro.
 >>>
 
 
+%%%%%%%%%%%%%%%%%%%%%
+\section{mhchem}
+%%%%%%%%%%%%%%%%%%%%%
+
+\<configure html4 mhchem\><<<
+\typeout{***************** hello mhchem}
+\Configure{mhchemcf}{\HCode{<span class="mhchem">}}{\HCode{</span>}}
+\Configure{mhchemce}{\HCode{<span class="mhchem">}}{\HCode{</span>}}
+
+\Configure{mhchemisotope}{\HCode{<span class="mhchem-isotope">}}{\HCode{<br />&\#xfeff;}}{\HCode{</span>}}
+\Configure{mhchemsub}{\HCode {<sub class="mhchem-sub">}}{\HCode{</sub>} }
+\Configure{mhchemsup}{\HCode {<sup class="mhchem-sup">}}{\HCode{</sup>} }
+\Configure{mhchemoperator}{\HCode {<span class="mhchem-operator">}}{\HCode {</span>}}
+\Configure{mhchemarrow}{\HCode {<span class="mhchem-arrow">}}{\HCode{</span>}}
+\Configure{mhchemarrowabove}{\HCode {<span class="mhchem-above">}}{\HCode{</span>}}
+\Configure{mhchemarrowyields}{\HCode{<span class="mhchem-arrow-normal">&\#x27F6;</span>}}
+\Configure{mhchemarrowyieldsLeft}{\HCode{<span class="mhchem-arrow-normal">&\#x2190;</span>}}
+\Configure{mhchemarrowyieldsLeftRight}{\HCode{<span class="mhchem-arrow-normal">&\#x21c4;</span>}}  % todo: improve
+\Configure{mhchemarrowmesomerism}{\HCode{<span class="mhchem-arrow-normal">&\#x2194;</span>}}  % todo: improve
+\Configure{mhchemarrowequilibrium}{\HCode{<span class="mhchem-arrow-normal">&\#x21cc;</span>}}  % todo: improve
+\Configure{mhchemarrowequilibriumRight}{\HCode{<span class="mhchem-arrow-larger">&\#x21c0;</span><span class="mhchem-arrow-complement">&\#x21bd;</span>}}  % todo: improve
+\Configure{mhchemarrowequilibriumLeft}{\HCode{<span class="mhchem-arrow-complement">&\#x21c0;</span><span class="mhchem-arrow-larger">&\#x21bd;</span>}}  % todo: improve
+\Configure{mhchembondhalf}{\HCode{<span class="mhchem-bond-half-middle">&\#xfe4d;</span>}}
+\Configure{mhchembondoneandhalf}{\HCode{<span class="mhchem-rlap">&minus;</span><span~class="mhchem-bond-half-top">&\#xfe4d;</span>}}
+\Configure{mhchembondtwoandhalf}{\HCode{<span class="mhchem-rlap">=</span><span~class="mhchem-bond-half-top">&\#xfe4d;</span>}}
+\Configure{mhchembondtwoandhalff}{\HCode{<span class="mhchem-rlap mhchem-bond-top">&minus;</span><span class="mhchem-rlap mhchem-bond-bottom">&minus;</span><span class="mhchem-bond-half-middle">&\#xfe4d;</span>}}
+
+\Css{.mhchem ~ .mhchem-cf { white-space: nowrap; }}
+\Css{.mhchem ~ .mhchem-isotope { font-size: 0.65em; line-height: 1; display: inline-block; vertical-align: sub; text-align: right; }}
+\Css{.mhchem ~ .mhchem-supsub  { font-size: 0.65em; line-height: 1; display: inline-block; vertical-align: sub; }}
+\Css{.mhchem ~ .mhchem-sup     { font-size: 0.65em; line-height: 1; display: inline-block; vertical-align: 68\%; }}
+\Css{.mhchem ~ .mhchem-sub     { font-size: 0.65em; line-height: 1; display: inline-block; vertical-align: sub; }}
+\Css{.mhchem ~ .mhchem-rlap { display: inline-block; width: 0; }}
+\Css{.mhchem ~ .mhchem-bond-half-top    { vertical-align: 60\%; }}
+\Css{.mhchem ~ .mhchem-bond-half-middle { vertical-align: 35\%; }}
+\Css{.mhchem ~ .mhchem-bond-top         { vertical-align: 20\%; }}
+\Css{.mhchem ~ .mhchem-bond-bottom      { vertical-align: -20\%; }}
+\Css{.mhchem ~ .mhchem-arrow { display: inline-flex; flex-direction: column; vertical-align: middle; }}
+\Css{.mhchem ~ .mhchem-arrow > span { line-height: 80\%; text-align: center; }}
+\Css{.mhchem ~ .mhchem-arrow > .mhchem-above { min-height: 1em; font-size: 60\%; }}
+\Css{.mhchem ~ .mhchem-arrow > .mhchem-below { min-height: 1em; font-size: 60\%; }}
+\Css{.mhchem ~ .mhchem-arrow > span.mhchem-arrow-normal { line-height: 40\%; }}
+\Css{.mhchem ~ .mhchem-arrow > span.mhchem-arrow-larger { line-height: 25\%; font-size: 150\%; }}
+\Css{.mhchem ~ .mhchem-arrow > span.mhchem-arrow-complement { line-height: 25\%; }}
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%
 \section{transparent}
 %%%%%%%%%%%%%%%%%%%%%%

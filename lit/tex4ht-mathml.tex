@@ -5509,7 +5509,59 @@ with small  shifting.
 >>>
 
 
+%%%%%%%%%%%%%%%%%
+\section{mhchem}
+%%%%%%%%%%%%%%%%
 
+
+\<configure mathml mhchem\><<<
+\Configure{mhchemcf}{\HCode{<\:mhmathmlorhtml{mrow}{span}\space class="mhchem-cf">}}{\HCode{</\:mhmathmlorhtml{mrow}{span}>}}
+\Configure{mhchemce}{\HCode{<\:mhmathmlorhtml{mrow}{span}\space class="mhchem-ce">}}{\HCode{</\:mhmathmlorhtml{mrow}{span}>}}
+
+\Configure{mhchemsub}{%
+  \:mhmathmlorhtml{%
+  \Send{BACK}%
+  {<\a:mathml msub><\a:mathml mrow\Hnewline>}%
+  \Tg</\a:mathml mrow>\Tg<\a:mathml mrow\Hnewline>\trap:base%
+  }{%
+  \HCode{<sub>}}%
+}{\:mhmathmlorhtml{\Tg</\a:mathml mrow>\TG</\a:mathml msub\Hnewline>}{\HCode{</sub>}}}
+\Configure{mhchemsup}{%
+  \:mhmathmlorhtml{
+  \Send{BACK}
+  {<\a:mathml msup><\a:mathml mrow\Hnewline>}%
+  \Tg</\a:mathml mrow>\Tg<\a:mathml mrow\Hnewline>\trap:base
+  }{%
+  \HCode{<sup>}}%
+}{\:mhmathmlorhtml{\Tg</\a:mathml mrow>\TG</\a:mathml msup\Hnewline>}{\HCode{</sup>}}}
+
+\Configure{mhchemoperator}{\HCode{<\:mhmathmlorhtml{mo}{span} class="mhchem-operator">}\PauseMathClass}{\EndPauseMathClass\HCode {</\:mhmathmlorhtml{mo}{span}>}}
+
+\Configure{mhchemarrow}{\HCode {<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow">\:mhonlyinmathml{\a:mhchemoperator}}}{\HCode{\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
+\Configure{mhchemarrowabove}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-above">\:mhonlyinmathml{\a:mhchemoperator}}}{\HCode{\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
+\Configure{mhchemarrowyields}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2192;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
+\Configure{mhchemarrowyieldsLeft}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2190;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>} }
+\Configure{mhchemarrowyieldsLeftRight}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x21c4;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
+\Configure{mhchemarrowmesomerism}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2194;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
+\Configure{mhchemarrowequilibrium}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x21cc;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
+% this configuration leads to two arrows next to each other. but I cannot a
+% better configuration right now. this symbol doesn't have Unicode support
+\Configure{mhchemarrowequilibriumRight}
+{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-larger">\:mhonlyinmathml{\a:mhchemoperator}&\#x21c0;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>
+<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-complement">\:mhonlyinmathml{\a:mhchemoperator}&\#x21bd;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}
+}  % todo: improve
+\Configure{mhchemarrowequilibriumLeft}
+{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-complement">\:mhonlyinmathml{\a:mhchemoperator}&\#x21c0;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>
+<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-larger">\:mhonlyinmathml{\a:mhchemoperator}&\#x21bd;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}
+}  % todo: improve
+% this is not the right symbol
+% \Configure{mhchemarrowequilibriumRight}{\a:mhchemoperator\HCode{&\#x2942;}\b:mhchemoperator }  % todo: improve
+% \Configure{mhchemarrowequilibriumLeft}{\a:mhchemoperator\HCode{&\#x2943;}\b:mhchemoperator}  % todo: improve
+\Configure{mhchembondhalf}{\HCode{<span class="mhchem-bond-half-middle">&\#xfe4d;</span>}}
+\Configure{mhchembondoneandhalf}{\HCode{<span class="mhchem-rlap">&minus;</span><span class="mhchem-bond-half-top">&\#xfe4d;</span>}}
+\Configure{mhchembondtwoandhalf}{\HCode{<span class="mhchem-rlap">=</span><span class="mhchem-bond-half-top">&\#xfe4d;</span>}}
+\Configure{mhchembondtwoandhalff}{\HCode{<span class="mhchem-rlap mhchem-bond-top">&minus;</span><span class="mhchem-rlap mhchem-bond-bottom">&minus;</span><span class="mhchem-bond-half-middle">&\#xfe4d;</span>}}
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Notes}
