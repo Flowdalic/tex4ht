@@ -2,7 +2,7 @@
 % compile 3 times: latex tex4ht-ooffice
 %      htlatex tex4ht-ooffice "xhtml,4,sections+"
 %
-% Copyright 2009-2023 TeX Users Group
+% Copyright 2009-2024 TeX Users Group
 % Copyright 2001-2009 Eitan M. Gurari
 % Released under LPPL 1.3c+.
 % See tex4ht-cpright.tex for license text.
@@ -112,7 +112,7 @@ tail>>>
 
 
 \<copy right notice\><<<
-% Copyright 2009-2023 TeX Users Group
+% Copyright 2009-2024 TeX Users Group
 % Copyright |CopyYear.2001. Maarten Wisse, James Naughton, Eitan M. Gurari
 |<TeX4ht copywrite|>
 >>>
@@ -5677,6 +5677,11 @@ due to thge extra \verb+--+..
 
 
 
+I am not sure what the following code wants to achieve. It doesn't 
+start a <text:p> element if the token returned from halignTD is empty.
+It was empty in the case of "p" table preamble token, but this
+led to issues with multirows. 
+See \Link[https://tex.stackexchange.com/q/707918/2891]{}{}this example\EndLink.
 
 \<start par at cell\><<<
 |<extract cell attributes|>\if !\Aligh:Wrap!\let\not:Pcell=\:gobble
@@ -5752,7 +5757,7 @@ sty-\LR:VBars\Left:Marg\Right:Marg\Aligh:Wrap
    {=}{N}     %{\HCode{valign-baseline nowrap}}
    {||}{M}     %{\HCode{valign-middle nowrap}}
    {_}{B}     %{\HCode{valign-bottom nowrap}}
-   {p}{}
+   {p}{L}     % this used to be empty, but it could lead to XML errors - https://tex.stackexchange.com/q/707918/2891
    {m}{m}     %{\HCode{valign-middle   align-left}}
    {b}{n}     %{\HCode{valign-baseline align-left}}
    {}
@@ -5779,7 +5784,7 @@ sty-\LR:VBars\Left:Marg\Right:Marg\Aligh:Wrap
    {_}{\ifmathml \HCode{ rowalign="bottom"}\else
         B\fi}
    {p}{\ifmathml \HCode{ columnalign="left"}\else
-        \fi}
+        L\fi}  % this used to be empty, but it could lead to XML errors - https://tex.stackexchange.com/q/707918/2891
    {m}{\ifmathml\else m\fi}     %{\HCode{valign-middle   align-left}}
    {b}{\ifmathml\else n\fi}     %{\HCode{valign-baseline align-left}}
    {}
