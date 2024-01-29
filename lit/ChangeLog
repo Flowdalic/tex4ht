@@ -1,3 +1,9 @@
+2024-01-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-ooffice.tex (ooffice-mml.4ht),
+	* tex4ht-mathml.tex (mathml.4ht),
+	* tex4ht-4ht.tex (mhchem.4ht): added Mhchem support for the ODT format.
+
 2024-01-25  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht, ooffice-mml.4ht): start paragraph

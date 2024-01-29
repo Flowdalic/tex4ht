@@ -30898,35 +30898,35 @@ it come out as a complete mess.
 \cs_set_protected:Npn \__mhchem_output_withFont:n #1  %. output #1 as math or text
   {
     \bool_if:NTF \l__mhchem_output_isMathMode_bool
-      { \mathrm {#1} }
-      { \text {#1} }
+      { \begingroup\mathrm {#1}\endgroup }
+      { \begingroup\text {#1}\endgroup }
   }
 
 \NewConfigure{mhchemoperator}{2}
 
 % ideally, the following commands should be redefined using \HLet, to support picture math. 
 % the current definition should work in MathML, I am not sure about normall HTML, as 
-\cs_set_protected:Npn \__mhchem_output_skipAfterAmount: { \HCode { ~ } }  % space for copy & paste
+\cs_set_protected:Npn \__mhchem_output_skipAfterAmount: {\HCode { ~ } }  % space for copy & paste
 \cs_set_protected:Npn \__mhchem_output_skipBeforeStateOfAggregation: {}
-\cs_set_protected:Npn \__mhchem_output_minus: { \HCode { &minus; } }
+\cs_set_protected:Npn \__mhchem_output_minus: {\HCode{&\#x2212;}} % minus
 \cs_set_protected:Npn \__mhchem_output_operatorPlus:
   { \a:mhchemoperator + \b:mhchemoperator  }
 \cs_set_protected:Npn \__mhchem_output_operatorMinus:
-  { \a:mhchemoperator\HCode {&minus;} \b:mhchemoperator }
+  { \a:mhchemoperator\HCode {&\#x2212;} \b:mhchemoperator } % minus
 \cs_set_protected:Npn \__mhchem_output_operatorEquals:
   { \a:mhchemoperator =  \b:mhchemoperator }
 \cs_set_protected:Npn \__mhchem_output_operatorPlusMinus:
-  {\a:mhchemoperator \HCode {&plusmn; } \b:mhchemoperator }
-\cs_set_protected:Npn \__mhchem_output_electronDot: { \HCode { &bull; } }
-\cs_set_protected:Npn \__mhchem_output_additionCompound: { \HCode { &middot; } }
+  {\a:mhchemoperator \HCode {&\#xB1;} \b:mhchemoperator } % plusmn
+  \cs_set_protected:Npn \__mhchem_output_electronDot: { \HCode {&\#x2022;} } % bull
+  \cs_set_protected:Npn \__mhchem_output_additionCompound: { \HCode {&\#xB7;} } % middot
 \cs_set_protected:Npn \__mhchem_output_excited: { \HCode { &\#x2731; } }
 \cs_set_protected:Npn \__mhchem_output_commaDecimal: { , }
-\cs_set_protected:Npn \__mhchem_output_commaEnumeration: {,\HCode { &thinsp; } }
-\cs_set_protected:Npn \__mhchem_output_commaEnumerationSmall: {,\HCode{ &thinsp; } }
+\cs_set_protected:Npn \__mhchem_output_commaEnumeration: {,\HCode {&\#x2009;} } % thinsp
+\cs_set_protected:Npn \__mhchem_output_commaEnumerationSmall: {,\HCode{&\#x2009;} } % thinsp 
   
-\cs_set_protected:Npn \__mhchem_output_bond_single: { \a:mhchemoperator{\HCode { &minus; }}\b:mhchemoperator}
-\cs_set_protected:Npn \__mhchem_output_bond_double: { \a:mhchemoperator{\HCode { &equals; }}\b:mhchemoperator}
-\cs_set_protected:Npn \__mhchem_output_bond_triple: { \a:mhchemoperator{\HCode { &equiv; }}\b:mhchemoperator}
+\cs_set_protected:Npn \__mhchem_output_bond_single: { \a:mhchemoperator{\HCode { &\#x2212; }}\b:mhchemoperator}
+\cs_set_protected:Npn \__mhchem_output_bond_double: { \a:mhchemoperator{\HCode { =}}\b:mhchemoperator}
+\cs_set_protected:Npn \__mhchem_output_bond_triple: { \a:mhchemoperator{\HCode { &\#x2261;}}\b:mhchemoperator}
 % todo: add MathML support for these
 \cs_set_protected:Npn \__mhchem_output_bond_half:  % todo: improve
   {\a:mhchembondhalf}
@@ -30941,8 +30941,8 @@ it come out as a complete mess.
 \NewConfigure{mhchembondoneandhalf}{1}
 \NewConfigure{mhchembondtwoandhalf}{1}
 \NewConfigure{mhchembondtwoandhalff}{1}
-\cs_set_protected:Npn \__mhchem_output_bond_dotdotdot: { \HCode { &middot;&middot;&middot; } }
-\cs_set_protected:Npn \__mhchem_output_bond_dotdotdotdot: { \HCode { &middot;&middot;&middot;&middot; } }
+\cs_set_protected:Npn \__mhchem_output_bond_dotdotdot: { \HCode { &\#xB7;&\#xB7;&\#xB7;} } % &middot;&middot;&middot; 
+\cs_set_protected:Npn \__mhchem_output_bond_dotdotdotdot: { \HCode { &\#xB7;&\#xB7;&\#xB7;&\#xB7;} } %  &middot;&middot;&middot;&middot; 
 \cs_set_protected:Npn \__mhchem_output_bond_rightArrow: { \HCode { &\#xffeb; } }
 \cs_set_protected:Npn \__mhchem_output_bond_leftArrow: { \HCode { &\#xffe9; } }
 
