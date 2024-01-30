@@ -5012,7 +5012,7 @@ tail>>>
 \<configure mathml amsmath\><<<
 \Configure{boxed}
    {\ifmathml \Tg<\a:mathml menclose \a:mathml notation="box">\Tg<\a:mathml mrow>%
-    \else     \HCode{<span class="boxed">}\IgnorePar\fi}
+    \else     \HCode{<span class="boxed">}\fi\IgnorePar}
    {\ifmathml \Tg</\a:mathml mrow>\Tg</\a:mathml menclose>%
     \else \HCode{</span>}\fi}
 \Css{.boxed{border: 1px solid black; padding-left:2px;
