@@ -5119,8 +5119,8 @@ The `index=i' provides the initial setting.
 \<default offline footnote text\><<<
 \Configure{footnotetext}
    {|<open footnote page|>%
-    |<fn mark sup|>\Link{}{|<footnote id|>}%
-    \NoFonts\AnchorLabel
+    |<fn mark sup|>\AnchorLabel\Link{}{|<footnote id|>}%
+    \NoFonts%
    }
    {\EndNoFonts \EndLink|<fn mark end sup|>}
    {|<close footnote page|>}
