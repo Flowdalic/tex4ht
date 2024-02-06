@@ -1,3 +1,9 @@
+2024-02-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (mathtools-hooks.4ht): prevent multiple loading of
+	this config file. Reported by Justin Shorb, caused by the Chemmacros
+	package.
+
 2024-01-30  Michal Hoftich  <michal.h21@gmail.com>
 	
 	* tex4ht-html4.tex (html4.4ht): fixed nested links in footnotes.

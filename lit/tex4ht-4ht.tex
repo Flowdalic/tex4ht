@@ -22268,12 +22268,22 @@ $\m@th\displaystyle{{}#}$%
 
 \<mathtools-hooks.4ht\><<<
 % mathtools-hooks.4ht, generated from |jobname.tex
-% Copyright 2023 TeX Users Group
+% Copyright 2023-2024 TeX Users Group
 |<TeX4ht license text|>
+|<mathtools dont load twice|>
 |<mathtools inner wrapper|>
 >>> 
 \AddFile{9}{mathtools-hooks}
 
+The Chemmacros package loads mathtools multiple times, but the subsequent loads lead to 
+problems with catcodes. I don't see a reason for this, but it happened. To prevent that
+we will stop loading of this file if mathtools is already loaded.
+
+It is possible that similar issues can happen with other early hooks configuration files.
+
+\<mathtools dont load twice\><<<
+\@ifpackageloaded{mathtools}{\endinput}{}
+>>>
 
 This should prevent compilation errors with commands declared using \''\DeclarePairedDelimiter' and MathML. 
 We need to patch the command at the moment when it is declared, so it must be available
