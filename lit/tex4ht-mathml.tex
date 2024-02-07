@@ -5535,10 +5535,11 @@ with small  shifting.
   \HCode{<sup>}}%
 }{\:mhmathmlorhtml{\Tg</\a:mathml mrow>\TG</\a:mathml msup\Hnewline>}{\HCode{</sup>}}}
 
-\Configure{mhchemoperator}{\HCode{<\:mhmathmlorhtml{mo}{span} class="mhchem-operator">}\PauseMathClass}{\EndPauseMathClass\HCode {</\:mhmathmlorhtml{mo}{span}>}}
+% mhchemoperator is always used inside \HCode, so we need not to use \HCode in it's configuration
+\Configure{mhchemoperator}{<\:mhmathmlorhtml{mo}{span} class="mhchem-operator">}{</\:mhmathmlorhtml{mo}{span}>}
 
-\Configure{mhchemarrow}{\HCode {<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow">\:mhonlyinmathml{\a:mhchemoperator}}}{\HCode{\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
-\Configure{mhchemarrowabove}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-above">\:mhonlyinmathml{\a:mhchemoperator}}}{\HCode{\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
+\Configure{mhchemarrow}{\HCode {<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow">\:mhonlyinmathml{\a:mhchemoperator}}\PauseMathClass}{\EndPauseMathClass\HCode{\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
+\Configure{mhchemarrowabove}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-above">\:mhonlyinmathml{\a:mhchemoperator}}\PauseMathClass}{\EndPauseMathClass\HCode{\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
 \Configure{mhchemarrowyields}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2192;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
 \Configure{mhchemarrowyieldsLeft}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2190;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>} }
 \Configure{mhchemarrowyieldsLeftRight}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x21c4;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve

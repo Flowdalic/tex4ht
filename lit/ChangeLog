@@ -1,3 +1,10 @@
+2024-02-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (mhchem.4ht),
+	* tex4ht-mathml.tex (mathml.4ht),
+	* tex4ht-html4.tex (html4.4ht): fixed more Mhchem formatting errors.
+	https://tex.stackexchange.com/q/654236/2891
+
 2024-02-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (mathtools-hooks.4ht): prevent multiple loading of

@@ -30914,29 +30914,30 @@ it come out as a complete mess.
 
 \NewConfigure{mhchemoperator}{2}
 
-% ideally, the following commands should be redefined using \HLet, to support picture math. 
-% the current definition should work in MathML, I am not sure about normall HTML, as 
+% ideally, the following commands should be redefined using \HLet, to support picture math.
+% the current definition should work in MathML, I am not sure about normall HTML, as
 \cs_set_protected:Npn \__mhchem_output_skipAfterAmount: {\HCode { ~ } }  % space for copy & paste
 \cs_set_protected:Npn \__mhchem_output_skipBeforeStateOfAggregation: {}
 \cs_set_protected:Npn \__mhchem_output_minus: {\HCode{&\#x2212;}} % minus
 \cs_set_protected:Npn \__mhchem_output_operatorPlus:
-  { \a:mhchemoperator + \b:mhchemoperator  }
+  { \HCode {\a:mhchemoperator + \b:mhchemoperator  }}
 \cs_set_protected:Npn \__mhchem_output_operatorMinus:
-  { \a:mhchemoperator\HCode {&\#x2212;} \b:mhchemoperator } % minus
+  { \HCode {\a:mhchemoperator&\#x2212; \b:mhchemoperator }} % minus
 \cs_set_protected:Npn \__mhchem_output_operatorEquals:
-  { \a:mhchemoperator =  \b:mhchemoperator }
+  { \HCode {\a:mhchemoperator =  \b:mhchemoperator }}
 \cs_set_protected:Npn \__mhchem_output_operatorPlusMinus:
-  {\a:mhchemoperator \HCode {&\#xB1;} \b:mhchemoperator } % plusmn
-  \cs_set_protected:Npn \__mhchem_output_electronDot: { \HCode {&\#x2022;} } % bull
-  \cs_set_protected:Npn \__mhchem_output_additionCompound: { \HCode {&\#xB7;} } % middot
+  {\HCode {\a:mhchemoperator &\#xB1; \b:mhchemoperator }} % plusmn
+\cs_set_protected:Npn \__mhchem_output_electronDot: { \HCode {&\#x2022;} } % bull
+\cs_set_protected:Npn \__mhchem_output_additionCompound: { \HCode {&\#xB7;} } % middot
 \cs_set_protected:Npn \__mhchem_output_excited: { \HCode { &\#x2731; } }
 \cs_set_protected:Npn \__mhchem_output_commaDecimal: { , }
 \cs_set_protected:Npn \__mhchem_output_commaEnumeration: {,\HCode {&\#x2009;} } % thinsp
-\cs_set_protected:Npn \__mhchem_output_commaEnumerationSmall: {,\HCode{&\#x2009;} } % thinsp 
-  
-\cs_set_protected:Npn \__mhchem_output_bond_single: { \a:mhchemoperator{\HCode { &\#x2212; }}\b:mhchemoperator}
-\cs_set_protected:Npn \__mhchem_output_bond_double: { \a:mhchemoperator{\HCode { =}}\b:mhchemoperator}
-\cs_set_protected:Npn \__mhchem_output_bond_triple: { \a:mhchemoperator{\HCode { &\#x2261;}}\b:mhchemoperator}
+\cs_set_protected:Npn \__mhchem_output_commaEnumerationSmall: {,\HCode{&\#x2009;} } % thinsp
+
+\cs_set_protected:Npn \__mhchem_output_bond_single: { \HCode { \a:mhchemoperator&\#x2212;\b:mhchemoperator}}
+\cs_set_protected:Npn \__mhchem_output_bond_double: { \HCode { \a:mhchemoperator=\b:mhchemoperator}}
+\cs_set_protected:Npn \__mhchem_output_bond_triple: { \HCode { \a:mhchemoperator&\#x2261;\b:mhchemoperator}}
+            
 % todo: add MathML support for these
 \cs_set_protected:Npn \__mhchem_output_bond_half:  % todo: improve
   {\a:mhchembondhalf}
