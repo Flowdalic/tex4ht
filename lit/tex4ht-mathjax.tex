@@ -271,7 +271,8 @@ Fixes for tables of contents.
 
 \<mhchem configurations\><<<
 \@ifpackageloaded{mhchem}{%
-\def\ce#1{\texttt{\detokenize{\(\ce{#1}\)}}}
+\def\:tempa#1{\texttt{\detokenize{\(\ce{#1}\)}}}
+\HLet\ce\:tempa
 }{}
 >>>
 
