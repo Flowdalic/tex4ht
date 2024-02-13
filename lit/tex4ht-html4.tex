@@ -21800,6 +21800,20 @@ users redefine the latter macro.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%
+\section{chemfig}
+%%%%%%%%%%%%%%%%%%%%%%
+
+Display chemname as two inline rows
+
+\<configure html4 chemfig\><<<
+\Configure{chemname}{\ifvmode\IgnorePar\fi\EndP\HCode{<span class="chemname"><span class="chemnametop">}\IgnorePar}
+{\HCode{</span><span class="chemnamebot">}}{\HCode{</span></span>}}
+
+\Css{.chemname {display: inline-grid; text-align:center;}}
+\Css{.chemnamebot{font-size: 0.8rem;}}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%
 \section{transparent}
 %%%%%%%%%%%%%%%%%%%%%%
 

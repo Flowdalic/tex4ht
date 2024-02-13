@@ -1,5 +1,9 @@
 2024-02-13  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (chemfig.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the the \chemname
+	command from Chemfig package.
+
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): fixed handling of the
 	\ce command used inside pictures.
 

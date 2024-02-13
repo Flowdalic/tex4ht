@@ -31030,6 +31030,48 @@ it come out as a complete mess.
 
 >>>
 
+%%%%%%%%%%%%%%%
+\Section{Chemfig}
+%%%%%%%%%%%%%%%
+
+\<chemfig.4ht\><<<
+% chemfig.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+|<chemfig redefinitions|>
+
+\Hinput{chemfig}
+\endinput
+>>> \AddFile{9}{chemfig}
+
+The chemname command should print label under chemical diagram, so we need to
+envelop both of these elements in hooks, to handle this structure in the configuration 
+for output formats.
+
+\<chemfig redefinitions\><<<
+\ExplSyntaxOn
+\NewConfigure{chemname}{3}
+\def\:tempa[#1]#2#3{%
+	\setbox\CF_boxstuff\hbox{#2}%
+	\edef\CF_wdstuffbox{\the\wd\CF_boxstuff}\edef\CF_dpstuffbox{\the\dp\CF_boxstuff}%
+	\leavevmode
+	\ifdim\CF_dpmax<\CF_dpstuffbox
+		\ifboolKV[chemfig]{gchemname}\global{}\let\CF_dpmax\CF_dpstuffbox
+	\fi
+  \a:chemname
+	\vtop{%
+		\box\CF_boxstuff
+		\nointerlineskip
+		\kern\dimexpr#1\ifCF_adjust_name_dp+\CF_dpmax-\CF_dpstuffbox\fi\relax
+    \b:chemname
+		\CF_parsemolname#3\\\_nil
+	}%
+  \c:chemname
+}
+\HLet\CF_chemnameb\:tempa
+\ExplSyntaxOff
+>>>
+
 %%%%%%%%%%%%%
 \Section{Ushort}
 %%%%%%%%%%%%%
