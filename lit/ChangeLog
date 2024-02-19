@@ -1,3 +1,8 @@
+2024-02-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed rendering of
+	mhchemarrowequilibriumLeft and mhchemarrowequilibriumRight.
+
 2024-02-15  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (

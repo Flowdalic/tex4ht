@@ -5545,16 +5545,18 @@ with small  shifting.
 \Configure{mhchemarrowyieldsLeftRight}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x21c4;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
 \Configure{mhchemarrowmesomerism}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2194;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
 \Configure{mhchemarrowequilibrium}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x21cc;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
-% this configuration leads to two arrows next to each other. but I cannot a
-% better configuration right now. this symbol doesn't have Unicode support
+% this configuration is inspired by the MathML code from MathJax. There is a problem with vertical positioning of arrows, so we need to use 
+% the <mpadded> element to fix that. It is still not perfect, moreover, there is a difference in rendering between 
+% vanilla Firefox and MathJax's MathML
 \Configure{mhchemarrowequilibriumRight}
-{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-larger">\:mhonlyinmathml{\a:mhchemoperator}&\#x21c0;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>
-<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-complement">\:mhonlyinmathml{\a:mhchemoperator}&\#x21bd;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}
-}  % todo: improve
+{\ensuremath{\HCode{<\a:mathml munder class="mhchem-arrow-larger"><\a:mathml mrow><\a:mathml mpadded  height="0" depth="1" voffset="3px"><\a:mathml mo  stretchy="true" >&\#x21c0;</\a:mathml mo></\a:mathml mpadded></\a:mathml mrow>
+  <\a:mathml mpadded height="0" depth="1" voffset="2px"><mspace width="0.167em"></mspace><\a:mathml mo stretchy="false">&\#x21bd;</\a:mathml mo><mspace width="0.167em"></mspace></\a:mathml mpadded></\a:mathml munder>}
+}}  % todo: improve
 \Configure{mhchemarrowequilibriumLeft}
-{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-complement">\:mhonlyinmathml{\a:mhchemoperator}&\#x21c0;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>
-<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-larger">\:mhonlyinmathml{\a:mhchemoperator}&\#x21bd;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}
-}  % todo: improve
+{\ensuremath{\HCode{<\a:mathml munder class="mhchem-arrow-larger"><\a:mathml mrow><\a:mathml mpadded  height="0" depth="1" voffset="4px"><mspace width="0.167em"></mspace><\a:mathml mo stretchy="false">&\#x21c0;</\a:mathml mo><mspace width="0.167em"></mspace></\a:mathml mpadded></\a:mathml mrow>
+  <\a:mathml mpadded  height="0" depth="1" voffset="2px"><\a:mathml mo  stretchy="true" >&\#x21bd;</\a:mathml mo></\a:mathml mpadded></\a:mathml munder>}
+}}  % todo: improve
+
 % this is not the right symbol
 % \Configure{mhchemarrowequilibriumRight}{\a:mhchemoperator\HCode{&\#x2942;}\b:mhchemoperator }  % todo: improve
 % \Configure{mhchemarrowequilibriumLeft}{\a:mhchemoperator\HCode{&\#x2943;}\b:mhchemoperator}  % todo: improve
