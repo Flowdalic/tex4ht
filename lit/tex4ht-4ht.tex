@@ -30907,58 +30907,56 @@ it come out as a complete mess.
 % replace original coreFive with our alternative version. it will work in picture math
 \HLet\__mhchem_output_coreFive:nnnnnnn\__mhchem_output_coreFivefourht:nnnnnnn
 
-\cs_set_protected:Npn \__mhchem_output_withFont:n #1  %. output #1 as math or text
+\cs_set_protected:Npn \__mhchem_output_withFontfourht:n #1  %. output #1 as math or text
   {
     \bool_if:NTF \l__mhchem_output_isMathMode_bool
       { \begingroup\mathrm {#1}\endgroup }
       { \begingroup\text {#1}\endgroup }
   }
 
+\HLet\__mhchem_output_withFont:n\__mhchem_output_withFontfourht:n
+
 \NewConfigure{mhchemoperator}{2}
 
-% ideally, the following commands should be redefined using \HLet, to support picture math.
-% the current definition should work in MathML, I am not sure about normall HTML, as
-\cs_set_protected:Npn \__mhchem_output_skipAfterAmount: {\HCode { ~ } }  % space for copy & paste
-\cs_set_protected:Npn \__mhchem_output_skipBeforeStateOfAggregation: {}
-\cs_set_protected:Npn \__mhchem_output_minus: {\HCode{&\#x2212;}} % minus
-\cs_set_protected:Npn \__mhchem_output_operatorPlus:
-  { \HCode {\a:mhchemoperator + \b:mhchemoperator  }}
-\cs_set_protected:Npn \__mhchem_output_operatorMinus:
-  { \HCode {\a:mhchemoperator&\#x2212; \b:mhchemoperator }} % minus
-\cs_set_protected:Npn \__mhchem_output_operatorEquals:
-  { \HCode {\a:mhchemoperator =  \b:mhchemoperator }}
-\cs_set_protected:Npn \__mhchem_output_operatorPlusMinus:
-  {\HCode {\a:mhchemoperator &\#xB1; \b:mhchemoperator }} % plusmn
-\cs_set_protected:Npn \__mhchem_output_electronDot: { \HCode {&\#x2022;} } % bull
-\cs_set_protected:Npn \__mhchem_output_additionCompound: { \HCode {&\#xB7;} } % middot
-\cs_set_protected:Npn \__mhchem_output_excited: { \HCode { &\#x2731; } }
-\cs_set_protected:Npn \__mhchem_output_commaDecimal: { , }
-\cs_set_protected:Npn \__mhchem_output_commaEnumeration: {,\HCode {&\#x2009;} } % thinsp
-\cs_set_protected:Npn \__mhchem_output_commaEnumerationSmall: {,\HCode{&\#x2009;} } % thinsp
+\def\:tempa#1#2{%
+ \cs_set_protected:Npn\:tempb:{#2}%
+ \HLet#1\:tempb:%
+}
 
-\cs_set_protected:Npn \__mhchem_output_bond_single: { \HCode { \a:mhchemoperator&\#x2212;\b:mhchemoperator}}
-\cs_set_protected:Npn \__mhchem_output_bond_double: { \HCode { \a:mhchemoperator=\b:mhchemoperator}}
-\cs_set_protected:Npn \__mhchem_output_bond_triple: { \HCode { \a:mhchemoperator&\#x2261;\b:mhchemoperator}}
+\:tempa \__mhchem_output_skipAfterAmount: {\HCode { ~ } }  % space for copy & paste
+\:tempa \__mhchem_output_skipBeforeStateOfAggregation: {}
+\:tempa \__mhchem_output_minus: {\HCode{&\#x2212;}} % minus
+\:tempa \__mhchem_output_operatorPlus:{ \HCode {\a:mhchemoperator + \b:mhchemoperator  }}
+\:tempa \__mhchem_output_operatorMinus:{ \HCode {\a:mhchemoperator&\#x2212; \b:mhchemoperator }} % minus
+\:tempa \__mhchem_output_operatorEquals:{ \HCode {\a:mhchemoperator =  \b:mhchemoperator }}
+\:tempa \__mhchem_output_operatorPlusMinus:{\HCode {\a:mhchemoperator &\#xB1; \b:mhchemoperator }} % plusmn
+\:tempa \__mhchem_output_electronDot: { \HCode {&\#x2022;} } % bull
+\:tempa \__mhchem_output_additionCompound: { \HCode {&\#xB7;} } % middot
+\:tempa \__mhchem_output_excited: { \HCode { &\#x2731; } }
+\:tempa \__mhchem_output_commaDecimal: { , }
+\:tempa \__mhchem_output_commaEnumeration: {,\HCode {&\#x2009;} } % thinsp
+\:tempa \__mhchem_output_commaEnumerationSmall: {,\HCode{&\#x2009;} } % thinsp
+
+\:tempa \__mhchem_output_bond_single: { \HCode { \a:mhchemoperator&\#x2212;\b:mhchemoperator}}
+\:tempa \__mhchem_output_bond_double: { \HCode { \a:mhchemoperator=\b:mhchemoperator}}
+\:tempa \__mhchem_output_bond_triple: { \HCode { \a:mhchemoperator&\#x2261;\b:mhchemoperator}}
             
 % todo: add MathML support for these
-\cs_set_protected:Npn \__mhchem_output_bond_half:  % todo: improve
-  {\a:mhchembondhalf}
-\cs_set_protected:Npn \__mhchem_output_bond_oneAndHalf:  % todo: improve 
-  {\a:mhchembondoneandhalf}
-\cs_set_protected:Npn \__mhchem_output_bond_twoAndHalf:  % todo: improve
-  {\a:mhchembondtwoandhalf}
-\cs_set_protected:Npn \__mhchem_output_bond_twoAndHalff:  % todo: improve
-  {\a:mhchembondtwoandhalff}
+\:tempa \__mhchem_output_bond_half:{\a:mhchembondhalf}
+\:tempa \__mhchem_output_bond_oneAndHalf:{\a:mhchembondoneandhalf}
+\:tempa \__mhchem_output_bond_twoAndHalf:{\a:mhchembondtwoandhalf}
+\:tempa \__mhchem_output_bond_twoAndHalff:{\a:mhchembondtwoandhalff}
+
+\:tempa \__mhchem_output_bond_dotdotdot: { \HCode { &\#xB7;&\#xB7;&\#xB7;} } % &middot;&middot;&middot; 
+\:tempa \__mhchem_output_bond_dotdotdotdot: { \HCode { &\#xB7;&\#xB7;&\#xB7;&\#xB7;} } %  &middot;&middot;&middot;&middot; 
+\:tempa \__mhchem_output_bond_rightArrow: { \HCode { &\#xffeb; } }
+\:tempa \__mhchem_output_bond_leftArrow: { \HCode { &\#xffe9; } }
+
 
 \NewConfigure{mhchembondhalf}{1}
 \NewConfigure{mhchembondoneandhalf}{1}
 \NewConfigure{mhchembondtwoandhalf}{1}
 \NewConfigure{mhchembondtwoandhalff}{1}
-\cs_set_protected:Npn \__mhchem_output_bond_dotdotdot: { \HCode { &\#xB7;&\#xB7;&\#xB7;} } % &middot;&middot;&middot; 
-\cs_set_protected:Npn \__mhchem_output_bond_dotdotdotdot: { \HCode { &\#xB7;&\#xB7;&\#xB7;&\#xB7;} } %  &middot;&middot;&middot;&middot; 
-\cs_set_protected:Npn \__mhchem_output_bond_rightArrow: { \HCode { &\#xffeb; } }
-\cs_set_protected:Npn \__mhchem_output_bond_leftArrow: { \HCode { &\#xffe9; } }
-
 
 
 \NewConfigure{mhchemarrow}{2}
