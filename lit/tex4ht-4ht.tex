@@ -30838,6 +30838,8 @@ it come out as a complete mess.
 
 \NewConfigure{mhchemsup}{2}
 
+\NewConfigure{mhchemsupsub}{3}
+
 \cs_set_protected:Npn \__mhchem_output_coreFivefourht:nnnnnnn #1#2#3#4#5#6#7
   {
     \bool_if:nT
@@ -30872,11 +30874,11 @@ it come out as a complete mess.
                 \b:mhchemsup
               }
               { 
-              	\HCode { <span~class="mhchem-supsub"> }
+                \a:mhchemsupsub
               	\__mhchem_output_withFont:n { #4#5#7 }
-              	\HCode { <br~/>&\#xfeff; }
+                \c:mhchemsupsub
               	\__mhchem_output_withFont:n { #6 }
-              	\HCode { </span> } 
+                \b:mhchemsupsub
              }
           }
       }

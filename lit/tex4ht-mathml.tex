@@ -5518,22 +5518,25 @@ with small  shifting.
 \Configure{mhchemcf}{\HCode{<\:mhmathmlorhtml{mrow}{span}\space class="mhchem-cf">}}{\HCode{</\:mhmathmlorhtml{mrow}{span}>}}
 \Configure{mhchemce}{\HCode{<\:mhmathmlorhtml{mrow}{span}\space class="mhchem-ce">}}{\HCode{</\:mhmathmlorhtml{mrow}{span}>}}
 
+% we configure subscripts and superscripts to have empty bases. it is because if superscript followed subscript, we got wrong
+% MathML markup, with mismatched tags. For example: \ce{CrO4^2-}
 \Configure{mhchemsub}{%
   \:mhmathmlorhtml{%
-  \Send{BACK}%
-  {<\a:mathml msub><\a:mathml mrow\Hnewline>}%
-  \Tg</\a:mathml mrow>\Tg<\a:mathml mrow\Hnewline>\trap:base%
+  \HCode{<\a:mathml msub><mrow></mrow><\a:mathml mrow>}%
   }{%
   \HCode{<sub>}}%
-}{\:mhmathmlorhtml{\Tg</\a:mathml mrow>\TG</\a:mathml msub\Hnewline>}{\HCode{</sub>}}}
+}{\:mhmathmlorhtml{\Tg</\a:mathml mrow>\TG</\a:mathml msub>}{\HCode{</sub>}}}
 \Configure{mhchemsup}{%
   \:mhmathmlorhtml{
-  \Send{BACK}
-  {<\a:mathml msup><\a:mathml mrow\Hnewline>}%
-  \Tg</\a:mathml mrow>\Tg<\a:mathml mrow\Hnewline>\trap:base
+  \HCode{<\a:mathml msup><mrow></mrow><\a:mathml mrow>}%
   }{%
   \HCode{<sup>}}%
 }{\:mhmathmlorhtml{\Tg</\a:mathml mrow>\TG</\a:mathml msup\Hnewline>}{\HCode{</sup>}}}
+
+
+\Configure{mhchemsupsub}{\setbox0=\hbox\bgroup}{\egroup\setbox1=\hbox\bgroup}{\egroup\HCode{<\a:mathml msubsup><\a:mathml mrow></\a:mathml mrow><\a:mathml mrow>}\box1\HCode{</\a:mathml mrow><\a:mathml mrow>}\box0\HCode{</\a:mathml mrow></\a:mathml msubsup>}}
+\Configure{mhchemisotope}{\setbox0=\hbox\bgroup}{\egroup\setbox1=\hbox\bgroup}{\egroup\HCode{<\a:mathml msubsup><\a:mathml mrow></\a:mathml mrow><\a:mathml mrow>}\box1\HCode{</\a:mathml mrow><\a:mathml mrow>}\box0\HCode{</\a:mathml mrow></\a:mathml msubsup>}}
+
 
 % mhchemoperator is always used inside \HCode, so we need not to use \HCode in it's configuration
 \Configure{mhchemoperator}{<\:mhmathmlorhtml{mo}{span} class="mhchem-operator">}{</\:mhmathmlorhtml{mo}{span}>}

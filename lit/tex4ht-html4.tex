@@ -21757,13 +21757,13 @@ users redefine the latter macro.
 %%%%%%%%%%%%%%%%%%%%%
 
 \<configure html4 mhchem\><<<
-\typeout{***************** hello mhchem}
 \Configure{mhchemcf}{\HCode{<span class="mhchem">}}{\HCode{</span>}}
 \Configure{mhchemce}{\HCode{<span class="mhchem">}}{\HCode{</span>}}
 
 \Configure{mhchemisotope}{\HCode{<span class="mhchem-isotope">}}{\HCode{<br />&\#xfeff;}}{\HCode{</span>}}
 \Configure{mhchemsub}{\HCode {<sub class="mhchem-sub">}}{\HCode{</sub>} }
 \Configure{mhchemsup}{\HCode {<sup class="mhchem-sup">}}{\HCode{</sup>} }
+\Configure{mhchemsupsub}{\HCode{<span class="mhchem-supsub">}}{\HCode{<br />&\#xfeff;}}{\HCode{</span>}}
 % mhchemoperator is always used inside \HCode, so we need not to use \HCode in it's configuration
 \Configure{mhchemoperator}{<span class="mhchem-operator">}{</span>} 
 \Configure{mhchemarrow}{\HCode {<span class="mhchem-arrow">}}{\HCode{</span>}}
