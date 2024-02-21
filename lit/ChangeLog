@@ -1,5 +1,10 @@
 2024-02-21  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-jats.tex (jats.4ht): removed \space commands from inside of
+	the <title> element. It is suppossed to be used after the \TitleMark
+	command, and to be eaten by \:gobble if section numbers shoulnd't be
+	shown.
+
 	* tex4ht-4ht.tex (mhchem.4ht): added support for Mhchem characters
 	in pictures.
 
