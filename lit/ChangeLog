@@ -1,5 +1,7 @@
 2024-02-22  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-jats.tex (jats.4ht): fixed DOCTYPE.
+
 	* tex4ht-jats.tex (jats.4ht): added support for BibLaTeX.
 
 2024-02-21  Michal Hoftich  <michal.h21@gmail.com>
