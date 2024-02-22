@@ -861,7 +861,7 @@ them separatelly.
  \def\bibConfigure{%
   \ConfigureList{thebibliography}
   {\ifvmode \IgnorePar \fi \EndP \EndP
-    \HCode{<ref-list>}%
+    \HCode{<ref-list>}\HtmlParOff%
    \immediate\write\@auxout{%
      \string\providecommand\string\BibFileName[2][]{}
    }%
@@ -870,12 +870,13 @@ them separatelly.
     \PushMacro \end:itm \global \let \end:itm =\empty}%
   {\ifvmode \IgnorePar \fi \EndP
     \PopMacro \end:itm \global \let \end:itm \end:itm \EndP
-    \HCode {</mixed-citation></ref></ref-list>}\ShowPar}%
+    \HCode {</mixed-citation></ref></ref-list>}\HtmlParOn\ShowPar}%
   {\ifvmode \IgnorePar \fi \EndP \gHAdvance \bibN by 1
     \end:itm \global \def \end:itm {\EndP \HCode{</mixed-citation></ref>}}%
-    \HCode {<ref id="X\therefsection-\abx@field@entrykey"><label>}}%
+    \Tag{X\therefsection-\abx@field@entrykey}{bibitem-\bibN}
+    \HCode {<ref id="bibitem-\bibN"><label>}}%
   {\ifvmode \IgnorePar \fi \EndP
-    \HCode {</label><mixed-citation id="bib-\bibN">}}%
+    \HCode {</label><mixed-citation publication-type="\thefield{entrytype}"  id="bib-\bibN">}}%
 }
 >>>
 
@@ -891,7 +892,7 @@ fields.
 \DeclareFieldFormat[incollection]{title}{\HCode{<part-title>}#1\HCode{</part-title>}}
 \DeclareFieldFormat[inbook]{title}{\HCode{<part-title>}#1\HCode{</part-title>}}
 \DeclareFieldFormat{year}{\HCode{<year>}#1\HCode{</year>}}
-\DeclareFieldFormat{date}{\HCode{<year>}#1\HCode{</year>}}
+\DeclareFieldFormat{date}{\HCode{<date-in-citation content-type="published">}#1\HCode{</date-in-citation>}} 
 \DeclareFieldFormat{pages}{\HCode{<page-range>}#1\HCode{</page-range>}}
 \DeclareListFormat{publisher}{\usebibmacro{list:delim}{#1}\HCode{<publisher-name>}#1\HCode{</publisher-name>}\isdot\usebibmacro{list:andothers}}
 \DeclareListFormat{location}{\usebibmacro{list:delim}{#1}\HCode{<publisher-loc>}#1\HCode{</publisher-loc>}\isdot\usebibmacro{list:andothers}}
