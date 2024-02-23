@@ -243,6 +243,11 @@ Configurations that are shared only for article and report
 % 
 % Title needs to be placed at the correct place by DOM filter
 \Configure{TITLE}{\HCode{<article-title>}}{\HCode{</article-title>}}
+
+% You can put license and copyright info into Permissions
+\NewConfigure{Permissions}{1}
+\Configure{Permissions}{\HCode{<permissions></permissions>}}
+
 \NewConfigure{ArticleMeta}{1}
   \Configure{ArticleMeta}{
   \HCode{<article-meta>}%
@@ -250,6 +255,7 @@ Configurations that are shared only for article and report
     % use \Configure{TitleGroup}
     \a:TitleGroup%
     \JATS:Contributors%
+    \a:Permissions
   \HCode{</article-meta>}%
 }
 % enable to configure contributors
