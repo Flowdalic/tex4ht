@@ -12427,6 +12427,10 @@ The following assign the counter into \''\FNnum'.
    \o:footnotemark:
 }
 \HLet\footnotemark\:tempc
+
+% fix \footnotemark in \section*
+\MakeRobust\footnotemark
+
 \def\:tempc[#1]{%
    \HAssign\FNnum =  #1\relax
    \o:@xfootnotemark:[#1]%
@@ -12437,6 +12441,10 @@ The following assign the counter into \''\FNnum'.
    \o:footnotetext:
 }
 \HLet\footnotetext\:tempc
+
+% fix \footnotetext in \section*
+\MakeRobust\footnotetext
+
 \def\:tempc[#1]{%
    \HAssign\FNnum = #1\relax
    \o:@xfootnotenext:[#1]%

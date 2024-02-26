@@ -1,3 +1,9 @@
+2024-02-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): make \footnotemark and \footnotetext
+	robust using \MakeRobust to make them work in section titles.
+	https://puszcza.gnu.org.ua/bugs/?622
+
 2024-02-23  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-jats.tex (jats.4ht): added Permissions configuration for
