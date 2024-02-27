@@ -1,3 +1,8 @@
+2024-02-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (mhchem.4ht): fixed formatting of left and
+	right bond arrows.
+
 2024-02-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): make \footnotemark and \footnotetext
