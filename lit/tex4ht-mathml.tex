@@ -5539,24 +5539,29 @@ with small  shifting.
 
 
 % mhchemoperator is always used inside \HCode, so we need not to use \HCode in it's configuration
-\Configure{mhchemoperator}{<\:mhmathmlorhtml{mo}{span} class="mhchem-operator">}{</\:mhmathmlorhtml{mo}{span}>}
+\Configure{mhchemoperator}{<\:mhmathmlorhtml{mo \a:mathml stretchy="false" }{span} class="mhchem-operator">}{</\:mhmathmlorhtml{mo}{span}>}
 
 \Configure{mhchemarrow}{\HCode {<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow">\:mhonlyinmathml{\a:mhchemoperator}}\PauseMathClass}{\EndPauseMathClass\HCode{\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
 \Configure{mhchemarrowabove}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-above">\:mhonlyinmathml{\a:mhchemoperator}}\PauseMathClass}{\EndPauseMathClass\HCode{\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
-\Configure{mhchemarrowyields}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2192;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}
-\Configure{mhchemarrowyieldsLeft}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2190;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>} }
-\Configure{mhchemarrowyieldsLeftRight}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x21c4;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
+\Configure{mhchemarrowyields}{\ensuremath{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x27F6;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}}
+\Configure{mhchemarrowyieldsLeft}{\ensuremath{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x27F5;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}}
+\Configure{mhchemarrowyieldsLeftRight}{\ensuremath{\HCode{<\a:mathml munder class="mhchem-arrow-larger"><\a:mathml mrow><\a:mathml mpadded height="0" depth="0.3em"><\a:mathml mo  stretchy="false" >&\#x27F5;</\a:mathml mo></\a:mathml mpadded></\a:mathml mrow>
+  <\a:mathml mrow><\a:mathml mpadded depth="0" height="0"><\a:mathml mo stretchy="false">&\#x27F6;</\a:mathml mo></\a:mathml mpadded></\a:mathml mrow></\a:mathml munder>}
+}} 
 \Configure{mhchemarrowmesomerism}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x2194;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
-\Configure{mhchemarrowequilibrium}{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x21cc;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}  % todo: improve
+% \Configure{mhchemarrowequilibrium}{\ensuremath{\HCode{<\:mhmathmlorhtml{mrow}{span} class="mhchem-arrow-normal">\:mhonlyinmathml{\a:mhchemoperator}&\#x21cc;\:mhonlyinmathml{\b:mhchemoperator}</\:mhmathmlorhtml{mrow}{span}>}}}  % todo: improve
+\Configure{mhchemarrowequilibrium}{\ensuremath{\HCode{<\a:mathml munder class="mhchem-arrow-larger"><\a:mathml mrow><\a:mathml mpadded  height="0" depth="0" voffset="-0.1em" ><\a:mathml mo  stretchy="true" >&\#x21c0;</\a:mathml mo></\a:mathml mpadded></\a:mathml mrow>
+  <\a:mathml mpadded height="0" depth="0" ><\a:mathml mo stretchy="false">&\#x21bd;</\a:mathml mo></\a:mathml mpadded></\a:mathml munder>}
+}}  % todo: improve
 % this configuration is inspired by the MathML code from MathJax. There is a problem with vertical positioning of arrows, so we need to use 
 % the <mpadded> element to fix that. It is still not perfect, moreover, there is a difference in rendering between 
 % vanilla Firefox and MathJax's MathML
 \Configure{mhchemarrowequilibriumRight}
 {\ensuremath{\HCode{<\a:mathml munder class="mhchem-arrow-larger"><\a:mathml mrow><\a:mathml mpadded  height="0" depth="1" voffset="3px"><\a:mathml mo  stretchy="true" >&\#x21c0;</\a:mathml mo></\a:mathml mpadded></\a:mathml mrow>
-  <\a:mathml mpadded height="0" depth="1" voffset="2px"><mspace width="0.167em"></mspace><\a:mathml mo stretchy="false">&\#x21bd;</\a:mathml mo><mspace width="0.167em"></mspace></\a:mathml mpadded></\a:mathml munder>}
+  <\a:mathml mpadded height="0" depth="1" voffset="2px"><\a:mathml mspace width="0.167em"></\a:mathml mspace><\a:mathml mo stretchy="false">&\#x21bd;</\a:mathml mo><\a:mathml mspace width="0.167em"></\a:mathml mspace></\a:mathml mpadded></\a:mathml munder>}
 }}  % todo: improve
 \Configure{mhchemarrowequilibriumLeft}
-{\ensuremath{\HCode{<\a:mathml munder class="mhchem-arrow-larger"><\a:mathml mrow><\a:mathml mpadded  height="0" depth="1" voffset="4px"><mspace width="0.167em"></mspace><\a:mathml mo stretchy="false">&\#x21c0;</\a:mathml mo><mspace width="0.167em"></mspace></\a:mathml mpadded></\a:mathml mrow>
+{\ensuremath{\HCode{<\a:mathml munder class="mhchem-arrow-larger"><\a:mathml mrow><\a:mathml mpadded  height="0" depth="1" voffset="4px"><\a:mathml mspace width="0.167em"></\a:mathml mspace><\a:mathml mo stretchy="false">&\#x21c0;</\a:mathml mo><\a:mathml mspace width="0.167em"></\a:mathml mspace></\a:mathml mpadded></\a:mathml mrow>
   <\a:mathml mpadded  height="0" depth="1" voffset="2px"><\a:mathml mo  stretchy="true" >&\#x21bd;</\a:mathml mo></\a:mathml mpadded></\a:mathml munder>}
 }}  % todo: improve
 
