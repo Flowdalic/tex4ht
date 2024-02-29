@@ -5515,8 +5515,8 @@ with small  shifting.
 
 
 \<configure mathml mhchem\><<<
-\Configure{mhchemcf}{\HCode{<\:mhmathmlorhtml{mrow}{span}\space class="mhchem-cf">}}{\HCode{</\:mhmathmlorhtml{mrow}{span}>}}
-\Configure{mhchemce}{\HCode{<\:mhmathmlorhtml{mrow}{span}\space class="mhchem-ce">}}{\HCode{</\:mhmathmlorhtml{mrow}{span}>}}
+\Configure{mhchemcf}{\bgroup\HCode{<\:mhmathmlorhtml{mrow}{span}\space class="mhchem-cf">}}{\HCode{</\:mhmathmlorhtml{mrow}{span}>}\egroup}
+\Configure{mhchemce}{\bgroup\HCode{<\:mhmathmlorhtml{mrow}{span}\space class="mhchem-ce">}}{\HCode{</\:mhmathmlorhtml{mrow}{span}>}\egroup}
 
 % we configure subscripts and superscripts to have empty bases. it is because if superscript followed subscript, we got wrong
 % MathML markup, with mismatched tags. For example: \ce{CrO4^2-}
