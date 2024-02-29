@@ -1,3 +1,7 @@
+2024-02-29  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed Mhchem arrows in MathML.
+
 2024-02-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht),

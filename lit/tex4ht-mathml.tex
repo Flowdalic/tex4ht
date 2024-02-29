@@ -5538,6 +5538,7 @@ with small  shifting.
 \Configure{mhchemisotope}{\setbox0=\hbox\bgroup}{\egroup\setbox1=\hbox\bgroup}{\egroup\HCode{<\a:mathml msubsup><\a:mathml mrow></\a:mathml mrow><\a:mathml mrow>}\box1\HCode{</\a:mathml mrow><\a:mathml mrow>}\box0\HCode{</\a:mathml mrow></\a:mathml msubsup>}}
 
 
+
 % mhchemoperator is always used inside \HCode, so we need not to use \HCode in it's configuration
 \Configure{mhchemoperator}{<\:mhmathmlorhtml{mo \a:mathml stretchy="false" }{span} class="mhchem-operator">}{</\:mhmathmlorhtml{mo}{span}>}
 
@@ -5572,6 +5573,78 @@ with small  shifting.
 \Configure{mhchembondoneandhalf}{\HCode{<span class="mhchem-rlap">&\#x2212;</span><span class="mhchem-bond-half-top">&\#xfe4d;</span>}}
 \Configure{mhchembondtwoandhalf}{\HCode{<span class="mhchem-rlap">=</span><span class="mhchem-bond-half-top">&\#xfe4d;</span>}}
 \Configure{mhchembondtwoandhalff}{\HCode{<span class="mhchem-rlap mhchem-bond-top">&\#x2212;</span><span class="mhchem-rlap mhchem-bond-bottom">&\#x2212;</span><span class="mhchem-bond-half-middle">&\#xfe4d;</span>}}
+
+|<mhchemarrows|>
+>>>
+
+This is a local redefinition of the text over and under arrow handling code for MathML. We need to do change the sequence of
+elements that are printed to support the munderover element easily.
+
+\<mhchemarrows\><<<
+\ExplSyntaxOn
+\cs_set_protected:Npn \__mhchem_arrow_deployfourht:nnnnn #1#2#3#4#5
+  {
+\bgroup
+\ensuremath{%
+  % we need to test if the text is larger than arrow. if it is, the math operator needs to be stretchy. 
+  % otherwise, it must be not stretchy, otherwise the text over arrow will be aligned to the right
+  \setbox0=\hbox{\tl_if_empty:nF {#3#5}
+    {
+      \str_case:nnF {#2}
+      {
+        {   } { \ce{ #5 } }
+        { M } { { #5 } }
+        { T } {  \text{ #5 } }
+        { C } { \ce{ #5 } }
+      }
+      { \msg_error:nnn { mhchem } { unexpected-arrow-type } {#2} }
+  }}
+  \setbox1=\hbox{\tl_if_empty:nF {#3#5}
+    {
+      \str_case:nnF {#2}
+      {
+        {   } { \ce{ #3 } }
+        { M } { { #3 } }
+        { T } { \text{ #3 } }
+        { C } { \ce{ #3 } }
+      }
+      { \msg_error:nnn { mhchem } { unexpected-arrow-type } {#2} }
+  }}
+  % now compare dimensions of boxes and change  math stretchines
+  \ifdim \wd0>1em
+    \Configure{mhchemoperator}{<\a:mathml mo~\a:mathml stretchy="true"~\a:mathml class="mhchem-operator">}{</\a:mathml mo>}
+  \else
+    \ifdim \wd1>1em
+      \Configure{mhchemoperator}{<\a:mathml mo~\a:mathml stretchy="true"~\a:mathml class="mhchem-operator">}{</\a:mathml mo>}
+    \fi
+  \fi
+\a:mhchemmathlarrow
+    \str_case:nnF {#1}
+      {
+        { yields } {\a:mhchemarrowyields }
+        { yieldsLeft } {\a:mhchemarrowyieldsLeft }
+        { yieldsLeftRight } {\a:mhchemarrowyieldsLeftRight }  % todo: improve
+        { esomerism } {\a:mhchemarrowesomerism }  % todo: improve
+        { equilibrium } {\a:mhchemarrowequilibrium }  % todo: improve
+        { equilibriumRight } {\a:mhchemarrowequilibriumRight }  % todo: improve
+        { equilibriumLeft } {\a:mhchemarrowequilibriumLeft }  % todo: improve
+      }
+      { \msg_error:nnn { mhchem } { unexpected-arrow-type } {#1} }
+\b:mhchemmathlarrow
+      \box0
+\c:mhchemmathlarrow
+      \box1
+\d:mhchemmathlarrow
+}
+\egroup
+  }
+
+\HRestore\__mhchem_arrow_deploy:nnnnn
+\HLet\__mhchem_arrow_deploy:nnnnn\__mhchem_arrow_deployfourht:nnnnn
+\ExplSyntaxOff
+
+\NewConfigure{mhchemmathlarrow}{4}
+\Configure{mhchemmathlarrow}{\HCode{<\a:mathml munderover><\a:mathml mrow>}}{\HCode{</\a:mathml mrow><\a:mathml mpadded>}}{\HCode{</\a:mathml mpadded><\a:mathml mpadded>}}{\HCode{</\a:mathml mpadded></\a:mathml munderover>}}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
