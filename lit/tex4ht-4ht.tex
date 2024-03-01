@@ -11139,9 +11139,11 @@ the  recursive macro \`'\inspect:cline' checks the digits separately.
 \<xltabular restore longtable\><<<
 % xltabular redefines \LT@array, which breaks all TeX4ht patches for this command
 % we must restore TeX4ht's version
-\let\xlt:array\LT@array
+\let\xltabular\tabularx
+\let\endxltabular\endtabularx
+\let\longtable\XLT@longtable
 \AtBeginDocument{
-  \let\LT@array\xlt:array
+  \HLet\XLT@LT@array\n:LT@array:
 }
 >>>
 
