@@ -11084,6 +11084,30 @@ the  recursive macro \`'\inspect:cline' checks the digits separately.
 \endinput
 >>>        \AddFile{7}{tabularx}
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{xltabular}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<xltabular.4ht\><<<
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+% xltabular.4ht (|version), generated from |jobname.tex 
+% Copyright 2024 TeX Users Group 
+|<TeX4ht license text|> 
+|<xltabular restore longtable|>
+\Hinput{xltabular}
+\endinput
+>>> \AddFile{7}{xltabular}
+
+
+\<xltabular restore longtable\><<<
+% xltabular redefines \LT@array, which breaks all TeX4ht patches for this command
+% we must restore TeX4ht's version
+\let\xlt:array\LT@array
+\AtBeginDocument{
+  \let\LT@array\xlt:array
+}
+>>>
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Arydshln}
