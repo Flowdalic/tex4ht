@@ -6574,7 +6574,9 @@ Hype: \hyperref[sec:foobar]{Link to Section \ref*{sec:foobar}}
 \EndVerbatim
 \EndHPage{}]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{bookmark.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \<add to usepackage\><<<
 \Configure{PackageHooks}{bookmark.sty}{bookmark-hooks.4ht}
@@ -6593,6 +6595,41 @@ want, as it clashes with TeX4ht. It is useful only in the PDF mode anayway.
 
 \<pass draft mode to bookmark\><<<
 \PassOptionsToPackage{draft}{bookmark}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{draftwatermark.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<draftwatermark.4ht\><<<
+% draftwatermark.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+% disable the watermark printing command
+\HLet\draftwatermark@printwm\@gobble
+\Hinput{draftwatermark}
+\endinput
+>>>        \AddFile{9}{draftwatermark}
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{draftwatermark.sty}{draftwatermark-hooks.4ht}
+>>>
+
+\<draftwatermark-hooks.4ht\><<<
+% draftwatermark-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+|<disable draft watermark|>
+\endinput
+>>>        \AddFile{9}{draftwatermark-hooks}
+
+We don't want to print watermarks, they cause unnecessary pictures and 
+slow compilation.
+
+\<disable draft watermark\><<<
+\:AtEndOfPackage{
+  \draftwatermark@stampfalse
+}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
