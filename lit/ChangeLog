@@ -1,5 +1,8 @@
 2024-01-01  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (draftwatermark.4ht, draftwatermark-hooks.4ht):
+	disable the watermarks inserted by the Draftwatermark package.
+
 	* tex4ht-4ht.tex (xltabular.4ht): a better fix for Xltabular.
 
 	* tex4ht-4ht.tex (xltabular.4ht): fixed longtable errors caused by
