@@ -1,4 +1,11 @@
-2024-01-01  Michal Hoftich  <michal.h21@gmail.com>
+2024-03-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/ams/cyrillic/wncyr.htf
+	): fixed some characters.
+	Thanks to Arkady Benediktov
+
+2024-03-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (draftwatermark.4ht, draftwatermark-hooks.4ht):
 	disable the watermarks inserted by the Draftwatermark package.
