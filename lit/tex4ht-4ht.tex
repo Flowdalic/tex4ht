@@ -2949,6 +2949,41 @@ Fix backlink support in BibLaTeX
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\SubSection{multibib.4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<multibib.4ht\><<< 
+% multibib.4ht (|version), generated from |jobname.tex 
+% Copyright 2024 TeX Users Group 
+|<TeX4ht license text|> 
+\Hinput{multibib} 
+\endinput 
+>>> \AddFile{9}{multibib}
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{multibib.sty}{multibib-hooks.4ht}
+>>>
+
+
+\<multibib-hooks.4ht\><<< 
+% multibib.4ht (|version), generated from |jobname.tex 
+% Copyright 2024 TeX Users Group 
+\:AtEndOfPackage{
+|<multibib newcites|>
+}
+\endinput
+>>>  \AddFile{9}{multibib-hooks}
+
+The \Verb"newcites" command uses the \Verb"\@input@" command to load the .bbl file internally. It causes TeX4ht
+to load a corresponding .4ht file named as the .bbl file. For example, when you have book.bbl, it will load
+book.4ht. It can lead to a fatal error if the document uses a different class than book.
+
+\<multibib newcites\><<<
+  \let\orig:newcites\newcites
+  \renewcommand\newcites[2]{\let\orig:@input@\@input@\let\@input@\@input\orig:newcites{#1}{#2}\let\@input@\orig:@input@}
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 \SubSection{reading.4ht}
 
 \<reading.4ht\><<<
