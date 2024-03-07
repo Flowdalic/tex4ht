@@ -1,3 +1,8 @@
+2024-03-07  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (graphics.4ht): added rule to read the .xbb file
+	for .jpeg images, to fix image reading errors with LuaTeX.
+
 2024-03-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (multibib.4ht, multibib-hooks.4ht): fixed clashes
