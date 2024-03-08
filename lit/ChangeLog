@@ -1,3 +1,8 @@
+2024-03-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): require math mode in Mhchem
+	sup-sub.
+
 2024-03-07  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (graphics.4ht): added rule to read the .xbb file
