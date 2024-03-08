@@ -1,5 +1,7 @@
 2024-03-08  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): fixed degree celsius with Siunitx.
+	
 	* tex4ht-mathml.tex (mathml.4ht): require math mode in Mhchem
 	sup-sub.
 

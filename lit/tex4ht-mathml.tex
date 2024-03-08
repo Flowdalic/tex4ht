@@ -5646,6 +5646,21 @@ elements that are printed to support the munderover element easily.
 \NewConfigure{mhchemmathlarrow}{4}
 \Configure{mhchemmathlarrow}{\HCode{<\a:mathml munderover><\a:mathml mrow>}}{\HCode{</\a:mathml mrow><\a:mathml mpadded>}}{\HCode{</\a:mathml mpadded><\a:mathml mpadded>}}{\HCode{</\a:mathml mpadded></\a:mathml munderover>}}
 >>>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{siunitx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<configure mathml siunitx\><<<
+% redefinitions of Expl 3 syntax commands
+\ExplSyntaxOn
+|<siunitx degree celsius|>
+\ExplSyntaxOff
+>>>
+
+\<siunitx degree celsius\><<<
+% this fixes circle in degree celsius not printed as superscript
+\siunitx_declare_unit:Ne \degreeCelsius { \HCode{<\a:mathml msup><\a:mathml mrow /><\a:mathml mi>&\#x2218;</\a:mathml mi></\a:mathml msup>} C }
+>>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Notes}
