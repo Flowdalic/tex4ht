@@ -1,5 +1,8 @@
 2024-03-21  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): added \a:mathml prefix to <mo>
+	tags in function applications.
+
 	* tex4ht-mathml.tex (mathml.4ht): use <mi> instead of <mtext> for
 	math operators configured in \Configure{qopname}, to get a correct
 	spacing in function application.
