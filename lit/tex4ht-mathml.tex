@@ -422,6 +422,47 @@ xmlns="http://www.w3.org/1999/xhtml"
 |<lim inf/sup|>
 >>>
 
+This should provide correct formatting for built-in log function. By default, it is printed
+in italic and without space that would separate it from the following element.
+
+\<mathml latex\><<<
+\def\:tempa#1#2{%
+  \def\:tempb{\mathop{\PauseMathClass%
+    \HCode{<\a:mathml mi \mml:class="loglike">} #2\HCode{</\a:mathml mi>%
+    <\a:mathml mo>&\#x2061;<!--FUNCTION APPLICATION--></\a:mathml mo>}\EndPauseMathClass%
+    }\nolimits
+  }
+  \HLet#1\:tempb
+  \MakeRobust#1
+}
+
+\:tempa\log{log}
+% it seems that the other functions work correctly, 
+% so we don't need to redefine them, but I will keep 
+% them here if we want to do that in the future.
+% \:tempa\lg{lg}
+% \:tempa\ln{ln}
+% \:tempa\sin{sin}
+% \:tempa\arcsin{arcsin}
+% \:tempa\sinh{sinh}
+% \:tempa\cos{cos}
+% \:tempa\arccos{arccos}
+% \:tempa\cosh{cosh}
+% \:tempa\tan{tan}
+% \:tempa\arctan{arctan}
+% \:tempa\tanh{tanh}
+% \:tempa\cot{cot}
+% \:tempa\coth{coth}
+% \:tempa\sec{sec}
+% \:tempa\csc{csc}
+% \:tempa\arg{arg}
+% \:tempa\ker{ker}
+% \:tempa\dim{dim}
+% \:tempa\hom{hom}
+% \:tempa\exp{exp}
+% \:tempa\deg{deg}
+>>>
+
 \<limit functionsNO\><<<
 \def\:tempb#1{%
   \def\:tempc##11->##2///{\if :##2:%

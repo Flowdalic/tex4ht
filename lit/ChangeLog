@@ -1,5 +1,8 @@
 2024-03-21  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): redefine \log and similar LaTeX
+	functions to provide a correct formatting.
+
 	* tex4ht-mathml.tex (mathml.4ht): added \a:mathml prefix to <mo>
 	tags in function applications.
 
