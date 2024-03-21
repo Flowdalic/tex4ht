@@ -1,3 +1,9 @@
+2024-03-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): use <mi> instead of <mtext> for
+	math operators configured in \Configure{qopname}, to get a correct
+	spacing in function application.
+
 2024-03-10  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (multibib-hooks.4ht): version.
