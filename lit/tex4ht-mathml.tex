@@ -3567,8 +3567,7 @@ from tex4ht-info.tex.
 
 \<configure mathml latex\><<<
 \AtBeginDocument{%
-\Configure{mathop*}{*}{}{}                                                                                                                                                          
-   { \Configure{mathop}{*}{<mo>}{</mo>}{} }   
+\Configure{mathop*}{*}{}{}{\Configure{mathop}{*}{<\a:mathml mo>}{</\a:mathml mo>}{}}   
 }
 >>>
 
