@@ -1,3 +1,9 @@
+2024-03-31  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (index.4ht): fixed clash between Imakeidx and Index
+	packages.
+	https://tex.stackexchange.com/q/714247/2891
+
 2024-03-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (fancyvrb.4ht): changed non-existent \glet command

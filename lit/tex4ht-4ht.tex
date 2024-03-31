@@ -32300,6 +32300,7 @@ not necessary in MathML anyway.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 % index.4ht                             |version %
 % Copyright (C) |CopyYear.1999.       Eitan M. Gurari         %
+% Copyright 2024 TeX Users Group 
 |<TeX4ht copyright|>
 |<index shared|>
 \expandafter\ifx \csname @vwritefile\endcsname\relax
@@ -32338,9 +32339,15 @@ index.sty\EndLink
 
 \<index 4.1beta warning\><<<
 \bgroup
+\@ifpackageloaded{imakeidx}{
+   \expandafter\gdef\csname idx:extI\endcsname#1{#1}
+   \expandafter\gdef\csname idx:extII\endcsname#1{#1}
+}{
    \catcode`\:=12
    \expandafter\gdef\csname idx:extI\endcsname#1:#2//{#1}
    \expandafter\gdef\csname idx:extII\endcsname#1:#2:#3//{#2}
+}
+
 \egroup
 >>>
 
