@@ -1,3 +1,9 @@
+2024-04-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-minionpro.tex: added support for MinionPro fonts.
+	Thanks to David Gleich.
+	https://github.com/michal-h21/htfgen/issues/2
+
 2024-03-31  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (index.4ht): fixed clash between Imakeidx and Index

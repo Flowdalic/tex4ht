@@ -227,6 +227,10 @@ derived += $(tex4ht_fonts_mnsymbol_derived)
 tex4ht_fonts_mnsymbol_derived = \
 	$(ht_fonts_devdir)/unicode/MnSymbol/MnSymbolA-Bold10.htf
 
+derived += $(tex4ht_fonts_minionpro_derived)
+tex4ht_fonts_minionpro_derived = \
+	$(ht_fonts_devdir)/unicode/Minion_Pro/MinionPro-It-lf-l1-ot1.htf
+
 derived += $(tex4ht_fonts_stix_derived)
 tex4ht_fonts_stix_derived = \
 	$(ht_fonts_devdir)/unicode/STIX/stix-mathbb.htf
@@ -460,6 +464,9 @@ $(tex4ht_fonts_opensans_derived): tex4ht-fonts-opensans.tex
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_mnsymbol_derived): tex4ht-fonts-mnsymbol.tex
+	$(HTTEX) $< ""
+
+$(tex4ht_fonts_minionpro_derived): tex4ht-fonts-minionpro.tex
 	$(HTTEX) $< ""
 
 $(tex4ht_fonts_stix_derived): tex4ht-fonts-stix.tex
