@@ -1,3 +1,7 @@
+2024-04-07  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (index.4ht): |<TeX4ht copywrite|> to get version.
+
 2024-04-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-minionpro.tex: added support for MinionPro fonts.
