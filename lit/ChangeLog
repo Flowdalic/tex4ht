@@ -1,3 +1,9 @@
+2024-04-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html5.tex (html5.4ht): set backround and foreground colors
+	in the dark mode.
+	https://puszcza.gnu.org.ua/bugs/index.php?623
+
 2024-04-07  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (index.4ht): |<TeX4ht copywrite|> to get version.
