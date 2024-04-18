@@ -1,5 +1,9 @@
 2024-04-18  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (usepackage.4ht, xyling-hooks.4ht, xyling.4ht):
+	added support for the Xyling package.
+	https://www.umsu.de/blog/2024/801#c2398
+
 	* tex4ht-fonts-noncjk.tex (
 	tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/1/xypic/xycirc.htf
 	): added support for the xycirc font.

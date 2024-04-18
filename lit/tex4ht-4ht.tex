@@ -27548,6 +27548,59 @@ xypic assum catcodes of 7 and 8 for sup and sub.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{xyling.sty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{xyling.sty}{xyling-hooks.4ht}
+>>>
+
+
+\<xyling-hooks.4ht\><<<
+% xyling-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+|<Xyling save Link|>
+\:AtEndOfPackage{%
+|<Xyling restore Link|>
+}
+\endinput
+>>> \AddFile{9}{xyling-hooks}
+
+Xyling defines its own version of the \Verb+\Link+ command,
+which breaks lot of things in TeX4ht. We must suppress this
+version and use it only inside Xyling diagrams.
+
+\<Xyling save Link\><<<
+\let\orix:xylingLink\Link
+\let\Link\relax
+>>>
+
+\<Xyling restore Link\><<<
+  \let\xyling:Link\Link
+  \let\Link\orig:xylingLink
+>>>
+
+\<xyling.4ht\><<<
+% xyling.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+|<patch Xyling Tree|>
+\Hinput{xyling}
+\endinput
+>>> \AddFile{9}{xyling}
+
+Restore the Link command inside Xyling graph drawing commands
+
+\<patch Xyling Tree\><<<
+\newcommand\xyling:Tree[2][0]{\bgroup\let\Link\xyling:Link\o:Tree:[#1]{#2}\egroup}
+\newcommand\xyling:Treek[3][0]{\bgroup\let\Link\xyling:Link\o:Treek:[#1]{#2}{#3}\egroup}
+\HLet\Tree\xyling:Tree
+\HLet\Treek\xyling:Treek
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{PicTeX}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
