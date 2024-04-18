@@ -1,3 +1,10 @@
+2024-04-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	tex4ht.dir/texmf/tex4ht/ht-fonts/iso8859/1/xypic/xycirc.htf
+	): added support for the xycirc font.
+	https://www.umsu.de/blog/2024/801#c2398
+
 2024-04-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html5.tex (html5.4ht): set backround and foreground colors
