@@ -1,3 +1,9 @@
+2024-04-18  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (derived): do not add tex4ht_fonts_minionpro_derived,
+	since Minion is nonfree. Maybe we could get it into tlcontrib
+	if there is demand.
+
 2024-04-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, xyling-hooks.4ht, xyling.4ht):

@@ -227,7 +227,10 @@ derived += $(tex4ht_fonts_mnsymbol_derived)
 tex4ht_fonts_mnsymbol_derived = \
 	$(ht_fonts_devdir)/unicode/MnSymbol/MnSymbolA-Bold10.htf
 
-derived += $(tex4ht_fonts_minionpro_derived)
+# somehow have to push this to tlcontrib; since Minion is nonfree,
+# can't put it into TL. For now, avoid compiling/installing it,
+# since then it shows up with all the consistency checks.
+#derived += $(tex4ht_fonts_minionpro_derived)
 tex4ht_fonts_minionpro_derived = \
 	$(ht_fonts_devdir)/unicode/Minion_Pro/MinionPro-It-lf-l1-ot1.htf
 
