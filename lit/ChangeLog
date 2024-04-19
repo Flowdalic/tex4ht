@@ -1,3 +1,12 @@
+2024-04-19  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tcolorbox.4ht): close boxes after the \tcbox
+	command.
+	https://github.com/wo/logic2
+	* tex4ht-html.tex (html4.4ht): don't print title box in Tcolorbox if
+	it is empty.
+	https://github.com/wo/logic2
+
 2024-04-18  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (derived): do not add tex4ht_fonts_minionpro_derived,

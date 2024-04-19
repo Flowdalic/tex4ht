@@ -16477,8 +16477,8 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
       padding-right:\calc:tcbpadding{\kvtcb@rightupper};
   }}
 }
-{\HCode{\Hnewline<div class="tcolorbox-title">}\par}
-{\ifvmode\IgnorePar\fi\EndP\HCode{</div>\Hnewline<div class="tcolorbox-content">}}
+{\ifx\kvtcb@title\@empty\else\HCode{\Hnewline<div class="tcolorbox-title">}\par\fi}
+{\ifx\kvtcb@title\@empty\else\ifvmode\IgnorePar\fi\EndP\HCode{</div>}\fi\HCode{\Hnewline<div class="tcolorbox-content">}}
 {\ifvmode\IgnorePar\fi\EndP\HCode{\Hnewline</div>\Hnewline</div>}\SaveEndP\par\ShowPar}%
 
 \Css{.tcolorbox{margin-top:0.5em;margin-bottom: 0.5em;}}

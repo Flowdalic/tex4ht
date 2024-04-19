@@ -28844,7 +28844,9 @@ We need to use dvips driver with XeLaTeX
   \fi%
   % open title
   \b:tcolorbox%
-  \kvtcb@before@title\kvtcb@title\kvtcb@after@title%
+  \ifx\kvtcb@title\@empty\else
+    \kvtcb@before@title\kvtcb@title\kvtcb@after@title%
+  \fi
   % close title and open main box
   \c:tcolorbox%
   \box\tcb@upperbox%
@@ -28874,6 +28876,9 @@ We need to use dvips driver with XeLaTeX
 % would be ignored and we would get invalid XML
 \def\:tempb{\d:tcolorbox\o:tcb@endboxanddraw:}
 \HLet\tcb@endboxanddraw\:tempb
+
+% this should correctly close tcolorbox after the \tcbox command
+\append:defIII\tcb@ox{\d:tcolorbox}
 
 % tcolorbox supports libraries, but it loads them
 % in a way that doesn't register them for the use 
