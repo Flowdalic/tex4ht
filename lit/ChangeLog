@@ -1,3 +1,9 @@
+2024-04-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/ams/symbols/msbm.htf
+	): fixed Unicode characters for the msbm font from Amssymb.
+
 2024-04-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tcolorbox.4ht): close boxes after the \tcbox
