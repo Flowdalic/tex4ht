@@ -1,3 +1,8 @@
+2024-04-22  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tcolorbox.4ht): fixed handling of labels in
+	Tcolorbox.
+
 2024-04-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (

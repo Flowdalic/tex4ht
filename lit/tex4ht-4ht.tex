@@ -28823,6 +28823,7 @@ We need to use dvips driver with XeLaTeX
 % use custom counter that increments for every \tcolorbox
 \newcounter{:tcbcolcount}
 
+\ExplSyntaxOn
 \def\:tempa{%
   \stepcounter{:tcbcolcount}%
   % save text and background colors for use in CSS
@@ -28838,7 +28839,8 @@ We need to use dvips driver with XeLaTeX
   % set label if it exists
   \ifdefined\tcolorbox:label:key%
     \let\@currentlabel\tcolorbox:currentlabel% at this moment, \@currentlabel has wrong value
-    \o:tcb@set@label:{\tcolorbox:label:key}%
+    %\o:tcb@set@label:{\tcolorbox:label:key}%
+    \o:__tcobox_label:n:{\tcolorbox:label:key}%
     \AnchorLabel% save cross-ref destination
     \global\let\tcolorbox:label:key\undefined% 
   \fi%
@@ -28862,6 +28864,7 @@ We need to use dvips driver with XeLaTeX
   \fi%
   % We need to close box in \tcb@endboxanddraw
 }
+\ExplSyntaxOff
 
 \HLet\tcb@drawcolorbox\:tempa
 % overwrite other versions of box drawing macros
@@ -28907,7 +28910,13 @@ We need to use dvips driver with XeLaTeX
   \xdef\tcolorbox:label:key{#1}%
   \global\let\tcolorbox:currentlabel\@currentlabel%
 }
-\HLet\tcb@set@label\:tempa
+
+\ExplSyntaxOn
+%\HLet\tcb@set@label\:tempa
+\HLet\__tcobox_label_label:n\:tempa
+\HLet\__tcobox_label_zlabel:n\:tempa
+\HLet\__tcobox_label:n\:tempa
+\ExplSyntaxOff
 
 |<tcolorbox minipage|>
 |<tcolorbox nameref|>
