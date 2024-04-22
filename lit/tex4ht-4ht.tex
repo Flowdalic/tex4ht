@@ -28840,8 +28840,8 @@ We need to use dvips driver with XeLaTeX
   \ifdefined\tcolorbox:label:key%
     \let\@currentlabel\tcolorbox:currentlabel% at this moment, \@currentlabel has wrong value
     %\o:tcb@set@label:{\tcolorbox:label:key}%
-    \o:__tcobox_label:n:{\tcolorbox:label:key}%
     \AnchorLabel% save cross-ref destination
+    \o:__tcobox_label:n:{\tcolorbox:label:key}%
     \global\let\tcolorbox:label:key\undefined% 
   \fi%
   % open title
