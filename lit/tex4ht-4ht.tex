@@ -31417,9 +31417,9 @@ We can try to provide a letterspacing command:
 \ExplSyntaxOn
 \providecommand\:textls[2][]{%
   \begingroup%
-    \ifx\relax#1\relax\else
-      \edef\:letterspacing{\fp_eval:n{#1/1000}}
-    \fi
+    \ifx\relax#1\relax\else%
+      \edef\:letterspacing{\fp_eval:n{#1/1000}}%
+    \fi%
     \a:textls%
     #2%
     \b:textls%
