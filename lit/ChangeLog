@@ -1,3 +1,10 @@
+2024-04-23  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (microtype.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for letter spacing
+	using the \textls command.
+	https://github.com/michal-h21/tex4ebook/issues/127
+
 2024-04-22  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tcolorbox.4ht): fixed handling of labels in

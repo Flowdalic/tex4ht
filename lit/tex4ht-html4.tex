@@ -21751,6 +21751,15 @@ users redefine the latter macro.
 \ExplSyntaxOff
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%
+\section{microtype}
+%%%%%%%%%%%%%%%%%%%%%
+
+\<configure html4 microtype\><<<
+\Configure{textls}{\HCode{<span class="textls" \ifdefined\:letterspacing style="letter-spacing:\:letterspacing rem" \fi>}}{\HCode{</span>}}
+\Css{.textls{letter-spacing:0.1rem;}} % default letter spacing, if no amount is specified
+>>>
+
 
 %%%%%%%%%%%%%%%%%%%%%
 \section{mhchem}

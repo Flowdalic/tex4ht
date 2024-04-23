@@ -31392,8 +31392,10 @@ for output formats.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 % microtype.4ht                         |version %
 % Copyright (C) |CopyYear.2007.       Eitan M. Gurari         %
+% Copyright 2024 TeX Users Group
 |<TeX4ht copyright|>
   |<disable microtype|>
+  |<microtype textls|>
 \Hinput{microtype}
 \endinput
 >>>        \AddFile{9}{microtype}
@@ -31406,11 +31408,26 @@ for output formats.
 \renewcommand{\UseMicroTypeSet}[2][]{} 
 \renewcommand{\SetProtrusion}[3][]{} 
 \renewcommand{\SetExpansion}[3][]{} 
-\ifx \textls\UnDef\else
-  \renewcommand{\textls}[2][]{#2}
-\fi
 >>>
 
+We can try to provide a letterspacing command:
+
+\<microtype textls\><<<
+\NewConfigure{textls}{2}
+\ExplSyntaxOn
+\providecommand\:textls[2][]{%
+  \begingroup%
+    \ifx\relax#1\relax\else
+      \edef\:letterspacing{\fp_eval:n{#1/1000}}
+    \fi
+    \a:textls%
+    #2%
+    \b:textls%
+  \endgroup%
+}
+\ExplSyntaxOff
+\HLet\MT@textls\:textls
+>>>
 %%%%%%%%%%%%%
 \Section{Bm.sty}
 %%%%%%%%%%%%%
