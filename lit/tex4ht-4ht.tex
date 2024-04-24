@@ -31415,6 +31415,11 @@ We can try to provide a letterspacing command:
 \<microtype textls\><<<
 \NewConfigure{textls}{2}
 \ExplSyntaxOn
+\ifx\MT@letterspace\m@ne
+\edef\:letterspacedefault{\fp_eval:n{\MT@letterspace@default/1000}}
+\else
+\edef\:letterspacedefault{\fp_eval:n{\MT@letterspace/1000}}
+\fi
 \providecommand\:textls[2][]{%
   \begingroup%
     \ifx\relax#1\relax\else%

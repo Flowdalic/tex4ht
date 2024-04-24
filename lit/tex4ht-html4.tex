@@ -21757,7 +21757,9 @@ users redefine the latter macro.
 
 \<configure html4 microtype\><<<
 \Configure{textls}{\HCode{<span class="textls" \ifdefined\:letterspacing style="letter-spacing:\:letterspacing rem" \fi>}}{\HCode{</span>}}
-\Css{.textls{letter-spacing:0.1rem;}} % default letter spacing, if no amount is specified
+\ExplSyntaxOn
+\Css{.textls{letter-spacing:\:letterspacedefault rem;}} % default letter spacing, if no amount is specified
+\ExplSyntaxOff
 >>>
 
 
