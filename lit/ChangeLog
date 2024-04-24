@@ -1,3 +1,8 @@
+2024-04-24  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-4ht.tex (microtype.4ht): use |<TeX4ht copywrite|>
+	to get version ident, etc.
+
 2024-04-24  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (microtype.4ht),
