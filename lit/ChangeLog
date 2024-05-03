@@ -1,3 +1,9 @@
+2024-05-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, tagpdf-hooks.4ht,
+	tagpdf-base-hooks.4ht): declare \__tag_whatsits: {} command.
+	https://github.com/michal-h21/make4ht/issues/145
+
 2024-04-24  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-4ht.tex (microtype.4ht): use |<TeX4ht copywrite|>

@@ -5092,13 +5092,35 @@ as it leads to a fatal error.
 
 \<tagpdf-hooks.4ht\><<<
 % tagpdf-hooks.4ht (|version), generated from |jobname.tex
-% Copyright 2022 TeX Users Group
+% Copyright 2022-2024 TeX Users Group
 |<TeX4ht license text|>
+\ExplSyntaxOn
+% ignore tagpdf's specials
+\cs_set_protected:Npn \__tag_whatsits: {}
+\ExplSyntaxOff
 \:AtEndOfPackage{%
   \RenewDocumentCommand \tagpdfsetup { m }{}
 }
 \endinput
 >>> \AddFile{9}{tagpdf-hooks}
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{tagpdf-base.sty}{tagpdf-base-hooks.4ht}
+>>>
+
+This file can be used explicitly, we need to provide the whatsits command
+here as well.
+
+\<tagpdf-base-hooks.4ht\><<<
+% tagpd-base-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+\ExplSyntaxOn
+% ignore tagpdf's specials
+\cs_set_protected:Npn \__tag_whatsits: {}
+\ExplSyntaxOff
+\endinput
+>>> \AddFile{9}{tagpdf-base-hooks}
 
 %%%%%%%%%%%%%%%%%%%%%
 \Section{accessibility}
