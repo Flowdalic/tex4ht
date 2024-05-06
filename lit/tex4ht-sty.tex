@@ -175,11 +175,16 @@
    \let\AtBeginDocument\origatbegindocument
 
 \fi
-% disable new LaTeX's tagging support, 
-% but save the requested keys for possible latter processing
-\ifdefined\DocumentMetadata
-  \def\DocumentMetadata#1{\def\:DocumentMetadata{#1}}
-\fi
+
+% we used to disable new LaTeX's tagging support, 
+% because it clashed with TeX4ht and caused fatal errors
+% we fixed the fatal errors, so it should be possible to 
+% fix other issues as well. The upside will be that we 
+% should be able to coordinate the projects and reuse some code.
+% https://github.com/michal-h21/make4ht/issues/145
+% \ifdefined\DocumentMetadata
+%   \def\DocumentMetadata#1{\def\:DocumentMetadata{#1}}
+% \fi
 
 \def\writesixteen#1{\immediate\write99999{#1}}
 |<save cat codes|>

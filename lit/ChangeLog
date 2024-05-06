@@ -1,3 +1,12 @@
+2024-05-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-sty.tex (tex4ht.sty): don't disable \DocumentMetadata.
+	https://github.com/michal-h21/make4ht/issues/145
+
+	* tex4ht-4ht.tex (tagpdf-base-hooks.4ht): don't use \ExplSyntaxOn to
+	prevent catcode issues when we use \DocumentMetadata in the
+	document.
+
 2024-05-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, tagpdf-hooks.4ht,

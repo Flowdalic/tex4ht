@@ -5115,10 +5115,9 @@ here as well.
 % tagpd-base-hooks.4ht (|version), generated from |jobname.tex
 % Copyright 2024 TeX Users Group
 |<TeX4ht license text|>
-\ExplSyntaxOn
 % ignore tagpdf's specials
-\cs_set_protected:Npn \__tag_whatsits: {}
-\ExplSyntaxOff
+% we use csname, because \ExplSyntaxOn .. Off caused catcode issues
+\expandafter\def\csname __tag_whatsits:\endcsname{}
 \endinput
 >>> \AddFile{9}{tagpdf-base-hooks}
 
