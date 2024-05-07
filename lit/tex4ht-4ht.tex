@@ -7276,6 +7276,7 @@ and the command \`'\end{xxx}' referes to the meaning of \`'\endxxx'.
 \<latex ltmiscen\><<<
       \pend:defI\begin{\let\chk:pic|=\EndPicture }
       \let\o:begin:|=\begin
+      \expandafter\let \csname o:begin :\expandafter\endcsname\csname begin \endcsname
       \let\choose:begin\@firstoftwo
 \DeclareRobustCommand\begin[1]{\csname @begin:#1\endcsname 
   \choose:begin
@@ -7352,7 +7353,7 @@ are initiated within  \''\begin{...}'. For instance, in eqnarray there
 %%%%%%%%%%%%%
 
 \<latex ltmiscen\><<<
-\let\o:end:|=\end
+\expandafter\let \csname o:end :\expandafter\endcsname\csname end \endcsname
 \DeclareRobustCommand\end[1]{\choose:begin
   {|<revised end|>}%
   {\o:end:{#1}}}
@@ -21218,8 +21219,10 @@ due to a \''\vtop' in the macro definition.
 \let\:tempc|=\measure@
 \pend:defI\:tempc{\bgroup
    \RecallTeXcr \HRestore\noalign \let\EndPicture\empty
-   \let\halign|=\TeXhalign \let\span|=\:span  \HRestore\begin 
-   \HRestore\end   \a:measure@ }
+   \let\halign|=\TeXhalign \let\span|=\:span  
+   \expandafter\HRestore\csname begin \endcsname
+   \expandafter\HRestore\csname end \endcsname
+ \a:measure@ }
 \append:defI\:tempc{\egroup}
 \HLet\measure@|=\:tempc
 \NewConfigure{measure@}{1}

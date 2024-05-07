@@ -1,3 +1,8 @@
+2024-05-07  Linas Stonys  <lstonys@vtex.lt>
+
+	* tex4ht-4ht.tex (latex.4ht, amsmath.4ht): fixed restoring of \begin
+	and \end in the \measure@ command.
+
 2024-05-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-sty.tex (tex4ht.sty): don't disable \DocumentMetadata.
