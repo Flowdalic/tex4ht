@@ -28716,6 +28716,9 @@ fragments.
   \else%
      \ifcsname HColor!#1\endcsname%
        \csname HColor!#1\endcsname #2//%
+     \else
+       \get:xcolorcss{#1!#2}{\HColor}%
+       \Configure{HColor}{\current:color:name}{\HColor}%
      \fi%
   \fi
 }

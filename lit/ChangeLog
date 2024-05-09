@@ -1,3 +1,9 @@
+2024-05-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (xcolor.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for more colors.
+	https://tex.stackexchange.com/q/716339/2891
+
 2024-05-07  Linas Stonys  <lstonys@vtex.lt>
 
 	* tex4ht-4ht.tex (latex.4ht, amsmath.4ht): fixed restoring of \begin

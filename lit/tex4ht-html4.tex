@@ -16313,9 +16313,7 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 
 \<configure html4 xcolor\><<<
 \Configure{HColor!gray}{%
-   \XC@c@lcD\rangeGray{}{#1}\@@tmp
-   \int:of\:tempa{255}{\@@tmp}%
-   \Configure{HColor}{}{rgb(\:tempa,\:tempa,\:tempa)}%
+  \get:xcolorcss{gray!#1}{\HColor}
 }
 >>>
 
