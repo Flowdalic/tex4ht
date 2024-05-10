@@ -1,3 +1,11 @@
+2024-05-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/adobe/courier/*.htf,
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/*.htf
+	): changed font family from serif to monospace. 
+	Thanks to Links Stonys.
+
 2024-05-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (xcolor.4ht),
