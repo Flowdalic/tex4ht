@@ -1,5 +1,13 @@
 2024-05-10  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (lettrine.4ht): defined more keys supported by the
+	\lettrine command.
+	https://tex.stackexchange.com/a/717883/2891
+	* tex4ht-html4.tex (html4.4ht): moved HTML declarations for the
+	Lettrine package from lettrine.4ht. 
+
+2024-05-10  Michal Hoftich  <michal.h21@gmail.com>
+
 	* tex4ht-fonts-noncjk.tex (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/adobe/courier/*.htf,
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/alias/adobe/courier/*.htf

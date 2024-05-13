@@ -15872,6 +15872,51 @@ IE doesn't distinguish between upper and lower case characters in css
 >>>
 
 
+\section{lettrine.sty}
+
+\<configure html4 lettrine\><<<
+%
+% a: before lettrine
+% b: after lettrine
+% c: before letter
+% d: between letter and string
+% e: after string
+% f: before ante
+% g: after ante
+%
+\Configure{lettrine}
+   {\HCode{<span class="lettrine">}}
+   {\HCode{</span>}}
+%
+   {\HCode{<span class="lettrine-letter">}}
+   {\HCode{</span><span class="lettrine-line">}}
+   {\HCode{</span>}}
+%
+   {\HCode{<span class="lettrine-ante">}}
+   {\HCode{</span>}}
+
+\Configure{lettrinechar}{\HCode{<span class="lettrine-\HlettrineChar">}}{\HCode{</span>}}
+%
+% Define default Css
+%
+\Css{.lettrine{float: left;
+    line-height: 0.7; margin-left: -0.1em;
+    margin-bottom: -.5em; margin-right: 0.2em;
+    }}
+\Css{.lettrine-ante{vertical-align: top;}}
+\Css{.lettrine-letter{font-style: normal;
+    font-size: 4em; color: gray;}}
+%
+\Css{.lettrine-A{margin-right: 0em;}}
+\Css{.lettrine-A + .lettrine-line{margin-left: -0.4em;}}
+\Css{.lettrine-J{line-height: 0.9; margin-right: 0;}}
+\Css{.lettrine-H, .lettrine-I, .lettrine-N, .lettrine-U{margin-right: 0;}}
+\Css{.lettrine-V{margin-right: -0.0em;}}
+\Css{.lettrine-V + .lettrine-line{margin-left: 0.3em;}}
+\Css{.lettrine-Q{line-height: 0.9;padding-bottom: 1em;margin-top: -0.6em;}}
+\Css{.lettrine-line{font-variant: small-caps;}}
+>>>
+
 
 %%%%%%%%%%%%%%%%%%
 \section{gmatrix.sty}

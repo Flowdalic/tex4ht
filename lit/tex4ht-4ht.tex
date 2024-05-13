@@ -34963,10 +34963,24 @@ but fatal error is a worse possibility.
 
 \<config lettrine\><<<
 \NewConfigure{lettrine}{7}
+\NewConfigure{lettrinechar}{2}
 \define@key{L}{ante}{\def\LH:ante{#1}}%
 \define@key{L}{findent}{\def\LH:findent{#1}}%
 \define@key{L}{lhang}{\def\LH:lhang{#1}}%
 \define@key{L}{lines}{\def\LH:lines{#1}}%
+\define@key{L}{slope}{}
+\define@key{L}{depth}{}
+\define@key{L}{loversize}{}
+\define@key{L}{lraise}{}
+\define@key{L}{nindent}{}
+\define@key{L}{novskip}{}
+\define@key{L}{image}{}
+\define@key{L}{grid}{}
+\define@key{L}{realheight}{}
+\define@key{L}{refstring}{}
+\define@key{L}{refstring}{}
+\define@key{L}{optionsfile}{}
+
 \def\reset:LH:keys{\let\LH:ante\@empty
     \def\LH:lines{2}%
     \def\LH:lhang{0}%
@@ -34979,48 +34993,9 @@ but fatal error is a worse possibility.
      \a:lettrine
      \ifx\LH:ante\@empty\else\f:lettrine\LH:ante\g:lettrine\fi
      \c:lettrine
-      \HCode{<span class="lettrine-}#2\HCode{">}#2\HCode{</span>}
+     \a:lettrinechar#2\b:lettrinechar
      \b:lettrine\d:lettrine#3\e:lettrine
      \reset:LH:keys}
-%
-% a: before lettrine
-% b: after lettrine
-% c: before letter
-% d: between letter and string
-% e: after string
-% f: before ante
-% g: after ante
-%
-\Configure{lettrine}
-   {\HCode{<span class="lettrine">}}
-   {\HCode{</span>}}
-%
-   {\HCode{<span class="lettrine-letter">}}
-   {\HCode{</span><span class="lettrine-line">}}
-   {\HCode{</span>}}
-%
-   {\HCode{<span class="lettrine-ante">}}
-   {\HCode{</span>}}
-%
-% Define default Css
-%
-\Css{.lettrine{float: left;
-    line-height: 0.7; margin-left: -0.1em;
-    margin-bottom: -.5em; margin-right: 0.2em;
-    }}
-\Css{.lettrine-ante{vertical-align: top;}}
-\Css{.lettrine-letter{font-style: normal;
-    font-size: 4em; color: gray;}}
-%
-\Css{.lettrine-A{margin-right: 0.3em;}}
-\Css{.lettrine-A + .lettrine-line{margin-left: -0.4em;}}
-\Css{.lettrine-J{line-height: 1; margin-right: 0;}}
-\Css{.lettrine-H, .lettrine-I, .lettrine-N, .lettrine-U{margin-right: 0;}}
-\Css{.lettrine-V{margin-right: -0.3em;}}
-\Css{.lettrine-V + .lettrine-line{margin-left: 0.3em;}}
-\Css{.lettrine-Q{padding-bottom: 1em;margin-top: -0.6em;}}
-\Css{.lettrine-line{font-variant: small-caps;}}
-\Css{p.indent{text-indent: 0em;}}
 >>>                 
 
 \Section{osudeG.sty}
