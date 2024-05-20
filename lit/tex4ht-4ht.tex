@@ -12261,6 +12261,13 @@ and print them when it is safe.
 \ExplSyntaxOff
 >>>
 
+\<latex caption index optional\><<<
+\ExplSyntaxOn
+\renewcommand\:saveindex[2][]{\seq_gput_right:Nn\:savedindex{[#1]{#2}}}
+\def\:printsavedindex{\seq_map_inline:Nn\:savedindex{\index##1}}
+\ExplSyntaxOff
+>>>
+
 \<latex caption index save\><<<
 \:initsaveindex%
 \let\index\:saveindex%
@@ -16530,6 +16537,7 @@ DIV.right
    |<memoir 2008|>
    |<mempatch cfg|>
 \fi
+|<latex caption index optional|>
 \Hinput{memoir}
 \endinput
 >>>        \AddFile{8}{memoir}
@@ -32420,6 +32428,7 @@ not necessary in MathML anyway.
 \else 
   |<index 3.02|>
 \fi
+|<latex caption index optional|>
 \Hinput{index}
 \endinput
 >>>        \AddFile{7}{index}
@@ -32523,7 +32532,7 @@ multind.sty\EndLink
 |<TeX4ht license text|>
 
 |<imakeidx.sty|>
-
+|<latex caption index optional|>
 
 \Hinput{imakeidx}
 \endinput
@@ -32593,6 +32602,7 @@ d|<haddr prefix|>\last:haddr
 |<indextools index|>
 |<indextools defs|>
 |<indextools disable options|>
+|<latex caption index optional|>
 
 \Hinput{indextools}
 \endinput

@@ -1,3 +1,11 @@
+2024-05-20  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (
+	index.4ht, imakeidx.4ht, memoir.4ht, indextools.4ht
+	): added support for optional argument of \index used inside of
+	\caption.
+	https://tex.stackexchange.com/a/718360/2891
+
 2024-05-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (lettrine.4ht): defined more keys supported by the
