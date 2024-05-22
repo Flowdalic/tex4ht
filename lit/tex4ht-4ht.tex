@@ -32569,10 +32569,10 @@ destination to the idx file
 \fi
 >>>
 
-Support for the intoc option of Imakeidx:
+Support for the intoc option of Imakeidx and the \`'\indexprologue' command.
 
 \<imakeidx.sty\><<<
-\Configure{@begin}{theindex}{\ind:defs\imki@maybeaddtotoc}
+\Configure{@begin}{theindex}{\ind:defs\imki@maybeaddtotoc\imki@idxprologue\global\let\imki@idxprologue\relax}
 >>>
 
 Prevent the automatic index compilation, the index produced by tex4ht
