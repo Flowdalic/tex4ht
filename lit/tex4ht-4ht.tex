@@ -19223,6 +19223,100 @@ UnDFexyz}%
    \HtmlEnv \Toc:Title{#1}\:addchap{#2}}
 >>>
 
+%%%%%%%%%%%%%%%%%%
+\Chapter{juramisc}
+%%%%%%%%%%%%%%%%%%
+
+Classes in the Juramisc bundle
+
+\<jurabook.4ht\><<<
+% jurabook.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht copywrite|>
+|<jurabook subsections|>
+|<jurabook toc|>
+\Hinput{jurabook}
+>>>        \AddFile{9}{jurabook}
+
+\<juraurtl.4ht\><<<
+% juraurtl.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht copywrite|>
+\Hinput{juraurtl}
+>>>        \AddFile{9}{juraurtl}
+
+\<juraovw.4ht\><<<
+% juraovw.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht copywrite|>
+\Hinput{juraovw}
+>>>        \AddFile{9}{juraovw}
+
+\Section{Jurabook sections}
+
+Jurabook defines lot of extra sectioning commands, so we need to 
+define them. Other than that, it reuses classic LaTeX classes, so 
+other sectioning commands should work out of the box.
+
+\<jurabook subsections\><<<
+\let\no@subthreesection\subthreesection
+\Def:Section\subthreesection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubthreesection \fi}{#1}
+\let\no:subthreesection\subthreesection
+\def\subthreesection{\rdef:sec{subthreesection}}
+
+\let\no@subfoursection\subfoursection
+\Def:Section\subfoursection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubfoursection \fi}{#1}
+\let\no:subfoursection\subfoursection
+\def\subfoursection{\rdef:sec{subfoursection}}
+
+\let\no@subfivesection\subfivesection
+\Def:Section\subfivesection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubfivesection \fi}{#1}
+\let\no:subfivesection\subfivesection
+\def\subfivesection{\rdef:sec{subfivesection}}
+
+\let\no@subsixsection\subsixsection
+\Def:Section\subsixsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsixsection \fi}{#1}
+\let\no:subsixsection\subsixsection
+\def\subsixsection{\rdef:sec{subsixsection}}
+
+
+\let\no@subsevensection\subsevensection
+\Def:Section\subsevensection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsevensection \fi}{#1}
+\let\no:subsevensection\subsevensection
+\def\subsevensection{\rdef:sec{subsevensection}}
+
+
+\let\no@subeightsection\subeightsection
+\Def:Section\subeightsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubeightsection \fi}{#1}
+\let\no:subeightsection\subeightsection
+\def\subeightsection{\rdef:sec{subeightsection}}
+>>>
+
+We need to include these sectionins in the TOC
+
+\<jurabook toc\><<<
+\NewConfigure{tableofcontents*}[1]{%
+   \def\:tempa{#1}\ifx\empty\:tempa
+      \ifx \au:StartSec\:UnDef \else \gdef\:StartSec{\au:StartSec}\fi
+   \else
+      \edef\auto:toc{#1}%
+         \ifx \au:StartSec\:UnDef
+            \let\au:StartSec\:StartSec
+            \def\:StartSec{\:tableofcontents
+               \global\let\auto:toc\:UnDef \global\let\:StartSec\au:StartSec\:StartSec}%
+            \append:def\tableofcontents{\gdef\:StartSec{\au:StartSec}}%
+   \fi  \fi
+}
+
+\Configure{tableofcontents*}{part,chapter,section,subsection,subsubsection,subthreesection,subfoursection,subfivesection,subsixsection,subsevensection,subeightsection}
+>>>
+
 %%%%%%%%%%%%%%%%%%%
 \Chapter{letter}
 %%%%%%%%%%%%%%%%%

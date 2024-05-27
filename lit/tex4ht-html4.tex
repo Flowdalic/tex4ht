@@ -9041,8 +9041,70 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 
 
 
+%%%%%%%%%%%%%%%%%%
+\section{juramisc}
+%%%%%%%%%%%%%%%%%%
+
+\<configure html4 jurabib\><<<
+|<jurabib sections|>
+|<jurabib toc|>
+>>>
+
+\<configure html4 juraurtl\><<<
+>>>
+
+\<configure html4 juraovw\><<<
+>>>
+
+\<jurabib sections\><<<
+\Configure{subthreesection}
+   {}{}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{<h5 class="subthreesection">}\TitleMark\space}    {\HCode{</h5>}\par\ShowPar}
+
+\ConfigureMark{subthreesection}{\HCode{<span class="titlemark">}\thesubthreesection\HCode{</span>}}
+
+\Configure{subfoursection}
+   {}{}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{<h5 class="subfoursection">}\TitleMark\space}    {\HCode{</h5>}\par\ShowPar}
+
+\ConfigureMark{subfoursection}{\HCode{<span class="titlemark">}\thesubfoursection\HCode{</span>}}
+
+\Configure{subfivesection}
+   {}{}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{<h5 class="subfivesection">}\TitleMark\space}    {\HCode{</h5>}\par\ShowPar}
+
+\ConfigureMark{subfivesection}{\HCode{<span class="titlemark">}\thesubfivesection\HCode{</span>}}
+
+\Configure{subsixsection}
+   {}{}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{<h5 class="subsixsection">}\TitleMark\space}    {\HCode{</h5>}\par\ShowPar}
+
+\ConfigureMark{subsixsection}{\HCode{<span class="titlemark">}\thesubsixsection\HCode{</span>}}
 
 
+\Configure{subsevensection}
+   {}{}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{<h5 class="subsevensection">}\TitleMark\space}    {\HCode{</h5>}\par\ShowPar}
+
+\ConfigureMark{subsevensection}{\HCode{<span class="titlemark">}\thesubsevensection\HCode{</span>}}
+
+
+\Configure{subeightsection}
+   {}{}
+   {\ifvmode\IgnorePar\fi\EndP\HCode{<h5 class="subeightsection">}\TitleMark\space}    {\HCode{</h5>}\par\ShowPar}
+
+\ConfigureMark{subeightsection}{\HCode{<span class="titlemark">}\thesubeightsection\HCode{</span>}}
+>>>
+
+\<jurabib toc\><<<
+\def\tocsubthreesection#1#2#3{\par\toc:num{subthreesection}{#1}{#2}\par}
+\def\tocsubfoursection#1#2#3{\par\toc:num{subfoursection}{#1}{#2}\par}
+\def\tocsubfivesection#1#2#3{\par\toc:num{subfivesection}{#1}{#2}\par}
+\def\tocsubsixsection#1#2#3{\par\toc:num{subsixsection}{#1}{#2}\par}
+\def\tocsubsevensection#1#2#3{\par\toc:num{subsevensection}{#1}{#2}\par}
+\def\tocsubeightsection#1#2#3{\par\toc:num{subeightsection}{#1}{#2}\par}
+
+>>>
 
 %%%%%%%%%%%%%%%%%%
 \section{letter}
