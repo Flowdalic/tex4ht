@@ -4620,6 +4620,81 @@ a more desirable for translations into MS Word.
    {\HCode{</text:h>\Hnewline}\par\ShowPar}
 >>>  
 
+\<jurabook sections\><<<
+\ConfigureMark{subthreesection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else \@seccntformat{subthreesection}\fi }
+\Configure{subthreesection}
+   {\IgnorePar\EndP \HCode{<!--start of subthreesection-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subthreesection-->}}
+   {\HCode{<text:h 
+           text:style-name="\csname a:Heading-4|<cond rtl class|>\endcsname"
+                   \text:outlinelevel="4"   ><text:span
+                   text:style-name="subthreesection"  >}\TitleMark\space
+    \HCode{</text:span>}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
+\ConfigureMark{subfoursection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else \@seccntformat{subfoursection}\fi }
+\Configure{subfoursection}
+   {\IgnorePar\EndP \HCode{<!--start of subfoursection-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subfoursection-->}}
+   {\HCode{<text:h 
+           text:style-name="\csname a:Heading-4|<cond rtl class|>\endcsname"
+                   \text:outlinelevel="4"   ><text:span
+                   text:style-name="subfoursection"  >}\TitleMark\space
+    \HCode{</text:span>}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
+\ConfigureMark{subfivesection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else \@seccntformat{subfivesection}\fi }
+\Configure{subfivesection}
+   {\IgnorePar\EndP \HCode{<!--start of subfivesection-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subfivesection-->}}
+   {\HCode{<text:h 
+           text:style-name="\csname a:Heading-4|<cond rtl class|>\endcsname"
+                   \text:outlinelevel="4"   ><text:span
+                   text:style-name="subfivesection"  >}\TitleMark\space
+    \HCode{</text:span>}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
+\ConfigureMark{subsixsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else \@seccntformat{subsixsection}\fi }
+\Configure{subsixsection}
+   {\IgnorePar\EndP \HCode{<!--start of subsixsection-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subsixsection-->}}
+   {\HCode{<text:h 
+           text:style-name="\csname a:Heading-4|<cond rtl class|>\endcsname"
+                   \text:outlinelevel="4"   ><text:span
+                   text:style-name="subsixsection"  >}\TitleMark\space
+    \HCode{</text:span>}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
+\ConfigureMark{subsevensection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else \@seccntformat{subsevensection}\fi }
+\Configure{subsevensection}
+   {\IgnorePar\EndP \HCode{<!--start of subsevensection-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subsevensection-->}}
+   {\HCode{<text:h 
+           text:style-name="\csname a:Heading-4|<cond rtl class|>\endcsname"
+                   \text:outlinelevel="4"   ><text:span
+                   text:style-name="subsevensection"  >}\TitleMark\space
+    \HCode{</text:span>}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
+\ConfigureMark{subeightsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else \@seccntformat{subeightsection}\fi }
+\Configure{subeightsection}
+   {\IgnorePar\EndP \HCode{<!--start of subeightsection-->}}   
+   {\IgnorePar\EndP \HCode{<!--end of subeightsection-->}}
+   {\HCode{<text:h 
+           text:style-name="\csname a:Heading-4|<cond rtl class|>\endcsname"
+                   \text:outlinelevel="4"   ><text:span
+                   text:style-name="subeightsection"  >}\TitleMark\space
+    \HCode{</text:span>}\IgnoreIndent}
+   {\HCode{</text:h>\Hnewline}\par\ShowPar}
+>>>
+
 
 
 
@@ -5344,6 +5419,46 @@ Why we need the following in content.xml instead of styles.xml
 |<content style 6|>%
 |<content style 7|>%
 |<content style 8|>%
+>>>
+
+\<jurabook tocs\><<<
+\ConfigureToc{subthreesection}
+  {\HCode{<text:p text:style-name="P3"  ><text:span 
+                        text:style-name="toc-mark"  >}}
+  { \HCode{</text:span>}}
+  {}
+  {\HCode{</text:p>}}
+
+\ConfigureToc{subfoursection}
+  {\HCode{<text:p text:style-name="P3"  ><text:span 
+                        text:style-name="toc-mark"  >}}
+  { \HCode{</text:span>}}
+  {}
+  {\HCode{</text:p>}}
+\ConfigureToc{subfivesection}
+  {\HCode{<text:p text:style-name="P3"  ><text:span 
+                        text:style-name="toc-mark"  >}}
+  { \HCode{</text:span>}}
+  {}
+  {\HCode{</text:p>}}
+\ConfigureToc{subsixsection}
+  {\HCode{<text:p text:style-name="P3"  ><text:span 
+                        text:style-name="toc-mark"  >}}
+  { \HCode{</text:span>}}
+  {}
+  {\HCode{</text:p>}}
+\ConfigureToc{subsevensection}
+  {\HCode{<text:p text:style-name="P3"  ><text:span 
+                        text:style-name="toc-mark"  >}}
+  { \HCode{</text:span>}}
+  {}
+  {\HCode{</text:p>}}
+\ConfigureToc{subeightsection}
+  {\HCode{<text:p text:style-name="P3"  ><text:span 
+                        text:style-name="toc-mark"  >}}
+  { \HCode{</text:span>}}
+  {}
+  {\HCode{</text:p>}}
 >>>
 
 
@@ -9425,6 +9540,11 @@ fn\the\c@footnote x\minipageNum
 |<base font size|>
 |<mwcls index|>
 |<mwcls sections|>
+>>>
+
+\<configure ooffice jurabook\><<<
+|<jurabook sections|>
+|<jurabook tocs|>
 >>>
 
 \<configure ooffice slides\><<<

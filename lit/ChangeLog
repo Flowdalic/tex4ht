@@ -1,5 +1,9 @@
 2024-05-27  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-ooffice.tex (ooffice.4ht): added support for jurabook
+	sections and toc in the ODT format.
+	https://github.com/michal-h21/make4ht/issues/148
+
 	* tex4ht-4ht.tex (jurabook.4ht, juraovw.4ht, juraurtl.4ht),
 	* tex4ht-html4.tex (html4.4ht): added support for custom sectioning
 	commands provided by Jurabook.
