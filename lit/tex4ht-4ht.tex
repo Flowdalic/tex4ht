@@ -19235,6 +19235,7 @@ Classes in the Juramisc bundle
 |<TeX4ht copywrite|>
 |<jurabook subsections|>
 |<jurabook toc|>
+|<jurabook footnotes|>
 \Hinput{jurabook}
 >>>        \AddFile{9}{jurabook}
 
@@ -19315,6 +19316,24 @@ We need to include these sectionins in the TOC
 }
 
 \Configure{tableofcontents*}{part,chapter,section,subsection,subsubsection,subthreesection,subfoursection,subfivesection,subsixsection,subsevensection,subeightsection}
+>>>
+
+This code is a copy from jurabook.cls. It rewrites the default version used by
+Jurabook, which starts a list environment. This leads to HTML tag mismatches
+and is unnecessary in general.
+
+The \`'\@makefntext' command will be redefined again in book.4ht, so we don't need to
+insert TeX4ht hooks in this  version.
+
+\<jurabook footnotes\><<<
+ \renewcommand{\@makefntext}[1]{%
+   \stepcounter{totalfootnotes}%
+   \renewcommand{\baselinestretch}{\@ne}% (nur) dieses hinzugefuegt fuer einzeilige Ausgabe
+   \parindent 1em%
+   \noindent%
+   \@infootnotetrue%
+   \hb@xt@1.8em{\hss\@makefnmark}#1%
+ \@infootnotefalse}
 >>>
 
 %%%%%%%%%%%%%%%%%%%

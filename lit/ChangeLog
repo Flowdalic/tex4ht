@@ -1,3 +1,9 @@
+2024-05-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (jurabook.4ht): fixed footnotes handling in
+	Jurabook.
+	https://github.com/michal-h21/make4ht/issues/148
+
 2024-05-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-ooffice.tex (ooffice.4ht): added support for jurabook
