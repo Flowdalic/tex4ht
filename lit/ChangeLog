@@ -1,5 +1,8 @@
 2024-05-28  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-html4.tex (html4.4ht): renamed jurabib cofigurations to
+	jurabook.
+
 	* tex4ht-4ht.tex (jurabook.4ht): fixed footnotes handling in
 	Jurabook.
 	https://github.com/michal-h21/make4ht/issues/148

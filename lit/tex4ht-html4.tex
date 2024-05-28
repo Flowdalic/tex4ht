@@ -9045,9 +9045,9 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \section{juramisc}
 %%%%%%%%%%%%%%%%%%
 
-\<configure html4 jurabib\><<<
-|<jurabib sections|>
-|<jurabib toc|>
+\<configure html4 jurabook\><<<
+|<jurabook sections|>
+|<jurabook toc|>
 >>>
 
 \<configure html4 juraurtl\><<<
@@ -9056,7 +9056,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \<configure html4 juraovw\><<<
 >>>
 
-\<jurabib sections\><<<
+\<jurabook sections\><<<
 \Configure{subthreesection}
    {}{}
    {\ifvmode\IgnorePar\fi\EndP\HCode{<h5 class="subthreesection">}\TitleMark\space}    {\HCode{</h5>}\par\ShowPar}
@@ -9096,7 +9096,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \ConfigureMark{subeightsection}{\HCode{<span class="titlemark">}\thesubeightsection\HCode{</span>}}
 >>>
 
-\<jurabib toc\><<<
+\<jurabook toc\><<<
 \def\tocsubthreesection#1#2#3{\par\toc:num{subthreesection}{#1}{#2}\par}
 \def\tocsubfoursection#1#2#3{\par\toc:num{subfoursection}{#1}{#2}\par}
 \def\tocsubfivesection#1#2#3{\par\toc:num{subfivesection}{#1}{#2}\par}
