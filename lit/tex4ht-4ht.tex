@@ -33343,10 +33343,17 @@ content.
 \NewConfigure{listings-init}{2}
 >>>
 
+Use the TextStyle hook to insert markup for inline listings. This hook can 
+be used also in other contexts, so we need to execute it conditionally, 
+based on the \Verb|\lst@ifmode| condition. 
+See \Link[https://tex.stackexchange.com/q/719828/2891]{}{}for example\EndLink.
+
 \<listings sty\><<<
 \lst@AddToHook{TextStyle}{%
    \Configure{listings}{}{}{}{}%
-   \a:lstinline \bgroup \aftergroup\b:lstinline\aftergroup\egroup
+   \lst@ifmode\else%
+   \a:lstinline \bgroup \aftergroup\b:lstinline\aftergroup\egroup%
+   \fi%
   }
 \NewConfigure{lstinline}{2}
 >>>

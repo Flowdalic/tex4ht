@@ -1,3 +1,9 @@
+2024-06-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (listings.4ht): fixed error with otherkeywords
+	style.
+	https://tex.stackexchange.com/a/719878/2891
+
 2024-05-28  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): renamed jurabib cofigurations to
