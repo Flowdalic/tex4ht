@@ -1,3 +1,10 @@
+2024-06-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (babel-sty-hooks.4ht): use \ProvideDocumentCommand
+	to define \:babelfont, in order to prevent errors if Babel is used
+	multiple times.
+	https://puszcza.gnu.org.ua/bugs/?626
+
 2024-06-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (listings.4ht): fixed error with otherkeywords
