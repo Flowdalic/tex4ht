@@ -3487,11 +3487,20 @@ configuration until now. It seems to be useful when we need to inject something
 into the environment without messing the existing \`|\ConfigureEnv|
 definitions.
 
+% Michal 2024-06-15
+% I've added use of \a:newlabel{\@currentlabelname} if \NR:Type is empty. 
+% It seems to add support for name ref labels that are not supported yet
+% We need to empty \NR:Type after \label. I hope this doesn't break anything.
+% https://tex.stackexchange.com/a/720647/2891
+
 \<nameref v.2 configurations\><<<
 \let\NR:Type\relax
 \let\ltx@label\label
-\def\prf:label{{\ifx \NR:Title\:UnDef \else \NR:Title\fi}%
+\def\prf:label{{\ifx \NR:Title\:UnDef \a:newlabel{\@currentlabelname}\else \NR:Title\fi}%
                {\ifx \NR:Type\relax \else \NR:Type .1\fi}{}}%
+
+\append:defI\label{\let\NR:Title\undefined}
+
 \let\NR:StartSec\:StartSec
 \let\NR:no@sect\no@sect
 \def\no@sect#1#2#3#4#5#6[#7]#8{\gdef\NR:Title{\a:newlabel{#7}}%
