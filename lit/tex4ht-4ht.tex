@@ -11344,7 +11344,7 @@ We need to load the tabularx package, because we use it instead of Tabu for actu
 
 \<tabularray.4ht\><<< 
 % tabularray.4ht (|version), generated from |jobname.tex 
-% Copyright 2022-2023 TeX Users Group 
+% Copyright 2022-2024 TeX Users Group 
 |<TeX4ht license text|> 
 |<tabularray definitions|>
 |<tabularray table and rows|>
@@ -11450,13 +11450,13 @@ for horizontal and vertical alignment, background color and rules.
 % find columns that are covered by rowspan and colspan
   \xdef\HCol{\@arabic\c@colnum}
   \xdef\HRow{\@arabic\c@rownum}
-  \xdef\HMultispan{\l__tblr_cell_colspan_tl}
-  \xdef\HRowspan{\l__tblr_cell_rowspan_tl}
+  \xdef\HMultispan{\lTblrCellColSpanTl}
+  \xdef\HRowspan{\lTblrCellRowSpanTl}
   \let\CellAttributes\@empty
   \let\CellStyle\@empty
   % calculate ignored cells, if the current cell uses colspan or rowspan
-  \int_step_inline:nnn{\c@rownum }{\c@rownum - 1 + \l__tblr_cell_rowspan_tl}{
-    \int_step_inline:nnn{\c@colnum }{\c@colnum - 1  + \l__tblr_cell_colspan_tl}{
+  \int_step_inline:nnn{\c@rownum }{\c@rownum - 1 + \lTblrCellRowSpanTl}{
+    \int_step_inline:nnn{\c@colnum }{\c@colnum - 1  + \lTblrCellColSpanTl}{
       % the loop always matches the current cell, we must ignore it
       \str_if_eq:eeF{\HCol.\HRow}{####1.##1}{%
         \cs_gset:cpn{ignoredcell-####1-##1}{}
