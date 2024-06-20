@@ -37900,9 +37900,39 @@ Use
 
 \<footmisc.4ht\><<<
 % footmisc.4ht (|version), generated from |jobname.tex
-% Copyright 2019 TeX Users Group
+% Copyright 2019-2024 TeX Users Group
 |<TeX4ht license text|>
+|<footmisc footnote counter|>
+|<footmisc footnotetext|>
+|<footmisc symbols|>
 
+
+\Hinput{footmisc}
+\endinput
+>>>        \AddFile{9}{footmisc}
+
+Footmisc can reset the normal footnote counter on every page. Footnote links are 
+then wrong, as they point to an earlier footnote. My solution is to use a global 
+counter that gives each footnote unique number and which doesn't rely on the footnote 
+symbol.
+
+\<footmisc footnote counter\><<<
+\newcounter{:footnotes}
+
+\def\FNnum{\the\:footnotes}
+
+\HRestore\footnote
+
+\def\:tempc{%
+   \HAssign\FNnum = \csname c@:footnotes\endcsname%
+   \stepcounter{:footnotes}%
+   \HAdvance\FNnum by 1%
+   \o:footnote:%
+}
+\HLet\footnote=\:tempc
+>>>
+
+\<footmisc footnotetext\><<<
 \long\def\@footnotetext#1{\leavevmode
    \vbox{%\IgnorePar
       \leftskip0pt {\ht:everypar{}\parindent0pt\leavevmode}%
@@ -37921,6 +37951,9 @@ Use
       \color@endgroup
       \ht:special{t4ht@[}}\ht:special{t4ht@]}}
 
+>>>
+
+\<footmisc symbols\><<<
 % detect if the symbol or symbol* option were used
 % we can detect that by testing of \thefootnote macro
 
@@ -37937,10 +37970,7 @@ Use
     \newcommand\p@footmisc@footnote[1]{\p@footnote{#1}}
   \fi
 \fi
-
-\Hinput{footmisc}
-\endinput
->>>        \AddFile{9}{footmisc}
+>>>
 
 %%%%%%%%%%%%%%%
 \Section{tablefootnote}
