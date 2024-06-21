@@ -1,4 +1,10 @@
-2024-06-17  Michal Hoftich  <michal.h21@gmail.com>
+2024-06-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): don't use picture name as alt in
+	\epsfbox, it can lead to spurious characters in the resulting HTML.
+	Thanks to Rolf Brigola
+
+2024-06-20  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (footmisc.4ht): fixed handling of footnote counter
 	reset. 
