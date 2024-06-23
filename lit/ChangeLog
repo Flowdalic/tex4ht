@@ -1,3 +1,9 @@
+2024-06-21  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (arydshln.4ht): fixed clash between Colortbl and
+	Arydshln packages.
+	https://tex.stackexchange.com/a/721185/2891
+
 2024-06-23  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-cpright.tex: https for urls.
@@ -19,7 +25,7 @@
 
 	* tex4ht-4ht.tex (tabularray.4ht): updated names of token lists that
 	holds rowspan and colspan.
-	https://tex.stackexchange.com/a/720800/2891
+	https://tex.stackexchange.com/a/720800/2891
 
 2024-06-15  Michal Hoftich  <michal.h21@gmail.com>
 

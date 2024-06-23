@@ -11225,12 +11225,13 @@ compilation errors
 \<arydshln.4ht\><<<
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 % arydshln.4ht (|version), generated from |jobname.tex 
-% Copyright 2022 TeX Users Group 
+% Copyright 2022-2024 TeX Users Group 
 |<TeX4ht license text|> 
 % this is a copy of code that arydshln inserts to \@array
 \def\:new:array{\adl@everyvbox\everyvbox
         \everyvbox{\adl@arrayinit \the\adl@everyvbox \everyvbox\adl@everyvbox}%
-        \ifadl@inactive \adl@inactivate \else \adl@activate \fi
+        % this line may lead to errors if the document uses Colortbl:
+        % \ifadl@inactive \adl@inactivate \else \adl@activate \fi
         \let\adl@noalign\noalign}
 \ifcsname n:@array:\endcsname% if \@array was already patched by TeX4ht
   \let\orig:n@array\n:@array:
