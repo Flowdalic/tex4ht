@@ -1,3 +1,7 @@
+2024-07-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (fontawesome5.4ht): use icon name as the alt text.
+
 2024-06-21  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (arydshln.4ht): fixed clash between Colortbl and

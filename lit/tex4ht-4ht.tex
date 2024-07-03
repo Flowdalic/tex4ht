@@ -4265,18 +4265,19 @@ icons to pictures by TeX4ht conversion.
 
 \<fontawesome5.4ht\><<<
 % fontawesome5.4ht (|version), generated from |jobname.tex
-% Copyright 2021 TeX Users Group
+% Copyright 2021-2024 TeX Users Group
 |<TeX4ht license text|>
 \NewConfigure{fontawesome}{2}
 \ExplSyntaxOn
 \cs_new_protected:Nn\temp:nn{%
+\def\:fontawesomeicon{#2}% to be used in the alt text
 \a:fontawesome%
 \o:fontawesome_use_icon:nn:{#1}{#2}
 \b:fontawesome}
 
 \HLet\fontawesome_use_icon:nn\temp:nn
 \ExplSyntaxOff
-\Configure{fontawesome}{\Picture+{}}{\EndPicture}
+\Configure{fontawesome}{\Picture+[icon: \:fontawesomeicon]{}}{\EndPicture}
 \Hinput{fontawesome5}
 \endinput
 >>> \AddFile{9}{fontawesome5}
