@@ -2950,6 +2950,22 @@ such a case, we don't have proper nestings of environments.
     \EndP\HCode{</li></ul>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\Tg</li>}\DeleteMark}
    {\HCode{<li class="\getClass{li}itemize">}\afterGetClass{li}|<list par|>}
+
+\:CheckOption{itemize+}\if:Option
+\ConfigureList{itemize}%
+   {\EndP\HCode{<ul \a:LRdir
+          class="\getClass{itemize}itemize\expandafter\the
+          \csname @itemdepth\endcsname">}%
+       \afterGetClass{itemize}%
+       |<save end:itm|>\global\let\end:itm=\empty}
+   {|<recall end:itm|>\ifvmode \IgnorePar\fi 
+    \EndP\HCode{</li></ul>}\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</li>}\HCode{<li class="\getClass{li}itemize"><span class="itemizeHead" aria-hidden="true">}\afterGetClass{li}}
+   {\HCode{</span>}|<list par|>}
+\Css{.itemizeHead{float: left; margin-left: -1em; width: 1em;}}
+\Css{li.itemize{list-style: none;}}
+\fi
+
 \NewConfigure{itemizeClass}{2}
 \Configure{itemizeClass}{}{}
 \NewConfigure{liClass}{2}
