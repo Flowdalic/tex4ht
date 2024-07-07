@@ -1,3 +1,9 @@
+2024-07-07  Karl Berry  <karl@freefriends.org>
+
+	* Makefile (tex4ht_env_derived),
+	* tex4ht-env.tex: no longer generate tex4ht.env, just
+	.env-unix and .env-win32, since those are the only ones we use.
+
 2024-07-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): added itemize+ option. It will keep

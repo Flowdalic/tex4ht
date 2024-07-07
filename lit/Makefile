@@ -138,7 +138,7 @@ tex4ht_docbook_xtpipes_derived = docbook.4xt $(wd)/src/DbUtilities.java
 endif
 
 derived += $(tex4ht_env_derived)
-tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32 tex4ht.env
+tex4ht_env_derived = tex4ht.env-unix tex4ht.env-win32
 
 derived += $(tex4ht_fonts_cjk_derived)
 tex4ht_fonts_cjk_derived = \
