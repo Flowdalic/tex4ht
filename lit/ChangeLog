@@ -1,3 +1,9 @@
+2024-07-26  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (tagpdf-hooks.4ht, tagpdf-base-hooks.4ht): removed
+	\__tag_whatsits definitions, they fix is no longer necessary.
+	https://github.com/michal-h21/make4ht/issues/145#issuecomment-2085215582
+
 2024-07-07  Karl Berry  <karl@freefriends.org>
 
 	* Makefile (tex4ht_env_derived),
