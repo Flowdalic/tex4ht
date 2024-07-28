@@ -1,3 +1,8 @@
+2024-07-28  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): don't add spaces after
+	LaTeX commands.
+
 2024-07-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (tagpdf-hooks.4ht, tagpdf-base-hooks.4ht): removed
