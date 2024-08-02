@@ -1939,6 +1939,189 @@ primes.
 \fi
 >>>
 
+
+We may want to include LaTeX source as an annotation in MathML. In particular LaTeX PDF tagging code can use 
+this feature. We will not use it by default, but only with texsource option, as it can potentially
+break some functionality.
+
+The code is based on the LaTeX MathJax code, but heavily modified.
+
+\<configure html-mml latex\><<<
+\:CheckOption{texsource}\if:Option
+
+\newtoks\mmleqtoks 
+\ExplSyntaxOn
+\cs_new_protected:Npn \mmlalteqtoks #1
+{
+  % save tokens, but preserve spaces
+  % https://tex.stackexchange.com/a/44444/2891
+  \tl_set:Nn \l_tmpa_tl {#1}
+  \regex_replace_all:nnN { . } { \c{string} \0 } \l_tmpa_tl
+  \tl_set:Nx \l_tmpa_tl { \l_tmpa_tl }
+  % % replace < > and & with xml entities
+  \regex_replace_all:nnN { \x{26} } { &amp; } \l_tmpa_tl
+  \regex_replace_all:nnN { \x{3C} } { &lt; } \l_tmpa_tl
+  \regex_replace_all:nnN { \x{3E} } { &gt; } \l_tmpa_tl
+  % \regex_replace_all:nnN { \n } {\HCode{ \Hnewline }} \l_tmpa_tl
+  % replace \par command with blank lines
+  \regex_replace_all:nnN { \x{5C}par\b } {\x{A}\x{A}} \l_tmpa_tl
+  \tl_set:Nx \mmleqtoks{ \l_tmpa_tl }
+  
+  %\HCode{\l_tmpb_tl}
+}
+\ExplSyntaxOff
+
+
+\def\AltMath#1${\mmlalteqtoks{#1}% 
+   #1\HCode{</\a:mathml mrow><\a:mathml annotation encoding="application/x-tex">\mmleqtoks</\a:mathml annotation>}$} 
+\Configure{$}{\Configure{@math}{display="inline"}\DviMath\HCode{<\a:mathml semantics><\a:mathml mrow>}}{\HCode{</\a:mathml semantics>}\EndDviMath}{\expandafter\AltMath} 
+
+\def\AltMathParen#1\){\mmlalteqtoks{#1}% 
+   #1\HCode{</\a:mathml mrow><a\a:mathml nnotation encoding="application/x-tex">\mmleqtoks</\a:mathml annotation>}$} 
+
+\def\AltMathParen#1\){\mmlalteqtoks{#1}#1\HCode{</\a:mathml mrow><\a:mathml annotation encoding="application/x-tex">\mmleqtoks</\a:mathml annotation>}\)}
+%\Configure{()}{\Configure{@math}{display="inline"}\DviMath\HCode{<\a:mathml semantics><\a:mathml mrow>}\AltMathParen$}{\EndDviMath\HCode{</\a:mathml semantics>}} 
+\Configure{()}
+  {\Configure{@math}{%\a:mathml
+ display="inline"
+}\csname a:mathml()\endcsname
+\DviMath\HCode{<\a:mathml semantics><\a:mathml mrow>}$\expandafter\AltMathParen}
+{$\HCode{</\a:mathml semantics>}\EndDviMath\csname b:mathml()\endcsname}
+
+
+\long\def\AltDisplay#1\]{\mmlalteqtoks{#1}#1\HCode{</\a:mathml mrow><\a:mathml annotation encoding="application/x-tex">\mmleqtoks</\a:mathml annotation></\a:mathml semantics>}\]}
+\Configure{[]}{\Configure{@math}{display="block"}\DviMath$$\DisplayMathtrue\HCode{<\a:mathml semantics><\a:mathml mrow>}\AltDisplay}{$$\EndDviMath}
+
+
+% \long\def\MMLAltlDisplayDollars#1$${\mmlalteqtoks{\[#1\]}#1\HCode{</\a:mathml mrow><\a:mathml annotation encoding="application/x-tex">\mmleqtoks</\a:mathml annotation>}$$}
+
+% configuarartion of display math doesn't work yet. need to investigate it.
+% \Configure{$$}
+%    {\Configure{@math}{%\a:mathml
+%  display="block"
+% }\IgnorePar
+%     \ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
+%   \EndP\DviMath\HCode{<\a:mathml semantics><\a:mathml mrow>}}
+% {\HCode{</\a:mathml semantics>}\EndDviMath\ShowPar\par{\csname HCondtrue\endcsname\noindent}}
+%    {\DisplayMathtrue\expandafter\MMLAltlDisplayDollars}
+
+
+% \renewcommand\eqannotate[1]{\mmlalteqtoks{#1}\HCode{<\a:mathml semantics><\a:mathml mrow>}#1\HCode{</\a:mathml mrow><\a:mathml annotation encoding="application/x-tex">\mmleqtoks</\a:mathml annotation></\a:mathml semantics>}}
+
+
+% environment support
+\newcommand\MMLVerbMathToks[2]{%
+  \mmlalteqtoks{\begin{#2}
+    #1
+  \end{#2}}%
+  \begingroup%
+  \ifvmode\IgnorePar\fi\EndP\Configure{@math}{display="block"}\DviMath\DisplayMathtrue\HCode{<\a:mathml semantics><\a:mathml mrow>}
+  \Configure{$$}{}{}{}
+  \begin{old#2}
+    #1
+  \end{old#2}
+  \HCode{</\a:mathml mrow><\a:mathml annotation encoding="application/x-tex">}
+  \HCode{\mmleqtoks}
+  \HCode{</\a:mathml annotation></\a:mathml semantics>}
+  \EndDviMath
+  \endgroup
+}
+
+% we must handle equations separatelly. 
+% it is a bit messy
+\newcommand\MMLVerbMathToksEquation[2]{%
+  \mmlalteqtoks{\begin{#2}
+    #1
+  \end{#2}}%
+  \begingroup%
+  \def\@tempa{#2}%
+  \def\@equationname{equation}%
+  \def\mlabeledtr{mtr}
+  \ifx\@equationname\@tempa%
+  \def\mlabeledtr{mlabeledtr} % this element can be used to print the equation number, but it is supported only by MathJax
+  \fi
+  \ifvmode\IgnorePar\fi\EndP\Configure{@math}{display="block"}\DviMath\DisplayMathtrue\HCode{<\a:mathml semantics><\a:mathml mrow><\a:mathml mtable><\a:mathml \mlabeledtr><\a:mathml mtd>}%
+  \ifx\@equationname\@tempa%
+  \incr@eqnum%
+  \print@eqnum%
+  \HCode{</\a:mathml mtd><\a:mathml mtd>}%
+  \fi
+    #1%
+  \HCode{</\a:mathml mtd></\a:mathml \mlabeledtr></\a:mathml mtable></\a:mathml mrow><\a:mathml annotation encoding="application/x-tex">}%
+  \HCode{\mmleqtoks}%
+  \HCode{</\a:mathml annotation></\a:mathml semantics>}%
+  \EndDviMath%
+  \endgroup%
+}
+
+\ExplSyntaxOn
+\newcommand\MMLVerbMath[1]{%
+  \cs_if_exist:cTF{#1}{
+    \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\let\csname endold#1\expandafter\endcsname\csname end#1\endcsname
+    \RenewDocumentEnvironment{#1}{+!b}{%
+      \NoFonts\expandafter\MMLVerbMathToks\expandafter{##1}{#1}\EndNoFonts%
+    }{}
+  }{}%
+}
+
+\newcommand\MMLVerbEquation[1]{%
+  \cs_if_exist:cTF{#1}{
+    \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\let\csname endold#1\expandafter\endcsname\csname end#1\endcsname
+    \RenewDocumentEnvironment{#1}{+!b}{%
+      \NoFonts\expandafter\MMLVerbMathToksEquation\expandafter{##1}{#1}\EndNoFonts%
+    }{}
+  }{}%
+}
+\ExplSyntaxOff
+
+% \MMLVerbEquation{equation}
+% \MMLVerbEquation{equation*}
+
+\fi
+>>>
+
+\<configure html-mml amsmath\><<<
+\:CheckOption{texsource}\if:Option
+\MMLVerbMath{subarray}
+\MMLVerbMath{smallmatrix}
+\MMLVerbMath{matrix}
+\MMLVerbMath{pmatrix}
+\MMLVerbMath{bmatrix}
+\MMLVerbMath{Bmatrix}
+\MMLVerbMath{vmatrix}
+\MMLVerbMath{Vmatrix}
+\MMLVerbMath{cases}
+\MMLVerbMath{subequations}
+\MMLVerbMath{aligned}
+\MMLVerbMath{alignedat}
+\MMLVerbMath{gathered}
+\MMLVerbMath{gather}
+\MMLVerbMath{gather*}
+\MMLVerbMath{alignat}
+\MMLVerbMath{alignat*}
+\MMLVerbMath{xalignat}
+\MMLVerbMath{xalignat*}
+\MMLVerbMath{xxalignat}
+\MMLVerbMath{align}
+\MMLVerbMath{align*}
+\MMLVerbMath{flalign}
+\MMLVerbMath{flalign*}
+\MMLVerbMath{split}
+\MMLVerbMath{multline}
+\MMLVerbMath{multline*}
+% equations fails with errors, even though it worked in a .cfg 
+% I will need to investigate it more
+% \MMLVerbEquation{equation}
+% \MMLVerbEquation{equation*}
+\MMLVerbMath{math}
+\MMLVerbMath{displaymath}
+\MMLVerbMath{eqnarray}
+\MMLVerbMath{eqnarray*}
+\fi
+>>>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{plain.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%

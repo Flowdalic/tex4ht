@@ -1,5 +1,9 @@
 2024-08-02  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathml.tex (mathml.4ht): added "texsource" option. It will
+	keep the original LaTeX code as an annotation in MathML.
+	https://chat.stackexchange.com/rooms/154333/discussion-on-question-by-yannisl-alternatives-to-mathml-for-pdf-tagging
+
 	* tex4ht-4ht.tex (esvect.4ht),
 	* tex4ht-mathml.tex (mathml.4ht): added support for the Esvect
 	package.
