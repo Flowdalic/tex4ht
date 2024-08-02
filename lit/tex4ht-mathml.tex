@@ -5703,6 +5703,25 @@ elements that are printed to support the munderover element easily.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{esvec}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We need to redefine these commands only for MathML. By default, Esvect produces images, which is OK.
+
+\<configure mathml esvect\><<<
+\def\:tempa#1{%
+  \bgroup\HCode{<\a:mathml mover><\a:mathml mrow>}#1\HCode{</\a:mathml mrow><\a:mathml mo>&rarr;</\a:mathml mo></\a:mathml mover>}\egroup
+}
+
+\HLet\ESV@vecteur\:tempa
+\def\:tempa#1#2{%
+  \ESV@vecteur{{#1}\sb{#2}}
+}
+\HLet\vvstar\:tempa
+
+>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Notes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
