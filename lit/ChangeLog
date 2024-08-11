@@ -1,3 +1,7 @@
+2024-08-11  Karl Berry  <karl@freefriends.org>
+
+	* tex4ht-mathml.tex (html-mml.4ht): copyright 2024.
+
 2024-08-02  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): added "texsource" option. It will
