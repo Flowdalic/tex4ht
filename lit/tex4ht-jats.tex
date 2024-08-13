@@ -201,6 +201,7 @@ Configurations that are shared only for article and report
 |<latex footnotes|>
 |<latex quotes|>
 |<latex lists|>
+|<latex bibliography|>
 >>>
 
 \<shared article,report\><<<
@@ -839,6 +840,29 @@ them separatelly.
    {|<recall end:itm|>\EndP\HCode{</def></def-item></def-list>}\ShowPar}
    {\end:itm \global\def\end:itm{\EndP\HCode{</def></def-item>}}\HCode{<def-item><term>}\NoFonts\HtmlParOff}
    {\EndNoFonts\HCode{</term><def>}\HtmlParOn|<list par|>}
+>>>
+
+
+We cannot create a structured bibliographic record for plain LaTeX references, so we 
+at least mark individual entries.
+
+Entry id is set on the label element. The id comes from a child xref element that is removed 
+by make4ht. Ideally, it should be set on ref, but we need to use label here, to catch 
+potential entry number.
+
+
+\<latex bibliography\><<<
+\ConfigureList{thebibliography}%
+   {\ifvmode\IgnorePar\fi \EndP \HCode{<ref-list>}\let\en:bib=\empty}
+   {\en:bib \ifvmode\IgnorePar\fi \EndP \HCode{</ref-list>}}
+   {\en:bib\def\en:bib{\HCode{</mixed-citation></ref>}}%
+    \HCode{<ref><label>}%
+     \Configure{HtmlPar}%
+    {\EndP}%
+    {\EndP}%
+    {} {}%
+  }
+   {\HCode{</label><mixed-citation>}}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

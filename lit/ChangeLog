@@ -1,3 +1,8 @@
+2024-08-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-jats.tex (jats.4ht): added support for LaTeX
+	bibliographies.
+
 2024-08-11  Karl Berry  <karl@freefriends.org>
 
 	* tex4ht-mathml.tex (html-mml.4ht): copyright 2024.
