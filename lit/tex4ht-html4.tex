@@ -17806,6 +17806,45 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 >>>
 
 %%%%%%%%%%%%%%%%%%
+\section{moderncv}
+%%%%%%%%%%%%%%%%%%
+
+\<configure html4 moderncv\><<<
+\Configure{cvhead}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="cvhead">}}{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+\Configure{cvphoto}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="cvphoto">}}{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+
+\Configure{section}{\ifvmode\IgnorePar\fi\EndP\HCode{<h2>}}{\HCode{</h2>}}
+\Configure{subsection}{\ifvmode\IgnorePar\fi\EndP\HCode{<h3>}}{\HCode{</h3>}}
+\Configure{cvitem}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="cvitem"><span class="cvitemhead">}}{\HCode{</span><span class="cvitembody">}}{\HCode{</span></div>}}
+\Configure{cvdoubleitem}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="cvdoubleitem">}}{\HCode{</div>}}
+\Configure{cvlistitem}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="cvlistitem">}}{\HCode{</div>}}
+\Configure{cvlistdoubleitem}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="cvlistdoubleitem">}}{\HCode{</div>}}
+
+\Configure{cvskillhead}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="cvskillhead">}}{\HCode{</div>}}
+\Configure{cvskillentry}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="cvskillentry">}}{\HCode{</div>}}
+
+\Configure{cvskill}{\Picture*[skill level: \:cvskillamount]{}}{\EndPicture}
+
+\Css{.cvskillentry .tabular, .cvskillhead .tabular {margin:0pt;}}
+\Css{.cvskillentry .tabular td:nth-child(1), .cvskillhead .tabular td:nth-child(1){width: 8ch}}
+\Css{.cvskillentry .tabular td:nth-child(2), .cvskillhead .tabular td:nth-child(2){width: 12ch}}
+\Css{.cvskillentry .tabular td:nth-child(3), .cvskillhead .tabular td:nth-child(3){width: 6ch}}
+\Css{.cvskillentry .tabular td:nth-child(4), .cvskillhead .tabular td:nth-child(4){width: 54ch}}
+
+\Css{.cvitemhead{margin-right: 1em;}}
+
+\Css{
+@media (min-width:94ch) {
+.cvitemhead{
+  margin-left: -14ch;
+  width: 12ch;
+  float: left;
+  text-align: right;
+  }
+}}
+>>>
+
+%%%%%%%%%%%%%%%%%%
 \section{CSS}
 %%%%%%%%%%%%%%%%%%
 
