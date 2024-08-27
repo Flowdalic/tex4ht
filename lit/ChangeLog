@@ -1,3 +1,9 @@
+2024-08-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathml.tex (mathml.4ht): fixed support of upper case Greek
+	letters inside pictures.
+	https://tex.stackexchange.com/q/725157/2891
+
 2024-08-19  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (moderncv.4ht),

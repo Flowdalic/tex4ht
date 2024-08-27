@@ -3767,14 +3767,19 @@ charactes.
 Extra brackets are used in order to support subscripts and superscripts.
 
 \<configure mathml latex\><<<
-\def\:temp#1#2{\def#1{\PauseMathClass{\HCode{<mi mathvariant="normal">}\ht:special{t4ht@+\string&{35}x#2{59}}\a:HChar\HCode{</mi>}}\EndPauseMathClass}}
-\:temp\Psi{03A8}
+\def\:temp#1#2{\def\:tempa{\PauseMathClass{\HCode{<mi mathvariant="normal">}\ht:special{t4ht@+\string&{35}x#2{59}}\a:HChar\HCode{</mi>}}\EndPauseMathClass}\HLet#1\:tempa}
+\:temp\Gamma{0393}
 \:temp\Delta{0394}
+\:temp\Theta{0398}
+\:temp\Lambda{039B}
 \:temp\Xi{039E}
 \:temp\Pi{03A0}
 \:temp\Sigma{03A3}
 \:temp\Upsilon{03A5}
+\:temp\Phi{03A6}
+\:temp\Psi{03A8}
 \:temp\Omega{03A9}
+
 >>>
 
 
