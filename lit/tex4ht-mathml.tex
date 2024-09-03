@@ -5898,15 +5898,13 @@ We need to redefine these commands only for MathML. By default, Esvect produces 
 
 \<configure mathml esvect\><<<
 \def\:tempa#1{%
-  \bgroup\HCode{<\a:mathml mover><\a:mathml mrow>}#1\HCode{</\a:mathml mrow><\a:mathml mo>&rarr;</\a:mathml mo></\a:mathml mover>}\egroup
+\bgroup\HCode{<\a:mathml mover><\a:mathml mrow>}#1\HCode{</\a:mathml mrow><\a:mathml mo \a:mathml stretchy="true">}
+\PauseMathClass\fldr\EndPauseMathClass%
+\HCode{</\a:mathml mo></\a:mathml mover>}\egroup
 }
 
+\HRestore\ESV@vecteur
 \HLet\ESV@vecteur\:tempa
-\def\:tempa#1#2{%
-  \ESV@vecteur{{#1}\sb{#2}}
-}
-\HLet\vvstar\:tempa
-
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

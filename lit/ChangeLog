@@ -1,3 +1,12 @@
+2024-09-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/TeXvect10/vect10.htf
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/TeXvect10/vect.htf
+	): fixed Esvect fonts characters. Thanks to Arkady Benediktov.
+	* tex4ht-mathml.tex (mathml.4ht): use actual arrow symbol defined in
+	the vect10.htf font.
+
 2024-08-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): fixed support of upper case Greek
