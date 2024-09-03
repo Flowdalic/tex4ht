@@ -1,6 +1,9 @@
 2024-09-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (
+	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/bbm/bbm.htf
+	): added support for the BBM font. Thanks to Arkady Benediktov.
+	* tex4ht-fonts-noncjk.tex (
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/TeXvect10/vect10.htf
 	./tex4ht.dir/texmf/tex4ht/ht-fonts/unicode/TeXvect10/vect.htf
 	): fixed Esvect fonts characters. Thanks to Arkady Benediktov.
