@@ -1,3 +1,10 @@
+2024-09-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht, enumitem-hooks.4ht, enumitem.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for environments
+	defined using \newlist.
+	https://github.com/michal-h21/make4ht/issues/150
+
 2024-09-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-fonts-noncjk.tex (

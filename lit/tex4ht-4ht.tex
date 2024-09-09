@@ -30340,6 +30340,7 @@ insert some basic formatting.
 % Copyright |CopyYear.2009. Eitan M. Gurari
 |<TeX4ht copywrite|>
 |<enumitem config|>
+|<enumitem newlist|>
 \Hinput{enumitem}
 \endinput
 >>>        \AddFile{9}{enumitem}
@@ -30372,6 +30373,61 @@ See \Link[https://github.com/hendricius/the-sourdough-framework/pull/312]{}{}for
 
 \<enumitem config\><<<
 \def\enit@postlabel{}
+>>>
+
+We need to provide a configuration for environments defined using \Verb+\newlist+. 
+Because they are defined in the preamble, we must catch them using the early hooks 
+file. 
+
+The test file and report can be found \Link[https://github.com/michal-h21/make4ht/issues/150]{}{}here\EndLink.
+
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{enumitem.sty}{enumitem-hooks.4ht}
+>>>
+
+\<enumitem-hooks.4ht\><<<
+% enumitem-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+\:AtEndOfPackage{%
+|<enumitem patch newlist|>
+}
+>>> \AddFile{9}{enumitem-hooks}
+
+
+We save all defined environments in \Verb+\enumitem:newlist+. This command 
+is then called in the \Verb+\Configure{enumitemnewlist}+, which can 
+be used in the output format configuration.
+
+\<enumitem patch newlist\><<<
+\def\enumitem:newlist{}
+\def\:tempa#1#2#3#4{\concat:config\enumitem:newlist{\Configure{enumitemenv}{#2}}\o:enit@newlist{#1}{#2}{#3}{#4}}
+\let\o:enit@newlist\enit@newlist
+\let\enit@newlist\:tempa
+>>>
+
+
+This configuration is called automatically by \Verb+\Configure{enumitenewlist}+ for each 
+declared environment. The environment name is saved in \Verb+\a:enumitemenv+,
+and then we call \Verb+\enumitem:newlist+, which should provide a configuration for lists 
+in the current output format. 
+
+\<enumitem newlist\><<<
+\NewConfigure{enumitemenv}[1]{%
+\def\a:enumitemenv{#1}%
+\enumitem:newlistconfig
+}
+>>>
+
+This configuration should provide a configuration for a list in the current output format. 
+Name of the configured environment is saved in \Verb+\a:enumitemenv+.
+
+\<enumitem newlist\><<<
+\NewConfigure{enumitemnewlist}[1]{
+  \def\enumitem:newlistconfig{#1}
+  \enumitem:newlist
+}
 >>>
 
 
