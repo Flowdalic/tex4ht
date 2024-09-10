@@ -1,3 +1,9 @@
+2024-09-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): use \detokenize again,
+	the alternative method could lead to commands joined with the
+	following text (\int A to \intA).
+
 2024-09-09  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (usepackage.4ht, enumitem-hooks.4ht, enumitem.4ht),

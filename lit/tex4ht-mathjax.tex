@@ -54,11 +54,26 @@ The original code was this:
 % % replace \\:{ back to \\ { -- this can be introduced by the previous regex
 % \regex_replace_all:nnN { \x{5C} \x{5C}  \x{3A} \x{7B} } { \x{5C} \x{5C} \x{20} \x{7B} } \l_tmpa_tl
 
-Now (July 2024), when I researched another issue, I've found that it is actually possible to avoid these 
+
+In July 2024, when I researched another issue, I've found that it is actually possible to avoid these 
 extra spaces using LaTeX 3 commands. The inspiration comes from 
 \Link[https://tex.stackexchange.com/a/44444/2891]this Bruno Le Foch\EndLink.
 One ongoing issue is that newlines are not presented. But they weren't preserved with \verb|\detokenize|
 either, so it shouldn't be a problem.
+
+In September 2024 I found that the LaTeX 3 method of preserving spaces didn't work correctly for 
+code like this: \verb|$\int   A f(x)\;dx$| -- the space between \verb|\int| and \verb|A| was removed,
+so it ended like command \verb|\intA|. So we are moving back to \verb|\detokenize|.
+
+This is the code that was promising, but didn't work in the end:
+
+\begin{verbatim}
+  % save tokens, but preserve spaces
+  % https://tex.stackexchange.com/a/44444/2891
+  \tl_set:Nn \l_tmpa_tl {#1}
+  \regex_replace_all:nnN { . } { \c{string} \0 } \l_tmpa_tl
+  \tl_set:Nx \l_tmpa_tl { \l_tmpa_tl }
+\end{verbatim}
 
 
 We still use regular expressions to escape invalid XML characters to entities, so it works only with LaTeX.
@@ -67,11 +82,7 @@ We still use regular expressions to escape invalid XML characters to entities, s
 \ExplSyntaxOn
 \cs_new_protected:Npn \alteqtoks #1
 {
-  % save tokens, but preserve spaces
-  % https://tex.stackexchange.com/a/44444/2891
-  \tl_set:Nn \l_tmpa_tl {#1}
-  \regex_replace_all:nnN { . } { \c{string} \0 } \l_tmpa_tl
-  \tl_set:Nx \l_tmpa_tl { \l_tmpa_tl }
+  \tl_set:Ne \l_tmpa_tl {\detokenize{#1}}
   % % replace < > and & with xml entities
   \regex_replace_all:nnN { \x{26} } { &amp; } \l_tmpa_tl
   \regex_replace_all:nnN { \x{3C} } { &lt; } \l_tmpa_tl 
