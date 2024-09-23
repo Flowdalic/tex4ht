@@ -1,3 +1,9 @@
+2024-09-23  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): fixed support for superscripts and
+	subscripts that are used values in labels (like in
+	\tag{$e_{1}$}\label{eq1}). Thanks to Linas Stonys.
+
 2024-09-11  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): prevent insertion of

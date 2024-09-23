@@ -1526,6 +1526,13 @@ A better def is given to \''\l:bel' in AmsLaTeX .
 \let\o:ref|=\:ref
 \def\::ref#1{{\:SUBOff\:SUPOff\xdef\RefArg{#1}}\expandafter\o:ref
                                                \expandafter{\RefArg}}
+\ExplSyntaxOn
+\def\::ref#1{{\:SUBOff\:SUPOff\xdef\RefArg{#1}%
+  \SUBOn\SUPOn%
+  \def\rEfLiNK##1##2{\Link{##1}{}\tl_rescan:nn{}{##2}\EndLink}%
+  \expandafter\o:ref\expandafter{\RefArg}%
+}}
+\ExplSyntaxOff
 \DeclareDocumentCommand\:ref{s}{\IfBooleanTF{#1}{\Protect\::ref}{\Protect\::ref}}
 \let\ref|=\:ref
 >>>
@@ -1535,12 +1542,14 @@ Support for the \''\Ref' command. It is variant of \''\ref' that uppercases
 first letter of the referenced label.
 
 \<sub/sup in labels/refs\><<<
-\def\::Ref#1{%
-  \let\olda:rEfLiNK\rEfLiNK%%
-  \def\rEfLiNK##1##2{\Link{##1}{}\edef\:ref:currentlabel{##2}\expandafter\MakeUppercase\:ref:currentlabel\EndLink}%
-  \::ref{#1}%
-  \let\rEfLiNK\olda:rEfLiNK%
-}
+\ExplSyntaxOn
+\def\::Ref#1{{%
+  \:SUBOff\:SUPOff\xdef\RefArg{#1}%
+  \SUBOn\SUPOn%
+  \def\rEfLiNK##1##2{\tl_set_rescan:Nnn\l_tmpa_tl{}{##2}\Link{##1}{}\expandafter\MakeUppercase\l_tmpa_tl\EndLink}%
+  \expandafter\o:ref\expandafter{\RefArg}%
+}}
+\ExplSyntaxOff
 \DeclareDocumentCommand\:Ref{s}{\IfBooleanTF{#1}{\Protect\::Ref}{\Protect\::Ref}}
 \let\Ref\:Ref
 >>>
