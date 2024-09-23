@@ -2162,11 +2162,11 @@ Should be  consistent with the corresponding features in ProTeX.
 
 \SubSection{Ref}
 
-The implementations of \''\Ref' and \''\Tag' view the crosswords $\alpha$ as 
+The implementations of \''\XRef' and \''\Tag' view the crosswords $\alpha$ as 
 pointers to macros that carry  the names `\''\cw:'$\alpha$'. 
 
 \<common cross references\><<<
-\def\Ref#1{\expandafter\ifx
+\def\XRef#1{\expandafter\ifx
                  \csname |<tag of Tag|>#1\endcsname \relax \:NoTag{#1}%
            \else \csname |<tag of Tag|>#1\endcsname    \fi}
 >>>
@@ -2186,7 +2186,7 @@ pointers to macros that carry  the names `\''\cw:'$\alpha$'.
 \SubSection{LikeRef}
 
 The \`'\:LikeRef' command is a stripped down version of
-\`'\Ref'; it doesn't check whether the tag is defined.
+\`'\XRef'; it doesn't check whether the tag is defined.
 
 The space in \`'\space' is needed for carrying MAME tags
 in (mosaic) html files.
@@ -2272,7 +2272,7 @@ probably in latex.4ht.
 \openin15=\jobname.xref 
 \ifeof15  \def\:NoTag#1{\hbox{$???$}}
 \else     \def\:NoTag#1{\hbox{$???$}
-              \:warning{\string\Ref\string{\string#1\string}?}}
+              \:warning{\string\XRef\string{\string#1\string}?}}
   |<warnings for missing /Link|>
 \fi
 \closein15
@@ -2312,11 +2312,11 @@ optional. A missing \`'.ext' stands for \`'.xref'. When \`'-[prefix]+'
 is empty the component \`'{...}' should also be omitted (and the
 comamnd assume the form \`'\LoadRef{filename.ext}').
 
-A \`'+' asks that \`'\Ref' and \`'LikeRef' commands will refer to
+A \`'+' asks that \`'\XRef' and \`'LikeRef' commands will refer to
 expanded tags of the form \`'filename::tag' instead of just \`'tag'.
 A \`'[prefix]' asks that only tags which start with the given prefix
 will be loaded. When \`'[prefix]' is omitted, an empty prefix is
-assumed and all the tags are loaded. A \`'-' asks that \`'\Ref' and
+assumed and all the tags are loaded. A \`'-' asks that \`'\XRef' and
 \`'LikeRef' commands will refer to truncated tags in which the
 specified prefixes are omitted.
 
@@ -2920,7 +2920,7 @@ restricted  environments (\`'\edef', \`'\write').
 >>>
 
 
-\`'\def\RefFile#1{\Ref{#1|<File tag|>}}
+\`'\def\RefFile#1{\XRef{#1|<File tag|>}}
 \def\LikeRefFile#1{\LikeRef{#1|<File tag|>}}'
 
 \<html file commands\><<<

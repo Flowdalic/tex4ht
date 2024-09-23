@@ -37123,25 +37123,25 @@ is not a font).
 
 \<non-html TeX4ht divs\><<<
 \def\TagCh#1{\Tag{#1|<Ch tag|>}{\theChapterCounter}}
-\def\RefCh#1{Chapter\ \Ref{#1|<Ch tag|>}}
+\def\RefCh#1{Chapter\ \XRef{#1|<Ch tag|>}}
 \def\TagApp#1{\Tag{#1|<Ap tag|>}{\theChapterCounter}}
-\def\RefApp#1{Appendix\ \Ref{#1|<Ap tag|>}}
+\def\RefApp#1{Appendix\ \XRef{#1|<Ap tag|>}}
 \def\TagSec#1{\Tag{#1|<Sec tag|>}{\theSectionCounter}}
-\def\RefSec#1{Section\ \Ref{#1|<Sec tag|>}}
+\def\RefSec#1{Section\ \XRef{#1|<Sec tag|>}}
 >>>
 
 \<html TeX4ht divs\><<<
 \def\TagCh#1{\Tag{#1|<Ch tag|>}{\theChapterCounter}\Tag
                                                {#1|<hCh tag|>}{\:curch}}
-\def\RefCh#1{\Link{\LikeRef{#1|<hCh tag|>}}{}Chapter\ \Ref
+\def\RefCh#1{\Link{\LikeRef{#1|<hCh tag|>}}{}Chapter\ \XRef
                                                {#1|<Ch tag|>}\EndLink}
 \def\TagApp#1{\Tag{#1|<Ap tag|>}{\theChapterCounter}\Tag
                                                {#1|<hAp tag|>}{\:curch}}
-\def\RefApp#1{\Link{\LikeRef{#1|<hAp tag|>}}{}Appendix\ \Ref
+\def\RefApp#1{\Link{\LikeRef{#1|<hAp tag|>}}{}Appendix\ \XRef
                                                {#1|<Ap tag|>}\EndLink}
 \def\TagSec#1{\Tag{#1|<Sec tag|>}{\theSectionCounter}\Tag
                                                {#1|<hSec tag|>}{\:cursec}}
-\def\RefSec#1{\Link{\LikeRef{#1|<hSec tag|>}}{}Section\ \Ref
+\def\RefSec#1{\Link{\LikeRef{#1|<hSec tag|>}}{}Section\ \XRef
                                                {#1|<Sec tag|>}\EndLink}
 >>>
 
@@ -37153,12 +37153,12 @@ is not a font).
 \<html TeX4ht divs\><<<
 \def\TagPage#1{%
    \Link{}{page#1}\EndLink\Tag{#1}{}}
-\def\RefPage#1{\Link{page#1}{}\Ref{#1}\EndLink}
+\def\RefPage#1{\Link{page#1}{}\XRef{#1}\EndLink}
 >>>
 
 \<non-html TeX4ht divs\><<<
 \def\TagPage#1{\Tag{#1}{}}
-\def\RefPage{\Ref}
+\def\RefPage{\XRef}
 >>>
 
 %\SubSection{Standard}

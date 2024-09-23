@@ -654,15 +654,15 @@ Cross-Linking
    #1  label
    #2  content
 
-\Ref.....................................1
+\XRef.....................................1
 \LikeRef.................................1
 
    #1  label
    
-   \Tag and \Ref are tex4ht.sty commands introduced cross-referencing
+   \Tag and \XRef are tex4ht.sty commands introduced cross-referencing
    content through .xref auxiliary files.  
 
-   \LikeRef is a variant of \Ref which doesn't verify whether the 
+   \LikeRef is a variant of \XRef which doesn't verify whether the 
    labels exit.  It is mainly used in \Link and \edef environments.
 
 \ifTag ..................................3
@@ -676,7 +676,7 @@ Cross-Linking
    Load the named xref-type file
 
    .xref      optional--`.xref' is assume for a default
-   +          optional-- asks \Ref and \LikeRef commands
+   +          optional-- asks \XRef and \LikeRef commands
               to use expanded tags `filename::tag', instead of just `tag'
    [prefix]   optional--asks just for tags starting with the 
               specified prefix. 
@@ -688,7 +688,7 @@ Cross-Linking
    Example:
 
         % a.tex
-        \LoadRef-[to:]{b}{from:#1}      \Ref{from:filename}
+        \LoadRef-[to:]{b}{from:#1}      \XRef{from:filename}
                                         \LikeRef{from:filename}
 
         % b.tex
