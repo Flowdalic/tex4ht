@@ -22121,11 +22121,13 @@ $$
                |<def :currentlabel for make@df@tag|>%
                \anc:lbl r{}%
 }}
-\def\make@df@tag@@@#1{\gdef\df@tag{\tagform@{#1}%
+\ExplSyntaxOn
+\def\make@df@tag@@@#1{\gdef\df@tag{\tagform@{\tl_rescan:nn{}{#1}}%
   \toks@\@xp{\p@equation{#1}}\edef\@currentlabel{\the\toks@}%
   |<def :currentlabel for make@df@tag|>%
   \anc:lbl r{}%
   }}
+\ExplSyntaxOff
 >>>
 
 %%%%%%%%%%%%%
