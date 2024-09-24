@@ -385,8 +385,6 @@ endif
 derived += $(tex4ht_mathjax_derived)
 tex4ht_mathjax_derived = mathjax-latex-4ht.4ht
 
-# wripro.tex generates nothing (not literate).
-
 ifneq ($(do_java),2)
 derived += $(xtpipes_derived)
 xtpipes_derived = \
@@ -577,7 +575,7 @@ $(tex4ht_ooimpress_derived): tex4ht-ooimpress.tex $(common)
 $(tex4ht_options_derived): tex4ht-options.tex $(common)
 	htlatex $< "html,3,sections+" "" "" $(tex_1opt)
 
-$(tex4ht_sty_derived): tex4ht-sty.tex $(common_no_tex4ht_sty)
+$(tex4ht_sty_derived): tex4ht-sty.tex wripro.tex $(common_no_tex4ht_sty)
 	$(HTTEX) $< ""
 
 $(tex4ht_svg_derived): tex4ht-svg.tex $(common)
