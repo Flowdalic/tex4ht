@@ -26340,11 +26340,10 @@ of LaTeX.  The \''\:gobbleII' is for getting rid of the
 
 \<minted.4ht\><<<
 % minted.4ht (|version), generated from |jobname.tex
-% Copyright 2022 TeX Users Group
+% Copyright 2022-2024 TeX Users Group
 |<TeX4ht license text|>
 
 |<minted inline fixes|>
-|<minted background color|>
 |<minted background color|>
 |<minted input fixes|>
 
@@ -26380,9 +26379,18 @@ in the generated HTML.
 \HLet\minted@inline@iii\:tempa
 >>>
 
+Minted 3.0 changed the way it works with the background color. 
+It now uses Fancyvrb, so the minted@colorbg environment is not used anymore. 
+We need to remove the redefinition, to prevent compilation error. 
+The MintedColorbg configuration can stay here, to prevent errors in 
+user config files that use it, but it doesn't have any effect.
+
 \<minted background color\><<<
 % support for background color in Minted listings
 \NewConfigure{MintedColorbg}{2}
+>>>
+
+\<minted background color not used\><<<
 \renewenvironment{minted@colorbg}[1]{%
   \colorlet{shadecolor}{#1}%
   \extractcolorspec{shadecolor}{\:tempa}%
