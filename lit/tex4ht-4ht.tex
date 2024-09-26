@@ -26194,7 +26194,9 @@ See \Link[://github.com/michal-h21/make4ht/issues/141]{}{}this issue\EndLink.
   \ifx \fv:color\empty \else{%
      \let\HColor\fv:color \a:fancyvrbcolor%
   }\fi
-  \ifx \FancyVerbFillColor\relax \else%
+  \ifx \FancyVerbFillColor\relax \ifx\FancyVerbBackgroundColor\relax\else%
+     \:fvcolor \b:fancyvrbcolor \color{\FancyVerbBackgroundColor}|<par del|>%
+  \fi\else%
      \:fvcolor \b:fancyvrbcolor \FancyVerbFillColor|<par del|>%
   \fi
   \ifx \FancyVerbRuleColor\relax \else%

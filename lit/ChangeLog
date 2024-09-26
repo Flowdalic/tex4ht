@@ -1,5 +1,8 @@
 2024-09-26  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (fancyvrb.4ht): fixed support for background
+	colors.
+
 	* tex4ht-4ht.tex (minted.4ht): removed minted@colorbg env, to fix
 	support for Minted 3.0.
 
