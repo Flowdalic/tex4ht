@@ -1,3 +1,8 @@
+2024-09-27  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4-math.4ht): don't add link to the MathJax
+	script if the address is empty.
+
 2024-09-26  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (fancyvrb.4ht): fixed support for background

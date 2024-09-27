@@ -8792,7 +8792,7 @@ The hbox is for avoiding the start of a new paragraph, if in vmode.
 \fi
 \Configure{@HEAD}{\HCode{<script>window.MathJax = \a:MathJaxConfig</script>\Hnewline}}
 \Configure{MathjaxSource}{https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js}
-\Configure{@HEAD}{\HCode{ <script type="text/javascript" async="async" id="MathJax-script" src="\a:MathjaxSource"></script> \Hnewline}}
+\Configure{@HEAD}{\ifx\a:MathjaxSource\@empty\else\HCode{<script type="text/javascript" async="async" id="MathJax-script" src="\a:MathjaxSource"></script> \Hnewline}\fi}
 \edef\:RestoreMathjaxCatcodes{\catcode`\noexpand \&=\the\catcode`\&}
 \def\:HandleMathjaxCatcodes{\edef\:RestoreMathjaxCatcodes{\catcode`\noexpand \&=\the\catcode`\&}\catcode`\&=11}
 \Configure{$}{\:HandleMathjaxCatcodes}{\:RestoreMathjaxCatcodes}{\expandafter\AltMathOne}
