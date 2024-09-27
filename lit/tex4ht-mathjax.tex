@@ -131,10 +131,14 @@ environments. They will then keep the LaTeX code unchanged.
 % beginning of each display math
 \long\def\AltlDisplayDollars#1$${\alteqtoks{\[#1\]}$$}
 
+\NewConfigure{MathjaxEnv}{2}
+
 \newcommand\VerbMathToks[2]{%
+  \a:MathjaxEnv%
   \HCode{\string\begin{#2}}%
     \alteqtoks{#1}%
   \HCode{\string\end{#2}}%
+  \b:MathjaxEnv%
 }
 >>>
 
