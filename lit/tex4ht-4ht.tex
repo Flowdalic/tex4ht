@@ -29263,6 +29263,21 @@ The same is true for array.sty.
 \endinput
 >>>        \AddFile{7}{colortbl}
 
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{colortbl.sty}{colortbl-hooks.4ht}
+>>>
+
+\<colortbl-hooks.4ht\><<<
+% colortbl-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|>
+\:AtEndOfPackage{%
+|<colortbl arrayrulecolor|>
+}
+>>> \AddFile{7}{colortbl-hooks}
+
+
 color.sty is obsoleted by xcolor, so we will load the latter package in 
 order to get access to the color space conversion commands.
 
@@ -29404,8 +29419,10 @@ need also a treatment similar to \''\CT@column@color'?
 >>>
 
 Fixes for colored hlines. The \`|\hline:color| can be used in CSS, for instance.
+We need to use early hooks file, because this command can be used in the preamble, 
+and we want to catch the defined color.
 
-\<fix colortbl\><<<
+\<colortbl arrayrulecolor\><<<
 % default hline color is black
 \def\hline:color{000}
 % save rule color in format usable in CSS
@@ -29416,14 +29433,10 @@ Fixes for colored hlines. The \`|\hline:color| can be used in CSS, for instance.
 \noalign{\convertcolorspec{#1}{#2}{HTML}\:tmp\global\let\hline:color\:tmp}% we are
 \fi
 }
-\HLet\arrayrulecolor\tmp:arrayrulecolor
->>>
+% \HLet doesn't work in the preamble, so we need to work around it
+\let\o:arrayrulecolor:\arrayrulecolor
+\let\arrayrulecolor\tmp:arrayrulecolor
 
-\SubSection{Utilities}
-
-This should enable use of \`|\color| command in array declaration
-
-\<fix colortbl\><<<
 \def\convert:colorspec#1 #2 #3 #4{%
   \edef\current:color{%
     \ifx\relax#1\relax\else%
@@ -29438,6 +29451,21 @@ This should enable use of \`|\color| command in array declaration
   }%
 }
 
+>>>
+
+This version of arrayrulecolor will be used after preamble. 
+It supports pictures.
+
+\<fix colortbl\><<<
+\HRestore\arrayrulecolor
+\HLet\arrayrulecolor\tmp:arrayrulecolor
+>>>
+
+\SubSection{Utilities}
+
+This should enable use of \`|\color| command in array declaration
+
+\<fix colortbl\><<<
 \def\save:color#1 #2//{%
   \convert:colorspec#2 {} {} {} {}
   \convertcolorspec{#1}{\current:color}{HTML}\tmp:col
