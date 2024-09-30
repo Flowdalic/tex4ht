@@ -1,3 +1,9 @@
+2024-09-30  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (longtable.4ht): fixed support for the Colortbl
+	\hline.
+	https://puszcza.gnu.org.ua/bugs/?636
+
 2024-09-27  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4-math.4ht),

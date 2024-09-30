@@ -10753,13 +10753,32 @@ Fix for the \Link[https://puszcza.gnu.org.ua/bugs/?437]{}{}starred linebreak iss
     {\LT@t@bularcr}}
 >>>
 
-\<longtable hline\><<<
+
+
+This code doesn't work well with Colortbl, so we will ignore it.
+\Link[https://puszcza.gnu.org.ua/bugs/?636]{}{}https://puszcza.gnu.org.ua/bugs/?636\EndLink.
+
+\<longtable nohline\><<<
 \def\:tempc{%
   \o:noalign:{\ifnum0=`}\fi
     \penalty\@M
     \futurelet\@let@token\LT@@hline}
+>>>
+
+The original code for longtable hline was complex, but it doesn't work 
+with the Colortbl package. I've found that the default hline works just 
+fine, so we probably don't need to change it at all.
+
+\<longtable hline\><<<
+\def\:tempc{\a:hline}
 \HLet\LT@hline\:tempc
+>>>
+
+This code is not used as well.
+
+\<longtable nohline\><<<
 \def\:tempc{%
+  \typeout{}
   \ifx\@let@token\hline
     \global\let\@gtempa\@gobble
     \gdef\LT@sep{\penalty-\@medpenalty\vskip\doublerulesep}%
