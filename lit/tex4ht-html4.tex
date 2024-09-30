@@ -7844,7 +7844,8 @@ Currently, we either have empty \verb'\VBorder', or one defined to
 \Css{.hline hr, .cline hr{border:none;border-top:1px solid black;}}
 \Css{.hline {border-top: 1px solid black;}}
 \Css{.hline + .vspace:last-child{display:none;}}
-\Css{.hline:first-child{border-bottom:1px solid black;border-top:none;}}
+% why was there this rule? it adds unnecessary extra rule at the top of tables
+% \Css{.hline:first-child{border-bottom:1px solid black;border-top:none;}}
 >>>
 
 When \verb'\putVBorder' is call  in \verb'\VBorder' 
