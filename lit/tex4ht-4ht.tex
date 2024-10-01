@@ -26492,16 +26492,25 @@ Minted, it turns the breaklines option to false when it is used.
 
 \<piton.4ht\><<<
 % piton.4ht (|version), generated from |jobname.tex
-% Copyright 2023 TeX Users Group
+% Copyright 2023-2024 TeX Users Group
 |<TeX4ht license text|>
 
 \ExplSyntaxOn
+|<piton xcolor|>
 |<piton env|>
 |<piton inlines|>
 \ExplSyntaxOff
 \Hinput{piton}
 \endinput
 >>> \AddFile{9}{piton}
+
+If Xcolor is not loaded earlier, Piton loads it in the begindocument/before hook. 
+It leads to a compilation error caused by catcodes mismatch.  We can prevent it 
+by loading Xcolor earlier.
+
+\<piton xcolor\><<<
+\IfPackageLoadedTF{xcolor}{}{\RequirePackage{xcolor}}
+>>>
 
 \<piton env\><<<
 

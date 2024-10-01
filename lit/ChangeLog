@@ -1,3 +1,7 @@
+2024-10-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (piton.4ht): load Xcolor if not already loaded.
+
 2024-09-30  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (colortbl-hooks.4ht, colortbl.4ht): added support
