@@ -26497,6 +26497,7 @@ Minted, it turns the breaklines option to false when it is used.
 
 \ExplSyntaxOn
 |<piton xcolor|>
+|<piton spaces|>
 |<piton env|>
 |<piton inlines|>
 \ExplSyntaxOff
@@ -26510,6 +26511,43 @@ by loading Xcolor earlier.
 
 \<piton xcolor\><<<
 \IfPackageLoadedTF{xcolor}{}{\RequirePackage{xcolor}}
+>>>
+
+The current version of Piton started to show visible space character (U+2423) instead 
+of spaces even if they are not requested using the show-spaces option. This code should 
+prevent that.
+
+\<piton spaces\><<<
+\def\:pitonvisiblespace{ \HCode{\string&\#x2423;} }
+\cs_new_protected:Npn \:__piton_replace_spaces:n #1
+  {
+    \tl_set:Nn \l_tmpa_tl { #1 }
+    \bool_if:NTF \l__piton_show_spaces_bool
+      {
+        \tl_set:Nn \l__piton_space_tl {\:pitonvisiblespace} % U+2423
+        \regex_replace_all:nnN { \x20 } {\c{:pitonvisiblespace}} \l_tmpa_tl
+      }
+      {
+        \bool_if:NTF \l__piton_break_lines_in_Piton_bool
+          {
+            \regex_replace_all:nnN
+              { \x20 }
+              { \c { __piton_breakable_space: } }
+              \l_tmpa_tl
+            \regex_replace_all:nnN
+              { \c { l__piton_space_tl } }
+              { \c { __piton_breakable_space: } }
+              \l_tmpa_tl
+          }
+          {
+    \regex_replace_all:nnN { \x20 } { \x20 } \l_tmpa_tl
+          }
+      }
+    \l_tmpa_tl
+  }
+
+
+\HLet\__piton_replace_spaces:n\:__piton_replace_spaces:n
 >>>
 
 \<piton env\><<<
