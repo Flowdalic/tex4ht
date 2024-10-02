@@ -1,3 +1,8 @@
+2024-10-02  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (usepackage.4ht): we need to update usepackage.4ht
+	in TL.
+
 2024-10-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (piton.4ht): prevent default use of visible space
