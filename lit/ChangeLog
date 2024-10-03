@@ -1,3 +1,9 @@
+2024-10-03  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (lua-ul.4ht),
+	* tex4ht-html4.tex (html4.4ht): added support for the Lua-ul
+	package. 
+
 2024-10-01  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (piton.4ht): prevent default use of visible space
