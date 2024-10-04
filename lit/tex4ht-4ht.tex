@@ -26214,7 +26214,9 @@ See \Link[://github.com/michal-h21/make4ht/issues/141]{}{}this issue\EndLink.
      \let\HColor\fv:color \a:fancyvrbcolor%
   }\fi
   \ifx \FancyVerbFillColor\relax \ifx\FancyVerbBackgroundColor\relax\else%
-     \:fvcolor \b:fancyvrbcolor \color{\FancyVerbBackgroundColor}|<par del|>%
+     \ifdefined\FancyVerbBackgroundColor% this extra check is needed for \BVerbatimInput
+       \:fvcolor \b:fancyvrbcolor \color{\FancyVerbBackgroundColor}|<par del|>%
+     \fi%
   \fi\else%
      \:fvcolor \b:fancyvrbcolor \FancyVerbFillColor|<par del|>%
   \fi

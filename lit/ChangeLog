@@ -1,3 +1,8 @@
+2024-10-04  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (fancyvrb.4ht): added extra check for the
+	definition of \FancyVerbBackgroundColor.
+
 2024-10-03  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (lua-ul.4ht),
