@@ -7661,7 +7661,7 @@ consecutive \verb+<br />+ tags.
        {}
        {\xdef\col:Css{\col:Css
                      border-\ifnum \ar:cnt=0 left\else right\fi
-                     :solid black 0.4pt;}%
+                     :1px solid \VBorder:color;}%
        }{}{}%
    }
    {\ifx \col:Css\empty \else 
@@ -7809,6 +7809,7 @@ Currently, we either have empty \verb'\VBorder', or one defined to
 
 \<html latex array/tabular Config 4.0t\><<<
 \let\VBorder|=\empty   \let\AllColMargins|=\empty
+\def\VBorder:color{black}
 \Configure{VBorder}
    {\let\VBorder|=\empty \let\AllColMargins|=\empty
     \global\let\GROUPS|=\empty \HAssign\NewGroup = 0 
@@ -7818,10 +7819,10 @@ Currently, we either have empty \verb'\VBorder', or one defined to
     % put vertical border for a column
     \ifnum\ar:cnt > 0%
       % in all other cases, we should put right border
-      \Css{\#TBL-\TableNo-\ar:cnt {border-right:1px solid black;}}%
+      \Css{\#TBL-\TableNo-\ar:cnt {border-right:1px solid \VBorder:color;}}%
     \else%
       % columns are numbered from 1. if \ar:cnt == 0 then it is the left border
-      \Css{\#TBL-\TableNo-1{border-left: 1px solid black;}}%
+      \Css{\#TBL-\TableNo-1{border-left: 1px solid \VBorder:color;}}%
     \fi%
    }
    {\Advance:\NewGroup by 1 
@@ -16479,6 +16480,9 @@ Blue  = 1-minimum(1,Yellow *(1-Black)+Black)
 
 % redefine default table configuration and put the color rule
 \def\a:HBorder{<tr class="hline" style="border-top:1px solid \#\hline:color">}
+
+% use the hline color also for vertial lines
+\def\VBorder:color{\#\hline:color}
 % don't display <hr> elements in colored \hline
 \Css{tr.hline td hr{display:none}}
 >>>

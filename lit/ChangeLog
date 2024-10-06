@@ -1,3 +1,9 @@
+2024-10-06  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): use Colortbl's \arrayrulecolor also
+	for vertical table lines.
+	https://tug.org/pipermail/tex4ht/2024q4/003589.html
+
 2024-10-04  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (fancyvrb.4ht): added extra check for the
