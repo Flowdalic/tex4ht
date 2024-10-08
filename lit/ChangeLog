@@ -1,3 +1,9 @@
+2024-10-08  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): don't override \hline:color in
+	booktabs if it is already defined.
+	https://tug.org/pipermail/tex4ht/2024q4/003594.html
+
 2024-10-06  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): use Colortbl's \arrayrulecolor also

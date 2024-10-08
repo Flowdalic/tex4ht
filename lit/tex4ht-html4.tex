@@ -22948,7 +22948,9 @@ The \verb|\hline:color| macro is defined by TeX4ht configuration for colortbl.st
 We reuse it to support change of rule colors. It is initialized as black.
 
 \<booktabs default hline color\><<<
+\ifdefined\hline:color\else
 \def\hline:color{000}
+\fi
 >>>
 
 
