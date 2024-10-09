@@ -10523,6 +10523,36 @@ new way.  Don't globalize ar:cnt!!!!
 \NewConfigure{dcolumn}{2}
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{makecell}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<makecell.4ht\><<<
+% makecell.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|> 
+
+|<makecell makegapedcells|>
+
+\Hinput{makecell} 
+\endinput
+>>>  \AddFile{9}{makecell}
+
+These commands redefine internall tabular macros, which can lead 
+to errors. We need to disable them. User can provide an alternative 
+configurations for them, but it is most likely unnecessary.
+
+\<makecell makegapedcells\><<<
+\NewConfigure{makegapedcells}{1}
+\def\:tempa{\a:makegapedcells}
+\HLet\makegapedcells\:tempa
+
+\NewConfigure{nomakegapedcells}{1}
+\def\:tempa{\a:nomakegapedcells}
+\HLet\nomakegapedcells\:tempa
+>>>
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{longtable.sty}
 %%%%%%%%%%%%%%%%%%%%%%%%%

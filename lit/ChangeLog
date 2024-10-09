@@ -1,3 +1,9 @@
+2024-10-09  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (makecell.4ht): added support for the Makecell
+	package.
+	https://tug.org/pipermail/tex4ht/2024q4/003596.html
+
 2024-10-08  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): don't override \hline:color in
