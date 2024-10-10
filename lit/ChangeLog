@@ -1,5 +1,10 @@
 2024-10-10  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (stmaryrd.4ht),
+	* tex4ht-mathjax.tex (mathml.4ht): added support for \llbracket and
+	\rrbracket in MathML.
+	https://tex.stackexchange.com/a/728351/2891
+
 	* tex4ht-html4.tex (html4.4ht): added support for colored \cline.
 	https://tug.org/pipermail/tex4ht/2024q4/003598.html
 

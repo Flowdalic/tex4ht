@@ -5656,6 +5656,26 @@ latex.ltx, fontmath.ltx, plain.tex
    \fi}
 >>>
 
+%%%%%%%%%%%%%%
+\subsection{stmaryrd}
+%%%%%%%%%%%%%%
+
+
+\<configure mathml stmaryrd\><<<
+
+\def\:tempa{\HCode{<\a:mathml mo fence="false">\string&\#x27E6;</\a:mathml mo>}}
+\HLet\llbracket\:tempa
+\def\:tempa{\HCode{<\a:mathml mo fence="false">\string&\#x27E7;</\a:mathml mo>}}
+\HLet\rrbracket\:tempa
+>>>
+
+Fix for some commands used with \verb|\left| or \verb|\right|.
+
+\<configure mathml stmaryrd\><<<
+\Configure{mfenced}{\llbracket}{\string&\#x27E6;}
+\Configure{mfenced}{\rrbracket}{\string&\#x27E7;}
+>>>
+
 
 %%%%%%%%%%%%%
 \subsection{subeqnarray}
