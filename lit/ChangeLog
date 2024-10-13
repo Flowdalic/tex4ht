@@ -1,3 +1,9 @@
+2024-10-13  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (latex.4ht): fixed support for LaTeX cmd hooks in
+	\@sect and \@ssect commands.
+	http://puszcza.gnu.org.ua/bugs/?639
+
 2024-10-10  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-mathml.tex (mathml.4ht): removed spurious space after

@@ -12067,14 +12067,32 @@ such as counter numbers.
 \def\no@sect#1#2#3#4#5{\no:sect{#1}{#2}{#3}{#4}{0ex}}
 >>>
 
+The LaTeX command hook mechanism doesn't like our redefinitions of 
+\''\@sect' and \''\@ssect', so we need to declare and use them explicitly. 
+Otherwise, packages that try to add hooks to these commands may cause errors.
+See \Link[http://puszcza.gnu.org.ua/bugs/?639]{}{} this bug report\EndLink.
+
+\<latex ltsect\><<<
+\NewHookWithArguments{cmd/@sect/before}{8}
+\NewReversedHookWithArguments{cmd/@sect/after}{8}
+\NewHookWithArguments{cmd/@ssect/before}{5}
+\NewReversedHookWithArguments{cmd/@ssect/after}{5}
+>>>
+
 \<latex ltsect\><<<
 \let\no@ssect|=\@ssect
-\def\@ssect#1#2#3#4#5{\:Sc3
-   \no@ssect{#1}{#2}{#3}{#4}{\:Sc4#5\:Sc2}\HtmlEnv}
+\def\@ssect#1#2#3#4#5{%
+  \UseHookWithArguments{cmd/@ssect/before}{5}{##1}{##2}{##3}{##4}{##5}%
+  \:Sc3\no@ssect{#1}{#2}{#3}{#4}{\:Sc4#5\:Sc2}\HtmlEnv%
+  \UseHookWithArguments{cmd/@ssect/after}{5}{##1}{##2}{##3}{##4}{##5}%
+}
 \let\no@sect|=\@sect
 \def\@sect#1#2#3#4#5#6[#7]#8{%
-   \xdef\c:secnumdepth{#2}\:Sc3
-   \no@sect{#1}{#2}{#3}{#4}{#5}{#6}[#7]{\:Sc4#8\:Sc2}\HtmlEnv}
+   \UseHookWithArguments{cmd/@sect/before}{8}{##1}{##2}{##3}{##4}{##5}{##6}{##7}{##8}%
+   \xdef\c:secnumdepth{#2}\:Sc3%
+   \no@sect{#1}{#2}{#3}{#4}{#5}{#6}[#7]{\:Sc4#8\:Sc2}\HtmlEnv%
+   \UseHookWithArguments{cmd/@sect/after}{8}{##1}{##2}{##3}{##4}{##5}{##6}{##7}{##8}%
+ }
 \let\:startsection|=\@startsection
 \def\@startsection#1{\@ifstar{\Configure{secType}{like#1}}%
    {\Configure{secType}{#1}}%
@@ -12119,13 +12137,16 @@ The following is need for \''\@seccntformat'.
 
 \<redf sec\><<<
 \def\@sect##1##2##3##4##5##6[##7]##8{%
+   \UseHookWithArguments{cmd/@sect/before}{8}{##1}{##2}{##3}{##4}{##5}{##6}{##7}{##8}%
    |<disable @seccntformat|>%
    \let\@sect|=\no@sect   \xdef\c:secnumdepth{##2}%
    {\SkipRefstepAnchor \let\addcontentsline|=\:gobbleIII \let\mark|=\:gobble
     \no@sect{##1}{##2}{##3}{##4}{##5}{##6}[{##7}]{}}%
    |<recall Sc, sec, ssec|>%
    |<restore @seccntformat|>%
-   \HtmlEnv    \Toc:Title{##7}\csname no:#1\endcsname{##8}}%
+   \HtmlEnv    \Toc:Title{##7}\csname no:#1\endcsname{##8}%
+   \UseHookWithArguments{cmd/@sect/after}{8}{##1}{##2}{##3}{##4}{##5}{##6}{##7}{##8}%
+ }%
 >>>
 
 In the above we want \`'[{##7}]' instead of \`'[##7]', in case `]' is
@@ -12135,12 +12156,15 @@ The following is for the star option.
 
 \<redf ssec\><<<
 \def\@ssect##1##2##3##4##5{%
+   \UseHookWithArguments{cmd/@ssect/before}{5}{##1}{##2}{##3}{##4}{##5}%
    |<star sec title|>%
    \let\@ssect|=\no@ssect
    {\def\addcontentsline####1####2####3{}%
     \no@ssect{##1}{##2}{##3}{##4}{}}%
    |<recall Sc, sec, ssec|>%
-   \HtmlEnv   \csname :like#1\endcsname{##5}}%
+   \HtmlEnv   \csname :like#1\endcsname{##5}%
+   \UseHookWithArguments{cmd/@ssect/after}{5}{##1}{##2}{##3}{##4}{##5}%
+ }%
 >>>
 
 \<sv Sc, sec, ssec\><<<
