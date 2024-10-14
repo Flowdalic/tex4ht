@@ -1,3 +1,9 @@
+2024-10-14  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-html4.tex (html4.4ht): fixed formatting of the \rtitlex
+	command of Ltugboat class.
+	http://puszcza.gnu.org.ua/bugs/?639
+
 2024-10-13  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (latex.4ht): fixed support for LaTeX cmd hooks in
