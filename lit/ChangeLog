@@ -1,5 +1,9 @@
 2024-10-18  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-4ht.tex (caption.4ht): fixed support for the \caption
+	command in classes where we don't provide \Configure{caption}. Found
+	in Svjour3. 
+
 	* tex4ht-4ht.tex (nicematrix.4ht): added basic support for the
 	Nicematrix package.
 
