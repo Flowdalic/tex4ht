@@ -11574,6 +11574,31 @@ for horizontal and vertical alignment, background color and rules.
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%
+\Section{nicematrix}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<nicematrix.4ht\><<< 
+% nicematrix.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|> 
+\ExplSyntaxOn
+|<nicematrix suppress error message|>
+\ExplSyntaxOff
+
+\Hinput{nicematrix} 
+\endinput
+>>> \AddFile{9}{nicematrix}
+
+Nicematrix detects if the array environment was changed 
+and prints error message if it was. As TeX4ht changes the environment,
+it caused an error message. This boolean should suppress it.
+
+\<nicematrix suppress error message\><<<
+\bool_set_true:N\g__nicematrix_no_test_for_array_bool
+>>>
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{mdwtab}
 %%%%%%%%%%%%%%%%%%%%%%%%
 

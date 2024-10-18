@@ -1,3 +1,8 @@
+2024-10-18  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (nicematrix.4ht): added basic support for the
+	Nicematrix package.
+
 2024-10-14  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-html4.tex (html4.4ht): fixed formatting of the \rtitlex
