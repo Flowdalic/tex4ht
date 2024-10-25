@@ -26083,6 +26083,10 @@ This should fix part commands in TOC. Bug report is
 
 \<french part\><<<
 \DeclareRobustCommand*{\FB@emptypart}{}
+\HAssign\french:part=0
+\def\tocpart#1#2#3{\par
+  \HAdvance\french:part 1\relax%
+  \HCode{<span class="partToc" \a:LRdir>}\uppercase\expandafter{\romannumeral\french:part\relax}\ \  #2\HCode{</span>}\par}%
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
