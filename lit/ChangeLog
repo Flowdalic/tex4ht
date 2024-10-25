@@ -1,3 +1,8 @@
+2024-10-25  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (french.4ht): fixed \part command in TOC.
+	https://github.com/michal-h21/make4ht/issues/155
+
 2024-10-18  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (caption.4ht): fixed support for the \caption

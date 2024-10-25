@@ -26043,6 +26043,7 @@ CTAN:language/mongolian/montex/examples
    |<french 4ht|>
    \Configure{special}{\csname @s@ORI\endcsname}
 \fi
+|<french part|>
 \Hinput{french}
 \endinput
 >>>       \AddFile{7}{french}
@@ -26075,6 +26076,13 @@ CTAN:language/mongolian/montex/examples
       \Configure{toToc}{likechapter}{}%         
       \Configure{toToc}{likesection}{}}
 \fi
+>>>
+
+This should fix part commands in TOC. Bug report is
+\Link[https://github.com/michal-h21/make4ht/issues/155]{}{}here\EndLink
+
+\<french part\><<<
+\DeclareRobustCommand*{\FB@emptypart}{\def\thepart{}}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
