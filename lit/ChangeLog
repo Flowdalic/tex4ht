@@ -1,5 +1,9 @@
 2024-10-25  Michal Hoftich  <michal.h21@gmail.com>
 
+	* tex4ht-mathjax.tex (mathjax-latex-4ht.4ht): restore math
+	environments before \tikz@installcommands, to fix issues with
+	the matrix environment.
+
 	* tex4ht-4ht.tex (french.4ht): fixed \part command in TOC.
 	https://github.com/michal-h21/make4ht/issues/155
 

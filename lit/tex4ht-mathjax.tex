@@ -309,7 +309,8 @@ inside TikZ etc.
 
 \<restore environments\><<<
 \@ifpackageloaded{tikz}{%
-\tikzset{every picture/.append code={\:ignoretikzmatrix\RestoreMathJaxEnvironments}} 
+%\tikzset{every picture/.append code={\:ignoretikzmatrix\RestoreMathJaxEnvironments}} 
+\pend:def\tikz@installcommands{\RestoreMathJaxEnvironments}
 }{}
 >>>
 
