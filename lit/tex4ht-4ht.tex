@@ -26081,11 +26081,7 @@ This should fix part commands in TOC. Bug report is
 \Link[https://github.com/michal-h21/make4ht/issues/155]{}{}here\EndLink
 
 \<french part\><<<
-\DeclareRobustCommand*{\FB@emptypart}{\def\thepart{}}
-\HAssign\french:part=0
-\def\tocpart#1#2#3{\par
-  \HAdvance\french:part 1\relax%
-  \HCode{<span class="partToc" \a:LRdir>}\uppercase\expandafter{\romannumeral\french:part\relax}\ \  #2\HCode{</span>}\par}%
+\DeclareRobustCommand*{\FB@emptypart}{}
 >>>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%

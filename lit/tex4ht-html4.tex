@@ -18434,6 +18434,19 @@ font-size:70\%;
 >>>
 
 
+This should remove part number in French Babel, because 
+the number is a part of the partname.
+\Link[https://github.com/michal-h21/make4ht/issues/155]{}{}Bug report\EndLink.
+
+\<configure html4 french\><<<
+\Configure{part}{}{}
+   {\IgnorePar \EndP\HCode{<h1 class="partHead"\a:LRdir>}%
+       \HCode{<span class="titlemark">}\partname
+       \HCode{</span><br />}}
+   {\HCode{</h1>}\IgnoreIndent\par}
+>>>
+
+
 
 
 \<configure html4 galician\><<<
