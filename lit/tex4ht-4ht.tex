@@ -38490,6 +38490,61 @@ instead.
 \HLet\@mn@@@marginnote\:tempa
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{manyfoot}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<manyfoot.4ht\><<< 
+% manyfoot.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|> 
+
+
+\Hinput{manyfoot} 
+\endinput
+>>> \AddFile{9}{manyfoot}
+
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{manyfoot.sty}{manyfoot-hooks.4ht}
+>>>
+
+\<manyfoot-hooks.4ht\><<< 
+% manyfoot-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|> 
+
+\:AtEndOfPackage{%
+|<declare manyfoot footnote|>
+}
+
+\endinput
+>>> \AddFile{9}{manyfoot-hooks}
+
+The Manyfoot package provides the \''\DeclareNewFootnote' command to 
+declare new footnote types. The following code catches these new 
+commands, and redefines them to produce normal footnotes, just with 
+changed footnote mark. 
+
+See \Link[https://tex.stackexchange.com/a/729975/2891]{}{} this answer\EndLink 
+for an example.
+
+\<declare manyfoot footnote\><<<
+\let\o:MFL@declare:\MFL@declare
+\def\manyfoot:declarefn#1{%
+  \expandafter\renewcommand\csname footnote#1\endcsname[1]{%
+    \stepcounter{footnote#1}%
+    \renewcommand\thefootnote{\csname thefootnote#1\endcsname}%
+    \footnote{##1}%
+  }%
+}
+\def\MFL@declare#1#2[#3]{%
+  \o:MFL@declare:{#1}{#2}[#3]%
+  \manyfoot:declarefn{#2}%
+}%
+
+>>>
+
 %%%%%%%%%%%%%%%
 \Section{Other}
 %%%%%%%%%%%%%%%%%

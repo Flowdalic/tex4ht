@@ -1,3 +1,10 @@
+2024-11-01  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (
+	usepackage.4ht, manyfoot.4ht, manyfoot-hooks.4ht
+	): added support for the Manyfoot package.
+	https://tex.stackexchange.com/a/729975/2891
+
 2024-10-29  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (french.4ht),
