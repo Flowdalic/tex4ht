@@ -38542,6 +38542,43 @@ for an example.
 
 >>>
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{bigfoot}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<bigfoot.4ht\><<< 
+% bigfoot.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|> 
+
+
+\Hinput{bigfoot} 
+\endinput
+>>> \AddFile{9}{bigfoot}
+
+\<add to usepackage\><<<
+\Configure{PackageHooks}{bigfoot.sty}{bigfoot-hooks.4ht}
+>>>
+
+The Bigfoot package redefines the output routine in a way which 
+crashes TeX4ht. It basically just loads the Manyfoot package and 
+then redefines its commands. As the changes are mostly just in 
+how the notes are displayed on the page, which doesn't matter 
+with TeX4ht, I think we can safely block the package from loading 
+and just use the Manyfoot package directly. 
+
+One feature that doesn't work though is nested footnotes. I may look 
+into this issue in the future.
+
+\<bigfoot-hooks.4ht\><<< 
+% bigfoot-hooks.4ht (|version), generated from |jobname.tex
+% Copyright 2024 TeX Users Group
+|<TeX4ht license text|> 
+\:dontusepackage{bigfoot}
+\RequirePackage{manyfoot}
+\endinput
+>>> \AddFile{9}{bigfoot-hooks}
+
 %%%%%%%%%%%%%%%
 \Section{Other}
 %%%%%%%%%%%%%%%%%
