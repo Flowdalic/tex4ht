@@ -1,3 +1,9 @@
+2024-11-10  Michal Hoftich  <michal.h21@gmail.com>
+
+	* tex4ht-4ht.tex (caption.4ht): declare caption hooks only if they
+	are undefined.
+	https://tex.stackexchange.com/a/730529/2891
+
 2024-11-05  Michal Hoftich  <michal.h21@gmail.com>
 
 	* tex4ht-4ht.tex (

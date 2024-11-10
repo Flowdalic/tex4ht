@@ -13040,8 +13040,10 @@ for example), the configuration is not defined and these missing
 commands would cause compilation errors.
 
 \<caption redefine makecaption\><<<
+\ifdefined\cptA:\else
 \c:def\cptA:{}\c:def\cptB:{}%
 \c:def\cptC:{}\c:def\cptD:{}
+\fi
 >>>
 
 Handle redefined caption command. We ignore the second parameter of
