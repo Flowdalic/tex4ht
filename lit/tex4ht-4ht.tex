@@ -38525,24 +38525,34 @@ declare new footnote types. The following code catches these new
 commands, and redefines them to produce normal footnotes, just with 
 changed footnote mark. 
 
-As we call original \''\footnote', we must also take care of the footnote
-counter.
 
 See \Link[https://tex.stackexchange.com/a/729975/2891]{}{} this answer\EndLink 
 for an example.
 
+As we call original \''\footnote', we must also take care of the footnote
+counters and links. As different footnote types will produce the 
+same footnote numbers, these numbers will produce duplicate links. 
+To avoid that, we add a suffix to \''\minipageNum'.
+
 \<declare manyfoot footnote\><<<
 \let\o:MFL@declare:\MFL@declare
-\newcounter{orig:footnote}
+
 \def\manyfoot:declarefn#1{%
   \expandafter\renewcommand\csname footnote#1\endcsname[1]{%
-    \stepcounter{footnote#1}%
+    % save original footnote counters 
     \let\:origthefootnote\thefootnote%
-    \setcounter{orig:footnote}{\c@footnote}%
+    \let\:origmpfn\@mpfn%
+    \let\:origminipageNum\minipageNum%
+    % \minipageNum is used in footnote links. we add the current suffix to produce unique links
+    % if different footnote types use the same number
+    \edef\minipageNum{\minipageNum #1}%
     \renewcommand\thefootnote{\csname thefootnote#1\endcsname}%
+    % declare which counter should be used
+    \def\@mpfn{footnote#1}
     \footnote{##1}%
     \let\thefootnote\:origthefootnote%
-    \setcounter{footnote}{\c@orig:footnote}
+    \let\@mpfn\:origmpfn%
+    \let\minipageNum\:origminipageNum%
   }%
 }
 
