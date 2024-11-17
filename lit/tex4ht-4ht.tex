@@ -38525,18 +38525,27 @@ declare new footnote types. The following code catches these new
 commands, and redefines them to produce normal footnotes, just with 
 changed footnote mark. 
 
+As we call original \''\footnote', we must also take care of the footnote
+counter.
+
 See \Link[https://tex.stackexchange.com/a/729975/2891]{}{} this answer\EndLink 
 for an example.
 
 \<declare manyfoot footnote\><<<
 \let\o:MFL@declare:\MFL@declare
+\newcounter{orig:footnote}
 \def\manyfoot:declarefn#1{%
   \expandafter\renewcommand\csname footnote#1\endcsname[1]{%
     \stepcounter{footnote#1}%
+    \let\:origthefootnote\thefootnote%
+    \setcounter{orig:footnote}{\c@footnote}%
     \renewcommand\thefootnote{\csname thefootnote#1\endcsname}%
     \footnote{##1}%
+    \let\thefootnote\:origthefootnote%
+    \setcounter{footnote}{\c@orig:footnote}
   }%
 }
+
 \def\MFL@declare#1#2[#3]{%
   \o:MFL@declare:{#1}{#2}[#3]%
   \manyfoot:declarefn{#2}%
