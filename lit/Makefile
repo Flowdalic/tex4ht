@@ -741,8 +741,7 @@ clean1:
 ifeq ($(java_in_make),true)
 .PHONY: jar
 jar: $(homedir)/$(texmf_t4ht_bin)/tex4ht.jar
-$(homedir)/$(texmf_t4ht_bin)/tex4ht.jar:
-	$(tex4ht_docbook_xtpipes_derived) \
+$(homedir)/$(texmf_t4ht_bin)/tex4ht.jar: $(tex4ht_docbook_xtpipes_derived) \
 	$(tex4ht_fonts_noncjk_derived) \
 	$(tex4ht_html_speech_xtpipes_derived) \
 	$(tex4ht_jsml_xtpipes_derived) \
