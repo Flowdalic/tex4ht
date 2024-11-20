@@ -40,7 +40,8 @@ in LaTeX kernel now.
 The \verb|\alteqtoks| command prints the used LaTeX math code to the output document in 
 verbatim. 
 
-In the past, we used \verb|\detokenize|. The side effect of this is that detokeize inserts space
+We use \verb|\detokenize| to output verbatim LaTeX code to the HTML document. 
+The side effect of this is that detokenize inserts space
 after each control sequence. This is completely valid TeX code, but earlier versions of
 MathJax didn't like that, rendering resulted in error.
 
@@ -77,9 +78,41 @@ This is the code that was promising, but didn't work in the end:
 
 
 We still use regular expressions to escape invalid XML characters to entities, so it works only with LaTeX.
+But regular expressions may be slow if there is a huge number of math, and they may fail if contents 
+of any math environment is larger than 64 KB.  
+
+So we provide a "fastmathjax" option, that doesn't do any post-processing of the math contents. It should 
+result in 60-70\% speed-up. The downside is that if math contains characters that are invalid in the 
+XML mode, such as ampersand, less-than and greater-than, make4ht XML DOM filters will fail. Fortunatelly, 
+make4ht will then switch to the HTML parser mode, so DOM filters will be still executed.
+
 
 \<defined commands\><<<
 \ExplSyntaxOn
+\:CheckOption{fastmathjax}\if:Option
+|<fastmathjax|>
+\else
+|<normalmathjax|>
+\fi
+\ExplSyntaxOff
+>>>
+
+Output verbatim math to HTML without any post-processing. 
+We still need to set the token list to prevent some issues. 
+
+For example, if the processed math contain paragraphs, we would
+get an error because \''\HCode' doesn't like that.
+
+\<fastmathjax\><<<
+\DeclareRobustCommand\alteqtoks[1]{%
+  \tl_set:Ne \l_tmpa_tl {\detokenize{#1}}
+  \HCode{\l_tmpa_tl}
+}
+>>>
+
+Escape illegal XML characters.
+
+\<normalmathjax\><<<
 \cs_new_protected:Npn \alteqtoks #1
 {
   \tl_set:Ne \l_tmpa_tl {\detokenize{#1}}
@@ -92,9 +125,8 @@ We still use regular expressions to escape invalid XML characters to entities, s
   \tl_set:Ne \l_tmpb_tl{ \l_tmpa_tl }
   \HCode{\l_tmpb_tl}
 }
-\ExplSyntaxOff
-
 >>>
+
 
 Provide configuration for MathJax
 
